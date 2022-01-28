@@ -45,22 +45,13 @@ public class ServiceChecksApi {
   }
 
   /**
-   * Submit a Service Check Submit a list of Service Checks. **Notes**: - A valid API key is
-   * required. - Service checks can be submitted up to 10 minutes in the past.
+   * Submit a Service Check
+   *
+   * <p>See {@link #submitServiceCheckWithHttpInfo}.
    *
    * @param body Service Check request body. (required)
    * @return IntakePayloadAccepted
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IntakePayloadAccepted submitServiceCheck(List<ServiceCheck> body) throws ApiException {
     return submitServiceCheckWithHttpInfo(body).getData();
@@ -75,8 +66,10 @@ public class ServiceChecksApi {
   }
 
   /**
-   * Submit a Service Check Submit a list of Service Checks. **Notes**: - A valid API key is
-   * required. - Service checks can be submitted up to 10 minutes in the past.
+   * Submit a Service Check
+   *
+   * <p>Submit a list of Service Checks. **Notes**: - A valid API key is required. - Service checks
+   * can be submitted up to 10 minutes in the past.
    *
    * @param body Service Check request body. (required)
    * @return ApiResponse&lt;IntakePayloadAccepted&gt;
@@ -141,22 +134,12 @@ public class ServiceChecksApi {
   }
 
   /**
-   * Submit a Service Check Submit a list of Service Checks. **Notes**: - A valid API key is
-   * required. - Service checks can be submitted up to 10 minutes in the past.
+   * Submit a Service Check
+   *
+   * <p>See {@link #submitServiceCheckWithHttpInfo}.
    *
    * @param body Service Check request body. (required)
-   * @return ApiResponse&lt;IntakePayloadAccepted&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;IntakePayloadAccepted&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IntakePayloadAccepted>> submitServiceCheckWithHttpInfoAsync(
       List<ServiceCheck> body) {

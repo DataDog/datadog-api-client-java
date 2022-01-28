@@ -46,19 +46,13 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Create a new service object Create a new service object in the PagerDuty integration.
+   * Create a new service object
+   *
+   * <p>See {@link #createPagerDutyIntegrationServiceWithHttpInfo}.
    *
    * @param body Create a new service object request body. (required)
    * @return PagerDutyServiceName
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public PagerDutyServiceName createPagerDutyIntegrationService(PagerDutyService body)
       throws ApiException {
@@ -75,7 +69,9 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Create a new service object Create a new service object in the PagerDuty integration.
+   * Create a new service object
+   *
+   * <p>Create a new service object in the PagerDuty integration.
    *
    * @param body Create a new service object request body. (required)
    * @return ApiResponse&lt;PagerDutyServiceName&gt;
@@ -139,19 +135,12 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Create a new service object Create a new service object in the PagerDuty integration.
+   * Create a new service object
+   *
+   * <p>See {@link #createPagerDutyIntegrationServiceWithHttpInfo}.
    *
    * @param body Create a new service object request body. (required)
-   * @return ApiResponse&lt;PagerDutyServiceName&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;PagerDutyServiceName&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PagerDutyServiceName>>
       createPagerDutyIntegrationServiceWithHttpInfoAsync(PagerDutyService body) {
@@ -207,19 +196,12 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Delete a single service object Delete a single service object in the Datadog-PagerDuty
-   * integration.
+   * Delete a single service object
+   *
+   * <p>See {@link #deletePagerDutyIntegrationServiceWithHttpInfo}.
    *
    * @param serviceName The service name (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deletePagerDutyIntegrationService(String serviceName) throws ApiException {
     deletePagerDutyIntegrationServiceWithHttpInfo(serviceName);
@@ -234,8 +216,9 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Delete a single service object Delete a single service object in the Datadog-PagerDuty
-   * integration.
+   * Delete a single service object
+   *
+   * <p>Delete a single service object in the Datadog-PagerDuty integration.
    *
    * @param serviceName The service name (required)
    * @return ApiResponse&lt;Void&gt;
@@ -301,20 +284,12 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Delete a single service object Delete a single service object in the Datadog-PagerDuty
-   * integration.
+   * Delete a single service object
+   *
+   * <p>See {@link #deletePagerDutyIntegrationServiceWithHttpInfo}.
    *
    * @param serviceName The service name (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deletePagerDutyIntegrationServiceWithHttpInfoAsync(
       String serviceName) {
@@ -371,19 +346,13 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Get a single service object Get service name in the Datadog-PagerDuty integration.
+   * Get a single service object
+   *
+   * <p>See {@link #getPagerDutyIntegrationServiceWithHttpInfo}.
    *
    * @param serviceName The service name. (required)
    * @return PagerDutyServiceName
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public PagerDutyServiceName getPagerDutyIntegrationService(String serviceName)
       throws ApiException {
@@ -400,7 +369,9 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Get a single service object Get service name in the Datadog-PagerDuty integration.
+   * Get a single service object
+   *
+   * <p>Get service name in the Datadog-PagerDuty integration.
    *
    * @param serviceName The service name. (required)
    * @return ApiResponse&lt;PagerDutyServiceName&gt;
@@ -469,19 +440,12 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Get a single service object Get service name in the Datadog-PagerDuty integration.
+   * Get a single service object
+   *
+   * <p>See {@link #getPagerDutyIntegrationServiceWithHttpInfo}.
    *
    * @param serviceName The service name. (required)
-   * @return ApiResponse&lt;PagerDutyServiceName&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;PagerDutyServiceName&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PagerDutyServiceName>>
       getPagerDutyIntegrationServiceWithHttpInfoAsync(String serviceName) {
@@ -541,21 +505,13 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Update a single service object Update a single service object in the Datadog-PagerDuty
-   * integration.
+   * Update a single service object
+   *
+   * <p>See {@link #updatePagerDutyIntegrationServiceWithHttpInfo}.
    *
    * @param serviceName The service name (required)
    * @param body Update an existing service object request body. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void updatePagerDutyIntegrationService(String serviceName, PagerDutyServiceKey body)
       throws ApiException {
@@ -572,8 +528,9 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Update a single service object Update a single service object in the Datadog-PagerDuty
-   * integration.
+   * Update a single service object
+   *
+   * <p>Update a single service object in the Datadog-PagerDuty integration.
    *
    * @param serviceName The service name (required)
    * @param body Update an existing service object request body. (required)
@@ -647,22 +604,13 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Update a single service object Update a single service object in the Datadog-PagerDuty
-   * integration.
+   * Update a single service object
+   *
+   * <p>See {@link #updatePagerDutyIntegrationServiceWithHttpInfo}.
    *
    * @param serviceName The service name (required)
    * @param body Update an existing service object request body. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> updatePagerDutyIntegrationServiceWithHttpInfoAsync(
       String serviceName, PagerDutyServiceKey body) {

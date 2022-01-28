@@ -50,25 +50,14 @@ public class MetricsApi {
   }
 
   /**
-   * Create a tag configuration Create and define a list of queryable tag keys for an existing
-   * count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any
-   * distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can
-   * only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60;
-   * permission.
+   * Create a tag configuration
+   *
+   * <p>See {@link #createTagConfigurationWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)
    * @return MetricTagConfigurationResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricTagConfigurationResponse createTagConfiguration(
       String metricName, MetricTagConfigurationCreateRequest body) throws ApiException {
@@ -85,11 +74,12 @@ public class MetricsApi {
   }
 
   /**
-   * Create a tag configuration Create and define a list of queryable tag keys for an existing
-   * count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any
-   * distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can
-   * only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60;
-   * permission.
+   * Create a tag configuration
+   *
+   * <p>Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution
+   * metric. Optionally, include percentile aggregations on any distribution metric or configure
+   * custom aggregations on any count, rate, or gauge metric. Can only be used with application keys
+   * of users with the &#x60;Manage Tags for Metrics&#x60; permission.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)
@@ -163,25 +153,13 @@ public class MetricsApi {
   }
 
   /**
-   * Create a tag configuration Create and define a list of queryable tag keys for an existing
-   * count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any
-   * distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can
-   * only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60;
-   * permission.
+   * Create a tag configuration
+   *
+   * <p>See {@link #createTagConfigurationWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)
-   * @return ApiResponse&lt;MetricTagConfigurationResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricTagConfigurationResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>>
       createTagConfigurationWithHttpInfoAsync(
@@ -251,19 +229,12 @@ public class MetricsApi {
   }
 
   /**
-   * Delete a tag configuration Deletes a metric&#39;s tag configuration. Can only be used with
-   * application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * Delete a tag configuration
+   *
+   * <p>See {@link #deleteTagConfigurationWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteTagConfiguration(String metricName) throws ApiException {
     deleteTagConfigurationWithHttpInfo(metricName);
@@ -278,8 +249,10 @@ public class MetricsApi {
   }
 
   /**
-   * Delete a tag configuration Deletes a metric&#39;s tag configuration. Can only be used with
-   * application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * Delete a tag configuration
+   *
+   * <p>Deletes a metric&#39;s tag configuration. Can only be used with application keys from users
+   * with the &#x60;Manage Tags for Metrics&#x60; permission.
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -343,20 +316,12 @@ public class MetricsApi {
   }
 
   /**
-   * Delete a tag configuration Deletes a metric&#39;s tag configuration. Can only be used with
-   * application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * Delete a tag configuration
+   *
+   * <p>See {@link #deleteTagConfigurationWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteTagConfigurationWithHttpInfoAsync(
       String metricName) {
@@ -412,19 +377,13 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configuration by name Returns the tag configuration for the given metric name.
+   * List tag configuration by name
+   *
+   * <p>See {@link #listTagConfigurationByNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @return MetricTagConfigurationResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricTagConfigurationResponse listTagConfigurationByName(String metricName)
       throws ApiException {
@@ -441,7 +400,9 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configuration by name Returns the tag configuration for the given metric name.
+   * List tag configuration by name
+   *
+   * <p>Returns the tag configuration for the given metric name.
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;MetricTagConfigurationResponse&gt;
@@ -509,19 +470,12 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configuration by name Returns the tag configuration for the given metric name.
+   * List tag configuration by name
+   *
+   * <p>See {@link #listTagConfigurationByNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
-   * @return ApiResponse&lt;MetricTagConfigurationResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricTagConfigurationResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>>
       listTagConfigurationByNameWithHttpInfoAsync(String metricName) {
@@ -665,19 +619,12 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations Returns all configured count/gauge/rate/distribution metric names (with
-   * additional filters if specified).
+   * List tag configurations
+   *
+   * <p>See {@link #listTagConfigurationsWithHttpInfo}.
    *
    * @return MetricsAndMetricTagConfigurationsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricsAndMetricTagConfigurationsResponse listTagConfigurations() throws ApiException {
     return listTagConfigurationsWithHttpInfo(new ListTagConfigurationsOptionalParameters())
@@ -685,18 +632,11 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations Returns all configured count/gauge/rate/distribution metric names (with
-   * additional filters if specified).
+   * List tag configurations
    *
-   * @return CompletableFuture<MetricsAndMetricTagConfigurationsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listTagConfigurationsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;MetricsAndMetricTagConfigurationsResponse&gt;
    */
   public CompletableFuture<MetricsAndMetricTagConfigurationsResponse> listTagConfigurationsAsync() {
     return listTagConfigurationsWithHttpInfoAsync(new ListTagConfigurationsOptionalParameters())
@@ -707,20 +647,13 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations Returns all configured count/gauge/rate/distribution metric names (with
-   * additional filters if specified).
+   * List tag configurations
+   *
+   * <p>See {@link #listTagConfigurationsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return MetricsAndMetricTagConfigurationsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricsAndMetricTagConfigurationsResponse listTagConfigurations(
       ListTagConfigurationsOptionalParameters parameters) throws ApiException {
@@ -728,19 +661,12 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations Returns all configured count/gauge/rate/distribution metric names (with
-   * additional filters if specified).
+   * List tag configurations
+   *
+   * <p>See {@link #listTagConfigurationsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<MetricsAndMetricTagConfigurationsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;MetricsAndMetricTagConfigurationsResponse&gt;
    */
   public CompletableFuture<MetricsAndMetricTagConfigurationsResponse> listTagConfigurationsAsync(
       ListTagConfigurationsOptionalParameters parameters) {
@@ -752,8 +678,10 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations Returns all configured count/gauge/rate/distribution metric names (with
-   * additional filters if specified).
+   * List tag configurations
+   *
+   * <p>Returns all configured count/gauge/rate/distribution metric names (with additional filters
+   * if specified).
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;
@@ -828,20 +756,12 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations Returns all configured count/gauge/rate/distribution metric names (with
-   * additional filters if specified).
+   * List tag configurations
+   *
+   * <p>See {@link #listTagConfigurationsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricsAndMetricTagConfigurationsResponse>>
       listTagConfigurationsWithHttpInfoAsync(ListTagConfigurationsOptionalParameters parameters) {
@@ -904,20 +824,13 @@ public class MetricsApi {
   }
 
   /**
-   * List tags by metric name View indexed tag key-value pairs for a given metric name.
+   * List tags by metric name
+   *
+   * <p>See {@link #listTagsByMetricNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @return MetricAllTagsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricAllTagsResponse listTagsByMetricName(String metricName) throws ApiException {
     return listTagsByMetricNameWithHttpInfo(metricName).getData();
@@ -932,7 +845,9 @@ public class MetricsApi {
   }
 
   /**
-   * List tags by metric name View indexed tag key-value pairs for a given metric name.
+   * List tags by metric name
+   *
+   * <p>View indexed tag key-value pairs for a given metric name.
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;MetricAllTagsResponse&gt;
@@ -1000,20 +915,12 @@ public class MetricsApi {
   }
 
   /**
-   * List tags by metric name View indexed tag key-value pairs for a given metric name.
+   * List tags by metric name
+   *
+   * <p>See {@link #listTagsByMetricNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
-   * @return ApiResponse&lt;MetricAllTagsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricAllTagsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricAllTagsResponse>>
       listTagsByMetricNameWithHttpInfoAsync(String metricName) {
@@ -1072,24 +979,13 @@ public class MetricsApi {
   }
 
   /**
-   * List distinct metric volumes by metric name View distinct metrics volumes for the given metric
-   * name. Custom distribution metrics will return both ingested and indexed custom metric volumes.
-   * For Metrics without Limits&amp;trade; beta customers, all metrics will return both
-   * ingested/indexed volumes. Custom metrics generated in-app from other products will return
-   * &#x60;null&#x60; for ingested volumes.
+   * List distinct metric volumes by metric name
+   *
+   * <p>See {@link #listVolumesByMetricNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @return MetricVolumesResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricVolumesResponse listVolumesByMetricName(String metricName) throws ApiException {
     return listVolumesByMetricNameWithHttpInfo(metricName).getData();
@@ -1104,11 +1000,12 @@ public class MetricsApi {
   }
 
   /**
-   * List distinct metric volumes by metric name View distinct metrics volumes for the given metric
-   * name. Custom distribution metrics will return both ingested and indexed custom metric volumes.
-   * For Metrics without Limits&amp;trade; beta customers, all metrics will return both
-   * ingested/indexed volumes. Custom metrics generated in-app from other products will return
-   * &#x60;null&#x60; for ingested volumes.
+   * List distinct metric volumes by metric name
+   *
+   * <p>View distinct metrics volumes for the given metric name. Custom distribution metrics will
+   * return both ingested and indexed custom metric volumes. For Metrics without Limits&amp;trade;
+   * beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated
+   * in-app from other products will return &#x60;null&#x60; for ingested volumes.
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;MetricVolumesResponse&gt;
@@ -1176,24 +1073,12 @@ public class MetricsApi {
   }
 
   /**
-   * List distinct metric volumes by metric name View distinct metrics volumes for the given metric
-   * name. Custom distribution metrics will return both ingested and indexed custom metric volumes.
-   * For Metrics without Limits&amp;trade; beta customers, all metrics will return both
-   * ingested/indexed volumes. Custom metrics generated in-app from other products will return
-   * &#x60;null&#x60; for ingested volumes.
+   * List distinct metric volumes by metric name
+   *
+   * <p>See {@link #listVolumesByMetricNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
-   * @return ApiResponse&lt;MetricVolumesResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricVolumesResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricVolumesResponse>>
       listVolumesByMetricNameWithHttpInfoAsync(String metricName) {
@@ -1252,23 +1137,14 @@ public class MetricsApi {
   }
 
   /**
-   * Update a tag configuration Update the tag configuration of a metric or percentile aggregations
-   * of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be
-   * used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * Update a tag configuration
+   *
+   * <p>See {@link #updateTagConfigurationWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)
    * @return MetricTagConfigurationResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricTagConfigurationResponse updateTagConfiguration(
       String metricName, MetricTagConfigurationUpdateRequest body) throws ApiException {
@@ -1285,9 +1161,11 @@ public class MetricsApi {
   }
 
   /**
-   * Update a tag configuration Update the tag configuration of a metric or percentile aggregations
-   * of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be
-   * used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * Update a tag configuration
+   *
+   * <p>Update the tag configuration of a metric or percentile aggregations of a distribution metric
+   * or custom aggregations of a count, rate, or gauge metric. Can only be used with application
+   * keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)
@@ -1361,23 +1239,13 @@ public class MetricsApi {
   }
 
   /**
-   * Update a tag configuration Update the tag configuration of a metric or percentile aggregations
-   * of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be
-   * used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * Update a tag configuration
+   *
+   * <p>See {@link #updateTagConfigurationWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)
-   * @return ApiResponse&lt;MetricTagConfigurationResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricTagConfigurationResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>>
       updateTagConfigurationWithHttpInfoAsync(

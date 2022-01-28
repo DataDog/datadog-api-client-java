@@ -47,21 +47,13 @@ public class UsersApi {
   }
 
   /**
-   * Create a user Create a user for your organization. **Note**: Users can only be created with the
-   * admin access role if application keys belong to administrators.
+   * Create a user
+   *
+   * <p>See {@link #createUserWithHttpInfo}.
    *
    * @param body User object that needs to be created. (required)
    * @return UserResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> User created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UserResponse createUser(User body) throws ApiException {
     return createUserWithHttpInfo(body).getData();
@@ -76,8 +68,10 @@ public class UsersApi {
   }
 
   /**
-   * Create a user Create a user for your organization. **Note**: Users can only be created with the
-   * admin access role if application keys belong to administrators.
+   * Create a user
+   *
+   * <p>Create a user for your organization. **Note**: Users can only be created with the admin
+   * access role if application keys belong to administrators.
    *
    * @param body User object that needs to be created. (required)
    * @return ApiResponse&lt;UserResponse&gt;
@@ -138,21 +132,12 @@ public class UsersApi {
   }
 
   /**
-   * Create a user Create a user for your organization. **Note**: Users can only be created with the
-   * admin access role if application keys belong to administrators.
+   * Create a user
+   *
+   * <p>See {@link #createUserWithHttpInfo}.
    *
    * @param body User object that needs to be created. (required)
-   * @return ApiResponse&lt;UserResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> User created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UserResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UserResponse>> createUserWithHttpInfoAsync(User body) {
     Object localVarPostBody = body;
@@ -203,21 +188,13 @@ public class UsersApi {
   }
 
   /**
-   * Disable a user Delete a user from an organization. **Note**: This endpoint can only be used
-   * with application keys belonging to administrators.
+   * Disable a user
+   *
+   * <p>See {@link #disableUserWithHttpInfo}.
    *
    * @param userHandle The handle of the user. (required)
    * @return UserDisableResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> User disabled </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UserDisableResponse disableUser(String userHandle) throws ApiException {
     return disableUserWithHttpInfo(userHandle).getData();
@@ -232,8 +209,10 @@ public class UsersApi {
   }
 
   /**
-   * Disable a user Delete a user from an organization. **Note**: This endpoint can only be used
-   * with application keys belonging to administrators.
+   * Disable a user
+   *
+   * <p>Delete a user from an organization. **Note**: This endpoint can only be used with
+   * application keys belonging to administrators.
    *
    * @param userHandle The handle of the user. (required)
    * @return ApiResponse&lt;UserDisableResponse&gt;
@@ -300,21 +279,12 @@ public class UsersApi {
   }
 
   /**
-   * Disable a user Delete a user from an organization. **Note**: This endpoint can only be used
-   * with application keys belonging to administrators.
+   * Disable a user
+   *
+   * <p>See {@link #disableUserWithHttpInfo}.
    *
    * @param userHandle The handle of the user. (required)
-   * @return ApiResponse&lt;UserDisableResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> User disabled </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UserDisableResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UserDisableResponse>> disableUserWithHttpInfoAsync(
       String userHandle) {
@@ -371,19 +341,13 @@ public class UsersApi {
   }
 
   /**
-   * Get user details Get a user&#39;s details.
+   * Get user details
+   *
+   * <p>See {@link #getUserWithHttpInfo}.
    *
    * @param userHandle The ID of the user. (required)
    * @return UserResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK for get user </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UserResponse getUser(String userHandle) throws ApiException {
     return getUserWithHttpInfo(userHandle).getData();
@@ -398,7 +362,9 @@ public class UsersApi {
   }
 
   /**
-   * Get user details Get a user&#39;s details.
+   * Get user details
+   *
+   * <p>Get a user&#39;s details.
    *
    * @param userHandle The ID of the user. (required)
    * @return ApiResponse&lt;UserResponse&gt;
@@ -463,19 +429,12 @@ public class UsersApi {
   }
 
   /**
-   * Get user details Get a user&#39;s details.
+   * Get user details
+   *
+   * <p>See {@link #getUserWithHttpInfo}.
    *
    * @param userHandle The ID of the user. (required)
-   * @return ApiResponse&lt;UserResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK for get user </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UserResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UserResponse>> getUserWithHttpInfoAsync(String userHandle) {
     Object localVarPostBody = null;
@@ -531,17 +490,12 @@ public class UsersApi {
   }
 
   /**
-   * List all users List all users for your organization.
+   * List all users
+   *
+   * <p>See {@link #listUsersWithHttpInfo}.
    *
    * @return UserListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UserListResponse listUsers() throws ApiException {
     return listUsersWithHttpInfo().getData();
@@ -556,7 +510,9 @@ public class UsersApi {
   }
 
   /**
-   * List all users List all users for your organization.
+   * List all users
+   *
+   * <p>List all users for your organization.
    *
    * @return ApiResponse&lt;UserListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -610,17 +566,11 @@ public class UsersApi {
   }
 
   /**
-   * List all users List all users for your organization.
+   * List all users
    *
-   * @return ApiResponse&lt;UserListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listUsersWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;UserListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UserListResponse>> listUsersWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -664,22 +614,14 @@ public class UsersApi {
   }
 
   /**
-   * Update a user Update a user information. **Note**: It can only be used with application keys
-   * belonging to administrators.
+   * Update a user
+   *
+   * <p>See {@link #updateUserWithHttpInfo}.
    *
    * @param userHandle The ID of the user. (required)
    * @param body Description of the update. (required)
    * @return UserResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> User updated </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UserResponse updateUser(String userHandle, User body) throws ApiException {
     return updateUserWithHttpInfo(userHandle, body).getData();
@@ -694,8 +636,10 @@ public class UsersApi {
   }
 
   /**
-   * Update a user Update a user information. **Note**: It can only be used with application keys
-   * belonging to administrators.
+   * Update a user
+   *
+   * <p>Update a user information. **Note**: It can only be used with application keys belonging to
+   * administrators.
    *
    * @param userHandle The ID of the user. (required)
    * @param body Description of the update. (required)
@@ -767,22 +711,13 @@ public class UsersApi {
   }
 
   /**
-   * Update a user Update a user information. **Note**: It can only be used with application keys
-   * belonging to administrators.
+   * Update a user
+   *
+   * <p>See {@link #updateUserWithHttpInfo}.
    *
    * @param userHandle The ID of the user. (required)
    * @param body Description of the update. (required)
-   * @return ApiResponse&lt;UserResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> User updated </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UserResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UserResponse>> updateUserWithHttpInfoAsync(
       String userHandle, User body) {

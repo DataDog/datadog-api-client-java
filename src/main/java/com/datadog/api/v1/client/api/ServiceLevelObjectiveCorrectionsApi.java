@@ -47,20 +47,13 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO correction Create an SLO Correction.
+   * Create an SLO correction
+   *
+   * <p>See {@link #createSLOCorrectionWithHttpInfo}.
    *
    * @param body Create an SLO Correction (required)
    * @return SLOCorrectionResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> SLO Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public SLOCorrectionResponse createSLOCorrection(SLOCorrectionCreateRequest body)
       throws ApiException {
@@ -77,7 +70,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO correction Create an SLO Correction.
+   * Create an SLO correction
+   *
+   * <p>Create an SLO Correction.
    *
    * @param body Create an SLO Correction (required)
    * @return ApiResponse&lt;SLOCorrectionResponse&gt;
@@ -141,20 +136,12 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO correction Create an SLO Correction.
+   * Create an SLO correction
+   *
+   * <p>See {@link #createSLOCorrectionWithHttpInfo}.
    *
    * @param body Create an SLO Correction (required)
-   * @return ApiResponse&lt;SLOCorrectionResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> SLO Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;SLOCorrectionResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SLOCorrectionResponse>> createSLOCorrectionWithHttpInfoAsync(
       SLOCorrectionCreateRequest body) {
@@ -208,18 +195,12 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Delete an SLO correction Permanently delete the specified SLO correction object.
+   * Delete an SLO correction
+   *
+   * <p>See {@link #deleteSLOCorrectionWithHttpInfo}.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteSLOCorrection(String sloCorrectionId) throws ApiException {
     deleteSLOCorrectionWithHttpInfo(sloCorrectionId);
@@ -234,7 +215,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Delete an SLO correction Permanently delete the specified SLO correction object.
+   * Delete an SLO correction
+   *
+   * <p>Permanently delete the specified SLO correction object.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -299,19 +282,12 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Delete an SLO correction Permanently delete the specified SLO correction object.
+   * Delete an SLO correction
+   *
+   * <p>See {@link #deleteSLOCorrectionWithHttpInfo}.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteSLOCorrectionWithHttpInfoAsync(
       String sloCorrectionId) {
@@ -368,19 +344,13 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction for an SLO Get an SLO correction.
+   * Get an SLO correction for an SLO
+   *
+   * <p>See {@link #getSLOCorrectionWithHttpInfo}.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @return SLOCorrectionResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public SLOCorrectionResponse getSLOCorrection(String sloCorrectionId) throws ApiException {
     return getSLOCorrectionWithHttpInfo(sloCorrectionId).getData();
@@ -395,7 +365,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction for an SLO Get an SLO correction.
+   * Get an SLO correction for an SLO
+   *
+   * <p>Get an SLO correction.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @return ApiResponse&lt;SLOCorrectionResponse&gt;
@@ -463,19 +435,12 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction for an SLO Get an SLO correction.
+   * Get an SLO correction for an SLO
+   *
+   * <p>See {@link #getSLOCorrectionWithHttpInfo}.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
-   * @return ApiResponse&lt;SLOCorrectionResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;SLOCorrectionResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SLOCorrectionResponse>> getSLOCorrectionWithHttpInfoAsync(
       String sloCorrectionId) {
@@ -535,17 +500,12 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all SLO corrections Get all Service Level Objective corrections.
+   * Get all SLO corrections
+   *
+   * <p>See {@link #listSLOCorrectionWithHttpInfo}.
    *
    * @return SLOCorrectionListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public SLOCorrectionListResponse listSLOCorrection() throws ApiException {
     return listSLOCorrectionWithHttpInfo().getData();
@@ -560,7 +520,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all SLO corrections Get all Service Level Objective corrections.
+   * Get all SLO corrections
+   *
+   * <p>Get all Service Level Objective corrections.
    *
    * @return ApiResponse&lt;SLOCorrectionListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -616,17 +578,11 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all SLO corrections Get all Service Level Objective corrections.
+   * Get all SLO corrections
    *
-   * @return ApiResponse&lt;SLOCorrectionListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listSLOCorrectionWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;SLOCorrectionListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SLOCorrectionListResponse>>
       listSLOCorrectionWithHttpInfoAsync() {
@@ -672,21 +628,14 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update an SLO correction Update the specified SLO correction object object.
+   * Update an SLO correction
+   *
+   * <p>See {@link #updateSLOCorrectionWithHttpInfo}.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @param body The edited SLO correction object. (required)
    * @return SLOCorrectionResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public SLOCorrectionResponse updateSLOCorrection(
       String sloCorrectionId, SLOCorrectionUpdateRequest body) throws ApiException {
@@ -703,7 +652,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update an SLO correction Update the specified SLO correction object object.
+   * Update an SLO correction
+   *
+   * <p>Update the specified SLO correction object object.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @param body The edited SLO correction object. (required)
@@ -778,21 +729,13 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update an SLO correction Update the specified SLO correction object object.
+   * Update an SLO correction
+   *
+   * <p>See {@link #updateSLOCorrectionWithHttpInfo}.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @param body The edited SLO correction object. (required)
-   * @return ApiResponse&lt;SLOCorrectionResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;SLOCorrectionResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SLOCorrectionResponse>> updateSLOCorrectionWithHttpInfoAsync(
       String sloCorrectionId, SLOCorrectionUpdateRequest body) {

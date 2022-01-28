@@ -53,19 +53,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key Create an API key.
+   * Create an API key
+   *
+   * <p>See {@link #createAPIKeyWithHttpInfo}.
    *
    * @param body (required)
    * @return APIKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeyResponse createAPIKey(APIKeyCreateRequest body) throws ApiException {
     return createAPIKeyWithHttpInfo(body).getData();
@@ -80,7 +74,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key Create an API key.
+   * Create an API key
+   *
+   * <p>Create an API key.
    *
    * @param body (required)
    * @return ApiResponse&lt;APIKeyResponse&gt;
@@ -142,19 +138,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key Create an API key.
+   * Create an API key
+   *
+   * <p>See {@link #createAPIKeyWithHttpInfo}.
    *
    * @param body (required)
-   * @return ApiResponse&lt;APIKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;APIKeyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<APIKeyResponse>> createAPIKeyWithHttpInfoAsync(
       APIKeyCreateRequest body) {
@@ -206,19 +195,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key for current user Create an application key for current user
+   * Create an application key for current user
+   *
+   * <p>See {@link #createCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param body (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse createCurrentUserApplicationKey(ApplicationKeyCreateRequest body)
       throws ApiException {
@@ -235,7 +218,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key for current user Create an application key for current user
+   * Create an application key for current user
+   *
+   * <p>Create an application key for current user
    *
    * @param body (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
@@ -299,19 +284,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key for current user Create an application key for current user
+   * Create an application key for current user
+   *
+   * <p>See {@link #createCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param body (required)
-   * @return ApiResponse&lt;ApplicationKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
       createCurrentUserApplicationKeyWithHttpInfoAsync(ApplicationKeyCreateRequest body) {
@@ -367,18 +345,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an API key Delete an API key.
+   * Delete an API key
+   *
+   * <p>See {@link #deleteAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteAPIKey(String apiKeyId) throws ApiException {
     deleteAPIKeyWithHttpInfo(apiKeyId);
@@ -393,7 +365,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an API key Delete an API key.
+   * Delete an API key
+   *
+   * <p>Delete an API key.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -455,19 +429,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an API key Delete an API key.
+   * Delete an API key
+   *
+   * <p>See {@link #deleteAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteAPIKeyWithHttpInfoAsync(String apiKeyId) {
     Object localVarPostBody = null;
@@ -520,18 +487,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key Delete an application key
+   * Delete an application key
+   *
+   * <p>See {@link #deleteApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteApplicationKey(String appKeyId) throws ApiException {
     deleteApplicationKeyWithHttpInfo(appKeyId);
@@ -546,7 +507,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key Delete an application key
+   * Delete an application key
+   *
+   * <p>Delete an application key
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -608,19 +571,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key Delete an application key
+   * Delete an application key
+   *
+   * <p>See {@link #deleteApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteApplicationKeyWithHttpInfoAsync(
       String appKeyId) {
@@ -674,18 +630,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key owned by current user Delete an application key owned by current user
+   * Delete an application key owned by current user
+   *
+   * <p>See {@link #deleteCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteCurrentUserApplicationKey(String appKeyId) throws ApiException {
     deleteCurrentUserApplicationKeyWithHttpInfo(appKeyId);
@@ -700,7 +650,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key owned by current user Delete an application key owned by current user
+   * Delete an application key owned by current user
+   *
+   * <p>Delete an application key owned by current user
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -764,19 +716,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key owned by current user Delete an application key owned by current user
+   * Delete an application key owned by current user
+   *
+   * <p>See {@link #deleteCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCurrentUserApplicationKeyWithHttpInfoAsync(
       String appKeyId) {
@@ -850,37 +795,25 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key Get an API key.
+   * Get API key
+   *
+   * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @return APIKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeyResponse getAPIKey(String apiKeyId) throws ApiException {
     return getAPIKeyWithHttpInfo(apiKeyId, new GetAPIKeyOptionalParameters()).getData();
   }
 
   /**
-   * Get API key Get an API key.
+   * Get API key
+   *
+   * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
-   * @return CompletableFuture<APIKeyResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;APIKeyResponse&gt;
    */
   public CompletableFuture<APIKeyResponse> getAPIKeyAsync(String apiKeyId) {
     return getAPIKeyWithHttpInfoAsync(apiKeyId, new GetAPIKeyOptionalParameters())
@@ -891,20 +824,14 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key Get an API key.
+   * Get API key
+   *
+   * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param parameters Optional parameters for the request.
    * @return APIKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeyResponse getAPIKey(String apiKeyId, GetAPIKeyOptionalParameters parameters)
       throws ApiException {
@@ -912,19 +839,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key Get an API key.
+   * Get API key
+   *
+   * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<APIKeyResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;APIKeyResponse&gt;
    */
   public CompletableFuture<APIKeyResponse> getAPIKeyAsync(
       String apiKeyId, GetAPIKeyOptionalParameters parameters) {
@@ -936,7 +857,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key Get an API key.
+   * Get API key
+   *
+   * <p>Get an API key.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param parameters Optional parameters for the request.
@@ -1005,20 +928,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key Get an API key.
+   * Get API key
+   *
+   * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;APIKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;APIKeyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<APIKeyResponse>> getAPIKeyWithHttpInfoAsync(
       String apiKeyId, GetAPIKeyOptionalParameters parameters) {
@@ -1094,20 +1010,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key Get an application key for your org.
+   * Get an application key
+   *
+   * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse getApplicationKey(String appKeyId) throws ApiException {
     return getApplicationKeyWithHttpInfo(appKeyId, new GetApplicationKeyOptionalParameters())
@@ -1115,19 +1024,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key Get an application key for your org.
+   * Get an application key
+   *
+   * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
-   * @return CompletableFuture<ApplicationKeyResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
    */
   public CompletableFuture<ApplicationKeyResponse> getApplicationKeyAsync(String appKeyId) {
     return getApplicationKeyWithHttpInfoAsync(appKeyId, new GetApplicationKeyOptionalParameters())
@@ -1138,21 +1040,14 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key Get an application key for your org.
+   * Get an application key
+   *
+   * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse getApplicationKey(
       String appKeyId, GetApplicationKeyOptionalParameters parameters) throws ApiException {
@@ -1160,20 +1055,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key Get an application key for your org.
+   * Get an application key
+   *
+   * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<ApplicationKeyResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
    */
   public CompletableFuture<ApplicationKeyResponse> getApplicationKeyAsync(
       String appKeyId, GetApplicationKeyOptionalParameters parameters) {
@@ -1185,7 +1073,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key Get an application key for your org.
+   * Get an application key
+   *
+   * <p>Get an application key for your org.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
@@ -1256,21 +1146,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key Get an application key for your org.
+   * Get an application key
+   *
+   * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;ApplicationKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ApplicationKeyResponse>> getApplicationKeyWithHttpInfoAsync(
       String appKeyId, GetApplicationKeyOptionalParameters parameters) {
@@ -1330,19 +1212,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get one application key owned by current user Get an application key owned by current user
+   * Get one application key owned by current user
+   *
+   * <p>See {@link #getCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse getCurrentUserApplicationKey(String appKeyId) throws ApiException {
     return getCurrentUserApplicationKeyWithHttpInfo(appKeyId).getData();
@@ -1358,7 +1234,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get one application key owned by current user Get an application key owned by current user
+   * Get one application key owned by current user
+   *
+   * <p>Get an application key owned by current user
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
@@ -1425,19 +1303,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get one application key owned by current user Get an application key owned by current user
+   * Get one application key owned by current user
+   *
+   * <p>See {@link #getCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
-   * @return ApiResponse&lt;ApplicationKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
       getCurrentUserApplicationKeyWithHttpInfoAsync(String appKeyId) {
@@ -1616,35 +1487,23 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys List all API keys available for your account.
+   * Get all API keys
+   *
+   * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
    * @return APIKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeysResponse listAPIKeys() throws ApiException {
     return listAPIKeysWithHttpInfo(new ListAPIKeysOptionalParameters()).getData();
   }
 
   /**
-   * Get all API keys List all API keys available for your account.
+   * Get all API keys
    *
-   * @return CompletableFuture<APIKeysResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listAPIKeysWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;APIKeysResponse&gt;
    */
   public CompletableFuture<APIKeysResponse> listAPIKeysAsync() {
     return listAPIKeysWithHttpInfoAsync(new ListAPIKeysOptionalParameters())
@@ -1655,37 +1514,25 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys List all API keys available for your account.
+   * Get all API keys
+   *
+   * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return APIKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeysResponse listAPIKeys(ListAPIKeysOptionalParameters parameters) throws ApiException {
     return listAPIKeysWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get all API keys List all API keys available for your account.
+   * Get all API keys
+   *
+   * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<APIKeysResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;APIKeysResponse&gt;
    */
   public CompletableFuture<APIKeysResponse> listAPIKeysAsync(
       ListAPIKeysOptionalParameters parameters) {
@@ -1697,7 +1544,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys List all API keys available for your account.
+   * Get all API keys
+   *
+   * <p>List all API keys available for your account.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;APIKeysResponse&gt;
@@ -1777,19 +1626,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys List all API keys available for your account.
+   * Get all API keys
+   *
+   * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;APIKeysResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;APIKeysResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<APIKeysResponse>> listAPIKeysWithHttpInfoAsync(
       ListAPIKeysOptionalParameters parameters) {
@@ -1937,37 +1779,23 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys List all application keys available for your org
+   * Get all application keys
+   *
+   * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
    * @return ListApplicationKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ListApplicationKeysResponse listApplicationKeys() throws ApiException {
     return listApplicationKeysWithHttpInfo(new ListApplicationKeysOptionalParameters()).getData();
   }
 
   /**
-   * Get all application keys List all application keys available for your org
+   * Get all application keys
    *
-   * @return CompletableFuture<ListApplicationKeysResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listApplicationKeysWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
    */
   public CompletableFuture<ListApplicationKeysResponse> listApplicationKeysAsync() {
     return listApplicationKeysWithHttpInfoAsync(new ListApplicationKeysOptionalParameters())
@@ -1978,20 +1806,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys List all application keys available for your org
+   * Get all application keys
+   *
+   * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return ListApplicationKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ListApplicationKeysResponse listApplicationKeys(
       ListApplicationKeysOptionalParameters parameters) throws ApiException {
@@ -1999,19 +1820,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys List all application keys available for your org
+   * Get all application keys
+   *
+   * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<ListApplicationKeysResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
    */
   public CompletableFuture<ListApplicationKeysResponse> listApplicationKeysAsync(
       ListApplicationKeysOptionalParameters parameters) {
@@ -2023,7 +1837,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys List all application keys available for your org
+   * Get all application keys
+   *
+   * <p>List all application keys available for your org
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListApplicationKeysResponse&gt;
@@ -2097,20 +1913,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys List all application keys available for your org
+   * Get all application keys
+   *
+   * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;ListApplicationKeysResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;ListApplicationKeysResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ListApplicationKeysResponse>>
       listApplicationKeysWithHttpInfoAsync(ListApplicationKeysOptionalParameters parameters) {
@@ -2253,20 +2061,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user List all application keys available for current
-   * user
+   * Get all application keys owned by current user
+   *
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
    *
    * @return ListApplicationKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ListApplicationKeysResponse listCurrentUserApplicationKeys() throws ApiException {
     return listCurrentUserApplicationKeysWithHttpInfo(
@@ -2275,19 +2075,11 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user List all application keys available for current
-   * user
+   * Get all application keys owned by current user
    *
-   * @return CompletableFuture<ListApplicationKeysResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
    */
   public CompletableFuture<ListApplicationKeysResponse> listCurrentUserApplicationKeysAsync() {
     return listCurrentUserApplicationKeysWithHttpInfoAsync(
@@ -2299,21 +2091,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user List all application keys available for current
-   * user
+   * Get all application keys owned by current user
+   *
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return ListApplicationKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ListApplicationKeysResponse listCurrentUserApplicationKeys(
       ListCurrentUserApplicationKeysOptionalParameters parameters) throws ApiException {
@@ -2321,20 +2105,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user List all application keys available for current
-   * user
+   * Get all application keys owned by current user
+   *
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<ListApplicationKeysResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
    */
   public CompletableFuture<ListApplicationKeysResponse> listCurrentUserApplicationKeysAsync(
       ListCurrentUserApplicationKeysOptionalParameters parameters) {
@@ -2346,8 +2122,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user List all application keys available for current
-   * user
+   * Get all application keys owned by current user
+   *
+   * <p>List all application keys available for current user
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListApplicationKeysResponse&gt;
@@ -2421,21 +2198,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user List all application keys available for current
-   * user
+   * Get all application keys owned by current user
+   *
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;ListApplicationKeysResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;ListApplicationKeysResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ListApplicationKeysResponse>>
       listCurrentUserApplicationKeysWithHttpInfoAsync(
@@ -2497,21 +2265,14 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key Update an API key.
+   * Edit an API key
+   *
+   * <p>See {@link #updateAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param body (required)
    * @return APIKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeyResponse updateAPIKey(String apiKeyId, APIKeyUpdateRequest body)
       throws ApiException {
@@ -2528,7 +2289,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key Update an API key.
+   * Edit an API key
+   *
+   * <p>Update an API key.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param body (required)
@@ -2600,21 +2363,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key Update an API key.
+   * Edit an API key
+   *
+   * <p>See {@link #updateAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param body (required)
-   * @return ApiResponse&lt;APIKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;APIKeyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<APIKeyResponse>> updateAPIKeyWithHttpInfoAsync(
       String apiKeyId, APIKeyUpdateRequest body) {
@@ -2677,21 +2432,14 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key Edit an application key
+   * Edit an application key
+   *
+   * <p>See {@link #updateApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse updateApplicationKey(
       String appKeyId, ApplicationKeyUpdateRequest body) throws ApiException {
@@ -2708,7 +2456,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key Edit an application key
+   * Edit an application key
+   *
+   * <p>Edit an application key
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
@@ -2781,21 +2531,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key Edit an application key
+   * Edit an application key
+   *
+   * <p>See {@link #updateApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
-   * @return ApiResponse&lt;ApplicationKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
       updateApplicationKeyWithHttpInfoAsync(String appKeyId, ApplicationKeyUpdateRequest body) {
@@ -2860,21 +2602,14 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key owned by current user Edit an application key owned by current user
+   * Edit an application key owned by current user
+   *
+   * <p>See {@link #updateCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse updateCurrentUserApplicationKey(
       String appKeyId, ApplicationKeyUpdateRequest body) throws ApiException {
@@ -2891,7 +2626,9 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key owned by current user Edit an application key owned by current user
+   * Edit an application key owned by current user
+   *
+   * <p>Edit an application key owned by current user
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
@@ -2966,21 +2703,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key owned by current user Edit an application key owned by current user
+   * Edit an application key owned by current user
+   *
+   * <p>See {@link #updateCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
-   * @return ApiResponse&lt;ApplicationKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
       updateCurrentUserApplicationKeyWithHttpInfoAsync(

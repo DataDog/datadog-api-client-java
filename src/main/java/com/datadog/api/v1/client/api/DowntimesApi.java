@@ -46,18 +46,12 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel a downtime Cancel a downtime.
+   * Cancel a downtime
+   *
+   * <p>See {@link #cancelDowntimeWithHttpInfo}.
    *
    * @param downtimeId ID of the downtime to cancel. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void cancelDowntime(Long downtimeId) throws ApiException {
     cancelDowntimeWithHttpInfo(downtimeId);
@@ -72,7 +66,9 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel a downtime Cancel a downtime.
+   * Cancel a downtime
+   *
+   * <p>Cancel a downtime.
    *
    * @param downtimeId ID of the downtime to cancel. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -135,19 +131,12 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel a downtime Cancel a downtime.
+   * Cancel a downtime
+   *
+   * <p>See {@link #cancelDowntimeWithHttpInfo}.
    *
    * @param downtimeId ID of the downtime to cancel. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> cancelDowntimeWithHttpInfoAsync(Long downtimeId) {
     Object localVarPostBody = null;
@@ -201,20 +190,13 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel downtimes by scope Delete all downtimes that match the scope of &#x60;X&#x60;.
+   * Cancel downtimes by scope
+   *
+   * <p>See {@link #cancelDowntimesByScopeWithHttpInfo}.
    *
    * @param body Scope to cancel downtimes for. (required)
    * @return CanceledDowntimesIds
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Downtimes not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public CanceledDowntimesIds cancelDowntimesByScope(CancelDowntimesByScopeRequest body)
       throws ApiException {
@@ -231,7 +213,9 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel downtimes by scope Delete all downtimes that match the scope of &#x60;X&#x60;.
+   * Cancel downtimes by scope
+   *
+   * <p>Delete all downtimes that match the scope of &#x60;X&#x60;.
    *
    * @param body Scope to cancel downtimes for. (required)
    * @return ApiResponse&lt;CanceledDowntimesIds&gt;
@@ -295,20 +279,12 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel downtimes by scope Delete all downtimes that match the scope of &#x60;X&#x60;.
+   * Cancel downtimes by scope
+   *
+   * <p>See {@link #cancelDowntimesByScopeWithHttpInfo}.
    *
    * @param body Scope to cancel downtimes for. (required)
-   * @return ApiResponse&lt;CanceledDowntimesIds&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Downtimes not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;CanceledDowntimesIds&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CanceledDowntimesIds>>
       cancelDowntimesByScopeWithHttpInfoAsync(CancelDowntimesByScopeRequest body) {
@@ -362,19 +338,13 @@ public class DowntimesApi {
   }
 
   /**
-   * Schedule a downtime Schedule a downtime.
+   * Schedule a downtime
+   *
+   * <p>See {@link #createDowntimeWithHttpInfo}.
    *
    * @param body Schedule a downtime request body. (required)
    * @return Downtime
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Downtime createDowntime(Downtime body) throws ApiException {
     return createDowntimeWithHttpInfo(body).getData();
@@ -389,7 +359,9 @@ public class DowntimesApi {
   }
 
   /**
-   * Schedule a downtime Schedule a downtime.
+   * Schedule a downtime
+   *
+   * <p>Schedule a downtime.
    *
    * @param body Schedule a downtime request body. (required)
    * @return ApiResponse&lt;Downtime&gt;
@@ -450,19 +422,12 @@ public class DowntimesApi {
   }
 
   /**
-   * Schedule a downtime Schedule a downtime.
+   * Schedule a downtime
+   *
+   * <p>See {@link #createDowntimeWithHttpInfo}.
    *
    * @param body Schedule a downtime request body. (required)
-   * @return ApiResponse&lt;Downtime&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Downtime&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Downtime>> createDowntimeWithHttpInfoAsync(Downtime body) {
     Object localVarPostBody = body;
@@ -514,19 +479,13 @@ public class DowntimesApi {
   }
 
   /**
-   * Get a downtime Get downtime detail by &#x60;downtime_id&#x60;.
+   * Get a downtime
+   *
+   * <p>See {@link #getDowntimeWithHttpInfo}.
    *
    * @param downtimeId ID of the downtime to fetch. (required)
    * @return Downtime
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Downtime getDowntime(Long downtimeId) throws ApiException {
     return getDowntimeWithHttpInfo(downtimeId).getData();
@@ -541,7 +500,9 @@ public class DowntimesApi {
   }
 
   /**
-   * Get a downtime Get downtime detail by &#x60;downtime_id&#x60;.
+   * Get a downtime
+   *
+   * <p>Get downtime detail by &#x60;downtime_id&#x60;.
    *
    * @param downtimeId ID of the downtime to fetch. (required)
    * @return ApiResponse&lt;Downtime&gt;
@@ -606,19 +567,12 @@ public class DowntimesApi {
   }
 
   /**
-   * Get a downtime Get downtime detail by &#x60;downtime_id&#x60;.
+   * Get a downtime
+   *
+   * <p>See {@link #getDowntimeWithHttpInfo}.
    *
    * @param downtimeId ID of the downtime to fetch. (required)
-   * @return ApiResponse&lt;Downtime&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Downtime&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Downtime>> getDowntimeWithHttpInfoAsync(Long downtimeId) {
     Object localVarPostBody = null;
@@ -690,33 +644,23 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes Get all scheduled downtimes.
+   * Get all downtimes
+   *
+   * <p>See {@link #listDowntimesWithHttpInfo}.
    *
    * @return List&lt;Downtime&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<Downtime> listDowntimes() throws ApiException {
     return listDowntimesWithHttpInfo(new ListDowntimesOptionalParameters()).getData();
   }
 
   /**
-   * Get all downtimes Get all scheduled downtimes.
+   * Get all downtimes
    *
-   * @return CompletableFuture<List&lt;Downtime&gt;>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listDowntimesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;List&lt;Downtime&gt;&gt;
    */
   public CompletableFuture<List<Downtime>> listDowntimesAsync() {
     return listDowntimesWithHttpInfoAsync(new ListDowntimesOptionalParameters())
@@ -727,18 +671,13 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes Get all scheduled downtimes.
+   * Get all downtimes
+   *
+   * <p>See {@link #listDowntimesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return List&lt;Downtime&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<Downtime> listDowntimes(ListDowntimesOptionalParameters parameters)
       throws ApiException {
@@ -746,17 +685,12 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes Get all scheduled downtimes.
+   * Get all downtimes
+   *
+   * <p>See {@link #listDowntimesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<List&lt;Downtime&gt;>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;List&lt;Downtime&gt;&gt;
    */
   public CompletableFuture<List<Downtime>> listDowntimesAsync(
       ListDowntimesOptionalParameters parameters) {
@@ -768,7 +702,9 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes Get all scheduled downtimes.
+   * Get all downtimes
+   *
+   * <p>Get all scheduled downtimes.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
@@ -827,18 +763,12 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes Get all scheduled downtimes.
+   * Get all downtimes
+   *
+   * <p>See {@link #listDowntimesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;Downtime&gt;&gt;&gt;
    */
   public CompletableFuture<ApiResponse<List<Downtime>>> listDowntimesWithHttpInfoAsync(
       ListDowntimesOptionalParameters parameters) {
@@ -886,19 +816,13 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor Get all active downtimes for the specified monitor.
+   * Get all downtimes for a monitor
+   *
+   * <p>See {@link #listMonitorDowntimesWithHttpInfo}.
    *
    * @param monitorId The id of the monitor (required)
    * @return List&lt;Downtime&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<Downtime> listMonitorDowntimes(Long monitorId) throws ApiException {
     return listMonitorDowntimesWithHttpInfo(monitorId).getData();
@@ -913,7 +837,9 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor Get all active downtimes for the specified monitor.
+   * Get all downtimes for a monitor
+   *
+   * <p>Get all active downtimes for the specified monitor.
    *
    * @param monitorId The id of the monitor (required)
    * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
@@ -978,19 +904,12 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor Get all active downtimes for the specified monitor.
+   * Get all downtimes for a monitor
+   *
+   * <p>See {@link #listMonitorDowntimesWithHttpInfo}.
    *
    * @param monitorId The id of the monitor (required)
-   * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;Downtime&gt;&gt;&gt;
    */
   public CompletableFuture<ApiResponse<List<Downtime>>> listMonitorDowntimesWithHttpInfoAsync(
       Long monitorId) {
@@ -1046,21 +965,14 @@ public class DowntimesApi {
   }
 
   /**
-   * Update a downtime Update a single downtime by &#x60;downtime_id&#x60;.
+   * Update a downtime
+   *
+   * <p>See {@link #updateDowntimeWithHttpInfo}.
    *
    * @param downtimeId ID of the downtime to update. (required)
    * @param body Update a downtime request body. (required)
    * @return Downtime
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Downtime updateDowntime(Long downtimeId, Downtime body) throws ApiException {
     return updateDowntimeWithHttpInfo(downtimeId, body).getData();
@@ -1075,7 +987,9 @@ public class DowntimesApi {
   }
 
   /**
-   * Update a downtime Update a single downtime by &#x60;downtime_id&#x60;.
+   * Update a downtime
+   *
+   * <p>Update a single downtime by &#x60;downtime_id&#x60;.
    *
    * @param downtimeId ID of the downtime to update. (required)
    * @param body Update a downtime request body. (required)
@@ -1148,21 +1062,13 @@ public class DowntimesApi {
   }
 
   /**
-   * Update a downtime Update a single downtime by &#x60;downtime_id&#x60;.
+   * Update a downtime
+   *
+   * <p>See {@link #updateDowntimeWithHttpInfo}.
    *
    * @param downtimeId ID of the downtime to update. (required)
    * @param body Update a downtime request body. (required)
-   * @return ApiResponse&lt;Downtime&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Downtime&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Downtime>> updateDowntimeWithHttpInfoAsync(
       Long downtimeId, Downtime body) {

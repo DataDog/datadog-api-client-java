@@ -48,19 +48,13 @@ public class EventsApi {
   }
 
   /**
-   * Post an event This endpoint allows you to post events to the stream. Tag them, set priority and
-   * event aggregate them with other events.
+   * Post an event
+   *
+   * <p>See {@link #createEventWithHttpInfo}.
    *
    * @param body Event request object (required)
    * @return EventCreateResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public EventCreateResponse createEvent(EventCreateRequest body) throws ApiException {
     return createEventWithHttpInfo(body).getData();
@@ -75,8 +69,10 @@ public class EventsApi {
   }
 
   /**
-   * Post an event This endpoint allows you to post events to the stream. Tag them, set priority and
-   * event aggregate them with other events.
+   * Post an event
+   *
+   * <p>This endpoint allows you to post events to the stream. Tag them, set priority and event
+   * aggregate them with other events.
    *
    * @param body Event request object (required)
    * @return ApiResponse&lt;EventCreateResponse&gt;
@@ -136,19 +132,12 @@ public class EventsApi {
   }
 
   /**
-   * Post an event This endpoint allows you to post events to the stream. Tag them, set priority and
-   * event aggregate them with other events.
+   * Post an event
+   *
+   * <p>See {@link #createEventWithHttpInfo}.
    *
    * @param body Event request object (required)
-   * @return ApiResponse&lt;EventCreateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;EventCreateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<EventCreateResponse>> createEventWithHttpInfoAsync(
       EventCreateRequest body) {
@@ -200,21 +189,13 @@ public class EventsApi {
   }
 
   /**
-   * Get an event This endpoint allows you to query for event details. **Note**: If the event you’re
-   * querying contains markdown formatting of any kind, you may see characters such as
-   * &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.
+   * Get an event
+   *
+   * <p>See {@link #getEventWithHttpInfo}.
    *
    * @param eventId The ID of the event. (required)
    * @return EventResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public EventResponse getEvent(Long eventId) throws ApiException {
     return getEventWithHttpInfo(eventId).getData();
@@ -229,8 +210,10 @@ public class EventsApi {
   }
 
   /**
-   * Get an event This endpoint allows you to query for event details. **Note**: If the event you’re
-   * querying contains markdown formatting of any kind, you may see characters such as
+   * Get an event
+   *
+   * <p>This endpoint allows you to query for event details. **Note**: If the event you’re querying
+   * contains markdown formatting of any kind, you may see characters such as
    * &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.
    *
    * @param eventId The ID of the event. (required)
@@ -294,21 +277,12 @@ public class EventsApi {
   }
 
   /**
-   * Get an event This endpoint allows you to query for event details. **Note**: If the event you’re
-   * querying contains markdown formatting of any kind, you may see characters such as
-   * &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.
+   * Get an event
+   *
+   * <p>See {@link #getEventWithHttpInfo}.
    *
    * @param eventId The ID of the event. (required)
-   * @return ApiResponse&lt;EventResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;EventResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<EventResponse>> getEventWithHttpInfoAsync(Long eventId) {
     Object localVarPostBody = null;
@@ -450,51 +424,27 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream The event stream can be queried and filtered by time, priority, sources
-   * and tags. **Notes**: - If the event you’re querying contains markdown formatting of any kind,
-   * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
-   * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
-   * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
-   * query time to paginate the results. You can also use the page parameter to specify which set of
-   * &#x60;1000&#x60; results to return.
+   * Query the event stream
+   *
+   * <p>See {@link #listEventsWithHttpInfo}.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
    * @return EventListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public EventListResponse listEvents(Long start, Long end) throws ApiException {
     return listEventsWithHttpInfo(start, end, new ListEventsOptionalParameters()).getData();
   }
 
   /**
-   * Query the event stream The event stream can be queried and filtered by time, priority, sources
-   * and tags. **Notes**: - If the event you’re querying contains markdown formatting of any kind,
-   * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
-   * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
-   * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
-   * query time to paginate the results. You can also use the page parameter to specify which set of
-   * &#x60;1000&#x60; results to return.
+   * Query the event stream
+   *
+   * <p>See {@link #listEventsWithHttpInfo}.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
-   * @return CompletableFuture<EventListResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;EventListResponse&gt;
    */
   public CompletableFuture<EventListResponse> listEventsAsync(Long start, Long end) {
     return listEventsWithHttpInfoAsync(start, end, new ListEventsOptionalParameters())
@@ -505,27 +455,15 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream The event stream can be queried and filtered by time, priority, sources
-   * and tags. **Notes**: - If the event you’re querying contains markdown formatting of any kind,
-   * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
-   * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
-   * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
-   * query time to paginate the results. You can also use the page parameter to specify which set of
-   * &#x60;1000&#x60; results to return.
+   * Query the event stream
+   *
+   * <p>See {@link #listEventsWithHttpInfo}.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
    * @param parameters Optional parameters for the request.
    * @return EventListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public EventListResponse listEvents(Long start, Long end, ListEventsOptionalParameters parameters)
       throws ApiException {
@@ -533,26 +471,14 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream The event stream can be queried and filtered by time, priority, sources
-   * and tags. **Notes**: - If the event you’re querying contains markdown formatting of any kind,
-   * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
-   * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
-   * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
-   * query time to paginate the results. You can also use the page parameter to specify which set of
-   * &#x60;1000&#x60; results to return.
+   * Query the event stream
+   *
+   * <p>See {@link #listEventsWithHttpInfo}.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<EventListResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;EventListResponse&gt;
    */
   public CompletableFuture<EventListResponse> listEventsAsync(
       Long start, Long end, ListEventsOptionalParameters parameters) {
@@ -564,13 +490,15 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream The event stream can be queried and filtered by time, priority, sources
-   * and tags. **Notes**: - If the event you’re querying contains markdown formatting of any kind,
-   * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
-   * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
-   * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
-   * query time to paginate the results. You can also use the page parameter to specify which set of
-   * &#x60;1000&#x60; results to return.
+   * Query the event stream
+   *
+   * <p>The event stream can be queried and filtered by time, priority, sources and tags. **Notes**:
+   * - If the event you’re querying contains markdown formatting of any kind, you may see characters
+   * such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. - This endpoint returns a
+   * maximum of &#x60;1000&#x60; most recent results. To return additional results, identify the
+   * last timestamp of the last result and set that as the &#x60;end&#x60; query time to paginate
+   * the results. You can also use the page parameter to specify which set of &#x60;1000&#x60;
+   * results to return.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
@@ -655,27 +583,14 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream The event stream can be queried and filtered by time, priority, sources
-   * and tags. **Notes**: - If the event you’re querying contains markdown formatting of any kind,
-   * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
-   * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
-   * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
-   * query time to paginate the results. You can also use the page parameter to specify which set of
-   * &#x60;1000&#x60; results to return.
+   * Query the event stream
+   *
+   * <p>See {@link #listEventsWithHttpInfo}.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;EventListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;EventListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<EventListResponse>> listEventsWithHttpInfoAsync(
       Long start, Long end, ListEventsOptionalParameters parameters) {

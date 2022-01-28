@@ -50,21 +50,14 @@ public class DashboardListsApi {
   }
 
   /**
-   * Add Items to a Dashboard List Add dashboards to an existing dashboard list.
+   * Add Items to a Dashboard List
+   *
+   * <p>See {@link #createDashboardListItemsWithHttpInfo}.
    *
    * @param dashboardListId ID of the dashboard list to add items to. (required)
    * @param body Dashboards to add to the dashboard list. (required)
    * @return DashboardListAddItemsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DashboardListAddItemsResponse createDashboardListItems(
       Long dashboardListId, DashboardListAddItemsRequest body) throws ApiException {
@@ -81,7 +74,9 @@ public class DashboardListsApi {
   }
 
   /**
-   * Add Items to a Dashboard List Add dashboards to an existing dashboard list.
+   * Add Items to a Dashboard List
+   *
+   * <p>Add dashboards to an existing dashboard list.
    *
    * @param dashboardListId ID of the dashboard list to add items to. (required)
    * @param body Dashboards to add to the dashboard list. (required)
@@ -157,21 +152,13 @@ public class DashboardListsApi {
   }
 
   /**
-   * Add Items to a Dashboard List Add dashboards to an existing dashboard list.
+   * Add Items to a Dashboard List
+   *
+   * <p>See {@link #createDashboardListItemsWithHttpInfo}.
    *
    * @param dashboardListId ID of the dashboard list to add items to. (required)
    * @param body Dashboards to add to the dashboard list. (required)
-   * @return ApiResponse&lt;DashboardListAddItemsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;DashboardListAddItemsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DashboardListAddItemsResponse>>
       createDashboardListItemsWithHttpInfoAsync(
@@ -243,21 +230,14 @@ public class DashboardListsApi {
   }
 
   /**
-   * Delete items from a dashboard list Delete dashboards from an existing dashboard list.
+   * Delete items from a dashboard list
+   *
+   * <p>See {@link #deleteDashboardListItemsWithHttpInfo}.
    *
    * @param dashboardListId ID of the dashboard list to delete items from. (required)
    * @param body Dashboards to delete from the dashboard list. (required)
    * @return DashboardListDeleteItemsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DashboardListDeleteItemsResponse deleteDashboardListItems(
       Long dashboardListId, DashboardListDeleteItemsRequest body) throws ApiException {
@@ -274,7 +254,9 @@ public class DashboardListsApi {
   }
 
   /**
-   * Delete items from a dashboard list Delete dashboards from an existing dashboard list.
+   * Delete items from a dashboard list
+   *
+   * <p>Delete dashboards from an existing dashboard list.
    *
    * @param dashboardListId ID of the dashboard list to delete items from. (required)
    * @param body Dashboards to delete from the dashboard list. (required)
@@ -350,21 +332,13 @@ public class DashboardListsApi {
   }
 
   /**
-   * Delete items from a dashboard list Delete dashboards from an existing dashboard list.
+   * Delete items from a dashboard list
+   *
+   * <p>See {@link #deleteDashboardListItemsWithHttpInfo}.
    *
    * @param dashboardListId ID of the dashboard list to delete items from. (required)
    * @param body Dashboards to delete from the dashboard list. (required)
-   * @return ApiResponse&lt;DashboardListDeleteItemsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;DashboardListDeleteItemsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DashboardListDeleteItemsResponse>>
       deleteDashboardListItemsWithHttpInfoAsync(
@@ -436,19 +410,13 @@ public class DashboardListsApi {
   }
 
   /**
-   * Get items of a Dashboard List Fetch the dashboard list’s dashboard definitions.
+   * Get items of a Dashboard List
+   *
+   * <p>See {@link #getDashboardListItemsWithHttpInfo}.
    *
    * @param dashboardListId ID of the dashboard list to get items from. (required)
    * @return DashboardListItems
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DashboardListItems getDashboardListItems(Long dashboardListId) throws ApiException {
     return getDashboardListItemsWithHttpInfo(dashboardListId).getData();
@@ -463,7 +431,9 @@ public class DashboardListsApi {
   }
 
   /**
-   * Get items of a Dashboard List Fetch the dashboard list’s dashboard definitions.
+   * Get items of a Dashboard List
+   *
+   * <p>Fetch the dashboard list’s dashboard definitions.
    *
    * @param dashboardListId ID of the dashboard list to get items from. (required)
    * @return ApiResponse&lt;DashboardListItems&gt;
@@ -531,19 +501,12 @@ public class DashboardListsApi {
   }
 
   /**
-   * Get items of a Dashboard List Fetch the dashboard list’s dashboard definitions.
+   * Get items of a Dashboard List
+   *
+   * <p>See {@link #getDashboardListItemsWithHttpInfo}.
    *
    * @param dashboardListId ID of the dashboard list to get items from. (required)
-   * @return ApiResponse&lt;DashboardListItems&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;DashboardListItems&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DashboardListItems>> getDashboardListItemsWithHttpInfoAsync(
       Long dashboardListId) {
@@ -603,21 +566,14 @@ public class DashboardListsApi {
   }
 
   /**
-   * Update items of a dashboard list Update dashboards of an existing dashboard list.
+   * Update items of a dashboard list
+   *
+   * <p>See {@link #updateDashboardListItemsWithHttpInfo}.
    *
    * @param dashboardListId ID of the dashboard list to update items from. (required)
    * @param body New dashboards of the dashboard list. (required)
    * @return DashboardListUpdateItemsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DashboardListUpdateItemsResponse updateDashboardListItems(
       Long dashboardListId, DashboardListUpdateItemsRequest body) throws ApiException {
@@ -634,7 +590,9 @@ public class DashboardListsApi {
   }
 
   /**
-   * Update items of a dashboard list Update dashboards of an existing dashboard list.
+   * Update items of a dashboard list
+   *
+   * <p>Update dashboards of an existing dashboard list.
    *
    * @param dashboardListId ID of the dashboard list to update items from. (required)
    * @param body New dashboards of the dashboard list. (required)
@@ -710,21 +668,13 @@ public class DashboardListsApi {
   }
 
   /**
-   * Update items of a dashboard list Update dashboards of an existing dashboard list.
+   * Update items of a dashboard list
+   *
+   * <p>See {@link #updateDashboardListItemsWithHttpInfo}.
    *
    * @param dashboardListId ID of the dashboard list to update items from. (required)
    * @param body New dashboards of the dashboard list. (required)
-   * @return ApiResponse&lt;DashboardListUpdateItemsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;DashboardListUpdateItemsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DashboardListUpdateItemsResponse>>
       updateDashboardListItemsWithHttpInfoAsync(

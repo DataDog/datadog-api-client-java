@@ -44,19 +44,13 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Create a GCP integration Create a Datadog-GCP integration.
+   * Create a GCP integration
+   *
+   * <p>See {@link #createGCPIntegrationWithHttpInfo}.
    *
    * @param body Create a Datadog-GCP integration. (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object createGCPIntegration(GCPAccount body) throws ApiException {
     return createGCPIntegrationWithHttpInfo(body).getData();
@@ -71,7 +65,9 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Create a GCP integration Create a Datadog-GCP integration.
+   * Create a GCP integration
+   *
+   * <p>Create a Datadog-GCP integration.
    *
    * @param body Create a Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -132,19 +128,12 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Create a GCP integration Create a Datadog-GCP integration.
+   * Create a GCP integration
+   *
+   * <p>See {@link #createGCPIntegrationWithHttpInfo}.
    *
    * @param body Create a Datadog-GCP integration. (required)
-   * @return ApiResponse&lt;Object&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Object>> createGCPIntegrationWithHttpInfoAsync(
       GCPAccount body) {
@@ -197,19 +186,13 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Delete a GCP integration Delete a given Datadog-GCP integration.
+   * Delete a GCP integration
+   *
+   * <p>See {@link #deleteGCPIntegrationWithHttpInfo}.
    *
    * @param body Delete a given Datadog-GCP integration. (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object deleteGCPIntegration(GCPAccount body) throws ApiException {
     return deleteGCPIntegrationWithHttpInfo(body).getData();
@@ -224,7 +207,9 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Delete a GCP integration Delete a given Datadog-GCP integration.
+   * Delete a GCP integration
+   *
+   * <p>Delete a given Datadog-GCP integration.
    *
    * @param body Delete a given Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -285,19 +270,12 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Delete a GCP integration Delete a given Datadog-GCP integration.
+   * Delete a GCP integration
+   *
+   * <p>See {@link #deleteGCPIntegrationWithHttpInfo}.
    *
    * @param body Delete a given Datadog-GCP integration. (required)
-   * @return ApiResponse&lt;Object&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Object>> deleteGCPIntegrationWithHttpInfoAsync(
       GCPAccount body) {
@@ -350,18 +328,12 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * List all GCP integrations List all Datadog-GCP integrations configured in your Datadog account.
+   * List all GCP integrations
+   *
+   * <p>See {@link #listGCPIntegrationWithHttpInfo}.
    *
    * @return List&lt;GCPAccount&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<GCPAccount> listGCPIntegration() throws ApiException {
     return listGCPIntegrationWithHttpInfo().getData();
@@ -376,7 +348,9 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * List all GCP integrations List all Datadog-GCP integrations configured in your Datadog account.
+   * List all GCP integrations
+   *
+   * <p>List all Datadog-GCP integrations configured in your Datadog account.
    *
    * @return ApiResponse&lt;List&lt;GCPAccount&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -431,18 +405,11 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * List all GCP integrations List all Datadog-GCP integrations configured in your Datadog account.
+   * List all GCP integrations
    *
-   * @return ApiResponse&lt;List&lt;GCPAccount&gt;&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listGCPIntegrationWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;GCPAccount&gt;&gt;&gt;
    */
   public CompletableFuture<ApiResponse<List<GCPAccount>>> listGCPIntegrationWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -486,22 +453,13 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Update a GCP integration Update a Datadog-GCP integrations host_filters and/or auto-mute.
-   * Requires a &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be
-   * updated. If you need to update these fields, delete and use the create (&#x60;POST&#x60;)
-   * endpoint. The unspecified fields will keep their original values.
+   * Update a GCP integration
+   *
+   * <p>See {@link #updateGCPIntegrationWithHttpInfo}.
    *
    * @param body Update a Datadog-GCP integration. (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object updateGCPIntegration(GCPAccount body) throws ApiException {
     return updateGCPIntegrationWithHttpInfo(body).getData();
@@ -516,10 +474,12 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Update a GCP integration Update a Datadog-GCP integrations host_filters and/or auto-mute.
-   * Requires a &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be
-   * updated. If you need to update these fields, delete and use the create (&#x60;POST&#x60;)
-   * endpoint. The unspecified fields will keep their original values.
+   * Update a GCP integration
+   *
+   * <p>Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a
+   * &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be updated. If
+   * you need to update these fields, delete and use the create (&#x60;POST&#x60;) endpoint. The
+   * unspecified fields will keep their original values.
    *
    * @param body Update a Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -580,22 +540,12 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Update a GCP integration Update a Datadog-GCP integrations host_filters and/or auto-mute.
-   * Requires a &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be
-   * updated. If you need to update these fields, delete and use the create (&#x60;POST&#x60;)
-   * endpoint. The unspecified fields will keep their original values.
+   * Update a GCP integration
+   *
+   * <p>See {@link #updateGCPIntegrationWithHttpInfo}.
    *
    * @param body Update a Datadog-GCP integration. (required)
-   * @return ApiResponse&lt;Object&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Object>> updateGCPIntegrationWithHttpInfoAsync(
       GCPAccount body) {

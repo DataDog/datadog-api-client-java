@@ -64,39 +64,23 @@ public class HostsApi {
   }
 
   /**
-   * Get the total number of active hosts This endpoint returns the total number of active and up
-   * hosts in your Datadog account. Active means the host has reported in the past hour, and up
-   * means it has reported in the past two hours.
+   * Get the total number of active hosts
+   *
+   * <p>See {@link #getHostTotalsWithHttpInfo}.
    *
    * @return HostTotals
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostTotals getHostTotals() throws ApiException {
     return getHostTotalsWithHttpInfo(new GetHostTotalsOptionalParameters()).getData();
   }
 
   /**
-   * Get the total number of active hosts This endpoint returns the total number of active and up
-   * hosts in your Datadog account. Active means the host has reported in the past hour, and up
-   * means it has reported in the past two hours.
+   * Get the total number of active hosts
    *
-   * @return CompletableFuture<HostTotals>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #getHostTotalsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;HostTotals&gt;
    */
   public CompletableFuture<HostTotals> getHostTotalsAsync() {
     return getHostTotalsWithHttpInfoAsync(new GetHostTotalsOptionalParameters())
@@ -107,41 +91,25 @@ public class HostsApi {
   }
 
   /**
-   * Get the total number of active hosts This endpoint returns the total number of active and up
-   * hosts in your Datadog account. Active means the host has reported in the past hour, and up
-   * means it has reported in the past two hours.
+   * Get the total number of active hosts
+   *
+   * <p>See {@link #getHostTotalsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return HostTotals
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostTotals getHostTotals(GetHostTotalsOptionalParameters parameters) throws ApiException {
     return getHostTotalsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get the total number of active hosts This endpoint returns the total number of active and up
-   * hosts in your Datadog account. Active means the host has reported in the past hour, and up
-   * means it has reported in the past two hours.
+   * Get the total number of active hosts
+   *
+   * <p>See {@link #getHostTotalsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<HostTotals>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;HostTotals&gt;
    */
   public CompletableFuture<HostTotals> getHostTotalsAsync(
       GetHostTotalsOptionalParameters parameters) {
@@ -153,9 +121,11 @@ public class HostsApi {
   }
 
   /**
-   * Get the total number of active hosts This endpoint returns the total number of active and up
-   * hosts in your Datadog account. Active means the host has reported in the past hour, and up
-   * means it has reported in the past two hours.
+   * Get the total number of active hosts
+   *
+   * <p>This endpoint returns the total number of active and up hosts in your Datadog account.
+   * Active means the host has reported in the past hour, and up means it has reported in the past
+   * two hours.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HostTotals&gt;
@@ -215,21 +185,12 @@ public class HostsApi {
   }
 
   /**
-   * Get the total number of active hosts This endpoint returns the total number of active and up
-   * hosts in your Datadog account. Active means the host has reported in the past hour, and up
-   * means it has reported in the past two hours.
+   * Get the total number of active hosts
+   *
+   * <p>See {@link #getHostTotalsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HostTotals&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;HostTotals&gt;&gt;
    */
   public CompletableFuture<ApiResponse<HostTotals>> getHostTotalsWithHttpInfoAsync(
       GetHostTotalsOptionalParameters parameters) {
@@ -381,39 +342,23 @@ public class HostsApi {
   }
 
   /**
-   * Get all hosts for your organization This endpoint allows searching for hosts by name, alias, or
-   * tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results
-   * are paginated with a max of 1000 results at a time.
+   * Get all hosts for your organization
+   *
+   * <p>See {@link #listHostsWithHttpInfo}.
    *
    * @return HostListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostListResponse listHosts() throws ApiException {
     return listHostsWithHttpInfo(new ListHostsOptionalParameters()).getData();
   }
 
   /**
-   * Get all hosts for your organization This endpoint allows searching for hosts by name, alias, or
-   * tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results
-   * are paginated with a max of 1000 results at a time.
+   * Get all hosts for your organization
    *
-   * @return CompletableFuture<HostListResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listHostsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;HostListResponse&gt;
    */
   public CompletableFuture<HostListResponse> listHostsAsync() {
     return listHostsWithHttpInfoAsync(new ListHostsOptionalParameters())
@@ -424,41 +369,25 @@ public class HostsApi {
   }
 
   /**
-   * Get all hosts for your organization This endpoint allows searching for hosts by name, alias, or
-   * tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results
-   * are paginated with a max of 1000 results at a time.
+   * Get all hosts for your organization
+   *
+   * <p>See {@link #listHostsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return HostListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostListResponse listHosts(ListHostsOptionalParameters parameters) throws ApiException {
     return listHostsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get all hosts for your organization This endpoint allows searching for hosts by name, alias, or
-   * tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results
-   * are paginated with a max of 1000 results at a time.
+   * Get all hosts for your organization
+   *
+   * <p>See {@link #listHostsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<HostListResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;HostListResponse&gt;
    */
   public CompletableFuture<HostListResponse> listHostsAsync(
       ListHostsOptionalParameters parameters) {
@@ -470,9 +399,11 @@ public class HostsApi {
   }
 
   /**
-   * Get all hosts for your organization This endpoint allows searching for hosts by name, alias, or
-   * tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results
-   * are paginated with a max of 1000 results at a time.
+   * Get all hosts for your organization
+   *
+   * <p>This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past
+   * 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000
+   * results at a time.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HostListResponse&gt;
@@ -548,21 +479,12 @@ public class HostsApi {
   }
 
   /**
-   * Get all hosts for your organization This endpoint allows searching for hosts by name, alias, or
-   * tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results
-   * are paginated with a max of 1000 results at a time.
+   * Get all hosts for your organization
+   *
+   * <p>See {@link #listHostsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HostListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;HostListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<HostListResponse>> listHostsWithHttpInfoAsync(
       ListHostsOptionalParameters parameters) {
@@ -626,20 +548,14 @@ public class HostsApi {
   }
 
   /**
-   * Mute a host Mute a host.
+   * Mute a host
+   *
+   * <p>See {@link #muteHostWithHttpInfo}.
    *
    * @param hostName Name of the host to mute. (required)
    * @param body Mute a host request body. (required)
    * @return HostMuteResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostMuteResponse muteHost(String hostName, HostMuteSettings body) throws ApiException {
     return muteHostWithHttpInfo(hostName, body).getData();
@@ -654,7 +570,9 @@ public class HostsApi {
   }
 
   /**
-   * Mute a host Mute a host.
+   * Mute a host
+   *
+   * <p>Mute a host.
    *
    * @param hostName Name of the host to mute. (required)
    * @param body Mute a host request body. (required)
@@ -724,20 +642,13 @@ public class HostsApi {
   }
 
   /**
-   * Mute a host Mute a host.
+   * Mute a host
+   *
+   * <p>See {@link #muteHostWithHttpInfo}.
    *
    * @param hostName Name of the host to mute. (required)
    * @param body Mute a host request body. (required)
-   * @return ApiResponse&lt;HostMuteResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;HostMuteResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<HostMuteResponse>> muteHostWithHttpInfoAsync(
       String hostName, HostMuteSettings body) {
@@ -799,19 +710,13 @@ public class HostsApi {
   }
 
   /**
-   * Unmute a host Unmutes a host. This endpoint takes no JSON arguments.
+   * Unmute a host
+   *
+   * <p>See {@link #unmuteHostWithHttpInfo}.
    *
    * @param hostName Name of the host to unmute. (required)
    * @return HostMuteResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostMuteResponse unmuteHost(String hostName) throws ApiException {
     return unmuteHostWithHttpInfo(hostName).getData();
@@ -826,7 +731,9 @@ public class HostsApi {
   }
 
   /**
-   * Unmute a host Unmutes a host. This endpoint takes no JSON arguments.
+   * Unmute a host
+   *
+   * <p>Unmutes a host. This endpoint takes no JSON arguments.
    *
    * @param hostName Name of the host to unmute. (required)
    * @return ApiResponse&lt;HostMuteResponse&gt;
@@ -890,19 +797,12 @@ public class HostsApi {
   }
 
   /**
-   * Unmute a host Unmutes a host. This endpoint takes no JSON arguments.
+   * Unmute a host
+   *
+   * <p>See {@link #unmuteHostWithHttpInfo}.
    *
    * @param hostName Name of the host to unmute. (required)
-   * @return ApiResponse&lt;HostMuteResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;HostMuteResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<HostMuteResponse>> unmuteHostWithHttpInfoAsync(
       String hostName) {

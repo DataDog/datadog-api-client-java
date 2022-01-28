@@ -44,16 +44,12 @@ public class IpRangesApi {
   }
 
   /**
-   * List IP Ranges Get information about Datadog IP ranges.
+   * List IP Ranges
+   *
+   * <p>See {@link #getIPRangesWithHttpInfo}.
    *
    * @return IPRanges
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IPRanges getIPRanges() throws ApiException {
     return getIPRangesWithHttpInfo().getData();
@@ -68,7 +64,9 @@ public class IpRangesApi {
   }
 
   /**
-   * List IP Ranges Get information about Datadog IP ranges.
+   * List IP Ranges
+   *
+   * <p>Get information about Datadog IP ranges.
    *
    * @return ApiResponse&lt;IPRanges&gt;
    * @throws ApiException if fails to make API call
@@ -121,16 +119,11 @@ public class IpRangesApi {
   }
 
   /**
-   * List IP Ranges Get information about Datadog IP ranges.
+   * List IP Ranges
    *
-   * @return ApiResponse&lt;IPRanges&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #getIPRangesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;IPRanges&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IPRanges>> getIPRangesWithHttpInfoAsync() {
     Object localVarPostBody = null;

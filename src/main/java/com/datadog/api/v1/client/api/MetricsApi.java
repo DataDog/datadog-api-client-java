@@ -50,19 +50,13 @@ public class MetricsApi {
   }
 
   /**
-   * Get metric metadata Get metadata about a specific metric.
+   * Get metric metadata
+   *
+   * <p>See {@link #getMetricMetadataWithHttpInfo}.
    *
    * @param metricName Name of the metric for which to get metadata. (required)
    * @return MetricMetadata
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricMetadata getMetricMetadata(String metricName) throws ApiException {
     return getMetricMetadataWithHttpInfo(metricName).getData();
@@ -77,7 +71,9 @@ public class MetricsApi {
   }
 
   /**
-   * Get metric metadata Get metadata about a specific metric.
+   * Get metric metadata
+   *
+   * <p>Get metadata about a specific metric.
    *
    * @param metricName Name of the metric for which to get metadata. (required)
    * @return ApiResponse&lt;MetricMetadata&gt;
@@ -143,19 +139,12 @@ public class MetricsApi {
   }
 
   /**
-   * Get metric metadata Get metadata about a specific metric.
+   * Get metric metadata
+   *
+   * <p>See {@link #getMetricMetadataWithHttpInfo}.
    *
    * @param metricName Name of the metric for which to get metadata. (required)
-   * @return ApiResponse&lt;MetricMetadata&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricMetadata&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricMetadata>> getMetricMetadataWithHttpInfoAsync(
       String metricName) {
@@ -242,37 +231,25 @@ public class MetricsApi {
   }
 
   /**
-   * Get active metrics list Get the list of actively reporting metrics from a given time until now.
+   * Get active metrics list
+   *
+   * <p>See {@link #listActiveMetricsWithHttpInfo}.
    *
    * @param from Seconds since the Unix epoch. (required)
    * @return MetricsListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricsListResponse listActiveMetrics(Long from) throws ApiException {
     return listActiveMetricsWithHttpInfo(from, new ListActiveMetricsOptionalParameters()).getData();
   }
 
   /**
-   * Get active metrics list Get the list of actively reporting metrics from a given time until now.
+   * Get active metrics list
+   *
+   * <p>See {@link #listActiveMetricsWithHttpInfo}.
    *
    * @param from Seconds since the Unix epoch. (required)
-   * @return CompletableFuture<MetricsListResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;MetricsListResponse&gt;
    */
   public CompletableFuture<MetricsListResponse> listActiveMetricsAsync(Long from) {
     return listActiveMetricsWithHttpInfoAsync(from, new ListActiveMetricsOptionalParameters())
@@ -283,20 +260,14 @@ public class MetricsApi {
   }
 
   /**
-   * Get active metrics list Get the list of actively reporting metrics from a given time until now.
+   * Get active metrics list
+   *
+   * <p>See {@link #listActiveMetricsWithHttpInfo}.
    *
    * @param from Seconds since the Unix epoch. (required)
    * @param parameters Optional parameters for the request.
    * @return MetricsListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricsListResponse listActiveMetrics(
       Long from, ListActiveMetricsOptionalParameters parameters) throws ApiException {
@@ -304,19 +275,13 @@ public class MetricsApi {
   }
 
   /**
-   * Get active metrics list Get the list of actively reporting metrics from a given time until now.
+   * Get active metrics list
+   *
+   * <p>See {@link #listActiveMetricsWithHttpInfo}.
    *
    * @param from Seconds since the Unix epoch. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<MetricsListResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;MetricsListResponse&gt;
    */
   public CompletableFuture<MetricsListResponse> listActiveMetricsAsync(
       Long from, ListActiveMetricsOptionalParameters parameters) {
@@ -328,7 +293,9 @@ public class MetricsApi {
   }
 
   /**
-   * Get active metrics list Get the list of actively reporting metrics from a given time until now.
+   * Get active metrics list
+   *
+   * <p>Get the list of actively reporting metrics from a given time until now.
    *
    * @param from Seconds since the Unix epoch. (required)
    * @param parameters Optional parameters for the request.
@@ -398,20 +365,13 @@ public class MetricsApi {
   }
 
   /**
-   * Get active metrics list Get the list of actively reporting metrics from a given time until now.
+   * Get active metrics list
+   *
+   * <p>See {@link #listActiveMetricsWithHttpInfo}.
    *
    * @param from Seconds since the Unix epoch. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;MetricsListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricsListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricsListResponse>> listActiveMetricsWithHttpInfoAsync(
       Long from, ListActiveMetricsOptionalParameters parameters) {
@@ -471,20 +431,14 @@ public class MetricsApi {
   }
 
   /**
-   * Search metrics Search for metrics from the last 24 hours in Datadog.
+   * Search metrics
+   *
+   * <p>See {@link #listMetricsWithHttpInfo}.
    *
    * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
    *     (required)
    * @return MetricSearchResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricSearchResponse listMetrics(String q) throws ApiException {
     return listMetricsWithHttpInfo(q).getData();
@@ -499,7 +453,9 @@ public class MetricsApi {
   }
 
   /**
-   * Search metrics Search for metrics from the last 24 hours in Datadog.
+   * Search metrics
+   *
+   * <p>Search for metrics from the last 24 hours in Datadog.
    *
    * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
    *     (required)
@@ -564,20 +520,13 @@ public class MetricsApi {
   }
 
   /**
-   * Search metrics Search for metrics from the last 24 hours in Datadog.
+   * Search metrics
+   *
+   * <p>See {@link #listMetricsWithHttpInfo}.
    *
    * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
    *     (required)
-   * @return ApiResponse&lt;MetricSearchResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricSearchResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricSearchResponse>> listMetricsWithHttpInfoAsync(
       String q) {
@@ -633,21 +582,15 @@ public class MetricsApi {
   }
 
   /**
-   * Query timeseries points Query timeseries points.
+   * Query timeseries points
+   *
+   * <p>See {@link #queryMetricsWithHttpInfo}.
    *
    * @param from Start of the queried time period, seconds since the Unix epoch. (required)
    * @param to End of the queried time period, seconds since the Unix epoch. (required)
    * @param query Query string. (required)
    * @return MetricsQueryResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricsQueryResponse queryMetrics(Long from, Long to, String query) throws ApiException {
     return queryMetricsWithHttpInfo(from, to, query).getData();
@@ -663,7 +606,9 @@ public class MetricsApi {
   }
 
   /**
-   * Query timeseries points Query timeseries points.
+   * Query timeseries points
+   *
+   * <p>Query timeseries points.
    *
    * @param from Start of the queried time period, seconds since the Unix epoch. (required)
    * @param to End of the queried time period, seconds since the Unix epoch. (required)
@@ -744,21 +689,14 @@ public class MetricsApi {
   }
 
   /**
-   * Query timeseries points Query timeseries points.
+   * Query timeseries points
+   *
+   * <p>See {@link #queryMetricsWithHttpInfo}.
    *
    * @param from Start of the queried time period, seconds since the Unix epoch. (required)
    * @param to End of the queried time period, seconds since the Unix epoch. (required)
    * @param query Query string. (required)
-   * @return ApiResponse&lt;MetricsQueryResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricsQueryResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricsQueryResponse>> queryMetricsWithHttpInfoAsync(
       Long from, Long to, String query) {
@@ -849,53 +787,25 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics The metrics end-point allows you to post time-series data that can be graphed on
-   * Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed
-   * payloads must have a decompressed size of less than 62 megabytes (62914560 bytes). If you’re
-   * submitting metrics directly to the Datadog API without using DogStatsD, expect: - 64 bits for
-   * the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the
-   * timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API,
-   * compression is applied, which reduces the payload size.
+   * Submit metrics
+   *
+   * <p>See {@link #submitMetricsWithHttpInfo}.
    *
    * @param body (required)
    * @return IntakePayloadAccepted
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IntakePayloadAccepted submitMetrics(MetricsPayload body) throws ApiException {
     return submitMetricsWithHttpInfo(body, new SubmitMetricsOptionalParameters()).getData();
   }
 
   /**
-   * Submit metrics The metrics end-point allows you to post time-series data that can be graphed on
-   * Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed
-   * payloads must have a decompressed size of less than 62 megabytes (62914560 bytes). If you’re
-   * submitting metrics directly to the Datadog API without using DogStatsD, expect: - 64 bits for
-   * the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the
-   * timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API,
-   * compression is applied, which reduces the payload size.
+   * Submit metrics
+   *
+   * <p>See {@link #submitMetricsWithHttpInfo}.
    *
    * @param body (required)
-   * @return CompletableFuture<IntakePayloadAccepted>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
    */
   public CompletableFuture<IntakePayloadAccepted> submitMetricsAsync(MetricsPayload body) {
     return submitMetricsWithHttpInfoAsync(body, new SubmitMetricsOptionalParameters())
@@ -906,28 +816,14 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics The metrics end-point allows you to post time-series data that can be graphed on
-   * Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed
-   * payloads must have a decompressed size of less than 62 megabytes (62914560 bytes). If you’re
-   * submitting metrics directly to the Datadog API without using DogStatsD, expect: - 64 bits for
-   * the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the
-   * timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API,
-   * compression is applied, which reduces the payload size.
+   * Submit metrics
+   *
+   * <p>See {@link #submitMetricsWithHttpInfo}.
    *
    * @param body (required)
    * @param parameters Optional parameters for the request.
    * @return IntakePayloadAccepted
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IntakePayloadAccepted submitMetrics(
       MetricsPayload body, SubmitMetricsOptionalParameters parameters) throws ApiException {
@@ -935,27 +831,13 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics The metrics end-point allows you to post time-series data that can be graphed on
-   * Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed
-   * payloads must have a decompressed size of less than 62 megabytes (62914560 bytes). If you’re
-   * submitting metrics directly to the Datadog API without using DogStatsD, expect: - 64 bits for
-   * the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the
-   * timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API,
-   * compression is applied, which reduces the payload size.
+   * Submit metrics
+   *
+   * <p>See {@link #submitMetricsWithHttpInfo}.
    *
    * @param body (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<IntakePayloadAccepted>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
    */
   public CompletableFuture<IntakePayloadAccepted> submitMetricsAsync(
       MetricsPayload body, SubmitMetricsOptionalParameters parameters) {
@@ -967,13 +849,15 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics The metrics end-point allows you to post time-series data that can be graphed on
-   * Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed
-   * payloads must have a decompressed size of less than 62 megabytes (62914560 bytes). If you’re
-   * submitting metrics directly to the Datadog API without using DogStatsD, expect: - 64 bits for
-   * the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the
-   * timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API,
-   * compression is applied, which reduces the payload size.
+   * Submit metrics
+   *
+   * <p>The metrics end-point allows you to post time-series data that can be graphed on Datadog’s
+   * dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must
+   * have a decompressed size of less than 62 megabytes (62914560 bytes). If you’re submitting
+   * metrics directly to the Datadog API without using DogStatsD, expect: - 64 bits for the
+   * timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries
+   * - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is
+   * applied, which reduces the payload size.
    *
    * @param body (required)
    * @param parameters Optional parameters for the request.
@@ -1043,28 +927,13 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics The metrics end-point allows you to post time-series data that can be graphed on
-   * Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed
-   * payloads must have a decompressed size of less than 62 megabytes (62914560 bytes). If you’re
-   * submitting metrics directly to the Datadog API without using DogStatsD, expect: - 64 bits for
-   * the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the
-   * timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API,
-   * compression is applied, which reduces the payload size.
+   * Submit metrics
+   *
+   * <p>See {@link #submitMetricsWithHttpInfo}.
    *
    * @param body (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;IntakePayloadAccepted&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;IntakePayloadAccepted&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IntakePayloadAccepted>> submitMetricsWithHttpInfoAsync(
       MetricsPayload body, SubmitMetricsOptionalParameters parameters) {
@@ -1122,22 +991,14 @@ public class MetricsApi {
   }
 
   /**
-   * Edit metric metadata Edit metadata of a specific metric. Find out more about [supported
-   * types](https://docs.datadoghq.com/developers/metrics).
+   * Edit metric metadata
+   *
+   * <p>See {@link #updateMetricMetadataWithHttpInfo}.
    *
    * @param metricName Name of the metric for which to edit metadata. (required)
    * @param body New metadata. (required)
    * @return MetricMetadata
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MetricMetadata updateMetricMetadata(String metricName, MetricMetadata body)
       throws ApiException {
@@ -1154,7 +1015,9 @@ public class MetricsApi {
   }
 
   /**
-   * Edit metric metadata Edit metadata of a specific metric. Find out more about [supported
+   * Edit metric metadata
+   *
+   * <p>Edit metadata of a specific metric. Find out more about [supported
    * types](https://docs.datadoghq.com/developers/metrics).
    *
    * @param metricName Name of the metric for which to edit metadata. (required)
@@ -1228,22 +1091,13 @@ public class MetricsApi {
   }
 
   /**
-   * Edit metric metadata Edit metadata of a specific metric. Find out more about [supported
-   * types](https://docs.datadoghq.com/developers/metrics).
+   * Edit metric metadata
+   *
+   * <p>See {@link #updateMetricMetadataWithHttpInfo}.
    *
    * @param metricName Name of the metric for which to edit metadata. (required)
    * @param body New metadata. (required)
-   * @return ApiResponse&lt;MetricMetadata&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricMetadata&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricMetadata>> updateMetricMetadataWithHttpInfoAsync(
       String metricName, MetricMetadata body) {

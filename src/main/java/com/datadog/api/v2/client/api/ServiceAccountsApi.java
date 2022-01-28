@@ -49,21 +49,14 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Create an application key for this service account Create an application key for this service
-   * account.
+   * Create an application key for this service account
+   *
+   * <p>See {@link #createServiceAccountApplicationKeyWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param body (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse createServiceAccountApplicationKey(
       String serviceAccountId, ApplicationKeyCreateRequest body) throws ApiException {
@@ -80,8 +73,9 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Create an application key for this service account Create an application key for this service
-   * account.
+   * Create an application key for this service account
+   *
+   * <p>Create an application key for this service account.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param body (required)
@@ -158,21 +152,13 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Create an application key for this service account Create an application key for this service
-   * account.
+   * Create an application key for this service account
+   *
+   * <p>See {@link #createServiceAccountApplicationKeyWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param body (required)
-   * @return ApiResponse&lt;ApplicationKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
       createServiceAccountApplicationKeyWithHttpInfoAsync(
@@ -244,20 +230,13 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Delete an application key for this service account Delete an application key owned by this
-   * service account.
+   * Delete an application key for this service account
+   *
+   * <p>See {@link #deleteServiceAccountApplicationKeyWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteServiceAccountApplicationKey(String serviceAccountId, String appKeyId)
       throws ApiException {
@@ -274,8 +253,9 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Delete an application key for this service account Delete an application key owned by this
-   * service account.
+   * Delete an application key for this service account
+   *
+   * <p>Delete an application key owned by this service account.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
@@ -352,21 +332,13 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Delete an application key for this service account Delete an application key owned by this
-   * service account.
+   * Delete an application key for this service account
+   *
+   * <p>See {@link #deleteServiceAccountApplicationKeyWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteServiceAccountApplicationKeyWithHttpInfoAsync(
       String serviceAccountId, String appKeyId) {
@@ -436,21 +408,14 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Get one application key for this service account Get an application key owned by this service
-   * account.
+   * Get one application key for this service account
+   *
+   * <p>See {@link #getServiceAccountApplicationKeyWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
    * @return PartialApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public PartialApplicationKeyResponse getServiceAccountApplicationKey(
       String serviceAccountId, String appKeyId) throws ApiException {
@@ -467,8 +432,9 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Get one application key for this service account Get an application key owned by this service
-   * account.
+   * Get one application key for this service account
+   *
+   * <p>Get an application key owned by this service account.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
@@ -547,21 +513,13 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Get one application key for this service account Get an application key owned by this service
-   * account.
+   * Get one application key for this service account
+   *
+   * <p>See {@link #getServiceAccountApplicationKeyWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
-   * @return ApiResponse&lt;PartialApplicationKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;PartialApplicationKeyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PartialApplicationKeyResponse>>
       getServiceAccountApplicationKeyWithHttpInfoAsync(String serviceAccountId, String appKeyId) {
@@ -718,21 +676,13 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account List all application keys available for this
-   * service account.
+   * List application keys for this service account
+   *
+   * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @return ListApplicationKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ListApplicationKeysResponse listServiceAccountApplicationKeys(String serviceAccountId)
       throws ApiException {
@@ -742,20 +692,12 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account List all application keys available for this
-   * service account.
+   * List application keys for this service account
+   *
+   * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
-   * @return CompletableFuture<ListApplicationKeysResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
    */
   public CompletableFuture<ListApplicationKeysResponse> listServiceAccountApplicationKeysAsync(
       String serviceAccountId) {
@@ -768,22 +710,14 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account List all application keys available for this
-   * service account.
+   * List application keys for this service account
+   *
+   * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param parameters Optional parameters for the request.
    * @return ListApplicationKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ListApplicationKeysResponse listServiceAccountApplicationKeys(
       String serviceAccountId, ListServiceAccountApplicationKeysOptionalParameters parameters)
@@ -792,21 +726,13 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account List all application keys available for this
-   * service account.
+   * List application keys for this service account
+   *
+   * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<ListApplicationKeysResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
    */
   public CompletableFuture<ListApplicationKeysResponse> listServiceAccountApplicationKeysAsync(
       String serviceAccountId, ListServiceAccountApplicationKeysOptionalParameters parameters) {
@@ -818,8 +744,9 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account List all application keys available for this
-   * service account.
+   * List application keys for this service account
+   *
+   * <p>List all application keys available for this service account.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param parameters Optional parameters for the request.
@@ -907,22 +834,13 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account List all application keys available for this
-   * service account.
+   * List application keys for this service account
+   *
+   * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;ListApplicationKeysResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;ListApplicationKeysResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ListApplicationKeysResponse>>
       listServiceAccountApplicationKeysWithHttpInfoAsync(
@@ -1000,23 +918,15 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Edit an application key for this service account Edit an application key owned by this service
-   * account.
+   * Edit an application key for this service account
+   *
+   * <p>See {@link #updateServiceAccountApplicationKeyWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
    * @return PartialApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public PartialApplicationKeyResponse updateServiceAccountApplicationKey(
       String serviceAccountId, String appKeyId, ApplicationKeyUpdateRequest body)
@@ -1035,8 +945,9 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Edit an application key for this service account Edit an application key owned by this service
-   * account.
+   * Edit an application key for this service account
+   *
+   * <p>Edit an application key owned by this service account.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
@@ -1125,23 +1036,14 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Edit an application key for this service account Edit an application key owned by this service
-   * account.
+   * Edit an application key for this service account
+   *
+   * <p>See {@link #updateServiceAccountApplicationKeyWithHttpInfo}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
-   * @return ApiResponse&lt;PartialApplicationKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;PartialApplicationKeyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PartialApplicationKeyResponse>>
       updateServiceAccountApplicationKeyWithHttpInfoAsync(

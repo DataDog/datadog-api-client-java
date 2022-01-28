@@ -45,19 +45,13 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Create a pipeline Create a pipeline in your organization.
+   * Create a pipeline
+   *
+   * <p>See {@link #createLogsPipelineWithHttpInfo}.
    *
    * @param body Definition of the new pipeline. (required)
    * @return LogsPipeline
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsPipeline createLogsPipeline(LogsPipeline body) throws ApiException {
     return createLogsPipelineWithHttpInfo(body).getData();
@@ -72,7 +66,9 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Create a pipeline Create a pipeline in your organization.
+   * Create a pipeline
+   *
+   * <p>Create a pipeline in your organization.
    *
    * @param body Definition of the new pipeline. (required)
    * @return ApiResponse&lt;LogsPipeline&gt;
@@ -134,19 +130,12 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Create a pipeline Create a pipeline in your organization.
+   * Create a pipeline
+   *
+   * <p>See {@link #createLogsPipelineWithHttpInfo}.
    *
    * @param body Definition of the new pipeline. (required)
-   * @return ApiResponse&lt;LogsPipeline&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsPipeline&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsPipeline>> createLogsPipelineWithHttpInfoAsync(
       LogsPipeline body) {
@@ -199,19 +188,12 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Delete a pipeline Delete a given pipeline from your organization. This endpoint takes no JSON
-   * arguments.
+   * Delete a pipeline
+   *
+   * <p>See {@link #deleteLogsPipelineWithHttpInfo}.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteLogsPipeline(String pipelineId) throws ApiException {
     deleteLogsPipelineWithHttpInfo(pipelineId);
@@ -226,8 +208,9 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Delete a pipeline Delete a given pipeline from your organization. This endpoint takes no JSON
-   * arguments.
+   * Delete a pipeline
+   *
+   * <p>Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -290,20 +273,12 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Delete a pipeline Delete a given pipeline from your organization. This endpoint takes no JSON
-   * arguments.
+   * Delete a pipeline
+   *
+   * <p>See {@link #deleteLogsPipelineWithHttpInfo}.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteLogsPipelineWithHttpInfoAsync(
       String pipelineId) {
@@ -358,20 +333,13 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get a pipeline Get a specific pipeline from your organization. This endpoint takes no JSON
-   * arguments.
+   * Get a pipeline
+   *
+   * <p>See {@link #getLogsPipelineWithHttpInfo}.
    *
    * @param pipelineId ID of the pipeline to get. (required)
    * @return LogsPipeline
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsPipeline getLogsPipeline(String pipelineId) throws ApiException {
     return getLogsPipelineWithHttpInfo(pipelineId).getData();
@@ -386,8 +354,9 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get a pipeline Get a specific pipeline from your organization. This endpoint takes no JSON
-   * arguments.
+   * Get a pipeline
+   *
+   * <p>Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
    *
    * @param pipelineId ID of the pipeline to get. (required)
    * @return ApiResponse&lt;LogsPipeline&gt;
@@ -453,20 +422,12 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get a pipeline Get a specific pipeline from your organization. This endpoint takes no JSON
-   * arguments.
+   * Get a pipeline
+   *
+   * <p>See {@link #getLogsPipelineWithHttpInfo}.
    *
    * @param pipelineId ID of the pipeline to get. (required)
-   * @return ApiResponse&lt;LogsPipeline&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsPipeline&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsPipeline>> getLogsPipelineWithHttpInfoAsync(
       String pipelineId) {
@@ -523,18 +484,12 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get pipeline order Get the current order of your pipelines. This endpoint takes no JSON
-   * arguments.
+   * Get pipeline order
+   *
+   * <p>See {@link #getLogsPipelineOrderWithHttpInfo}.
    *
    * @return LogsPipelinesOrder
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsPipelinesOrder getLogsPipelineOrder() throws ApiException {
     return getLogsPipelineOrderWithHttpInfo().getData();
@@ -549,8 +504,9 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get pipeline order Get the current order of your pipelines. This endpoint takes no JSON
-   * arguments.
+   * Get pipeline order
+   *
+   * <p>Get the current order of your pipelines. This endpoint takes no JSON arguments.
    *
    * @return ApiResponse&lt;LogsPipelinesOrder&gt;
    * @throws ApiException if fails to make API call
@@ -604,18 +560,11 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get pipeline order Get the current order of your pipelines. This endpoint takes no JSON
-   * arguments.
+   * Get pipeline order
    *
-   * @return ApiResponse&lt;LogsPipelinesOrder&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #getLogsPipelineOrderWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsPipelinesOrder&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsPipelinesOrder>>
       getLogsPipelineOrderWithHttpInfoAsync() {
@@ -660,18 +609,12 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get all pipelines Get all pipelines from your organization. This endpoint takes no JSON
-   * arguments.
+   * Get all pipelines
+   *
+   * <p>See {@link #listLogsPipelinesWithHttpInfo}.
    *
    * @return List&lt;LogsPipeline&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<LogsPipeline> listLogsPipelines() throws ApiException {
     return listLogsPipelinesWithHttpInfo().getData();
@@ -686,8 +629,9 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get all pipelines Get all pipelines from your organization. This endpoint takes no JSON
-   * arguments.
+   * Get all pipelines
+   *
+   * <p>Get all pipelines from your organization. This endpoint takes no JSON arguments.
    *
    * @return ApiResponse&lt;List&lt;LogsPipeline&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -741,18 +685,11 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get all pipelines Get all pipelines from your organization. This endpoint takes no JSON
-   * arguments.
+   * Get all pipelines
    *
-   * @return ApiResponse&lt;List&lt;LogsPipeline&gt;&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listLogsPipelinesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;LogsPipeline&gt;&gt;&gt;
    */
   public CompletableFuture<ApiResponse<List<LogsPipeline>>> listLogsPipelinesWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -796,22 +733,14 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update a pipeline Update a given pipeline configuration to change it’s processors or their
-   * order. **Note**: Using this method updates your pipeline configuration by **replacing** your
-   * current configuration with the new one sent to your Datadog organization.
+   * Update a pipeline
+   *
+   * <p>See {@link #updateLogsPipelineWithHttpInfo}.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
    * @param body New definition of the pipeline. (required)
    * @return LogsPipeline
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsPipeline updateLogsPipeline(String pipelineId, LogsPipeline body) throws ApiException {
     return updateLogsPipelineWithHttpInfo(pipelineId, body).getData();
@@ -827,9 +756,11 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update a pipeline Update a given pipeline configuration to change it’s processors or their
-   * order. **Note**: Using this method updates your pipeline configuration by **replacing** your
-   * current configuration with the new one sent to your Datadog organization.
+   * Update a pipeline
+   *
+   * <p>Update a given pipeline configuration to change it’s processors or their order. **Note**:
+   * Using this method updates your pipeline configuration by **replacing** your current
+   * configuration with the new one sent to your Datadog organization.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
    * @param body New definition of the pipeline. (required)
@@ -901,22 +832,13 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update a pipeline Update a given pipeline configuration to change it’s processors or their
-   * order. **Note**: Using this method updates your pipeline configuration by **replacing** your
-   * current configuration with the new one sent to your Datadog organization.
+   * Update a pipeline
+   *
+   * <p>See {@link #updateLogsPipelineWithHttpInfo}.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
    * @param body New definition of the pipeline. (required)
-   * @return ApiResponse&lt;LogsPipeline&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsPipeline&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsPipeline>> updateLogsPipelineWithHttpInfoAsync(
       String pipelineId, LogsPipeline body) {
@@ -981,24 +903,13 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update pipeline order Update the order of your pipelines. Since logs are processed
-   * sequentially, reordering a pipeline may change the structure and content of the data processed
-   * by other pipelines and their processors. **Note**: Using the &#x60;PUT&#x60; method updates
-   * your pipeline order by replacing your current order with the new one sent to your Datadog
-   * organization.
+   * Update pipeline order
+   *
+   * <p>See {@link #updateLogsPipelineOrderWithHttpInfo}.
    *
    * @param body Object containing the new ordered list of pipeline IDs. (required)
    * @return LogsPipelinesOrder
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsPipelinesOrder updateLogsPipelineOrder(LogsPipelinesOrder body) throws ApiException {
     return updateLogsPipelineOrderWithHttpInfo(body).getData();
@@ -1014,11 +925,12 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update pipeline order Update the order of your pipelines. Since logs are processed
-   * sequentially, reordering a pipeline may change the structure and content of the data processed
-   * by other pipelines and their processors. **Note**: Using the &#x60;PUT&#x60; method updates
-   * your pipeline order by replacing your current order with the new one sent to your Datadog
-   * organization.
+   * Update pipeline order
+   *
+   * <p>Update the order of your pipelines. Since logs are processed sequentially, reordering a
+   * pipeline may change the structure and content of the data processed by other pipelines and
+   * their processors. **Note**: Using the &#x60;PUT&#x60; method updates your pipeline order by
+   * replacing your current order with the new one sent to your Datadog organization.
    *
    * @param body Object containing the new ordered list of pipeline IDs. (required)
    * @return ApiResponse&lt;LogsPipelinesOrder&gt;
@@ -1081,24 +993,12 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update pipeline order Update the order of your pipelines. Since logs are processed
-   * sequentially, reordering a pipeline may change the structure and content of the data processed
-   * by other pipelines and their processors. **Note**: Using the &#x60;PUT&#x60; method updates
-   * your pipeline order by replacing your current order with the new one sent to your Datadog
-   * organization.
+   * Update pipeline order
+   *
+   * <p>See {@link #updateLogsPipelineOrderWithHttpInfo}.
    *
    * @param body Object containing the new ordered list of pipeline IDs. (required)
-   * @return ApiResponse&lt;LogsPipelinesOrder&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsPipelinesOrder&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsPipelinesOrder>>
       updateLogsPipelineOrderWithHttpInfoAsync(LogsPipelinesOrder body) {

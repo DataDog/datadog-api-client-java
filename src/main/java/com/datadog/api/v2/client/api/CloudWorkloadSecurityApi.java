@@ -48,20 +48,13 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Create a Cloud Workload Security Agent rule Create a new Agent rule with the given parameters.
+   * Create a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #createCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
    * @param body The definition of the new Agent rule. (required)
    * @return CloudWorkloadSecurityAgentRuleResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public CloudWorkloadSecurityAgentRuleResponse createCloudWorkloadSecurityAgentRule(
       CloudWorkloadSecurityAgentRuleCreateRequest body) throws ApiException {
@@ -78,7 +71,9 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Create a Cloud Workload Security Agent rule Create a new Agent rule with the given parameters.
+   * Create a Cloud Workload Security Agent rule
+   *
+   * <p>Create a new Agent rule with the given parameters.
    *
    * @param body The definition of the new Agent rule. (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
@@ -145,20 +140,12 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Create a Cloud Workload Security Agent rule Create a new Agent rule with the given parameters.
+   * Create a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #createCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
    * @param body The definition of the new Agent rule. (required)
-   * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>>
       createCloudWorkloadSecurityAgentRuleWithHttpInfoAsync(
@@ -216,18 +203,12 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Delete a Cloud Workload Security Agent rule Delete a specific Agent rule.
+   * Delete a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #deleteCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteCloudWorkloadSecurityAgentRule(String agentRuleId) throws ApiException {
     deleteCloudWorkloadSecurityAgentRuleWithHttpInfo(agentRuleId);
@@ -242,7 +223,9 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Delete a Cloud Workload Security Agent rule Delete a specific Agent rule.
+   * Delete a Cloud Workload Security Agent rule
+   *
+   * <p>Delete a specific Agent rule.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -308,19 +291,12 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Delete a Cloud Workload Security Agent rule Delete a specific Agent rule.
+   * Delete a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #deleteCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCloudWorkloadSecurityAgentRuleWithHttpInfoAsync(
       String agentRuleId) {
@@ -377,20 +353,12 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get the latest Cloud Workload Security policy The download endpoint generates a Cloud Workload
-   * Security policy file from your currently active Cloud Workload Security rules, and downloads
-   * them as a .policy file. This file can then be deployed to your agents to update the policy
-   * running in your environment.
+   * Get the latest Cloud Workload Security policy
+   *
+   * <p>See {@link #downloadCloudWorkloadPolicyFileWithHttpInfo}.
    *
    * @return File
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public File downloadCloudWorkloadPolicyFile() throws ApiException {
     return downloadCloudWorkloadPolicyFileWithHttpInfo().getData();
@@ -405,10 +373,11 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get the latest Cloud Workload Security policy The download endpoint generates a Cloud Workload
-   * Security policy file from your currently active Cloud Workload Security rules, and downloads
-   * them as a .policy file. This file can then be deployed to your agents to update the policy
-   * running in your environment.
+   * Get the latest Cloud Workload Security policy
+   *
+   * <p>The download endpoint generates a Cloud Workload Security policy file from your currently
+   * active Cloud Workload Security rules, and downloads them as a .policy file. This file can then
+   * be deployed to your agents to update the policy running in your environment.
    *
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
@@ -462,20 +431,11 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get the latest Cloud Workload Security policy The download endpoint generates a Cloud Workload
-   * Security policy file from your currently active Cloud Workload Security rules, and downloads
-   * them as a .policy file. This file can then be deployed to your agents to update the policy
-   * running in your environment.
+   * Get the latest Cloud Workload Security policy
    *
-   * @return ApiResponse&lt;File&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #downloadCloudWorkloadPolicyFileWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;File&gt;&gt;
    */
   public CompletableFuture<ApiResponse<File>> downloadCloudWorkloadPolicyFileWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -519,19 +479,13 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get a Cloud Workload Security Agent rule Get the details of a specific Agent rule.
+   * Get a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #getCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
    * @return CloudWorkloadSecurityAgentRuleResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public CloudWorkloadSecurityAgentRuleResponse getCloudWorkloadSecurityAgentRule(
       String agentRuleId) throws ApiException {
@@ -548,7 +502,9 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get a Cloud Workload Security Agent rule Get the details of a specific Agent rule.
+   * Get a Cloud Workload Security Agent rule
+   *
+   * <p>Get the details of a specific Agent rule.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
@@ -617,19 +573,12 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get a Cloud Workload Security Agent rule Get the details of a specific Agent rule.
+   * Get a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #getCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
-   * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>>
       getCloudWorkloadSecurityAgentRuleWithHttpInfoAsync(String agentRuleId) {
@@ -690,17 +639,12 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get all Cloud Workload Security Agent rules Get the list of Agent rules.
+   * Get all Cloud Workload Security Agent rules
+   *
+   * <p>See {@link #listCloudWorkloadSecurityAgentRulesWithHttpInfo}.
    *
    * @return CloudWorkloadSecurityAgentRulesListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public CloudWorkloadSecurityAgentRulesListResponse listCloudWorkloadSecurityAgentRules()
       throws ApiException {
@@ -717,7 +661,9 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get all Cloud Workload Security Agent rules Get the list of Agent rules.
+   * Get all Cloud Workload Security Agent rules
+   *
+   * <p>Get the list of Agent rules.
    *
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRulesListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -773,17 +719,11 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get all Cloud Workload Security Agent rules Get the list of Agent rules.
+   * Get all Cloud Workload Security Agent rules
    *
-   * @return ApiResponse&lt;CloudWorkloadSecurityAgentRulesListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listCloudWorkloadSecurityAgentRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;CloudWorkloadSecurityAgentRulesListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRulesListResponse>>
       listCloudWorkloadSecurityAgentRulesWithHttpInfoAsync() {
@@ -829,23 +769,14 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Update a Cloud Workload Security Agent rule Update a specific Agent rule. Returns the Agent
-   * rule object when the request is successful.
+   * Update a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #updateCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
    * @param body New definition of the Agent rule. (required)
    * @return CloudWorkloadSecurityAgentRuleResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Concurrent Modification </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public CloudWorkloadSecurityAgentRuleResponse updateCloudWorkloadSecurityAgentRule(
       String agentRuleId, CloudWorkloadSecurityAgentRuleUpdateRequest body) throws ApiException {
@@ -863,8 +794,9 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Update a Cloud Workload Security Agent rule Update a specific Agent rule. Returns the Agent
-   * rule object when the request is successful.
+   * Update a Cloud Workload Security Agent rule
+   *
+   * <p>Update a specific Agent rule. Returns the Agent rule object when the request is successful.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
    * @param body New definition of the Agent rule. (required)
@@ -945,23 +877,13 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Update a Cloud Workload Security Agent rule Update a specific Agent rule. Returns the Agent
-   * rule object when the request is successful.
+   * Update a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #updateCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
    * @param body New definition of the Agent rule. (required)
-   * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Concurrent Modification </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>>
       updateCloudWorkloadSecurityAgentRuleWithHttpInfoAsync(

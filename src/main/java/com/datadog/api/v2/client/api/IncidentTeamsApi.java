@@ -48,21 +48,13 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Create a new incident team Creates a new incident team.
+   * Create a new incident team
+   *
+   * <p>See {@link #createIncidentTeamWithHttpInfo}.
    *
    * @param body Incident Team Payload. (required)
    * @return IncidentTeamResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentTeamResponse createIncidentTeam(IncidentTeamCreateRequest body)
       throws ApiException {
@@ -79,7 +71,9 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Create a new incident team Creates a new incident team.
+   * Create a new incident team
+   *
+   * <p>Creates a new incident team.
    *
    * @param body Incident Team Payload. (required)
    * @return ApiResponse&lt;IncidentTeamResponse&gt;
@@ -144,21 +138,12 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Create a new incident team Creates a new incident team.
+   * Create a new incident team
+   *
+   * <p>See {@link #createIncidentTeamWithHttpInfo}.
    *
    * @param body Incident Team Payload. (required)
-   * @return ApiResponse&lt;IncidentTeamResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentTeamResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IncidentTeamResponse>> createIncidentTeamWithHttpInfoAsync(
       IncidentTeamCreateRequest body) {
@@ -212,20 +197,12 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Delete an existing incident team Deletes an existing incident team.
+   * Delete an existing incident team
+   *
+   * <p>See {@link #deleteIncidentTeamWithHttpInfo}.
    *
    * @param teamId The ID of the incident team. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteIncidentTeam(String teamId) throws ApiException {
     deleteIncidentTeamWithHttpInfo(teamId);
@@ -240,7 +217,9 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Delete an existing incident team Deletes an existing incident team.
+   * Delete an existing incident team
+   *
+   * <p>Deletes an existing incident team.
    *
    * @param teamId The ID of the incident team. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -304,21 +283,12 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Delete an existing incident team Deletes an existing incident team.
+   * Delete an existing incident team
+   *
+   * <p>See {@link #deleteIncidentTeamWithHttpInfo}.
    *
    * @param teamId The ID of the incident team. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteIncidentTeamWithHttpInfoAsync(String teamId) {
     Object localVarPostBody = null;
@@ -388,45 +358,25 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team Get details of an incident team. If the
-   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
-   * users related to these incident teams.
+   * Get details of an incident team
+   *
+   * <p>See {@link #getIncidentTeamWithHttpInfo}.
    *
    * @param teamId The ID of the incident team. (required)
    * @return IncidentTeamResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentTeamResponse getIncidentTeam(String teamId) throws ApiException {
     return getIncidentTeamWithHttpInfo(teamId, new GetIncidentTeamOptionalParameters()).getData();
   }
 
   /**
-   * Get details of an incident team Get details of an incident team. If the
-   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
-   * users related to these incident teams.
+   * Get details of an incident team
+   *
+   * <p>See {@link #getIncidentTeamWithHttpInfo}.
    *
    * @param teamId The ID of the incident team. (required)
-   * @return CompletableFuture<IncidentTeamResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;IncidentTeamResponse&gt;
    */
   public CompletableFuture<IncidentTeamResponse> getIncidentTeamAsync(String teamId) {
     return getIncidentTeamWithHttpInfoAsync(teamId, new GetIncidentTeamOptionalParameters())
@@ -437,24 +387,14 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team Get details of an incident team. If the
-   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
-   * users related to these incident teams.
+   * Get details of an incident team
+   *
+   * <p>See {@link #getIncidentTeamWithHttpInfo}.
    *
    * @param teamId The ID of the incident team. (required)
    * @param parameters Optional parameters for the request.
    * @return IncidentTeamResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentTeamResponse getIncidentTeam(
       String teamId, GetIncidentTeamOptionalParameters parameters) throws ApiException {
@@ -462,23 +402,13 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team Get details of an incident team. If the
-   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
-   * users related to these incident teams.
+   * Get details of an incident team
+   *
+   * <p>See {@link #getIncidentTeamWithHttpInfo}.
    *
    * @param teamId The ID of the incident team. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<IncidentTeamResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;IncidentTeamResponse&gt;
    */
   public CompletableFuture<IncidentTeamResponse> getIncidentTeamAsync(
       String teamId, GetIncidentTeamOptionalParameters parameters) {
@@ -490,9 +420,10 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team Get details of an incident team. If the
-   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
-   * users related to these incident teams.
+   * Get details of an incident team
+   *
+   * <p>Get details of an incident team. If the &#x60;include[users]&#x60; query parameter is
+   * provided, the included attribute will contain the users related to these incident teams.
    *
    * @param teamId The ID of the incident team. (required)
    * @param parameters Optional parameters for the request.
@@ -564,24 +495,13 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team Get details of an incident team. If the
-   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
-   * users related to these incident teams.
+   * Get details of an incident team
+   *
+   * <p>See {@link #getIncidentTeamWithHttpInfo}.
    *
    * @param teamId The ID of the incident team. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;IncidentTeamResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentTeamResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IncidentTeamResponse>> getIncidentTeamWithHttpInfoAsync(
       String teamId, GetIncidentTeamOptionalParameters parameters) {
@@ -695,43 +615,23 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get a list of all incident teams Get all incident teams for the requesting user&#39;s
-   * organization. If the &#x60;include[users]&#x60; query parameter is provided, the included
-   * attribute will contain the users related to these incident teams.
+   * Get a list of all incident teams
+   *
+   * <p>See {@link #listIncidentTeamsWithHttpInfo}.
    *
    * @return IncidentTeamsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentTeamsResponse listIncidentTeams() throws ApiException {
     return listIncidentTeamsWithHttpInfo(new ListIncidentTeamsOptionalParameters()).getData();
   }
 
   /**
-   * Get a list of all incident teams Get all incident teams for the requesting user&#39;s
-   * organization. If the &#x60;include[users]&#x60; query parameter is provided, the included
-   * attribute will contain the users related to these incident teams.
+   * Get a list of all incident teams
    *
-   * @return CompletableFuture<IncidentTeamsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listIncidentTeamsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;IncidentTeamsResponse&gt;
    */
   public CompletableFuture<IncidentTeamsResponse> listIncidentTeamsAsync() {
     return listIncidentTeamsWithHttpInfoAsync(new ListIncidentTeamsOptionalParameters())
@@ -742,23 +642,13 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get a list of all incident teams Get all incident teams for the requesting user&#39;s
-   * organization. If the &#x60;include[users]&#x60; query parameter is provided, the included
-   * attribute will contain the users related to these incident teams.
+   * Get a list of all incident teams
+   *
+   * <p>See {@link #listIncidentTeamsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return IncidentTeamsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentTeamsResponse listIncidentTeams(ListIncidentTeamsOptionalParameters parameters)
       throws ApiException {
@@ -766,22 +656,12 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get a list of all incident teams Get all incident teams for the requesting user&#39;s
-   * organization. If the &#x60;include[users]&#x60; query parameter is provided, the included
-   * attribute will contain the users related to these incident teams.
+   * Get a list of all incident teams
+   *
+   * <p>See {@link #listIncidentTeamsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<IncidentTeamsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;IncidentTeamsResponse&gt;
    */
   public CompletableFuture<IncidentTeamsResponse> listIncidentTeamsAsync(
       ListIncidentTeamsOptionalParameters parameters) {
@@ -793,9 +673,11 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get a list of all incident teams Get all incident teams for the requesting user&#39;s
-   * organization. If the &#x60;include[users]&#x60; query parameter is provided, the included
-   * attribute will contain the users related to these incident teams.
+   * Get a list of all incident teams
+   *
+   * <p>Get all incident teams for the requesting user&#39;s organization. If the
+   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
+   * users related to these incident teams.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;IncidentTeamsResponse&gt;
@@ -864,23 +746,12 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get a list of all incident teams Get all incident teams for the requesting user&#39;s
-   * organization. If the &#x60;include[users]&#x60; query parameter is provided, the included
-   * attribute will contain the users related to these incident teams.
+   * Get a list of all incident teams
+   *
+   * <p>See {@link #listIncidentTeamsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;IncidentTeamsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentTeamsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IncidentTeamsResponse>> listIncidentTeamsWithHttpInfoAsync(
       ListIncidentTeamsOptionalParameters parameters) {
@@ -935,23 +806,14 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Update an existing incident team Updates an existing incident team. Only provide the attributes
-   * which should be updated as this request is a partial update.
+   * Update an existing incident team
+   *
+   * <p>See {@link #updateIncidentTeamWithHttpInfo}.
    *
    * @param teamId The ID of the incident team. (required)
    * @param body Incident Team Payload. (required)
    * @return IncidentTeamResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentTeamResponse updateIncidentTeam(String teamId, IncidentTeamUpdateRequest body)
       throws ApiException {
@@ -968,8 +830,10 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Update an existing incident team Updates an existing incident team. Only provide the attributes
-   * which should be updated as this request is a partial update.
+   * Update an existing incident team
+   *
+   * <p>Updates an existing incident team. Only provide the attributes which should be updated as
+   * this request is a partial update.
    *
    * @param teamId The ID of the incident team. (required)
    * @param body Incident Team Payload. (required)
@@ -1043,23 +907,13 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Update an existing incident team Updates an existing incident team. Only provide the attributes
-   * which should be updated as this request is a partial update.
+   * Update an existing incident team
+   *
+   * <p>See {@link #updateIncidentTeamWithHttpInfo}.
    *
    * @param teamId The ID of the incident team. (required)
    * @param body Incident Team Payload. (required)
-   * @return ApiResponse&lt;IncidentTeamResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentTeamResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IncidentTeamResponse>> updateIncidentTeamWithHttpInfoAsync(
       String teamId, IncidentTeamUpdateRequest body) {

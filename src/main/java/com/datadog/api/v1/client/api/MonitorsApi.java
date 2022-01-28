@@ -49,20 +49,13 @@ public class MonitorsApi {
   }
 
   /**
-   * Check if a monitor can be deleted Check if the given monitors can be deleted.
+   * Check if a monitor can be deleted
+   *
+   * <p>See {@link #checkCanDeleteMonitorWithHttpInfo}.
    *
    * @param monitorIds The IDs of the monitor to check. (required)
    * @return CheckCanDeleteMonitorResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Deletion conflict error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public CheckCanDeleteMonitorResponse checkCanDeleteMonitor(List<Long> monitorIds)
       throws ApiException {
@@ -79,7 +72,9 @@ public class MonitorsApi {
   }
 
   /**
-   * Check if a monitor can be deleted Check if the given monitors can be deleted.
+   * Check if a monitor can be deleted
+   *
+   * <p>Check if the given monitors can be deleted.
    *
    * @param monitorIds The IDs of the monitor to check. (required)
    * @return ApiResponse&lt;CheckCanDeleteMonitorResponse&gt;
@@ -146,20 +141,12 @@ public class MonitorsApi {
   }
 
   /**
-   * Check if a monitor can be deleted Check if the given monitors can be deleted.
+   * Check if a monitor can be deleted
+   *
+   * <p>See {@link #checkCanDeleteMonitorWithHttpInfo}.
    *
    * @param monitorIds The IDs of the monitor to check. (required)
-   * @return ApiResponse&lt;CheckCanDeleteMonitorResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Deletion conflict error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;CheckCanDeleteMonitorResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CheckCanDeleteMonitorResponse>>
       checkCanDeleteMonitorWithHttpInfoAsync(List<Long> monitorIds) {
@@ -218,138 +205,13 @@ public class MonitorsApi {
   }
 
   /**
-   * Create a monitor Create a monitor using the specified options. #### Monitor Types The type of
-   * monitor chosen from: - anomaly: &#x60;query alert&#x60; - APM: &#x60;query alert&#x60; or
-   * &#x60;trace-analytics alert&#x60; - composite: &#x60;composite&#x60; - custom: &#x60;service
-   * check&#x60; - event: &#x60;event alert&#x60; - forecast: &#x60;query alert&#x60; - host:
-   * &#x60;service check&#x60; - integration: &#x60;query alert&#x60; or &#x60;service check&#x60; -
-   * live process: &#x60;process alert&#x60; - logs: &#x60;log alert&#x60; - metric: &#x60;query
-   * alert&#x60; - network: &#x60;service check&#x60; - outlier: &#x60;query alert&#x60; - process:
-   * &#x60;service check&#x60; - rum: &#x60;rum alert&#x60; - SLO: &#x60;slo alert&#x60; - watchdog:
-   * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; - audit: &#x60;audit alert&#x60;
-   * #### Query Types **Metric Alert Query** Example:
-   * &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #&#x60; -
-   * &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change - &#x60;time_window&#x60;:
-   * &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 10080 depending on the monitor type) or
-   * &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 168 depending on the monitor type) or
-   * &#x60;last_1d&#x60;, or &#x60;last_1w&#x60; - &#x60;space_aggr&#x60;: avg, sum, min, or max -
-   * &#x60;tags&#x60;: one or more tags (comma-separated), or * - &#x60;key&#x60;: a &#39;key&#39;
-   * in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) -
-   * &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; -
-   * &#x60;#&#x60;: an integer or decimal number used to set the threshold If you are using the
-   * &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time aggregator, instead use
-   * &#x60;change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}]
-   * operator #&#x60; with: - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60;
-   * avg, sum, max, min [Learn
-   * more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions) -
-   * &#x60;time_window&#x60; last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h
-   * (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - &#x60;timeshift&#x60;
-   * #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago Use this to create an outlier monitor
-   * using the following query:
-   * &#x60;avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host},
-   * &#39;dbscan&#39;, 7) &gt; 0&#x60; **Service Check Query** Example:
-   * &#x60;\&quot;check\&quot;.over(tags).last(count).by(group).count_by_status()&#x60; -
-   * **&#x60;check&#x60;** name of the check, for example &#x60;datadog.agent.up&#x60; -
-   * **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or \&quot;*\&quot;. for
-   * example: &#x60;.over(\&quot;env:prod\&quot;, \&quot;role:db\&quot;)&#x60;; **&#x60;over&#x60;**
-   * cannot be blank. - **&#x60;count&#x60;** must be at greater than or equal to your max threshold
-   * (defined in the &#x60;options&#x60;). It is limited to 100. For example, if you&#39;ve
-   * specified to notify on 1 critical, 3 ok, and 2 warn statuses, &#x60;count&#x60; should be at
-   * least 3. - **&#x60;group&#x60;** must be specified for check monitors. Per-check grouping is
-   * already explicitly known for some service checks. For example, Postgres integration monitors
-   * are tagged by &#x60;db&#x60;, &#x60;host&#x60;, and &#x60;port&#x60;, and Network monitors by
-   * &#x60;host&#x60;, &#x60;instance&#x60;, and &#x60;url&#x60;. See [Service
-   * Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation for more
-   * information. **Event Alert Query** Example: &#x60;events(&#39;sources:nagios
-   * status:error,warning priority:normal tags: \&quot;string
-   * query\&quot;&#39;).rollup(\&quot;count\&quot;).last(\&quot;1h\&quot;)\&quot;&#x60; -
-   * **&#x60;event&#x60;**, the event query string: - **&#x60;string_query&#x60;** free text query
-   * to match against event title and text. - **&#x60;sources&#x60;** event sources
-   * (comma-separated). - **&#x60;status&#x60;** event statuses (comma-separated). Valid options:
-   * error, warn, and info. - **&#x60;priority&#x60;** event priorities (comma-separated). Valid
-   * options: low, normal, all. - **&#x60;host&#x60;** event reporting host (comma-separated). -
-   * **&#x60;tags&#x60;** event tags (comma-separated). - **&#x60;excluded_tags&#x60;** excluded
-   * event tags (comma-separated). - **&#x60;rollup&#x60;** the stats roll-up method.
-   * &#x60;count&#x60; is the only supported method now. - **&#x60;last&#x60;** the timeframe to
-   * roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not
-   * exceed 48 hours. **NOTE** Only available on US1 and EU. **Event V2 Alert Query** Example:
-   * &#x60;events(query).rollup(rollup_method[, measure]).last(time_window) operator #&#x60; -
-   * **&#x60;query&#x60;** The search query - following the [Log search
-   * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The
-   * stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;.
-   * - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; -
-   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m
-   * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
-   * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
-   * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **NOTE** Only available on US1-FED, US3, US5 and in closed beta on EU and US1.
-   * **Process Alert Query** Example:
-   * &#x60;processes(search).over(tags).rollup(&#39;count&#39;).last(timeframe) operator #&#x60; -
-   * **&#x60;search&#x60;** free text search string for querying processes. Matching processes match
-   * results on the [Live
-   * Processes](https://docs.datadoghq.com/infrastructure/process/?tab&#x3D;linuxwindows) page. -
-   * **&#x60;tags&#x60;** one or more tags (comma-separated) - **&#x60;timeframe&#x60;** the
-   * timeframe to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and d -
-   * **&#x60;operator&#x60;** &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; -
-   * **&#x60;#&#x60;** an integer or decimal number used to set the threshold **Logs Alert Query**
-   * Example: &#x60;logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window)
-   * operator #&#x60; - **&#x60;query&#x60;** The search query - following the [Log search
-   * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;index_name&#x60;** For
-   * multi-index organizations, the log index in which the request is performed. -
-   * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
-   * &#x60;avg&#x60; and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
-   * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
-   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
-   * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
-   * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
-   * an integer or decimal number used to set the threshold. **Composite Query** Example:
-   * &#x60;12345 &amp;&amp; 67890&#x60;, where &#x60;12345&#x60; and &#x60;67890&#x60; are the IDs
-   * of non-composite monitors * **&#x60;name&#x60;** [*required*, *default* &#x3D; **dynamic, based
-   * on query**]: The name of the alert. * **&#x60;message&#x60;** [*required*, *default* &#x3D;
-   * **dynamic, based on query**]: A message to include with notifications for this monitor. Email
-   * notifications can be sent to specific users by using the same &#39;@username&#39; notation as
-   * events. * **&#x60;tags&#x60;** [*optional*, *default* &#x3D; **empty list**]: A list of tags to
-   * associate with your monitor. When getting all monitor details via the API, use the
-   * &#x60;monitor_tags&#x60; argument to filter results by these tags. It is only available via the
-   * API and isn&#39;t visible or editable in the Datadog UI. **SLO Alert Query** Example:
-   * &#x60;error_budget(\&quot;slo_id\&quot;).over(\&quot;time_window\&quot;) operator #&#x60; -
-   * **&#x60;slo_id&#x60;**: The alphanumeric SLO ID of the SLO you are configuring the alert for. -
-   * **&#x60;time_window&#x60;**: The time window of the SLO target you wish to alert on. Valid
-   * options: &#x60;7d&#x60;, &#x60;30d&#x60;, &#x60;90d&#x60;. - **&#x60;operator&#x60;**:
-   * &#x60;&gt;&#x3D;&#x60; or &#x60;&gt;&#x60; **Audit Alert Query** Example:
-   * &#x60;audits(query).rollup(rollup_method[, measure]).last(time_window) operator #&#x60; -
-   * **&#x60;query&#x60;** The search query - following the [Log search
-   * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The
-   * stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;.
-   * - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; -
-   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m
-   * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
-   * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
-   * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5. **CI
-   * Pipelines Alert Query** Example: &#x60;ci-pipelines(query).rollup(rollup_method[,
-   * measure]).last(time_window) operator #&#x60; - **&#x60;query&#x60;** The search query -
-   * following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). -
-   * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
-   * &#x60;avg&#x60;, and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
-   * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
-   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
-   * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
-   * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
-   * an integer or decimal number used to set the threshold. **NOTE** Only available in closed beta
-   * on US1, EU, US3 and US5.
+   * Create a monitor
+   *
+   * <p>See {@link #createMonitorWithHttpInfo}.
    *
    * @param body Create a monitor request body. (required)
    * @return Monitor
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Monitor createMonitor(Monitor body) throws ApiException {
     return createMonitorWithHttpInfo(body).getData();
@@ -364,8 +226,10 @@ public class MonitorsApi {
   }
 
   /**
-   * Create a monitor Create a monitor using the specified options. #### Monitor Types The type of
-   * monitor chosen from: - anomaly: &#x60;query alert&#x60; - APM: &#x60;query alert&#x60; or
+   * Create a monitor
+   *
+   * <p>Create a monitor using the specified options. #### Monitor Types The type of monitor chosen
+   * from: - anomaly: &#x60;query alert&#x60; - APM: &#x60;query alert&#x60; or
    * &#x60;trace-analytics alert&#x60; - composite: &#x60;composite&#x60; - custom: &#x60;service
    * check&#x60; - event: &#x60;event alert&#x60; - forecast: &#x60;query alert&#x60; - host:
    * &#x60;service check&#x60; - integration: &#x60;query alert&#x60; or &#x60;service check&#x60; -
@@ -544,138 +408,12 @@ public class MonitorsApi {
   }
 
   /**
-   * Create a monitor Create a monitor using the specified options. #### Monitor Types The type of
-   * monitor chosen from: - anomaly: &#x60;query alert&#x60; - APM: &#x60;query alert&#x60; or
-   * &#x60;trace-analytics alert&#x60; - composite: &#x60;composite&#x60; - custom: &#x60;service
-   * check&#x60; - event: &#x60;event alert&#x60; - forecast: &#x60;query alert&#x60; - host:
-   * &#x60;service check&#x60; - integration: &#x60;query alert&#x60; or &#x60;service check&#x60; -
-   * live process: &#x60;process alert&#x60; - logs: &#x60;log alert&#x60; - metric: &#x60;query
-   * alert&#x60; - network: &#x60;service check&#x60; - outlier: &#x60;query alert&#x60; - process:
-   * &#x60;service check&#x60; - rum: &#x60;rum alert&#x60; - SLO: &#x60;slo alert&#x60; - watchdog:
-   * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; - audit: &#x60;audit alert&#x60;
-   * #### Query Types **Metric Alert Query** Example:
-   * &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #&#x60; -
-   * &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change - &#x60;time_window&#x60;:
-   * &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 10080 depending on the monitor type) or
-   * &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 168 depending on the monitor type) or
-   * &#x60;last_1d&#x60;, or &#x60;last_1w&#x60; - &#x60;space_aggr&#x60;: avg, sum, min, or max -
-   * &#x60;tags&#x60;: one or more tags (comma-separated), or * - &#x60;key&#x60;: a &#39;key&#39;
-   * in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) -
-   * &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; -
-   * &#x60;#&#x60;: an integer or decimal number used to set the threshold If you are using the
-   * &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time aggregator, instead use
-   * &#x60;change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}]
-   * operator #&#x60; with: - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60;
-   * avg, sum, max, min [Learn
-   * more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions) -
-   * &#x60;time_window&#x60; last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h
-   * (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - &#x60;timeshift&#x60;
-   * #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago Use this to create an outlier monitor
-   * using the following query:
-   * &#x60;avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host},
-   * &#39;dbscan&#39;, 7) &gt; 0&#x60; **Service Check Query** Example:
-   * &#x60;\&quot;check\&quot;.over(tags).last(count).by(group).count_by_status()&#x60; -
-   * **&#x60;check&#x60;** name of the check, for example &#x60;datadog.agent.up&#x60; -
-   * **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or \&quot;*\&quot;. for
-   * example: &#x60;.over(\&quot;env:prod\&quot;, \&quot;role:db\&quot;)&#x60;; **&#x60;over&#x60;**
-   * cannot be blank. - **&#x60;count&#x60;** must be at greater than or equal to your max threshold
-   * (defined in the &#x60;options&#x60;). It is limited to 100. For example, if you&#39;ve
-   * specified to notify on 1 critical, 3 ok, and 2 warn statuses, &#x60;count&#x60; should be at
-   * least 3. - **&#x60;group&#x60;** must be specified for check monitors. Per-check grouping is
-   * already explicitly known for some service checks. For example, Postgres integration monitors
-   * are tagged by &#x60;db&#x60;, &#x60;host&#x60;, and &#x60;port&#x60;, and Network monitors by
-   * &#x60;host&#x60;, &#x60;instance&#x60;, and &#x60;url&#x60;. See [Service
-   * Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation for more
-   * information. **Event Alert Query** Example: &#x60;events(&#39;sources:nagios
-   * status:error,warning priority:normal tags: \&quot;string
-   * query\&quot;&#39;).rollup(\&quot;count\&quot;).last(\&quot;1h\&quot;)\&quot;&#x60; -
-   * **&#x60;event&#x60;**, the event query string: - **&#x60;string_query&#x60;** free text query
-   * to match against event title and text. - **&#x60;sources&#x60;** event sources
-   * (comma-separated). - **&#x60;status&#x60;** event statuses (comma-separated). Valid options:
-   * error, warn, and info. - **&#x60;priority&#x60;** event priorities (comma-separated). Valid
-   * options: low, normal, all. - **&#x60;host&#x60;** event reporting host (comma-separated). -
-   * **&#x60;tags&#x60;** event tags (comma-separated). - **&#x60;excluded_tags&#x60;** excluded
-   * event tags (comma-separated). - **&#x60;rollup&#x60;** the stats roll-up method.
-   * &#x60;count&#x60; is the only supported method now. - **&#x60;last&#x60;** the timeframe to
-   * roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not
-   * exceed 48 hours. **NOTE** Only available on US1 and EU. **Event V2 Alert Query** Example:
-   * &#x60;events(query).rollup(rollup_method[, measure]).last(time_window) operator #&#x60; -
-   * **&#x60;query&#x60;** The search query - following the [Log search
-   * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The
-   * stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;.
-   * - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; -
-   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m
-   * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
-   * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
-   * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **NOTE** Only available on US1-FED, US3, US5 and in closed beta on EU and US1.
-   * **Process Alert Query** Example:
-   * &#x60;processes(search).over(tags).rollup(&#39;count&#39;).last(timeframe) operator #&#x60; -
-   * **&#x60;search&#x60;** free text search string for querying processes. Matching processes match
-   * results on the [Live
-   * Processes](https://docs.datadoghq.com/infrastructure/process/?tab&#x3D;linuxwindows) page. -
-   * **&#x60;tags&#x60;** one or more tags (comma-separated) - **&#x60;timeframe&#x60;** the
-   * timeframe to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and d -
-   * **&#x60;operator&#x60;** &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; -
-   * **&#x60;#&#x60;** an integer or decimal number used to set the threshold **Logs Alert Query**
-   * Example: &#x60;logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window)
-   * operator #&#x60; - **&#x60;query&#x60;** The search query - following the [Log search
-   * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;index_name&#x60;** For
-   * multi-index organizations, the log index in which the request is performed. -
-   * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
-   * &#x60;avg&#x60; and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
-   * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
-   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
-   * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
-   * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
-   * an integer or decimal number used to set the threshold. **Composite Query** Example:
-   * &#x60;12345 &amp;&amp; 67890&#x60;, where &#x60;12345&#x60; and &#x60;67890&#x60; are the IDs
-   * of non-composite monitors * **&#x60;name&#x60;** [*required*, *default* &#x3D; **dynamic, based
-   * on query**]: The name of the alert. * **&#x60;message&#x60;** [*required*, *default* &#x3D;
-   * **dynamic, based on query**]: A message to include with notifications for this monitor. Email
-   * notifications can be sent to specific users by using the same &#39;@username&#39; notation as
-   * events. * **&#x60;tags&#x60;** [*optional*, *default* &#x3D; **empty list**]: A list of tags to
-   * associate with your monitor. When getting all monitor details via the API, use the
-   * &#x60;monitor_tags&#x60; argument to filter results by these tags. It is only available via the
-   * API and isn&#39;t visible or editable in the Datadog UI. **SLO Alert Query** Example:
-   * &#x60;error_budget(\&quot;slo_id\&quot;).over(\&quot;time_window\&quot;) operator #&#x60; -
-   * **&#x60;slo_id&#x60;**: The alphanumeric SLO ID of the SLO you are configuring the alert for. -
-   * **&#x60;time_window&#x60;**: The time window of the SLO target you wish to alert on. Valid
-   * options: &#x60;7d&#x60;, &#x60;30d&#x60;, &#x60;90d&#x60;. - **&#x60;operator&#x60;**:
-   * &#x60;&gt;&#x3D;&#x60; or &#x60;&gt;&#x60; **Audit Alert Query** Example:
-   * &#x60;audits(query).rollup(rollup_method[, measure]).last(time_window) operator #&#x60; -
-   * **&#x60;query&#x60;** The search query - following the [Log search
-   * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The
-   * stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;.
-   * - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; -
-   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m
-   * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
-   * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
-   * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5. **CI
-   * Pipelines Alert Query** Example: &#x60;ci-pipelines(query).rollup(rollup_method[,
-   * measure]).last(time_window) operator #&#x60; - **&#x60;query&#x60;** The search query -
-   * following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). -
-   * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
-   * &#x60;avg&#x60;, and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
-   * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
-   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
-   * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
-   * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
-   * an integer or decimal number used to set the threshold. **NOTE** Only available in closed beta
-   * on US1, EU, US3 and US5.
+   * Create a monitor
+   *
+   * <p>See {@link #createMonitorWithHttpInfo}.
    *
    * @param body Create a monitor request body. (required)
-   * @return ApiResponse&lt;Monitor&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Monitor&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Monitor>> createMonitorWithHttpInfoAsync(Monitor body) {
     Object localVarPostBody = body;
@@ -744,41 +482,25 @@ public class MonitorsApi {
   }
 
   /**
-   * Delete a monitor Delete the specified monitor
+   * Delete a monitor
+   *
+   * <p>See {@link #deleteMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor. (required)
    * @return DeletedMonitor
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item not found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DeletedMonitor deleteMonitor(Long monitorId) throws ApiException {
     return deleteMonitorWithHttpInfo(monitorId, new DeleteMonitorOptionalParameters()).getData();
   }
 
   /**
-   * Delete a monitor Delete the specified monitor
+   * Delete a monitor
+   *
+   * <p>See {@link #deleteMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor. (required)
-   * @return CompletableFuture<DeletedMonitor>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item not found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;DeletedMonitor&gt;
    */
   public CompletableFuture<DeletedMonitor> deleteMonitorAsync(Long monitorId) {
     return deleteMonitorWithHttpInfoAsync(monitorId, new DeleteMonitorOptionalParameters())
@@ -789,22 +511,14 @@ public class MonitorsApi {
   }
 
   /**
-   * Delete a monitor Delete the specified monitor
+   * Delete a monitor
+   *
+   * <p>See {@link #deleteMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor. (required)
    * @param parameters Optional parameters for the request.
    * @return DeletedMonitor
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item not found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DeletedMonitor deleteMonitor(Long monitorId, DeleteMonitorOptionalParameters parameters)
       throws ApiException {
@@ -812,21 +526,13 @@ public class MonitorsApi {
   }
 
   /**
-   * Delete a monitor Delete the specified monitor
+   * Delete a monitor
+   *
+   * <p>See {@link #deleteMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<DeletedMonitor>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item not found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;DeletedMonitor&gt;
    */
   public CompletableFuture<DeletedMonitor> deleteMonitorAsync(
       Long monitorId, DeleteMonitorOptionalParameters parameters) {
@@ -838,7 +544,9 @@ public class MonitorsApi {
   }
 
   /**
-   * Delete a monitor Delete the specified monitor
+   * Delete a monitor
+   *
+   * <p>Delete the specified monitor
    *
    * @param monitorId The ID of the monitor. (required)
    * @param parameters Optional parameters for the request.
@@ -909,22 +617,13 @@ public class MonitorsApi {
   }
 
   /**
-   * Delete a monitor Delete the specified monitor
+   * Delete a monitor
+   *
+   * <p>See {@link #deleteMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;DeletedMonitor&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item not found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;DeletedMonitor&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DeletedMonitor>> deleteMonitorWithHttpInfoAsync(
       Long monitorId, DeleteMonitorOptionalParameters parameters) {
@@ -1001,39 +700,25 @@ public class MonitorsApi {
   }
 
   /**
-   * Get a monitor&#39;s details Get details about the specified monitor from your organization.
+   * Get a monitor&#39;s details
+   *
+   * <p>See {@link #getMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor (required)
    * @return Monitor
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Monitor getMonitor(Long monitorId) throws ApiException {
     return getMonitorWithHttpInfo(monitorId, new GetMonitorOptionalParameters()).getData();
   }
 
   /**
-   * Get a monitor&#39;s details Get details about the specified monitor from your organization.
+   * Get a monitor&#39;s details
+   *
+   * <p>See {@link #getMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor (required)
-   * @return CompletableFuture<Monitor>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;Monitor&gt;
    */
   public CompletableFuture<Monitor> getMonitorAsync(Long monitorId) {
     return getMonitorWithHttpInfoAsync(monitorId, new GetMonitorOptionalParameters())
@@ -1044,21 +729,14 @@ public class MonitorsApi {
   }
 
   /**
-   * Get a monitor&#39;s details Get details about the specified monitor from your organization.
+   * Get a monitor&#39;s details
+   *
+   * <p>See {@link #getMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor (required)
    * @param parameters Optional parameters for the request.
    * @return Monitor
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Monitor getMonitor(Long monitorId, GetMonitorOptionalParameters parameters)
       throws ApiException {
@@ -1066,20 +744,13 @@ public class MonitorsApi {
   }
 
   /**
-   * Get a monitor&#39;s details Get details about the specified monitor from your organization.
+   * Get a monitor&#39;s details
+   *
+   * <p>See {@link #getMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<Monitor>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;Monitor&gt;
    */
   public CompletableFuture<Monitor> getMonitorAsync(
       Long monitorId, GetMonitorOptionalParameters parameters) {
@@ -1091,7 +762,9 @@ public class MonitorsApi {
   }
 
   /**
-   * Get a monitor&#39;s details Get details about the specified monitor from your organization.
+   * Get a monitor&#39;s details
+   *
+   * <p>Get details about the specified monitor from your organization.
    *
    * @param monitorId The ID of the monitor (required)
    * @param parameters Optional parameters for the request.
@@ -1161,21 +834,13 @@ public class MonitorsApi {
   }
 
   /**
-   * Get a monitor&#39;s details Get details about the specified monitor from your organization.
+   * Get a monitor&#39;s details
+   *
+   * <p>See {@link #getMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;Monitor&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Monitor&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Monitor>> getMonitorWithHttpInfoAsync(
       Long monitorId, GetMonitorOptionalParameters parameters) {
@@ -1347,35 +1012,23 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details Get details about the specified monitor from your organization.
+   * Get all monitor details
+   *
+   * <p>See {@link #listMonitorsWithHttpInfo}.
    *
    * @return List&lt;Monitor&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<Monitor> listMonitors() throws ApiException {
     return listMonitorsWithHttpInfo(new ListMonitorsOptionalParameters()).getData();
   }
 
   /**
-   * Get all monitor details Get details about the specified monitor from your organization.
+   * Get all monitor details
    *
-   * @return CompletableFuture<List&lt;Monitor&gt;>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listMonitorsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;List&lt;Monitor&gt;&gt;
    */
   public CompletableFuture<List<Monitor>> listMonitorsAsync() {
     return listMonitorsWithHttpInfoAsync(new ListMonitorsOptionalParameters())
@@ -1386,37 +1039,25 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details Get details about the specified monitor from your organization.
+   * Get all monitor details
+   *
+   * <p>See {@link #listMonitorsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return List&lt;Monitor&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<Monitor> listMonitors(ListMonitorsOptionalParameters parameters) throws ApiException {
     return listMonitorsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get all monitor details Get details about the specified monitor from your organization.
+   * Get all monitor details
+   *
+   * <p>See {@link #listMonitorsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<List&lt;Monitor&gt;>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;List&lt;Monitor&gt;&gt;
    */
   public CompletableFuture<List<Monitor>> listMonitorsAsync(
       ListMonitorsOptionalParameters parameters) {
@@ -1428,7 +1069,9 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details Get details about the specified monitor from your organization.
+   * Get all monitor details
+   *
+   * <p>Get details about the specified monitor from your organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;List&lt;Monitor&gt;&gt;
@@ -1502,19 +1145,12 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details Get details about the specified monitor from your organization.
+   * Get all monitor details
+   *
+   * <p>See {@link #listMonitorsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;List&lt;Monitor&gt;&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;Monitor&gt;&gt;&gt;
    */
   public CompletableFuture<ApiResponse<List<Monitor>>> listMonitorsWithHttpInfoAsync(
       ListMonitorsOptionalParameters parameters) {
@@ -1636,35 +1272,23 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors group search Search and filter your monitor groups details.
+   * Monitors group search
+   *
+   * <p>See {@link #searchMonitorGroupsWithHttpInfo}.
    *
    * @return MonitorGroupSearchResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MonitorGroupSearchResponse searchMonitorGroups() throws ApiException {
     return searchMonitorGroupsWithHttpInfo(new SearchMonitorGroupsOptionalParameters()).getData();
   }
 
   /**
-   * Monitors group search Search and filter your monitor groups details.
+   * Monitors group search
    *
-   * @return CompletableFuture<MonitorGroupSearchResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #searchMonitorGroupsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;MonitorGroupSearchResponse&gt;
    */
   public CompletableFuture<MonitorGroupSearchResponse> searchMonitorGroupsAsync() {
     return searchMonitorGroupsWithHttpInfoAsync(new SearchMonitorGroupsOptionalParameters())
@@ -1675,19 +1299,13 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors group search Search and filter your monitor groups details.
+   * Monitors group search
+   *
+   * <p>See {@link #searchMonitorGroupsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return MonitorGroupSearchResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MonitorGroupSearchResponse searchMonitorGroups(
       SearchMonitorGroupsOptionalParameters parameters) throws ApiException {
@@ -1695,18 +1313,12 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors group search Search and filter your monitor groups details.
+   * Monitors group search
+   *
+   * <p>See {@link #searchMonitorGroupsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<MonitorGroupSearchResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;MonitorGroupSearchResponse&gt;
    */
   public CompletableFuture<MonitorGroupSearchResponse> searchMonitorGroupsAsync(
       SearchMonitorGroupsOptionalParameters parameters) {
@@ -1718,7 +1330,9 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors group search Search and filter your monitor groups details.
+   * Monitors group search
+   *
+   * <p>Search and filter your monitor groups details.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MonitorGroupSearchResponse&gt;
@@ -1785,19 +1399,12 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors group search Search and filter your monitor groups details.
+   * Monitors group search
+   *
+   * <p>See {@link #searchMonitorGroupsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;MonitorGroupSearchResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorGroupSearchResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MonitorGroupSearchResponse>>
       searchMonitorGroupsWithHttpInfoAsync(SearchMonitorGroupsOptionalParameters parameters) {
@@ -1912,35 +1519,23 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors search Search and filter your monitors details.
+   * Monitors search
+   *
+   * <p>See {@link #searchMonitorsWithHttpInfo}.
    *
    * @return MonitorSearchResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MonitorSearchResponse searchMonitors() throws ApiException {
     return searchMonitorsWithHttpInfo(new SearchMonitorsOptionalParameters()).getData();
   }
 
   /**
-   * Monitors search Search and filter your monitors details.
+   * Monitors search
    *
-   * @return CompletableFuture<MonitorSearchResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #searchMonitorsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;MonitorSearchResponse&gt;
    */
   public CompletableFuture<MonitorSearchResponse> searchMonitorsAsync() {
     return searchMonitorsWithHttpInfoAsync(new SearchMonitorsOptionalParameters())
@@ -1951,19 +1546,13 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors search Search and filter your monitors details.
+   * Monitors search
+   *
+   * <p>See {@link #searchMonitorsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return MonitorSearchResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MonitorSearchResponse searchMonitors(SearchMonitorsOptionalParameters parameters)
       throws ApiException {
@@ -1971,18 +1560,12 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors search Search and filter your monitors details.
+   * Monitors search
+   *
+   * <p>See {@link #searchMonitorsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<MonitorSearchResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;MonitorSearchResponse&gt;
    */
   public CompletableFuture<MonitorSearchResponse> searchMonitorsAsync(
       SearchMonitorsOptionalParameters parameters) {
@@ -1994,7 +1577,9 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors search Search and filter your monitors details.
+   * Monitors search
+   *
+   * <p>Search and filter your monitors details.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MonitorSearchResponse&gt;
@@ -2061,19 +1646,12 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors search Search and filter your monitors details.
+   * Monitors search
+   *
+   * <p>See {@link #searchMonitorsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;MonitorSearchResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorSearchResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MonitorSearchResponse>> searchMonitorsWithHttpInfoAsync(
       SearchMonitorsOptionalParameters parameters) {
@@ -2128,22 +1706,14 @@ public class MonitorsApi {
   }
 
   /**
-   * Edit a monitor Edit the specified monitor.
+   * Edit a monitor
+   *
+   * <p>See {@link #updateMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor. (required)
    * @param body Edit a monitor request body. (required)
    * @return Monitor
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Monitor updateMonitor(Long monitorId, MonitorUpdateRequest body) throws ApiException {
     return updateMonitorWithHttpInfo(monitorId, body).getData();
@@ -2158,7 +1728,9 @@ public class MonitorsApi {
   }
 
   /**
-   * Edit a monitor Edit the specified monitor.
+   * Edit a monitor
+   *
+   * <p>Edit the specified monitor.
    *
    * @param monitorId The ID of the monitor. (required)
    * @param body Edit a monitor request body. (required)
@@ -2231,22 +1803,13 @@ public class MonitorsApi {
   }
 
   /**
-   * Edit a monitor Edit the specified monitor.
+   * Edit a monitor
+   *
+   * <p>See {@link #updateMonitorWithHttpInfo}.
    *
    * @param monitorId The ID of the monitor. (required)
    * @param body Edit a monitor request body. (required)
-   * @return ApiResponse&lt;Monitor&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Monitor&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Monitor>> updateMonitorWithHttpInfoAsync(
       Long monitorId, MonitorUpdateRequest body) {
@@ -2310,19 +1873,13 @@ public class MonitorsApi {
   }
 
   /**
-   * Validate a monitor Validate the monitor provided in the request.
+   * Validate a monitor
+   *
+   * <p>See {@link #validateMonitorWithHttpInfo}.
    *
    * @param body Monitor request object (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid JSON </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object validateMonitor(Monitor body) throws ApiException {
     return validateMonitorWithHttpInfo(body).getData();
@@ -2337,7 +1894,9 @@ public class MonitorsApi {
   }
 
   /**
-   * Validate a monitor Validate the monitor provided in the request.
+   * Validate a monitor
+   *
+   * <p>Validate the monitor provided in the request.
    *
    * @param body Monitor request object (required)
    * @return ApiResponse&lt;Object&gt;
@@ -2398,19 +1957,12 @@ public class MonitorsApi {
   }
 
   /**
-   * Validate a monitor Validate the monitor provided in the request.
+   * Validate a monitor
+   *
+   * <p>See {@link #validateMonitorWithHttpInfo}.
    *
    * @param body Monitor request object (required)
-   * @return ApiResponse&lt;Object&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid JSON </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Object>> validateMonitorWithHttpInfoAsync(Monitor body) {
     Object localVarPostBody = body;

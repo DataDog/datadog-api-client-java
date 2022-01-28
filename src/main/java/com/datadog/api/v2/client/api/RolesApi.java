@@ -55,21 +55,14 @@ public class RolesApi {
   }
 
   /**
-   * Grant permission to a role Adds a permission to a role.
+   * Grant permission to a role
+   *
+   * <p>See {@link #addPermissionToRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
    * @return PermissionsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public PermissionsResponse addPermissionToRole(String roleId, RelationshipToPermission body)
       throws ApiException {
@@ -86,7 +79,9 @@ public class RolesApi {
   }
 
   /**
-   * Grant permission to a role Adds a permission to a role.
+   * Grant permission to a role
+   *
+   * <p>Adds a permission to a role.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
@@ -158,21 +153,13 @@ public class RolesApi {
   }
 
   /**
-   * Grant permission to a role Adds a permission to a role.
+   * Grant permission to a role
+   *
+   * <p>See {@link #addPermissionToRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
-   * @return ApiResponse&lt;PermissionsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;PermissionsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PermissionsResponse>> addPermissionToRoleWithHttpInfoAsync(
       String roleId, RelationshipToPermission body) {
@@ -236,21 +223,14 @@ public class RolesApi {
   }
 
   /**
-   * Add a user to a role Adds a user to a role.
+   * Add a user to a role
+   *
+   * <p>See {@link #addUserToRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
    * @return UsersResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsersResponse addUserToRole(String roleId, RelationshipToUser body) throws ApiException {
     return addUserToRoleWithHttpInfo(roleId, body).getData();
@@ -266,7 +246,9 @@ public class RolesApi {
   }
 
   /**
-   * Add a user to a role Adds a user to a role.
+   * Add a user to a role
+   *
+   * <p>Adds a user to a role.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
@@ -338,21 +320,13 @@ public class RolesApi {
   }
 
   /**
-   * Add a user to a role Adds a user to a role.
+   * Add a user to a role
+   *
+   * <p>See {@link #addUserToRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
-   * @return ApiResponse&lt;UsersResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsersResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsersResponse>> addUserToRoleWithHttpInfoAsync(
       String roleId, RelationshipToUser body) {
@@ -416,22 +390,14 @@ public class RolesApi {
   }
 
   /**
-   * Create a new role by cloning an existing role Clone an existing role
+   * Create a new role by cloning an existing role
+   *
+   * <p>See {@link #cloneRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
    * @return RoleResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public RoleResponse cloneRole(String roleId, RoleCloneRequest body) throws ApiException {
     return cloneRoleWithHttpInfo(roleId, body).getData();
@@ -446,7 +412,9 @@ public class RolesApi {
   }
 
   /**
-   * Create a new role by cloning an existing role Clone an existing role
+   * Create a new role by cloning an existing role
+   *
+   * <p>Clone an existing role
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
@@ -517,22 +485,13 @@ public class RolesApi {
   }
 
   /**
-   * Create a new role by cloning an existing role Clone an existing role
+   * Create a new role by cloning an existing role
+   *
+   * <p>See {@link #cloneRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
-   * @return ApiResponse&lt;RoleResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;RoleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RoleResponse>> cloneRoleWithHttpInfoAsync(
       String roleId, RoleCloneRequest body) {
@@ -594,19 +553,13 @@ public class RolesApi {
   }
 
   /**
-   * Create role Create a new role for your organization.
+   * Create role
+   *
+   * <p>See {@link #createRoleWithHttpInfo}.
    *
    * @param body (required)
    * @return RoleCreateResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public RoleCreateResponse createRole(RoleCreateRequest body) throws ApiException {
     return createRoleWithHttpInfo(body).getData();
@@ -621,7 +574,9 @@ public class RolesApi {
   }
 
   /**
-   * Create role Create a new role for your organization.
+   * Create role
+   *
+   * <p>Create a new role for your organization.
    *
    * @param body (required)
    * @return ApiResponse&lt;RoleCreateResponse&gt;
@@ -682,19 +637,12 @@ public class RolesApi {
   }
 
   /**
-   * Create role Create a new role for your organization.
+   * Create role
+   *
+   * <p>See {@link #createRoleWithHttpInfo}.
    *
    * @param body (required)
-   * @return ApiResponse&lt;RoleCreateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;RoleCreateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RoleCreateResponse>> createRoleWithHttpInfoAsync(
       RoleCreateRequest body) {
@@ -746,18 +694,12 @@ public class RolesApi {
   }
 
   /**
-   * Delete role Disables a role.
+   * Delete role
+   *
+   * <p>See {@link #deleteRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteRole(String roleId) throws ApiException {
     deleteRoleWithHttpInfo(roleId);
@@ -772,7 +714,9 @@ public class RolesApi {
   }
 
   /**
-   * Delete role Disables a role.
+   * Delete role
+   *
+   * <p>Disables a role.
    *
    * @param roleId The ID of the role. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -834,19 +778,12 @@ public class RolesApi {
   }
 
   /**
-   * Delete role Disables a role.
+   * Delete role
+   *
+   * <p>See {@link #deleteRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteRoleWithHttpInfoAsync(String roleId) {
     Object localVarPostBody = null;
@@ -898,19 +835,13 @@ public class RolesApi {
   }
 
   /**
-   * Get a role Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
+   * Get a role
+   *
+   * <p>See {@link #getRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @return RoleResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public RoleResponse getRole(String roleId) throws ApiException {
     return getRoleWithHttpInfo(roleId).getData();
@@ -925,7 +856,9 @@ public class RolesApi {
   }
 
   /**
-   * Get a role Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
+   * Get a role
+   *
+   * <p>Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
    *
    * @param roleId The ID of the role. (required)
    * @return ApiResponse&lt;RoleResponse&gt;
@@ -988,19 +921,12 @@ public class RolesApi {
   }
 
   /**
-   * Get a role Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
+   * Get a role
+   *
+   * <p>See {@link #getRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
-   * @return ApiResponse&lt;RoleResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;RoleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RoleResponse>> getRoleWithHttpInfoAsync(String roleId) {
     Object localVarPostBody = null;
@@ -1054,18 +980,12 @@ public class RolesApi {
   }
 
   /**
-   * List permissions Returns a list of all permissions, including name, description, and ID.
+   * List permissions
+   *
+   * <p>See {@link #listPermissionsWithHttpInfo}.
    *
    * @return PermissionsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public PermissionsResponse listPermissions() throws ApiException {
     return listPermissionsWithHttpInfo().getData();
@@ -1080,7 +1000,9 @@ public class RolesApi {
   }
 
   /**
-   * List permissions Returns a list of all permissions, including name, description, and ID.
+   * List permissions
+   *
+   * <p>Returns a list of all permissions, including name, description, and ID.
    *
    * @return ApiResponse&lt;PermissionsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1135,18 +1057,11 @@ public class RolesApi {
   }
 
   /**
-   * List permissions Returns a list of all permissions, including name, description, and ID.
+   * List permissions
    *
-   * @return ApiResponse&lt;PermissionsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listPermissionsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;PermissionsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PermissionsResponse>> listPermissionsWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -1190,19 +1105,13 @@ public class RolesApi {
   }
 
   /**
-   * List permissions for a role Returns a list of all permissions for a single role.
+   * List permissions for a role
+   *
+   * <p>See {@link #listRolePermissionsWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @return PermissionsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public PermissionsResponse listRolePermissions(String roleId) throws ApiException {
     return listRolePermissionsWithHttpInfo(roleId).getData();
@@ -1217,7 +1126,9 @@ public class RolesApi {
   }
 
   /**
-   * List permissions for a role Returns a list of all permissions for a single role.
+   * List permissions for a role
+   *
+   * <p>Returns a list of all permissions for a single role.
    *
    * @param roleId The ID of the role. (required)
    * @return ApiResponse&lt;PermissionsResponse&gt;
@@ -1282,19 +1193,12 @@ public class RolesApi {
   }
 
   /**
-   * List permissions for a role Returns a list of all permissions for a single role.
+   * List permissions for a role
+   *
+   * <p>See {@link #listRolePermissionsWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
-   * @return ApiResponse&lt;PermissionsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;PermissionsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PermissionsResponse>> listRolePermissionsWithHttpInfoAsync(
       String roleId) {
@@ -1405,37 +1309,25 @@ public class RolesApi {
   }
 
   /**
-   * Get all users of a role Gets all users of a role.
+   * Get all users of a role
+   *
+   * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @return UsersResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsersResponse listRoleUsers(String roleId) throws ApiException {
     return listRoleUsersWithHttpInfo(roleId, new ListRoleUsersOptionalParameters()).getData();
   }
 
   /**
-   * Get all users of a role Gets all users of a role.
+   * Get all users of a role
+   *
+   * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
-   * @return CompletableFuture<UsersResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsersResponse&gt;
    */
   public CompletableFuture<UsersResponse> listRoleUsersAsync(String roleId) {
     return listRoleUsersWithHttpInfoAsync(roleId, new ListRoleUsersOptionalParameters())
@@ -1446,20 +1338,14 @@ public class RolesApi {
   }
 
   /**
-   * Get all users of a role Gets all users of a role.
+   * Get all users of a role
+   *
+   * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param parameters Optional parameters for the request.
    * @return UsersResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsersResponse listRoleUsers(String roleId, ListRoleUsersOptionalParameters parameters)
       throws ApiException {
@@ -1467,19 +1353,13 @@ public class RolesApi {
   }
 
   /**
-   * Get all users of a role Gets all users of a role.
+   * Get all users of a role
+   *
+   * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsersResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsersResponse&gt;
    */
   public CompletableFuture<UsersResponse> listRoleUsersAsync(
       String roleId, ListRoleUsersOptionalParameters parameters) {
@@ -1491,7 +1371,9 @@ public class RolesApi {
   }
 
   /**
-   * Get all users of a role Gets all users of a role.
+   * Get all users of a role
+   *
+   * <p>Gets all users of a role.
    *
    * @param roleId The ID of the role. (required)
    * @param parameters Optional parameters for the request.
@@ -1566,20 +1448,13 @@ public class RolesApi {
   }
 
   /**
-   * Get all users of a role Gets all users of a role.
+   * Get all users of a role
+   *
+   * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsersResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsersResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsersResponse>> listRoleUsersWithHttpInfoAsync(
       String roleId, ListRoleUsersOptionalParameters parameters) {
@@ -1698,33 +1573,23 @@ public class RolesApi {
   }
 
   /**
-   * List roles Returns all roles, including their names and IDs.
+   * List roles
+   *
+   * <p>See {@link #listRolesWithHttpInfo}.
    *
    * @return RolesResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public RolesResponse listRoles() throws ApiException {
     return listRolesWithHttpInfo(new ListRolesOptionalParameters()).getData();
   }
 
   /**
-   * List roles Returns all roles, including their names and IDs.
+   * List roles
    *
-   * @return CompletableFuture<RolesResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listRolesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;RolesResponse&gt;
    */
   public CompletableFuture<RolesResponse> listRolesAsync() {
     return listRolesWithHttpInfoAsync(new ListRolesOptionalParameters())
@@ -1735,35 +1600,25 @@ public class RolesApi {
   }
 
   /**
-   * List roles Returns all roles, including their names and IDs.
+   * List roles
+   *
+   * <p>See {@link #listRolesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return RolesResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public RolesResponse listRoles(ListRolesOptionalParameters parameters) throws ApiException {
     return listRolesWithHttpInfo(parameters).getData();
   }
 
   /**
-   * List roles Returns all roles, including their names and IDs.
+   * List roles
+   *
+   * <p>See {@link #listRolesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<RolesResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;RolesResponse&gt;
    */
   public CompletableFuture<RolesResponse> listRolesAsync(ListRolesOptionalParameters parameters) {
     return listRolesWithHttpInfoAsync(parameters)
@@ -1774,7 +1629,9 @@ public class RolesApi {
   }
 
   /**
-   * List roles Returns all roles, including their names and IDs.
+   * List roles
+   *
+   * <p>Returns all roles, including their names and IDs.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;RolesResponse&gt;
@@ -1839,18 +1696,12 @@ public class RolesApi {
   }
 
   /**
-   * List roles Returns all roles, including their names and IDs.
+   * List roles
+   *
+   * <p>See {@link #listRolesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;RolesResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;RolesResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RolesResponse>> listRolesWithHttpInfoAsync(
       ListRolesOptionalParameters parameters) {
@@ -1904,21 +1755,14 @@ public class RolesApi {
   }
 
   /**
-   * Revoke permission Removes a permission from a role.
+   * Revoke permission
+   *
+   * <p>See {@link #removePermissionFromRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
    * @return PermissionsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public PermissionsResponse removePermissionFromRole(String roleId, RelationshipToPermission body)
       throws ApiException {
@@ -1935,7 +1779,9 @@ public class RolesApi {
   }
 
   /**
-   * Revoke permission Removes a permission from a role.
+   * Revoke permission
+   *
+   * <p>Removes a permission from a role.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
@@ -2007,21 +1853,13 @@ public class RolesApi {
   }
 
   /**
-   * Revoke permission Removes a permission from a role.
+   * Revoke permission
+   *
+   * <p>See {@link #removePermissionFromRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
-   * @return ApiResponse&lt;PermissionsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;PermissionsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PermissionsResponse>>
       removePermissionFromRoleWithHttpInfoAsync(String roleId, RelationshipToPermission body) {
@@ -2086,21 +1924,14 @@ public class RolesApi {
   }
 
   /**
-   * Remove a user from a role Removes a user from a role.
+   * Remove a user from a role
+   *
+   * <p>See {@link #removeUserFromRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
    * @return UsersResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsersResponse removeUserFromRole(String roleId, RelationshipToUser body)
       throws ApiException {
@@ -2117,7 +1948,9 @@ public class RolesApi {
   }
 
   /**
-   * Remove a user from a role Removes a user from a role.
+   * Remove a user from a role
+   *
+   * <p>Removes a user from a role.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
@@ -2189,21 +2022,13 @@ public class RolesApi {
   }
 
   /**
-   * Remove a user from a role Removes a user from a role.
+   * Remove a user from a role
+   *
+   * <p>See {@link #removeUserFromRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
-   * @return ApiResponse&lt;UsersResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsersResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsersResponse>> removeUserFromRoleWithHttpInfoAsync(
       String roleId, RelationshipToUser body) {
@@ -2267,22 +2092,14 @@ public class RolesApi {
   }
 
   /**
-   * Update a role Edit a role. Can only be used with application keys belonging to administrators.
+   * Update a role
+   *
+   * <p>See {@link #updateRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
    * @return RoleUpdateResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public RoleUpdateResponse updateRole(String roleId, RoleUpdateRequest body) throws ApiException {
     return updateRoleWithHttpInfo(roleId, body).getData();
@@ -2298,7 +2115,9 @@ public class RolesApi {
   }
 
   /**
-   * Update a role Edit a role. Can only be used with application keys belonging to administrators.
+   * Update a role
+   *
+   * <p>Edit a role. Can only be used with application keys belonging to administrators.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
@@ -2370,22 +2189,13 @@ public class RolesApi {
   }
 
   /**
-   * Update a role Edit a role. Can only be used with application keys belonging to administrators.
+   * Update a role
+   *
+   * <p>See {@link #updateRoleWithHttpInfo}.
    *
    * @param roleId The ID of the role. (required)
    * @param body (required)
-   * @return ApiResponse&lt;RoleUpdateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;RoleUpdateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RoleUpdateResponse>> updateRoleWithHttpInfoAsync(
       String roleId, RoleUpdateRequest body) {

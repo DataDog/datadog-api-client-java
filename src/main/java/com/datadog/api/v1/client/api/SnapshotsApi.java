@@ -100,21 +100,14 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
-   * delay before it is available.
+   * Take graph snapshots
+   *
+   * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)
    * @return GraphSnapshot
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public GraphSnapshot getGraphSnapshot(Long start, Long end) throws ApiException {
     return getGraphSnapshotWithHttpInfo(start, end, new GetGraphSnapshotOptionalParameters())
@@ -122,20 +115,13 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
-   * delay before it is available.
+   * Take graph snapshots
+   *
+   * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)
-   * @return CompletableFuture<GraphSnapshot>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;GraphSnapshot&gt;
    */
   public CompletableFuture<GraphSnapshot> getGraphSnapshotAsync(Long start, Long end) {
     return getGraphSnapshotWithHttpInfoAsync(start, end, new GetGraphSnapshotOptionalParameters())
@@ -146,22 +132,15 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
-   * delay before it is available.
+   * Take graph snapshots
+   *
+   * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)
    * @param parameters Optional parameters for the request.
    * @return GraphSnapshot
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public GraphSnapshot getGraphSnapshot(
       Long start, Long end, GetGraphSnapshotOptionalParameters parameters) throws ApiException {
@@ -169,21 +148,14 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
-   * delay before it is available.
+   * Take graph snapshots
+   *
+   * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<GraphSnapshot>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;GraphSnapshot&gt;
    */
   public CompletableFuture<GraphSnapshot> getGraphSnapshotAsync(
       Long start, Long end, GetGraphSnapshotOptionalParameters parameters) {
@@ -195,8 +167,10 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
-   * delay before it is available.
+   * Take graph snapshots
+   *
+   * <p>Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is
+   * available.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)
@@ -278,22 +252,14 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
-   * delay before it is available.
+   * Take graph snapshots
+   *
+   * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;GraphSnapshot&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;GraphSnapshot&gt;&gt;
    */
   public CompletableFuture<ApiResponse<GraphSnapshot>> getGraphSnapshotWithHttpInfoAsync(
       Long start, Long end, GetGraphSnapshotOptionalParameters parameters) {

@@ -47,20 +47,13 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Create an index Creates a new index. Returns the Index object passed in the request body when
-   * the request is successful.
+   * Create an index
+   *
+   * <p>See {@link #createLogsIndexWithHttpInfo}.
    *
    * @param body Object containing the new index. (required)
    * @return LogsIndex
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsIndex createLogsIndex(LogsIndex body) throws ApiException {
     return createLogsIndexWithHttpInfo(body).getData();
@@ -75,8 +68,10 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Create an index Creates a new index. Returns the Index object passed in the request body when
-   * the request is successful.
+   * Create an index
+   *
+   * <p>Creates a new index. Returns the Index object passed in the request body when the request is
+   * successful.
    *
    * @param body Object containing the new index. (required)
    * @return ApiResponse&lt;LogsIndex&gt;
@@ -137,20 +132,12 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Create an index Creates a new index. Returns the Index object passed in the request body when
-   * the request is successful.
+   * Create an index
+   *
+   * <p>See {@link #createLogsIndexWithHttpInfo}.
    *
    * @param body Object containing the new index. (required)
-   * @return ApiResponse&lt;LogsIndex&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsIndex&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsIndex>> createLogsIndexWithHttpInfoAsync(
       LogsIndex body) {
@@ -203,19 +190,13 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get an index Get one log index from your organization. This endpoint takes no JSON arguments.
+   * Get an index
+   *
+   * <p>See {@link #getLogsIndexWithHttpInfo}.
    *
    * @param name Name of the log index. (required)
    * @return LogsIndex
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsIndex getLogsIndex(String name) throws ApiException {
     return getLogsIndexWithHttpInfo(name).getData();
@@ -230,7 +211,9 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get an index Get one log index from your organization. This endpoint takes no JSON arguments.
+   * Get an index
+   *
+   * <p>Get one log index from your organization. This endpoint takes no JSON arguments.
    *
    * @param name Name of the log index. (required)
    * @return ApiResponse&lt;LogsIndex&gt;
@@ -294,19 +277,12 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get an index Get one log index from your organization. This endpoint takes no JSON arguments.
+   * Get an index
+   *
+   * <p>See {@link #getLogsIndexWithHttpInfo}.
    *
    * @param name Name of the log index. (required)
-   * @return ApiResponse&lt;LogsIndex&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsIndex&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsIndex>> getLogsIndexWithHttpInfoAsync(String name) {
     Object localVarPostBody = null;
@@ -360,18 +336,12 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get indexes order Get the current order of your log indexes. This endpoint takes no JSON
-   * arguments.
+   * Get indexes order
+   *
+   * <p>See {@link #getLogsIndexOrderWithHttpInfo}.
    *
    * @return LogsIndexesOrder
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsIndexesOrder getLogsIndexOrder() throws ApiException {
     return getLogsIndexOrderWithHttpInfo().getData();
@@ -386,8 +356,9 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get indexes order Get the current order of your log indexes. This endpoint takes no JSON
-   * arguments.
+   * Get indexes order
+   *
+   * <p>Get the current order of your log indexes. This endpoint takes no JSON arguments.
    *
    * @return ApiResponse&lt;LogsIndexesOrder&gt;
    * @throws ApiException if fails to make API call
@@ -441,18 +412,11 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get indexes order Get the current order of your log indexes. This endpoint takes no JSON
-   * arguments.
+   * Get indexes order
    *
-   * @return ApiResponse&lt;LogsIndexesOrder&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #getLogsIndexOrderWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsIndexesOrder&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsIndexesOrder>> getLogsIndexOrderWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -496,18 +460,12 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get all indexes The Index object describes the configuration of a log index. This endpoint
-   * returns an array of the &#x60;LogIndex&#x60; objects of your organization.
+   * Get all indexes
+   *
+   * <p>See {@link #listLogIndexesWithHttpInfo}.
    *
    * @return LogsIndexListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsIndexListResponse listLogIndexes() throws ApiException {
     return listLogIndexesWithHttpInfo().getData();
@@ -522,8 +480,10 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get all indexes The Index object describes the configuration of a log index. This endpoint
-   * returns an array of the &#x60;LogIndex&#x60; objects of your organization.
+   * Get all indexes
+   *
+   * <p>The Index object describes the configuration of a log index. This endpoint returns an array
+   * of the &#x60;LogIndex&#x60; objects of your organization.
    *
    * @return ApiResponse&lt;LogsIndexListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -578,18 +538,11 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get all indexes The Index object describes the configuration of a log index. This endpoint
-   * returns an array of the &#x60;LogIndex&#x60; objects of your organization.
+   * Get all indexes
    *
-   * @return ApiResponse&lt;LogsIndexListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listLogIndexesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsIndexListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsIndexListResponse>> listLogIndexesWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -634,23 +587,14 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update an index Update an index as identified by its name. Returns the Index object passed in
-   * the request body when the request is successful. Using the &#x60;PUT&#x60; method updates your
-   * index’s configuration by **replacing** your current configuration with the new one sent to your
-   * Datadog organization.
+   * Update an index
+   *
+   * <p>See {@link #updateLogsIndexWithHttpInfo}.
    *
    * @param name Name of the log index. (required)
    * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
    * @return LogsIndex
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsIndex updateLogsIndex(String name, LogsIndexUpdateRequest body) throws ApiException {
     return updateLogsIndexWithHttpInfo(name, body).getData();
@@ -666,10 +610,12 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update an index Update an index as identified by its name. Returns the Index object passed in
-   * the request body when the request is successful. Using the &#x60;PUT&#x60; method updates your
-   * index’s configuration by **replacing** your current configuration with the new one sent to your
-   * Datadog organization.
+   * Update an index
+   *
+   * <p>Update an index as identified by its name. Returns the Index object passed in the request
+   * body when the request is successful. Using the &#x60;PUT&#x60; method updates your index’s
+   * configuration by **replacing** your current configuration with the new one sent to your Datadog
+   * organization.
    *
    * @param name Name of the log index. (required)
    * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
@@ -740,23 +686,13 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update an index Update an index as identified by its name. Returns the Index object passed in
-   * the request body when the request is successful. Using the &#x60;PUT&#x60; method updates your
-   * index’s configuration by **replacing** your current configuration with the new one sent to your
-   * Datadog organization.
+   * Update an index
+   *
+   * <p>See {@link #updateLogsIndexWithHttpInfo}.
    *
    * @param name Name of the log index. (required)
    * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
-   * @return ApiResponse&lt;LogsIndex&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsIndex&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsIndex>> updateLogsIndexWithHttpInfoAsync(
       String name, LogsIndexUpdateRequest body) {
@@ -820,20 +756,13 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update indexes order This endpoint updates the index order of your organization. It returns the
-   * index order object passed in the request body when the request is successful.
+   * Update indexes order
+   *
+   * <p>See {@link #updateLogsIndexOrderWithHttpInfo}.
    *
    * @param body Object containing the new ordered list of index names (required)
    * @return LogsIndexesOrder
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsIndexesOrder updateLogsIndexOrder(LogsIndexesOrder body) throws ApiException {
     return updateLogsIndexOrderWithHttpInfo(body).getData();
@@ -848,8 +777,10 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update indexes order This endpoint updates the index order of your organization. It returns the
-   * index order object passed in the request body when the request is successful.
+   * Update indexes order
+   *
+   * <p>This endpoint updates the index order of your organization. It returns the index order
+   * object passed in the request body when the request is successful.
    *
    * @param body Object containing the new ordered list of index names (required)
    * @return ApiResponse&lt;LogsIndexesOrder&gt;
@@ -911,20 +842,12 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update indexes order This endpoint updates the index order of your organization. It returns the
-   * index order object passed in the request body when the request is successful.
+   * Update indexes order
+   *
+   * <p>See {@link #updateLogsIndexOrderWithHttpInfo}.
    *
    * @param body Object containing the new ordered list of index names (required)
-   * @return ApiResponse&lt;LogsIndexesOrder&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsIndexesOrder&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsIndexesOrder>> updateLogsIndexOrderWithHttpInfoAsync(
       LogsIndexesOrder body) {

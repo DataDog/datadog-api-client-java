@@ -44,21 +44,14 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Create a Slack integration channel Add a channel to your Datadog-Slack integration.
+   * Create a Slack integration channel
+   *
+   * <p>See {@link #createSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param body Payload describing Slack channel to be created (required)
    * @return SlackIntegrationChannel
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public SlackIntegrationChannel createSlackIntegrationChannel(
       String accountName, SlackIntegrationChannel body) throws ApiException {
@@ -75,7 +68,9 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Create a Slack integration channel Add a channel to your Datadog-Slack integration.
+   * Create a Slack integration channel
+   *
+   * <p>Add a channel to your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param body Payload describing Slack channel to be created (required)
@@ -151,21 +146,13 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Create a Slack integration channel Add a channel to your Datadog-Slack integration.
+   * Create a Slack integration channel
+   *
+   * <p>See {@link #createSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param body Payload describing Slack channel to be created (required)
-   * @return ApiResponse&lt;SlackIntegrationChannel&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;SlackIntegrationChannel&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SlackIntegrationChannel>>
       createSlackIntegrationChannelWithHttpInfoAsync(
@@ -235,21 +222,14 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get a Slack integration channel Get a channel configured for your Datadog-Slack integration.
+   * Get a Slack integration channel
+   *
+   * <p>See {@link #getSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @return SlackIntegrationChannel
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public SlackIntegrationChannel getSlackIntegrationChannel(String accountName, String channelName)
       throws ApiException {
@@ -266,7 +246,9 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get a Slack integration channel Get a channel configured for your Datadog-Slack integration.
+   * Get a Slack integration channel
+   *
+   * <p>Get a channel configured for your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
@@ -345,21 +327,13 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get a Slack integration channel Get a channel configured for your Datadog-Slack integration.
+   * Get a Slack integration channel
+   *
+   * <p>See {@link #getSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
-   * @return ApiResponse&lt;SlackIntegrationChannel&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;SlackIntegrationChannel&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SlackIntegrationChannel>>
       getSlackIntegrationChannelWithHttpInfoAsync(String accountName, String channelName) {
@@ -432,21 +406,13 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get all channels in a Slack integration Get a list of all channels configured for your
-   * Datadog-Slack integration.
+   * Get all channels in a Slack integration
+   *
+   * <p>See {@link #getSlackIntegrationChannelsWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @return List&lt;SlackIntegrationChannel&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<SlackIntegrationChannel> getSlackIntegrationChannels(String accountName)
       throws ApiException {
@@ -463,8 +429,9 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get all channels in a Slack integration Get a list of all channels configured for your
-   * Datadog-Slack integration.
+   * Get all channels in a Slack integration
+   *
+   * <p>Get a list of all channels configured for your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @return ApiResponse&lt;List&lt;SlackIntegrationChannel&gt;&gt;
@@ -533,21 +500,12 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get all channels in a Slack integration Get a list of all channels configured for your
-   * Datadog-Slack integration.
+   * Get all channels in a Slack integration
+   *
+   * <p>See {@link #getSlackIntegrationChannelsWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
-   * @return ApiResponse&lt;List&lt;SlackIntegrationChannel&gt;&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;SlackIntegrationChannel&gt;&gt;&gt;
    */
   public CompletableFuture<ApiResponse<List<SlackIntegrationChannel>>>
       getSlackIntegrationChannelsWithHttpInfoAsync(String accountName) {
@@ -608,20 +566,13 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Remove a Slack integration channel Remove a channel from your Datadog-Slack integration.
+   * Remove a Slack integration channel
+   *
+   * <p>See {@link #removeSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> The channel was removed successfully. </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void removeSlackIntegrationChannel(String accountName, String channelName)
       throws ApiException {
@@ -638,7 +589,9 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Remove a Slack integration channel Remove a channel from your Datadog-Slack integration.
+   * Remove a Slack integration channel
+   *
+   * <p>Remove a channel from your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
@@ -716,21 +669,13 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Remove a Slack integration channel Remove a channel from your Datadog-Slack integration.
+   * Remove a Slack integration channel
+   *
+   * <p>See {@link #removeSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> The channel was removed successfully. </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> removeSlackIntegrationChannelWithHttpInfoAsync(
       String accountName, String channelName) {
@@ -800,22 +745,15 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Update a Slack integration channel Update a channel used in your Datadog-Slack integration.
+   * Update a Slack integration channel
+   *
+   * <p>See {@link #updateSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @param body Payload describing fields and values to be updated. (required)
    * @return SlackIntegrationChannel
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public SlackIntegrationChannel updateSlackIntegrationChannel(
       String accountName, String channelName, SlackIntegrationChannel body) throws ApiException {
@@ -832,7 +770,9 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Update a Slack integration channel Update a channel used in your Datadog-Slack integration.
+   * Update a Slack integration channel
+   *
+   * <p>Update a channel used in your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
@@ -919,22 +859,14 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Update a Slack integration channel Update a channel used in your Datadog-Slack integration.
+   * Update a Slack integration channel
+   *
+   * <p>See {@link #updateSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @param body Payload describing fields and values to be updated. (required)
-   * @return ApiResponse&lt;SlackIntegrationChannel&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;SlackIntegrationChannel&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SlackIntegrationChannel>>
       updateSlackIntegrationChannelWithHttpInfoAsync(

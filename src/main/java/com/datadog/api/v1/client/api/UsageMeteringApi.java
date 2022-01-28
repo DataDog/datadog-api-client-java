@@ -139,17 +139,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available daily custom reports Get daily custom reports.
+   * Get the list of available daily custom reports
+   *
+   * <p>See {@link #getDailyCustomReportsWithHttpInfo}.
    *
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageCustomReportsResponse getDailyCustomReports() throws ApiException {
     return getDailyCustomReportsWithHttpInfo(new GetDailyCustomReportsOptionalParameters())
@@ -157,16 +152,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available daily custom reports Get daily custom reports.
+   * Get the list of available daily custom reports
    *
-   * @return CompletableFuture<UsageCustomReportsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #getDailyCustomReportsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
    */
   public CompletableFuture<UsageCustomReportsResponse> getDailyCustomReportsAsync() {
     return getDailyCustomReportsWithHttpInfoAsync(new GetDailyCustomReportsOptionalParameters())
@@ -177,18 +167,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available daily custom reports Get daily custom reports.
+   * Get the list of available daily custom reports
+   *
+   * <p>See {@link #getDailyCustomReportsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageCustomReportsResponse getDailyCustomReports(
       GetDailyCustomReportsOptionalParameters parameters) throws ApiException {
@@ -196,17 +181,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available daily custom reports Get daily custom reports.
+   * Get the list of available daily custom reports
+   *
+   * <p>See {@link #getDailyCustomReportsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageCustomReportsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
    */
   public CompletableFuture<UsageCustomReportsResponse> getDailyCustomReportsAsync(
       GetDailyCustomReportsOptionalParameters parameters) {
@@ -218,7 +198,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available daily custom reports Get daily custom reports.
+   * Get the list of available daily custom reports
+   *
+   * <p>Get daily custom reports.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
@@ -284,18 +266,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available daily custom reports Get daily custom reports.
+   * Get the list of available daily custom reports
+   *
+   * <p>See {@link #getDailyCustomReportsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageCustomReportsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageCustomReportsResponse>>
       getDailyCustomReportsWithHttpInfoAsync(GetDailyCustomReportsOptionalParameters parameters) {
@@ -393,20 +369,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution Get Hourly Usage Attribution.
+   * Get Hourly Usage Attribution
+   *
+   * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param usageType Usage type to retrieve. (required)
    * @return HourlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HourlyUsageAttributionResponse getHourlyUsageAttribution(
       OffsetDateTime startHr, HourlyUsageAttributionUsageType usageType) throws ApiException {
@@ -416,19 +387,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution Get Hourly Usage Attribution.
+   * Get Hourly Usage Attribution
+   *
+   * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param usageType Usage type to retrieve. (required)
-   * @return CompletableFuture<HourlyUsageAttributionResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;HourlyUsageAttributionResponse&gt;
    */
   public CompletableFuture<HourlyUsageAttributionResponse> getHourlyUsageAttributionAsync(
       OffsetDateTime startHr, HourlyUsageAttributionUsageType usageType) {
@@ -441,7 +407,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution Get Hourly Usage Attribution.
+   * Get Hourly Usage Attribution
+   *
+   * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -449,13 +417,6 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return HourlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HourlyUsageAttributionResponse getHourlyUsageAttribution(
       OffsetDateTime startHr,
@@ -466,20 +427,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution Get Hourly Usage Attribution.
+   * Get Hourly Usage Attribution
+   *
+   * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param usageType Usage type to retrieve. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<HourlyUsageAttributionResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;HourlyUsageAttributionResponse&gt;
    */
   public CompletableFuture<HourlyUsageAttributionResponse> getHourlyUsageAttributionAsync(
       OffsetDateTime startHr,
@@ -493,7 +449,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution Get Hourly Usage Attribution.
+   * Get Hourly Usage Attribution
+   *
+   * <p>Get Hourly Usage Attribution.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -578,21 +536,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution Get Hourly Usage Attribution.
+   * Get Hourly Usage Attribution
+   *
+   * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param usageType Usage type to retrieve. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HourlyUsageAttributionResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;HourlyUsageAttributionResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<HourlyUsageAttributionResponse>>
       getHourlyUsageAttributionWithHttpInfoAsync(
@@ -690,20 +642,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management Get hourly usage for incident management.
+   * Get hourly usage for incident management
+   *
+   * <p>See {@link #getIncidentManagementWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageIncidentManagementResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageIncidentManagementResponse getIncidentManagement(OffsetDateTime startHr)
       throws ApiException {
@@ -712,19 +658,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management Get hourly usage for incident management.
+   * Get hourly usage for incident management
+   *
+   * <p>See {@link #getIncidentManagementWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageIncidentManagementResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageIncidentManagementResponse&gt;
    */
   public CompletableFuture<UsageIncidentManagementResponse> getIncidentManagementAsync(
       OffsetDateTime startHr) {
@@ -737,21 +677,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management Get hourly usage for incident management.
+   * Get hourly usage for incident management
+   *
+   * <p>See {@link #getIncidentManagementWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageIncidentManagementResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageIncidentManagementResponse getIncidentManagement(
       OffsetDateTime startHr, GetIncidentManagementOptionalParameters parameters)
@@ -760,20 +694,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management Get hourly usage for incident management.
+   * Get hourly usage for incident management
+   *
+   * <p>See {@link #getIncidentManagementWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageIncidentManagementResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageIncidentManagementResponse&gt;
    */
   public CompletableFuture<UsageIncidentManagementResponse> getIncidentManagementAsync(
       OffsetDateTime startHr, GetIncidentManagementOptionalParameters parameters) {
@@ -785,7 +713,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management Get hourly usage for incident management.
+   * Get hourly usage for incident management
+   *
+   * <p>Get hourly usage for incident management.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -856,21 +786,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management Get hourly usage for incident management.
+   * Get hourly usage for incident management
+   *
+   * <p>See {@link #getIncidentManagementWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageIncidentManagementResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageIncidentManagementResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageIncidentManagementResponse>>
       getIncidentManagementWithHttpInfoAsync(
@@ -948,20 +871,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans Get hourly usage for ingested spans.
+   * Get hourly usage for ingested spans
+   *
+   * <p>See {@link #getIngestedSpansWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageIngestedSpansResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageIngestedSpansResponse getIngestedSpans(OffsetDateTime startHr) throws ApiException {
     return getIngestedSpansWithHttpInfo(startHr, new GetIngestedSpansOptionalParameters())
@@ -969,19 +886,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans Get hourly usage for ingested spans.
+   * Get hourly usage for ingested spans
+   *
+   * <p>See {@link #getIngestedSpansWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageIngestedSpansResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageIngestedSpansResponse&gt;
    */
   public CompletableFuture<UsageIngestedSpansResponse> getIngestedSpansAsync(
       OffsetDateTime startHr) {
@@ -993,21 +904,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans Get hourly usage for ingested spans.
+   * Get hourly usage for ingested spans
+   *
+   * <p>See {@link #getIngestedSpansWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageIngestedSpansResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageIngestedSpansResponse getIngestedSpans(
       OffsetDateTime startHr, GetIngestedSpansOptionalParameters parameters) throws ApiException {
@@ -1015,20 +920,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans Get hourly usage for ingested spans.
+   * Get hourly usage for ingested spans
+   *
+   * <p>See {@link #getIngestedSpansWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageIngestedSpansResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageIngestedSpansResponse&gt;
    */
   public CompletableFuture<UsageIngestedSpansResponse> getIngestedSpansAsync(
       OffsetDateTime startHr, GetIngestedSpansOptionalParameters parameters) {
@@ -1040,7 +939,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans Get hourly usage for ingested spans.
+   * Get hourly usage for ingested spans
+   *
+   * <p>Get hourly usage for ingested spans.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -1110,21 +1011,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans Get hourly usage for ingested spans.
+   * Get hourly usage for ingested spans
+   *
+   * <p>See {@link #getIngestedSpansWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageIngestedSpansResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageIngestedSpansResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageIngestedSpansResponse>>
       getIngestedSpansWithHttpInfoAsync(
@@ -1239,17 +1133,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available monthly custom reports Get monthly custom reports.
+   * Get the list of available monthly custom reports
+   *
+   * <p>See {@link #getMonthlyCustomReportsWithHttpInfo}.
    *
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageCustomReportsResponse getMonthlyCustomReports() throws ApiException {
     return getMonthlyCustomReportsWithHttpInfo(new GetMonthlyCustomReportsOptionalParameters())
@@ -1257,16 +1146,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available monthly custom reports Get monthly custom reports.
+   * Get the list of available monthly custom reports
    *
-   * @return CompletableFuture<UsageCustomReportsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #getMonthlyCustomReportsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
    */
   public CompletableFuture<UsageCustomReportsResponse> getMonthlyCustomReportsAsync() {
     return getMonthlyCustomReportsWithHttpInfoAsync(new GetMonthlyCustomReportsOptionalParameters())
@@ -1277,18 +1161,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available monthly custom reports Get monthly custom reports.
+   * Get the list of available monthly custom reports
+   *
+   * <p>See {@link #getMonthlyCustomReportsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageCustomReportsResponse getMonthlyCustomReports(
       GetMonthlyCustomReportsOptionalParameters parameters) throws ApiException {
@@ -1296,17 +1175,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available monthly custom reports Get monthly custom reports.
+   * Get the list of available monthly custom reports
+   *
+   * <p>See {@link #getMonthlyCustomReportsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageCustomReportsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
    */
   public CompletableFuture<UsageCustomReportsResponse> getMonthlyCustomReportsAsync(
       GetMonthlyCustomReportsOptionalParameters parameters) {
@@ -1318,7 +1192,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available monthly custom reports Get monthly custom reports.
+   * Get the list of available monthly custom reports
+   *
+   * <p>Get monthly custom reports.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
@@ -1384,18 +1260,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available monthly custom reports Get monthly custom reports.
+   * Get the list of available monthly custom reports
+   *
+   * <p>See {@link #getMonthlyCustomReportsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageCustomReportsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageCustomReportsResponse>>
       getMonthlyCustomReportsWithHttpInfoAsync(
@@ -1521,7 +1391,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution Get Monthly Usage Attribution.
+   * Get Monthly Usage Attribution
+   *
+   * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
@@ -1529,13 +1401,6 @@ public class UsageMeteringApi {
    *     types. (required)
    * @return MonthlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MonthlyUsageAttributionResponse getMonthlyUsageAttribution(
       OffsetDateTime startMonth, MonthlyUsageAttributionSupportedMetrics fields)
@@ -1546,20 +1411,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution Get Monthly Usage Attribution.
+   * Get Monthly Usage Attribution
+   *
+   * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
    *     types. (required)
-   * @return CompletableFuture<MonthlyUsageAttributionResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;MonthlyUsageAttributionResponse&gt;
    */
   public CompletableFuture<MonthlyUsageAttributionResponse> getMonthlyUsageAttributionAsync(
       OffsetDateTime startMonth, MonthlyUsageAttributionSupportedMetrics fields) {
@@ -1572,7 +1432,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution Get Monthly Usage Attribution.
+   * Get Monthly Usage Attribution
+   *
+   * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
@@ -1581,13 +1443,6 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return MonthlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public MonthlyUsageAttributionResponse getMonthlyUsageAttribution(
       OffsetDateTime startMonth,
@@ -1598,21 +1453,16 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution Get Monthly Usage Attribution.
+   * Get Monthly Usage Attribution
+   *
+   * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<MonthlyUsageAttributionResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;MonthlyUsageAttributionResponse&gt;
    */
   public CompletableFuture<MonthlyUsageAttributionResponse> getMonthlyUsageAttributionAsync(
       OffsetDateTime startMonth,
@@ -1626,7 +1476,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution Get Monthly Usage Attribution.
+   * Get Monthly Usage Attribution
+   *
+   * <p>Get Monthly Usage Attribution.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
@@ -1717,22 +1569,16 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution Get Monthly Usage Attribution.
+   * Get Monthly Usage Attribution
+   *
+   * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;MonthlyUsageAttributionResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;MonthlyUsageAttributionResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MonthlyUsageAttributionResponse>>
       getMonthlyUsageAttributionWithHttpInfoAsync(
@@ -1818,19 +1664,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified daily custom reports Get specified daily custom reports.
+   * Get specified daily custom reports
+   *
+   * <p>See {@link #getSpecifiedDailyCustomReportsWithHttpInfo}.
    *
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return UsageSpecifiedCustomReportsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSpecifiedCustomReportsResponse getSpecifiedDailyCustomReports(String reportId)
       throws ApiException {
@@ -1847,7 +1687,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified daily custom reports Get specified daily custom reports.
+   * Get specified daily custom reports
+   *
+   * <p>Get specified daily custom reports.
    *
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
@@ -1914,19 +1756,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified daily custom reports Get specified daily custom reports.
+   * Get specified daily custom reports
+   *
+   * <p>See {@link #getSpecifiedDailyCustomReportsWithHttpInfo}.
    *
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
-   * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>>
       getSpecifiedDailyCustomReportsWithHttpInfoAsync(String reportId) {
@@ -1986,20 +1821,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified monthly custom reports Get specified monthly custom reports.
+   * Get specified monthly custom reports
+   *
+   * <p>See {@link #getSpecifiedMonthlyCustomReportsWithHttpInfo}.
    *
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return UsageSpecifiedCustomReportsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSpecifiedCustomReportsResponse getSpecifiedMonthlyCustomReports(String reportId)
       throws ApiException {
@@ -2016,7 +1844,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified monthly custom reports Get specified monthly custom reports.
+   * Get specified monthly custom reports
+   *
+   * <p>Get specified monthly custom reports.
    *
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
@@ -2085,20 +1915,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified monthly custom reports Get specified monthly custom reports.
+   * Get specified monthly custom reports
+   *
+   * <p>See {@link #getSpecifiedMonthlyCustomReportsWithHttpInfo}.
    *
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
-   * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>>
       getSpecifiedMonthlyCustomReportsWithHttpInfoAsync(String reportId) {
@@ -2175,20 +1997,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs Get hourly usage for analyzed logs (Security Monitoring).
+   * Get hourly usage for analyzed logs
+   *
+   * <p>See {@link #getUsageAnalyzedLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageAnalyzedLogsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageAnalyzedLogsResponse getUsageAnalyzedLogs(OffsetDateTime startHr)
       throws ApiException {
@@ -2197,19 +2013,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs Get hourly usage for analyzed logs (Security Monitoring).
+   * Get hourly usage for analyzed logs
+   *
+   * <p>See {@link #getUsageAnalyzedLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageAnalyzedLogsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageAnalyzedLogsResponse&gt;
    */
   public CompletableFuture<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsAsync(
       OffsetDateTime startHr) {
@@ -2222,21 +2032,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs Get hourly usage for analyzed logs (Security Monitoring).
+   * Get hourly usage for analyzed logs
+   *
+   * <p>See {@link #getUsageAnalyzedLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageAnalyzedLogsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageAnalyzedLogsResponse getUsageAnalyzedLogs(
       OffsetDateTime startHr, GetUsageAnalyzedLogsOptionalParameters parameters)
@@ -2245,20 +2049,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs Get hourly usage for analyzed logs (Security Monitoring).
+   * Get hourly usage for analyzed logs
+   *
+   * <p>See {@link #getUsageAnalyzedLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageAnalyzedLogsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageAnalyzedLogsResponse&gt;
    */
   public CompletableFuture<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsAsync(
       OffsetDateTime startHr, GetUsageAnalyzedLogsOptionalParameters parameters) {
@@ -2270,7 +2068,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs Get hourly usage for analyzed logs (Security Monitoring).
+   * Get hourly usage for analyzed logs
+   *
+   * <p>Get hourly usage for analyzed logs (Security Monitoring).
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -2341,21 +2141,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs Get hourly usage for analyzed logs (Security Monitoring).
+   * Get hourly usage for analyzed logs
+   *
+   * <p>See {@link #getUsageAnalyzedLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageAnalyzedLogsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageAnalyzedLogsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageAnalyzedLogsResponse>>
       getUsageAnalyzedLogsWithHttpInfoAsync(
@@ -2494,7 +2287,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution Get Usage Attribution.
+   * Get Usage Attribution
+   *
+   * <p>See {@link #getUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
@@ -2502,13 +2297,6 @@ public class UsageMeteringApi {
    *     types. (required)
    * @return UsageAttributionResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageAttributionResponse getUsageAttribution(
       OffsetDateTime startMonth, UsageAttributionSupportedMetrics fields) throws ApiException {
@@ -2518,20 +2306,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution Get Usage Attribution.
+   * Get Usage Attribution
+   *
+   * <p>See {@link #getUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
    *     types. (required)
-   * @return CompletableFuture<UsageAttributionResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageAttributionResponse&gt;
    */
   public CompletableFuture<UsageAttributionResponse> getUsageAttributionAsync(
       OffsetDateTime startMonth, UsageAttributionSupportedMetrics fields) {
@@ -2544,7 +2327,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution Get Usage Attribution.
+   * Get Usage Attribution
+   *
+   * <p>See {@link #getUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
@@ -2553,13 +2338,6 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return UsageAttributionResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageAttributionResponse getUsageAttribution(
       OffsetDateTime startMonth,
@@ -2570,21 +2348,16 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution Get Usage Attribution.
+   * Get Usage Attribution
+   *
+   * <p>See {@link #getUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageAttributionResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageAttributionResponse&gt;
    */
   public CompletableFuture<UsageAttributionResponse> getUsageAttributionAsync(
       OffsetDateTime startMonth,
@@ -2598,7 +2371,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution Get Usage Attribution.
+   * Get Usage Attribution
+   *
+   * <p>Get Usage Attribution.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
@@ -2690,22 +2465,16 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution Get Usage Attribution.
+   * Get Usage Attribution
+   *
+   * <p>See {@link #getUsageAttributionWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
    * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageAttributionResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageAttributionResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageAttributionResponse>>
       getUsageAttributionWithHttpInfoAsync(
@@ -2805,20 +2574,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs Get hourly usage for audit logs.
+   * Get hourly usage for audit logs
+   *
+   * <p>See {@link #getUsageAuditLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageAuditLogsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageAuditLogsResponse getUsageAuditLogs(OffsetDateTime startHr) throws ApiException {
     return getUsageAuditLogsWithHttpInfo(startHr, new GetUsageAuditLogsOptionalParameters())
@@ -2826,19 +2589,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs Get hourly usage for audit logs.
+   * Get hourly usage for audit logs
+   *
+   * <p>See {@link #getUsageAuditLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageAuditLogsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageAuditLogsResponse&gt;
    */
   public CompletableFuture<UsageAuditLogsResponse> getUsageAuditLogsAsync(OffsetDateTime startHr) {
     return getUsageAuditLogsWithHttpInfoAsync(startHr, new GetUsageAuditLogsOptionalParameters())
@@ -2849,21 +2606,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs Get hourly usage for audit logs.
+   * Get hourly usage for audit logs
+   *
+   * <p>See {@link #getUsageAuditLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageAuditLogsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageAuditLogsResponse getUsageAuditLogs(
       OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) throws ApiException {
@@ -2871,20 +2622,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs Get hourly usage for audit logs.
+   * Get hourly usage for audit logs
+   *
+   * <p>See {@link #getUsageAuditLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageAuditLogsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageAuditLogsResponse&gt;
    */
   public CompletableFuture<UsageAuditLogsResponse> getUsageAuditLogsAsync(
       OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) {
@@ -2896,7 +2641,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs Get hourly usage for audit logs.
+   * Get hourly usage for audit logs
+   *
+   * <p>Get hourly usage for audit logs.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -2966,21 +2713,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs Get hourly usage for audit logs.
+   * Get hourly usage for audit logs
+   *
+   * <p>See {@link #getUsageAuditLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageAuditLogsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageAuditLogsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageAuditLogsResponse>> getUsageAuditLogsWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) {
@@ -3056,18 +2796,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account Get billable usage across your account.
+   * Get billable usage across your account
+   *
+   * <p>See {@link #getUsageBillableSummaryWithHttpInfo}.
    *
    * @return UsageBillableSummaryResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageBillableSummaryResponse getUsageBillableSummary() throws ApiException {
     return getUsageBillableSummaryWithHttpInfo(new GetUsageBillableSummaryOptionalParameters())
@@ -3075,17 +2809,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account Get billable usage across your account.
+   * Get billable usage across your account
    *
-   * @return CompletableFuture<UsageBillableSummaryResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #getUsageBillableSummaryWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;UsageBillableSummaryResponse&gt;
    */
   public CompletableFuture<UsageBillableSummaryResponse> getUsageBillableSummaryAsync() {
     return getUsageBillableSummaryWithHttpInfoAsync(new GetUsageBillableSummaryOptionalParameters())
@@ -3096,19 +2824,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account Get billable usage across your account.
+   * Get billable usage across your account
+   *
+   * <p>See {@link #getUsageBillableSummaryWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return UsageBillableSummaryResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageBillableSummaryResponse getUsageBillableSummary(
       GetUsageBillableSummaryOptionalParameters parameters) throws ApiException {
@@ -3116,18 +2838,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account Get billable usage across your account.
+   * Get billable usage across your account
+   *
+   * <p>See {@link #getUsageBillableSummaryWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageBillableSummaryResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageBillableSummaryResponse&gt;
    */
   public CompletableFuture<UsageBillableSummaryResponse> getUsageBillableSummaryAsync(
       GetUsageBillableSummaryOptionalParameters parameters) {
@@ -3139,7 +2855,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account Get billable usage across your account.
+   * Get billable usage across your account
+   *
+   * <p>Get billable usage across your account.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageBillableSummaryResponse&gt;
@@ -3200,19 +2918,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account Get billable usage across your account.
+   * Get billable usage across your account
+   *
+   * <p>See {@link #getUsageBillableSummaryWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageBillableSummaryResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageBillableSummaryResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageBillableSummaryResponse>>
       getUsageBillableSummaryWithHttpInfoAsync(
@@ -3279,39 +2990,27 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>See {@link #getUsageCWSWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageCWSResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageCWSResponse getUsageCWS(OffsetDateTime startHr) throws ApiException {
     return getUsageCWSWithHttpInfo(startHr, new GetUsageCWSOptionalParameters()).getData();
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>See {@link #getUsageCWSWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageCWSResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageCWSResponse&gt;
    */
   public CompletableFuture<UsageCWSResponse> getUsageCWSAsync(OffsetDateTime startHr) {
     return getUsageCWSWithHttpInfoAsync(startHr, new GetUsageCWSOptionalParameters())
@@ -3322,21 +3021,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>See {@link #getUsageCWSWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageCWSResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageCWSResponse getUsageCWS(
       OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) throws ApiException {
@@ -3344,20 +3037,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>See {@link #getUsageCWSWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageCWSResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageCWSResponse&gt;
    */
   public CompletableFuture<UsageCWSResponse> getUsageCWSAsync(
       OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) {
@@ -3369,7 +3056,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>Get hourly usage for Cloud Workload Security.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -3438,21 +3127,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>See {@link #getUsageCWSWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageCWSResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageCWSResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageCWSResponse>> getUsageCWSWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) {
@@ -3527,20 +3209,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM Get hourly usage for Cloud Security Posture Management (CSPM).
+   * Get hourly usage for CSPM
+   *
+   * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageCloudSecurityPostureManagementResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageCloudSecurityPostureManagementResponse getUsageCloudSecurityPostureManagement(
       OffsetDateTime startHr) throws ApiException {
@@ -3550,19 +3226,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM Get hourly usage for Cloud Security Posture Management (CSPM).
+   * Get hourly usage for CSPM
+   *
+   * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageCloudSecurityPostureManagementResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageCloudSecurityPostureManagementResponse&gt;
    */
   public CompletableFuture<UsageCloudSecurityPostureManagementResponse>
       getUsageCloudSecurityPostureManagementAsync(OffsetDateTime startHr) {
@@ -3575,21 +3245,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM Get hourly usage for Cloud Security Posture Management (CSPM).
+   * Get hourly usage for CSPM
+   *
+   * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageCloudSecurityPostureManagementResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageCloudSecurityPostureManagementResponse getUsageCloudSecurityPostureManagement(
       OffsetDateTime startHr, GetUsageCloudSecurityPostureManagementOptionalParameters parameters)
@@ -3598,20 +3262,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM Get hourly usage for Cloud Security Posture Management (CSPM).
+   * Get hourly usage for CSPM
+   *
+   * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageCloudSecurityPostureManagementResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageCloudSecurityPostureManagementResponse&gt;
    */
   public CompletableFuture<UsageCloudSecurityPostureManagementResponse>
       getUsageCloudSecurityPostureManagementAsync(
@@ -3625,7 +3283,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM Get hourly usage for Cloud Security Posture Management (CSPM).
+   * Get hourly usage for CSPM
+   *
+   * <p>Get hourly usage for Cloud Security Posture Management (CSPM).
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -3700,21 +3360,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM Get hourly usage for Cloud Security Posture Management (CSPM).
+   * Get hourly usage for CSPM
+   *
+   * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageCloudSecurityPostureManagementResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageCloudSecurityPostureManagementResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageCloudSecurityPostureManagementResponse>>
       getUsageCloudSecurityPostureManagementWithHttpInfoAsync(
@@ -3795,39 +3448,27 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring
+   *
+   * <p>See {@link #getUsageDBMWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageDBMResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageDBMResponse getUsageDBM(OffsetDateTime startHr) throws ApiException {
     return getUsageDBMWithHttpInfo(startHr, new GetUsageDBMOptionalParameters()).getData();
   }
 
   /**
-   * Get hourly usage for Database Monitoring Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring
+   *
+   * <p>See {@link #getUsageDBMWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageDBMResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageDBMResponse&gt;
    */
   public CompletableFuture<UsageDBMResponse> getUsageDBMAsync(OffsetDateTime startHr) {
     return getUsageDBMWithHttpInfoAsync(startHr, new GetUsageDBMOptionalParameters())
@@ -3838,21 +3479,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring
+   *
+   * <p>See {@link #getUsageDBMWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageDBMResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageDBMResponse getUsageDBM(
       OffsetDateTime startHr, GetUsageDBMOptionalParameters parameters) throws ApiException {
@@ -3860,20 +3495,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring
+   *
+   * <p>See {@link #getUsageDBMWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageDBMResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageDBMResponse&gt;
    */
   public CompletableFuture<UsageDBMResponse> getUsageDBMAsync(
       OffsetDateTime startHr, GetUsageDBMOptionalParameters parameters) {
@@ -3885,7 +3514,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring
+   *
+   * <p>Get hourly usage for Database Monitoring
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -3954,21 +3585,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring
+   *
+   * <p>See {@link #getUsageDBMWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageDBMResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageDBMResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageDBMResponse>> getUsageDBMWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageDBMOptionalParameters parameters) {
@@ -4043,41 +3667,27 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Fargate Get hourly usage for
-   * [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+   * Get hourly usage for Fargate
+   *
+   * <p>See {@link #getUsageFargateWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageFargateResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageFargateResponse getUsageFargate(OffsetDateTime startHr) throws ApiException {
     return getUsageFargateWithHttpInfo(startHr, new GetUsageFargateOptionalParameters()).getData();
   }
 
   /**
-   * Get hourly usage for Fargate Get hourly usage for
-   * [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+   * Get hourly usage for Fargate
+   *
+   * <p>See {@link #getUsageFargateWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageFargateResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageFargateResponse&gt;
    */
   public CompletableFuture<UsageFargateResponse> getUsageFargateAsync(OffsetDateTime startHr) {
     return getUsageFargateWithHttpInfoAsync(startHr, new GetUsageFargateOptionalParameters())
@@ -4088,22 +3698,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Fargate Get hourly usage for
-   * [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+   * Get hourly usage for Fargate
+   *
+   * <p>See {@link #getUsageFargateWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageFargateResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageFargateResponse getUsageFargate(
       OffsetDateTime startHr, GetUsageFargateOptionalParameters parameters) throws ApiException {
@@ -4111,21 +3714,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Fargate Get hourly usage for
-   * [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+   * Get hourly usage for Fargate
+   *
+   * <p>See {@link #getUsageFargateWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageFargateResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageFargateResponse&gt;
    */
   public CompletableFuture<UsageFargateResponse> getUsageFargateAsync(
       OffsetDateTime startHr, GetUsageFargateOptionalParameters parameters) {
@@ -4137,8 +3733,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Fargate Get hourly usage for
-   * [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+   * Get hourly usage for Fargate
+   *
+   * <p>Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4208,22 +3805,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Fargate Get hourly usage for
-   * [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+   * Get hourly usage for Fargate
+   *
+   * <p>See {@link #getUsageFargateWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageFargateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageFargateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageFargateResponse>> getUsageFargateWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageFargateOptionalParameters parameters) {
@@ -4299,39 +3888,27 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers Get hourly usage for hosts and containers.
+   * Get hourly usage for hosts and containers
+   *
+   * <p>See {@link #getUsageHostsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageHostsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageHostsResponse getUsageHosts(OffsetDateTime startHr) throws ApiException {
     return getUsageHostsWithHttpInfo(startHr, new GetUsageHostsOptionalParameters()).getData();
   }
 
   /**
-   * Get hourly usage for hosts and containers Get hourly usage for hosts and containers.
+   * Get hourly usage for hosts and containers
+   *
+   * <p>See {@link #getUsageHostsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageHostsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageHostsResponse&gt;
    */
   public CompletableFuture<UsageHostsResponse> getUsageHostsAsync(OffsetDateTime startHr) {
     return getUsageHostsWithHttpInfoAsync(startHr, new GetUsageHostsOptionalParameters())
@@ -4342,21 +3919,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers Get hourly usage for hosts and containers.
+   * Get hourly usage for hosts and containers
+   *
+   * <p>See {@link #getUsageHostsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageHostsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageHostsResponse getUsageHosts(
       OffsetDateTime startHr, GetUsageHostsOptionalParameters parameters) throws ApiException {
@@ -4364,20 +3935,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers Get hourly usage for hosts and containers.
+   * Get hourly usage for hosts and containers
+   *
+   * <p>See {@link #getUsageHostsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageHostsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageHostsResponse&gt;
    */
   public CompletableFuture<UsageHostsResponse> getUsageHostsAsync(
       OffsetDateTime startHr, GetUsageHostsOptionalParameters parameters) {
@@ -4389,7 +3954,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers Get hourly usage for hosts and containers.
+   * Get hourly usage for hosts and containers
+   *
+   * <p>Get hourly usage for hosts and containers.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4458,21 +4025,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers Get hourly usage for hosts and containers.
+   * Get hourly usage for hosts and containers
+   *
+   * <p>See {@link #getUsageHostsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageHostsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageHostsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageHostsResponse>> getUsageHostsWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageHostsOptionalParameters parameters) {
@@ -4547,20 +4107,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans Get hourly usage for indexed spans.
+   * Get hourly usage for indexed spans
+   *
+   * <p>See {@link #getUsageIndexedSpansWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageIndexedSpansResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageIndexedSpansResponse getUsageIndexedSpans(OffsetDateTime startHr)
       throws ApiException {
@@ -4569,19 +4123,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans Get hourly usage for indexed spans.
+   * Get hourly usage for indexed spans
+   *
+   * <p>See {@link #getUsageIndexedSpansWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageIndexedSpansResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageIndexedSpansResponse&gt;
    */
   public CompletableFuture<UsageIndexedSpansResponse> getUsageIndexedSpansAsync(
       OffsetDateTime startHr) {
@@ -4594,21 +4142,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans Get hourly usage for indexed spans.
+   * Get hourly usage for indexed spans
+   *
+   * <p>See {@link #getUsageIndexedSpansWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageIndexedSpansResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageIndexedSpansResponse getUsageIndexedSpans(
       OffsetDateTime startHr, GetUsageIndexedSpansOptionalParameters parameters)
@@ -4617,20 +4159,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans Get hourly usage for indexed spans.
+   * Get hourly usage for indexed spans
+   *
+   * <p>See {@link #getUsageIndexedSpansWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageIndexedSpansResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageIndexedSpansResponse&gt;
    */
   public CompletableFuture<UsageIndexedSpansResponse> getUsageIndexedSpansAsync(
       OffsetDateTime startHr, GetUsageIndexedSpansOptionalParameters parameters) {
@@ -4642,7 +4178,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans Get hourly usage for indexed spans.
+   * Get hourly usage for indexed spans
+   *
+   * <p>Get hourly usage for indexed spans.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -4713,21 +4251,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans Get hourly usage for indexed spans.
+   * Get hourly usage for indexed spans
+   *
+   * <p>See {@link #getUsageIndexedSpansWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageIndexedSpansResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageIndexedSpansResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageIndexedSpansResponse>>
       getUsageIndexedSpansWithHttpInfoAsync(
@@ -4804,20 +4335,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT Get hourly usage for IoT.
+   * Get hourly usage for IoT
+   *
+   * <p>See {@link #getUsageInternetOfThingsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageIoTResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageIoTResponse getUsageInternetOfThings(OffsetDateTime startHr) throws ApiException {
     return getUsageInternetOfThingsWithHttpInfo(
@@ -4826,19 +4351,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT Get hourly usage for IoT.
+   * Get hourly usage for IoT
+   *
+   * <p>See {@link #getUsageInternetOfThingsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageIoTResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageIoTResponse&gt;
    */
   public CompletableFuture<UsageIoTResponse> getUsageInternetOfThingsAsync(OffsetDateTime startHr) {
     return getUsageInternetOfThingsWithHttpInfoAsync(
@@ -4850,21 +4369,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT Get hourly usage for IoT.
+   * Get hourly usage for IoT
+   *
+   * <p>See {@link #getUsageInternetOfThingsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageIoTResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageIoTResponse getUsageInternetOfThings(
       OffsetDateTime startHr, GetUsageInternetOfThingsOptionalParameters parameters)
@@ -4873,20 +4386,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT Get hourly usage for IoT.
+   * Get hourly usage for IoT
+   *
+   * <p>See {@link #getUsageInternetOfThingsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageIoTResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageIoTResponse&gt;
    */
   public CompletableFuture<UsageIoTResponse> getUsageInternetOfThingsAsync(
       OffsetDateTime startHr, GetUsageInternetOfThingsOptionalParameters parameters) {
@@ -4898,7 +4405,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT Get hourly usage for IoT.
+   * Get hourly usage for IoT
+   *
+   * <p>Get hourly usage for IoT.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -4968,21 +4477,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT Get hourly usage for IoT.
+   * Get hourly usage for IoT
+   *
+   * <p>See {@link #getUsageInternetOfThingsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageIoTResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageIoTResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageIoTResponse>> getUsageInternetOfThingsWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageInternetOfThingsOptionalParameters parameters) {
@@ -5058,39 +4560,27 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda Get hourly usage for lambda.
+   * Get hourly usage for Lambda
+   *
+   * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageLambdaResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageLambdaResponse getUsageLambda(OffsetDateTime startHr) throws ApiException {
     return getUsageLambdaWithHttpInfo(startHr, new GetUsageLambdaOptionalParameters()).getData();
   }
 
   /**
-   * Get hourly usage for Lambda Get hourly usage for lambda.
+   * Get hourly usage for Lambda
+   *
+   * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageLambdaResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageLambdaResponse&gt;
    */
   public CompletableFuture<UsageLambdaResponse> getUsageLambdaAsync(OffsetDateTime startHr) {
     return getUsageLambdaWithHttpInfoAsync(startHr, new GetUsageLambdaOptionalParameters())
@@ -5101,21 +4591,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda Get hourly usage for lambda.
+   * Get hourly usage for Lambda
+   *
+   * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageLambdaResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageLambdaResponse getUsageLambda(
       OffsetDateTime startHr, GetUsageLambdaOptionalParameters parameters) throws ApiException {
@@ -5123,20 +4607,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda Get hourly usage for lambda.
+   * Get hourly usage for Lambda
+   *
+   * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageLambdaResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageLambdaResponse&gt;
    */
   public CompletableFuture<UsageLambdaResponse> getUsageLambdaAsync(
       OffsetDateTime startHr, GetUsageLambdaOptionalParameters parameters) {
@@ -5148,7 +4626,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda Get hourly usage for lambda.
+   * Get hourly usage for Lambda
+   *
+   * <p>Get hourly usage for lambda.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -5217,21 +4697,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda Get hourly usage for lambda.
+   * Get hourly usage for Lambda
+   *
+   * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageLambdaResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageLambdaResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageLambdaResponse>> getUsageLambdaWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageLambdaOptionalParameters parameters) {
@@ -5306,39 +4779,27 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs Get hourly usage for logs.
+   * Get hourly usage for Logs
+   *
+   * <p>See {@link #getUsageLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageLogsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageLogsResponse getUsageLogs(OffsetDateTime startHr) throws ApiException {
     return getUsageLogsWithHttpInfo(startHr, new GetUsageLogsOptionalParameters()).getData();
   }
 
   /**
-   * Get hourly usage for Logs Get hourly usage for logs.
+   * Get hourly usage for Logs
+   *
+   * <p>See {@link #getUsageLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageLogsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageLogsResponse&gt;
    */
   public CompletableFuture<UsageLogsResponse> getUsageLogsAsync(OffsetDateTime startHr) {
     return getUsageLogsWithHttpInfoAsync(startHr, new GetUsageLogsOptionalParameters())
@@ -5349,21 +4810,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs Get hourly usage for logs.
+   * Get hourly usage for Logs
+   *
+   * <p>See {@link #getUsageLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageLogsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageLogsResponse getUsageLogs(
       OffsetDateTime startHr, GetUsageLogsOptionalParameters parameters) throws ApiException {
@@ -5371,20 +4826,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs Get hourly usage for logs.
+   * Get hourly usage for Logs
+   *
+   * <p>See {@link #getUsageLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageLogsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageLogsResponse&gt;
    */
   public CompletableFuture<UsageLogsResponse> getUsageLogsAsync(
       OffsetDateTime startHr, GetUsageLogsOptionalParameters parameters) {
@@ -5396,7 +4845,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs Get hourly usage for logs.
+   * Get hourly usage for Logs
+   *
+   * <p>Get hourly usage for logs.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -5465,21 +4916,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs Get hourly usage for logs.
+   * Get hourly usage for Logs
+   *
+   * <p>See {@link #getUsageLogsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageLogsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageLogsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageLogsResponse>> getUsageLogsWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageLogsOptionalParameters parameters) {
@@ -5566,20 +5010,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index Get hourly usage for logs by index.
+   * Get hourly usage for Logs by Index
+   *
+   * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageLogsByIndexResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageLogsByIndexResponse getUsageLogsByIndex(OffsetDateTime startHr) throws ApiException {
     return getUsageLogsByIndexWithHttpInfo(startHr, new GetUsageLogsByIndexOptionalParameters())
@@ -5587,19 +5025,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index Get hourly usage for logs by index.
+   * Get hourly usage for Logs by Index
+   *
+   * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageLogsByIndexResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageLogsByIndexResponse&gt;
    */
   public CompletableFuture<UsageLogsByIndexResponse> getUsageLogsByIndexAsync(
       OffsetDateTime startHr) {
@@ -5612,21 +5044,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index Get hourly usage for logs by index.
+   * Get hourly usage for Logs by Index
+   *
+   * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageLogsByIndexResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageLogsByIndexResponse getUsageLogsByIndex(
       OffsetDateTime startHr, GetUsageLogsByIndexOptionalParameters parameters)
@@ -5635,20 +5061,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index Get hourly usage for logs by index.
+   * Get hourly usage for Logs by Index
+   *
+   * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageLogsByIndexResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageLogsByIndexResponse&gt;
    */
   public CompletableFuture<UsageLogsByIndexResponse> getUsageLogsByIndexAsync(
       OffsetDateTime startHr, GetUsageLogsByIndexOptionalParameters parameters) {
@@ -5660,7 +5080,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index Get hourly usage for logs by index.
+   * Get hourly usage for Logs by Index
+   *
+   * <p>Get hourly usage for logs by index.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -5733,21 +5155,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index Get hourly usage for logs by index.
+   * Get hourly usage for Logs by Index
+   *
+   * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageLogsByIndexResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageLogsByIndexResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageLogsByIndexResponse>>
       getUsageLogsByIndexWithHttpInfoAsync(
@@ -5826,20 +5241,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention Get hourly usage for indexed logs by retention period.
+   * Get hourly logs usage by retention
+   *
+   * <p>See {@link #getUsageLogsByRetentionWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageLogsByRetentionResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageLogsByRetentionResponse getUsageLogsByRetention(OffsetDateTime startHr)
       throws ApiException {
@@ -5849,19 +5258,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention Get hourly usage for indexed logs by retention period.
+   * Get hourly logs usage by retention
+   *
+   * <p>See {@link #getUsageLogsByRetentionWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageLogsByRetentionResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageLogsByRetentionResponse&gt;
    */
   public CompletableFuture<UsageLogsByRetentionResponse> getUsageLogsByRetentionAsync(
       OffsetDateTime startHr) {
@@ -5874,21 +5277,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention Get hourly usage for indexed logs by retention period.
+   * Get hourly logs usage by retention
+   *
+   * <p>See {@link #getUsageLogsByRetentionWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageLogsByRetentionResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageLogsByRetentionResponse getUsageLogsByRetention(
       OffsetDateTime startHr, GetUsageLogsByRetentionOptionalParameters parameters)
@@ -5897,20 +5294,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention Get hourly usage for indexed logs by retention period.
+   * Get hourly logs usage by retention
+   *
+   * <p>See {@link #getUsageLogsByRetentionWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageLogsByRetentionResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageLogsByRetentionResponse&gt;
    */
   public CompletableFuture<UsageLogsByRetentionResponse> getUsageLogsByRetentionAsync(
       OffsetDateTime startHr, GetUsageLogsByRetentionOptionalParameters parameters) {
@@ -5922,7 +5313,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention Get hourly usage for indexed logs by retention period.
+   * Get hourly logs usage by retention
+   *
+   * <p>Get hourly usage for indexed logs by retention period.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -5993,21 +5386,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention Get hourly usage for indexed logs by retention period.
+   * Get hourly logs usage by retention
+   *
+   * <p>See {@link #getUsageLogsByRetentionWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageLogsByRetentionResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageLogsByRetentionResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageLogsByRetentionResponse>>
       getUsageLogsByRetentionWithHttpInfoAsync(
@@ -6086,20 +5472,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows Get hourly usage for network flows.
+   * Get hourly usage for Network Flows
+   *
+   * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageNetworkFlowsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageNetworkFlowsResponse getUsageNetworkFlows(OffsetDateTime startHr)
       throws ApiException {
@@ -6108,19 +5488,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows Get hourly usage for network flows.
+   * Get hourly usage for Network Flows
+   *
+   * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageNetworkFlowsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageNetworkFlowsResponse&gt;
    */
   public CompletableFuture<UsageNetworkFlowsResponse> getUsageNetworkFlowsAsync(
       OffsetDateTime startHr) {
@@ -6133,21 +5507,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows Get hourly usage for network flows.
+   * Get hourly usage for Network Flows
+   *
+   * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageNetworkFlowsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageNetworkFlowsResponse getUsageNetworkFlows(
       OffsetDateTime startHr, GetUsageNetworkFlowsOptionalParameters parameters)
@@ -6156,20 +5524,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows Get hourly usage for network flows.
+   * Get hourly usage for Network Flows
+   *
+   * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageNetworkFlowsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageNetworkFlowsResponse&gt;
    */
   public CompletableFuture<UsageNetworkFlowsResponse> getUsageNetworkFlowsAsync(
       OffsetDateTime startHr, GetUsageNetworkFlowsOptionalParameters parameters) {
@@ -6181,7 +5543,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows Get hourly usage for network flows.
+   * Get hourly usage for Network Flows
+   *
+   * <p>Get hourly usage for network flows.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -6252,21 +5616,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows Get hourly usage for network flows.
+   * Get hourly usage for Network Flows
+   *
+   * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageNetworkFlowsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageNetworkFlowsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageNetworkFlowsResponse>>
       getUsageNetworkFlowsWithHttpInfoAsync(
@@ -6343,20 +5700,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts Get hourly usage for network hosts.
+   * Get hourly usage for Network Hosts
+   *
+   * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageNetworkHostsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageNetworkHostsResponse getUsageNetworkHosts(OffsetDateTime startHr)
       throws ApiException {
@@ -6365,19 +5716,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts Get hourly usage for network hosts.
+   * Get hourly usage for Network Hosts
+   *
+   * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageNetworkHostsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageNetworkHostsResponse&gt;
    */
   public CompletableFuture<UsageNetworkHostsResponse> getUsageNetworkHostsAsync(
       OffsetDateTime startHr) {
@@ -6390,21 +5735,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts Get hourly usage for network hosts.
+   * Get hourly usage for Network Hosts
+   *
+   * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageNetworkHostsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageNetworkHostsResponse getUsageNetworkHosts(
       OffsetDateTime startHr, GetUsageNetworkHostsOptionalParameters parameters)
@@ -6413,20 +5752,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts Get hourly usage for network hosts.
+   * Get hourly usage for Network Hosts
+   *
+   * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageNetworkHostsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageNetworkHostsResponse&gt;
    */
   public CompletableFuture<UsageNetworkHostsResponse> getUsageNetworkHostsAsync(
       OffsetDateTime startHr, GetUsageNetworkHostsOptionalParameters parameters) {
@@ -6438,7 +5771,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts Get hourly usage for network hosts.
+   * Get hourly usage for Network Hosts
+   *
+   * <p>Get hourly usage for network hosts.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -6509,21 +5844,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts Get hourly usage for network hosts.
+   * Get hourly usage for Network Hosts
+   *
+   * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageNetworkHostsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageNetworkHostsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageNetworkHostsResponse>>
       getUsageNetworkHostsWithHttpInfoAsync(
@@ -6600,20 +5928,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts Get hourly usage for profiled hosts.
+   * Get hourly usage for profiled hosts
+   *
+   * <p>See {@link #getUsageProfilingWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageProfilingResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageProfilingResponse getUsageProfiling(OffsetDateTime startHr) throws ApiException {
     return getUsageProfilingWithHttpInfo(startHr, new GetUsageProfilingOptionalParameters())
@@ -6621,19 +5943,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts Get hourly usage for profiled hosts.
+   * Get hourly usage for profiled hosts
+   *
+   * <p>See {@link #getUsageProfilingWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageProfilingResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageProfilingResponse&gt;
    */
   public CompletableFuture<UsageProfilingResponse> getUsageProfilingAsync(OffsetDateTime startHr) {
     return getUsageProfilingWithHttpInfoAsync(startHr, new GetUsageProfilingOptionalParameters())
@@ -6644,21 +5960,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts Get hourly usage for profiled hosts.
+   * Get hourly usage for profiled hosts
+   *
+   * <p>See {@link #getUsageProfilingWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageProfilingResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageProfilingResponse getUsageProfiling(
       OffsetDateTime startHr, GetUsageProfilingOptionalParameters parameters) throws ApiException {
@@ -6666,20 +5976,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts Get hourly usage for profiled hosts.
+   * Get hourly usage for profiled hosts
+   *
+   * <p>See {@link #getUsageProfilingWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageProfilingResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageProfilingResponse&gt;
    */
   public CompletableFuture<UsageProfilingResponse> getUsageProfilingAsync(
       OffsetDateTime startHr, GetUsageProfilingOptionalParameters parameters) {
@@ -6691,7 +5995,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts Get hourly usage for profiled hosts.
+   * Get hourly usage for profiled hosts
+   *
+   * <p>Get hourly usage for profiled hosts.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -6761,21 +6067,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts Get hourly usage for profiled hosts.
+   * Get hourly usage for profiled hosts
+   *
+   * <p>See {@link #getUsageProfilingWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageProfilingResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageProfilingResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageProfilingResponse>> getUsageProfilingWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageProfilingOptionalParameters parameters) {
@@ -6864,21 +6163,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
+   * Get hourly usage for RUM Sessions
+   *
+   * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageRumSessionsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageRumSessionsResponse getUsageRumSessions(OffsetDateTime startHr) throws ApiException {
     return getUsageRumSessionsWithHttpInfo(startHr, new GetUsageRumSessionsOptionalParameters())
@@ -6886,20 +6178,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
+   * Get hourly usage for RUM Sessions
+   *
+   * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageRumSessionsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageRumSessionsResponse&gt;
    */
   public CompletableFuture<UsageRumSessionsResponse> getUsageRumSessionsAsync(
       OffsetDateTime startHr) {
@@ -6912,22 +6197,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
+   * Get hourly usage for RUM Sessions
+   *
+   * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageRumSessionsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageRumSessionsResponse getUsageRumSessions(
       OffsetDateTime startHr, GetUsageRumSessionsOptionalParameters parameters)
@@ -6936,21 +6214,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
+   * Get hourly usage for RUM Sessions
+   *
+   * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageRumSessionsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageRumSessionsResponse&gt;
    */
   public CompletableFuture<UsageRumSessionsResponse> getUsageRumSessionsAsync(
       OffsetDateTime startHr, GetUsageRumSessionsOptionalParameters parameters) {
@@ -6962,8 +6233,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
+   * Get hourly usage for RUM Sessions
+   *
+   * <p>Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7036,22 +6308,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
+   * Get hourly usage for RUM Sessions
+   *
+   * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageRumSessionsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageRumSessionsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageRumSessionsResponse>>
       getUsageRumSessionsWithHttpInfoAsync(
@@ -7130,21 +6394,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   * Get hourly usage for RUM Units
+   *
+   * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageRumUnitsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageRumUnitsResponse getUsageRumUnits(OffsetDateTime startHr) throws ApiException {
     return getUsageRumUnitsWithHttpInfo(startHr, new GetUsageRumUnitsOptionalParameters())
@@ -7152,20 +6409,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   * Get hourly usage for RUM Units
+   *
+   * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageRumUnitsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageRumUnitsResponse&gt;
    */
   public CompletableFuture<UsageRumUnitsResponse> getUsageRumUnitsAsync(OffsetDateTime startHr) {
     return getUsageRumUnitsWithHttpInfoAsync(startHr, new GetUsageRumUnitsOptionalParameters())
@@ -7176,22 +6426,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   * Get hourly usage for RUM Units
+   *
+   * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageRumUnitsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageRumUnitsResponse getUsageRumUnits(
       OffsetDateTime startHr, GetUsageRumUnitsOptionalParameters parameters) throws ApiException {
@@ -7199,21 +6442,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   * Get hourly usage for RUM Units
+   *
+   * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageRumUnitsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageRumUnitsResponse&gt;
    */
   public CompletableFuture<UsageRumUnitsResponse> getUsageRumUnitsAsync(
       OffsetDateTime startHr, GetUsageRumUnitsOptionalParameters parameters) {
@@ -7225,8 +6461,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   * Get hourly usage for RUM Units
+   *
+   * <p>Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7296,22 +6533,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   * Get hourly usage for RUM Units
+   *
+   * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageRumUnitsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageRumUnitsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageRumUnitsResponse>> getUsageRumUnitsWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageRumUnitsOptionalParameters parameters) {
@@ -7387,39 +6616,27 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for Sensitive Data Scanner
+   *
+   * <p>See {@link #getUsageSDSWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageSDSResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSDSResponse getUsageSDS(OffsetDateTime startHr) throws ApiException {
     return getUsageSDSWithHttpInfo(startHr, new GetUsageSDSOptionalParameters()).getData();
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for Sensitive Data Scanner
+   *
+   * <p>See {@link #getUsageSDSWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageSDSResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageSDSResponse&gt;
    */
   public CompletableFuture<UsageSDSResponse> getUsageSDSAsync(OffsetDateTime startHr) {
     return getUsageSDSWithHttpInfoAsync(startHr, new GetUsageSDSOptionalParameters())
@@ -7430,21 +6647,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for Sensitive Data Scanner
+   *
+   * <p>See {@link #getUsageSDSWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageSDSResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSDSResponse getUsageSDS(
       OffsetDateTime startHr, GetUsageSDSOptionalParameters parameters) throws ApiException {
@@ -7452,20 +6663,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for Sensitive Data Scanner
+   *
+   * <p>See {@link #getUsageSDSWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageSDSResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageSDSResponse&gt;
    */
   public CompletableFuture<UsageSDSResponse> getUsageSDSAsync(
       OffsetDateTime startHr, GetUsageSDSOptionalParameters parameters) {
@@ -7477,7 +6682,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for Sensitive Data Scanner
+   *
+   * <p>Get hourly usage for Sensitive Data Scanner.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -7546,21 +6753,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for Sensitive Data Scanner
+   *
+   * <p>See {@link #getUsageSDSWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageSDSResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageSDSResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageSDSResponse>> getUsageSDSWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageSDSOptionalParameters parameters) {
@@ -7635,39 +6835,27 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices Get hourly usage for SNMP devices.
+   * Get hourly usage for SNMP devices
+   *
+   * <p>See {@link #getUsageSNMPWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @return UsageSNMPResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSNMPResponse getUsageSNMP(OffsetDateTime startHr) throws ApiException {
     return getUsageSNMPWithHttpInfo(startHr, new GetUsageSNMPOptionalParameters()).getData();
   }
 
   /**
-   * Get hourly usage for SNMP devices Get hourly usage for SNMP devices.
+   * Get hourly usage for SNMP devices
+   *
+   * <p>See {@link #getUsageSNMPWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return CompletableFuture<UsageSNMPResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageSNMPResponse&gt;
    */
   public CompletableFuture<UsageSNMPResponse> getUsageSNMPAsync(OffsetDateTime startHr) {
     return getUsageSNMPWithHttpInfoAsync(startHr, new GetUsageSNMPOptionalParameters())
@@ -7678,21 +6866,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices Get hourly usage for SNMP devices.
+   * Get hourly usage for SNMP devices
+   *
+   * <p>See {@link #getUsageSNMPWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageSNMPResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSNMPResponse getUsageSNMP(
       OffsetDateTime startHr, GetUsageSNMPOptionalParameters parameters) throws ApiException {
@@ -7700,20 +6882,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices Get hourly usage for SNMP devices.
+   * Get hourly usage for SNMP devices
+   *
+   * <p>See {@link #getUsageSNMPWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageSNMPResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageSNMPResponse&gt;
    */
   public CompletableFuture<UsageSNMPResponse> getUsageSNMPAsync(
       OffsetDateTime startHr, GetUsageSNMPOptionalParameters parameters) {
@@ -7725,7 +6901,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices Get hourly usage for SNMP devices.
+   * Get hourly usage for SNMP devices
+   *
+   * <p>Get hourly usage for SNMP devices.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -7794,21 +6972,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices Get hourly usage for SNMP devices.
+   * Get hourly usage for SNMP devices
+   *
+   * <p>See {@link #getUsageSNMPWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageSNMPResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageSNMPResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageSNMPResponse>> getUsageSNMPWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageSNMPOptionalParameters parameters) {
@@ -7895,21 +7066,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account Get usage across your multi-org account. You must have
-   * the multi-org feature enabled.
+   * Get usage across your multi-org account
+   *
+   * <p>See {@link #getUsageSummaryWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
    * @return UsageSummaryResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSummaryResponse getUsageSummary(OffsetDateTime startMonth) throws ApiException {
     return getUsageSummaryWithHttpInfo(startMonth, new GetUsageSummaryOptionalParameters())
@@ -7917,20 +7081,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account Get usage across your multi-org account. You must have
-   * the multi-org feature enabled.
+   * Get usage across your multi-org account
+   *
+   * <p>See {@link #getUsageSummaryWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @return CompletableFuture<UsageSummaryResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageSummaryResponse&gt;
    */
   public CompletableFuture<UsageSummaryResponse> getUsageSummaryAsync(OffsetDateTime startMonth) {
     return getUsageSummaryWithHttpInfoAsync(startMonth, new GetUsageSummaryOptionalParameters())
@@ -7941,22 +7098,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account Get usage across your multi-org account. You must have
-   * the multi-org feature enabled.
+   * Get usage across your multi-org account
+   *
+   * <p>See {@link #getUsageSummaryWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageSummaryResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSummaryResponse getUsageSummary(
       OffsetDateTime startMonth, GetUsageSummaryOptionalParameters parameters) throws ApiException {
@@ -7964,21 +7114,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account Get usage across your multi-org account. You must have
-   * the multi-org feature enabled.
+   * Get usage across your multi-org account
+   *
+   * <p>See {@link #getUsageSummaryWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageSummaryResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageSummaryResponse&gt;
    */
   public CompletableFuture<UsageSummaryResponse> getUsageSummaryAsync(
       OffsetDateTime startMonth, GetUsageSummaryOptionalParameters parameters) {
@@ -7990,8 +7133,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account Get usage across your multi-org account. You must have
-   * the multi-org feature enabled.
+   * Get usage across your multi-org account
+   *
+   * <p>Get usage across your multi-org account. You must have the multi-org feature enabled.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
@@ -8064,22 +7208,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account Get usage across your multi-org account. You must have
-   * the multi-org feature enabled.
+   * Get usage across your multi-org account
+   *
+   * <p>See {@link #getUsageSummaryWithHttpInfo}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageSummaryResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageSummaryResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageSummaryResponse>> getUsageSummaryWithHttpInfoAsync(
       OffsetDateTime startMonth, GetUsageSummaryOptionalParameters parameters) {
@@ -8158,22 +7294,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks Get hourly usage for [Synthetics
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics Checks
+   *
+   * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageSyntheticsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   *
    * @deprecated
    */
   @Deprecated
@@ -8183,21 +7311,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks Get hourly usage for [Synthetics
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics Checks
+   *
+   * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageSyntheticsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   *
+   * @return CompletableFuture&lt;UsageSyntheticsResponse&gt;
    * @deprecated
    */
   @Deprecated
@@ -8211,23 +7331,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks Get hourly usage for [Synthetics
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics Checks
+   *
+   * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageSyntheticsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   *
    * @deprecated
    */
   @Deprecated
@@ -8237,22 +7349,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks Get hourly usage for [Synthetics
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics Checks
+   *
+   * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageSyntheticsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   *
+   * @return CompletableFuture&lt;UsageSyntheticsResponse&gt;
    * @deprecated
    */
   @Deprecated
@@ -8266,8 +7370,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks Get hourly usage for [Synthetics
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics Checks
+   *
+   * <p>Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -8340,23 +7445,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks Get hourly usage for [Synthetics
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics Checks
+   *
+   * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageSyntheticsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   *
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageSyntheticsResponse&gt;&gt;
    * @deprecated
    */
   @Deprecated
@@ -8435,21 +7531,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks Get hourly usage for [synthetics API
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics API Checks
+   *
+   * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageSyntheticsAPIResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSyntheticsAPIResponse getUsageSyntheticsAPI(OffsetDateTime startHr)
       throws ApiException {
@@ -8458,20 +7547,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks Get hourly usage for [synthetics API
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics API Checks
+   *
+   * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageSyntheticsAPIResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageSyntheticsAPIResponse&gt;
    */
   public CompletableFuture<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIAsync(
       OffsetDateTime startHr) {
@@ -8484,22 +7566,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks Get hourly usage for [synthetics API
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics API Checks
+   *
+   * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageSyntheticsAPIResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSyntheticsAPIResponse getUsageSyntheticsAPI(
       OffsetDateTime startHr, GetUsageSyntheticsAPIOptionalParameters parameters)
@@ -8508,21 +7583,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks Get hourly usage for [synthetics API
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics API Checks
+   *
+   * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageSyntheticsAPIResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageSyntheticsAPIResponse&gt;
    */
   public CompletableFuture<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIAsync(
       OffsetDateTime startHr, GetUsageSyntheticsAPIOptionalParameters parameters) {
@@ -8534,8 +7602,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks Get hourly usage for [synthetics API
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics API Checks
+   *
+   * <p>Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -8606,22 +7675,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks Get hourly usage for [synthetics API
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics API Checks
+   *
+   * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageSyntheticsAPIResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageSyntheticsAPIResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageSyntheticsAPIResponse>>
       getUsageSyntheticsAPIWithHttpInfoAsync(
@@ -8698,20 +7759,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks Get hourly usage for synthetics browser checks.
+   * Get hourly usage for Synthetics Browser Checks
+   *
+   * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageSyntheticsBrowserResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSyntheticsBrowserResponse getUsageSyntheticsBrowser(OffsetDateTime startHr)
       throws ApiException {
@@ -8721,19 +7776,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks Get hourly usage for synthetics browser checks.
+   * Get hourly usage for Synthetics Browser Checks
+   *
+   * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageSyntheticsBrowserResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageSyntheticsBrowserResponse&gt;
    */
   public CompletableFuture<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserAsync(
       OffsetDateTime startHr) {
@@ -8746,21 +7795,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks Get hourly usage for synthetics browser checks.
+   * Get hourly usage for Synthetics Browser Checks
+   *
+   * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageSyntheticsBrowserResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageSyntheticsBrowserResponse getUsageSyntheticsBrowser(
       OffsetDateTime startHr, GetUsageSyntheticsBrowserOptionalParameters parameters)
@@ -8769,20 +7812,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks Get hourly usage for synthetics browser checks.
+   * Get hourly usage for Synthetics Browser Checks
+   *
+   * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageSyntheticsBrowserResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageSyntheticsBrowserResponse&gt;
    */
   public CompletableFuture<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserAsync(
       OffsetDateTime startHr, GetUsageSyntheticsBrowserOptionalParameters parameters) {
@@ -8794,7 +7831,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks Get hourly usage for synthetics browser checks.
+   * Get hourly usage for Synthetics Browser Checks
+   *
+   * <p>Get hourly usage for synthetics browser checks.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -8865,21 +7904,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks Get hourly usage for synthetics browser checks.
+   * Get hourly usage for Synthetics Browser Checks
+   *
+   * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageSyntheticsBrowserResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageSyntheticsBrowserResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageSyntheticsBrowserResponse>>
       getUsageSyntheticsBrowserWithHttpInfoAsync(
@@ -8958,21 +7990,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics Get hourly usage for [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
+   * Get hourly usage for custom metrics
+   *
+   * <p>See {@link #getUsageTimeseriesWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @return UsageTimeseriesResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageTimeseriesResponse getUsageTimeseries(OffsetDateTime startHr) throws ApiException {
     return getUsageTimeseriesWithHttpInfo(startHr, new GetUsageTimeseriesOptionalParameters())
@@ -8980,20 +8005,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics Get hourly usage for [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
+   * Get hourly usage for custom metrics
+   *
+   * <p>See {@link #getUsageTimeseriesWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
-   * @return CompletableFuture<UsageTimeseriesResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageTimeseriesResponse&gt;
    */
   public CompletableFuture<UsageTimeseriesResponse> getUsageTimeseriesAsync(
       OffsetDateTime startHr) {
@@ -9005,22 +8023,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics Get hourly usage for [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
+   * Get hourly usage for custom metrics
+   *
+   * <p>See {@link #getUsageTimeseriesWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageTimeseriesResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageTimeseriesResponse getUsageTimeseries(
       OffsetDateTime startHr, GetUsageTimeseriesOptionalParameters parameters) throws ApiException {
@@ -9028,21 +8039,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics Get hourly usage for [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
+   * Get hourly usage for custom metrics
+   *
+   * <p>See {@link #getUsageTimeseriesWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageTimeseriesResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageTimeseriesResponse&gt;
    */
   public CompletableFuture<UsageTimeseriesResponse> getUsageTimeseriesAsync(
       OffsetDateTime startHr, GetUsageTimeseriesOptionalParameters parameters) {
@@ -9054,7 +8058,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics Get hourly usage for [custom
+   * Get hourly usage for custom metrics
+   *
+   * <p>Get hourly usage for [custom
    * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
@@ -9125,22 +8131,14 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics Get hourly usage for [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
+   * Get hourly usage for custom metrics
+   *
+   * <p>See {@link #getUsageTimeseriesWithHttpInfo}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageTimeseriesResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageTimeseriesResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageTimeseriesResponse>>
       getUsageTimeseriesWithHttpInfoAsync(
@@ -9269,21 +8267,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average Get all [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
-   * the month parameter to get a month-to-date data resolution or use the day parameter to get a
-   * daily resolution. One of the two is required, and only one of the two is allowed.
+   * Get all custom metrics by hourly average
+   *
+   * <p>See {@link #getUsageTopAvgMetricsWithHttpInfo}.
    *
    * @return UsageTopAvgMetricsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageTopAvgMetricsResponse getUsageTopAvgMetrics() throws ApiException {
     return getUsageTopAvgMetricsWithHttpInfo(new GetUsageTopAvgMetricsOptionalParameters())
@@ -9291,20 +8280,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average Get all [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
-   * the month parameter to get a month-to-date data resolution or use the day parameter to get a
-   * daily resolution. One of the two is required, and only one of the two is allowed.
+   * Get all custom metrics by hourly average
    *
-   * @return CompletableFuture<UsageTopAvgMetricsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #getUsageTopAvgMetricsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;UsageTopAvgMetricsResponse&gt;
    */
   public CompletableFuture<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsAsync() {
     return getUsageTopAvgMetricsWithHttpInfoAsync(new GetUsageTopAvgMetricsOptionalParameters())
@@ -9315,22 +8295,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average Get all [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
-   * the month parameter to get a month-to-date data resolution or use the day parameter to get a
-   * daily resolution. One of the two is required, and only one of the two is allowed.
+   * Get all custom metrics by hourly average
+   *
+   * <p>See {@link #getUsageTopAvgMetricsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return UsageTopAvgMetricsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public UsageTopAvgMetricsResponse getUsageTopAvgMetrics(
       GetUsageTopAvgMetricsOptionalParameters parameters) throws ApiException {
@@ -9338,21 +8309,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average Get all [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
-   * the month parameter to get a month-to-date data resolution or use the day parameter to get a
-   * daily resolution. One of the two is required, and only one of the two is allowed.
+   * Get all custom metrics by hourly average
+   *
+   * <p>See {@link #getUsageTopAvgMetricsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<UsageTopAvgMetricsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;UsageTopAvgMetricsResponse&gt;
    */
   public CompletableFuture<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsAsync(
       GetUsageTopAvgMetricsOptionalParameters parameters) {
@@ -9364,10 +8326,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average Get all [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
-   * the month parameter to get a month-to-date data resolution or use the day parameter to get a
-   * daily resolution. One of the two is required, and only one of the two is allowed.
+   * Get all custom metrics by hourly average
+   *
+   * <p>Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by
+   * hourly average. Use the month parameter to get a month-to-date data resolution or use the day
+   * parameter to get a daily resolution. One of the two is required, and only one of the two is
+   * allowed.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageTopAvgMetricsResponse&gt;
@@ -9436,22 +8400,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average Get all [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
-   * the month parameter to get a month-to-date data resolution or use the day parameter to get a
-   * daily resolution. One of the two is required, and only one of the two is allowed.
+   * Get all custom metrics by hourly average
+   *
+   * <p>See {@link #getUsageTopAvgMetricsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageTopAvgMetricsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageTopAvgMetricsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UsageTopAvgMetricsResponse>>
       getUsageTopAvgMetricsWithHttpInfoAsync(GetUsageTopAvgMetricsOptionalParameters parameters) {

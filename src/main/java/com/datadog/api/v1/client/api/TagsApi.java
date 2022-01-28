@@ -63,22 +63,15 @@ public class TagsApi {
   }
 
   /**
-   * Add tags to a host This endpoint allows you to add new tags to a host, optionally specifying
-   * where these tags come from.
+   * Add tags to a host
+   *
+   * <p>See {@link #createHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
    *     the tags came from. (required)
    * @param body Update host tags request body. (required)
    * @return HostTags
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostTags createHostTags(String hostName, HostTags body) throws ApiException {
     return createHostTagsWithHttpInfo(hostName, body, new CreateHostTagsOptionalParameters())
@@ -86,21 +79,14 @@ public class TagsApi {
   }
 
   /**
-   * Add tags to a host This endpoint allows you to add new tags to a host, optionally specifying
-   * where these tags come from.
+   * Add tags to a host
+   *
+   * <p>See {@link #createHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
    *     the tags came from. (required)
    * @param body Update host tags request body. (required)
-   * @return CompletableFuture<HostTags>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;HostTags&gt;
    */
   public CompletableFuture<HostTags> createHostTagsAsync(String hostName, HostTags body) {
     return createHostTagsWithHttpInfoAsync(hostName, body, new CreateHostTagsOptionalParameters())
@@ -111,8 +97,9 @@ public class TagsApi {
   }
 
   /**
-   * Add tags to a host This endpoint allows you to add new tags to a host, optionally specifying
-   * where these tags come from.
+   * Add tags to a host
+   *
+   * <p>See {@link #createHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
    *     the tags came from. (required)
@@ -120,14 +107,6 @@ public class TagsApi {
    * @param parameters Optional parameters for the request.
    * @return HostTags
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostTags createHostTags(
       String hostName, HostTags body, CreateHostTagsOptionalParameters parameters)
@@ -136,22 +115,15 @@ public class TagsApi {
   }
 
   /**
-   * Add tags to a host This endpoint allows you to add new tags to a host, optionally specifying
-   * where these tags come from.
+   * Add tags to a host
+   *
+   * <p>See {@link #createHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
    *     the tags came from. (required)
    * @param body Update host tags request body. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<HostTags>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;HostTags&gt;
    */
   public CompletableFuture<HostTags> createHostTagsAsync(
       String hostName, HostTags body, CreateHostTagsOptionalParameters parameters) {
@@ -163,8 +135,10 @@ public class TagsApi {
   }
 
   /**
-   * Add tags to a host This endpoint allows you to add new tags to a host, optionally specifying
-   * where these tags come from.
+   * Add tags to a host
+   *
+   * <p>This endpoint allows you to add new tags to a host, optionally specifying where these tags
+   * come from.
    *
    * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
    *     the tags came from. (required)
@@ -241,23 +215,15 @@ public class TagsApi {
   }
 
   /**
-   * Add tags to a host This endpoint allows you to add new tags to a host, optionally specifying
-   * where these tags come from.
+   * Add tags to a host
+   *
+   * <p>See {@link #createHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
    *     the tags came from. (required)
    * @param body Update host tags request body. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HostTags&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;HostTags&gt;&gt;
    */
   public CompletableFuture<ApiResponse<HostTags>> createHostTagsWithHttpInfoAsync(
       String hostName, HostTags body, CreateHostTagsOptionalParameters parameters) {
@@ -343,37 +309,25 @@ public class TagsApi {
   }
 
   /**
-   * Remove host tags This endpoint allows you to remove all user-assigned tags for a single host.
+   * Remove host tags
+   *
+   * <p>See {@link #deleteHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
    *     (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteHostTags(String hostName) throws ApiException {
     deleteHostTagsWithHttpInfo(hostName, new DeleteHostTagsOptionalParameters());
   }
 
   /**
-   * Remove host tags This endpoint allows you to remove all user-assigned tags for a single host.
+   * Remove host tags
+   *
+   * <p>See {@link #deleteHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
    *     (required)
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public CompletableFuture<Void> deleteHostTagsAsync(String hostName) {
     return deleteHostTagsWithHttpInfoAsync(hostName, new DeleteHostTagsOptionalParameters())
@@ -384,20 +338,14 @@ public class TagsApi {
   }
 
   /**
-   * Remove host tags This endpoint allows you to remove all user-assigned tags for a single host.
+   * Remove host tags
+   *
+   * <p>See {@link #deleteHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
    *     (required)
    * @param parameters Optional parameters for the request.
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteHostTags(String hostName, DeleteHostTagsOptionalParameters parameters)
       throws ApiException {
@@ -405,19 +353,13 @@ public class TagsApi {
   }
 
   /**
-   * Remove host tags This endpoint allows you to remove all user-assigned tags for a single host.
+   * Remove host tags
+   *
+   * <p>See {@link #deleteHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
    *     (required)
    * @param parameters Optional parameters for the request.
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public CompletableFuture<Void> deleteHostTagsAsync(
       String hostName, DeleteHostTagsOptionalParameters parameters) {
@@ -429,7 +371,9 @@ public class TagsApi {
   }
 
   /**
-   * Remove host tags This endpoint allows you to remove all user-assigned tags for a single host.
+   * Remove host tags
+   *
+   * <p>This endpoint allows you to remove all user-assigned tags for a single host.
    *
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
    *     (required)
@@ -497,21 +441,14 @@ public class TagsApi {
   }
 
   /**
-   * Remove host tags This endpoint allows you to remove all user-assigned tags for a single host.
+   * Remove host tags
+   *
+   * <p>See {@link #deleteHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
    *     (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteHostTagsWithHttpInfoAsync(
       String hostName, DeleteHostTagsOptionalParameters parameters) {
@@ -584,39 +521,27 @@ public class TagsApi {
   }
 
   /**
-   * Get host tags Return the list of tags that apply to a given host.
+   * Get host tags
+   *
+   * <p>See {@link #getHostTagsWithHttpInfo}.
    *
    * @param hostName When specified, filters list of tags to those tags with the specified source.
    *     (required)
    * @return HostTags
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostTags getHostTags(String hostName) throws ApiException {
     return getHostTagsWithHttpInfo(hostName, new GetHostTagsOptionalParameters()).getData();
   }
 
   /**
-   * Get host tags Return the list of tags that apply to a given host.
+   * Get host tags
+   *
+   * <p>See {@link #getHostTagsWithHttpInfo}.
    *
    * @param hostName When specified, filters list of tags to those tags with the specified source.
    *     (required)
-   * @return CompletableFuture<HostTags>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;HostTags&gt;
    */
   public CompletableFuture<HostTags> getHostTagsAsync(String hostName) {
     return getHostTagsWithHttpInfoAsync(hostName, new GetHostTagsOptionalParameters())
@@ -627,21 +552,15 @@ public class TagsApi {
   }
 
   /**
-   * Get host tags Return the list of tags that apply to a given host.
+   * Get host tags
+   *
+   * <p>See {@link #getHostTagsWithHttpInfo}.
    *
    * @param hostName When specified, filters list of tags to those tags with the specified source.
    *     (required)
    * @param parameters Optional parameters for the request.
    * @return HostTags
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostTags getHostTags(String hostName, GetHostTagsOptionalParameters parameters)
       throws ApiException {
@@ -649,20 +568,14 @@ public class TagsApi {
   }
 
   /**
-   * Get host tags Return the list of tags that apply to a given host.
+   * Get host tags
+   *
+   * <p>See {@link #getHostTagsWithHttpInfo}.
    *
    * @param hostName When specified, filters list of tags to those tags with the specified source.
    *     (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<HostTags>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;HostTags&gt;
    */
   public CompletableFuture<HostTags> getHostTagsAsync(
       String hostName, GetHostTagsOptionalParameters parameters) {
@@ -674,7 +587,9 @@ public class TagsApi {
   }
 
   /**
-   * Get host tags Return the list of tags that apply to a given host.
+   * Get host tags
+   *
+   * <p>Return the list of tags that apply to a given host.
    *
    * @param hostName When specified, filters list of tags to those tags with the specified source.
    *     (required)
@@ -744,21 +659,14 @@ public class TagsApi {
   }
 
   /**
-   * Get host tags Return the list of tags that apply to a given host.
+   * Get host tags
+   *
+   * <p>See {@link #getHostTagsWithHttpInfo}.
    *
    * @param hostName When specified, filters list of tags to those tags with the specified source.
    *     (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HostTags&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;HostTags&gt;&gt;
    */
   public CompletableFuture<ApiResponse<HostTags>> getHostTagsWithHttpInfoAsync(
       String hostName, GetHostTagsOptionalParameters parameters) {
@@ -834,35 +742,23 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags Return a mapping of tags to hosts for your whole infrastructure.
+   * Get Tags
+   *
+   * <p>See {@link #listHostTagsWithHttpInfo}.
    *
    * @return TagToHosts
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public TagToHosts listHostTags() throws ApiException {
     return listHostTagsWithHttpInfo(new ListHostTagsOptionalParameters()).getData();
   }
 
   /**
-   * Get Tags Return a mapping of tags to hosts for your whole infrastructure.
+   * Get Tags
    *
-   * @return CompletableFuture<TagToHosts>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listHostTagsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;TagToHosts&gt;
    */
   public CompletableFuture<TagToHosts> listHostTagsAsync() {
     return listHostTagsWithHttpInfoAsync(new ListHostTagsOptionalParameters())
@@ -873,37 +769,25 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags Return a mapping of tags to hosts for your whole infrastructure.
+   * Get Tags
+   *
+   * <p>See {@link #listHostTagsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return TagToHosts
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public TagToHosts listHostTags(ListHostTagsOptionalParameters parameters) throws ApiException {
     return listHostTagsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get Tags Return a mapping of tags to hosts for your whole infrastructure.
+   * Get Tags
+   *
+   * <p>See {@link #listHostTagsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<TagToHosts>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;TagToHosts&gt;
    */
   public CompletableFuture<TagToHosts> listHostTagsAsync(
       ListHostTagsOptionalParameters parameters) {
@@ -915,7 +799,9 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags Return a mapping of tags to hosts for your whole infrastructure.
+   * Get Tags
+   *
+   * <p>Return a mapping of tags to hosts for your whole infrastructure.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;TagToHosts&gt;
@@ -975,19 +861,12 @@ public class TagsApi {
   }
 
   /**
-   * Get Tags Return a mapping of tags to hosts for your whole infrastructure.
+   * Get Tags
+   *
+   * <p>See {@link #listHostTagsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;TagToHosts&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;TagToHosts&gt;&gt;
    */
   public CompletableFuture<ApiResponse<TagToHosts>> listHostTagsWithHttpInfoAsync(
       ListHostTagsOptionalParameters parameters) {
@@ -1054,22 +933,15 @@ public class TagsApi {
   }
 
   /**
-   * Update host tags This endpoint allows you to update/replace all tags in an integration source
-   * with those supplied in the request.
+   * Update host tags
+   *
+   * <p>See {@link #updateHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
    * @param body Add tags to host (required)
    * @return HostTags
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostTags updateHostTags(String hostName, HostTags body) throws ApiException {
     return updateHostTagsWithHttpInfo(hostName, body, new UpdateHostTagsOptionalParameters())
@@ -1077,21 +949,14 @@ public class TagsApi {
   }
 
   /**
-   * Update host tags This endpoint allows you to update/replace all tags in an integration source
-   * with those supplied in the request.
+   * Update host tags
+   *
+   * <p>See {@link #updateHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
    * @param body Add tags to host (required)
-   * @return CompletableFuture<HostTags>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;HostTags&gt;
    */
   public CompletableFuture<HostTags> updateHostTagsAsync(String hostName, HostTags body) {
     return updateHostTagsWithHttpInfoAsync(hostName, body, new UpdateHostTagsOptionalParameters())
@@ -1102,8 +967,9 @@ public class TagsApi {
   }
 
   /**
-   * Update host tags This endpoint allows you to update/replace all tags in an integration source
-   * with those supplied in the request.
+   * Update host tags
+   *
+   * <p>See {@link #updateHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
@@ -1111,14 +977,6 @@ public class TagsApi {
    * @param parameters Optional parameters for the request.
    * @return HostTags
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostTags updateHostTags(
       String hostName, HostTags body, UpdateHostTagsOptionalParameters parameters)
@@ -1127,22 +985,15 @@ public class TagsApi {
   }
 
   /**
-   * Update host tags This endpoint allows you to update/replace all tags in an integration source
-   * with those supplied in the request.
+   * Update host tags
+   *
+   * <p>See {@link #updateHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
    * @param body Add tags to host (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<HostTags>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;HostTags&gt;
    */
   public CompletableFuture<HostTags> updateHostTagsAsync(
       String hostName, HostTags body, UpdateHostTagsOptionalParameters parameters) {
@@ -1154,8 +1005,10 @@ public class TagsApi {
   }
 
   /**
-   * Update host tags This endpoint allows you to update/replace all tags in an integration source
-   * with those supplied in the request.
+   * Update host tags
+   *
+   * <p>This endpoint allows you to update/replace all tags in an integration source with those
+   * supplied in the request.
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
@@ -1232,23 +1085,15 @@ public class TagsApi {
   }
 
   /**
-   * Update host tags This endpoint allows you to update/replace all tags in an integration source
-   * with those supplied in the request.
+   * Update host tags
+   *
+   * <p>See {@link #updateHostTagsWithHttpInfo}.
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
    * @param body Add tags to host (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HostTags&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;HostTags&gt;&gt;
    */
   public CompletableFuture<ApiResponse<HostTags>> updateHostTagsWithHttpInfoAsync(
       String hostName, HostTags body, UpdateHostTagsOptionalParameters parameters) {

@@ -50,23 +50,13 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Create an AWS integration Create a Datadog-Amazon Web Services integration. Using the
-   * &#x60;POST&#x60; method updates your integration configuration by adding your new configuration
-   * to the existing one in your Datadog organization. A unique AWS Account ID for role based
-   * authentication.
+   * Create an AWS integration
+   *
+   * <p>See {@link #createAWSAccountWithHttpInfo}.
    *
    * @param body AWS Request Object (required)
    * @return AWSAccountCreateResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public AWSAccountCreateResponse createAWSAccount(AWSAccount body) throws ApiException {
     return createAWSAccountWithHttpInfo(body).getData();
@@ -81,10 +71,11 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Create an AWS integration Create a Datadog-Amazon Web Services integration. Using the
-   * &#x60;POST&#x60; method updates your integration configuration by adding your new configuration
-   * to the existing one in your Datadog organization. A unique AWS Account ID for role based
-   * authentication.
+   * Create an AWS integration
+   *
+   * <p>Create a Datadog-Amazon Web Services integration. Using the &#x60;POST&#x60; method updates
+   * your integration configuration by adding your new configuration to the existing one in your
+   * Datadog organization. A unique AWS Account ID for role based authentication.
    *
    * @param body AWS Request Object (required)
    * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
@@ -148,23 +139,12 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Create an AWS integration Create a Datadog-Amazon Web Services integration. Using the
-   * &#x60;POST&#x60; method updates your integration configuration by adding your new configuration
-   * to the existing one in your Datadog organization. A unique AWS Account ID for role based
-   * authentication.
+   * Create an AWS integration
+   *
+   * <p>See {@link #createAWSAccountWithHttpInfo}.
    *
    * @param body AWS Request Object (required)
-   * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountCreateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<AWSAccountCreateResponse>> createAWSAccountWithHttpInfoAsync(
       AWSAccount body) {
@@ -218,7 +198,9 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Set an AWS tag filter Set an AWS tag filter.
+   * Set an AWS tag filter
+   *
+   * <p>See {@link #createAWSTagFilterWithHttpInfo}.
    *
    * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
    *     &#x60;namespace&#x60;, and filtering string. Namespace options are
@@ -226,14 +208,6 @@ public class AwsIntegrationApi {
    *     &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object createAWSTagFilter(AWSTagFilterCreateRequest body) throws ApiException {
     return createAWSTagFilterWithHttpInfo(body).getData();
@@ -248,7 +222,9 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Set an AWS tag filter Set an AWS tag filter.
+   * Set an AWS tag filter
+   *
+   * <p>Set an AWS tag filter.
    *
    * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
    *     &#x60;namespace&#x60;, and filtering string. Namespace options are
@@ -313,22 +289,15 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Set an AWS tag filter Set an AWS tag filter.
+   * Set an AWS tag filter
+   *
+   * <p>See {@link #createAWSTagFilterWithHttpInfo}.
    *
    * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
    *     &#x60;namespace&#x60;, and filtering string. Namespace options are
    *     &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;,
    *     &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. (required)
-   * @return ApiResponse&lt;Object&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Object>> createAWSTagFilterWithHttpInfoAsync(
       AWSTagFilterCreateRequest body) {
@@ -381,22 +350,15 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Generate a new external ID Generate a new AWS external ID for a given AWS account ID and role
-   * name pair.
+   * Generate a new external ID
+   *
+   * <p>See {@link #createNewAWSExternalIDWithHttpInfo}.
    *
    * @param body Your Datadog role delegation name. For more information about your AWS account Role
    *     name, see the [Datadog AWS integration configuration
    *     info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). (required)
    * @return AWSAccountCreateResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public AWSAccountCreateResponse createNewAWSExternalID(AWSAccount body) throws ApiException {
     return createNewAWSExternalIDWithHttpInfo(body).getData();
@@ -411,8 +373,9 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Generate a new external ID Generate a new AWS external ID for a given AWS account ID and role
-   * name pair.
+   * Generate a new external ID
+   *
+   * <p>Generate a new AWS external ID for a given AWS account ID and role name pair.
    *
    * @param body Your Datadog role delegation name. For more information about your AWS account Role
    *     name, see the [Datadog AWS integration configuration
@@ -477,22 +440,14 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Generate a new external ID Generate a new AWS external ID for a given AWS account ID and role
-   * name pair.
+   * Generate a new external ID
+   *
+   * <p>See {@link #createNewAWSExternalIDWithHttpInfo}.
    *
    * @param body Your Datadog role delegation name. For more information about your AWS account Role
    *     name, see the [Datadog AWS integration configuration
    *     info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). (required)
-   * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountCreateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<AWSAccountCreateResponse>>
       createNewAWSExternalIDWithHttpInfoAsync(AWSAccount body) {
@@ -546,21 +501,13 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete an AWS integration Delete a Datadog-AWS integration matching the specified
-   * &#x60;account_id&#x60; and &#x60;role_name parameters&#x60;.
+   * Delete an AWS integration
+   *
+   * <p>See {@link #deleteAWSAccountWithHttpInfo}.
    *
    * @param body AWS request object (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object deleteAWSAccount(AWSAccountDeleteRequest body) throws ApiException {
     return deleteAWSAccountWithHttpInfo(body).getData();
@@ -575,8 +522,10 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete an AWS integration Delete a Datadog-AWS integration matching the specified
-   * &#x60;account_id&#x60; and &#x60;role_name parameters&#x60;.
+   * Delete an AWS integration
+   *
+   * <p>Delete a Datadog-AWS integration matching the specified &#x60;account_id&#x60; and
+   * &#x60;role_name parameters&#x60;.
    *
    * @param body AWS request object (required)
    * @return ApiResponse&lt;Object&gt;
@@ -639,21 +588,12 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete an AWS integration Delete a Datadog-AWS integration matching the specified
-   * &#x60;account_id&#x60; and &#x60;role_name parameters&#x60;.
+   * Delete an AWS integration
+   *
+   * <p>See {@link #deleteAWSAccountWithHttpInfo}.
    *
    * @param body AWS request object (required)
-   * @return ApiResponse&lt;Object&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Object>> deleteAWSAccountWithHttpInfoAsync(
       AWSAccountDeleteRequest body) {
@@ -706,20 +646,14 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete a tag filtering entry Delete a tag filtering entry.
+   * Delete a tag filtering entry
+   *
+   * <p>See {@link #deleteAWSTagFilterWithHttpInfo}.
    *
    * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
    *     namespace. (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object deleteAWSTagFilter(AWSTagFilterDeleteRequest body) throws ApiException {
     return deleteAWSTagFilterWithHttpInfo(body).getData();
@@ -734,7 +668,9 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete a tag filtering entry Delete a tag filtering entry.
+   * Delete a tag filtering entry
+   *
+   * <p>Delete a tag filtering entry.
    *
    * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
    *     namespace. (required)
@@ -797,20 +733,13 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete a tag filtering entry Delete a tag filtering entry.
+   * Delete a tag filtering entry
+   *
+   * <p>See {@link #deleteAWSTagFilterWithHttpInfo}.
    *
    * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
    *     namespace. (required)
-   * @return ApiResponse&lt;Object&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Object>> deleteAWSTagFilterWithHttpInfoAsync(
       AWSTagFilterDeleteRequest body) {
@@ -905,37 +834,23 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations List all Datadog-AWS integrations available in your Datadog
-   * organization.
+   * List all AWS integrations
+   *
+   * <p>See {@link #listAWSAccountsWithHttpInfo}.
    *
    * @return AWSAccountListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public AWSAccountListResponse listAWSAccounts() throws ApiException {
     return listAWSAccountsWithHttpInfo(new ListAWSAccountsOptionalParameters()).getData();
   }
 
   /**
-   * List all AWS integrations List all Datadog-AWS integrations available in your Datadog
-   * organization.
+   * List all AWS integrations
    *
-   * @return CompletableFuture<AWSAccountListResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listAWSAccountsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;AWSAccountListResponse&gt;
    */
   public CompletableFuture<AWSAccountListResponse> listAWSAccountsAsync() {
     return listAWSAccountsWithHttpInfoAsync(new ListAWSAccountsOptionalParameters())
@@ -946,20 +861,13 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations List all Datadog-AWS integrations available in your Datadog
-   * organization.
+   * List all AWS integrations
+   *
+   * <p>See {@link #listAWSAccountsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return AWSAccountListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public AWSAccountListResponse listAWSAccounts(ListAWSAccountsOptionalParameters parameters)
       throws ApiException {
@@ -967,19 +875,12 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations List all Datadog-AWS integrations available in your Datadog
-   * organization.
+   * List all AWS integrations
+   *
+   * <p>See {@link #listAWSAccountsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<AWSAccountListResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;AWSAccountListResponse&gt;
    */
   public CompletableFuture<AWSAccountListResponse> listAWSAccountsAsync(
       ListAWSAccountsOptionalParameters parameters) {
@@ -991,8 +892,9 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations List all Datadog-AWS integrations available in your Datadog
-   * organization.
+   * List all AWS integrations
+   *
+   * <p>List all Datadog-AWS integrations available in your Datadog organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;AWSAccountListResponse&gt;
@@ -1057,20 +959,12 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations List all Datadog-AWS integrations available in your Datadog
-   * organization.
+   * List all AWS integrations
+   *
+   * <p>See {@link #listAWSAccountsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;AWSAccountListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<AWSAccountListResponse>> listAWSAccountsWithHttpInfoAsync(
       ListAWSAccountsOptionalParameters parameters) {
@@ -1123,19 +1017,13 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Get all AWS tag filters Get all AWS tag filters.
+   * Get all AWS tag filters
+   *
+   * <p>See {@link #listAWSTagFiltersWithHttpInfo}.
    *
    * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
    * @return AWSTagFilterListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public AWSTagFilterListResponse listAWSTagFilters(String accountId) throws ApiException {
     return listAWSTagFiltersWithHttpInfo(accountId).getData();
@@ -1150,7 +1038,9 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Get all AWS tag filters Get all AWS tag filters.
+   * Get all AWS tag filters
+   *
+   * <p>Get all AWS tag filters.
    *
    * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
    * @return ApiResponse&lt;AWSTagFilterListResponse&gt;
@@ -1216,19 +1106,12 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Get all AWS tag filters Get all AWS tag filters.
+   * Get all AWS tag filters
+   *
+   * <p>See {@link #listAWSTagFiltersWithHttpInfo}.
    *
    * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
-   * @return ApiResponse&lt;AWSTagFilterListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSTagFilterListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<AWSTagFilterListResponse>>
       listAWSTagFiltersWithHttpInfoAsync(String accountId) {
@@ -1285,18 +1168,12 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List namespace rules List all namespace rules for a given Datadog-AWS integration. This
-   * endpoint takes no arguments.
+   * List namespace rules
+   *
+   * <p>See {@link #listAvailableAWSNamespacesWithHttpInfo}.
    *
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<String> listAvailableAWSNamespaces() throws ApiException {
     return listAvailableAWSNamespacesWithHttpInfo().getData();
@@ -1311,8 +1188,10 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List namespace rules List all namespace rules for a given Datadog-AWS integration. This
-   * endpoint takes no arguments.
+   * List namespace rules
+   *
+   * <p>List all namespace rules for a given Datadog-AWS integration. This endpoint takes no
+   * arguments.
    *
    * @return ApiResponse&lt;List&lt;String&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -1366,18 +1245,11 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List namespace rules List all namespace rules for a given Datadog-AWS integration. This
-   * endpoint takes no arguments.
+   * List namespace rules
    *
-   * @return ApiResponse&lt;List&lt;String&gt;&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listAvailableAWSNamespacesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;String&gt;&gt;&gt;
    */
   public CompletableFuture<ApiResponse<List<String>>>
       listAvailableAWSNamespacesWithHttpInfoAsync() {
@@ -1465,39 +1337,25 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS integration Update a Datadog-Amazon Web Services integration.
+   * Update an AWS integration
+   *
+   * <p>See {@link #updateAWSAccountWithHttpInfo}.
    *
    * @param body AWS request object (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object updateAWSAccount(AWSAccount body) throws ApiException {
     return updateAWSAccountWithHttpInfo(body, new UpdateAWSAccountOptionalParameters()).getData();
   }
 
   /**
-   * Update an AWS integration Update a Datadog-Amazon Web Services integration.
+   * Update an AWS integration
+   *
+   * <p>See {@link #updateAWSAccountWithHttpInfo}.
    *
    * @param body AWS request object (required)
-   * @return CompletableFuture<Object>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;Object&gt;
    */
   public CompletableFuture<Object> updateAWSAccountAsync(AWSAccount body) {
     return updateAWSAccountWithHttpInfoAsync(body, new UpdateAWSAccountOptionalParameters())
@@ -1508,21 +1366,14 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS integration Update a Datadog-Amazon Web Services integration.
+   * Update an AWS integration
+   *
+   * <p>See {@link #updateAWSAccountWithHttpInfo}.
    *
    * @param body AWS request object (required)
    * @param parameters Optional parameters for the request.
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object updateAWSAccount(AWSAccount body, UpdateAWSAccountOptionalParameters parameters)
       throws ApiException {
@@ -1530,20 +1381,13 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS integration Update a Datadog-Amazon Web Services integration.
+   * Update an AWS integration
+   *
+   * <p>See {@link #updateAWSAccountWithHttpInfo}.
    *
    * @param body AWS request object (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<Object>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;Object&gt;
    */
   public CompletableFuture<Object> updateAWSAccountAsync(
       AWSAccount body, UpdateAWSAccountOptionalParameters parameters) {
@@ -1555,7 +1399,9 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS integration Update a Datadog-Amazon Web Services integration.
+   * Update an AWS integration
+   *
+   * <p>Update a Datadog-Amazon Web Services integration.
    *
    * @param body AWS request object (required)
    * @param parameters Optional parameters for the request.
@@ -1626,21 +1472,13 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS integration Update a Datadog-Amazon Web Services integration.
+   * Update an AWS integration
+   *
+   * <p>See {@link #updateAWSAccountWithHttpInfo}.
    *
    * @param body AWS request object (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;Object&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Object>> updateAWSAccountWithHttpInfoAsync(
       AWSAccount body, UpdateAWSAccountOptionalParameters parameters) {

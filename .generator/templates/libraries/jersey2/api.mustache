@@ -78,7 +78,9 @@ public class {{classname}} {
 
   /**
    * {{summary}}
-   * {{notes}}
+   *
+   * See {@link #{{operationId}}WithHttpInfo}.
+   *
    {{#requiredParams}}
    * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}
    {{/requiredParams}}
@@ -86,15 +88,6 @@ public class {{classname}} {
    * @return {{returnType}}
    {{/returnType}}
    * @throws ApiException if fails to make API call
-   {{#responses.0}}
-   * @http.response.details
-   * <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       {{#responses}}
-   *       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
-       {{/responses}}
-   *     </table>
-   {{/responses.0}}
    {{#isDeprecated}}
    * @deprecated
    {{/isDeprecated}}
@@ -113,22 +106,15 @@ public class {{classname}} {
 
   /**
    * {{summary}}
-   * {{notes}}
+   *
+   * See {@link #{{operationId}}WithHttpInfo}.
+   *
    {{#requiredParams}}
    * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}
    {{/requiredParams}}
    {{#returnType}}
-   * @return CompletableFuture<{{returnType}}>
+   * @return CompletableFuture&lt;{{returnType}}&gt;
    {{/returnType}}
-   {{#responses.0}}
-   * @http.response.details
-   * <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       {{#responses}}
-   *       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
-       {{/responses}}
-   *     </table>
-   {{/responses.0}}
    {{#isDeprecated}}
    * @deprecated
    {{/isDeprecated}}
@@ -148,7 +134,9 @@ public class {{classname}} {
 
   /**
    * {{summary}}
-   * {{notes}}
+   *
+   * See {@link #{{operationId}}WithHttpInfo}.
+   *
    {{#requiredParams}}
    * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}
    {{/requiredParams}}
@@ -157,15 +145,6 @@ public class {{classname}} {
    * @return {{returnType}}
    {{/returnType}}
    * @throws ApiException if fails to make API call
-   {{#responses.0}}
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-           {{#responses}}
-   *       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
-           {{/responses}}
-   *     </table>
-   {{/responses.0}}
    {{#isDeprecated}}
    * @deprecated
    {{/isDeprecated}}
@@ -183,23 +162,16 @@ public class {{classname}} {
 
   /**
    * {{summary}}
-   * {{notes}}
+   *
+   * See {@link #{{operationId}}WithHttpInfo}.
+   *
    {{#requiredParams}}
    * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}
    {{/requiredParams}}
    * @param parameters Optional parameters for the request.
    {{#returnType}}
-   * @return CompletableFuture<{{returnType}}>
+   * @return CompletableFuture&lt;{{returnType}}&gt;
    {{/returnType}}
-   {{#responses.0}}
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-           {{#responses}}
-   *       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
-           {{/responses}}
-   *     </table>
-   {{/responses.0}}
    {{#isDeprecated}}
    * @deprecated
    {{/isDeprecated}}
@@ -231,7 +203,9 @@ public class {{classname}} {
 
   /**
    * {{summary}}
+   *
    * {{notes}}
+   *
    {{#requiredParams}}
    * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}
    {{/requiredParams}}
@@ -331,24 +305,16 @@ public class {{classname}} {
 
   /**
    * {{summary}}
-   * {{notes}}
+   *
+   * See {@link #{{operationId}}WithHttpInfo}.
+   *
    {{#requiredParams}}
    * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}
    {{/requiredParams}}
    {{#hasOptionalParams}}
    * @param parameters Optional parameters for the request.
    {{/hasOptionalParams}}
-   * @return ApiResponse&lt;{{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}Void{{/returnType}}&gt;
-   * @throws ApiException if fails to make API call
-   {{#responses.0}}
-   * @http.response.details
-   * <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       {{#responses}}
-   *       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
-       {{/responses}}
-   *     </table>
-   {{/responses.0}}
+   * @return CompletableFuture&lt;ApiResponse&lt;{{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}Void{{/returnType}}&gt;&gt;
    {{#isDeprecated}}
    * @deprecated
    {{/isDeprecated}}

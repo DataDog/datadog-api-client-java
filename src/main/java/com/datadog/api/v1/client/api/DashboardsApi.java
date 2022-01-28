@@ -48,23 +48,13 @@ public class DashboardsApi {
   }
 
   /**
-   * Create a new dashboard Create a dashboard using the specified options. When defining queries in
-   * your widgets, take note of which queries should have the &#x60;as_count()&#x60; or
-   * &#x60;as_rate()&#x60; modifiers appended. Refer to the following
-   * [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab&#x3D;count#in-application-modifiers)
-   * for more information on these modifiers.
+   * Create a new dashboard
+   *
+   * <p>See {@link #createDashboardWithHttpInfo}.
    *
    * @param body Create a dashboard request body. (required)
    * @return Dashboard
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Dashboard createDashboard(Dashboard body) throws ApiException {
     return createDashboardWithHttpInfo(body).getData();
@@ -79,9 +69,11 @@ public class DashboardsApi {
   }
 
   /**
-   * Create a new dashboard Create a dashboard using the specified options. When defining queries in
-   * your widgets, take note of which queries should have the &#x60;as_count()&#x60; or
-   * &#x60;as_rate()&#x60; modifiers appended. Refer to the following
+   * Create a new dashboard
+   *
+   * <p>Create a dashboard using the specified options. When defining queries in your widgets, take
+   * note of which queries should have the &#x60;as_count()&#x60; or &#x60;as_rate()&#x60; modifiers
+   * appended. Refer to the following
    * [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab&#x3D;count#in-application-modifiers)
    * for more information on these modifiers.
    *
@@ -144,23 +136,12 @@ public class DashboardsApi {
   }
 
   /**
-   * Create a new dashboard Create a dashboard using the specified options. When defining queries in
-   * your widgets, take note of which queries should have the &#x60;as_count()&#x60; or
-   * &#x60;as_rate()&#x60; modifiers appended. Refer to the following
-   * [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab&#x3D;count#in-application-modifiers)
-   * for more information on these modifiers.
+   * Create a new dashboard
+   *
+   * <p>See {@link #createDashboardWithHttpInfo}.
    *
    * @param body Create a dashboard request body. (required)
-   * @return ApiResponse&lt;Dashboard&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Dashboard&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Dashboard>> createDashboardWithHttpInfoAsync(
       Dashboard body) {
@@ -213,19 +194,13 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete a dashboard Delete a dashboard using the specified ID.
+   * Delete a dashboard
+   *
+   * <p>See {@link #deleteDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return DashboardDeleteResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DashboardDeleteResponse deleteDashboard(String dashboardId) throws ApiException {
     return deleteDashboardWithHttpInfo(dashboardId).getData();
@@ -240,7 +215,9 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete a dashboard Delete a dashboard using the specified ID.
+   * Delete a dashboard
+   *
+   * <p>Delete a dashboard using the specified ID.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return ApiResponse&lt;DashboardDeleteResponse&gt;
@@ -307,19 +284,12 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete a dashboard Delete a dashboard using the specified ID.
+   * Delete a dashboard
+   *
+   * <p>See {@link #deleteDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
-   * @return ApiResponse&lt;DashboardDeleteResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;DashboardDeleteResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DashboardDeleteResponse>> deleteDashboardWithHttpInfoAsync(
       String dashboardId) {
@@ -377,20 +347,12 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete dashboards Delete dashboards using the specified IDs. If there are any failures, no
-   * dashboards will be deleted (partial success is not allowed).
+   * Delete dashboards
+   *
+   * <p>See {@link #deleteDashboardsWithHttpInfo}.
    *
    * @param body Delete dashboards request body. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteDashboards(DashboardBulkDeleteRequest body) throws ApiException {
     deleteDashboardsWithHttpInfo(body);
@@ -405,8 +367,10 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete dashboards Delete dashboards using the specified IDs. If there are any failures, no
-   * dashboards will be deleted (partial success is not allowed).
+   * Delete dashboards
+   *
+   * <p>Delete dashboards using the specified IDs. If there are any failures, no dashboards will be
+   * deleted (partial success is not allowed).
    *
    * @param body Delete dashboards request body. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -467,21 +431,12 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete dashboards Delete dashboards using the specified IDs. If there are any failures, no
-   * dashboards will be deleted (partial success is not allowed).
+   * Delete dashboards
+   *
+   * <p>See {@link #deleteDashboardsWithHttpInfo}.
    *
    * @param body Delete dashboards request body. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteDashboardsWithHttpInfoAsync(
       DashboardBulkDeleteRequest body) {
@@ -532,19 +487,13 @@ public class DashboardsApi {
   }
 
   /**
-   * Get a dashboard Get a dashboard using the specified ID.
+   * Get a dashboard
+   *
+   * <p>See {@link #getDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return Dashboard
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Dashboard getDashboard(String dashboardId) throws ApiException {
     return getDashboardWithHttpInfo(dashboardId).getData();
@@ -559,7 +508,9 @@ public class DashboardsApi {
   }
 
   /**
-   * Get a dashboard Get a dashboard using the specified ID.
+   * Get a dashboard
+   *
+   * <p>Get a dashboard using the specified ID.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return ApiResponse&lt;Dashboard&gt;
@@ -624,19 +575,12 @@ public class DashboardsApi {
   }
 
   /**
-   * Get a dashboard Get a dashboard using the specified ID.
+   * Get a dashboard
+   *
+   * <p>See {@link #getDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
-   * @return ApiResponse&lt;Dashboard&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Dashboard&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Dashboard>> getDashboardWithHttpInfoAsync(
       String dashboardId) {
@@ -724,35 +668,23 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
-   * cloned dashboards. This query will not return preset dashboards.
+   * Get all dashboards
+   *
+   * <p>See {@link #listDashboardsWithHttpInfo}.
    *
    * @return DashboardSummary
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DashboardSummary listDashboards() throws ApiException {
     return listDashboardsWithHttpInfo(new ListDashboardsOptionalParameters()).getData();
   }
 
   /**
-   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
-   * cloned dashboards. This query will not return preset dashboards.
+   * Get all dashboards
    *
-   * @return CompletableFuture<DashboardSummary>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listDashboardsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;DashboardSummary&gt;
    */
   public CompletableFuture<DashboardSummary> listDashboardsAsync() {
     return listDashboardsWithHttpInfoAsync(new ListDashboardsOptionalParameters())
@@ -763,19 +695,13 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
-   * cloned dashboards. This query will not return preset dashboards.
+   * Get all dashboards
+   *
+   * <p>See {@link #listDashboardsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return DashboardSummary
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DashboardSummary listDashboards(ListDashboardsOptionalParameters parameters)
       throws ApiException {
@@ -783,18 +709,12 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
-   * cloned dashboards. This query will not return preset dashboards.
+   * Get all dashboards
+   *
+   * <p>See {@link #listDashboardsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<DashboardSummary>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;DashboardSummary&gt;
    */
   public CompletableFuture<DashboardSummary> listDashboardsAsync(
       ListDashboardsOptionalParameters parameters) {
@@ -806,8 +726,10 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
-   * cloned dashboards. This query will not return preset dashboards.
+   * Get all dashboards
+   *
+   * <p>Get all dashboards. **Note**: This query will only return custom created or cloned
+   * dashboards. This query will not return preset dashboards.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DashboardSummary&gt;
@@ -868,19 +790,12 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
-   * cloned dashboards. This query will not return preset dashboards.
+   * Get all dashboards
+   *
+   * <p>See {@link #listDashboardsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;DashboardSummary&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;DashboardSummary&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DashboardSummary>> listDashboardsWithHttpInfoAsync(
       ListDashboardsOptionalParameters parameters) {
@@ -930,20 +845,12 @@ public class DashboardsApi {
   }
 
   /**
-   * Restore deleted dashboards Restore dashboards using the specified IDs. If there are any
-   * failures, no dashboards will be restored (partial success is not allowed).
+   * Restore deleted dashboards
+   *
+   * <p>See {@link #restoreDashboardsWithHttpInfo}.
    *
    * @param body Restore dashboards request body. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void restoreDashboards(DashboardRestoreRequest body) throws ApiException {
     restoreDashboardsWithHttpInfo(body);
@@ -958,8 +865,10 @@ public class DashboardsApi {
   }
 
   /**
-   * Restore deleted dashboards Restore dashboards using the specified IDs. If there are any
-   * failures, no dashboards will be restored (partial success is not allowed).
+   * Restore deleted dashboards
+   *
+   * <p>Restore dashboards using the specified IDs. If there are any failures, no dashboards will be
+   * restored (partial success is not allowed).
    *
    * @param body Restore dashboards request body. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -1020,21 +929,12 @@ public class DashboardsApi {
   }
 
   /**
-   * Restore deleted dashboards Restore dashboards using the specified IDs. If there are any
-   * failures, no dashboards will be restored (partial success is not allowed).
+   * Restore deleted dashboards
+   *
+   * <p>See {@link #restoreDashboardsWithHttpInfo}.
    *
    * @param body Restore dashboards request body. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> restoreDashboardsWithHttpInfoAsync(
       DashboardRestoreRequest body) {
@@ -1085,21 +985,14 @@ public class DashboardsApi {
   }
 
   /**
-   * Update a dashboard Update a dashboard using the specified ID.
+   * Update a dashboard
+   *
+   * <p>See {@link #updateDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @param body Update Dashboard request body. (required)
    * @return Dashboard
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Dashboard updateDashboard(String dashboardId, Dashboard body) throws ApiException {
     return updateDashboardWithHttpInfo(dashboardId, body).getData();
@@ -1114,7 +1007,9 @@ public class DashboardsApi {
   }
 
   /**
-   * Update a dashboard Update a dashboard using the specified ID.
+   * Update a dashboard
+   *
+   * <p>Update a dashboard using the specified ID.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @param body Update Dashboard request body. (required)
@@ -1187,21 +1082,13 @@ public class DashboardsApi {
   }
 
   /**
-   * Update a dashboard Update a dashboard using the specified ID.
+   * Update a dashboard
+   *
+   * <p>See {@link #updateDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @param body Update Dashboard request body. (required)
-   * @return ApiResponse&lt;Dashboard&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Dashboard&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Dashboard>> updateDashboardWithHttpInfoAsync(
       String dashboardId, Dashboard body) {

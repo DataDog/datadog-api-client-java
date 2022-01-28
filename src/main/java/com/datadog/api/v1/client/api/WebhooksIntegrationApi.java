@@ -48,20 +48,13 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a webhooks integration Creates an endpoint with the name
-   * &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Create a webhooks integration
+   *
+   * <p>See {@link #createWebhooksIntegrationWithHttpInfo}.
    *
    * @param body Create a webhooks integration request body. (required)
    * @return WebhooksIntegration
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public WebhooksIntegration createWebhooksIntegration(WebhooksIntegration body)
       throws ApiException {
@@ -78,8 +71,9 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a webhooks integration Creates an endpoint with the name
-   * &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Create a webhooks integration
+   *
+   * <p>Creates an endpoint with the name &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
    *
    * @param body Create a webhooks integration request body. (required)
    * @return ApiResponse&lt;WebhooksIntegration&gt;
@@ -141,20 +135,12 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a webhooks integration Creates an endpoint with the name
-   * &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Create a webhooks integration
+   *
+   * <p>See {@link #createWebhooksIntegrationWithHttpInfo}.
    *
    * @param body Create a webhooks integration request body. (required)
-   * @return ApiResponse&lt;WebhooksIntegration&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;WebhooksIntegration&gt;&gt;
    */
   public CompletableFuture<ApiResponse<WebhooksIntegration>>
       createWebhooksIntegrationWithHttpInfoAsync(WebhooksIntegration body) {
@@ -207,20 +193,13 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a custom variable Creates an endpoint with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Create a custom variable
+   *
+   * <p>See {@link #createWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
    * @param body Define a custom variable request body. (required)
    * @return WebhooksIntegrationCustomVariableResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public WebhooksIntegrationCustomVariableResponse createWebhooksIntegrationCustomVariable(
       WebhooksIntegrationCustomVariable body) throws ApiException {
@@ -237,8 +216,9 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a custom variable Creates an endpoint with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Create a custom variable
+   *
+   * <p>Creates an endpoint with the name &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
    *
    * @param body Define a custom variable request body. (required)
    * @return ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;
@@ -304,20 +284,12 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a custom variable Creates an endpoint with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Create a custom variable
+   *
+   * <p>See {@link #createWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
    * @param body Define a custom variable request body. (required)
-   * @return ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<WebhooksIntegrationCustomVariableResponse>>
       createWebhooksIntegrationCustomVariableWithHttpInfoAsync(
@@ -375,18 +347,12 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a webhook Deletes the endpoint with the name &#x60;&lt;WEBHOOK NAME&gt;&#x60;.
+   * Delete a webhook
+   *
+   * <p>See {@link #deleteWebhooksIntegrationWithHttpInfo}.
    *
    * @param webhookName The name of the webhook. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteWebhooksIntegration(String webhookName) throws ApiException {
     deleteWebhooksIntegrationWithHttpInfo(webhookName);
@@ -401,7 +367,9 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a webhook Deletes the endpoint with the name &#x60;&lt;WEBHOOK NAME&gt;&#x60;.
+   * Delete a webhook
+   *
+   * <p>Deletes the endpoint with the name &#x60;&lt;WEBHOOK NAME&gt;&#x60;.
    *
    * @param webhookName The name of the webhook. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -466,19 +434,12 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a webhook Deletes the endpoint with the name &#x60;&lt;WEBHOOK NAME&gt;&#x60;.
+   * Delete a webhook
+   *
+   * <p>See {@link #deleteWebhooksIntegrationWithHttpInfo}.
    *
    * @param webhookName The name of the webhook. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteWebhooksIntegrationWithHttpInfoAsync(
       String webhookName) {
@@ -535,19 +496,12 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a custom variable Deletes the endpoint with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Delete a custom variable
+   *
+   * <p>See {@link #deleteWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
    * @param customVariableName The name of the custom variable. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteWebhooksIntegrationCustomVariable(String customVariableName)
       throws ApiException {
@@ -564,8 +518,9 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a custom variable Deletes the endpoint with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Delete a custom variable
+   *
+   * <p>Deletes the endpoint with the name &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
    *
    * @param customVariableName The name of the custom variable. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -632,20 +587,12 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a custom variable Deletes the endpoint with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Delete a custom variable
+   *
+   * <p>See {@link #deleteWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
    * @param customVariableName The name of the custom variable. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>>
       deleteWebhooksIntegrationCustomVariableWithHttpInfoAsync(String customVariableName) {
@@ -703,21 +650,13 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a webhook integration Gets the content of the webhook with the name
-   * &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Get a webhook integration
+   *
+   * <p>See {@link #getWebhooksIntegrationWithHttpInfo}.
    *
    * @param webhookName The name of the webhook. (required)
    * @return WebhooksIntegration
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public WebhooksIntegration getWebhooksIntegration(String webhookName) throws ApiException {
     return getWebhooksIntegrationWithHttpInfo(webhookName).getData();
@@ -732,8 +671,9 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a webhook integration Gets the content of the webhook with the name
-   * &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Get a webhook integration
+   *
+   * <p>Gets the content of the webhook with the name &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
    *
    * @param webhookName The name of the webhook. (required)
    * @return ApiResponse&lt;WebhooksIntegration&gt;
@@ -800,21 +740,12 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a webhook integration Gets the content of the webhook with the name
-   * &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Get a webhook integration
+   *
+   * <p>See {@link #getWebhooksIntegrationWithHttpInfo}.
    *
    * @param webhookName The name of the webhook. (required)
-   * @return ApiResponse&lt;WebhooksIntegration&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;WebhooksIntegration&gt;&gt;
    */
   public CompletableFuture<ApiResponse<WebhooksIntegration>>
       getWebhooksIntegrationWithHttpInfoAsync(String webhookName) {
@@ -872,22 +803,13 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a custom variable Shows the content of the custom variable with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;. If the custom variable is secret, the value does not
-   * return in the response payload.
+   * Get a custom variable
+   *
+   * <p>See {@link #getWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
    * @param customVariableName The name of the custom variable. (required)
    * @return WebhooksIntegrationCustomVariableResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public WebhooksIntegrationCustomVariableResponse getWebhooksIntegrationCustomVariable(
       String customVariableName) throws ApiException {
@@ -904,7 +826,9 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a custom variable Shows the content of the custom variable with the name
+   * Get a custom variable
+   *
+   * <p>Shows the content of the custom variable with the name
    * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;. If the custom variable is secret, the value does not
    * return in the response payload.
    *
@@ -978,22 +902,12 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a custom variable Shows the content of the custom variable with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;. If the custom variable is secret, the value does not
-   * return in the response payload.
+   * Get a custom variable
+   *
+   * <p>See {@link #getWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
    * @param customVariableName The name of the custom variable. (required)
-   * @return ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<WebhooksIntegrationCustomVariableResponse>>
       getWebhooksIntegrationCustomVariableWithHttpInfoAsync(String customVariableName) {
@@ -1055,21 +969,14 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a webhook Updates the endpoint with the name &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Update a webhook
+   *
+   * <p>See {@link #updateWebhooksIntegrationWithHttpInfo}.
    *
    * @param webhookName The name of the webhook. (required)
    * @param body Update an existing Datadog-Webhooks integration. (required)
    * @return WebhooksIntegration
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public WebhooksIntegration updateWebhooksIntegration(
       String webhookName, WebhooksIntegrationUpdateRequest body) throws ApiException {
@@ -1086,7 +993,9 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a webhook Updates the endpoint with the name &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Update a webhook
+   *
+   * <p>Updates the endpoint with the name &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
    *
    * @param webhookName The name of the webhook. (required)
    * @param body Update an existing Datadog-Webhooks integration. (required)
@@ -1160,21 +1069,13 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a webhook Updates the endpoint with the name &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Update a webhook
+   *
+   * <p>See {@link #updateWebhooksIntegrationWithHttpInfo}.
    *
    * @param webhookName The name of the webhook. (required)
    * @param body Update an existing Datadog-Webhooks integration. (required)
-   * @return ApiResponse&lt;WebhooksIntegration&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;WebhooksIntegration&gt;&gt;
    */
   public CompletableFuture<ApiResponse<WebhooksIntegration>>
       updateWebhooksIntegrationWithHttpInfoAsync(
@@ -1242,22 +1143,14 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a custom variable Updates the endpoint with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Update a custom variable
+   *
+   * <p>See {@link #updateWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
    * @param customVariableName The name of the custom variable. (required)
    * @param body Update an existing custom variable request body. (required)
    * @return WebhooksIntegrationCustomVariableResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public WebhooksIntegrationCustomVariableResponse updateWebhooksIntegrationCustomVariable(
       String customVariableName, WebhooksIntegrationCustomVariableUpdateRequest body)
@@ -1276,8 +1169,9 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a custom variable Updates the endpoint with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Update a custom variable
+   *
+   * <p>Updates the endpoint with the name &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
    *
    * @param customVariableName The name of the custom variable. (required)
    * @param body Update an existing custom variable request body. (required)
@@ -1358,22 +1252,13 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a custom variable Updates the endpoint with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Update a custom variable
+   *
+   * <p>See {@link #updateWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
    * @param customVariableName The name of the custom variable. (required)
    * @param body Update an existing custom variable request body. (required)
-   * @return ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<WebhooksIntegrationCustomVariableResponse>>
       updateWebhooksIntegrationCustomVariableWithHttpInfoAsync(

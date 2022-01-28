@@ -50,24 +50,13 @@ public class OrganizationsApi {
   }
 
   /**
-   * Create a child organization Create a child organization. This endpoint requires the
-   * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
-   * feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/). Once a
-   * new child organization is created, you can interact with it by using the
-   * &#x60;org.public_id&#x60;, &#x60;api_key.key&#x60;, and &#x60;application_key.hash&#x60;
-   * provided in the response.
+   * Create a child organization
+   *
+   * <p>See {@link #createChildOrgWithHttpInfo}.
    *
    * @param body Organization object that needs to be created (required)
    * @return OrganizationCreateResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public OrganizationCreateResponse createChildOrg(OrganizationCreateBody body)
       throws ApiException {
@@ -84,12 +73,13 @@ public class OrganizationsApi {
   }
 
   /**
-   * Create a child organization Create a child organization. This endpoint requires the
-   * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
-   * feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/). Once a
-   * new child organization is created, you can interact with it by using the
-   * &#x60;org.public_id&#x60;, &#x60;api_key.key&#x60;, and &#x60;application_key.hash&#x60;
-   * provided in the response.
+   * Create a child organization
+   *
+   * <p>Create a child organization. This endpoint requires the [multi-organization
+   * account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be
+   * enabled by [contacting support](https://docs.datadoghq.com/help/). Once a new child
+   * organization is created, you can interact with it by using the &#x60;org.public_id&#x60;,
+   * &#x60;api_key.key&#x60;, and &#x60;application_key.hash&#x60; provided in the response.
    *
    * @param body Organization object that needs to be created (required)
    * @return ApiResponse&lt;OrganizationCreateResponse&gt;
@@ -152,24 +142,12 @@ public class OrganizationsApi {
   }
 
   /**
-   * Create a child organization Create a child organization. This endpoint requires the
-   * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
-   * feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/). Once a
-   * new child organization is created, you can interact with it by using the
-   * &#x60;org.public_id&#x60;, &#x60;api_key.key&#x60;, and &#x60;application_key.hash&#x60;
-   * provided in the response.
+   * Create a child organization
+   *
+   * <p>See {@link #createChildOrgWithHttpInfo}.
    *
    * @param body Organization object that needs to be created (required)
-   * @return ApiResponse&lt;OrganizationCreateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;OrganizationCreateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<OrganizationCreateResponse>> createChildOrgWithHttpInfoAsync(
       OrganizationCreateBody body) {
@@ -223,20 +201,14 @@ public class OrganizationsApi {
   }
 
   /**
-   * Get organization information Get organization information.
+   * Get organization information
+   *
+   * <p>See {@link #getOrgWithHttpInfo}.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
    *     (required)
    * @return OrganizationResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public OrganizationResponse getOrg(String publicId) throws ApiException {
     return getOrgWithHttpInfo(publicId).getData();
@@ -251,7 +223,9 @@ public class OrganizationsApi {
   }
 
   /**
-   * Get organization information Get organization information.
+   * Get organization information
+   *
+   * <p>Get organization information.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
    *     (required)
@@ -316,20 +290,13 @@ public class OrganizationsApi {
   }
 
   /**
-   * Get organization information Get organization information.
+   * Get organization information
+   *
+   * <p>See {@link #getOrgWithHttpInfo}.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
    *     (required)
-   * @return ApiResponse&lt;OrganizationResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;OrganizationResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<OrganizationResponse>> getOrgWithHttpInfoAsync(
       String publicId) {
@@ -385,17 +352,12 @@ public class OrganizationsApi {
   }
 
   /**
-   * List your managed organizations List your managed organizations.
+   * List your managed organizations
+   *
+   * <p>See {@link #listOrgsWithHttpInfo}.
    *
    * @return OrganizationListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public OrganizationListResponse listOrgs() throws ApiException {
     return listOrgsWithHttpInfo().getData();
@@ -410,7 +372,9 @@ public class OrganizationsApi {
   }
 
   /**
-   * List your managed organizations List your managed organizations.
+   * List your managed organizations
+   *
+   * <p>List your managed organizations.
    *
    * @return ApiResponse&lt;OrganizationListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -465,17 +429,11 @@ public class OrganizationsApi {
   }
 
   /**
-   * List your managed organizations List your managed organizations.
+   * List your managed organizations
    *
-   * @return ApiResponse&lt;OrganizationListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listOrgsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;OrganizationListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<OrganizationListResponse>> listOrgsWithHttpInfoAsync() {
     Object localVarPostBody = null;
@@ -520,21 +478,15 @@ public class OrganizationsApi {
   }
 
   /**
-   * Update your organization Update your organization.
+   * Update your organization
+   *
+   * <p>See {@link #updateOrgWithHttpInfo}.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
    *     (required)
    * @param body (required)
    * @return OrganizationResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public OrganizationResponse updateOrg(String publicId, Organization body) throws ApiException {
     return updateOrgWithHttpInfo(publicId, body).getData();
@@ -550,7 +502,9 @@ public class OrganizationsApi {
   }
 
   /**
-   * Update your organization Update your organization.
+   * Update your organization
+   *
+   * <p>Update your organization.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
    *     (required)
@@ -622,21 +576,14 @@ public class OrganizationsApi {
   }
 
   /**
-   * Update your organization Update your organization.
+   * Update your organization
+   *
+   * <p>See {@link #updateOrgWithHttpInfo}.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
    *     (required)
    * @param body (required)
-   * @return ApiResponse&lt;OrganizationResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;OrganizationResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<OrganizationResponse>> updateOrgWithHttpInfoAsync(
       String publicId, Organization body) {
@@ -700,23 +647,14 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata There are a couple of options for updating the Identity Provider (IdP)
-   * metadata from your SAML IdP. * **Multipart Form-Data**: Post the IdP metadata file using a form
-   * post. * **XML Body:** Post the IdP metadata file as the body of the request.
+   * Upload IdP metadata
+   *
+   * <p>See {@link #uploadIdPForOrgWithHttpInfo}.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
    * @param idpFile The path to the XML metadata file you wish to upload. (required)
    * @return IdpResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IdpResponse uploadIdPForOrg(String publicId, File idpFile) throws ApiException {
     return uploadIdPForOrgWithHttpInfo(publicId, idpFile).getData();
@@ -731,9 +669,11 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata There are a couple of options for updating the Identity Provider (IdP)
-   * metadata from your SAML IdP. * **Multipart Form-Data**: Post the IdP metadata file using a form
-   * post. * **XML Body:** Post the IdP metadata file as the body of the request.
+   * Upload IdP metadata
+   *
+   * <p>There are a couple of options for updating the Identity Provider (IdP) metadata from your
+   * SAML IdP. * **Multipart Form-Data**: Post the IdP metadata file using a form post. * **XML
+   * Body:** Post the IdP metadata file as the body of the request.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
    * @param idpFile The path to the XML metadata file you wish to upload. (required)
@@ -807,23 +747,13 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata There are a couple of options for updating the Identity Provider (IdP)
-   * metadata from your SAML IdP. * **Multipart Form-Data**: Post the IdP metadata file using a form
-   * post. * **XML Body:** Post the IdP metadata file as the body of the request.
+   * Upload IdP metadata
+   *
+   * <p>See {@link #uploadIdPForOrgWithHttpInfo}.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
    * @param idpFile The path to the XML metadata file you wish to upload. (required)
-   * @return ApiResponse&lt;IdpResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;IdpResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IdpResponse>> uploadIdPForOrgWithHttpInfoAsync(
       String publicId, File idpFile) {

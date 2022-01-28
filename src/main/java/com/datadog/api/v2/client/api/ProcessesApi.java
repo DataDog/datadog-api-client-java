@@ -127,35 +127,23 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes Get all processes for your organization.
+   * Get all processes
+   *
+   * <p>See {@link #listProcessesWithHttpInfo}.
    *
    * @return ProcessSummariesResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ProcessSummariesResponse listProcesses() throws ApiException {
     return listProcessesWithHttpInfo(new ListProcessesOptionalParameters()).getData();
   }
 
   /**
-   * Get all processes Get all processes for your organization.
+   * Get all processes
    *
-   * @return CompletableFuture<ProcessSummariesResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listProcessesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ProcessSummariesResponse&gt;
    */
   public CompletableFuture<ProcessSummariesResponse> listProcessesAsync() {
     return listProcessesWithHttpInfoAsync(new ListProcessesOptionalParameters())
@@ -166,19 +154,13 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes Get all processes for your organization.
+   * Get all processes
+   *
+   * <p>See {@link #listProcessesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return ProcessSummariesResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ProcessSummariesResponse listProcesses(ListProcessesOptionalParameters parameters)
       throws ApiException {
@@ -186,18 +168,12 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes Get all processes for your organization.
+   * Get all processes
+   *
+   * <p>See {@link #listProcessesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<ProcessSummariesResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ProcessSummariesResponse&gt;
    */
   public CompletableFuture<ProcessSummariesResponse> listProcessesAsync(
       ListProcessesOptionalParameters parameters) {
@@ -209,7 +185,9 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes Get all processes for your organization.
+   * Get all processes
+   *
+   * <p>Get all processes for your organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ProcessSummariesResponse&gt;
@@ -280,19 +258,12 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes Get all processes for your organization.
+   * Get all processes
+   *
+   * <p>See {@link #listProcessesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;ProcessSummariesResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;ProcessSummariesResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ProcessSummariesResponse>> listProcessesWithHttpInfoAsync(
       ListProcessesOptionalParameters parameters) {

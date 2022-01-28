@@ -47,23 +47,13 @@ public class LogsApi {
   }
 
   /**
-   * Search logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. **If you are considering archiving logs for your organization, consider use of
-   * the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive
-   * documentation][2].** [1]: /logs/guide/collect-multiple-logs-with-pagination [2]:
-   * https://docs.datadoghq.com/logs/archives
+   * Search logs
+   *
+   * <p>See {@link #listLogsWithHttpInfo}.
    *
    * @param body Logs filter (required)
    * @return LogsListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsListResponse listLogs(LogsListRequest body) throws ApiException {
     return listLogsWithHttpInfo(body).getData();
@@ -78,11 +68,12 @@ public class LogsApi {
   }
 
   /**
-   * Search logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. **If you are considering archiving logs for your organization, consider use of
-   * the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive
-   * documentation][2].** [1]: /logs/guide/collect-multiple-logs-with-pagination [2]:
-   * https://docs.datadoghq.com/logs/archives
+   * Search logs
+   *
+   * <p>List endpoint returns logs that match a log search query. [Results are paginated][1]. **If
+   * you are considering archiving logs for your organization, consider use of the Datadog archive
+   * capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].** [1]:
+   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
    *
    * @param body Logs filter (required)
    * @return ApiResponse&lt;LogsListResponse&gt;
@@ -143,23 +134,12 @@ public class LogsApi {
   }
 
   /**
-   * Search logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. **If you are considering archiving logs for your organization, consider use of
-   * the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive
-   * documentation][2].** [1]: /logs/guide/collect-multiple-logs-with-pagination [2]:
-   * https://docs.datadoghq.com/logs/archives
+   * Search logs
+   *
+   * <p>See {@link #listLogsWithHttpInfo}.
    *
    * @param body Logs filter (required)
-   * @return ApiResponse&lt;LogsListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsListResponse>> listLogsWithHttpInfoAsync(
       LogsListRequest body) {
@@ -240,29 +220,13 @@ public class LogsApi {
   }
 
   /**
-   * Send logs Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: -
-   * Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB -
-   * Maximum array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is
-   * accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB
-   * and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
-   * larger than 1MB, and returns a 2xx. Datadog recommends sending your logs compressed. Add the
-   * &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs. The
-   * status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the
-   * payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload
-   * too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried
-   * after some time
+   * Send logs
+   *
+   * <p>See {@link #submitLogWithHttpInfo}.
    *
    * @param body Log to send (JSON format). (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Response from server (always 200 empty JSON). </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> unexpected error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   *
    * @deprecated
    */
   @Deprecated
@@ -271,28 +235,12 @@ public class LogsApi {
   }
 
   /**
-   * Send logs Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: -
-   * Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB -
-   * Maximum array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is
-   * accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB
-   * and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
-   * larger than 1MB, and returns a 2xx. Datadog recommends sending your logs compressed. Add the
-   * &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs. The
-   * status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the
-   * payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload
-   * too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried
-   * after some time
+   * Send logs
+   *
+   * <p>See {@link #submitLogWithHttpInfo}.
    *
    * @param body Log to send (JSON format). (required)
-   * @return CompletableFuture<Object>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Response from server (always 200 empty JSON). </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> unexpected error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   *
+   * @return CompletableFuture&lt;Object&gt;
    * @deprecated
    */
   @Deprecated
@@ -305,30 +253,14 @@ public class LogsApi {
   }
 
   /**
-   * Send logs Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: -
-   * Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB -
-   * Maximum array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is
-   * accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB
-   * and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
-   * larger than 1MB, and returns a 2xx. Datadog recommends sending your logs compressed. Add the
-   * &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs. The
-   * status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the
-   * payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload
-   * too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried
-   * after some time
+   * Send logs
+   *
+   * <p>See {@link #submitLogWithHttpInfo}.
    *
    * @param body Log to send (JSON format). (required)
    * @param parameters Optional parameters for the request.
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> Response from server (always 200 empty JSON). </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> unexpected error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   *
    * @deprecated
    */
   @Deprecated
@@ -338,29 +270,13 @@ public class LogsApi {
   }
 
   /**
-   * Send logs Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: -
-   * Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB -
-   * Maximum array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is
-   * accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB
-   * and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
-   * larger than 1MB, and returns a 2xx. Datadog recommends sending your logs compressed. Add the
-   * &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs. The
-   * status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the
-   * payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload
-   * too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried
-   * after some time
+   * Send logs
+   *
+   * <p>See {@link #submitLogWithHttpInfo}.
    *
    * @param body Log to send (JSON format). (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<Object>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> Response from server (always 200 empty JSON). </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> unexpected error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   *
+   * @return CompletableFuture&lt;Object&gt;
    * @deprecated
    */
   @Deprecated
@@ -374,11 +290,13 @@ public class LogsApi {
   }
 
   /**
-   * Send logs Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: -
-   * Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB -
-   * Maximum array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is
-   * accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB
-   * and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
+   * Send logs
+   *
+   * <p>Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: - Maximum
+   * content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum
+   * array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is accepted
+   * and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and
+   * returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
    * larger than 1MB, and returns a 2xx. Datadog recommends sending your logs compressed. Add the
    * &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs. The
    * status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the
@@ -457,30 +375,13 @@ public class LogsApi {
   }
 
   /**
-   * Send logs Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: -
-   * Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB -
-   * Maximum array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is
-   * accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB
-   * and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
-   * larger than 1MB, and returns a 2xx. Datadog recommends sending your logs compressed. Add the
-   * &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs. The
-   * status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the
-   * payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload
-   * too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried
-   * after some time
+   * Send logs
+   *
+   * <p>See {@link #submitLogWithHttpInfo}.
    *
    * @param body Log to send (JSON format). (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;Object&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Response from server (always 200 empty JSON). </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> unexpected error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   *
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    * @deprecated
    */
   @Deprecated

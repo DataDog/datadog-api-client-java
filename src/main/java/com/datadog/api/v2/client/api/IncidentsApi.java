@@ -48,21 +48,13 @@ public class IncidentsApi {
   }
 
   /**
-   * Create an incident Create an incident.
+   * Create an incident
+   *
+   * <p>See {@link #createIncidentWithHttpInfo}.
    *
    * @param body Incident payload. (required)
    * @return IncidentResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentResponse createIncident(IncidentCreateRequest body) throws ApiException {
     return createIncidentWithHttpInfo(body).getData();
@@ -77,7 +69,9 @@ public class IncidentsApi {
   }
 
   /**
-   * Create an incident Create an incident.
+   * Create an incident
+   *
+   * <p>Create an incident.
    *
    * @param body Incident payload. (required)
    * @return ApiResponse&lt;IncidentResponse&gt;
@@ -141,21 +135,12 @@ public class IncidentsApi {
   }
 
   /**
-   * Create an incident Create an incident.
+   * Create an incident
+   *
+   * <p>See {@link #createIncidentWithHttpInfo}.
    *
    * @param body Incident payload. (required)
-   * @return ApiResponse&lt;IncidentResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IncidentResponse>> createIncidentWithHttpInfoAsync(
       IncidentCreateRequest body) {
@@ -208,20 +193,12 @@ public class IncidentsApi {
   }
 
   /**
-   * Delete an existing incident Deletes an existing incident from the users organization.
+   * Delete an existing incident
+   *
+   * <p>See {@link #deleteIncidentWithHttpInfo}.
    *
    * @param incidentId The UUID of the incident. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteIncident(String incidentId) throws ApiException {
     deleteIncidentWithHttpInfo(incidentId);
@@ -236,7 +213,9 @@ public class IncidentsApi {
   }
 
   /**
-   * Delete an existing incident Deletes an existing incident from the users organization.
+   * Delete an existing incident
+   *
+   * <p>Deletes an existing incident from the users organization.
    *
    * @param incidentId The UUID of the incident. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -301,21 +280,12 @@ public class IncidentsApi {
   }
 
   /**
-   * Delete an existing incident Deletes an existing incident from the users organization.
+   * Delete an existing incident
+   *
+   * <p>See {@link #deleteIncidentWithHttpInfo}.
    *
    * @param incidentId The UUID of the incident. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteIncidentWithHttpInfoAsync(String incidentId) {
     Object localVarPostBody = null;
@@ -386,41 +356,25 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the details of an incident Get the details of an incident by &#x60;incident_id&#x60;.
+   * Get the details of an incident
+   *
+   * <p>See {@link #getIncidentWithHttpInfo}.
    *
    * @param incidentId The UUID of the incident. (required)
    * @return IncidentResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentResponse getIncident(String incidentId) throws ApiException {
     return getIncidentWithHttpInfo(incidentId, new GetIncidentOptionalParameters()).getData();
   }
 
   /**
-   * Get the details of an incident Get the details of an incident by &#x60;incident_id&#x60;.
+   * Get the details of an incident
+   *
+   * <p>See {@link #getIncidentWithHttpInfo}.
    *
    * @param incidentId The UUID of the incident. (required)
-   * @return CompletableFuture<IncidentResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;IncidentResponse&gt;
    */
   public CompletableFuture<IncidentResponse> getIncidentAsync(String incidentId) {
     return getIncidentWithHttpInfoAsync(incidentId, new GetIncidentOptionalParameters())
@@ -431,22 +385,14 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the details of an incident Get the details of an incident by &#x60;incident_id&#x60;.
+   * Get the details of an incident
+   *
+   * <p>See {@link #getIncidentWithHttpInfo}.
    *
    * @param incidentId The UUID of the incident. (required)
    * @param parameters Optional parameters for the request.
    * @return IncidentResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentResponse getIncident(String incidentId, GetIncidentOptionalParameters parameters)
       throws ApiException {
@@ -454,21 +400,13 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the details of an incident Get the details of an incident by &#x60;incident_id&#x60;.
+   * Get the details of an incident
+   *
+   * <p>See {@link #getIncidentWithHttpInfo}.
    *
    * @param incidentId The UUID of the incident. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<IncidentResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;IncidentResponse&gt;
    */
   public CompletableFuture<IncidentResponse> getIncidentAsync(
       String incidentId, GetIncidentOptionalParameters parameters) {
@@ -480,7 +418,9 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the details of an incident Get the details of an incident by &#x60;incident_id&#x60;.
+   * Get the details of an incident
+   *
+   * <p>Get the details of an incident by &#x60;incident_id&#x60;.
    *
    * @param incidentId The UUID of the incident. (required)
    * @param parameters Optional parameters for the request.
@@ -552,22 +492,13 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the details of an incident Get the details of an incident by &#x60;incident_id&#x60;.
+   * Get the details of an incident
+   *
+   * <p>See {@link #getIncidentWithHttpInfo}.
    *
    * @param incidentId The UUID of the incident. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;IncidentResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IncidentResponse>> getIncidentWithHttpInfoAsync(
       String incidentId, GetIncidentOptionalParameters parameters) {
@@ -669,39 +600,23 @@ public class IncidentsApi {
   }
 
   /**
-   * Get a list of incidents Get all incidents for the user&#39;s organization.
+   * Get a list of incidents
+   *
+   * <p>See {@link #listIncidentsWithHttpInfo}.
    *
    * @return IncidentsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentsResponse listIncidents() throws ApiException {
     return listIncidentsWithHttpInfo(new ListIncidentsOptionalParameters()).getData();
   }
 
   /**
-   * Get a list of incidents Get all incidents for the user&#39;s organization.
+   * Get a list of incidents
    *
-   * @return CompletableFuture<IncidentsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listIncidentsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;IncidentsResponse&gt;
    */
   public CompletableFuture<IncidentsResponse> listIncidentsAsync() {
     return listIncidentsWithHttpInfoAsync(new ListIncidentsOptionalParameters())
@@ -712,21 +627,13 @@ public class IncidentsApi {
   }
 
   /**
-   * Get a list of incidents Get all incidents for the user&#39;s organization.
+   * Get a list of incidents
+   *
+   * <p>See {@link #listIncidentsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return IncidentsResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentsResponse listIncidents(ListIncidentsOptionalParameters parameters)
       throws ApiException {
@@ -734,20 +641,12 @@ public class IncidentsApi {
   }
 
   /**
-   * Get a list of incidents Get all incidents for the user&#39;s organization.
+   * Get a list of incidents
+   *
+   * <p>See {@link #listIncidentsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<IncidentsResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;IncidentsResponse&gt;
    */
   public CompletableFuture<IncidentsResponse> listIncidentsAsync(
       ListIncidentsOptionalParameters parameters) {
@@ -759,7 +658,9 @@ public class IncidentsApi {
   }
 
   /**
-   * Get a list of incidents Get all incidents for the user&#39;s organization.
+   * Get a list of incidents
+   *
+   * <p>Get all incidents for the user&#39;s organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;IncidentsResponse&gt;
@@ -825,21 +726,12 @@ public class IncidentsApi {
   }
 
   /**
-   * Get a list of incidents Get all incidents for the user&#39;s organization.
+   * Get a list of incidents
+   *
+   * <p>See {@link #listIncidentsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;IncidentsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IncidentsResponse>> listIncidentsWithHttpInfoAsync(
       ListIncidentsOptionalParameters parameters) {
@@ -891,23 +783,14 @@ public class IncidentsApi {
   }
 
   /**
-   * Update an existing incident Updates an incident. Provide only the attributes that should be
-   * updated as this request is a partial update.
+   * Update an existing incident
+   *
+   * <p>See {@link #updateIncidentWithHttpInfo}.
    *
    * @param incidentId The UUID of the incident. (required)
    * @param body Incident Payload. (required)
    * @return IncidentResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IncidentResponse updateIncident(String incidentId, IncidentUpdateRequest body)
       throws ApiException {
@@ -924,8 +807,10 @@ public class IncidentsApi {
   }
 
   /**
-   * Update an existing incident Updates an incident. Provide only the attributes that should be
-   * updated as this request is a partial update.
+   * Update an existing incident
+   *
+   * <p>Updates an incident. Provide only the attributes that should be updated as this request is a
+   * partial update.
    *
    * @param incidentId The UUID of the incident. (required)
    * @param body Incident Payload. (required)
@@ -999,23 +884,13 @@ public class IncidentsApi {
   }
 
   /**
-   * Update an existing incident Updates an incident. Provide only the attributes that should be
-   * updated as this request is a partial update.
+   * Update an existing incident
+   *
+   * <p>See {@link #updateIncidentWithHttpInfo}.
    *
    * @param incidentId The UUID of the incident. (required)
    * @param body Incident Payload. (required)
-   * @return ApiResponse&lt;IncidentResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IncidentResponse>> updateIncidentWithHttpInfoAsync(
       String incidentId, IncidentUpdateRequest body) {

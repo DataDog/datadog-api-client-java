@@ -47,19 +47,13 @@ public class NotebooksApi {
   }
 
   /**
-   * Create a notebook Create a notebook using the specified options.
+   * Create a notebook
+   *
+   * <p>See {@link #createNotebookWithHttpInfo}.
    *
    * @param body The JSON description of the notebook you want to create. (required)
    * @return NotebookResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public NotebookResponse createNotebook(NotebookCreateRequest body) throws ApiException {
     return createNotebookWithHttpInfo(body).getData();
@@ -74,7 +68,9 @@ public class NotebooksApi {
   }
 
   /**
-   * Create a notebook Create a notebook using the specified options.
+   * Create a notebook
+   *
+   * <p>Create a notebook using the specified options.
    *
    * @param body The JSON description of the notebook you want to create. (required)
    * @return ApiResponse&lt;NotebookResponse&gt;
@@ -136,19 +132,12 @@ public class NotebooksApi {
   }
 
   /**
-   * Create a notebook Create a notebook using the specified options.
+   * Create a notebook
+   *
+   * <p>See {@link #createNotebookWithHttpInfo}.
    *
    * @param body The JSON description of the notebook you want to create. (required)
-   * @return ApiResponse&lt;NotebookResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;NotebookResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<NotebookResponse>> createNotebookWithHttpInfoAsync(
       NotebookCreateRequest body) {
@@ -201,19 +190,12 @@ public class NotebooksApi {
   }
 
   /**
-   * Delete a notebook Delete a notebook using the specified ID.
+   * Delete a notebook
+   *
+   * <p>See {@link #deleteNotebookWithHttpInfo}.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteNotebook(Long notebookId) throws ApiException {
     deleteNotebookWithHttpInfo(notebookId);
@@ -228,7 +210,9 @@ public class NotebooksApi {
   }
 
   /**
-   * Delete a notebook Delete a notebook using the specified ID.
+   * Delete a notebook
+   *
+   * <p>Delete a notebook using the specified ID.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -292,20 +276,12 @@ public class NotebooksApi {
   }
 
   /**
-   * Delete a notebook Delete a notebook using the specified ID.
+   * Delete a notebook
+   *
+   * <p>See {@link #deleteNotebookWithHttpInfo}.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteNotebookWithHttpInfoAsync(Long notebookId) {
     Object localVarPostBody = null;
@@ -359,20 +335,13 @@ public class NotebooksApi {
   }
 
   /**
-   * Get a notebook Get a notebook using the specified notebook ID.
+   * Get a notebook
+   *
+   * <p>See {@link #getNotebookWithHttpInfo}.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
    * @return NotebookResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public NotebookResponse getNotebook(Long notebookId) throws ApiException {
     return getNotebookWithHttpInfo(notebookId).getData();
@@ -387,7 +356,9 @@ public class NotebooksApi {
   }
 
   /**
-   * Get a notebook Get a notebook using the specified notebook ID.
+   * Get a notebook
+   *
+   * <p>Get a notebook using the specified notebook ID.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
    * @return ApiResponse&lt;NotebookResponse&gt;
@@ -454,20 +425,12 @@ public class NotebooksApi {
   }
 
   /**
-   * Get a notebook Get a notebook using the specified notebook ID.
+   * Get a notebook
+   *
+   * <p>See {@link #getNotebookWithHttpInfo}.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
-   * @return ApiResponse&lt;NotebookResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;NotebookResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<NotebookResponse>> getNotebookWithHttpInfoAsync(
       Long notebookId) {
@@ -656,37 +619,23 @@ public class NotebooksApi {
   }
 
   /**
-   * Get all notebooks Get all notebooks. This can also be used to search for notebooks with a
-   * particular &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
+   * Get all notebooks
+   *
+   * <p>See {@link #listNotebooksWithHttpInfo}.
    *
    * @return NotebooksResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public NotebooksResponse listNotebooks() throws ApiException {
     return listNotebooksWithHttpInfo(new ListNotebooksOptionalParameters()).getData();
   }
 
   /**
-   * Get all notebooks Get all notebooks. This can also be used to search for notebooks with a
-   * particular &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
+   * Get all notebooks
    *
-   * @return CompletableFuture<NotebooksResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * <p>See {@link #listNotebooksWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;NotebooksResponse&gt;
    */
   public CompletableFuture<NotebooksResponse> listNotebooksAsync() {
     return listNotebooksWithHttpInfoAsync(new ListNotebooksOptionalParameters())
@@ -697,20 +646,13 @@ public class NotebooksApi {
   }
 
   /**
-   * Get all notebooks Get all notebooks. This can also be used to search for notebooks with a
-   * particular &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
+   * Get all notebooks
+   *
+   * <p>See {@link #listNotebooksWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return NotebooksResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public NotebooksResponse listNotebooks(ListNotebooksOptionalParameters parameters)
       throws ApiException {
@@ -718,19 +660,12 @@ public class NotebooksApi {
   }
 
   /**
-   * Get all notebooks Get all notebooks. This can also be used to search for notebooks with a
-   * particular &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
+   * Get all notebooks
+   *
+   * <p>See {@link #listNotebooksWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture<NotebooksResponse>
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;NotebooksResponse&gt;
    */
   public CompletableFuture<NotebooksResponse> listNotebooksAsync(
       ListNotebooksOptionalParameters parameters) {
@@ -742,8 +677,10 @@ public class NotebooksApi {
   }
 
   /**
-   * Get all notebooks Get all notebooks. This can also be used to search for notebooks with a
-   * particular &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
+   * Get all notebooks
+   *
+   * <p>Get all notebooks. This can also be used to search for notebooks with a particular
+   * &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;NotebooksResponse&gt;
@@ -822,20 +759,12 @@ public class NotebooksApi {
   }
 
   /**
-   * Get all notebooks Get all notebooks. This can also be used to search for notebooks with a
-   * particular &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
+   * Get all notebooks
+   *
+   * <p>See {@link #listNotebooksWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;NotebooksResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;NotebooksResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<NotebooksResponse>> listNotebooksWithHttpInfoAsync(
       ListNotebooksOptionalParameters parameters) {
@@ -902,22 +831,14 @@ public class NotebooksApi {
   }
 
   /**
-   * Update a notebook Update a notebook using the specified ID.
+   * Update a notebook
+   *
+   * <p>See {@link #updateNotebookWithHttpInfo}.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
    * @param body Update notebook request body. (required)
    * @return NotebookResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public NotebookResponse updateNotebook(Long notebookId, NotebookUpdateRequest body)
       throws ApiException {
@@ -934,7 +855,9 @@ public class NotebooksApi {
   }
 
   /**
-   * Update a notebook Update a notebook using the specified ID.
+   * Update a notebook
+   *
+   * <p>Update a notebook using the specified ID.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
    * @param body Update notebook request body. (required)
@@ -1008,22 +931,13 @@ public class NotebooksApi {
   }
 
   /**
-   * Update a notebook Update a notebook using the specified ID.
+   * Update a notebook
+   *
+   * <p>See {@link #updateNotebookWithHttpInfo}.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
    * @param body Update notebook request body. (required)
-   * @return ApiResponse&lt;NotebookResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
+   * @return CompletableFuture&lt;ApiResponse&lt;NotebookResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<NotebookResponse>> updateNotebookWithHttpInfoAsync(
       Long notebookId, NotebookUpdateRequest body) {
