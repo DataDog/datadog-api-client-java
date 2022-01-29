@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -99,39 +100,29 @@ public class LogsApi {
     // create path and map variables
     String localVarPath = "/api/v1/logs-queries/list";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listLogs");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<LogsListResponse> localVarReturnType = new GenericType<LogsListResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsApi.listLogs",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsApi.listLogs",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsListResponse>() {});
   }
 
   /**
@@ -156,39 +147,36 @@ public class LogsApi {
     // create path and map variables
     String localVarPath = "/api/v1/logs-queries/list";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listLogs");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<LogsListResponse> localVarReturnType = new GenericType<LogsListResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsApi.listLogs",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LogsListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "LogsApi.listLogs",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsListResponse>() {});
   }
 
   /** Manage optional parameters to submitLog. */
@@ -334,11 +322,8 @@ public class LogsApi {
     // create path and map variables
     String localVarPath = "/v1/input";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ddtags", ddtags));
 
@@ -348,32 +333,24 @@ public class LogsApi {
     if (contentEncoding != null)
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "application/logplex-1", "text/plain"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth"};
-
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsApi.submitLog",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsApi.submitLog",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json", "application/logplex-1", "text/plain"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
   }
 
   /**
@@ -403,11 +380,8 @@ public class LogsApi {
     // create path and map variables
     String localVarPath = "/v1/input";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ddtags", ddtags));
 
@@ -417,31 +391,30 @@ public class LogsApi {
     if (contentEncoding != null)
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "application/logplex-1", "text/plain"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth"};
-
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsApi.submitLog",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "LogsApi.submitLog",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json", "application/logplex-1", "text/plain"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
   }
 }

@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -147,11 +148,8 @@ public class HostsApi {
     // create path and map variables
     String localVarPath = "/api/v1/hosts/totals";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
 
@@ -170,19 +168,14 @@ public class HostsApi {
     GenericType<HostTotals> localVarReturnType = new GenericType<HostTotals>() {};
 
     return apiClient.invokeAPI(
-        "HostsApi.getHostTotals",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostTotals>() {});
   }
 
   /**
@@ -200,42 +193,39 @@ public class HostsApi {
     // create path and map variables
     String localVarPath = "/api/v1/hosts/totals";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getHostTotals");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HostTotals> localVarReturnType = new GenericType<HostTotals>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "HostsApi.getHostTotals",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HostTotals>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "HostsApi.getHostTotals",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostTotals>() {});
   }
 
   /** Manage optional parameters to listHosts. */
@@ -433,11 +423,8 @@ public class HostsApi {
     // create path and map variables
     String localVarPath = "/api/v1/hosts";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_field", sortField));
@@ -453,31 +440,24 @@ public class HostsApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listHosts");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HostListResponse> localVarReturnType = new GenericType<HostListResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "HostsApi.listHosts",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "HostsApi.listHosts",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostListResponse>() {});
   }
 
   /**
@@ -502,11 +482,8 @@ public class HostsApi {
     // create path and map variables
     String localVarPath = "/api/v1/hosts";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_field", sortField));
@@ -522,31 +499,31 @@ public class HostsApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listHosts");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HostListResponse> localVarReturnType = new GenericType<HostListResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "HostsApi.listHosts",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HostListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "HostsApi.listHosts",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostListResponse>() {});
   }
 
   /**
@@ -609,39 +586,29 @@ public class HostsApi {
         "/api/v1/host/{host_name}/mute"
             .replaceAll("\\{" + "host_name" + "\\}", apiClient.escapeString(hostName.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "muteHost");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HostMuteResponse> localVarReturnType = new GenericType<HostMuteResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "HostsApi.muteHost",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "HostsApi.muteHost",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostMuteResponse>() {});
   }
 
   /**
@@ -677,39 +644,36 @@ public class HostsApi {
         "/api/v1/host/{host_name}/mute"
             .replaceAll("\\{" + "host_name" + "\\}", apiClient.escapeString(hostName.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "muteHost");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HostMuteResponse> localVarReturnType = new GenericType<HostMuteResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "HostsApi.muteHost",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HostMuteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "HostsApi.muteHost",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostMuteResponse>() {});
   }
 
   /**
@@ -764,40 +728,29 @@ public class HostsApi {
         "/api/v1/host/{host_name}/unmute"
             .replaceAll("\\{" + "host_name" + "\\}", apiClient.escapeString(hostName.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "unmuteHost");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HostMuteResponse> localVarReturnType = new GenericType<HostMuteResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "HostsApi.unmuteHost",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "HostsApi.unmuteHost",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostMuteResponse>() {});
   }
 
   /**
@@ -825,39 +778,35 @@ public class HostsApi {
         "/api/v1/host/{host_name}/unmute"
             .replaceAll("\\{" + "host_name" + "\\}", apiClient.escapeString(hostName.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "unmuteHost");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HostMuteResponse> localVarReturnType = new GenericType<HostMuteResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "HostsApi.unmuteHost",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HostMuteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "HostsApi.unmuteHost",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostMuteResponse>() {});
   }
 }

@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -97,39 +98,29 @@ public class NotebooksApi {
     // create path and map variables
     String localVarPath = "/api/v1/notebooks";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createNotebook");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "NotebooksApi.createNotebook",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "NotebooksApi.createNotebook",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotebookResponse>() {});
   }
 
   /**
@@ -155,39 +146,36 @@ public class NotebooksApi {
     // create path and map variables
     String localVarPath = "/api/v1/notebooks";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createNotebook");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "NotebooksApi.createNotebook",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotebookResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "NotebooksApi.createNotebook",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotebookResponse>() {});
   }
 
   /**
@@ -243,38 +231,29 @@ public class NotebooksApi {
             .replaceAll(
                 "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteNotebook");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "NotebooksApi.deleteNotebook",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "NotebooksApi.deleteNotebook",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -302,38 +281,36 @@ public class NotebooksApi {
             .replaceAll(
                 "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteNotebook");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "NotebooksApi.deleteNotebook",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "NotebooksApi.deleteNotebook",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -391,40 +368,20 @@ public class NotebooksApi {
             .replaceAll(
                 "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getNotebook");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
-
-    return apiClient.invokeAPI(
-        "NotebooksApi.getNotebook",
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "NotebooksApi.getNotebook",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
   }
 
   /**
@@ -453,40 +410,36 @@ public class NotebooksApi {
             .replaceAll(
                 "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getNotebook");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "NotebooksApi.getNotebook",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotebookResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "NotebooksApi.getNotebook",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotebookResponse>() {});
   }
 
   /** Manage optional parameters to listNotebooks. */
@@ -714,11 +667,8 @@ public class NotebooksApi {
     // create path and map variables
     String localVarPath = "/api/v1/notebooks";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "author_handle", authorHandle));
     localVarQueryParams.addAll(
@@ -735,6 +685,7 @@ public class NotebooksApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listNotebooks");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -746,20 +697,26 @@ public class NotebooksApi {
 
     GenericType<NotebooksResponse> localVarReturnType = new GenericType<NotebooksResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "NotebooksApi.listNotebooks",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "NotebooksApi.listNotebooks",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotebooksResponse>() {});
   }
 
   /**
@@ -786,11 +743,8 @@ public class NotebooksApi {
     // create path and map variables
     String localVarPath = "/api/v1/notebooks";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "author_handle", authorHandle));
     localVarQueryParams.addAll(
@@ -807,31 +761,31 @@ public class NotebooksApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listNotebooks");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<NotebooksResponse> localVarReturnType = new GenericType<NotebooksResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "NotebooksApi.listNotebooks",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotebooksResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "NotebooksApi.listNotebooks",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotebooksResponse>() {});
   }
 
   /**
@@ -900,39 +854,29 @@ public class NotebooksApi {
             .replaceAll(
                 "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateNotebook");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "NotebooksApi.updateNotebook",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "NotebooksApi.updateNotebook",
-        localVarPath,
         "PUT",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotebookResponse>() {});
   }
 
   /**
@@ -971,38 +915,35 @@ public class NotebooksApi {
             .replaceAll(
                 "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateNotebook");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "NotebooksApi.updateNotebook",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotebookResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "NotebooksApi.updateNotebook",
-        localVarPath,
         "PUT",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotebookResponse>() {});
   }
 }

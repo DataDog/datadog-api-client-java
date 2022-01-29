@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -116,40 +117,29 @@ public class ServiceAccountsApi {
                 "\\{" + "service_account_id" + "\\}",
                 apiClient.escapeString(serviceAccountId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createServiceAccountApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<ApplicationKeyResponse> localVarReturnType =
-        new GenericType<ApplicationKeyResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "ServiceAccountsApi.createServiceAccountApplicationKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "ServiceAccountsApi.createServiceAccountApplicationKey",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
   }
 
   /**
@@ -194,40 +184,36 @@ public class ServiceAccountsApi {
                 "\\{" + "service_account_id" + "\\}",
                 apiClient.escapeString(serviceAccountId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createServiceAccountApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<ApplicationKeyResponse> localVarReturnType =
-        new GenericType<ApplicationKeyResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "ServiceAccountsApi.createServiceAccountApplicationKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "ServiceAccountsApi.createServiceAccountApplicationKey",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
   }
 
   /**
@@ -299,38 +285,29 @@ public class ServiceAccountsApi {
                 apiClient.escapeString(serviceAccountId.toString()))
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteServiceAccountApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "ServiceAccountsApi.deleteServiceAccountApplicationKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "ServiceAccountsApi.deleteServiceAccountApplicationKey",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -375,38 +352,36 @@ public class ServiceAccountsApi {
                 apiClient.escapeString(serviceAccountId.toString()))
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteServiceAccountApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "ServiceAccountsApi.deleteServiceAccountApplicationKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "ServiceAccountsApi.deleteServiceAccountApplicationKey",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -478,41 +453,29 @@ public class ServiceAccountsApi {
                 apiClient.escapeString(serviceAccountId.toString()))
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getServiceAccountApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<PartialApplicationKeyResponse> localVarReturnType =
-        new GenericType<PartialApplicationKeyResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "ServiceAccountsApi.getServiceAccountApplicationKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "ServiceAccountsApi.getServiceAccountApplicationKey",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PartialApplicationKeyResponse>() {});
   }
 
   /**
@@ -559,41 +522,37 @@ public class ServiceAccountsApi {
                 apiClient.escapeString(serviceAccountId.toString()))
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getServiceAccountApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<PartialApplicationKeyResponse> localVarReturnType =
-        new GenericType<PartialApplicationKeyResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "ServiceAccountsApi.getServiceAccountApplicationKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PartialApplicationKeyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "ServiceAccountsApi.getServiceAccountApplicationKey",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PartialApplicationKeyResponse>() {});
   }
 
   /** Manage optional parameters to listServiceAccountApplicationKeys. */
@@ -791,11 +750,8 @@ public class ServiceAccountsApi {
                 "\\{" + "service_account_id" + "\\}",
                 apiClient.escapeString(serviceAccountId.toString()));
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
@@ -809,32 +765,24 @@ public class ServiceAccountsApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listServiceAccountApplicationKeys");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<ListApplicationKeysResponse> localVarReturnType =
-        new GenericType<ListApplicationKeysResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "ServiceAccountsApi.listServiceAccountApplicationKeys",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "ServiceAccountsApi.listServiceAccountApplicationKeys",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListApplicationKeysResponse>() {});
   }
 
   /**
@@ -875,11 +823,8 @@ public class ServiceAccountsApi {
                 "\\{" + "service_account_id" + "\\}",
                 apiClient.escapeString(serviceAccountId.toString()));
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
@@ -893,32 +838,32 @@ public class ServiceAccountsApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listServiceAccountApplicationKeys");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<ListApplicationKeysResponse> localVarReturnType =
-        new GenericType<ListApplicationKeysResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "ServiceAccountsApi.listServiceAccountApplicationKeys",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListApplicationKeysResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "ServiceAccountsApi.listServiceAccountApplicationKeys",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListApplicationKeysResponse>() {});
   }
 
   /**
@@ -1004,40 +949,29 @@ public class ServiceAccountsApi {
                 apiClient.escapeString(serviceAccountId.toString()))
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateServiceAccountApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<PartialApplicationKeyResponse> localVarReturnType =
-        new GenericType<PartialApplicationKeyResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "ServiceAccountsApi.updateServiceAccountApplicationKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "ServiceAccountsApi.updateServiceAccountApplicationKey",
-        localVarPath,
         "PATCH",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PartialApplicationKeyResponse>() {});
   }
 
   /**
@@ -1098,39 +1032,36 @@ public class ServiceAccountsApi {
                 apiClient.escapeString(serviceAccountId.toString()))
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateServiceAccountApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<PartialApplicationKeyResponse> localVarReturnType =
-        new GenericType<PartialApplicationKeyResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "ServiceAccountsApi.updateServiceAccountApplicationKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<PartialApplicationKeyResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "ServiceAccountsApi.updateServiceAccountApplicationKey",
-        localVarPath,
         "PATCH",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<PartialApplicationKeyResponse>() {});
   }
 }

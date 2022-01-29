@@ -51,6 +51,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -224,11 +225,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/daily_custom_reports";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
@@ -238,6 +236,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getDailyCustomReports");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -250,20 +249,26 @@ public class UsageMeteringApi {
     GenericType<UsageCustomReportsResponse> localVarReturnType =
         new GenericType<UsageCustomReportsResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getDailyCustomReports",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getDailyCustomReports",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCustomReportsResponse>() {});
   }
 
   /**
@@ -284,11 +289,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/daily_custom_reports";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
@@ -298,32 +300,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getDailyCustomReports");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageCustomReportsResponse> localVarReturnType =
-        new GenericType<UsageCustomReportsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getDailyCustomReports",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getDailyCustomReports",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCustomReportsResponse>() {});
   }
 
   /** Manage optional parameters to getHourlyUsageAttribution. */
@@ -493,11 +494,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/hourly-attribution";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -509,32 +507,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getHourlyUsageAttribution");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HourlyUsageAttributionResponse> localVarReturnType =
-        new GenericType<HourlyUsageAttributionResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getHourlyUsageAttribution",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getHourlyUsageAttribution",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HourlyUsageAttributionResponse>() {});
   }
 
   /**
@@ -582,11 +572,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/hourly-attribution";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -598,32 +585,32 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getHourlyUsageAttribution");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HourlyUsageAttributionResponse> localVarReturnType =
-        new GenericType<HourlyUsageAttributionResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getHourlyUsageAttribution",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HourlyUsageAttributionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getHourlyUsageAttribution",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HourlyUsageAttributionResponse>() {});
   }
 
   /** Manage optional parameters to getIncidentManagement. */
@@ -748,11 +735,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/incident-management";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -760,32 +744,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentManagement");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageIncidentManagementResponse> localVarReturnType =
-        new GenericType<UsageIncidentManagementResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getIncidentManagement",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getIncidentManagement",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageIncidentManagementResponse>() {});
   }
 
   /**
@@ -816,11 +792,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/incident-management";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -828,32 +801,32 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentManagement");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageIncidentManagementResponse> localVarReturnType =
-        new GenericType<UsageIncidentManagementResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getIncidentManagement",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageIncidentManagementResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getIncidentManagement",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageIncidentManagementResponse>() {});
   }
 
   /** Manage optional parameters to getIngestedSpans. */
@@ -974,11 +947,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/ingested-spans";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -986,32 +956,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getIngestedSpans");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageIngestedSpansResponse> localVarReturnType =
-        new GenericType<UsageIngestedSpansResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getIngestedSpans",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getIngestedSpans",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageIngestedSpansResponse>() {});
   }
 
   /**
@@ -1041,11 +1003,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/ingested-spans";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -1053,32 +1012,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getIngestedSpans");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageIngestedSpansResponse> localVarReturnType =
-        new GenericType<UsageIngestedSpansResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getIngestedSpans",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageIngestedSpansResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getIngestedSpans",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageIngestedSpansResponse>() {});
   }
 
   /** Manage optional parameters to getMonthlyCustomReports. */
@@ -1222,11 +1180,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/monthly_custom_reports";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
@@ -1236,6 +1191,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyCustomReports");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -1248,20 +1204,26 @@ public class UsageMeteringApi {
     GenericType<UsageCustomReportsResponse> localVarReturnType =
         new GenericType<UsageCustomReportsResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getMonthlyCustomReports",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getMonthlyCustomReports",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCustomReportsResponse>() {});
   }
 
   /**
@@ -1283,11 +1245,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/monthly_custom_reports";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
@@ -1297,32 +1256,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyCustomReports");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageCustomReportsResponse> localVarReturnType =
-        new GenericType<UsageCustomReportsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getMonthlyCustomReports",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getMonthlyCustomReports",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCustomReportsResponse>() {});
   }
 
   /** Manage optional parameters to getMonthlyUsageAttribution. */
@@ -1528,11 +1486,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/monthly-attribution";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
@@ -1546,32 +1501,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyUsageAttribution");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<MonthlyUsageAttributionResponse> localVarReturnType =
-        new GenericType<MonthlyUsageAttributionResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getMonthlyUsageAttribution",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getMonthlyUsageAttribution",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonthlyUsageAttributionResponse>() {});
   }
 
   /**
@@ -1623,11 +1570,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/monthly-attribution";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
@@ -1641,32 +1585,32 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyUsageAttribution");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<MonthlyUsageAttributionResponse> localVarReturnType =
-        new GenericType<MonthlyUsageAttributionResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getMonthlyUsageAttribution",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonthlyUsageAttributionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getMonthlyUsageAttribution",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonthlyUsageAttributionResponse>() {});
   }
 
   /**
@@ -1725,15 +1669,12 @@ public class UsageMeteringApi {
         "/api/v1/daily_custom_reports/{report_id}"
             .replaceAll("\\{" + "report_id" + "\\}", apiClient.escapeString(reportId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedDailyCustomReports");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -1746,20 +1687,26 @@ public class UsageMeteringApi {
     GenericType<UsageSpecifiedCustomReportsResponse> localVarReturnType =
         new GenericType<UsageSpecifiedCustomReportsResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getSpecifiedDailyCustomReports",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getSpecifiedDailyCustomReports",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSpecifiedCustomReportsResponse>() {});
   }
 
   /**
@@ -1790,41 +1737,37 @@ public class UsageMeteringApi {
         "/api/v1/daily_custom_reports/{report_id}"
             .replaceAll("\\{" + "report_id" + "\\}", apiClient.escapeString(reportId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedDailyCustomReports");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSpecifiedCustomReportsResponse> localVarReturnType =
-        new GenericType<UsageSpecifiedCustomReportsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getSpecifiedDailyCustomReports",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getSpecifiedDailyCustomReports",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSpecifiedCustomReportsResponse>() {});
   }
 
   /**
@@ -1885,15 +1828,12 @@ public class UsageMeteringApi {
         "/api/v1/monthly_custom_reports/{report_id}"
             .replaceAll("\\{" + "report_id" + "\\}", apiClient.escapeString(reportId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedMonthlyCustomReports");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -1906,20 +1846,26 @@ public class UsageMeteringApi {
     GenericType<UsageSpecifiedCustomReportsResponse> localVarReturnType =
         new GenericType<UsageSpecifiedCustomReportsResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getSpecifiedMonthlyCustomReports",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getSpecifiedMonthlyCustomReports",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSpecifiedCustomReportsResponse>() {});
   }
 
   /**
@@ -1950,41 +1896,37 @@ public class UsageMeteringApi {
         "/api/v1/monthly_custom_reports/{report_id}"
             .replaceAll("\\{" + "report_id" + "\\}", apiClient.escapeString(reportId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedMonthlyCustomReports");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSpecifiedCustomReportsResponse> localVarReturnType =
-        new GenericType<UsageSpecifiedCustomReportsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getSpecifiedMonthlyCustomReports",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getSpecifiedMonthlyCustomReports",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSpecifiedCustomReportsResponse>() {});
   }
 
   /** Manage optional parameters to getUsageAnalyzedLogs. */
@@ -2109,11 +2051,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/analyzed_logs";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -2121,32 +2060,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAnalyzedLogs");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageAnalyzedLogsResponse> localVarReturnType =
-        new GenericType<UsageAnalyzedLogsResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageAnalyzedLogs",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageAnalyzedLogs",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageAnalyzedLogsResponse>() {});
   }
 
   /**
@@ -2176,11 +2107,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/analyzed_logs";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -2188,32 +2116,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAnalyzedLogs");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageAnalyzedLogsResponse> localVarReturnType =
-        new GenericType<UsageAnalyzedLogsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageAnalyzedLogs",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageAnalyzedLogsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageAnalyzedLogs",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageAnalyzedLogsResponse>() {});
   }
 
   /** Manage optional parameters to getUsageAttribution. */
@@ -2427,11 +2354,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/attribution";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
@@ -2446,32 +2370,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAttribution");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageAttributionResponse> localVarReturnType =
-        new GenericType<UsageAttributionResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageAttribution",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageAttribution",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageAttributionResponse>() {});
   }
 
   /**
@@ -2519,11 +2435,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/attribution";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
@@ -2538,32 +2451,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAttribution");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageAttributionResponse> localVarReturnType =
-        new GenericType<UsageAttributionResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageAttribution",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageAttributionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageAttribution",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageAttributionResponse>() {});
   }
 
   /** Manage optional parameters to getUsageAuditLogs. */
@@ -2683,11 +2595,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/audit_logs";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -2695,6 +2604,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAuditLogs");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -2707,20 +2617,26 @@ public class UsageMeteringApi {
     GenericType<UsageAuditLogsResponse> localVarReturnType =
         new GenericType<UsageAuditLogsResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageAuditLogs",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageAuditLogs",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageAuditLogsResponse>() {});
   }
 
   /**
@@ -2749,11 +2665,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/audit_logs";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -2761,32 +2674,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAuditLogs");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageAuditLogsResponse> localVarReturnType =
-        new GenericType<UsageAuditLogsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageAuditLogs",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageAuditLogsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageAuditLogs",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageAuditLogsResponse>() {});
   }
 
   /** Manage optional parameters to getUsageBillableSummary. */
@@ -2890,43 +2802,32 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/billable-summary";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageBillableSummary");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageBillableSummaryResponse> localVarReturnType =
-        new GenericType<UsageBillableSummaryResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageBillableSummary",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageBillableSummary",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageBillableSummaryResponse>() {});
   }
 
   /**
@@ -2945,43 +2846,40 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/billable-summary";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageBillableSummary");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageBillableSummaryResponse> localVarReturnType =
-        new GenericType<UsageBillableSummaryResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageBillableSummary",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageBillableSummaryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageBillableSummary",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageBillableSummaryResponse>() {});
   }
 
   /** Manage optional parameters to getUsageCWS. */
@@ -3100,11 +2998,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/cws";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -3112,31 +3007,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCWS");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageCWSResponse> localVarReturnType = new GenericType<UsageCWSResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageCWS",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageCWS",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCWSResponse>() {});
   }
 
   /**
@@ -3165,11 +3053,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/cws";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -3177,31 +3062,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCWS");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageCWSResponse> localVarReturnType = new GenericType<UsageCWSResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageCWS",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageCWSResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageCWS",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCWSResponse>() {});
   }
 
   /** Manage optional parameters to getUsageCloudSecurityPostureManagement. */
@@ -3333,11 +3218,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/cspm";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -3345,6 +3227,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCloudSecurityPostureManagement");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -3357,20 +3240,26 @@ public class UsageMeteringApi {
     GenericType<UsageCloudSecurityPostureManagementResponse> localVarReturnType =
         new GenericType<UsageCloudSecurityPostureManagementResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageCloudSecurityPostureManagement",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageCloudSecurityPostureManagement",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCloudSecurityPostureManagementResponse>() {});
   }
 
   /**
@@ -3404,11 +3293,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/cspm";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -3416,32 +3302,32 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCloudSecurityPostureManagement");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageCloudSecurityPostureManagementResponse> localVarReturnType =
-        new GenericType<UsageCloudSecurityPostureManagementResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageCloudSecurityPostureManagement",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageCloudSecurityPostureManagementResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageCloudSecurityPostureManagement",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCloudSecurityPostureManagementResponse>() {});
   }
 
   /** Manage optional parameters to getUsageDBM. */
@@ -3560,11 +3446,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/dbm";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -3572,6 +3455,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageDBM");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -3583,20 +3467,26 @@ public class UsageMeteringApi {
 
     GenericType<UsageDBMResponse> localVarReturnType = new GenericType<UsageDBMResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageDBM",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageDBM",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageDBMResponse>() {});
   }
 
   /**
@@ -3625,11 +3515,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/dbm";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -3637,31 +3524,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageDBM");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageDBMResponse> localVarReturnType = new GenericType<UsageDBMResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageDBM",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageDBMResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageDBM",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageDBMResponse>() {});
   }
 
   /** Manage optional parameters to getUsageFargate. */
@@ -3780,11 +3667,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/fargate";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -3792,32 +3676,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageFargate");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageFargateResponse> localVarReturnType =
-        new GenericType<UsageFargateResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageFargate",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageFargate",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageFargateResponse>() {});
   }
 
   /**
@@ -3846,11 +3722,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/fargate";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -3858,32 +3731,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageFargate");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageFargateResponse> localVarReturnType =
-        new GenericType<UsageFargateResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageFargate",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageFargateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageFargate",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageFargateResponse>() {});
   }
 
   /** Manage optional parameters to getUsageHosts. */
@@ -4002,11 +3874,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/hosts";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -4014,31 +3883,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageHosts");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageHostsResponse> localVarReturnType = new GenericType<UsageHostsResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageHosts",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageHosts",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageHostsResponse>() {});
   }
 
   /**
@@ -4067,11 +3929,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/hosts";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -4079,31 +3938,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageHosts");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageHostsResponse> localVarReturnType = new GenericType<UsageHostsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageHosts",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageHostsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageHosts",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageHostsResponse>() {});
   }
 
   /** Manage optional parameters to getUsageIndexedSpans. */
@@ -4228,11 +4087,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/indexed-spans";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -4240,32 +4096,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageIndexedSpans");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageIndexedSpansResponse> localVarReturnType =
-        new GenericType<UsageIndexedSpansResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageIndexedSpans",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageIndexedSpans",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageIndexedSpansResponse>() {});
   }
 
   /**
@@ -4295,11 +4143,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/indexed-spans";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -4307,32 +4152,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageIndexedSpans");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageIndexedSpansResponse> localVarReturnType =
-        new GenericType<UsageIndexedSpansResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageIndexedSpans",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageIndexedSpansResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageIndexedSpans",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageIndexedSpansResponse>() {});
   }
 
   /** Manage optional parameters to getUsageInternetOfThings. */
@@ -4456,11 +4300,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/iot";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -4468,31 +4309,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageInternetOfThings");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageIoTResponse> localVarReturnType = new GenericType<UsageIoTResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageInternetOfThings",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageInternetOfThings",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageIoTResponse>() {});
   }
 
   /**
@@ -4522,11 +4356,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/iot";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -4534,31 +4365,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageInternetOfThings");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageIoTResponse> localVarReturnType = new GenericType<UsageIoTResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageInternetOfThings",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageIoTResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageInternetOfThings",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageIoTResponse>() {});
   }
 
   /** Manage optional parameters to getUsageLambda. */
@@ -4677,11 +4508,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/aws_lambda";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -4689,31 +4517,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLambda");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageLambdaResponse> localVarReturnType = new GenericType<UsageLambdaResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageLambda",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageLambda",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageLambdaResponse>() {});
   }
 
   /**
@@ -4742,11 +4563,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/aws_lambda";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -4754,31 +4572,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLambda");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageLambdaResponse> localVarReturnType = new GenericType<UsageLambdaResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageLambda",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageLambdaResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageLambda",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageLambdaResponse>() {});
   }
 
   /** Manage optional parameters to getUsageLogs. */
@@ -4897,11 +4715,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/logs";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -4909,31 +4724,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogs");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageLogsResponse> localVarReturnType = new GenericType<UsageLogsResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageLogs",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageLogs",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageLogsResponse>() {});
   }
 
   /**
@@ -4962,11 +4770,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/logs";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -4974,31 +4779,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogs");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageLogsResponse> localVarReturnType = new GenericType<UsageLogsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageLogs",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageLogsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageLogs",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageLogsResponse>() {});
   }
 
   /** Manage optional parameters to getUsageLogsByIndex. */
@@ -5135,11 +4940,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/logs_by_index";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -5148,32 +4950,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByIndex");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageLogsByIndexResponse> localVarReturnType =
-        new GenericType<UsageLogsByIndexResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageLogsByIndex",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageLogsByIndex",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageLogsByIndexResponse>() {});
   }
 
   /**
@@ -5204,11 +4998,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/logs_by_index";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -5217,32 +5008,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByIndex");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageLogsByIndexResponse> localVarReturnType =
-        new GenericType<UsageLogsByIndexResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageLogsByIndex",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageLogsByIndexResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageLogsByIndex",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageLogsByIndexResponse>() {});
   }
 
   /** Manage optional parameters to getUsageLogsByRetention. */
@@ -5368,11 +5158,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/logs-by-retention";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -5380,6 +5167,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByRetention");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -5392,20 +5180,26 @@ public class UsageMeteringApi {
     GenericType<UsageLogsByRetentionResponse> localVarReturnType =
         new GenericType<UsageLogsByRetentionResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageLogsByRetention",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageLogsByRetention",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageLogsByRetentionResponse>() {});
   }
 
   /**
@@ -5437,11 +5231,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/logs-by-retention";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -5449,32 +5240,32 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByRetention");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageLogsByRetentionResponse> localVarReturnType =
-        new GenericType<UsageLogsByRetentionResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageLogsByRetention",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageLogsByRetentionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageLogsByRetention",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageLogsByRetentionResponse>() {});
   }
 
   /** Manage optional parameters to getUsageNetworkFlows. */
@@ -5599,11 +5390,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/network_flows";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -5611,32 +5399,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkFlows");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageNetworkFlowsResponse> localVarReturnType =
-        new GenericType<UsageNetworkFlowsResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageNetworkFlows",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageNetworkFlows",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageNetworkFlowsResponse>() {});
   }
 
   /**
@@ -5666,11 +5446,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/network_flows";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -5678,32 +5455,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkFlows");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageNetworkFlowsResponse> localVarReturnType =
-        new GenericType<UsageNetworkFlowsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageNetworkFlows",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageNetworkFlowsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageNetworkFlows",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageNetworkFlowsResponse>() {});
   }
 
   /** Manage optional parameters to getUsageNetworkHosts. */
@@ -5828,11 +5604,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/network_hosts";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -5840,32 +5613,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkHosts");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageNetworkHostsResponse> localVarReturnType =
-        new GenericType<UsageNetworkHostsResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageNetworkHosts",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageNetworkHosts",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageNetworkHostsResponse>() {});
   }
 
   /**
@@ -5895,11 +5660,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/network_hosts";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -5907,32 +5669,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkHosts");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageNetworkHostsResponse> localVarReturnType =
-        new GenericType<UsageNetworkHostsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageNetworkHosts",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageNetworkHostsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageNetworkHosts",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageNetworkHostsResponse>() {});
   }
 
   /** Manage optional parameters to getUsageProfiling. */
@@ -6052,11 +5813,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/profiling";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -6064,32 +5822,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageProfiling");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageProfilingResponse> localVarReturnType =
-        new GenericType<UsageProfilingResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageProfiling",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageProfiling",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageProfilingResponse>() {});
   }
 
   /**
@@ -6118,11 +5868,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/profiling";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -6130,32 +5877,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageProfiling");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageProfilingResponse> localVarReturnType =
-        new GenericType<UsageProfilingResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageProfiling",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageProfilingResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageProfiling",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageProfilingResponse>() {});
   }
 
   /** Manage optional parameters to getUsageRumSessions. */
@@ -6293,11 +6039,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/rum_sessions";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -6306,32 +6049,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumSessions");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageRumSessionsResponse> localVarReturnType =
-        new GenericType<UsageRumSessionsResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageRumSessions",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageRumSessions",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageRumSessionsResponse>() {});
   }
 
   /**
@@ -6362,11 +6097,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/rum_sessions";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -6375,32 +6107,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumSessions");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageRumSessionsResponse> localVarReturnType =
-        new GenericType<UsageRumSessionsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageRumSessions",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageRumSessionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageRumSessions",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageRumSessionsResponse>() {});
   }
 
   /** Manage optional parameters to getUsageRumUnits. */
@@ -6520,11 +6251,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/rum";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -6532,32 +6260,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumUnits");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageRumUnitsResponse> localVarReturnType =
-        new GenericType<UsageRumUnitsResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageRumUnits",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageRumUnits",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageRumUnitsResponse>() {});
   }
 
   /**
@@ -6586,11 +6306,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/rum";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -6598,32 +6315,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumUnits");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageRumUnitsResponse> localVarReturnType =
-        new GenericType<UsageRumUnitsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageRumUnits",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageRumUnitsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageRumUnits",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageRumUnitsResponse>() {});
   }
 
   /** Manage optional parameters to getUsageSDS. */
@@ -6742,11 +6458,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/sds";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -6754,6 +6467,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSDS");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -6765,20 +6479,26 @@ public class UsageMeteringApi {
 
     GenericType<UsageSDSResponse> localVarReturnType = new GenericType<UsageSDSResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageSDS",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageSDS",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSDSResponse>() {});
   }
 
   /**
@@ -6807,11 +6527,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/sds";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -6819,31 +6536,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSDS");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSDSResponse> localVarReturnType = new GenericType<UsageSDSResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageSDS",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageSDSResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageSDS",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSDSResponse>() {});
   }
 
   /** Manage optional parameters to getUsageSNMP. */
@@ -6962,11 +6679,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/snmp";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -6974,31 +6688,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSNMP");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSNMPResponse> localVarReturnType = new GenericType<UsageSNMPResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageSNMP",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageSNMP",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSNMPResponse>() {});
   }
 
   /**
@@ -7027,11 +6734,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/snmp";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -7039,31 +6743,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSNMP");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSNMPResponse> localVarReturnType = new GenericType<UsageSNMPResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageSNMP",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageSNMPResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageSNMP",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSNMPResponse>() {});
   }
 
   /** Manage optional parameters to getUsageSummary. */
@@ -7196,11 +6900,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/summary";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
@@ -7210,32 +6911,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSummary");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSummaryResponse> localVarReturnType =
-        new GenericType<UsageSummaryResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageSummary",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageSummary",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSummaryResponse>() {});
   }
 
   /**
@@ -7265,11 +6958,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/summary";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
@@ -7279,32 +6969,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSummary");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSummaryResponse> localVarReturnType =
-        new GenericType<UsageSummaryResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageSummary",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageSummaryResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageSummary",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSummaryResponse>() {});
   }
 
   /** Manage optional parameters to getUsageSynthetics. */
@@ -7436,11 +7125,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/synthetics";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -7448,32 +7134,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSynthetics");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSyntheticsResponse> localVarReturnType =
-        new GenericType<UsageSyntheticsResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageSynthetics",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageSynthetics",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSyntheticsResponse>() {});
   }
 
   /**
@@ -7505,11 +7183,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/synthetics";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -7517,32 +7192,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSynthetics");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSyntheticsResponse> localVarReturnType =
-        new GenericType<UsageSyntheticsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageSynthetics",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageSyntheticsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageSynthetics",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSyntheticsResponse>() {});
   }
 
   /** Manage optional parameters to getUsageSyntheticsAPI. */
@@ -7667,11 +7341,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/synthetics_api";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -7679,32 +7350,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsAPI");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSyntheticsAPIResponse> localVarReturnType =
-        new GenericType<UsageSyntheticsAPIResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageSyntheticsAPI",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageSyntheticsAPI",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSyntheticsAPIResponse>() {});
   }
 
   /**
@@ -7734,11 +7397,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/synthetics_api";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -7746,32 +7406,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsAPI");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSyntheticsAPIResponse> localVarReturnType =
-        new GenericType<UsageSyntheticsAPIResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageSyntheticsAPI",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageSyntheticsAPIResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageSyntheticsAPI",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSyntheticsAPIResponse>() {});
   }
 
   /** Manage optional parameters to getUsageSyntheticsBrowser. */
@@ -7897,11 +7556,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/synthetics_browser";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -7909,32 +7565,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsBrowser");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSyntheticsBrowserResponse> localVarReturnType =
-        new GenericType<UsageSyntheticsBrowserResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageSyntheticsBrowser",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageSyntheticsBrowser",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSyntheticsBrowserResponse>() {});
   }
 
   /**
@@ -7966,11 +7614,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/synthetics_browser";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -7978,32 +7623,32 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsBrowser");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSyntheticsBrowserResponse> localVarReturnType =
-        new GenericType<UsageSyntheticsBrowserResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageSyntheticsBrowser",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageSyntheticsBrowserResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageSyntheticsBrowser",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageSyntheticsBrowserResponse>() {});
   }
 
   /** Manage optional parameters to getUsageTimeseries. */
@@ -8125,11 +7770,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/timeseries";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -8137,32 +7779,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTimeseries");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageTimeseriesResponse> localVarReturnType =
-        new GenericType<UsageTimeseriesResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageTimeseries",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageTimeseries",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageTimeseriesResponse>() {});
   }
 
   /**
@@ -8192,11 +7826,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/timeseries";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
@@ -8204,32 +7835,31 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTimeseries");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageTimeseriesResponse> localVarReturnType =
-        new GenericType<UsageTimeseriesResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageTimeseries",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageTimeseriesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageTimeseries",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageTimeseriesResponse>() {});
   }
 
   /** Manage optional parameters to getUsageTopAvgMetrics. */
@@ -8392,11 +8022,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/top_avg_metrics";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "day", day));
@@ -8407,32 +8034,24 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTopAvgMetrics");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageTopAvgMetricsResponse> localVarReturnType =
-        new GenericType<UsageTopAvgMetricsResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageTopAvgMetrics",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageTopAvgMetrics",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageTopAvgMetricsResponse>() {});
   }
 
   /**
@@ -8454,11 +8073,8 @@ public class UsageMeteringApi {
     // create path and map variables
     String localVarPath = "/api/v1/usage/top_avg_metrics";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "day", day));
@@ -8469,31 +8085,30 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTopAvgMetrics");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageTopAvgMetricsResponse> localVarReturnType =
-        new GenericType<UsageTopAvgMetricsResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageTopAvgMetrics",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageTopAvgMetricsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "UsageMeteringApi.getUsageTopAvgMetrics",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageTopAvgMetricsResponse>() {});
   }
 }

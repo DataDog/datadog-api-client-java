@@ -13,10 +13,14 @@ import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
+import com.datadog.api.v1.client.Pair;
+import java.util.ArrayList;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javax.ws.rs.core.GenericType;
+import javax.ws.rs.client.Invocation;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.junit.Before;
@@ -163,20 +167,16 @@ public abstract class V1ApiTest extends TestUtils.APITest {
       generalApiClient.setServerIndex(null);
     }
     try {
+      Invocation.Builder builder = generalApiClient.createBuilder("", url, new ArrayList<Pair>(), new HashMap<String, String>(), new HashMap<String, String>(), new String[] {"application/json"}, new String[] {"apiKeyAuth", "appKeyAuth"});
       return generalApiClient.invokeAPI(
-          "",
-          url,
           method,
-          null,
+	  builder,
+	  new HashMap<String, String>(),
+	  new String[] {"application/json"},
           payload,
-          new HashMap<String, String>(),
-          new HashMap<String, String>(),
           new HashMap<String, Object>(),
-          "application/json",
-          "application/json",
-          new String[] {"apiKeyAuth", "appKeyAuth"},
-          responseType,
-          false);
+	  false,
+          responseType);
     } finally {
       generalApiClient.setBasePath(originalBasePath);
       generalApiClient.setServerIndex(originalServerIndex);

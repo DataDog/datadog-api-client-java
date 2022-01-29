@@ -7,6 +7,7 @@ import {{invokerPackage}}.Configuration;
 import {{invokerPackage}}.Pair;
 
 import javax.ws.rs.core.GenericType;
+import javax.ws.rs.client.Invocation;
 
 {{#imports}}import {{import}};
 {{/imports}}
@@ -258,11 +259,10 @@ public class {{classname}} {
     String localVarPath = "{{{path}}}"{{#pathParams}}
       .replaceAll("\\{" + "{{baseName}}" + "\\}", apiClient.escapeString({{{paramName}}}.toString())){{/pathParams}};
 
-    // query params
-    {{javaUtilPrefix}}List<Pair> localVarQueryParams = new {{javaUtilPrefix}}ArrayList<Pair>();
-    {{javaUtilPrefix}}Map<String, String> localVarHeaderParams = new {{javaUtilPrefix}}HashMap<String, String>();
-    {{javaUtilPrefix}}Map<String, String> localVarCookieParams = new {{javaUtilPrefix}}HashMap<String, String>();
-    {{javaUtilPrefix}}Map<String, Object> localVarFormParams = new {{javaUtilPrefix}}HashMap<String, Object>();
+    {{#hasQueryParams}}{{javaUtilPrefix}}List<Pair> localVarQueryParams = new {{javaUtilPrefix}}ArrayList<Pair>();{{/hasQueryParams}}
+    {{javaUtilPrefix}}Map<String, String> localVarHeaderParams = new {{javaUtilPrefix}}HashMap<String, String>();{{#hasCookieParams}}
+    {{javaUtilPrefix}}Map<String, String> localVarCookieParams = new {{javaUtilPrefix}}HashMap<String, String>();{{/hasCookieParams}}{{#hasFormParams}}
+    {{javaUtilPrefix}}Map<String, Object> localVarFormParams = new {{javaUtilPrefix}}HashMap<String, Object>();{{/hasFormParams}}
 
     {{#queryParams}}
     localVarQueryParams.addAll(apiClient.parameterToPairs("{{{collectionFormat}}}", "{{baseName}}", {{paramName}}));
@@ -275,7 +275,8 @@ public class {{classname}} {
       localVarHeaderParams.put("{{baseName}}", apiClient.parameterToString({{paramName}}));
     {{/headerParams}}
 
-    {{#cookieParams}}if ({{paramName}} != null)
+    {{#cookieParams}}
+    if ({{paramName}} != null)
       localVarCookieParams.put("{{baseName}}", apiClient.parameterToString({{paramName}}));
     {{/cookieParams}}
 
@@ -283,25 +284,8 @@ public class {{classname}} {
       localVarFormParams.put("{{baseName}}", {{paramName}});
     {{/formParams}}
 
-    final String[] localVarAccepts = {
-      {{#produces}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/produces}}
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      {{#consumes}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/consumes}}
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { {{#authMethods}}"{{name}}"{{^-last}}, {{/-last}}{{/authMethods}} };
-
-    {{#returnType}}
-    GenericType<{{{returnType}}}> localVarReturnType = new GenericType<{{{returnType}}}>() {};
-
-    {{/returnType}}
-    return apiClient.invokeAPI("{{classname}}.{{operationId}}", localVarPath, "{{httpMethod}}", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, {{#returnType}}localVarReturnType{{/returnType}}{{^returnType}}null{{/returnType}}, {{#bodyParam}}{{#isNullable}}true{{/isNullable}}{{^isNullable}}false{{/isNullable}}{{/bodyParam}}{{^bodyParam}}false{{/bodyParam}});
+    Invocation.Builder builder = apiClient.createBuilder("{{classname}}.{{operationId}}", localVarPath, {{#hasQueryParams}}localVarQueryParams{{/hasQueryParams}}{{^hasQueryParams}}new {{javaUtilPrefix}}ArrayList<Pair>(){{/hasQueryParams}}, localVarHeaderParams, {{#hasCookieParams}}localVarCookieParams{{/hasCookieParams}}{{^hasCookieParams}}new {{javaUtilPrefix}}HashMap<String, String>(){{/hasCookieParams}}, new String[] { {{#produces}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/produces}} }, new String[] { {{#authMethods}}"{{name}}"{{^-last}}, {{/-last}}{{/authMethods}} });
+    return apiClient.invokeAPI("{{httpMethod}}", builder, localVarHeaderParams,  new String[] { {{#consumes}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/consumes}} }, localVarPostBody,{{#hasFormParams}}localVarFormParams{{/hasFormParams}}{{^hasFormParams}}new {{javaUtilPrefix}}HashMap<String, Object>(){{/hasFormParams}} , {{#bodyParam}}{{#isNullable}}true{{/isNullable}}{{^isNullable}}false{{/isNullable}}{{/bodyParam}}{{^bodyParam}}false{{/bodyParam}}, {{#returnType}}new GenericType<{{{returnType}}}>() {}{{/returnType}}{{^returnType}}null{{/returnType}});
   }
 
   /**
@@ -352,11 +336,10 @@ public class {{classname}} {
     String localVarPath = "{{{path}}}"{{#pathParams}}
       .replaceAll("\\{" + "{{baseName}}" + "\\}", apiClient.escapeString({{{paramName}}}.toString())){{/pathParams}};
 
-    // query params
-    {{javaUtilPrefix}}List<Pair> localVarQueryParams = new {{javaUtilPrefix}}ArrayList<Pair>();
-    {{javaUtilPrefix}}Map<String, String> localVarHeaderParams = new {{javaUtilPrefix}}HashMap<String, String>();
-    {{javaUtilPrefix}}Map<String, String> localVarCookieParams = new {{javaUtilPrefix}}HashMap<String, String>();
-    {{javaUtilPrefix}}Map<String, Object> localVarFormParams = new {{javaUtilPrefix}}HashMap<String, Object>();
+    {{#hasQueryParams}}{{javaUtilPrefix}}List<Pair> localVarQueryParams = new {{javaUtilPrefix}}ArrayList<Pair>();{{/hasQueryParams}}
+    {{javaUtilPrefix}}Map<String, String> localVarHeaderParams = new {{javaUtilPrefix}}HashMap<String, String>();{{#hasCookieParams}}
+    {{javaUtilPrefix}}Map<String, String> localVarCookieParams = new {{javaUtilPrefix}}HashMap<String, String>();{{/hasCookieParams}}{{#hasFormParams}}
+    {{javaUtilPrefix}}Map<String, Object> localVarFormParams = new {{javaUtilPrefix}}HashMap<String, Object>();{{/hasFormParams}}
 
     {{#queryParams}}
     localVarQueryParams.addAll(apiClient.parameterToPairs("{{{collectionFormat}}}", "{{baseName}}", {{paramName}}));
@@ -377,25 +360,15 @@ public class {{classname}} {
       localVarFormParams.put("{{baseName}}", {{paramName}});
     {{/formParams}}
 
-    final String[] localVarAccepts = {
-      {{#produces}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/produces}}
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      {{#consumes}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/consumes}}
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { {{#authMethods}}"{{name}}"{{^-last}}, {{/-last}}{{/authMethods}} };
-
-    {{#returnType}}
-    GenericType<{{{returnType}}}> localVarReturnType = new GenericType<{{{returnType}}}>() {};
-
-    {{/returnType}}
-    return apiClient.invokeAPIAsync("{{classname}}.{{operationId}}", localVarPath, "{{httpMethod}}", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, {{#returnType}}localVarReturnType{{/returnType}}{{^returnType}}null{{/returnType}}, {{#bodyParam}}{{#isNullable}}true{{/isNullable}}{{^isNullable}}false{{/isNullable}}{{/bodyParam}}{{^bodyParam}}false{{/bodyParam}});
+    Invocation.Builder builder;
+    try {
+      builder = apiClient.createBuilder("{{classname}}.{{operationId}}", localVarPath, {{#hasQueryParams}}localVarQueryParams{{/hasQueryParams}}{{^hasQueryParams}}new {{javaUtilPrefix}}ArrayList<Pair>(){{/hasQueryParams}}, localVarHeaderParams, {{#hasCookieParams}}localVarCookieParams{{/hasCookieParams}}{{^hasCookieParams}}new {{javaUtilPrefix}}HashMap<String, String>(){{/hasCookieParams}}, new String[] { {{#produces}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/produces}} }, new String[] { {{#authMethods}}"{{name}}"{{^-last}}, {{/-last}}{{/authMethods}} });
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}Void{{/returnType}}>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync("{{httpMethod}}", builder, localVarHeaderParams,  new String[] { {{#consumes}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/consumes}} }, localVarPostBody, {{#hasFormParams}}localVarFormParams{{/hasFormParams}}{{^hasFormParams}}new {{javaUtilPrefix}}HashMap<String, Object>(){{/hasFormParams}}, {{#bodyParam}}{{#isNullable}}true{{/isNullable}}{{^isNullable}}false{{/isNullable}}{{/bodyParam}}{{^bodyParam}}false{{/bodyParam}}, {{#returnType}}new GenericType<{{{returnType}}}>() {}{{/returnType}}{{^returnType}}null{{/returnType}});
   }
   {{/operation}}
 }

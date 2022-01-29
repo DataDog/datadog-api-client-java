@@ -12,9 +12,9 @@ import com.datadog.api.v2.client.model.CloudWorkloadSecurityAgentRulesListRespon
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -104,15 +104,12 @@ public class CloudWorkloadSecurityApi {
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/cloud_workload_security/agent_rules";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createCloudWorkloadSecurityAgentRule");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -124,20 +121,26 @@ public class CloudWorkloadSecurityApi {
     GenericType<CloudWorkloadSecurityAgentRuleResponse> localVarReturnType =
         new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {});
   }
 
   /**
@@ -167,40 +170,37 @@ public class CloudWorkloadSecurityApi {
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/cloud_workload_security/agent_rules";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createCloudWorkloadSecurityAgentRule");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<CloudWorkloadSecurityAgentRuleResponse> localVarReturnType =
-        new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {});
   }
 
   /**
@@ -258,15 +258,12 @@ public class CloudWorkloadSecurityApi {
             .replaceAll(
                 "\\{" + "agent_rule_id" + "\\}", apiClient.escapeString(agentRuleId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteCloudWorkloadSecurityAgentRule");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -276,20 +273,26 @@ public class CloudWorkloadSecurityApi {
 
     String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -320,38 +323,36 @@ public class CloudWorkloadSecurityApi {
             .replaceAll(
                 "\\{" + "agent_rule_id" + "\\}", apiClient.escapeString(agentRuleId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteCloudWorkloadSecurityAgentRule");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -397,40 +398,29 @@ public class CloudWorkloadSecurityApi {
     // create path and map variables
     String localVarPath = "/api/v2/security/cloud_workload/policy/download";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "downloadCloudWorkloadPolicyFile");
 
-    final String[] localVarAccepts = {"application/yaml", "application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<File> localVarReturnType = new GenericType<File>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/yaml", "application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<File>() {});
   }
 
   /**
@@ -445,40 +435,36 @@ public class CloudWorkloadSecurityApi {
     // create path and map variables
     String localVarPath = "/api/v2/security/cloud_workload/policy/download";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "downloadCloudWorkloadPolicyFile");
 
-    final String[] localVarAccepts = {"application/yaml", "application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<File> localVarReturnType = new GenericType<File>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/yaml", "application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<File>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<File>() {});
   }
 
   /**
@@ -539,15 +525,12 @@ public class CloudWorkloadSecurityApi {
             .replaceAll(
                 "\\{" + "agent_rule_id" + "\\}", apiClient.escapeString(agentRuleId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getCloudWorkloadSecurityAgentRule");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -560,20 +543,26 @@ public class CloudWorkloadSecurityApi {
     GenericType<CloudWorkloadSecurityAgentRuleResponse> localVarReturnType =
         new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {});
   }
 
   /**
@@ -605,41 +594,37 @@ public class CloudWorkloadSecurityApi {
             .replaceAll(
                 "\\{" + "agent_rule_id" + "\\}", apiClient.escapeString(agentRuleId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getCloudWorkloadSecurityAgentRule");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<CloudWorkloadSecurityAgentRuleResponse> localVarReturnType =
-        new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {});
   }
 
   /**
@@ -686,15 +671,12 @@ public class CloudWorkloadSecurityApi {
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/cloud_workload_security/agent_rules";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listCloudWorkloadSecurityAgentRules");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -707,20 +689,26 @@ public class CloudWorkloadSecurityApi {
     GenericType<CloudWorkloadSecurityAgentRulesListResponse> localVarReturnType =
         new GenericType<CloudWorkloadSecurityAgentRulesListResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudWorkloadSecurityAgentRulesListResponse>() {});
   }
 
   /**
@@ -736,41 +724,37 @@ public class CloudWorkloadSecurityApi {
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/cloud_workload_security/agent_rules";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listCloudWorkloadSecurityAgentRules");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<CloudWorkloadSecurityAgentRulesListResponse> localVarReturnType =
-        new GenericType<CloudWorkloadSecurityAgentRulesListResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRulesListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudWorkloadSecurityAgentRulesListResponse>() {});
   }
 
   /**
@@ -846,15 +830,12 @@ public class CloudWorkloadSecurityApi {
             .replaceAll(
                 "\\{" + "agent_rule_id" + "\\}", apiClient.escapeString(agentRuleId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateCloudWorkloadSecurityAgentRule");
 
+<<<<<<< HEAD
     final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -866,20 +847,26 @@ public class CloudWorkloadSecurityApi {
     GenericType<CloudWorkloadSecurityAgentRuleResponse> localVarReturnType =
         new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {};
 
+=======
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+>>>>>>> e8b09f8d (Refactor to reduce duplication)
     return apiClient.invokeAPI(
-        "CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule",
-        localVarPath,
         "PATCH",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {});
   }
 
   /**
@@ -925,39 +912,36 @@ public class CloudWorkloadSecurityApi {
             .replaceAll(
                 "\\{" + "agent_rule_id" + "\\}", apiClient.escapeString(agentRuleId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateCloudWorkloadSecurityAgentRule");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<CloudWorkloadSecurityAgentRuleResponse> localVarReturnType =
-        new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {};
-
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
     return apiClient.invokeAPIAsync(
-        "CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule",
-        localVarPath,
         "PATCH",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {});
   }
 }
