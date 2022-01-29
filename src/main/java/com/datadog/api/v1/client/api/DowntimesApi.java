@@ -58,6 +58,13 @@ public class DowntimesApi {
     cancelDowntimeWithHttpInfo(downtimeId);
   }
 
+  /**
+   * Cancel a downtime
+   *
+   * <p>See {@link #cancelDowntimeWithHttpInfoAsync}.
+   *
+   * @param downtimeId ID of the downtime to cancel. (required)
+   */
   public CompletableFuture<Void> cancelDowntimeAsync(Long downtimeId) {
     return cancelDowntimeWithHttpInfoAsync(downtimeId)
         .thenApply(
@@ -194,6 +201,14 @@ public class DowntimesApi {
     return cancelDowntimesByScopeWithHttpInfo(body).getData();
   }
 
+  /**
+   * Cancel downtimes by scope
+   *
+   * <p>See {@link #cancelDowntimesByScopeWithHttpInfoAsync}.
+   *
+   * @param body Scope to cancel downtimes for. (required)
+   * @return CompletableFuture&lt;CanceledDowntimesIds&gt;
+   */
   public CompletableFuture<CanceledDowntimesIds> cancelDowntimesByScopeAsync(
       CancelDowntimesByScopeRequest body) {
     return cancelDowntimesByScopeWithHttpInfoAsync(body)
@@ -327,6 +342,14 @@ public class DowntimesApi {
     return createDowntimeWithHttpInfo(body).getData();
   }
 
+  /**
+   * Schedule a downtime
+   *
+   * <p>See {@link #createDowntimeWithHttpInfoAsync}.
+   *
+   * @param body Schedule a downtime request body. (required)
+   * @return CompletableFuture&lt;Downtime&gt;
+   */
   public CompletableFuture<Downtime> createDowntimeAsync(Downtime body) {
     return createDowntimeWithHttpInfoAsync(body)
         .thenApply(
@@ -456,6 +479,14 @@ public class DowntimesApi {
     return getDowntimeWithHttpInfo(downtimeId).getData();
   }
 
+  /**
+   * Get a downtime
+   *
+   * <p>See {@link #getDowntimeWithHttpInfoAsync}.
+   *
+   * @param downtimeId ID of the downtime to fetch. (required)
+   * @return CompletableFuture&lt;Downtime&gt;
+   */
   public CompletableFuture<Downtime> getDowntimeAsync(Long downtimeId) {
     return getDowntimeWithHttpInfoAsync(downtimeId)
         .thenApply(
@@ -638,7 +669,7 @@ public class DowntimesApi {
   /**
    * Get all downtimes
    *
-   * <p>See {@link #listDowntimesWithHttpInfo}.
+   * <p>See {@link #listDowntimesWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;List&lt;Downtime&gt;&gt;
@@ -767,6 +798,14 @@ public class DowntimesApi {
     return listMonitorDowntimesWithHttpInfo(monitorId).getData();
   }
 
+  /**
+   * Get all downtimes for a monitor
+   *
+   * <p>See {@link #listMonitorDowntimesWithHttpInfoAsync}.
+   *
+   * @param monitorId The id of the monitor (required)
+   * @return CompletableFuture&lt;List&lt;Downtime&gt;&gt;
+   */
   public CompletableFuture<List<Downtime>> listMonitorDowntimesAsync(Long monitorId) {
     return listMonitorDowntimesWithHttpInfoAsync(monitorId)
         .thenApply(
@@ -905,6 +944,15 @@ public class DowntimesApi {
     return updateDowntimeWithHttpInfo(downtimeId, body).getData();
   }
 
+  /**
+   * Update a downtime
+   *
+   * <p>See {@link #updateDowntimeWithHttpInfoAsync}.
+   *
+   * @param downtimeId ID of the downtime to update. (required)
+   * @param body Update a downtime request body. (required)
+   * @return CompletableFuture&lt;Downtime&gt;
+   */
   public CompletableFuture<Downtime> updateDowntimeAsync(Long downtimeId, Downtime body) {
     return updateDowntimeWithHttpInfoAsync(downtimeId, body)
         .thenApply(

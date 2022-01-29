@@ -60,6 +60,14 @@ public class LogsApi {
     return listLogsWithHttpInfo(body).getData();
   }
 
+  /**
+   * Search logs
+   *
+   * <p>See {@link #listLogsWithHttpInfoAsync}.
+   *
+   * @param body Logs filter (required)
+   * @return CompletableFuture&lt;LogsListResponse&gt;
+   */
   public CompletableFuture<LogsListResponse> listLogsAsync(LogsListRequest body) {
     return listLogsWithHttpInfoAsync(body)
         .thenApply(
@@ -261,7 +269,7 @@ public class LogsApi {
   /**
    * Send logs
    *
-   * <p>See {@link #submitLogWithHttpInfo}.
+   * <p>See {@link #submitLogWithHttpInfoAsync}.
    *
    * @param body Log to send (JSON format). (required)
    * @param parameters Optional parameters for the request.

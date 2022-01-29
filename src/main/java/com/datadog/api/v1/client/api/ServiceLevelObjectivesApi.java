@@ -67,6 +67,15 @@ public class ServiceLevelObjectivesApi {
     return checkCanDeleteSLOWithHttpInfo(ids).getData();
   }
 
+  /**
+   * Check if SLOs can be safely deleted
+   *
+   * <p>See {@link #checkCanDeleteSLOWithHttpInfoAsync}.
+   *
+   * @param ids A comma separated list of the IDs of the service level objectives objects.
+   *     (required)
+   * @return CompletableFuture&lt;CheckCanDeleteSLOResponse&gt;
+   */
   public CompletableFuture<CheckCanDeleteSLOResponse> checkCanDeleteSLOAsync(String ids) {
     return checkCanDeleteSLOWithHttpInfoAsync(ids)
         .thenApply(
@@ -208,6 +217,14 @@ public class ServiceLevelObjectivesApi {
     return createSLOWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an SLO object
+   *
+   * <p>See {@link #createSLOWithHttpInfoAsync}.
+   *
+   * @param body Service level objective request object. (required)
+   * @return CompletableFuture&lt;SLOListResponse&gt;
+   */
   public CompletableFuture<SLOListResponse> createSLOAsync(ServiceLevelObjectiveRequest body) {
     return createSLOWithHttpInfoAsync(body)
         .thenApply(
@@ -388,7 +405,7 @@ public class ServiceLevelObjectivesApi {
   /**
    * Delete an SLO
    *
-   * <p>See {@link #deleteSLOWithHttpInfo}.
+   * <p>See {@link #deleteSLOWithHttpInfoAsync}.
    *
    * @param sloId The ID of the service level objective. (required)
    * @param parameters Optional parameters for the request.
@@ -542,6 +559,14 @@ public class ServiceLevelObjectivesApi {
     return deleteSLOTimeframeInBulkWithHttpInfo(body).getData();
   }
 
+  /**
+   * Bulk Delete SLO Timeframes
+   *
+   * <p>See {@link #deleteSLOTimeframeInBulkWithHttpInfoAsync}.
+   *
+   * @param body Delete multiple service level objective objects request body. (required)
+   * @return CompletableFuture&lt;SLOBulkDeleteResponse&gt;
+   */
   public CompletableFuture<SLOBulkDeleteResponse> deleteSLOTimeframeInBulkAsync(
       Map<String, List<SLOTimeframe>> body) {
     return deleteSLOTimeframeInBulkWithHttpInfoAsync(body)
@@ -725,7 +750,7 @@ public class ServiceLevelObjectivesApi {
   /**
    * Get an SLO&#39;s details
    *
-   * <p>See {@link #getSLOWithHttpInfo}.
+   * <p>See {@link #getSLOWithHttpInfoAsync}.
    *
    * @param sloId The ID of the service level objective object. (required)
    * @param parameters Optional parameters for the request.
@@ -877,6 +902,14 @@ public class ServiceLevelObjectivesApi {
     return getSLOCorrectionsWithHttpInfo(sloId).getData();
   }
 
+  /**
+   * Get Corrections For an SLO
+   *
+   * <p>See {@link #getSLOCorrectionsWithHttpInfoAsync}.
+   *
+   * @param sloId The ID of the service level objective object. (required)
+   * @return CompletableFuture&lt;SLOCorrectionListResponse&gt;
+   */
   public CompletableFuture<SLOCorrectionListResponse> getSLOCorrectionsAsync(String sloId) {
     return getSLOCorrectionsWithHttpInfoAsync(sloId)
         .thenApply(
@@ -1089,7 +1122,7 @@ public class ServiceLevelObjectivesApi {
   /**
    * Get an SLO&#39;s history
    *
-   * <p>See {@link #getSLOHistoryWithHttpInfo}.
+   * <p>See {@link #getSLOHistoryWithHttpInfoAsync}.
    *
    * @param sloId The ID of the service level objective object. (required)
    * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds. (required)
@@ -1400,7 +1433,7 @@ public class ServiceLevelObjectivesApi {
   /**
    * Get all SLOs
    *
-   * <p>See {@link #listSLOsWithHttpInfo}.
+   * <p>See {@link #listSLOsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;SLOListResponse&gt;
@@ -1551,6 +1584,15 @@ public class ServiceLevelObjectivesApi {
     return updateSLOWithHttpInfo(sloId, body).getData();
   }
 
+  /**
+   * Update an SLO
+   *
+   * <p>See {@link #updateSLOWithHttpInfoAsync}.
+   *
+   * @param sloId The ID of the service level objective object. (required)
+   * @param body The edited service level objective request object. (required)
+   * @return CompletableFuture&lt;SLOListResponse&gt;
+   */
   public CompletableFuture<SLOListResponse> updateSLOAsync(
       String sloId, ServiceLevelObjective body) {
     return updateSLOWithHttpInfoAsync(sloId, body)

@@ -58,6 +58,14 @@ public class DashboardListsApi {
     return createDashboardListWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a dashboard list
+   *
+   * <p>See {@link #createDashboardListWithHttpInfoAsync}.
+   *
+   * @param body Create a dashboard list request body. (required)
+   * @return CompletableFuture&lt;DashboardList&gt;
+   */
   public CompletableFuture<DashboardList> createDashboardListAsync(DashboardList body) {
     return createDashboardListWithHttpInfoAsync(body)
         .thenApply(
@@ -189,6 +197,14 @@ public class DashboardListsApi {
     return deleteDashboardListWithHttpInfo(listId).getData();
   }
 
+  /**
+   * Delete a dashboard list
+   *
+   * <p>See {@link #deleteDashboardListWithHttpInfoAsync}.
+   *
+   * @param listId ID of the dashboard list to delete. (required)
+   * @return CompletableFuture&lt;DashboardListDeleteResponse&gt;
+   */
   public CompletableFuture<DashboardListDeleteResponse> deleteDashboardListAsync(Long listId) {
     return deleteDashboardListWithHttpInfoAsync(listId)
         .thenApply(
@@ -326,6 +342,14 @@ public class DashboardListsApi {
     return getDashboardListWithHttpInfo(listId).getData();
   }
 
+  /**
+   * Get a dashboard list
+   *
+   * <p>See {@link #getDashboardListWithHttpInfoAsync}.
+   *
+   * @param listId ID of the dashboard list to fetch. (required)
+   * @return CompletableFuture&lt;DashboardList&gt;
+   */
   public CompletableFuture<DashboardList> getDashboardListAsync(Long listId) {
     return getDashboardListWithHttpInfoAsync(listId)
         .thenApply(
@@ -459,6 +483,13 @@ public class DashboardListsApi {
     return listDashboardListsWithHttpInfo().getData();
   }
 
+  /**
+   * Get all dashboard lists
+   *
+   * <p>See {@link #listDashboardListsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;DashboardListListResponse&gt;
+   */
   public CompletableFuture<DashboardListListResponse> listDashboardListsAsync() {
     return listDashboardListsWithHttpInfoAsync()
         .thenApply(
@@ -573,6 +604,15 @@ public class DashboardListsApi {
     return updateDashboardListWithHttpInfo(listId, body).getData();
   }
 
+  /**
+   * Update a dashboard list
+   *
+   * <p>See {@link #updateDashboardListWithHttpInfoAsync}.
+   *
+   * @param listId ID of the dashboard list to update. (required)
+   * @param body Update a dashboard list request body. (required)
+   * @return CompletableFuture&lt;DashboardList&gt;
+   */
   public CompletableFuture<DashboardList> updateDashboardListAsync(
       Long listId, DashboardList body) {
     return updateDashboardListWithHttpInfoAsync(listId, body)

@@ -59,6 +59,15 @@ public class SlackIntegrationApi {
     return createSlackIntegrationChannelWithHttpInfo(accountName, body).getData();
   }
 
+  /**
+   * Create a Slack integration channel
+   *
+   * <p>See {@link #createSlackIntegrationChannelWithHttpInfoAsync}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param body Payload describing Slack channel to be created (required)
+   * @return CompletableFuture&lt;SlackIntegrationChannel&gt;
+   */
   public CompletableFuture<SlackIntegrationChannel> createSlackIntegrationChannelAsync(
       String accountName, SlackIntegrationChannel body) {
     return createSlackIntegrationChannelWithHttpInfoAsync(accountName, body)
@@ -223,6 +232,15 @@ public class SlackIntegrationApi {
     return getSlackIntegrationChannelWithHttpInfo(accountName, channelName).getData();
   }
 
+  /**
+   * Get a Slack integration channel
+   *
+   * <p>See {@link #getSlackIntegrationChannelWithHttpInfoAsync}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param channelName The name of the Slack channel being operated on. (required)
+   * @return CompletableFuture&lt;SlackIntegrationChannel&gt;
+   */
   public CompletableFuture<SlackIntegrationChannel> getSlackIntegrationChannelAsync(
       String accountName, String channelName) {
     return getSlackIntegrationChannelWithHttpInfoAsync(accountName, channelName)
@@ -390,6 +408,14 @@ public class SlackIntegrationApi {
     return getSlackIntegrationChannelsWithHttpInfo(accountName).getData();
   }
 
+  /**
+   * Get all channels in a Slack integration
+   *
+   * <p>See {@link #getSlackIntegrationChannelsWithHttpInfoAsync}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @return CompletableFuture&lt;List&lt;SlackIntegrationChannel&gt;&gt;
+   */
   public CompletableFuture<List<SlackIntegrationChannel>> getSlackIntegrationChannelsAsync(
       String accountName) {
     return getSlackIntegrationChannelsWithHttpInfoAsync(accountName)
@@ -535,6 +561,14 @@ public class SlackIntegrationApi {
     removeSlackIntegrationChannelWithHttpInfo(accountName, channelName);
   }
 
+  /**
+   * Remove a Slack integration channel
+   *
+   * <p>See {@link #removeSlackIntegrationChannelWithHttpInfoAsync}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param channelName The name of the Slack channel being operated on. (required)
+   */
   public CompletableFuture<Void> removeSlackIntegrationChannelAsync(
       String accountName, String channelName) {
     return removeSlackIntegrationChannelWithHttpInfoAsync(accountName, channelName)
@@ -706,6 +740,16 @@ public class SlackIntegrationApi {
     return updateSlackIntegrationChannelWithHttpInfo(accountName, channelName, body).getData();
   }
 
+  /**
+   * Update a Slack integration channel
+   *
+   * <p>See {@link #updateSlackIntegrationChannelWithHttpInfoAsync}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param channelName The name of the Slack channel being operated on. (required)
+   * @param body Payload describing fields and values to be updated. (required)
+   * @return CompletableFuture&lt;SlackIntegrationChannel&gt;
+   */
   public CompletableFuture<SlackIntegrationChannel> updateSlackIntegrationChannelAsync(
       String accountName, String channelName, SlackIntegrationChannel body) {
     return updateSlackIntegrationChannelWithHttpInfoAsync(accountName, channelName, body)

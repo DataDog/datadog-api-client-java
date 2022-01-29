@@ -60,6 +60,14 @@ public class ServiceLevelObjectiveCorrectionsApi {
     return createSLOCorrectionWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an SLO correction
+   *
+   * <p>See {@link #createSLOCorrectionWithHttpInfoAsync}.
+   *
+   * @param body Create an SLO Correction (required)
+   * @return CompletableFuture&lt;SLOCorrectionResponse&gt;
+   */
   public CompletableFuture<SLOCorrectionResponse> createSLOCorrectionAsync(
       SLOCorrectionCreateRequest body) {
     return createSLOCorrectionWithHttpInfoAsync(body)
@@ -192,6 +200,13 @@ public class ServiceLevelObjectiveCorrectionsApi {
     deleteSLOCorrectionWithHttpInfo(sloCorrectionId);
   }
 
+  /**
+   * Delete an SLO correction
+   *
+   * <p>See {@link #deleteSLOCorrectionWithHttpInfoAsync}.
+   *
+   * @param sloCorrectionId The ID of the SLO correction object. (required)
+   */
   public CompletableFuture<Void> deleteSLOCorrectionAsync(String sloCorrectionId) {
     return deleteSLOCorrectionWithHttpInfoAsync(sloCorrectionId)
         .thenApply(
@@ -332,6 +347,14 @@ public class ServiceLevelObjectiveCorrectionsApi {
     return getSLOCorrectionWithHttpInfo(sloCorrectionId).getData();
   }
 
+  /**
+   * Get an SLO correction for an SLO
+   *
+   * <p>See {@link #getSLOCorrectionWithHttpInfoAsync}.
+   *
+   * @param sloCorrectionId The ID of the SLO correction object. (required)
+   * @return CompletableFuture&lt;SLOCorrectionResponse&gt;
+   */
   public CompletableFuture<SLOCorrectionResponse> getSLOCorrectionAsync(String sloCorrectionId) {
     return getSLOCorrectionWithHttpInfoAsync(sloCorrectionId)
         .thenApply(
@@ -471,6 +494,13 @@ public class ServiceLevelObjectiveCorrectionsApi {
     return listSLOCorrectionWithHttpInfo().getData();
   }
 
+  /**
+   * Get all SLO corrections
+   *
+   * <p>See {@link #listSLOCorrectionWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SLOCorrectionListResponse&gt;
+   */
   public CompletableFuture<SLOCorrectionListResponse> listSLOCorrectionAsync() {
     return listSLOCorrectionWithHttpInfoAsync()
         .thenApply(
@@ -586,6 +616,15 @@ public class ServiceLevelObjectiveCorrectionsApi {
     return updateSLOCorrectionWithHttpInfo(sloCorrectionId, body).getData();
   }
 
+  /**
+   * Update an SLO correction
+   *
+   * <p>See {@link #updateSLOCorrectionWithHttpInfoAsync}.
+   *
+   * @param sloCorrectionId The ID of the SLO correction object. (required)
+   * @param body The edited SLO correction object. (required)
+   * @return CompletableFuture&lt;SLOCorrectionResponse&gt;
+   */
   public CompletableFuture<SLOCorrectionResponse> updateSLOCorrectionAsync(
       String sloCorrectionId, SLOCorrectionUpdateRequest body) {
     return updateSLOCorrectionWithHttpInfoAsync(sloCorrectionId, body)

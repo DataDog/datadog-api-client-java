@@ -65,6 +65,15 @@ public class MetricsApi {
     return createTagConfigurationWithHttpInfo(metricName, body).getData();
   }
 
+  /**
+   * Create a tag configuration
+   *
+   * <p>See {@link #createTagConfigurationWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;MetricTagConfigurationResponse&gt;
+   */
   public CompletableFuture<MetricTagConfigurationResponse> createTagConfigurationAsync(
       String metricName, MetricTagConfigurationCreateRequest body) {
     return createTagConfigurationWithHttpInfoAsync(metricName, body)
@@ -228,6 +237,13 @@ public class MetricsApi {
     deleteTagConfigurationWithHttpInfo(metricName);
   }
 
+  /**
+   * Delete a tag configuration
+   *
+   * <p>See {@link #deleteTagConfigurationWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   */
   public CompletableFuture<Void> deleteTagConfigurationAsync(String metricName) {
     return deleteTagConfigurationWithHttpInfoAsync(metricName)
         .thenApply(
@@ -368,6 +384,14 @@ public class MetricsApi {
     return listTagConfigurationByNameWithHttpInfo(metricName).getData();
   }
 
+  /**
+   * List tag configuration by name
+   *
+   * <p>See {@link #listTagConfigurationByNameWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;MetricTagConfigurationResponse&gt;
+   */
   public CompletableFuture<MetricTagConfigurationResponse> listTagConfigurationByNameAsync(
       String metricName) {
     return listTagConfigurationByNameWithHttpInfoAsync(metricName)
@@ -626,7 +650,7 @@ public class MetricsApi {
   /**
    * List tag configurations
    *
-   * <p>See {@link #listTagConfigurationsWithHttpInfo}.
+   * <p>See {@link #listTagConfigurationsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;MetricsAndMetricTagConfigurationsResponse&gt;
@@ -786,6 +810,14 @@ public class MetricsApi {
     return listTagsByMetricNameWithHttpInfo(metricName).getData();
   }
 
+  /**
+   * List tags by metric name
+   *
+   * <p>See {@link #listTagsByMetricNameWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;MetricAllTagsResponse&gt;
+   */
   public CompletableFuture<MetricAllTagsResponse> listTagsByMetricNameAsync(String metricName) {
     return listTagsByMetricNameWithHttpInfoAsync(metricName)
         .thenApply(
@@ -925,6 +957,14 @@ public class MetricsApi {
     return listVolumesByMetricNameWithHttpInfo(metricName).getData();
   }
 
+  /**
+   * List distinct metric volumes by metric name
+   *
+   * <p>See {@link #listVolumesByMetricNameWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;MetricVolumesResponse&gt;
+   */
   public CompletableFuture<MetricVolumesResponse> listVolumesByMetricNameAsync(String metricName) {
     return listVolumesByMetricNameWithHttpInfoAsync(metricName)
         .thenApply(
@@ -1069,6 +1109,15 @@ public class MetricsApi {
     return updateTagConfigurationWithHttpInfo(metricName, body).getData();
   }
 
+  /**
+   * Update a tag configuration
+   *
+   * <p>See {@link #updateTagConfigurationWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;MetricTagConfigurationResponse&gt;
+   */
   public CompletableFuture<MetricTagConfigurationResponse> updateTagConfigurationAsync(
       String metricName, MetricTagConfigurationUpdateRequest body) {
     return updateTagConfigurationWithHttpInfoAsync(metricName, body)

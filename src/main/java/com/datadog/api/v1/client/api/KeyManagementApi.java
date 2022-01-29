@@ -61,6 +61,14 @@ public class KeyManagementApi {
     return createAPIKeyWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an API key
+   *
+   * <p>See {@link #createAPIKeyWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiKeyResponse&gt;
+   */
   public CompletableFuture<ApiKeyResponse> createAPIKeyAsync(ApiKey body) {
     return createAPIKeyWithHttpInfoAsync(body)
         .thenApply(
@@ -189,6 +197,14 @@ public class KeyManagementApi {
     return createApplicationKeyWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an application key
+   *
+   * <p>See {@link #createApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
   public CompletableFuture<ApplicationKeyResponse> createApplicationKeyAsync(ApplicationKey body) {
     return createApplicationKeyWithHttpInfoAsync(body)
         .thenApply(
@@ -321,6 +337,14 @@ public class KeyManagementApi {
     return deleteAPIKeyWithHttpInfo(key).getData();
   }
 
+  /**
+   * Delete an API key
+   *
+   * <p>See {@link #deleteAPIKeyWithHttpInfoAsync}.
+   *
+   * @param key The specific API key you are working with. (required)
+   * @return CompletableFuture&lt;ApiKeyResponse&gt;
+   */
   public CompletableFuture<ApiKeyResponse> deleteAPIKeyAsync(String key) {
     return deleteAPIKeyWithHttpInfoAsync(key)
         .thenApply(
@@ -453,6 +477,14 @@ public class KeyManagementApi {
     return deleteApplicationKeyWithHttpInfo(key).getData();
   }
 
+  /**
+   * Delete an application key
+   *
+   * <p>See {@link #deleteApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param key The specific APP key you are working with. (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
   public CompletableFuture<ApplicationKeyResponse> deleteApplicationKeyAsync(String key) {
     return deleteApplicationKeyWithHttpInfoAsync(key)
         .thenApply(
@@ -588,6 +620,14 @@ public class KeyManagementApi {
     return getAPIKeyWithHttpInfo(key).getData();
   }
 
+  /**
+   * Get API key
+   *
+   * <p>See {@link #getAPIKeyWithHttpInfoAsync}.
+   *
+   * @param key The specific API key you are working with. (required)
+   * @return CompletableFuture&lt;ApiKeyResponse&gt;
+   */
   public CompletableFuture<ApiKeyResponse> getAPIKeyAsync(String key) {
     return getAPIKeyWithHttpInfoAsync(key)
         .thenApply(
@@ -719,6 +759,14 @@ public class KeyManagementApi {
     return getApplicationKeyWithHttpInfo(key).getData();
   }
 
+  /**
+   * Get an application key
+   *
+   * <p>See {@link #getApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param key The specific APP key you are working with. (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
   public CompletableFuture<ApplicationKeyResponse> getApplicationKeyAsync(String key) {
     return getApplicationKeyWithHttpInfoAsync(key)
         .thenApply(
@@ -853,6 +901,13 @@ public class KeyManagementApi {
     return listAPIKeysWithHttpInfo().getData();
   }
 
+  /**
+   * Get all API keys
+   *
+   * <p>See {@link #listAPIKeysWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ApiKeyListResponse&gt;
+   */
   public CompletableFuture<ApiKeyListResponse> listAPIKeysAsync() {
     return listAPIKeysWithHttpInfoAsync()
         .thenApply(
@@ -963,6 +1018,13 @@ public class KeyManagementApi {
     return listApplicationKeysWithHttpInfo().getData();
   }
 
+  /**
+   * Get all application keys
+   *
+   * <p>See {@link #listApplicationKeysWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ApplicationKeyListResponse&gt;
+   */
   public CompletableFuture<ApplicationKeyListResponse> listApplicationKeysAsync() {
     return listApplicationKeysWithHttpInfoAsync()
         .thenApply(
@@ -1077,6 +1139,15 @@ public class KeyManagementApi {
     return updateAPIKeyWithHttpInfo(key, body).getData();
   }
 
+  /**
+   * Edit an API key
+   *
+   * <p>See {@link #updateAPIKeyWithHttpInfoAsync}.
+   *
+   * @param key The specific API key you are working with. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiKeyResponse&gt;
+   */
   public CompletableFuture<ApiKeyResponse> updateAPIKeyAsync(String key, ApiKey body) {
     return updateAPIKeyWithHttpInfoAsync(key, body)
         .thenApply(
@@ -1229,6 +1300,15 @@ public class KeyManagementApi {
     return updateApplicationKeyWithHttpInfo(key, body).getData();
   }
 
+  /**
+   * Edit an application key
+   *
+   * <p>See {@link #updateApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param key The specific APP key you are working with. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
   public CompletableFuture<ApplicationKeyResponse> updateApplicationKeyAsync(
       String key, ApplicationKey body) {
     return updateApplicationKeyWithHttpInfoAsync(key, body)

@@ -62,6 +62,14 @@ public class IncidentTeamsApi {
     return createIncidentTeamWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a new incident team
+   *
+   * <p>See {@link #createIncidentTeamWithHttpInfoAsync}.
+   *
+   * @param body Incident Team Payload. (required)
+   * @return CompletableFuture&lt;IncidentTeamResponse&gt;
+   */
   public CompletableFuture<IncidentTeamResponse> createIncidentTeamAsync(
       IncidentTeamCreateRequest body) {
     return createIncidentTeamWithHttpInfoAsync(body)
@@ -195,6 +203,13 @@ public class IncidentTeamsApi {
     deleteIncidentTeamWithHttpInfo(teamId);
   }
 
+  /**
+   * Delete an existing incident team
+   *
+   * <p>See {@link #deleteIncidentTeamWithHttpInfoAsync}.
+   *
+   * @param teamId The ID of the incident team. (required)
+   */
   public CompletableFuture<Void> deleteIncidentTeamAsync(String teamId) {
     return deleteIncidentTeamWithHttpInfoAsync(teamId)
         .thenApply(
@@ -381,7 +396,7 @@ public class IncidentTeamsApi {
   /**
    * Get details of an incident team
    *
-   * <p>See {@link #getIncidentTeamWithHttpInfo}.
+   * <p>See {@link #getIncidentTeamWithHttpInfoAsync}.
    *
    * @param teamId The ID of the incident team. (required)
    * @param parameters Optional parameters for the request.
@@ -621,7 +636,7 @@ public class IncidentTeamsApi {
   /**
    * Get a list of all incident teams
    *
-   * <p>See {@link #listIncidentTeamsWithHttpInfo}.
+   * <p>See {@link #listIncidentTeamsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;IncidentTeamsResponse&gt;
@@ -769,6 +784,15 @@ public class IncidentTeamsApi {
     return updateIncidentTeamWithHttpInfo(teamId, body).getData();
   }
 
+  /**
+   * Update an existing incident team
+   *
+   * <p>See {@link #updateIncidentTeamWithHttpInfoAsync}.
+   *
+   * @param teamId The ID of the incident team. (required)
+   * @param body Incident Team Payload. (required)
+   * @return CompletableFuture&lt;IncidentTeamResponse&gt;
+   */
   public CompletableFuture<IncidentTeamResponse> updateIncidentTeamAsync(
       String teamId, IncidentTeamUpdateRequest body) {
     return updateIncidentTeamWithHttpInfoAsync(teamId, body)

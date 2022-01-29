@@ -57,6 +57,14 @@ public class GcpIntegrationApi {
     return createGCPIntegrationWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a GCP integration
+   *
+   * <p>See {@link #createGCPIntegrationWithHttpInfoAsync}.
+   *
+   * @param body Create a Datadog-GCP integration. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> createGCPIntegrationAsync(GCPAccount body) {
     return createGCPIntegrationWithHttpInfoAsync(body)
         .thenApply(
@@ -187,6 +195,14 @@ public class GcpIntegrationApi {
     return deleteGCPIntegrationWithHttpInfo(body).getData();
   }
 
+  /**
+   * Delete a GCP integration
+   *
+   * <p>See {@link #deleteGCPIntegrationWithHttpInfoAsync}.
+   *
+   * @param body Delete a given Datadog-GCP integration. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> deleteGCPIntegrationAsync(GCPAccount body) {
     return deleteGCPIntegrationWithHttpInfoAsync(body)
         .thenApply(
@@ -316,6 +332,13 @@ public class GcpIntegrationApi {
     return listGCPIntegrationWithHttpInfo().getData();
   }
 
+  /**
+   * List all GCP integrations
+   *
+   * <p>See {@link #listGCPIntegrationWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;List&lt;GCPAccount&gt;&gt;
+   */
   public CompletableFuture<List<GCPAccount>> listGCPIntegrationAsync() {
     return listGCPIntegrationWithHttpInfoAsync()
         .thenApply(
@@ -428,6 +451,14 @@ public class GcpIntegrationApi {
     return updateGCPIntegrationWithHttpInfo(body).getData();
   }
 
+  /**
+   * Update a GCP integration
+   *
+   * <p>See {@link #updateGCPIntegrationWithHttpInfoAsync}.
+   *
+   * @param body Update a Datadog-GCP integration. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> updateGCPIntegrationAsync(GCPAccount body) {
     return updateGCPIntegrationWithHttpInfoAsync(body)
         .thenApply(

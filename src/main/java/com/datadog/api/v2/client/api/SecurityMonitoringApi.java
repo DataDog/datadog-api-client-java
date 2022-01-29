@@ -69,6 +69,14 @@ public class SecurityMonitoringApi {
     return createSecurityFilterWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a security filter
+   *
+   * <p>See {@link #createSecurityFilterWithHttpInfoAsync}.
+   *
+   * @param body The definition of the new security filter. (required)
+   * @return CompletableFuture&lt;SecurityFilterResponse&gt;
+   */
   public CompletableFuture<SecurityFilterResponse> createSecurityFilterAsync(
       SecurityFilterCreateRequest body) {
     return createSecurityFilterWithHttpInfoAsync(body)
@@ -205,6 +213,14 @@ public class SecurityMonitoringApi {
     return createSecurityMonitoringRuleWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a detection rule
+   *
+   * <p>See {@link #createSecurityMonitoringRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleResponse&gt;
+   */
   public CompletableFuture<SecurityMonitoringRuleResponse> createSecurityMonitoringRuleAsync(
       SecurityMonitoringRuleCreatePayload body) {
     return createSecurityMonitoringRuleWithHttpInfoAsync(body)
@@ -339,6 +355,13 @@ public class SecurityMonitoringApi {
     deleteSecurityFilterWithHttpInfo(securityFilterId);
   }
 
+  /**
+   * Delete a security filter
+   *
+   * <p>See {@link #deleteSecurityFilterWithHttpInfoAsync}.
+   *
+   * @param securityFilterId The ID of the security filter. (required)
+   */
   public CompletableFuture<Void> deleteSecurityFilterAsync(String securityFilterId) {
     return deleteSecurityFilterWithHttpInfoAsync(securityFilterId)
         .thenApply(
@@ -480,6 +503,13 @@ public class SecurityMonitoringApi {
     deleteSecurityMonitoringRuleWithHttpInfo(ruleId);
   }
 
+  /**
+   * Delete an existing rule
+   *
+   * <p>See {@link #deleteSecurityMonitoringRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   */
   public CompletableFuture<Void> deleteSecurityMonitoringRuleAsync(String ruleId) {
     return deleteSecurityMonitoringRuleWithHttpInfoAsync(ruleId)
         .thenApply(
@@ -616,6 +646,14 @@ public class SecurityMonitoringApi {
     return getSecurityFilterWithHttpInfo(securityFilterId).getData();
   }
 
+  /**
+   * Get a security filter
+   *
+   * <p>See {@link #getSecurityFilterWithHttpInfoAsync}.
+   *
+   * @param securityFilterId The ID of the security filter. (required)
+   * @return CompletableFuture&lt;SecurityFilterResponse&gt;
+   */
   public CompletableFuture<SecurityFilterResponse> getSecurityFilterAsync(String securityFilterId) {
     return getSecurityFilterWithHttpInfoAsync(securityFilterId)
         .thenApply(
@@ -759,6 +797,14 @@ public class SecurityMonitoringApi {
     return getSecurityMonitoringRuleWithHttpInfo(ruleId).getData();
   }
 
+  /**
+   * Get a rule&#39;s details
+   *
+   * <p>See {@link #getSecurityMonitoringRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleResponse&gt;
+   */
   public CompletableFuture<SecurityMonitoringRuleResponse> getSecurityMonitoringRuleAsync(
       String ruleId) {
     return getSecurityMonitoringRuleWithHttpInfoAsync(ruleId)
@@ -896,6 +942,13 @@ public class SecurityMonitoringApi {
     return listSecurityFiltersWithHttpInfo().getData();
   }
 
+  /**
+   * Get all security filters
+   *
+   * <p>See {@link #listSecurityFiltersWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityFiltersResponse&gt;
+   */
   public CompletableFuture<SecurityFiltersResponse> listSecurityFiltersAsync() {
     return listSecurityFiltersWithHttpInfoAsync()
         .thenApply(
@@ -1071,7 +1124,7 @@ public class SecurityMonitoringApi {
   /**
    * List rules
    *
-   * <p>See {@link #listSecurityMonitoringRulesWithHttpInfo}.
+   * <p>See {@link #listSecurityMonitoringRulesWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;SecurityMonitoringListRulesResponse&gt;
@@ -1320,7 +1373,7 @@ public class SecurityMonitoringApi {
   /**
    * Get a quick list of security signals
    *
-   * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfo}.
+   * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;SecurityMonitoringSignalsListResponse&gt;
@@ -1528,7 +1581,7 @@ public class SecurityMonitoringApi {
   /**
    * Get a list of security signals
    *
-   * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfo}.
+   * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;SecurityMonitoringSignalsListResponse&gt;
@@ -1657,6 +1710,15 @@ public class SecurityMonitoringApi {
     return updateSecurityFilterWithHttpInfo(securityFilterId, body).getData();
   }
 
+  /**
+   * Update a security filter
+   *
+   * <p>See {@link #updateSecurityFilterWithHttpInfoAsync}.
+   *
+   * @param securityFilterId The ID of the security filter. (required)
+   * @param body New definition of the security filter. (required)
+   * @return CompletableFuture&lt;SecurityFilterResponse&gt;
+   */
   public CompletableFuture<SecurityFilterResponse> updateSecurityFilterAsync(
       String securityFilterId, SecurityFilterUpdateRequest body) {
     return updateSecurityFilterWithHttpInfoAsync(securityFilterId, body)
@@ -1823,6 +1885,15 @@ public class SecurityMonitoringApi {
     return updateSecurityMonitoringRuleWithHttpInfo(ruleId, body).getData();
   }
 
+  /**
+   * Update an existing rule
+   *
+   * <p>See {@link #updateSecurityMonitoringRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleResponse&gt;
+   */
   public CompletableFuture<SecurityMonitoringRuleResponse> updateSecurityMonitoringRuleAsync(
       String ruleId, SecurityMonitoringRuleUpdatePayload body) {
     return updateSecurityMonitoringRuleWithHttpInfoAsync(ruleId, body)

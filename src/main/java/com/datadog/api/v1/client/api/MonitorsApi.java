@@ -63,6 +63,14 @@ public class MonitorsApi {
     return checkCanDeleteMonitorWithHttpInfo(monitorIds).getData();
   }
 
+  /**
+   * Check if a monitor can be deleted
+   *
+   * <p>See {@link #checkCanDeleteMonitorWithHttpInfoAsync}.
+   *
+   * @param monitorIds The IDs of the monitor to check. (required)
+   * @return CompletableFuture&lt;CheckCanDeleteMonitorResponse&gt;
+   */
   public CompletableFuture<CheckCanDeleteMonitorResponse> checkCanDeleteMonitorAsync(
       List<Long> monitorIds) {
     return checkCanDeleteMonitorWithHttpInfoAsync(monitorIds)
@@ -205,6 +213,14 @@ public class MonitorsApi {
     return createMonitorWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a monitor
+   *
+   * <p>See {@link #createMonitorWithHttpInfoAsync}.
+   *
+   * @param body Create a monitor request body. (required)
+   * @return CompletableFuture&lt;Monitor&gt;
+   */
   public CompletableFuture<Monitor> createMonitorAsync(Monitor body) {
     return createMonitorWithHttpInfoAsync(body)
         .thenApply(
@@ -504,7 +520,7 @@ public class MonitorsApi {
   /**
    * Delete a monitor
    *
-   * <p>See {@link #deleteMonitorWithHttpInfo}.
+   * <p>See {@link #deleteMonitorWithHttpInfoAsync}.
    *
    * @param monitorId The ID of the monitor. (required)
    * @param parameters Optional parameters for the request.
@@ -710,7 +726,7 @@ public class MonitorsApi {
   /**
    * Get a monitor&#39;s details
    *
-   * <p>See {@link #getMonitorWithHttpInfo}.
+   * <p>See {@link #getMonitorWithHttpInfoAsync}.
    *
    * @param monitorId The ID of the monitor (required)
    * @param parameters Optional parameters for the request.
@@ -1006,7 +1022,7 @@ public class MonitorsApi {
   /**
    * Get all monitor details
    *
-   * <p>See {@link #listMonitorsWithHttpInfo}.
+   * <p>See {@link #listMonitorsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;List&lt;Monitor&gt;&gt;
@@ -1255,7 +1271,7 @@ public class MonitorsApi {
   /**
    * Monitors group search
    *
-   * <p>See {@link #searchMonitorGroupsWithHttpInfo}.
+   * <p>See {@link #searchMonitorGroupsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;MonitorGroupSearchResponse&gt;
@@ -1488,7 +1504,7 @@ public class MonitorsApi {
   /**
    * Monitors search
    *
-   * <p>See {@link #searchMonitorsWithHttpInfo}.
+   * <p>See {@link #searchMonitorsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;MonitorSearchResponse&gt;
@@ -1631,6 +1647,15 @@ public class MonitorsApi {
     return updateMonitorWithHttpInfo(monitorId, body).getData();
   }
 
+  /**
+   * Edit a monitor
+   *
+   * <p>See {@link #updateMonitorWithHttpInfoAsync}.
+   *
+   * @param monitorId The ID of the monitor. (required)
+   * @param body Edit a monitor request body. (required)
+   * @return CompletableFuture&lt;Monitor&gt;
+   */
   public CompletableFuture<Monitor> updateMonitorAsync(Long monitorId, MonitorUpdateRequest body) {
     return updateMonitorWithHttpInfoAsync(monitorId, body)
         .thenApply(
@@ -1785,6 +1810,14 @@ public class MonitorsApi {
     return validateMonitorWithHttpInfo(body).getData();
   }
 
+  /**
+   * Validate a monitor
+   *
+   * <p>See {@link #validateMonitorWithHttpInfoAsync}.
+   *
+   * @param body Monitor request object (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> validateMonitorAsync(Monitor body) {
     return validateMonitorWithHttpInfoAsync(body)
         .thenApply(

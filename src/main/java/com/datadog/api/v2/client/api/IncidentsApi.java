@@ -61,6 +61,14 @@ public class IncidentsApi {
     return createIncidentWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an incident
+   *
+   * <p>See {@link #createIncidentWithHttpInfoAsync}.
+   *
+   * @param body Incident payload. (required)
+   * @return CompletableFuture&lt;IncidentResponse&gt;
+   */
   public CompletableFuture<IncidentResponse> createIncidentAsync(IncidentCreateRequest body) {
     return createIncidentWithHttpInfoAsync(body)
         .thenApply(
@@ -193,6 +201,13 @@ public class IncidentsApi {
     deleteIncidentWithHttpInfo(incidentId);
   }
 
+  /**
+   * Delete an existing incident
+   *
+   * <p>See {@link #deleteIncidentWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   */
   public CompletableFuture<Void> deleteIncidentAsync(String incidentId) {
     return deleteIncidentWithHttpInfoAsync(incidentId)
         .thenApply(
@@ -381,7 +396,7 @@ public class IncidentsApi {
   /**
    * Get the details of an incident
    *
-   * <p>See {@link #getIncidentWithHttpInfo}.
+   * <p>See {@link #getIncidentWithHttpInfoAsync}.
    *
    * @param incidentId The UUID of the incident. (required)
    * @param parameters Optional parameters for the request.
@@ -610,7 +625,7 @@ public class IncidentsApi {
   /**
    * Get a list of incidents
    *
-   * <p>See {@link #listIncidentsWithHttpInfo}.
+   * <p>See {@link #listIncidentsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;IncidentsResponse&gt;
@@ -752,6 +767,15 @@ public class IncidentsApi {
     return updateIncidentWithHttpInfo(incidentId, body).getData();
   }
 
+  /**
+   * Update an existing incident
+   *
+   * <p>See {@link #updateIncidentWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Incident Payload. (required)
+   * @return CompletableFuture&lt;IncidentResponse&gt;
+   */
   public CompletableFuture<IncidentResponse> updateIncidentAsync(
       String incidentId, IncidentUpdateRequest body) {
     return updateIncidentWithHttpInfoAsync(incidentId, body)

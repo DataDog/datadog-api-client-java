@@ -171,7 +171,7 @@ public class ProcessesApi {
   /**
    * Get all processes
    *
-   * <p>See {@link #listProcessesWithHttpInfo}.
+   * <p>See {@link #listProcessesWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ProcessSummariesResponse&gt;

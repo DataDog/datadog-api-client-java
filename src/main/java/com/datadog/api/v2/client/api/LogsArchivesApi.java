@@ -61,6 +61,14 @@ public class LogsArchivesApi {
     addReadRoleToArchiveWithHttpInfo(archiveId, body);
   }
 
+  /**
+   * Grant role to an archive
+   *
+   * <p>See {@link #addReadRoleToArchiveWithHttpInfoAsync}.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @param body (required)
+   */
   public CompletableFuture<Void> addReadRoleToArchiveAsync(
       String archiveId, RelationshipToRole body) {
     return addReadRoleToArchiveWithHttpInfoAsync(archiveId, body)
@@ -215,6 +223,14 @@ public class LogsArchivesApi {
     return createLogsArchiveWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an archive
+   *
+   * <p>See {@link #createLogsArchiveWithHttpInfoAsync}.
+   *
+   * @param body The definition of the new archive. (required)
+   * @return CompletableFuture&lt;LogsArchive&gt;
+   */
   public CompletableFuture<LogsArchive> createLogsArchiveAsync(LogsArchiveCreateRequest body) {
     return createLogsArchiveWithHttpInfoAsync(body)
         .thenApply(
@@ -345,6 +361,13 @@ public class LogsArchivesApi {
     deleteLogsArchiveWithHttpInfo(archiveId);
   }
 
+  /**
+   * Delete an archive
+   *
+   * <p>See {@link #deleteLogsArchiveWithHttpInfoAsync}.
+   *
+   * @param archiveId The ID of the archive. (required)
+   */
   public CompletableFuture<Void> deleteLogsArchiveAsync(String archiveId) {
     return deleteLogsArchiveWithHttpInfoAsync(archiveId)
         .thenApply(
@@ -479,6 +502,14 @@ public class LogsArchivesApi {
     return getLogsArchiveWithHttpInfo(archiveId).getData();
   }
 
+  /**
+   * Get an archive
+   *
+   * <p>See {@link #getLogsArchiveWithHttpInfoAsync}.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @return CompletableFuture&lt;LogsArchive&gt;
+   */
   public CompletableFuture<LogsArchive> getLogsArchiveAsync(String archiveId) {
     return getLogsArchiveWithHttpInfoAsync(archiveId)
         .thenApply(
@@ -613,6 +644,13 @@ public class LogsArchivesApi {
     return getLogsArchiveOrderWithHttpInfo().getData();
   }
 
+  /**
+   * Get archive order
+   *
+   * <p>See {@link #getLogsArchiveOrderWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LogsArchiveOrder&gt;
+   */
   public CompletableFuture<LogsArchiveOrder> getLogsArchiveOrderAsync() {
     return getLogsArchiveOrderWithHttpInfoAsync()
         .thenApply(
@@ -724,6 +762,14 @@ public class LogsArchivesApi {
     return listArchiveReadRolesWithHttpInfo(archiveId).getData();
   }
 
+  /**
+   * List read roles for an archive
+   *
+   * <p>See {@link #listArchiveReadRolesWithHttpInfoAsync}.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @return CompletableFuture&lt;RolesResponse&gt;
+   */
   public CompletableFuture<RolesResponse> listArchiveReadRolesAsync(String archiveId) {
     return listArchiveReadRolesWithHttpInfoAsync(archiveId)
         .thenApply(
@@ -859,6 +905,13 @@ public class LogsArchivesApi {
     return listLogsArchivesWithHttpInfo().getData();
   }
 
+  /**
+   * Get all archives
+   *
+   * <p>See {@link #listLogsArchivesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LogsArchives&gt;
+   */
   public CompletableFuture<LogsArchives> listLogsArchivesAsync() {
     return listLogsArchivesWithHttpInfoAsync()
         .thenApply(
@@ -970,6 +1023,14 @@ public class LogsArchivesApi {
     removeRoleFromArchiveWithHttpInfo(archiveId, body);
   }
 
+  /**
+   * Revoke role from an archive
+   *
+   * <p>See {@link #removeRoleFromArchiveWithHttpInfoAsync}.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @param body (required)
+   */
   public CompletableFuture<Void> removeRoleFromArchiveAsync(
       String archiveId, RelationshipToRole body) {
     return removeRoleFromArchiveWithHttpInfoAsync(archiveId, body)
@@ -1127,6 +1188,15 @@ public class LogsArchivesApi {
     return updateLogsArchiveWithHttpInfo(archiveId, body).getData();
   }
 
+  /**
+   * Update an archive
+   *
+   * <p>See {@link #updateLogsArchiveWithHttpInfoAsync}.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @param body New definition of the archive. (required)
+   * @return CompletableFuture&lt;LogsArchive&gt;
+   */
   public CompletableFuture<LogsArchive> updateLogsArchiveAsync(
       String archiveId, LogsArchiveCreateRequest body) {
     return updateLogsArchiveWithHttpInfoAsync(archiveId, body)
@@ -1283,6 +1353,14 @@ public class LogsArchivesApi {
     return updateLogsArchiveOrderWithHttpInfo(body).getData();
   }
 
+  /**
+   * Update archive order
+   *
+   * <p>See {@link #updateLogsArchiveOrderWithHttpInfoAsync}.
+   *
+   * @param body An object containing the new ordered list of archive IDs. (required)
+   * @return CompletableFuture&lt;LogsArchiveOrder&gt;
+   */
   public CompletableFuture<LogsArchiveOrder> updateLogsArchiveOrderAsync(LogsArchiveOrder body) {
     return updateLogsArchiveOrderWithHttpInfoAsync(body)
         .thenApply(

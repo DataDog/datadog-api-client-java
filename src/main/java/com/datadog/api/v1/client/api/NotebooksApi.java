@@ -60,6 +60,14 @@ public class NotebooksApi {
     return createNotebookWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a notebook
+   *
+   * <p>See {@link #createNotebookWithHttpInfoAsync}.
+   *
+   * @param body The JSON description of the notebook you want to create. (required)
+   * @return CompletableFuture&lt;NotebookResponse&gt;
+   */
   public CompletableFuture<NotebookResponse> createNotebookAsync(NotebookCreateRequest body) {
     return createNotebookWithHttpInfoAsync(body)
         .thenApply(
@@ -190,6 +198,13 @@ public class NotebooksApi {
     deleteNotebookWithHttpInfo(notebookId);
   }
 
+  /**
+   * Delete a notebook
+   *
+   * <p>See {@link #deleteNotebookWithHttpInfoAsync}.
+   *
+   * @param notebookId Unique ID, assigned when you create the notebook. (required)
+   */
   public CompletableFuture<Void> deleteNotebookAsync(Long notebookId) {
     return deleteNotebookWithHttpInfoAsync(notebookId)
         .thenApply(
@@ -326,6 +341,14 @@ public class NotebooksApi {
     return getNotebookWithHttpInfo(notebookId).getData();
   }
 
+  /**
+   * Get a notebook
+   *
+   * <p>See {@link #getNotebookWithHttpInfoAsync}.
+   *
+   * @param notebookId Unique ID, assigned when you create the notebook. (required)
+   * @return CompletableFuture&lt;NotebookResponse&gt;
+   */
   public CompletableFuture<NotebookResponse> getNotebookAsync(Long notebookId) {
     return getNotebookWithHttpInfoAsync(notebookId)
         .thenApply(
@@ -618,7 +641,7 @@ public class NotebooksApi {
   /**
    * Get all notebooks
    *
-   * <p>See {@link #listNotebooksWithHttpInfo}.
+   * <p>See {@link #listNotebooksWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;NotebooksResponse&gt;
@@ -803,6 +826,15 @@ public class NotebooksApi {
     return updateNotebookWithHttpInfo(notebookId, body).getData();
   }
 
+  /**
+   * Update a notebook
+   *
+   * <p>See {@link #updateNotebookWithHttpInfoAsync}.
+   *
+   * @param notebookId Unique ID, assigned when you create the notebook. (required)
+   * @param body Update notebook request body. (required)
+   * @return CompletableFuture&lt;NotebookResponse&gt;
+   */
   public CompletableFuture<NotebookResponse> updateNotebookAsync(
       Long notebookId, NotebookUpdateRequest body) {
     return updateNotebookWithHttpInfoAsync(notebookId, body)

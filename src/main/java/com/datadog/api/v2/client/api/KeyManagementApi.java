@@ -66,6 +66,14 @@ public class KeyManagementApi {
     return createAPIKeyWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an API key
+   *
+   * <p>See {@link #createAPIKeyWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;APIKeyResponse&gt;
+   */
   public CompletableFuture<APIKeyResponse> createAPIKeyAsync(APIKeyCreateRequest body) {
     return createAPIKeyWithHttpInfoAsync(body)
         .thenApply(
@@ -197,6 +205,14 @@ public class KeyManagementApi {
     return createCurrentUserApplicationKeyWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an application key for current user
+   *
+   * <p>See {@link #createCurrentUserApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
   public CompletableFuture<ApplicationKeyResponse> createCurrentUserApplicationKeyAsync(
       ApplicationKeyCreateRequest body) {
     return createCurrentUserApplicationKeyWithHttpInfoAsync(body)
@@ -331,6 +347,13 @@ public class KeyManagementApi {
     deleteAPIKeyWithHttpInfo(apiKeyId);
   }
 
+  /**
+   * Delete an API key
+   *
+   * <p>See {@link #deleteAPIKeyWithHttpInfoAsync}.
+   *
+   * @param apiKeyId The ID of the API key. (required)
+   */
   public CompletableFuture<Void> deleteAPIKeyAsync(String apiKeyId) {
     return deleteAPIKeyWithHttpInfoAsync(apiKeyId)
         .thenApply(
@@ -463,6 +486,13 @@ public class KeyManagementApi {
     deleteApplicationKeyWithHttpInfo(appKeyId);
   }
 
+  /**
+   * Delete an application key
+   *
+   * <p>See {@link #deleteApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   */
   public CompletableFuture<Void> deleteApplicationKeyAsync(String appKeyId) {
     return deleteApplicationKeyWithHttpInfoAsync(appKeyId)
         .thenApply(
@@ -596,6 +626,13 @@ public class KeyManagementApi {
     deleteCurrentUserApplicationKeyWithHttpInfo(appKeyId);
   }
 
+  /**
+   * Delete an application key owned by current user
+   *
+   * <p>See {@link #deleteCurrentUserApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   */
   public CompletableFuture<Void> deleteCurrentUserApplicationKeyAsync(String appKeyId) {
     return deleteCurrentUserApplicationKeyWithHttpInfoAsync(appKeyId)
         .thenApply(
@@ -786,7 +823,7 @@ public class KeyManagementApi {
   /**
    * Get API key
    *
-   * <p>See {@link #getAPIKeyWithHttpInfo}.
+   * <p>See {@link #getAPIKeyWithHttpInfoAsync}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param parameters Optional parameters for the request.
@@ -990,7 +1027,7 @@ public class KeyManagementApi {
   /**
    * Get an application key
    *
-   * <p>See {@link #getApplicationKeyWithHttpInfo}.
+   * <p>See {@link #getApplicationKeyWithHttpInfoAsync}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
@@ -1143,6 +1180,14 @@ public class KeyManagementApi {
     return getCurrentUserApplicationKeyWithHttpInfo(appKeyId).getData();
   }
 
+  /**
+   * Get one application key owned by current user
+   *
+   * <p>See {@link #getCurrentUserApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
   public CompletableFuture<ApplicationKeyResponse> getCurrentUserApplicationKeyAsync(
       String appKeyId) {
     return getCurrentUserApplicationKeyWithHttpInfoAsync(appKeyId)
@@ -1432,7 +1477,7 @@ public class KeyManagementApi {
   /**
    * Get all API keys
    *
-   * <p>See {@link #listAPIKeysWithHttpInfo}.
+   * <p>See {@link #listAPIKeysWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;APIKeysResponse&gt;
@@ -1713,7 +1758,7 @@ public class KeyManagementApi {
   /**
    * Get all application keys
    *
-   * <p>See {@link #listApplicationKeysWithHttpInfo}.
+   * <p>See {@link #listApplicationKeysWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
@@ -1985,7 +2030,7 @@ public class KeyManagementApi {
   /**
    * Get all application keys owned by current user
    *
-   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
@@ -2144,6 +2189,15 @@ public class KeyManagementApi {
     return updateAPIKeyWithHttpInfo(apiKeyId, body).getData();
   }
 
+  /**
+   * Edit an API key
+   *
+   * <p>See {@link #updateAPIKeyWithHttpInfoAsync}.
+   *
+   * @param apiKeyId The ID of the API key. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;APIKeyResponse&gt;
+   */
   public CompletableFuture<APIKeyResponse> updateAPIKeyAsync(
       String apiKeyId, APIKeyUpdateRequest body) {
     return updateAPIKeyWithHttpInfoAsync(apiKeyId, body)
@@ -2299,6 +2353,15 @@ public class KeyManagementApi {
     return updateApplicationKeyWithHttpInfo(appKeyId, body).getData();
   }
 
+  /**
+   * Edit an application key
+   *
+   * <p>See {@link #updateApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
   public CompletableFuture<ApplicationKeyResponse> updateApplicationKeyAsync(
       String appKeyId, ApplicationKeyUpdateRequest body) {
     return updateApplicationKeyWithHttpInfoAsync(appKeyId, body)
@@ -2455,6 +2518,15 @@ public class KeyManagementApi {
     return updateCurrentUserApplicationKeyWithHttpInfo(appKeyId, body).getData();
   }
 
+  /**
+   * Edit an application key owned by current user
+   *
+   * <p>See {@link #updateCurrentUserApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
   public CompletableFuture<ApplicationKeyResponse> updateCurrentUserApplicationKeyAsync(
       String appKeyId, ApplicationKeyUpdateRequest body) {
     return updateCurrentUserApplicationKeyWithHttpInfoAsync(appKeyId, body)

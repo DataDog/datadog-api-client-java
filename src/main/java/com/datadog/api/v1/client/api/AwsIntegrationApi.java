@@ -63,6 +63,14 @@ public class AwsIntegrationApi {
     return createAWSAccountWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an AWS integration
+   *
+   * <p>See {@link #createAWSAccountWithHttpInfoAsync}.
+   *
+   * @param body AWS Request Object (required)
+   * @return CompletableFuture&lt;AWSAccountCreateResponse&gt;
+   */
   public CompletableFuture<AWSAccountCreateResponse> createAWSAccountAsync(AWSAccount body) {
     return createAWSAccountWithHttpInfoAsync(body)
         .thenApply(
@@ -200,6 +208,17 @@ public class AwsIntegrationApi {
     return createAWSTagFilterWithHttpInfo(body).getData();
   }
 
+  /**
+   * Set an AWS tag filter
+   *
+   * <p>See {@link #createAWSTagFilterWithHttpInfoAsync}.
+   *
+   * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
+   *     &#x60;namespace&#x60;, and filtering string. Namespace options are
+   *     &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;,
+   *     &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> createAWSTagFilterAsync(AWSTagFilterCreateRequest body) {
     return createAWSTagFilterWithHttpInfoAsync(body)
         .thenApply(
@@ -339,6 +358,16 @@ public class AwsIntegrationApi {
     return createNewAWSExternalIDWithHttpInfo(body).getData();
   }
 
+  /**
+   * Generate a new external ID
+   *
+   * <p>See {@link #createNewAWSExternalIDWithHttpInfoAsync}.
+   *
+   * @param body Your Datadog role delegation name. For more information about your AWS account Role
+   *     name, see the [Datadog AWS integration configuration
+   *     info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). (required)
+   * @return CompletableFuture&lt;AWSAccountCreateResponse&gt;
+   */
   public CompletableFuture<AWSAccountCreateResponse> createNewAWSExternalIDAsync(AWSAccount body) {
     return createNewAWSExternalIDWithHttpInfoAsync(body)
         .thenApply(
@@ -474,6 +503,14 @@ public class AwsIntegrationApi {
     return deleteAWSAccountWithHttpInfo(body).getData();
   }
 
+  /**
+   * Delete an AWS integration
+   *
+   * <p>See {@link #deleteAWSAccountWithHttpInfoAsync}.
+   *
+   * @param body AWS request object (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> deleteAWSAccountAsync(AWSAccountDeleteRequest body) {
     return deleteAWSAccountWithHttpInfoAsync(body)
         .thenApply(
@@ -608,6 +645,15 @@ public class AwsIntegrationApi {
     return deleteAWSTagFilterWithHttpInfo(body).getData();
   }
 
+  /**
+   * Delete a tag filtering entry
+   *
+   * <p>See {@link #deleteAWSTagFilterWithHttpInfoAsync}.
+   *
+   * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
+   *     namespace. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> deleteAWSTagFilterAsync(AWSTagFilterDeleteRequest body) {
     return deleteAWSTagFilterWithHttpInfoAsync(body)
         .thenApply(
@@ -814,7 +860,7 @@ public class AwsIntegrationApi {
   /**
    * List all AWS integrations
    *
-   * <p>See {@link #listAWSAccountsWithHttpInfo}.
+   * <p>See {@link #listAWSAccountsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;AWSAccountListResponse&gt;
@@ -952,6 +998,14 @@ public class AwsIntegrationApi {
     return listAWSTagFiltersWithHttpInfo(accountId).getData();
   }
 
+  /**
+   * Get all AWS tag filters
+   *
+   * <p>See {@link #listAWSTagFiltersWithHttpInfoAsync}.
+   *
+   * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
+   * @return CompletableFuture&lt;AWSTagFilterListResponse&gt;
+   */
   public CompletableFuture<AWSTagFilterListResponse> listAWSTagFiltersAsync(String accountId) {
     return listAWSTagFiltersWithHttpInfoAsync(accountId)
         .thenApply(
@@ -1088,6 +1142,13 @@ public class AwsIntegrationApi {
     return listAvailableAWSNamespacesWithHttpInfo().getData();
   }
 
+  /**
+   * List namespace rules
+   *
+   * <p>See {@link #listAvailableAWSNamespacesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;List&lt;String&gt;&gt;
+   */
   public CompletableFuture<List<String>> listAvailableAWSNamespacesAsync() {
     return listAvailableAWSNamespacesWithHttpInfoAsync()
         .thenApply(
@@ -1278,7 +1339,7 @@ public class AwsIntegrationApi {
   /**
    * Update an AWS integration
    *
-   * <p>See {@link #updateAWSAccountWithHttpInfo}.
+   * <p>See {@link #updateAWSAccountWithHttpInfoAsync}.
    *
    * @param body AWS request object (required)
    * @param parameters Optional parameters for the request.

@@ -62,6 +62,14 @@ public class IncidentServicesApi {
     return createIncidentServiceWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a new incident service
+   *
+   * <p>See {@link #createIncidentServiceWithHttpInfoAsync}.
+   *
+   * @param body Incident Service Payload. (required)
+   * @return CompletableFuture&lt;IncidentServiceResponse&gt;
+   */
   public CompletableFuture<IncidentServiceResponse> createIncidentServiceAsync(
       IncidentServiceCreateRequest body) {
     return createIncidentServiceWithHttpInfoAsync(body)
@@ -195,6 +203,13 @@ public class IncidentServicesApi {
     deleteIncidentServiceWithHttpInfo(serviceId);
   }
 
+  /**
+   * Delete an existing incident service
+   *
+   * <p>See {@link #deleteIncidentServiceWithHttpInfoAsync}.
+   *
+   * @param serviceId The ID of the incident service. (required)
+   */
   public CompletableFuture<Void> deleteIncidentServiceAsync(String serviceId) {
     return deleteIncidentServiceWithHttpInfoAsync(serviceId)
         .thenApply(
@@ -385,7 +400,7 @@ public class IncidentServicesApi {
   /**
    * Get details of an incident service
    *
-   * <p>See {@link #getIncidentServiceWithHttpInfo}.
+   * <p>See {@link #getIncidentServiceWithHttpInfoAsync}.
    *
    * @param serviceId The ID of the incident service. (required)
    * @param parameters Optional parameters for the request.
@@ -626,7 +641,7 @@ public class IncidentServicesApi {
   /**
    * Get a list of all incident services
    *
-   * <p>See {@link #listIncidentServicesWithHttpInfo}.
+   * <p>See {@link #listIncidentServicesWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;IncidentServicesResponse&gt;
@@ -774,6 +789,15 @@ public class IncidentServicesApi {
     return updateIncidentServiceWithHttpInfo(serviceId, body).getData();
   }
 
+  /**
+   * Update an existing incident service
+   *
+   * <p>See {@link #updateIncidentServiceWithHttpInfoAsync}.
+   *
+   * @param serviceId The ID of the incident service. (required)
+   * @param body Incident Service Payload. (required)
+   * @return CompletableFuture&lt;IncidentServiceResponse&gt;
+   */
   public CompletableFuture<IncidentServiceResponse> updateIncidentServiceAsync(
       String serviceId, IncidentServiceUpdateRequest body) {
     return updateIncidentServiceWithHttpInfoAsync(serviceId, body)

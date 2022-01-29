@@ -59,6 +59,14 @@ public class PagerDutyIntegrationApi {
     return createPagerDutyIntegrationServiceWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a new service object
+   *
+   * <p>See {@link #createPagerDutyIntegrationServiceWithHttpInfoAsync}.
+   *
+   * @param body Create a new service object request body. (required)
+   * @return CompletableFuture&lt;PagerDutyServiceName&gt;
+   */
   public CompletableFuture<PagerDutyServiceName> createPagerDutyIntegrationServiceAsync(
       PagerDutyService body) {
     return createPagerDutyIntegrationServiceWithHttpInfoAsync(body)
@@ -193,6 +201,13 @@ public class PagerDutyIntegrationApi {
     deletePagerDutyIntegrationServiceWithHttpInfo(serviceName);
   }
 
+  /**
+   * Delete a single service object
+   *
+   * <p>See {@link #deletePagerDutyIntegrationServiceWithHttpInfoAsync}.
+   *
+   * @param serviceName The service name (required)
+   */
   public CompletableFuture<Void> deletePagerDutyIntegrationServiceAsync(String serviceName) {
     return deletePagerDutyIntegrationServiceWithHttpInfoAsync(serviceName)
         .thenApply(
@@ -335,6 +350,14 @@ public class PagerDutyIntegrationApi {
     return getPagerDutyIntegrationServiceWithHttpInfo(serviceName).getData();
   }
 
+  /**
+   * Get a single service object
+   *
+   * <p>See {@link #getPagerDutyIntegrationServiceWithHttpInfoAsync}.
+   *
+   * @param serviceName The service name. (required)
+   * @return CompletableFuture&lt;PagerDutyServiceName&gt;
+   */
   public CompletableFuture<PagerDutyServiceName> getPagerDutyIntegrationServiceAsync(
       String serviceName) {
     return getPagerDutyIntegrationServiceWithHttpInfoAsync(serviceName)
@@ -478,6 +501,14 @@ public class PagerDutyIntegrationApi {
     updatePagerDutyIntegrationServiceWithHttpInfo(serviceName, body);
   }
 
+  /**
+   * Update a single service object
+   *
+   * <p>See {@link #updatePagerDutyIntegrationServiceWithHttpInfoAsync}.
+   *
+   * @param serviceName The service name (required)
+   * @param body Update an existing service object request body. (required)
+   */
   public CompletableFuture<Void> updatePagerDutyIntegrationServiceAsync(
       String serviceName, PagerDutyServiceKey body) {
     return updatePagerDutyIntegrationServiceWithHttpInfoAsync(serviceName, body)

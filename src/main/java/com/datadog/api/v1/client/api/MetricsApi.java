@@ -63,6 +63,14 @@ public class MetricsApi {
     return getMetricMetadataWithHttpInfo(metricName).getData();
   }
 
+  /**
+   * Get metric metadata
+   *
+   * <p>See {@link #getMetricMetadataWithHttpInfoAsync}.
+   *
+   * @param metricName Name of the metric for which to get metadata. (required)
+   * @return CompletableFuture&lt;MetricMetadata&gt;
+   */
   public CompletableFuture<MetricMetadata> getMetricMetadataAsync(String metricName) {
     return getMetricMetadataWithHttpInfoAsync(metricName)
         .thenApply(
@@ -264,7 +272,7 @@ public class MetricsApi {
   /**
    * Get active metrics list
    *
-   * <p>See {@link #listActiveMetricsWithHttpInfo}.
+   * <p>See {@link #listActiveMetricsWithHttpInfoAsync}.
    *
    * @param from Seconds since the Unix epoch. (required)
    * @param parameters Optional parameters for the request.
@@ -419,6 +427,15 @@ public class MetricsApi {
     return listMetricsWithHttpInfo(q).getData();
   }
 
+  /**
+   * Search metrics
+   *
+   * <p>See {@link #listMetricsWithHttpInfoAsync}.
+   *
+   * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
+   *     (required)
+   * @return CompletableFuture&lt;MetricSearchResponse&gt;
+   */
   public CompletableFuture<MetricSearchResponse> listMetricsAsync(String q) {
     return listMetricsWithHttpInfoAsync(q)
         .thenApply(
@@ -557,6 +574,16 @@ public class MetricsApi {
     return queryMetricsWithHttpInfo(from, to, query).getData();
   }
 
+  /**
+   * Query timeseries points
+   *
+   * <p>See {@link #queryMetricsWithHttpInfoAsync}.
+   *
+   * @param from Start of the queried time period, seconds since the Unix epoch. (required)
+   * @param to End of the queried time period, seconds since the Unix epoch. (required)
+   * @param query Query string. (required)
+   * @return CompletableFuture&lt;MetricsQueryResponse&gt;
+   */
   public CompletableFuture<MetricsQueryResponse> queryMetricsAsync(
       Long from, Long to, String query) {
     return queryMetricsWithHttpInfoAsync(from, to, query)
@@ -780,7 +807,7 @@ public class MetricsApi {
   /**
    * Submit metrics
    *
-   * <p>See {@link #submitMetricsWithHttpInfo}.
+   * <p>See {@link #submitMetricsWithHttpInfoAsync}.
    *
    * @param body (required)
    * @param parameters Optional parameters for the request.
@@ -938,6 +965,15 @@ public class MetricsApi {
     return updateMetricMetadataWithHttpInfo(metricName, body).getData();
   }
 
+  /**
+   * Edit metric metadata
+   *
+   * <p>See {@link #updateMetricMetadataWithHttpInfoAsync}.
+   *
+   * @param metricName Name of the metric for which to edit metadata. (required)
+   * @param body New metadata. (required)
+   * @return CompletableFuture&lt;MetricMetadata&gt;
+   */
   public CompletableFuture<MetricMetadata> updateMetricMetadataAsync(
       String metricName, MetricMetadata body) {
     return updateMetricMetadataWithHttpInfoAsync(metricName, body)

@@ -107,7 +107,7 @@ public class HostsApi {
   /**
    * Get the total number of active hosts
    *
-   * <p>See {@link #getHostTotalsWithHttpInfo}.
+   * <p>See {@link #getHostTotalsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;HostTotals&gt;
@@ -375,7 +375,7 @@ public class HostsApi {
   /**
    * Get all hosts for your organization
    *
-   * <p>See {@link #listHostsWithHttpInfo}.
+   * <p>See {@link #listHostsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;HostListResponse&gt;
@@ -540,6 +540,15 @@ public class HostsApi {
     return muteHostWithHttpInfo(hostName, body).getData();
   }
 
+  /**
+   * Mute a host
+   *
+   * <p>See {@link #muteHostWithHttpInfoAsync}.
+   *
+   * @param hostName Name of the host to mute. (required)
+   * @param body Mute a host request body. (required)
+   * @return CompletableFuture&lt;HostMuteResponse&gt;
+   */
   public CompletableFuture<HostMuteResponse> muteHostAsync(String hostName, HostMuteSettings body) {
     return muteHostWithHttpInfoAsync(hostName, body)
         .thenApply(
@@ -689,6 +698,14 @@ public class HostsApi {
     return unmuteHostWithHttpInfo(hostName).getData();
   }
 
+  /**
+   * Unmute a host
+   *
+   * <p>See {@link #unmuteHostWithHttpInfoAsync}.
+   *
+   * @param hostName Name of the host to unmute. (required)
+   * @return CompletableFuture&lt;HostMuteResponse&gt;
+   */
   public CompletableFuture<HostMuteResponse> unmuteHostAsync(String hostName) {
     return unmuteHostWithHttpInfoAsync(hostName)
         .thenApply(

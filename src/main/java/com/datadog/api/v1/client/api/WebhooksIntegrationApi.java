@@ -61,6 +61,14 @@ public class WebhooksIntegrationApi {
     return createWebhooksIntegrationWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a webhooks integration
+   *
+   * <p>See {@link #createWebhooksIntegrationWithHttpInfoAsync}.
+   *
+   * @param body Create a webhooks integration request body. (required)
+   * @return CompletableFuture&lt;WebhooksIntegration&gt;
+   */
   public CompletableFuture<WebhooksIntegration> createWebhooksIntegrationAsync(
       WebhooksIntegration body) {
     return createWebhooksIntegrationWithHttpInfoAsync(body)
@@ -194,6 +202,14 @@ public class WebhooksIntegrationApi {
     return createWebhooksIntegrationCustomVariableWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a custom variable
+   *
+   * <p>See {@link #createWebhooksIntegrationCustomVariableWithHttpInfoAsync}.
+   *
+   * @param body Define a custom variable request body. (required)
+   * @return CompletableFuture&lt;WebhooksIntegrationCustomVariableResponse&gt;
+   */
   public CompletableFuture<WebhooksIntegrationCustomVariableResponse>
       createWebhooksIntegrationCustomVariableAsync(WebhooksIntegrationCustomVariable body) {
     return createWebhooksIntegrationCustomVariableWithHttpInfoAsync(body)
@@ -333,6 +349,13 @@ public class WebhooksIntegrationApi {
     deleteWebhooksIntegrationWithHttpInfo(webhookName);
   }
 
+  /**
+   * Delete a webhook
+   *
+   * <p>See {@link #deleteWebhooksIntegrationWithHttpInfoAsync}.
+   *
+   * @param webhookName The name of the webhook. (required)
+   */
   public CompletableFuture<Void> deleteWebhooksIntegrationAsync(String webhookName) {
     return deleteWebhooksIntegrationWithHttpInfoAsync(webhookName)
         .thenApply(
@@ -473,6 +496,13 @@ public class WebhooksIntegrationApi {
     deleteWebhooksIntegrationCustomVariableWithHttpInfo(customVariableName);
   }
 
+  /**
+   * Delete a custom variable
+   *
+   * <p>See {@link #deleteWebhooksIntegrationCustomVariableWithHttpInfoAsync}.
+   *
+   * @param customVariableName The name of the custom variable. (required)
+   */
   public CompletableFuture<Void> deleteWebhooksIntegrationCustomVariableAsync(
       String customVariableName) {
     return deleteWebhooksIntegrationCustomVariableWithHttpInfoAsync(customVariableName)
@@ -617,6 +647,14 @@ public class WebhooksIntegrationApi {
     return getWebhooksIntegrationWithHttpInfo(webhookName).getData();
   }
 
+  /**
+   * Get a webhook integration
+   *
+   * <p>See {@link #getWebhooksIntegrationWithHttpInfoAsync}.
+   *
+   * @param webhookName The name of the webhook. (required)
+   * @return CompletableFuture&lt;WebhooksIntegration&gt;
+   */
   public CompletableFuture<WebhooksIntegration> getWebhooksIntegrationAsync(String webhookName) {
     return getWebhooksIntegrationWithHttpInfoAsync(webhookName)
         .thenApply(
@@ -757,6 +795,14 @@ public class WebhooksIntegrationApi {
     return getWebhooksIntegrationCustomVariableWithHttpInfo(customVariableName).getData();
   }
 
+  /**
+   * Get a custom variable
+   *
+   * <p>See {@link #getWebhooksIntegrationCustomVariableWithHttpInfoAsync}.
+   *
+   * @param customVariableName The name of the custom variable. (required)
+   * @return CompletableFuture&lt;WebhooksIntegrationCustomVariableResponse&gt;
+   */
   public CompletableFuture<WebhooksIntegrationCustomVariableResponse>
       getWebhooksIntegrationCustomVariableAsync(String customVariableName) {
     return getWebhooksIntegrationCustomVariableWithHttpInfoAsync(customVariableName)
@@ -909,6 +955,15 @@ public class WebhooksIntegrationApi {
     return updateWebhooksIntegrationWithHttpInfo(webhookName, body).getData();
   }
 
+  /**
+   * Update a webhook
+   *
+   * <p>See {@link #updateWebhooksIntegrationWithHttpInfoAsync}.
+   *
+   * @param webhookName The name of the webhook. (required)
+   * @param body Update an existing Datadog-Webhooks integration. (required)
+   * @return CompletableFuture&lt;WebhooksIntegration&gt;
+   */
   public CompletableFuture<WebhooksIntegration> updateWebhooksIntegrationAsync(
       String webhookName, WebhooksIntegrationUpdateRequest body) {
     return updateWebhooksIntegrationWithHttpInfoAsync(webhookName, body)
@@ -1072,6 +1127,15 @@ public class WebhooksIntegrationApi {
     return updateWebhooksIntegrationCustomVariableWithHttpInfo(customVariableName, body).getData();
   }
 
+  /**
+   * Update a custom variable
+   *
+   * <p>See {@link #updateWebhooksIntegrationCustomVariableWithHttpInfoAsync}.
+   *
+   * @param customVariableName The name of the custom variable. (required)
+   * @param body Update an existing custom variable request body. (required)
+   * @return CompletableFuture&lt;WebhooksIntegrationCustomVariableResponse&gt;
+   */
   public CompletableFuture<WebhooksIntegrationCustomVariableResponse>
       updateWebhooksIntegrationCustomVariableAsync(
           String customVariableName, WebhooksIntegrationCustomVariableUpdateRequest body) {

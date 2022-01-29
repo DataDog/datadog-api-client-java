@@ -59,6 +59,14 @@ public class LogsIndexesApi {
     return createLogsIndexWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an index
+   *
+   * <p>See {@link #createLogsIndexWithHttpInfoAsync}.
+   *
+   * @param body Object containing the new index. (required)
+   * @return CompletableFuture&lt;LogsIndex&gt;
+   */
   public CompletableFuture<LogsIndex> createLogsIndexAsync(LogsIndex body) {
     return createLogsIndexWithHttpInfoAsync(body)
         .thenApply(
@@ -190,6 +198,14 @@ public class LogsIndexesApi {
     return getLogsIndexWithHttpInfo(name).getData();
   }
 
+  /**
+   * Get an index
+   *
+   * <p>See {@link #getLogsIndexWithHttpInfoAsync}.
+   *
+   * @param name Name of the log index. (required)
+   * @return CompletableFuture&lt;LogsIndex&gt;
+   */
   public CompletableFuture<LogsIndex> getLogsIndexAsync(String name) {
     return getLogsIndexWithHttpInfoAsync(name)
         .thenApply(
@@ -321,6 +337,13 @@ public class LogsIndexesApi {
     return getLogsIndexOrderWithHttpInfo().getData();
   }
 
+  /**
+   * Get indexes order
+   *
+   * <p>See {@link #getLogsIndexOrderWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LogsIndexesOrder&gt;
+   */
   public CompletableFuture<LogsIndexesOrder> getLogsIndexOrderAsync() {
     return getLogsIndexOrderWithHttpInfoAsync()
         .thenApply(
@@ -431,6 +454,13 @@ public class LogsIndexesApi {
     return listLogIndexesWithHttpInfo().getData();
   }
 
+  /**
+   * Get all indexes
+   *
+   * <p>See {@link #listLogIndexesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LogsIndexListResponse&gt;
+   */
   public CompletableFuture<LogsIndexListResponse> listLogIndexesAsync() {
     return listLogIndexesWithHttpInfoAsync()
         .thenApply(
@@ -544,6 +574,15 @@ public class LogsIndexesApi {
     return updateLogsIndexWithHttpInfo(name, body).getData();
   }
 
+  /**
+   * Update an index
+   *
+   * <p>See {@link #updateLogsIndexWithHttpInfoAsync}.
+   *
+   * @param name Name of the log index. (required)
+   * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
+   * @return CompletableFuture&lt;LogsIndex&gt;
+   */
   public CompletableFuture<LogsIndex> updateLogsIndexAsync(
       String name, LogsIndexUpdateRequest body) {
     return updateLogsIndexWithHttpInfoAsync(name, body)
@@ -700,6 +739,14 @@ public class LogsIndexesApi {
     return updateLogsIndexOrderWithHttpInfo(body).getData();
   }
 
+  /**
+   * Update indexes order
+   *
+   * <p>See {@link #updateLogsIndexOrderWithHttpInfoAsync}.
+   *
+   * @param body Object containing the new ordered list of index names (required)
+   * @return CompletableFuture&lt;LogsIndexesOrder&gt;
+   */
   public CompletableFuture<LogsIndexesOrder> updateLogsIndexOrderAsync(LogsIndexesOrder body) {
     return updateLogsIndexOrderWithHttpInfoAsync(body)
         .thenApply(

@@ -55,6 +55,13 @@ public class IpRangesApi {
     return getIPRangesWithHttpInfo().getData();
   }
 
+  /**
+   * List IP Ranges
+   *
+   * <p>See {@link #getIPRangesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;IPRanges&gt;
+   */
   public CompletableFuture<IPRanges> getIPRangesAsync() {
     return getIPRangesWithHttpInfoAsync()
         .thenApply(

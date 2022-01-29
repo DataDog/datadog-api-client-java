@@ -58,6 +58,14 @@ public class ServiceChecksApi {
     return submitServiceCheckWithHttpInfo(body).getData();
   }
 
+  /**
+   * Submit a Service Check
+   *
+   * <p>See {@link #submitServiceCheckWithHttpInfoAsync}.
+   *
+   * @param body Service Check request body. (required)
+   * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
+   */
   public CompletableFuture<IntakePayloadAccepted> submitServiceCheckAsync(List<ServiceCheck> body) {
     return submitServiceCheckWithHttpInfoAsync(body)
         .thenApply(

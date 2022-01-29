@@ -55,6 +55,13 @@ public class AuthenticationApi {
     return validateWithHttpInfo().getData();
   }
 
+  /**
+   * Validate API key
+   *
+   * <p>See {@link #validateWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AuthenticationValidationResponse&gt;
+   */
   public CompletableFuture<AuthenticationValidationResponse> validateAsync() {
     return validateWithHttpInfoAsync()
         .thenApply(

@@ -64,6 +64,15 @@ public class ServiceAccountsApi {
     return createServiceAccountApplicationKeyWithHttpInfo(serviceAccountId, body).getData();
   }
 
+  /**
+   * Create an application key for this service account
+   *
+   * <p>See {@link #createServiceAccountApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
   public CompletableFuture<ApplicationKeyResponse> createServiceAccountApplicationKeyAsync(
       String serviceAccountId, ApplicationKeyCreateRequest body) {
     return createServiceAccountApplicationKeyWithHttpInfoAsync(serviceAccountId, body)
@@ -230,6 +239,14 @@ public class ServiceAccountsApi {
     deleteServiceAccountApplicationKeyWithHttpInfo(serviceAccountId, appKeyId);
   }
 
+  /**
+   * Delete an application key for this service account
+   *
+   * <p>See {@link #deleteServiceAccountApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param appKeyId The ID of the application key. (required)
+   */
   public CompletableFuture<Void> deleteServiceAccountApplicationKeyAsync(
       String serviceAccountId, String appKeyId) {
     return deleteServiceAccountApplicationKeyWithHttpInfoAsync(serviceAccountId, appKeyId)
@@ -399,6 +416,15 @@ public class ServiceAccountsApi {
     return getServiceAccountApplicationKeyWithHttpInfo(serviceAccountId, appKeyId).getData();
   }
 
+  /**
+   * Get one application key for this service account
+   *
+   * <p>See {@link #getServiceAccountApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param appKeyId The ID of the application key. (required)
+   * @return CompletableFuture&lt;PartialApplicationKeyResponse&gt;
+   */
   public CompletableFuture<PartialApplicationKeyResponse> getServiceAccountApplicationKeyAsync(
       String serviceAccountId, String appKeyId) {
     return getServiceAccountApplicationKeyWithHttpInfoAsync(serviceAccountId, appKeyId)
@@ -690,7 +716,7 @@ public class ServiceAccountsApi {
   /**
    * List application keys for this service account
    *
-   * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfo}.
+   * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfoAsync}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param parameters Optional parameters for the request.
@@ -884,6 +910,16 @@ public class ServiceAccountsApi {
         .getData();
   }
 
+  /**
+   * Edit an application key for this service account
+   *
+   * <p>See {@link #updateServiceAccountApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param serviceAccountId The ID of the service account. (required)
+   * @param appKeyId The ID of the application key. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;PartialApplicationKeyResponse&gt;
+   */
   public CompletableFuture<PartialApplicationKeyResponse> updateServiceAccountApplicationKeyAsync(
       String serviceAccountId, String appKeyId, ApplicationKeyUpdateRequest body) {
     return updateServiceAccountApplicationKeyWithHttpInfoAsync(serviceAccountId, appKeyId, body)

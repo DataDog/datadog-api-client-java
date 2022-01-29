@@ -59,6 +59,14 @@ public class LogsMetricsApi {
     return createLogsMetricWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a log-based metric
+   *
+   * <p>See {@link #createLogsMetricWithHttpInfoAsync}.
+   *
+   * @param body The definition of the new log-based metric. (required)
+   * @return CompletableFuture&lt;LogsMetricResponse&gt;
+   */
   public CompletableFuture<LogsMetricResponse> createLogsMetricAsync(LogsMetricCreateRequest body) {
     return createLogsMetricWithHttpInfoAsync(body)
         .thenApply(
@@ -191,6 +199,13 @@ public class LogsMetricsApi {
     deleteLogsMetricWithHttpInfo(metricId);
   }
 
+  /**
+   * Delete a log-based metric
+   *
+   * <p>See {@link #deleteLogsMetricWithHttpInfoAsync}.
+   *
+   * @param metricId The name of the log-based metric. (required)
+   */
   public CompletableFuture<Void> deleteLogsMetricAsync(String metricId) {
     return deleteLogsMetricWithHttpInfoAsync(metricId)
         .thenApply(
@@ -324,6 +339,14 @@ public class LogsMetricsApi {
     return getLogsMetricWithHttpInfo(metricId).getData();
   }
 
+  /**
+   * Get a log-based metric
+   *
+   * <p>See {@link #getLogsMetricWithHttpInfoAsync}.
+   *
+   * @param metricId The name of the log-based metric. (required)
+   * @return CompletableFuture&lt;LogsMetricResponse&gt;
+   */
   public CompletableFuture<LogsMetricResponse> getLogsMetricAsync(String metricId) {
     return getLogsMetricWithHttpInfoAsync(metricId)
         .thenApply(
@@ -458,6 +481,13 @@ public class LogsMetricsApi {
     return listLogsMetricsWithHttpInfo().getData();
   }
 
+  /**
+   * Get all log-based metrics
+   *
+   * <p>See {@link #listLogsMetricsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LogsMetricsResponse&gt;
+   */
   public CompletableFuture<LogsMetricsResponse> listLogsMetricsAsync() {
     return listLogsMetricsWithHttpInfoAsync()
         .thenApply(
@@ -571,6 +601,15 @@ public class LogsMetricsApi {
     return updateLogsMetricWithHttpInfo(metricId, body).getData();
   }
 
+  /**
+   * Update a log-based metric
+   *
+   * <p>See {@link #updateLogsMetricWithHttpInfoAsync}.
+   *
+   * @param metricId The name of the log-based metric. (required)
+   * @param body New definition of the log-based metric. (required)
+   * @return CompletableFuture&lt;LogsMetricResponse&gt;
+   */
   public CompletableFuture<LogsMetricResponse> updateLogsMetricAsync(
       String metricId, LogsMetricUpdateRequest body) {
     return updateLogsMetricWithHttpInfoAsync(metricId, body)

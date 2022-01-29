@@ -61,6 +61,14 @@ public class CloudWorkloadSecurityApi {
     return createCloudWorkloadSecurityAgentRuleWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #createCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
+   *
+   * @param body The definition of the new Agent rule. (required)
+   * @return CompletableFuture&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
+   */
   public CompletableFuture<CloudWorkloadSecurityAgentRuleResponse>
       createCloudWorkloadSecurityAgentRuleAsync(CloudWorkloadSecurityAgentRuleCreateRequest body) {
     return createCloudWorkloadSecurityAgentRuleWithHttpInfoAsync(body)
@@ -215,6 +223,13 @@ public class CloudWorkloadSecurityApi {
     deleteCloudWorkloadSecurityAgentRuleWithHttpInfo(agentRuleId);
   }
 
+  /**
+   * Delete a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #deleteCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
+   *
+   * @param agentRuleId The ID of the Agent rule. (required)
+   */
   public CompletableFuture<Void> deleteCloudWorkloadSecurityAgentRuleAsync(String agentRuleId) {
     return deleteCloudWorkloadSecurityAgentRuleWithHttpInfoAsync(agentRuleId)
         .thenApply(
@@ -367,6 +382,13 @@ public class CloudWorkloadSecurityApi {
     return downloadCloudWorkloadPolicyFileWithHttpInfo().getData();
   }
 
+  /**
+   * Get the latest Cloud Workload Security policy
+   *
+   * <p>See {@link #downloadCloudWorkloadPolicyFileWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;File&gt;
+   */
   public CompletableFuture<File> downloadCloudWorkloadPolicyFileAsync() {
     return downloadCloudWorkloadPolicyFileWithHttpInfoAsync()
         .thenApply(
@@ -481,6 +503,14 @@ public class CloudWorkloadSecurityApi {
     return getCloudWorkloadSecurityAgentRuleWithHttpInfo(agentRuleId).getData();
   }
 
+  /**
+   * Get a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #getCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
+   *
+   * @param agentRuleId The ID of the Agent rule. (required)
+   * @return CompletableFuture&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
+   */
   public CompletableFuture<CloudWorkloadSecurityAgentRuleResponse>
       getCloudWorkloadSecurityAgentRuleAsync(String agentRuleId) {
     return getCloudWorkloadSecurityAgentRuleWithHttpInfoAsync(agentRuleId)
@@ -640,6 +670,13 @@ public class CloudWorkloadSecurityApi {
     return listCloudWorkloadSecurityAgentRulesWithHttpInfo().getData();
   }
 
+  /**
+   * Get all Cloud Workload Security Agent rules
+   *
+   * <p>See {@link #listCloudWorkloadSecurityAgentRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CloudWorkloadSecurityAgentRulesListResponse&gt;
+   */
   public CompletableFuture<CloudWorkloadSecurityAgentRulesListResponse>
       listCloudWorkloadSecurityAgentRulesAsync() {
     return listCloudWorkloadSecurityAgentRulesWithHttpInfoAsync()
@@ -772,6 +809,15 @@ public class CloudWorkloadSecurityApi {
     return updateCloudWorkloadSecurityAgentRuleWithHttpInfo(agentRuleId, body).getData();
   }
 
+  /**
+   * Update a Cloud Workload Security Agent rule
+   *
+   * <p>See {@link #updateCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
+   *
+   * @param agentRuleId The ID of the Agent rule. (required)
+   * @param body New definition of the Agent rule. (required)
+   * @return CompletableFuture&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
+   */
   public CompletableFuture<CloudWorkloadSecurityAgentRuleResponse>
       updateCloudWorkloadSecurityAgentRuleAsync(
           String agentRuleId, CloudWorkloadSecurityAgentRuleUpdateRequest body) {

@@ -70,6 +70,15 @@ public class RolesApi {
     return addPermissionToRoleWithHttpInfo(roleId, body).getData();
   }
 
+  /**
+   * Grant permission to a role
+   *
+   * <p>See {@link #addPermissionToRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;PermissionsResponse&gt;
+   */
   public CompletableFuture<PermissionsResponse> addPermissionToRoleAsync(
       String roleId, RelationshipToPermission body) {
     return addPermissionToRoleWithHttpInfoAsync(roleId, body)
@@ -225,6 +234,15 @@ public class RolesApi {
     return addUserToRoleWithHttpInfo(roleId, body).getData();
   }
 
+  /**
+   * Add a user to a role
+   *
+   * <p>See {@link #addUserToRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;UsersResponse&gt;
+   */
   public CompletableFuture<UsersResponse> addUserToRoleAsync(
       String roleId, RelationshipToUser body) {
     return addUserToRoleWithHttpInfoAsync(roleId, body)
@@ -380,6 +398,15 @@ public class RolesApi {
     return cloneRoleWithHttpInfo(roleId, body).getData();
   }
 
+  /**
+   * Create a new role by cloning an existing role
+   *
+   * <p>See {@link #cloneRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;RoleResponse&gt;
+   */
   public CompletableFuture<RoleResponse> cloneRoleAsync(String roleId, RoleCloneRequest body) {
     return cloneRoleWithHttpInfoAsync(roleId, body)
         .thenApply(
@@ -530,6 +557,14 @@ public class RolesApi {
     return createRoleWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create role
+   *
+   * <p>See {@link #createRoleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;RoleCreateResponse&gt;
+   */
   public CompletableFuture<RoleCreateResponse> createRoleAsync(RoleCreateRequest body) {
     return createRoleWithHttpInfoAsync(body)
         .thenApply(
@@ -658,6 +693,13 @@ public class RolesApi {
     deleteRoleWithHttpInfo(roleId);
   }
 
+  /**
+   * Delete role
+   *
+   * <p>See {@link #deleteRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The ID of the role. (required)
+   */
   public CompletableFuture<Void> deleteRoleAsync(String roleId) {
     return deleteRoleWithHttpInfoAsync(roleId)
         .thenApply(
@@ -790,6 +832,14 @@ public class RolesApi {
     return getRoleWithHttpInfo(roleId).getData();
   }
 
+  /**
+   * Get a role
+   *
+   * <p>See {@link #getRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The ID of the role. (required)
+   * @return CompletableFuture&lt;RoleResponse&gt;
+   */
   public CompletableFuture<RoleResponse> getRoleAsync(String roleId) {
     return getRoleWithHttpInfoAsync(roleId)
         .thenApply(
@@ -920,6 +970,13 @@ public class RolesApi {
     return listPermissionsWithHttpInfo().getData();
   }
 
+  /**
+   * List permissions
+   *
+   * <p>See {@link #listPermissionsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;PermissionsResponse&gt;
+   */
   public CompletableFuture<PermissionsResponse> listPermissionsAsync() {
     return listPermissionsWithHttpInfoAsync()
         .thenApply(
@@ -1032,6 +1089,14 @@ public class RolesApi {
     return listRolePermissionsWithHttpInfo(roleId).getData();
   }
 
+  /**
+   * List permissions for a role
+   *
+   * <p>See {@link #listRolePermissionsWithHttpInfoAsync}.
+   *
+   * @param roleId The ID of the role. (required)
+   * @return CompletableFuture&lt;PermissionsResponse&gt;
+   */
   public CompletableFuture<PermissionsResponse> listRolePermissionsAsync(String roleId) {
     return listRolePermissionsWithHttpInfoAsync(roleId)
         .thenApply(
@@ -1256,7 +1321,7 @@ public class RolesApi {
   /**
    * Get all users of a role
    *
-   * <p>See {@link #listRoleUsersWithHttpInfo}.
+   * <p>See {@link #listRoleUsersWithHttpInfoAsync}.
    *
    * @param roleId The ID of the role. (required)
    * @param parameters Optional parameters for the request.
@@ -1504,7 +1569,7 @@ public class RolesApi {
   /**
    * List roles
    *
-   * <p>See {@link #listRolesWithHttpInfo}.
+   * <p>See {@link #listRolesWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;RolesResponse&gt;
@@ -1646,6 +1711,15 @@ public class RolesApi {
     return removePermissionFromRoleWithHttpInfo(roleId, body).getData();
   }
 
+  /**
+   * Revoke permission
+   *
+   * <p>See {@link #removePermissionFromRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;PermissionsResponse&gt;
+   */
   public CompletableFuture<PermissionsResponse> removePermissionFromRoleAsync(
       String roleId, RelationshipToPermission body) {
     return removePermissionFromRoleWithHttpInfoAsync(roleId, body)
@@ -1803,6 +1877,15 @@ public class RolesApi {
     return removeUserFromRoleWithHttpInfo(roleId, body).getData();
   }
 
+  /**
+   * Remove a user from a role
+   *
+   * <p>See {@link #removeUserFromRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;UsersResponse&gt;
+   */
   public CompletableFuture<UsersResponse> removeUserFromRoleAsync(
       String roleId, RelationshipToUser body) {
     return removeUserFromRoleWithHttpInfoAsync(roleId, body)
@@ -1958,6 +2041,15 @@ public class RolesApi {
     return updateRoleWithHttpInfo(roleId, body).getData();
   }
 
+  /**
+   * Update a role
+   *
+   * <p>See {@link #updateRoleWithHttpInfoAsync}.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;RoleUpdateResponse&gt;
+   */
   public CompletableFuture<RoleUpdateResponse> updateRoleAsync(
       String roleId, RoleUpdateRequest body) {
     return updateRoleWithHttpInfoAsync(roleId, body)

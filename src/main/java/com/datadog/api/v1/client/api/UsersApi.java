@@ -59,6 +59,14 @@ public class UsersApi {
     return createUserWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a user
+   *
+   * <p>See {@link #createUserWithHttpInfoAsync}.
+   *
+   * @param body User object that needs to be created. (required)
+   * @return CompletableFuture&lt;UserResponse&gt;
+   */
   public CompletableFuture<UserResponse> createUserAsync(User body) {
     return createUserWithHttpInfoAsync(body)
         .thenApply(
@@ -188,6 +196,14 @@ public class UsersApi {
     return disableUserWithHttpInfo(userHandle).getData();
   }
 
+  /**
+   * Disable a user
+   *
+   * <p>See {@link #disableUserWithHttpInfoAsync}.
+   *
+   * @param userHandle The handle of the user. (required)
+   * @return CompletableFuture&lt;UserDisableResponse&gt;
+   */
   public CompletableFuture<UserDisableResponse> disableUserAsync(String userHandle) {
     return disableUserWithHttpInfoAsync(userHandle)
         .thenApply(
@@ -327,6 +343,14 @@ public class UsersApi {
     return getUserWithHttpInfo(userHandle).getData();
   }
 
+  /**
+   * Get user details
+   *
+   * <p>See {@link #getUserWithHttpInfoAsync}.
+   *
+   * @param userHandle The ID of the user. (required)
+   * @return CompletableFuture&lt;UserResponse&gt;
+   */
   public CompletableFuture<UserResponse> getUserAsync(String userHandle) {
     return getUserWithHttpInfoAsync(userHandle)
         .thenApply(
@@ -461,6 +485,13 @@ public class UsersApi {
     return listUsersWithHttpInfo().getData();
   }
 
+  /**
+   * List all users
+   *
+   * <p>See {@link #listUsersWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;UserListResponse&gt;
+   */
   public CompletableFuture<UserListResponse> listUsersAsync() {
     return listUsersWithHttpInfoAsync()
         .thenApply(
@@ -573,6 +604,15 @@ public class UsersApi {
     return updateUserWithHttpInfo(userHandle, body).getData();
   }
 
+  /**
+   * Update a user
+   *
+   * <p>See {@link #updateUserWithHttpInfoAsync}.
+   *
+   * @param userHandle The ID of the user. (required)
+   * @param body Description of the update. (required)
+   * @return CompletableFuture&lt;UserResponse&gt;
+   */
   public CompletableFuture<UserResponse> updateUserAsync(String userHandle, User body) {
     return updateUserWithHttpInfoAsync(userHandle, body)
         .thenApply(

@@ -58,6 +58,14 @@ public class LogsPipelinesApi {
     return createLogsPipelineWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a pipeline
+   *
+   * <p>See {@link #createLogsPipelineWithHttpInfoAsync}.
+   *
+   * @param body Definition of the new pipeline. (required)
+   * @return CompletableFuture&lt;LogsPipeline&gt;
+   */
   public CompletableFuture<LogsPipeline> createLogsPipelineAsync(LogsPipeline body) {
     return createLogsPipelineWithHttpInfoAsync(body)
         .thenApply(
@@ -188,6 +196,13 @@ public class LogsPipelinesApi {
     deleteLogsPipelineWithHttpInfo(pipelineId);
   }
 
+  /**
+   * Delete a pipeline
+   *
+   * <p>See {@link #deleteLogsPipelineWithHttpInfoAsync}.
+   *
+   * @param pipelineId ID of the pipeline to delete. (required)
+   */
   public CompletableFuture<Void> deleteLogsPipelineAsync(String pipelineId) {
     return deleteLogsPipelineWithHttpInfoAsync(pipelineId)
         .thenApply(
@@ -324,6 +339,14 @@ public class LogsPipelinesApi {
     return getLogsPipelineWithHttpInfo(pipelineId).getData();
   }
 
+  /**
+   * Get a pipeline
+   *
+   * <p>See {@link #getLogsPipelineWithHttpInfoAsync}.
+   *
+   * @param pipelineId ID of the pipeline to get. (required)
+   * @return CompletableFuture&lt;LogsPipeline&gt;
+   */
   public CompletableFuture<LogsPipeline> getLogsPipelineAsync(String pipelineId) {
     return getLogsPipelineWithHttpInfoAsync(pipelineId)
         .thenApply(
@@ -460,6 +483,13 @@ public class LogsPipelinesApi {
     return getLogsPipelineOrderWithHttpInfo().getData();
   }
 
+  /**
+   * Get pipeline order
+   *
+   * <p>See {@link #getLogsPipelineOrderWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LogsPipelinesOrder&gt;
+   */
   public CompletableFuture<LogsPipelinesOrder> getLogsPipelineOrderAsync() {
     return getLogsPipelineOrderWithHttpInfoAsync()
         .thenApply(
@@ -571,6 +601,13 @@ public class LogsPipelinesApi {
     return listLogsPipelinesWithHttpInfo().getData();
   }
 
+  /**
+   * Get all pipelines
+   *
+   * <p>See {@link #listLogsPipelinesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;List&lt;LogsPipeline&gt;&gt;
+   */
   public CompletableFuture<List<LogsPipeline>> listLogsPipelinesAsync() {
     return listLogsPipelinesWithHttpInfoAsync()
         .thenApply(
@@ -683,6 +720,15 @@ public class LogsPipelinesApi {
     return updateLogsPipelineWithHttpInfo(pipelineId, body).getData();
   }
 
+  /**
+   * Update a pipeline
+   *
+   * <p>See {@link #updateLogsPipelineWithHttpInfoAsync}.
+   *
+   * @param pipelineId ID of the pipeline to delete. (required)
+   * @param body New definition of the pipeline. (required)
+   * @return CompletableFuture&lt;LogsPipeline&gt;
+   */
   public CompletableFuture<LogsPipeline> updateLogsPipelineAsync(
       String pipelineId, LogsPipeline body) {
     return updateLogsPipelineWithHttpInfoAsync(pipelineId, body)
@@ -840,6 +886,14 @@ public class LogsPipelinesApi {
     return updateLogsPipelineOrderWithHttpInfo(body).getData();
   }
 
+  /**
+   * Update pipeline order
+   *
+   * <p>See {@link #updateLogsPipelineOrderWithHttpInfoAsync}.
+   *
+   * @param body Object containing the new ordered list of pipeline IDs. (required)
+   * @return CompletableFuture&lt;LogsPipelinesOrder&gt;
+   */
   public CompletableFuture<LogsPipelinesOrder> updateLogsPipelineOrderAsync(
       LogsPipelinesOrder body) {
     return updateLogsPipelineOrderWithHttpInfoAsync(body)

@@ -118,7 +118,7 @@ public class TagsApi {
   /**
    * Add tags to a host
    *
-   * <p>See {@link #createHostTagsWithHttpInfo}.
+   * <p>See {@link #createHostTagsWithHttpInfoAsync}.
    *
    * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
    *     the tags came from. (required)
@@ -346,7 +346,7 @@ public class TagsApi {
   /**
    * Remove host tags
    *
-   * <p>See {@link #deleteHostTagsWithHttpInfo}.
+   * <p>See {@link #deleteHostTagsWithHttpInfoAsync}.
    *
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
    *     (required)
@@ -553,7 +553,7 @@ public class TagsApi {
   /**
    * Get host tags
    *
-   * <p>See {@link #getHostTagsWithHttpInfo}.
+   * <p>See {@link #getHostTagsWithHttpInfoAsync}.
    *
    * @param hostName When specified, filters list of tags to those tags with the specified source.
    *     (required)
@@ -755,7 +755,7 @@ public class TagsApi {
   /**
    * Get Tags
    *
-   * <p>See {@link #listHostTagsWithHttpInfo}.
+   * <p>See {@link #listHostTagsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;TagToHosts&gt;
@@ -946,7 +946,7 @@ public class TagsApi {
   /**
    * Update host tags
    *
-   * <p>See {@link #updateHostTagsWithHttpInfo}.
+   * <p>See {@link #updateHostTagsWithHttpInfoAsync}.
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)

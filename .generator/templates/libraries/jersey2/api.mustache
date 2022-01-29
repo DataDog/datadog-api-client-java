@@ -164,7 +164,7 @@ public class {{classname}} {
   /**
    * {{summary}}
    *
-   * See {@link #{{operationId}}WithHttpInfo}.
+   * See {@link #{{operationId}}WithHttpInfoAsync}.
    *
    {{#requiredParams}}
    * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}
@@ -195,6 +195,28 @@ public class {{classname}} {
     {{#returnType}}return {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}}){{#returnType}}.getData(){{/returnType}};
   }
 
+  /**
+   * {{summary}}
+   *
+   * See {@link #{{operationId}}WithHttpInfoAsync}.
+   *
+   {{#requiredParams}}
+   * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}
+   {{/requiredParams}}
+   {{#returnType}}
+   * @return CompletableFuture&lt;{{returnType}}&gt;
+   {{/returnType}}
+   {{#isDeprecated}}
+   * @deprecated
+   {{/isDeprecated}}
+   {{#externalDocs}}
+   * {{description}}
+   * @see <a href="{{url}}">{{summary}} Documentation</a>
+   {{/externalDocs}}
+   */
+  {{#isDeprecated}}
+  @Deprecated
+  {{/isDeprecated}}
   public CompletableFuture<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}Void{{/returnType}}>{{operationId}}Async({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) {
     return {{operationId}}WithHttpInfoAsync({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}}).thenApply(response -> {
         return response.getData();

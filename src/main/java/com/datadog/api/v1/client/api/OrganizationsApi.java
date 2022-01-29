@@ -63,6 +63,14 @@ public class OrganizationsApi {
     return createChildOrgWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a child organization
+   *
+   * <p>See {@link #createChildOrgWithHttpInfoAsync}.
+   *
+   * @param body Organization object that needs to be created (required)
+   * @return CompletableFuture&lt;OrganizationCreateResponse&gt;
+   */
   public CompletableFuture<OrganizationCreateResponse> createChildOrgAsync(
       OrganizationCreateBody body) {
     return createChildOrgWithHttpInfoAsync(body)
@@ -200,6 +208,15 @@ public class OrganizationsApi {
     return getOrgWithHttpInfo(publicId).getData();
   }
 
+  /**
+   * Get organization information
+   *
+   * <p>See {@link #getOrgWithHttpInfoAsync}.
+   *
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   *     (required)
+   * @return CompletableFuture&lt;OrganizationResponse&gt;
+   */
   public CompletableFuture<OrganizationResponse> getOrgAsync(String publicId) {
     return getOrgWithHttpInfoAsync(publicId)
         .thenApply(
@@ -333,6 +350,13 @@ public class OrganizationsApi {
     return listOrgsWithHttpInfo().getData();
   }
 
+  /**
+   * List your managed organizations
+   *
+   * <p>See {@link #listOrgsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;OrganizationListResponse&gt;
+   */
   public CompletableFuture<OrganizationListResponse> listOrgsAsync() {
     return listOrgsWithHttpInfoAsync()
         .thenApply(
@@ -446,6 +470,16 @@ public class OrganizationsApi {
     return updateOrgWithHttpInfo(publicId, body).getData();
   }
 
+  /**
+   * Update your organization
+   *
+   * <p>See {@link #updateOrgWithHttpInfoAsync}.
+   *
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   *     (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;OrganizationResponse&gt;
+   */
   public CompletableFuture<OrganizationResponse> updateOrgAsync(
       String publicId, Organization body) {
     return updateOrgWithHttpInfoAsync(publicId, body)
@@ -600,6 +634,15 @@ public class OrganizationsApi {
     return uploadIdPForOrgWithHttpInfo(publicId, idpFile).getData();
   }
 
+  /**
+   * Upload IdP metadata
+   *
+   * <p>See {@link #uploadIdPForOrgWithHttpInfoAsync}.
+   *
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
+   * @param idpFile The path to the XML metadata file you wish to upload. (required)
+   * @return CompletableFuture&lt;IdpResponse&gt;
+   */
   public CompletableFuture<IdpResponse> uploadIdPForOrgAsync(String publicId, File idpFile) {
     return uploadIdPForOrgWithHttpInfoAsync(publicId, idpFile)
         .thenApply(

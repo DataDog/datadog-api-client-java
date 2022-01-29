@@ -66,6 +66,14 @@ public class UsersApi {
     return createServiceAccountWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a service account
+   *
+   * <p>See {@link #createServiceAccountWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;UserResponse&gt;
+   */
   public CompletableFuture<UserResponse> createServiceAccountAsync(
       ServiceAccountCreateRequest body) {
     return createServiceAccountWithHttpInfoAsync(body)
@@ -198,6 +206,14 @@ public class UsersApi {
     return createUserWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a user
+   *
+   * <p>See {@link #createUserWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;UserResponse&gt;
+   */
   public CompletableFuture<UserResponse> createUserAsync(UserCreateRequest body) {
     return createUserWithHttpInfoAsync(body)
         .thenApply(
@@ -326,6 +342,13 @@ public class UsersApi {
     disableUserWithHttpInfo(userId);
   }
 
+  /**
+   * Disable a user
+   *
+   * <p>See {@link #disableUserWithHttpInfoAsync}.
+   *
+   * @param userId The ID of the user. (required)
+   */
   public CompletableFuture<Void> disableUserAsync(String userId) {
     return disableUserWithHttpInfoAsync(userId)
         .thenApply(
@@ -459,6 +482,14 @@ public class UsersApi {
     return getInvitationWithHttpInfo(userInvitationUuid).getData();
   }
 
+  /**
+   * Get a user invitation
+   *
+   * <p>See {@link #getInvitationWithHttpInfoAsync}.
+   *
+   * @param userInvitationUuid The UUID of the user invitation. (required)
+   * @return CompletableFuture&lt;UserInvitationResponse&gt;
+   */
   public CompletableFuture<UserInvitationResponse> getInvitationAsync(String userInvitationUuid) {
     return getInvitationWithHttpInfoAsync(userInvitationUuid)
         .thenApply(
@@ -599,6 +630,14 @@ public class UsersApi {
     return getUserWithHttpInfo(userId).getData();
   }
 
+  /**
+   * Get user details
+   *
+   * <p>See {@link #getUserWithHttpInfoAsync}.
+   *
+   * @param userId The ID of the user. (required)
+   * @return CompletableFuture&lt;UserResponse&gt;
+   */
   public CompletableFuture<UserResponse> getUserAsync(String userId) {
     return getUserWithHttpInfoAsync(userId)
         .thenApply(
@@ -730,6 +769,14 @@ public class UsersApi {
     return listUserOrganizationsWithHttpInfo(userId).getData();
   }
 
+  /**
+   * Get a user organization
+   *
+   * <p>See {@link #listUserOrganizationsWithHttpInfoAsync}.
+   *
+   * @param userId The ID of the user. (required)
+   * @return CompletableFuture&lt;UserResponse&gt;
+   */
   public CompletableFuture<UserResponse> listUserOrganizationsAsync(String userId) {
     return listUserOrganizationsWithHttpInfoAsync(userId)
         .thenApply(
@@ -866,6 +913,14 @@ public class UsersApi {
     return listUserPermissionsWithHttpInfo(userId).getData();
   }
 
+  /**
+   * Get a user permissions
+   *
+   * <p>See {@link #listUserPermissionsWithHttpInfoAsync}.
+   *
+   * @param userId The ID of the user. (required)
+   * @return CompletableFuture&lt;PermissionsResponse&gt;
+   */
   public CompletableFuture<PermissionsResponse> listUserPermissionsAsync(String userId) {
     return listUserPermissionsWithHttpInfoAsync(userId)
         .thenApply(
@@ -1114,7 +1169,7 @@ public class UsersApi {
   /**
    * List all users
    *
-   * <p>See {@link #listUsersWithHttpInfo}.
+   * <p>See {@link #listUsersWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsersResponse&gt;
@@ -1264,6 +1319,14 @@ public class UsersApi {
     return sendInvitationsWithHttpInfo(body).getData();
   }
 
+  /**
+   * Send invitation emails
+   *
+   * <p>See {@link #sendInvitationsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;UserInvitationsResponse&gt;
+   */
   public CompletableFuture<UserInvitationsResponse> sendInvitationsAsync(
       UserInvitationsRequest body) {
     return sendInvitationsWithHttpInfoAsync(body)
@@ -1397,6 +1460,15 @@ public class UsersApi {
     return updateUserWithHttpInfo(userId, body).getData();
   }
 
+  /**
+   * Update a user
+   *
+   * <p>See {@link #updateUserWithHttpInfoAsync}.
+   *
+   * @param userId The ID of the user. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;UserResponse&gt;
+   */
   public CompletableFuture<UserResponse> updateUserAsync(String userId, UserUpdateRequest body) {
     return updateUserWithHttpInfoAsync(userId, body)
         .thenApply(

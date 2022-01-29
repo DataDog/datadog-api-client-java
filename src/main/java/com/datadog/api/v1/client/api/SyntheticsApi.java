@@ -77,6 +77,14 @@ public class SyntheticsApi {
     return createGlobalVariableWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a global variable
+   *
+   * <p>See {@link #createGlobalVariableWithHttpInfoAsync}.
+   *
+   * @param body Details of the global variable to create. (required)
+   * @return CompletableFuture&lt;SyntheticsGlobalVariable&gt;
+   */
   public CompletableFuture<SyntheticsGlobalVariable> createGlobalVariableAsync(
       SyntheticsGlobalVariable body) {
     return createGlobalVariableWithHttpInfoAsync(body)
@@ -212,6 +220,14 @@ public class SyntheticsApi {
     return createPrivateLocationWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a private location
+   *
+   * <p>See {@link #createPrivateLocationWithHttpInfoAsync}.
+   *
+   * @param body Details of the private location to create. (required)
+   * @return CompletableFuture&lt;SyntheticsPrivateLocationCreationResponse&gt;
+   */
   public CompletableFuture<SyntheticsPrivateLocationCreationResponse> createPrivateLocationAsync(
       SyntheticsPrivateLocation body) {
     return createPrivateLocationWithHttpInfoAsync(body)
@@ -348,6 +364,14 @@ public class SyntheticsApi {
     return createSyntheticsAPITestWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an API test
+   *
+   * <p>See {@link #createSyntheticsAPITestWithHttpInfoAsync}.
+   *
+   * @param body Details of the test to create. (required)
+   * @return CompletableFuture&lt;SyntheticsAPITest&gt;
+   */
   public CompletableFuture<SyntheticsAPITest> createSyntheticsAPITestAsync(SyntheticsAPITest body) {
     return createSyntheticsAPITestWithHttpInfoAsync(body)
         .thenApply(
@@ -481,6 +505,14 @@ public class SyntheticsApi {
     return createSyntheticsBrowserTestWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a browser test
+   *
+   * <p>See {@link #createSyntheticsBrowserTestWithHttpInfoAsync}.
+   *
+   * @param body Details of the test to create. (required)
+   * @return CompletableFuture&lt;SyntheticsBrowserTest&gt;
+   */
   public CompletableFuture<SyntheticsBrowserTest> createSyntheticsBrowserTestAsync(
       SyntheticsBrowserTest body) {
     return createSyntheticsBrowserTestWithHttpInfoAsync(body)
@@ -614,6 +646,13 @@ public class SyntheticsApi {
     deleteGlobalVariableWithHttpInfo(variableId);
   }
 
+  /**
+   * Delete a global variable
+   *
+   * <p>See {@link #deleteGlobalVariableWithHttpInfoAsync}.
+   *
+   * @param variableId The ID of the global variable. (required)
+   */
   public CompletableFuture<Void> deleteGlobalVariableAsync(String variableId) {
     return deleteGlobalVariableWithHttpInfoAsync(variableId)
         .thenApply(
@@ -751,6 +790,13 @@ public class SyntheticsApi {
     deletePrivateLocationWithHttpInfo(locationId);
   }
 
+  /**
+   * Delete a private location
+   *
+   * <p>See {@link #deletePrivateLocationWithHttpInfoAsync}.
+   *
+   * @param locationId The ID of the private location. (required)
+   */
   public CompletableFuture<Void> deletePrivateLocationAsync(String locationId) {
     return deletePrivateLocationWithHttpInfoAsync(locationId)
         .thenApply(
@@ -889,6 +935,14 @@ public class SyntheticsApi {
     return deleteTestsWithHttpInfo(body).getData();
   }
 
+  /**
+   * Delete tests
+   *
+   * <p>See {@link #deleteTestsWithHttpInfoAsync}.
+   *
+   * @param body Public ID list of the Synthetic tests to be deleted. (required)
+   * @return CompletableFuture&lt;SyntheticsDeleteTestsResponse&gt;
+   */
   public CompletableFuture<SyntheticsDeleteTestsResponse> deleteTestsAsync(
       SyntheticsDeleteTestsPayload body) {
     return deleteTestsWithHttpInfoAsync(body)
@@ -1024,6 +1078,15 @@ public class SyntheticsApi {
     return editGlobalVariableWithHttpInfo(variableId, body).getData();
   }
 
+  /**
+   * Edit a global variable
+   *
+   * <p>See {@link #editGlobalVariableWithHttpInfoAsync}.
+   *
+   * @param variableId The ID of the global variable. (required)
+   * @param body Details of the global variable to update. (required)
+   * @return CompletableFuture&lt;SyntheticsGlobalVariable&gt;
+   */
   public CompletableFuture<SyntheticsGlobalVariable> editGlobalVariableAsync(
       String variableId, SyntheticsGlobalVariable body) {
     return editGlobalVariableWithHttpInfoAsync(variableId, body)
@@ -1181,6 +1244,14 @@ public class SyntheticsApi {
     return getAPITestWithHttpInfo(publicId).getData();
   }
 
+  /**
+   * Get an API test
+   *
+   * <p>See {@link #getAPITestWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return CompletableFuture&lt;SyntheticsAPITest&gt;
+   */
   public CompletableFuture<SyntheticsAPITest> getAPITestAsync(String publicId) {
     return getAPITestWithHttpInfoAsync(publicId)
         .thenApply(
@@ -1395,7 +1466,7 @@ public class SyntheticsApi {
   /**
    * Get an API test&#39;s latest results summaries
    *
-   * <p>See {@link #getAPITestLatestResultsWithHttpInfo}.
+   * <p>See {@link #getAPITestLatestResultsWithHttpInfoAsync}.
    *
    * @param publicId The public ID of the test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -1561,6 +1632,15 @@ public class SyntheticsApi {
     return getAPITestResultWithHttpInfo(publicId, resultId).getData();
   }
 
+  /**
+   * Get an API test result
+   *
+   * <p>See {@link #getAPITestResultWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the API test to which the target result belongs. (required)
+   * @param resultId The ID of the result to get. (required)
+   * @return CompletableFuture&lt;SyntheticsAPITestResultFull&gt;
+   */
   public CompletableFuture<SyntheticsAPITestResultFull> getAPITestResultAsync(
       String publicId, String resultId) {
     return getAPITestResultWithHttpInfoAsync(publicId, resultId)
@@ -1719,6 +1799,14 @@ public class SyntheticsApi {
     return getBrowserTestWithHttpInfo(publicId).getData();
   }
 
+  /**
+   * Get a browser test
+   *
+   * <p>See {@link #getBrowserTestWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return CompletableFuture&lt;SyntheticsBrowserTest&gt;
+   */
   public CompletableFuture<SyntheticsBrowserTest> getBrowserTestAsync(String publicId) {
     return getBrowserTestWithHttpInfoAsync(publicId)
         .thenApply(
@@ -1934,7 +2022,7 @@ public class SyntheticsApi {
   /**
    * Get a browser test&#39;s latest results summaries
    *
-   * <p>See {@link #getBrowserTestLatestResultsWithHttpInfo}.
+   * <p>See {@link #getBrowserTestLatestResultsWithHttpInfoAsync}.
    *
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -2107,6 +2195,16 @@ public class SyntheticsApi {
     return getBrowserTestResultWithHttpInfo(publicId, resultId).getData();
   }
 
+  /**
+   * Get a browser test result
+   *
+   * <p>See {@link #getBrowserTestResultWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the browser test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @return CompletableFuture&lt;SyntheticsBrowserTestResultFull&gt;
+   */
   public CompletableFuture<SyntheticsBrowserTestResultFull> getBrowserTestResultAsync(
       String publicId, String resultId) {
     return getBrowserTestResultWithHttpInfoAsync(publicId, resultId)
@@ -2267,6 +2365,14 @@ public class SyntheticsApi {
     return getGlobalVariableWithHttpInfo(variableId).getData();
   }
 
+  /**
+   * Get a global variable
+   *
+   * <p>See {@link #getGlobalVariableWithHttpInfoAsync}.
+   *
+   * @param variableId The ID of the global variable. (required)
+   * @return CompletableFuture&lt;SyntheticsGlobalVariable&gt;
+   */
   public CompletableFuture<SyntheticsGlobalVariable> getGlobalVariableAsync(String variableId) {
     return getGlobalVariableWithHttpInfoAsync(variableId)
         .thenApply(
@@ -2404,6 +2510,14 @@ public class SyntheticsApi {
     return getPrivateLocationWithHttpInfo(locationId).getData();
   }
 
+  /**
+   * Get a private location
+   *
+   * <p>See {@link #getPrivateLocationWithHttpInfoAsync}.
+   *
+   * @param locationId The ID of the private location. (required)
+   * @return CompletableFuture&lt;SyntheticsPrivateLocation&gt;
+   */
   public CompletableFuture<SyntheticsPrivateLocation> getPrivateLocationAsync(String locationId) {
     return getPrivateLocationWithHttpInfoAsync(locationId)
         .thenApply(
@@ -2543,6 +2657,14 @@ public class SyntheticsApi {
     return getSyntheticsCIBatchWithHttpInfo(batchId).getData();
   }
 
+  /**
+   * Get details of batch
+   *
+   * <p>See {@link #getSyntheticsCIBatchWithHttpInfoAsync}.
+   *
+   * @param batchId The ID of the batch. (required)
+   * @return CompletableFuture&lt;SyntheticsBatchDetails&gt;
+   */
   public CompletableFuture<SyntheticsBatchDetails> getSyntheticsCIBatchAsync(String batchId) {
     return getSyntheticsCIBatchWithHttpInfoAsync(batchId)
         .thenApply(
@@ -2680,6 +2802,14 @@ public class SyntheticsApi {
     return getTestWithHttpInfo(publicId).getData();
   }
 
+  /**
+   * Get a test configuration
+   *
+   * <p>See {@link #getTestWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return CompletableFuture&lt;SyntheticsTestDetails&gt;
+   */
   public CompletableFuture<SyntheticsTestDetails> getTestAsync(String publicId) {
     return getTestWithHttpInfoAsync(publicId)
         .thenApply(
@@ -2815,6 +2945,13 @@ public class SyntheticsApi {
     return listGlobalVariablesWithHttpInfo().getData();
   }
 
+  /**
+   * Get all global variables
+   *
+   * <p>See {@link #listGlobalVariablesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SyntheticsListGlobalVariablesResponse&gt;
+   */
   public CompletableFuture<SyntheticsListGlobalVariablesResponse> listGlobalVariablesAsync() {
     return listGlobalVariablesWithHttpInfoAsync()
         .thenApply(
@@ -2928,6 +3065,13 @@ public class SyntheticsApi {
     return listLocationsWithHttpInfo().getData();
   }
 
+  /**
+   * Get all locations (public and private)
+   *
+   * <p>See {@link #listLocationsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SyntheticsLocations&gt;
+   */
   public CompletableFuture<SyntheticsLocations> listLocationsAsync() {
     return listLocationsWithHttpInfoAsync()
         .thenApply(
@@ -3038,6 +3182,13 @@ public class SyntheticsApi {
     return listTestsWithHttpInfo().getData();
   }
 
+  /**
+   * Get the list of all tests
+   *
+   * <p>See {@link #listTestsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SyntheticsListTestsResponse&gt;
+   */
   public CompletableFuture<SyntheticsListTestsResponse> listTestsAsync() {
     return listTestsWithHttpInfoAsync()
         .thenApply(
@@ -3152,6 +3303,14 @@ public class SyntheticsApi {
     return triggerCITestsWithHttpInfo(body).getData();
   }
 
+  /**
+   * Trigger tests from CI/CD pipelines
+   *
+   * <p>See {@link #triggerCITestsWithHttpInfoAsync}.
+   *
+   * @param body Details of the test to trigger. (required)
+   * @return CompletableFuture&lt;SyntheticsTriggerCITestsResponse&gt;
+   */
   public CompletableFuture<SyntheticsTriggerCITestsResponse> triggerCITestsAsync(
       SyntheticsCITestBody body) {
     return triggerCITestsWithHttpInfoAsync(body)
@@ -3288,6 +3447,14 @@ public class SyntheticsApi {
     return triggerTestsWithHttpInfo(body).getData();
   }
 
+  /**
+   * Trigger Synthetics tests
+   *
+   * <p>See {@link #triggerTestsWithHttpInfoAsync}.
+   *
+   * @param body The identifiers of the tests to trigger. (required)
+   * @return CompletableFuture&lt;SyntheticsTriggerCITestsResponse&gt;
+   */
   public CompletableFuture<SyntheticsTriggerCITestsResponse> triggerTestsAsync(
       SyntheticsTriggerBody body) {
     return triggerTestsWithHttpInfoAsync(body)
@@ -3423,6 +3590,15 @@ public class SyntheticsApi {
     return updateAPITestWithHttpInfo(publicId, body).getData();
   }
 
+  /**
+   * Edit an API test
+   *
+   * <p>See {@link #updateAPITestWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @param body New test details to be saved. (required)
+   * @return CompletableFuture&lt;SyntheticsAPITest&gt;
+   */
   public CompletableFuture<SyntheticsAPITest> updateAPITestAsync(
       String publicId, SyntheticsAPITest body) {
     return updateAPITestWithHttpInfoAsync(publicId, body)
@@ -3579,6 +3755,15 @@ public class SyntheticsApi {
     return updateBrowserTestWithHttpInfo(publicId, body).getData();
   }
 
+  /**
+   * Edit a browser test
+   *
+   * <p>See {@link #updateBrowserTestWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @param body New test details to be saved. (required)
+   * @return CompletableFuture&lt;SyntheticsBrowserTest&gt;
+   */
   public CompletableFuture<SyntheticsBrowserTest> updateBrowserTestAsync(
       String publicId, SyntheticsBrowserTest body) {
     return updateBrowserTestWithHttpInfoAsync(publicId, body)
@@ -3735,6 +3920,15 @@ public class SyntheticsApi {
     return updatePrivateLocationWithHttpInfo(locationId, body).getData();
   }
 
+  /**
+   * Edit a private location
+   *
+   * <p>See {@link #updatePrivateLocationWithHttpInfoAsync}.
+   *
+   * @param locationId The ID of the private location. (required)
+   * @param body Details of the private location to be updated. (required)
+   * @return CompletableFuture&lt;SyntheticsPrivateLocation&gt;
+   */
   public CompletableFuture<SyntheticsPrivateLocation> updatePrivateLocationAsync(
       String locationId, SyntheticsPrivateLocation body) {
     return updatePrivateLocationWithHttpInfoAsync(locationId, body)
@@ -3906,6 +4100,15 @@ public class SyntheticsApi {
     return updateTestPauseStatusWithHttpInfo(publicId, body).getData();
   }
 
+  /**
+   * Pause or start a test
+   *
+   * <p>See {@link #updateTestPauseStatusWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the Synthetic test to update. (required)
+   * @param body Status to set the given Synthetic test to. (required)
+   * @return CompletableFuture&lt;Boolean&gt;
+   */
   public CompletableFuture<Boolean> updateTestPauseStatusAsync(
       String publicId, SyntheticsUpdateTestPauseStatusPayload body) {
     return updateTestPauseStatusWithHttpInfoAsync(publicId, body)

@@ -61,6 +61,14 @@ public class DashboardsApi {
     return createDashboardWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create a new dashboard
+   *
+   * <p>See {@link #createDashboardWithHttpInfoAsync}.
+   *
+   * @param body Create a dashboard request body. (required)
+   * @return CompletableFuture&lt;Dashboard&gt;
+   */
   public CompletableFuture<Dashboard> createDashboardAsync(Dashboard body) {
     return createDashboardWithHttpInfoAsync(body)
         .thenApply(
@@ -195,6 +203,14 @@ public class DashboardsApi {
     return deleteDashboardWithHttpInfo(dashboardId).getData();
   }
 
+  /**
+   * Delete a dashboard
+   *
+   * <p>See {@link #deleteDashboardWithHttpInfoAsync}.
+   *
+   * @param dashboardId The ID of the dashboard. (required)
+   * @return CompletableFuture&lt;DashboardDeleteResponse&gt;
+   */
   public CompletableFuture<DashboardDeleteResponse> deleteDashboardAsync(String dashboardId) {
     return deleteDashboardWithHttpInfoAsync(dashboardId)
         .thenApply(
@@ -331,6 +347,13 @@ public class DashboardsApi {
     deleteDashboardsWithHttpInfo(body);
   }
 
+  /**
+   * Delete dashboards
+   *
+   * <p>See {@link #deleteDashboardsWithHttpInfoAsync}.
+   *
+   * @param body Delete dashboards request body. (required)
+   */
   public CompletableFuture<Void> deleteDashboardsAsync(DashboardBulkDeleteRequest body) {
     return deleteDashboardsWithHttpInfoAsync(body)
         .thenApply(
@@ -464,6 +487,14 @@ public class DashboardsApi {
     return getDashboardWithHttpInfo(dashboardId).getData();
   }
 
+  /**
+   * Get a dashboard
+   *
+   * <p>See {@link #getDashboardWithHttpInfoAsync}.
+   *
+   * @param dashboardId The ID of the dashboard. (required)
+   * @return CompletableFuture&lt;Dashboard&gt;
+   */
   public CompletableFuture<Dashboard> getDashboardAsync(String dashboardId) {
     return getDashboardWithHttpInfoAsync(dashboardId)
         .thenApply(
@@ -662,7 +693,7 @@ public class DashboardsApi {
   /**
    * Get all dashboards
    *
-   * <p>See {@link #listDashboardsWithHttpInfo}.
+   * <p>See {@link #listDashboardsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;DashboardSummary&gt;
@@ -795,6 +826,13 @@ public class DashboardsApi {
     restoreDashboardsWithHttpInfo(body);
   }
 
+  /**
+   * Restore deleted dashboards
+   *
+   * <p>See {@link #restoreDashboardsWithHttpInfoAsync}.
+   *
+   * @param body Restore dashboards request body. (required)
+   */
   public CompletableFuture<Void> restoreDashboardsAsync(DashboardRestoreRequest body) {
     return restoreDashboardsWithHttpInfoAsync(body)
         .thenApply(
@@ -929,6 +967,15 @@ public class DashboardsApi {
     return updateDashboardWithHttpInfo(dashboardId, body).getData();
   }
 
+  /**
+   * Update a dashboard
+   *
+   * <p>See {@link #updateDashboardWithHttpInfoAsync}.
+   *
+   * @param dashboardId The ID of the dashboard. (required)
+   * @param body Update Dashboard request body. (required)
+   * @return CompletableFuture&lt;Dashboard&gt;
+   */
   public CompletableFuture<Dashboard> updateDashboardAsync(String dashboardId, Dashboard body) {
     return updateDashboardWithHttpInfoAsync(dashboardId, body)
         .thenApply(

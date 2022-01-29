@@ -64,6 +64,14 @@ public class LogsApi {
     return aggregateLogsWithHttpInfo(body).getData();
   }
 
+  /**
+   * Aggregate events
+   *
+   * <p>See {@link #aggregateLogsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;LogsAggregateResponse&gt;
+   */
   public CompletableFuture<LogsAggregateResponse> aggregateLogsAsync(LogsAggregateRequest body) {
     return aggregateLogsWithHttpInfoAsync(body)
         .thenApply(
@@ -241,7 +249,7 @@ public class LogsApi {
   /**
    * Search logs
    *
-   * <p>See {@link #listLogsWithHttpInfo}.
+   * <p>See {@link #listLogsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;LogsListResponse&gt;
@@ -487,7 +495,7 @@ public class LogsApi {
   /**
    * Get a list of logs
    *
-   * <p>See {@link #listLogsGetWithHttpInfo}.
+   * <p>See {@link #listLogsGetWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;LogsListResponse&gt;
@@ -708,7 +716,7 @@ public class LogsApi {
   /**
    * Send logs
    *
-   * <p>See {@link #submitLogWithHttpInfo}.
+   * <p>See {@link #submitLogWithHttpInfoAsync}.
    *
    * @param body Log to send (JSON format). (required)
    * @param parameters Optional parameters for the request.

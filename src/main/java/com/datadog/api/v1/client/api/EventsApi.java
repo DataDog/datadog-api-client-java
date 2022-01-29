@@ -61,6 +61,14 @@ public class EventsApi {
     return createEventWithHttpInfo(body).getData();
   }
 
+  /**
+   * Post an event
+   *
+   * <p>See {@link #createEventWithHttpInfoAsync}.
+   *
+   * @param body Event request object (required)
+   * @return CompletableFuture&lt;EventCreateResponse&gt;
+   */
   public CompletableFuture<EventCreateResponse> createEventAsync(EventCreateRequest body) {
     return createEventWithHttpInfoAsync(body)
         .thenApply(
@@ -190,6 +198,14 @@ public class EventsApi {
     return getEventWithHttpInfo(eventId).getData();
   }
 
+  /**
+   * Get an event
+   *
+   * <p>See {@link #getEventWithHttpInfoAsync}.
+   *
+   * @param eventId The ID of the event. (required)
+   * @return CompletableFuture&lt;EventResponse&gt;
+   */
   public CompletableFuture<EventResponse> getEventAsync(Long eventId) {
     return getEventWithHttpInfoAsync(eventId)
         .thenApply(
@@ -448,7 +464,7 @@ public class EventsApi {
   /**
    * Query the event stream
    *
-   * <p>See {@link #listEventsWithHttpInfo}.
+   * <p>See {@link #listEventsWithHttpInfoAsync}.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)

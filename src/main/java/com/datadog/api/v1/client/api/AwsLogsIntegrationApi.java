@@ -62,6 +62,14 @@ public class AwsLogsIntegrationApi {
     return checkAWSLogsLambdaAsyncWithHttpInfo(body).getData();
   }
 
+  /**
+   * Check that an AWS Lambda Function exists
+   *
+   * <p>See {@link #checkAWSLogsLambdaAsyncWithHttpInfoAsync}.
+   *
+   * @param body Check AWS Log Lambda Async request body. (required)
+   * @return CompletableFuture&lt;AWSLogsAsyncResponse&gt;
+   */
   public CompletableFuture<AWSLogsAsyncResponse> checkAWSLogsLambdaAsyncAsync(
       AWSAccountAndLambdaRequest body) {
     return checkAWSLogsLambdaAsyncWithHttpInfoAsync(body)
@@ -201,6 +209,14 @@ public class AwsLogsIntegrationApi {
     return checkAWSLogsServicesAsyncWithHttpInfo(body).getData();
   }
 
+  /**
+   * Check permissions for log services
+   *
+   * <p>See {@link #checkAWSLogsServicesAsyncWithHttpInfoAsync}.
+   *
+   * @param body Check AWS Logs Async Services request body. (required)
+   * @return CompletableFuture&lt;AWSLogsAsyncResponse&gt;
+   */
   public CompletableFuture<AWSLogsAsyncResponse> checkAWSLogsServicesAsyncAsync(
       AWSLogsServicesRequest body) {
     return checkAWSLogsServicesAsyncWithHttpInfoAsync(body)
@@ -339,6 +355,14 @@ public class AwsLogsIntegrationApi {
     return createAWSLambdaARNWithHttpInfo(body).getData();
   }
 
+  /**
+   * Add AWS Log Lambda ARN
+   *
+   * <p>See {@link #createAWSLambdaARNWithHttpInfoAsync}.
+   *
+   * @param body AWS Log Lambda Async request body. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> createAWSLambdaARNAsync(AWSAccountAndLambdaRequest body) {
     return createAWSLambdaARNWithHttpInfoAsync(body)
         .thenApply(
@@ -471,6 +495,14 @@ public class AwsLogsIntegrationApi {
     return deleteAWSLambdaARNWithHttpInfo(body).getData();
   }
 
+  /**
+   * Delete an AWS Logs integration
+   *
+   * <p>See {@link #deleteAWSLambdaARNWithHttpInfoAsync}.
+   *
+   * @param body Delete AWS Lambda ARN request body. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> deleteAWSLambdaARNAsync(AWSAccountAndLambdaRequest body) {
     return deleteAWSLambdaARNWithHttpInfoAsync(body)
         .thenApply(
@@ -603,6 +635,14 @@ public class AwsLogsIntegrationApi {
     return enableAWSLogServicesWithHttpInfo(body).getData();
   }
 
+  /**
+   * Enable an AWS Logs integration
+   *
+   * <p>See {@link #enableAWSLogServicesWithHttpInfoAsync}.
+   *
+   * @param body Enable AWS Log Services request body. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> enableAWSLogServicesAsync(AWSLogsServicesRequest body) {
     return enableAWSLogServicesWithHttpInfoAsync(body)
         .thenApply(
@@ -734,6 +774,13 @@ public class AwsLogsIntegrationApi {
     return listAWSLogsIntegrationsWithHttpInfo().getData();
   }
 
+  /**
+   * List all AWS Logs integrations
+   *
+   * <p>See {@link #listAWSLogsIntegrationsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;List&lt;AWSLogsListResponse&gt;&gt;
+   */
   public CompletableFuture<List<AWSLogsListResponse>> listAWSLogsIntegrationsAsync() {
     return listAWSLogsIntegrationsWithHttpInfoAsync()
         .thenApply(
@@ -847,6 +894,13 @@ public class AwsLogsIntegrationApi {
     return listAWSLogsServicesWithHttpInfo().getData();
   }
 
+  /**
+   * Get list of AWS log ready services
+   *
+   * <p>See {@link #listAWSLogsServicesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;List&lt;AWSLogsListServicesResponse&gt;&gt;
+   */
   public CompletableFuture<List<AWSLogsListServicesResponse>> listAWSLogsServicesAsync() {
     return listAWSLogsServicesWithHttpInfoAsync()
         .thenApply(

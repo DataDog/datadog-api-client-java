@@ -151,7 +151,7 @@ public class SnapshotsApi {
   /**
    * Take graph snapshots
    *
-   * <p>See {@link #getGraphSnapshotWithHttpInfo}.
+   * <p>See {@link #getGraphSnapshotWithHttpInfoAsync}.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)

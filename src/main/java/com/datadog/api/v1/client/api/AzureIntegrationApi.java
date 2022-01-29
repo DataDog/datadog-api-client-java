@@ -58,6 +58,15 @@ public class AzureIntegrationApi {
     return createAzureIntegrationWithHttpInfo(body).getData();
   }
 
+  /**
+   * Create an Azure integration
+   *
+   * <p>See {@link #createAzureIntegrationWithHttpInfoAsync}.
+   *
+   * @param body Create a Datadog-Azure integration for your Datadog account request body.
+   *     (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> createAzureIntegrationAsync(AzureAccount body) {
     return createAzureIntegrationWithHttpInfoAsync(body)
         .thenApply(
@@ -194,6 +203,14 @@ public class AzureIntegrationApi {
     return deleteAzureIntegrationWithHttpInfo(body).getData();
   }
 
+  /**
+   * Delete an Azure integration
+   *
+   * <p>See {@link #deleteAzureIntegrationWithHttpInfoAsync}.
+   *
+   * @param body Delete a given Datadog-Azure integration request body. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> deleteAzureIntegrationAsync(AzureAccount body) {
     return deleteAzureIntegrationWithHttpInfoAsync(body)
         .thenApply(
@@ -324,6 +341,13 @@ public class AzureIntegrationApi {
     return listAzureIntegrationWithHttpInfo().getData();
   }
 
+  /**
+   * List all Azure integrations
+   *
+   * <p>See {@link #listAzureIntegrationWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;List&lt;AzureAccount&gt;&gt;
+   */
   public CompletableFuture<List<AzureAccount>> listAzureIntegrationAsync() {
     return listAzureIntegrationWithHttpInfoAsync()
         .thenApply(
@@ -437,6 +461,14 @@ public class AzureIntegrationApi {
     return updateAzureHostFiltersWithHttpInfo(body).getData();
   }
 
+  /**
+   * Update Azure integration host filters
+   *
+   * <p>See {@link #updateAzureHostFiltersWithHttpInfoAsync}.
+   *
+   * @param body Update a Datadog-Azure integration&#39;s host filters request body. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> updateAzureHostFiltersAsync(AzureAccount body) {
     return updateAzureHostFiltersWithHttpInfoAsync(body)
         .thenApply(
@@ -568,6 +600,14 @@ public class AzureIntegrationApi {
     return updateAzureIntegrationWithHttpInfo(body).getData();
   }
 
+  /**
+   * Update an Azure integration
+   *
+   * <p>See {@link #updateAzureIntegrationWithHttpInfoAsync}.
+   *
+   * @param body Update a Datadog-Azure integration request body. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
   public CompletableFuture<Object> updateAzureIntegrationAsync(AzureAccount body) {
     return updateAzureIntegrationWithHttpInfoAsync(body)
         .thenApply(
