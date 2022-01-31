@@ -23,7 +23,9 @@ import java.util.Objects;
 @ApiModel(description = "Ingested spans usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageIngestedSpansHour.JSON_PROPERTY_HOUR,
-  UsageIngestedSpansHour.JSON_PROPERTY_INGESTED_EVENTS_BYTES
+  UsageIngestedSpansHour.JSON_PROPERTY_INGESTED_EVENTS_BYTES,
+  UsageIngestedSpansHour.JSON_PROPERTY_ORG_NAME,
+  UsageIngestedSpansHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageIngestedSpansHour {
@@ -33,6 +35,12 @@ public class UsageIngestedSpansHour {
 
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES = "ingested_events_bytes";
   private Long ingestedEventsBytes;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public UsageIngestedSpansHour hour(OffsetDateTime hour) {
     this.hour = hour;
@@ -78,6 +86,50 @@ public class UsageIngestedSpansHour {
     this.ingestedEventsBytes = ingestedEventsBytes;
   }
 
+  public UsageIngestedSpansHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageIngestedSpansHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   /** Return true if this UsageIngestedSpansHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -89,12 +141,14 @@ public class UsageIngestedSpansHour {
     }
     UsageIngestedSpansHour usageIngestedSpansHour = (UsageIngestedSpansHour) o;
     return Objects.equals(this.hour, usageIngestedSpansHour.hour)
-        && Objects.equals(this.ingestedEventsBytes, usageIngestedSpansHour.ingestedEventsBytes);
+        && Objects.equals(this.ingestedEventsBytes, usageIngestedSpansHour.ingestedEventsBytes)
+        && Objects.equals(this.orgName, usageIngestedSpansHour.orgName)
+        && Objects.equals(this.publicId, usageIngestedSpansHour.publicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, ingestedEventsBytes);
+    return Objects.hash(hour, ingestedEventsBytes, orgName, publicId);
   }
 
   @Override
@@ -105,6 +159,8 @@ public class UsageIngestedSpansHour {
     sb.append("    ingestedEventsBytes: ")
         .append(toIndentedString(ingestedEventsBytes))
         .append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
