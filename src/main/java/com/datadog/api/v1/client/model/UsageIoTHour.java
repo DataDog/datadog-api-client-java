@@ -21,7 +21,12 @@ import java.util.Objects;
 
 /** IoT usage for a given organization for a given hour. */
 @ApiModel(description = "IoT usage for a given organization for a given hour.")
-@JsonPropertyOrder({UsageIoTHour.JSON_PROPERTY_HOUR, UsageIoTHour.JSON_PROPERTY_IOT_DEVICE_COUNT})
+@JsonPropertyOrder({
+  UsageIoTHour.JSON_PROPERTY_HOUR,
+  UsageIoTHour.JSON_PROPERTY_IOT_DEVICE_COUNT,
+  UsageIoTHour.JSON_PROPERTY_ORG_NAME,
+  UsageIoTHour.JSON_PROPERTY_PUBLIC_ID
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageIoTHour {
   @JsonIgnore public boolean unparsed = false;
@@ -30,6 +35,12 @@ public class UsageIoTHour {
 
   public static final String JSON_PROPERTY_IOT_DEVICE_COUNT = "iot_device_count";
   private Long iotDeviceCount;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public UsageIoTHour hour(OffsetDateTime hour) {
     this.hour = hour;
@@ -75,6 +86,50 @@ public class UsageIoTHour {
     this.iotDeviceCount = iotDeviceCount;
   }
 
+  public UsageIoTHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageIoTHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   /** Return true if this UsageIoTHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -86,12 +141,14 @@ public class UsageIoTHour {
     }
     UsageIoTHour usageIoTHour = (UsageIoTHour) o;
     return Objects.equals(this.hour, usageIoTHour.hour)
-        && Objects.equals(this.iotDeviceCount, usageIoTHour.iotDeviceCount);
+        && Objects.equals(this.iotDeviceCount, usageIoTHour.iotDeviceCount)
+        && Objects.equals(this.orgName, usageIoTHour.orgName)
+        && Objects.equals(this.publicId, usageIoTHour.publicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, iotDeviceCount);
+    return Objects.hash(hour, iotDeviceCount, orgName, publicId);
   }
 
   @Override
@@ -100,6 +157,8 @@ public class UsageIoTHour {
     sb.append("class UsageIoTHour {\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    iotDeviceCount: ").append(toIndentedString(iotDeviceCount)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

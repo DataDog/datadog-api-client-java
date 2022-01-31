@@ -8,3 +8,5 @@ IoT usage for a given organization for a given hour.
 | ------------------ | ------------------ | ---------------------------------------------------- | ---------- |
 | **hour**           | **OffsetDateTime** | The hour for the usage.                              | [optional] |
 | **iotDeviceCount** | **Long**           | The total number of IoT devices during a given hour. | [optional] |
+| **orgName**        | **String**         | The organization name.                               | [optional] |
+| **publicId**       | **String**         | The organization public ID.                          | [optional] |

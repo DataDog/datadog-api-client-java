@@ -8,3 +8,5 @@ The hours of indexed spans usage.
 | ---------------------- | ------------------ | ------------------------------------- | ---------- |
 | **hour**               | **OffsetDateTime** | The hour for the usage.               | [optional] |
 | **indexedEventsCount** | **Long**           | Contains the number of spans indexed. | [optional] |
+| **orgName**            | **String**         | The organization name.                | [optional] |
+| **publicId**           | **String**         | The organization public ID.           | [optional] |

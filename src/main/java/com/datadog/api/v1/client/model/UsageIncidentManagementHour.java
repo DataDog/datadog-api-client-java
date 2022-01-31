@@ -23,7 +23,9 @@ import java.util.Objects;
 @ApiModel(description = "Incident management usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageIncidentManagementHour.JSON_PROPERTY_HOUR,
-  UsageIncidentManagementHour.JSON_PROPERTY_MONTHLY_ACTIVE_USERS
+  UsageIncidentManagementHour.JSON_PROPERTY_MONTHLY_ACTIVE_USERS,
+  UsageIncidentManagementHour.JSON_PROPERTY_ORG_NAME,
+  UsageIncidentManagementHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageIncidentManagementHour {
@@ -33,6 +35,12 @@ public class UsageIncidentManagementHour {
 
   public static final String JSON_PROPERTY_MONTHLY_ACTIVE_USERS = "monthly_active_users";
   private Long monthlyActiveUsers;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public UsageIncidentManagementHour hour(OffsetDateTime hour) {
     this.hour = hour;
@@ -82,6 +90,50 @@ public class UsageIncidentManagementHour {
     this.monthlyActiveUsers = monthlyActiveUsers;
   }
 
+  public UsageIncidentManagementHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageIncidentManagementHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   /** Return true if this UsageIncidentManagementHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -93,12 +145,14 @@ public class UsageIncidentManagementHour {
     }
     UsageIncidentManagementHour usageIncidentManagementHour = (UsageIncidentManagementHour) o;
     return Objects.equals(this.hour, usageIncidentManagementHour.hour)
-        && Objects.equals(this.monthlyActiveUsers, usageIncidentManagementHour.monthlyActiveUsers);
+        && Objects.equals(this.monthlyActiveUsers, usageIncidentManagementHour.monthlyActiveUsers)
+        && Objects.equals(this.orgName, usageIncidentManagementHour.orgName)
+        && Objects.equals(this.publicId, usageIncidentManagementHour.publicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, monthlyActiveUsers);
+    return Objects.hash(hour, monthlyActiveUsers, orgName, publicId);
   }
 
   @Override
@@ -107,6 +161,8 @@ public class UsageIncidentManagementHour {
     sb.append("class UsageIncidentManagementHour {\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    monthlyActiveUsers: ").append(toIndentedString(monthlyActiveUsers)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

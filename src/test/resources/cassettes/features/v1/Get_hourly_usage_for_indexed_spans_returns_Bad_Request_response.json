@@ -1,0 +1,40 @@
+[
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_hourly_usage_for_indexed_spans_returns_Bad_Request_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v1/usage/indexed-spans",
+      "queryStringParameters": {
+        "start_hr": [
+          "2022-01-28T09:34:32.316Z"
+        ],
+        "end_hr": [
+          "2022-01-26T09:34:32.316Z"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1aef7fbf-63bc-d28f-1e38-3bf7ea31cbe4"
+  }
+]
