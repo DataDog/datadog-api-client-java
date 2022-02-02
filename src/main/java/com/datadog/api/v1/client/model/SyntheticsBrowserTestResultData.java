@@ -28,6 +28,7 @@ import java.util.Objects;
   SyntheticsBrowserTestResultData.JSON_PROPERTY_DEVICE,
   SyntheticsBrowserTestResultData.JSON_PROPERTY_DURATION,
   SyntheticsBrowserTestResultData.JSON_PROPERTY_ERROR,
+  SyntheticsBrowserTestResultData.JSON_PROPERTY_FAILURE,
   SyntheticsBrowserTestResultData.JSON_PROPERTY_PASSED,
   SyntheticsBrowserTestResultData.JSON_PROPERTY_RECEIVED_EMAIL_COUNT,
   SyntheticsBrowserTestResultData.JSON_PROPERTY_START_URL,
@@ -52,6 +53,9 @@ public class SyntheticsBrowserTestResultData {
 
   public static final String JSON_PROPERTY_ERROR = "error";
   private String error;
+
+  public static final String JSON_PROPERTY_FAILURE = "failure";
+  private SyntheticsBrowserTestResultFailure failure;
 
   public static final String JSON_PROPERTY_PASSED = "passed";
   private Boolean passed;
@@ -180,6 +184,29 @@ public class SyntheticsBrowserTestResultData {
 
   public void setError(String error) {
     this.error = error;
+  }
+
+  public SyntheticsBrowserTestResultData failure(SyntheticsBrowserTestResultFailure failure) {
+    this.failure = failure;
+    this.unparsed |= failure.unparsed;
+    return this;
+  }
+
+  /**
+   * Get failure
+   *
+   * @return failure
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsBrowserTestResultFailure getFailure() {
+    return failure;
+  }
+
+  public void setFailure(SyntheticsBrowserTestResultFailure failure) {
+    this.failure = failure;
   }
 
   public SyntheticsBrowserTestResultData passed(Boolean passed) {
@@ -343,6 +370,7 @@ public class SyntheticsBrowserTestResultData {
         && Objects.equals(this.device, syntheticsBrowserTestResultData.device)
         && Objects.equals(this.duration, syntheticsBrowserTestResultData.duration)
         && Objects.equals(this.error, syntheticsBrowserTestResultData.error)
+        && Objects.equals(this.failure, syntheticsBrowserTestResultData.failure)
         && Objects.equals(this.passed, syntheticsBrowserTestResultData.passed)
         && Objects.equals(
             this.receivedEmailCount, syntheticsBrowserTestResultData.receivedEmailCount)
@@ -362,6 +390,7 @@ public class SyntheticsBrowserTestResultData {
         device,
         duration,
         error,
+        failure,
         passed,
         receivedEmailCount,
         startUrl,
@@ -379,6 +408,7 @@ public class SyntheticsBrowserTestResultData {
     sb.append("    device: ").append(toIndentedString(device)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
     sb.append("    passed: ").append(toIndentedString(passed)).append("\n");
     sb.append("    receivedEmailCount: ").append(toIndentedString(receivedEmailCount)).append("\n");
     sb.append("    startUrl: ").append(toIndentedString(startUrl)).append("\n");
