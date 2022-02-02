@@ -113,7 +113,7 @@ public class CloudWorkloadSecurityApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
     GenericType<CloudWorkloadSecurityAgentRuleResponse> localVarReturnType =
         new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {};
@@ -200,7 +200,7 @@ public class CloudWorkloadSecurityApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
     return apiClient.invokeAPI(
         "CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule",
@@ -363,7 +363,7 @@ public class CloudWorkloadSecurityApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
     GenericType<CloudWorkloadSecurityAgentRuleResponse> localVarReturnType =
         new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {};
@@ -437,7 +437,7 @@ public class CloudWorkloadSecurityApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
     GenericType<CloudWorkloadSecurityAgentRulesListResponse> localVarReturnType =
         new GenericType<CloudWorkloadSecurityAgentRulesListResponse>() {};
@@ -543,7 +543,7 @@ public class CloudWorkloadSecurityApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
     GenericType<CloudWorkloadSecurityAgentRuleResponse> localVarReturnType =
         new GenericType<CloudWorkloadSecurityAgentRuleResponse>() {};

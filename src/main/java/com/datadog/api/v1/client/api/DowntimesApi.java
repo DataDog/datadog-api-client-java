@@ -549,7 +549,7 @@ public class DowntimesApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<List<Downtime>> localVarReturnType = new GenericType<List<Downtime>>() {};
 
