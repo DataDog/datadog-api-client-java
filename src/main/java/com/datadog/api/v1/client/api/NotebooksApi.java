@@ -276,7 +276,7 @@ public class NotebooksApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
 
@@ -528,7 +528,7 @@ public class NotebooksApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<NotebooksResponse> localVarReturnType = new GenericType<NotebooksResponse>() {};
 
