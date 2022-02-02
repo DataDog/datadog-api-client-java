@@ -9,7 +9,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsListErrorsTest" ],
-      "DD-OPERATION-ID" : [ "listMetrics" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },

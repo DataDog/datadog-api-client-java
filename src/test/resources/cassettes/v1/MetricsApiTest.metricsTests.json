@@ -50,7 +50,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsTests" ],
-      "DD-OPERATION-ID" : [ "listActiveMetrics" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -103,7 +102,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsTests" ],
-      "DD-OPERATION-ID" : [ "listActiveMetrics" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -156,7 +154,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsTests" ],
-      "DD-OPERATION-ID" : [ "listActiveMetrics" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -209,7 +206,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsTests" ],
-      "DD-OPERATION-ID" : [ "listActiveMetrics" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -262,7 +258,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsTests" ],
-      "DD-OPERATION-ID" : [ "listActiveMetrics" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -317,7 +312,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsTests" ],
-      "DD-OPERATION-ID" : [ "queryMetrics" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -370,7 +364,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsTests" ],
-      "DD-OPERATION-ID" : [ "listMetrics" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -416,7 +409,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsTests" ],
-      "DD-OPERATION-ID" : [ "getMetricMetadata" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -462,7 +454,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsTests" ],
-      "DD-OPERATION-ID" : [ "updateMetricMetadata" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "125" ]

@@ -10,7 +10,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "getGraphErrors" ],
-      "DD-OPERATION-ID" : [ "getGraphSnapshot" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -58,7 +57,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "getGraphErrors" ],
-      "DD-OPERATION-ID" : [ "getGraphSnapshot" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },

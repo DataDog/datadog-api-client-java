@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "updateAWSAccountTest" ],
-      "DD-OPERATION-ID" : [ "createAWSAccount" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
@@ -52,7 +51,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "updateAWSAccountTest" ],
-      "DD-OPERATION-ID" : [ "updateAWSAccount" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
@@ -97,7 +95,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "updateAWSAccountTest" ],
-      "DD-OPERATION-ID" : [ "listAWSAccounts" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -135,7 +132,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "updateAWSAccountTest" ],
-      "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,

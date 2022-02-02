@@ -9,7 +9,6 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getUsageFargateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "getUsageFargate" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -54,7 +53,6 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getUsageFargateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "getUsageFargate" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,

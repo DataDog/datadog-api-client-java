@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "createModifyDeleteMonitorSLO" ],
-      "DD-OPERATION-ID" : [ "createMonitor" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "150" ]
@@ -61,7 +60,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "createModifyDeleteMonitorSLO" ],
-      "DD-OPERATION-ID" : [ "createSLO" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "263" ]
@@ -116,7 +114,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "createModifyDeleteMonitorSLO" ],
-      "DD-OPERATION-ID" : [ "updateSLO" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "495" ]
@@ -170,7 +167,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "createModifyDeleteMonitorSLO" ],
-      "DD-OPERATION-ID" : [ "checkCanDeleteSLO" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -216,7 +212,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "createModifyDeleteMonitorSLO" ],
-      "DD-OPERATION-ID" : [ "getSLO" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -262,7 +257,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "createModifyDeleteMonitorSLO" ],
-      "DD-OPERATION-ID" : [ "deleteSLO" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]
@@ -309,7 +303,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "createModifyDeleteMonitorSLO" ],
-      "DD-OPERATION-ID" : [ "deleteSLO" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]
@@ -351,7 +344,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "createModifyDeleteMonitorSLO" ],
-      "DD-OPERATION-ID" : [ "deleteMonitor" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]

@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listDowntimesTest" ],
-      "DD-OPERATION-ID" : [ "createDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "76" ]
@@ -57,7 +56,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listDowntimesTest" ],
-      "DD-OPERATION-ID" : [ "createDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "76" ]
@@ -108,7 +106,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listDowntimesTest" ],
-      "DD-OPERATION-ID" : [ "createDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "76" ]
@@ -162,7 +159,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listDowntimesTest" ],
-      "DD-OPERATION-ID" : [ "listDowntimes" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -209,7 +205,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listDowntimesTest" ],
-      "DD-OPERATION-ID" : [ "getDowntime" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -255,7 +250,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listDowntimesTest" ],
-      "DD-OPERATION-ID" : [ "cancelDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]
@@ -300,7 +294,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listDowntimesTest" ],
-      "DD-OPERATION-ID" : [ "getDowntime" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -346,7 +339,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listDowntimesTest" ],
-      "DD-OPERATION-ID" : [ "cancelDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]
@@ -391,7 +383,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listDowntimesTest" ],
-      "DD-OPERATION-ID" : [ "getDowntime" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -437,7 +428,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listDowntimesTest" ],
-      "DD-OPERATION-ID" : [ "cancelDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]

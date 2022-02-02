@@ -47,7 +47,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "hostsTest" ],
-      "DD-OPERATION-ID" : [ "getHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -88,7 +87,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "hostsTest" ],
-      "DD-OPERATION-ID" : [ "getHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -129,7 +127,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "hostsTest" ],
-      "DD-OPERATION-ID" : [ "getHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -174,7 +171,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "hostsTest" ],
-      "DD-OPERATION-ID" : [ "muteHost" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "52" ]
@@ -225,7 +221,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "hostsTest" ],
-      "DD-OPERATION-ID" : [ "muteHost" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "57" ]
@@ -270,7 +265,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "hostsTest" ],
-      "DD-OPERATION-ID" : [ "muteHost" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "73" ]
@@ -321,7 +315,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "hostsTest" ],
-      "DD-OPERATION-ID" : [ "unmuteHost" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]

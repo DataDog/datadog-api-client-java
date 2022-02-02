@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "cancelDowntimesByScopeTest" ],
-      "DD-OPERATION-ID" : [ "createDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Content-Language" : [ "" ],
       "x-datadog-origin" : [ "ciapp-test" ],
@@ -51,7 +50,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "cancelDowntimesByScopeTest" ],
-      "DD-OPERATION-ID" : [ "createDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Content-Language" : [ "" ],
       "x-datadog-origin" : [ "ciapp-test" ],
@@ -96,7 +94,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "cancelDowntimesByScopeTest" ],
-      "DD-OPERATION-ID" : [ "createDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Content-Language" : [ "" ],
       "x-datadog-origin" : [ "ciapp-test" ],
@@ -141,7 +138,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "cancelDowntimesByScopeTest" ],
-      "DD-OPERATION-ID" : [ "cancelDowntimesByScope" ],
       "Content-Type" : [ "application/json" ],
       "Content-Language" : [ "" ],
       "x-datadog-origin" : [ "ciapp-test" ],
@@ -189,7 +185,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "cancelDowntimesByScopeTest" ],
-      "DD-OPERATION-ID" : [ "listDowntimes" ],
       "x-datadog-origin" : [ "ciapp-test" ],
       "Accept-Encoding" : [ "deflate,gzip,x-gzip" ],
       "content-length" : [ "0" ]
@@ -229,7 +224,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "cancelDowntimesByScopeTest" ],
-      "DD-OPERATION-ID" : [ "getDowntime" ],
       "x-datadog-origin" : [ "ciapp-test" ],
       "Accept-Encoding" : [ "deflate,gzip,x-gzip" ],
       "content-length" : [ "0" ]
@@ -270,7 +264,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "cancelDowntimesByScopeTest" ],
-      "DD-OPERATION-ID" : [ "cancelDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Content-Language" : [ "" ],
       "x-datadog-origin" : [ "ciapp-test" ],
@@ -308,7 +301,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "cancelDowntimesByScopeTest" ],
-      "DD-OPERATION-ID" : [ "getDowntime" ],
       "x-datadog-origin" : [ "ciapp-test" ],
       "Accept-Encoding" : [ "deflate,gzip,x-gzip" ],
       "content-length" : [ "0" ]
@@ -348,7 +340,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "cancelDowntimesByScopeTest" ],
-      "DD-OPERATION-ID" : [ "cancelDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Content-Language" : [ "" ],
       "x-datadog-origin" : [ "ciapp-test" ],
@@ -386,7 +377,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "cancelDowntimesByScopeTest" ],
-      "DD-OPERATION-ID" : [ "getDowntime" ],
       "x-datadog-origin" : [ "ciapp-test" ],
       "Accept-Encoding" : [ "deflate,gzip,x-gzip" ],
       "content-length" : [ "0" ]
@@ -426,7 +416,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "cancelDowntimesByScopeTest" ],
-      "DD-OPERATION-ID" : [ "cancelDowntime" ],
       "Content-Type" : [ "application/json" ],
       "Content-Language" : [ "" ],
       "x-datadog-origin" : [ "ciapp-test" ],

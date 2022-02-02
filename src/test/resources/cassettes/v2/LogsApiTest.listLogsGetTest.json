@@ -84,7 +84,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogsGetTest" ],
-      "DD-OPERATION-ID" : [ "listLogsGet" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -139,7 +138,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogsGetTest" ],
-      "DD-OPERATION-ID" : [ "listLogsGet" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -194,7 +192,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogsGetTest" ],
-      "DD-OPERATION-ID" : [ "listLogsGet" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -249,7 +246,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogsGetTest" ],
-      "DD-OPERATION-ID" : [ "listLogsGet" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -304,7 +300,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogsGetTest" ],
-      "DD-OPERATION-ID" : [ "listLogsGet" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -360,7 +355,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogsGetTest" ],
-      "DD-OPERATION-ID" : [ "listLogsGet" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -416,7 +410,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogsGetTest" ],
-      "DD-OPERATION-ID" : [ "listLogsGet" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -472,7 +465,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogsGetTest" ],
-      "DD-OPERATION-ID" : [ "listLogsGet" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -529,7 +521,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogsGetTest" ],
-      "DD-OPERATION-ID" : [ "listLogsGet" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },

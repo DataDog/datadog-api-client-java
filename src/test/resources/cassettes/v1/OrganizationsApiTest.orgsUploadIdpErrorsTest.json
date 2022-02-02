@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "orgsUploadIdpErrorsTest" ],
-      "DD-OPERATION-ID" : [ "uploadIdPForOrg" ],
       "Content-Type" : [ "multipart/form-data;boundary=Boundary_1_616968852_1591009960246" ],
       "MIME-Version" : [ "1.0" ],
       "Connection" : [ "close" ],
@@ -53,7 +52,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "orgsUploadIdpErrorsTest" ],
-      "DD-OPERATION-ID" : [ "uploadIdPForOrg" ],
       "Content-Type" : [ "multipart/form-data;boundary=Boundary_2_717183339_1591009960933" ],
       "MIME-Version" : [ "1.0" ],
       "Connection" : [ "close" ],

@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getSpecifiedDailyCustomReportsErrorsTest" ],
-      "DD-OPERATION-ID" : [ "getSpecifiedDailyCustomReports" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -39,7 +38,6 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getSpecifiedDailyCustomReportsErrorsTest" ],
-      "DD-OPERATION-ID" : [ "getSpecifiedDailyCustomReports" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,

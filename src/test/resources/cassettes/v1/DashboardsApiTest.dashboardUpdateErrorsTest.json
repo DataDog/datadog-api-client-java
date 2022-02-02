@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardUpdateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "updateDashboard" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "67" ]
@@ -51,7 +50,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardUpdateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "updateDashboard" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "67" ]
@@ -90,7 +88,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardUpdateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "updateDashboard" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "161" ]

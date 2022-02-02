@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "validateTest" ],
-      "DD-OPERATION-ID" : [ "validate" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },

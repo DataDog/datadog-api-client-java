@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "aPPKeysMgmtCreateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "createApplicationKey" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "2" ]
@@ -51,7 +50,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "aPPKeysMgmtCreateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "createApplicationKey" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "2" ]
