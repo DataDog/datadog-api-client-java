@@ -49,7 +49,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_SYNTHETICS_CHECK_ID,
   MonitorOptions.JSON_PROPERTY_THRESHOLD_WINDOWS,
   MonitorOptions.JSON_PROPERTY_THRESHOLDS,
-  MonitorOptions.JSON_PROPERTY_TIMEOUT_H
+  MonitorOptions.JSON_PROPERTY_TIMEOUT_H,
+  MonitorOptions.JSON_PROPERTY_VARIABLES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorOptions {
@@ -126,6 +127,9 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_TIMEOUT_H = "timeout_h";
   private JsonNullable<Long> timeoutH = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_VARIABLES = "variables";
+  private List<MonitorFormulaAndFunctionQueryDefinition> variables = null;
 
   public MonitorOptions aggregation(MonitorOptionsAggregation aggregation) {
     this.aggregation = aggregation;
@@ -869,6 +873,43 @@ public class MonitorOptions {
     this.timeoutH = JsonNullable.<Long>of(timeoutH);
   }
 
+  public MonitorOptions variables(List<MonitorFormulaAndFunctionQueryDefinition> variables) {
+    this.variables = variables;
+    for (MonitorFormulaAndFunctionQueryDefinition item : variables) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public MonitorOptions addVariablesItem(MonitorFormulaAndFunctionQueryDefinition variablesItem) {
+    if (this.variables == null) {
+      this.variables = new ArrayList<>();
+    }
+    this.variables.add(variablesItem);
+    this.unparsed |= variablesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of requests that can be used in the monitor query. **This feature is currently in beta.**
+   *
+   * @return variables
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "List of requests that can be used in the monitor query. **This feature is currently in"
+              + " beta.**")
+  @JsonProperty(JSON_PROPERTY_VARIABLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorFormulaAndFunctionQueryDefinition> getVariables() {
+    return variables;
+  }
+
+  public void setVariables(List<MonitorFormulaAndFunctionQueryDefinition> variables) {
+    this.variables = variables;
+  }
+
   /** Return true if this MonitorOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -902,7 +943,8 @@ public class MonitorOptions {
         && Objects.equals(this.syntheticsCheckId, monitorOptions.syntheticsCheckId)
         && Objects.equals(this.thresholdWindows, monitorOptions.thresholdWindows)
         && Objects.equals(this.thresholds, monitorOptions.thresholds)
-        && Objects.equals(this.timeoutH, monitorOptions.timeoutH);
+        && Objects.equals(this.timeoutH, monitorOptions.timeoutH)
+        && Objects.equals(this.variables, monitorOptions.variables);
   }
 
   @Override
@@ -931,7 +973,8 @@ public class MonitorOptions {
         syntheticsCheckId,
         thresholdWindows,
         thresholds,
-        timeoutH);
+        timeoutH,
+        variables);
   }
 
   @Override
@@ -966,6 +1009,7 @@ public class MonitorOptions {
     sb.append("    thresholdWindows: ").append(toIndentedString(thresholdWindows)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
     sb.append("    timeoutH: ").append(toIndentedString(timeoutH)).append("\n");
+    sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("}");
     return sb.toString();
   }
