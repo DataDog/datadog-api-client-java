@@ -24,9 +24,8 @@ import java.util.Objects;
 @ApiModel(description = "Object containing results for your Synthetic API test.")
 @JsonPropertyOrder({
   SyntheticsAPITestResultData.JSON_PROPERTY_CERT,
-  SyntheticsAPITestResultData.JSON_PROPERTY_ERROR_CODE,
-  SyntheticsAPITestResultData.JSON_PROPERTY_ERROR_MESSAGE,
   SyntheticsAPITestResultData.JSON_PROPERTY_EVENT_TYPE,
+  SyntheticsAPITestResultData.JSON_PROPERTY_FAILURE,
   SyntheticsAPITestResultData.JSON_PROPERTY_HTTP_STATUS_CODE,
   SyntheticsAPITestResultData.JSON_PROPERTY_REQUEST_HEADERS,
   SyntheticsAPITestResultData.JSON_PROPERTY_RESPONSE_BODY,
@@ -40,14 +39,11 @@ public class SyntheticsAPITestResultData {
   public static final String JSON_PROPERTY_CERT = "cert";
   private SyntheticsSSLCertificate cert;
 
-  public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
-  private SyntheticsErrorCode errorCode;
-
-  public static final String JSON_PROPERTY_ERROR_MESSAGE = "errorMessage";
-  private String errorMessage;
-
   public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
   private SyntheticsTestProcessStatus eventType;
+
+  public static final String JSON_PROPERTY_FAILURE = "failure";
+  private SyntheticsApiTestResultFailure failure;
 
   public static final String JSON_PROPERTY_HTTP_STATUS_CODE = "httpStatusCode";
   private Long httpStatusCode;
@@ -90,54 +86,6 @@ public class SyntheticsAPITestResultData {
     this.cert = cert;
   }
 
-  public SyntheticsAPITestResultData errorCode(SyntheticsErrorCode errorCode) {
-    this.errorCode = errorCode;
-    this.unparsed |= !errorCode.isValid();
-    return this;
-  }
-
-  /**
-   * Get errorCode
-   *
-   * @return errorCode
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsErrorCode getErrorCode() {
-    return errorCode;
-  }
-
-  public void setErrorCode(SyntheticsErrorCode errorCode) {
-    if (!errorCode.isValid()) {
-      this.unparsed = true;
-    }
-    this.errorCode = errorCode;
-  }
-
-  public SyntheticsAPITestResultData errorMessage(String errorMessage) {
-    this.errorMessage = errorMessage;
-    return this;
-  }
-
-  /**
-   * The API test error message.
-   *
-   * @return errorMessage
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The API test error message.")
-  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getErrorMessage() {
-    return errorMessage;
-  }
-
-  public void setErrorMessage(String errorMessage) {
-    this.errorMessage = errorMessage;
-  }
-
   public SyntheticsAPITestResultData eventType(SyntheticsTestProcessStatus eventType) {
     this.eventType = eventType;
     this.unparsed |= !eventType.isValid();
@@ -162,6 +110,29 @@ public class SyntheticsAPITestResultData {
       this.unparsed = true;
     }
     this.eventType = eventType;
+  }
+
+  public SyntheticsAPITestResultData failure(SyntheticsApiTestResultFailure failure) {
+    this.failure = failure;
+    this.unparsed |= failure.unparsed;
+    return this;
+  }
+
+  /**
+   * Get failure
+   *
+   * @return failure
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsApiTestResultFailure getFailure() {
+    return failure;
+  }
+
+  public void setFailure(SyntheticsApiTestResultFailure failure) {
+    this.failure = failure;
   }
 
   public SyntheticsAPITestResultData httpStatusCode(Long httpStatusCode) {
@@ -325,9 +296,8 @@ public class SyntheticsAPITestResultData {
     }
     SyntheticsAPITestResultData syntheticsAPITestResultData = (SyntheticsAPITestResultData) o;
     return Objects.equals(this.cert, syntheticsAPITestResultData.cert)
-        && Objects.equals(this.errorCode, syntheticsAPITestResultData.errorCode)
-        && Objects.equals(this.errorMessage, syntheticsAPITestResultData.errorMessage)
         && Objects.equals(this.eventType, syntheticsAPITestResultData.eventType)
+        && Objects.equals(this.failure, syntheticsAPITestResultData.failure)
         && Objects.equals(this.httpStatusCode, syntheticsAPITestResultData.httpStatusCode)
         && Objects.equals(this.requestHeaders, syntheticsAPITestResultData.requestHeaders)
         && Objects.equals(this.responseBody, syntheticsAPITestResultData.responseBody)
@@ -340,9 +310,8 @@ public class SyntheticsAPITestResultData {
   public int hashCode() {
     return Objects.hash(
         cert,
-        errorCode,
-        errorMessage,
         eventType,
+        failure,
         httpStatusCode,
         requestHeaders,
         responseBody,
@@ -356,9 +325,8 @@ public class SyntheticsAPITestResultData {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsAPITestResultData {\n");
     sb.append("    cert: ").append(toIndentedString(cert)).append("\n");
-    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
-    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
+    sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
     sb.append("    httpStatusCode: ").append(toIndentedString(httpStatusCode)).append("\n");
     sb.append("    requestHeaders: ").append(toIndentedString(requestHeaders)).append("\n");
     sb.append("    responseBody: ").append(toIndentedString(responseBody)).append("\n");
