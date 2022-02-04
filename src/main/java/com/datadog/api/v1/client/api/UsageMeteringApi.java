@@ -236,20 +236,6 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getDailyCustomReports");
 
-<<<<<<< HEAD
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageCustomReportsResponse> localVarReturnType =
-        new GenericType<UsageCustomReportsResponse>() {};
-
-=======
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getDailyCustomReports",
@@ -258,8 +244,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
->>>>>>> e8b09f8d (Refactor to reduce duplication)
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -310,7 +295,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1191,20 +1176,6 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyCustomReports");
 
-<<<<<<< HEAD
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageCustomReportsResponse> localVarReturnType =
-        new GenericType<UsageCustomReportsResponse>() {};
-
-=======
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getMonthlyCustomReports",
@@ -1213,8 +1184,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
->>>>>>> e8b09f8d (Refactor to reduce duplication)
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1266,7 +1236,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1682,20 +1652,6 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedDailyCustomReports");
 
-<<<<<<< HEAD
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSpecifiedCustomReportsResponse> localVarReturnType =
-        new GenericType<UsageSpecifiedCustomReportsResponse>() {};
-
-=======
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getSpecifiedDailyCustomReports",
@@ -1704,8 +1660,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
->>>>>>> e8b09f8d (Refactor to reduce duplication)
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1760,7 +1715,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
           new CompletableFuture<>();
@@ -1849,20 +1804,6 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedMonthlyCustomReports");
 
-<<<<<<< HEAD
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSpecifiedCustomReportsResponse> localVarReturnType =
-        new GenericType<UsageSpecifiedCustomReportsResponse>() {};
-
-=======
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getSpecifiedMonthlyCustomReports",
@@ -1871,8 +1812,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
->>>>>>> e8b09f8d (Refactor to reduce duplication)
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1927,7 +1867,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
           new CompletableFuture<>();
@@ -2620,20 +2560,6 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAuditLogs");
 
-<<<<<<< HEAD
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageAuditLogsResponse> localVarReturnType =
-        new GenericType<UsageAuditLogsResponse>() {};
-
-=======
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageAuditLogs",
@@ -2642,8 +2568,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
->>>>>>> e8b09f8d (Refactor to reduce duplication)
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -2700,7 +2625,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageAuditLogsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -3243,20 +3168,6 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCloudSecurityPostureManagement");
 
-<<<<<<< HEAD
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageCloudSecurityPostureManagementResponse> localVarReturnType =
-        new GenericType<UsageCloudSecurityPostureManagementResponse>() {};
-
-=======
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageCloudSecurityPostureManagement",
@@ -3265,8 +3176,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
->>>>>>> e8b09f8d (Refactor to reduce duplication)
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -3328,7 +3238,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCloudSecurityPostureManagementResponse>> result =
           new CompletableFuture<>();
@@ -3471,19 +3381,6 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageDBM");
 
-<<<<<<< HEAD
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageDBMResponse> localVarReturnType = new GenericType<UsageDBMResponse>() {};
-
-=======
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageDBM",
@@ -3492,8 +3389,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
->>>>>>> e8b09f8d (Refactor to reduce duplication)
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -3550,7 +3446,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageDBMResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -5183,20 +5079,6 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByRetention");
 
-<<<<<<< HEAD
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageLogsByRetentionResponse> localVarReturnType =
-        new GenericType<UsageLogsByRetentionResponse>() {};
-
-=======
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageLogsByRetention",
@@ -5205,8 +5087,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
->>>>>>> e8b09f8d (Refactor to reduce duplication)
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -5266,7 +5147,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageLogsByRetentionResponse>> result =
           new CompletableFuture<>();
@@ -6483,19 +6364,6 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSDS");
 
-<<<<<<< HEAD
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<UsageSDSResponse> localVarReturnType = new GenericType<UsageSDSResponse>() {};
-
-=======
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageSDS",
@@ -6504,8 +6372,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
->>>>>>> e8b09f8d (Refactor to reduce duplication)
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -6562,7 +6429,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSDSResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

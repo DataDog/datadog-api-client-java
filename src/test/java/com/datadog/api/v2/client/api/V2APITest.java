@@ -6,7 +6,6 @@
 
 package com.datadog.api.v2.client.api;
 
-
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiClient;
