@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -52,32 +54,45 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key Create an API key.
+   * Create an API key
+   *
+   * <p>See {@link #createAPIKeyWithHttpInfo}.
    *
    * @param body (required)
    * @return APIKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeyResponse createAPIKey(APIKeyCreateRequest body) throws ApiException {
     return createAPIKeyWithHttpInfo(body).getData();
   }
 
   /**
-   * Create an API key Create an API key.
+   * Create an API key
+   *
+   * <p>See {@link #createAPIKeyWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;APIKeyResponse&gt;
+   */
+  public CompletableFuture<APIKeyResponse> createAPIKeyAsync(APIKeyCreateRequest body) {
+    return createAPIKeyWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an API key
+   *
+   * <p>Create an API key.
    *
    * @param body (required)
    * @return ApiResponse&lt;APIKeyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -97,55 +112,93 @@ public class KeyManagementApi {
     // create path and map variables
     String localVarPath = "/api/v2/api_keys";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createAPIKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<APIKeyResponse> localVarReturnType = new GenericType<APIKeyResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.createAPIKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.createAPIKey",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<APIKeyResponse>() {});
   }
 
   /**
-   * Create an application key for current user Create an application key for current user
+   * Create an API key
+   *
+   * <p>See {@link #createAPIKeyWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;APIKeyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<APIKeyResponse>> createAPIKeyWithHttpInfoAsync(
+      APIKeyCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<APIKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling createAPIKey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/api_keys";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createAPIKey");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.createAPIKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<APIKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<APIKeyResponse>() {});
+  }
+
+  /**
+   * Create an application key for current user
+   *
+   * <p>See {@link #createCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param body (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse createCurrentUserApplicationKey(ApplicationKeyCreateRequest body)
       throws ApiException {
@@ -153,13 +206,33 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key for current user Create an application key for current user
+   * Create an application key for current user
+   *
+   * <p>See {@link #createCurrentUserApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
+  public CompletableFuture<ApplicationKeyResponse> createCurrentUserApplicationKeyAsync(
+      ApplicationKeyCreateRequest body) {
+    return createCurrentUserApplicationKeyWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an application key for current user
+   *
+   * <p>Create an application key for current user
    *
    * @param body (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -180,68 +253,126 @@ public class KeyManagementApi {
     // create path and map variables
     String localVarPath = "/api/v2/current_user/application_keys";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createCurrentUserApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<ApplicationKeyResponse> localVarReturnType =
-        new GenericType<ApplicationKeyResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.createCurrentUserApplicationKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.createCurrentUserApplicationKey",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
   }
 
   /**
-   * Delete an API key Delete an API key.
+   * Create an application key for current user
+   *
+   * <p>See {@link #createCurrentUserApplicationKeyWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
+      createCurrentUserApplicationKeyWithHttpInfoAsync(ApplicationKeyCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createCurrentUserApplicationKey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/current_user/application_keys";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createCurrentUserApplicationKey");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.createCurrentUserApplicationKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
+  }
+
+  /**
+   * Delete an API key
+   *
+   * <p>See {@link #deleteAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteAPIKey(String apiKeyId) throws ApiException {
     deleteAPIKeyWithHttpInfo(apiKeyId);
   }
 
   /**
-   * Delete an API key Delete an API key.
+   * Delete an API key
+   *
+   * <p>See {@link #deleteAPIKeyWithHttpInfoAsync}.
+   *
+   * @param apiKeyId The ID of the API key. (required)
+   */
+  public CompletableFuture<Void> deleteAPIKeyAsync(String apiKeyId) {
+    return deleteAPIKeyWithHttpInfoAsync(apiKeyId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an API key
+   *
+   * <p>Delete an API key.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -262,66 +393,125 @@ public class KeyManagementApi {
         "/api/v2/api_keys/{api_key_id}"
             .replaceAll("\\{" + "api_key_id" + "\\}", apiClient.escapeString(apiKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteAPIKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.deleteAPIKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.deleteAPIKey",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
-   * Delete an application key Delete an application key
+   * Delete an API key
+   *
+   * <p>See {@link #deleteAPIKeyWithHttpInfo}.
+   *
+   * @param apiKeyId The ID of the API key. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteAPIKeyWithHttpInfoAsync(String apiKeyId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'apiKeyId' is set
+    if (apiKeyId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'apiKeyId' when calling deleteAPIKey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/api_keys/{api_key_id}"
+            .replaceAll("\\{" + "api_key_id" + "\\}", apiClient.escapeString(apiKeyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAPIKey");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.deleteAPIKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an application key
+   *
+   * <p>See {@link #deleteApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteApplicationKey(String appKeyId) throws ApiException {
     deleteApplicationKeyWithHttpInfo(appKeyId);
   }
 
   /**
-   * Delete an application key Delete an application key
+   * Delete an application key
+   *
+   * <p>See {@link #deleteApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   */
+  public CompletableFuture<Void> deleteApplicationKeyAsync(String appKeyId) {
+    return deleteApplicationKeyWithHttpInfoAsync(appKeyId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an application key
+   *
+   * <p>Delete an application key
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -342,66 +532,126 @@ public class KeyManagementApi {
         "/api/v2/application_keys/{app_key_id}"
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.deleteApplicationKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.deleteApplicationKey",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
-   * Delete an application key owned by current user Delete an application key owned by current user
+   * Delete an application key
+   *
+   * <p>See {@link #deleteApplicationKeyWithHttpInfo}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteApplicationKeyWithHttpInfoAsync(
+      String appKeyId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appKeyId' is set
+    if (appKeyId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appKeyId' when calling deleteApplicationKey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/application_keys/{app_key_id}"
+            .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteApplicationKey");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.deleteApplicationKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an application key owned by current user
+   *
+   * <p>See {@link #deleteCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteCurrentUserApplicationKey(String appKeyId) throws ApiException {
     deleteCurrentUserApplicationKeyWithHttpInfo(appKeyId);
   }
 
   /**
-   * Delete an application key owned by current user Delete an application key owned by current user
+   * Delete an application key owned by current user
+   *
+   * <p>See {@link #deleteCurrentUserApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   */
+  public CompletableFuture<Void> deleteCurrentUserApplicationKeyAsync(String appKeyId) {
+    return deleteCurrentUserApplicationKeyWithHttpInfoAsync(appKeyId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an application key owned by current user
+   *
+   * <p>Delete an application key owned by current user
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -424,38 +674,88 @@ public class KeyManagementApi {
         "/api/v2/current_user/application_keys/{app_key_id}"
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteCurrentUserApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.deleteCurrentUserApplicationKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.deleteCurrentUserApplicationKey",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an application key owned by current user
+   *
+   * <p>See {@link #deleteCurrentUserApplicationKeyWithHttpInfo}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteCurrentUserApplicationKeyWithHttpInfoAsync(
+      String appKeyId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appKeyId' is set
+    if (appKeyId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'appKeyId' when calling"
+                  + " deleteCurrentUserApplicationKey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/current_user/application_keys/{app_key_id}"
+            .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteCurrentUserApplicationKey");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.deleteCurrentUserApplicationKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /** Manage optional parameters to getAPIKey. */
@@ -477,39 +777,43 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key Get an API key.
+   * Get API key
+   *
+   * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @return APIKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeyResponse getAPIKey(String apiKeyId) throws ApiException {
     return getAPIKeyWithHttpInfo(apiKeyId, new GetAPIKeyOptionalParameters()).getData();
   }
 
   /**
-   * Get API key Get an API key.
+   * Get API key
+   *
+   * <p>See {@link #getAPIKeyWithHttpInfo}.
+   *
+   * @param apiKeyId The ID of the API key. (required)
+   * @return CompletableFuture&lt;APIKeyResponse&gt;
+   */
+  public CompletableFuture<APIKeyResponse> getAPIKeyAsync(String apiKeyId) {
+    return getAPIKeyWithHttpInfoAsync(apiKeyId, new GetAPIKeyOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get API key
+   *
+   * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param parameters Optional parameters for the request.
    * @return APIKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeyResponse getAPIKey(String apiKeyId, GetAPIKeyOptionalParameters parameters)
       throws ApiException {
@@ -517,14 +821,35 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key Get an API key.
+   * Get API key
+   *
+   * <p>See {@link #getAPIKeyWithHttpInfoAsync}.
+   *
+   * @param apiKeyId The ID of the API key. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;APIKeyResponse&gt;
+   */
+  public CompletableFuture<APIKeyResponse> getAPIKeyAsync(
+      String apiKeyId, GetAPIKeyOptionalParameters parameters) {
+    return getAPIKeyWithHttpInfoAsync(apiKeyId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get API key
+   *
+   * <p>Get an API key.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;APIKeyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -547,42 +872,94 @@ public class KeyManagementApi {
         "/api/v2/api_keys/{api_key_id}"
             .replaceAll("\\{" + "api_key_id" + "\\}", apiClient.escapeString(apiKeyId.toString()));
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getAPIKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<APIKeyResponse> localVarReturnType = new GenericType<APIKeyResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.getAPIKey",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.getAPIKey",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<APIKeyResponse>() {});
+  }
+
+  /**
+   * Get API key
+   *
+   * <p>See {@link #getAPIKeyWithHttpInfo}.
+   *
+   * @param apiKeyId The ID of the API key. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;APIKeyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<APIKeyResponse>> getAPIKeyWithHttpInfoAsync(
+      String apiKeyId, GetAPIKeyOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'apiKeyId' is set
+    if (apiKeyId == null) {
+      CompletableFuture<ApiResponse<APIKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'apiKeyId' when calling getAPIKey"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/api_keys/{api_key_id}"
+            .replaceAll("\\{" + "api_key_id" + "\\}", apiClient.escapeString(apiKeyId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getAPIKey");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.getAPIKey",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<APIKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<APIKeyResponse>() {});
   }
 
   /** Manage optional parameters to getApplicationKey. */
@@ -603,20 +980,13 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key Get an application key for your org.
+   * Get an application key
+   *
+   * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse getApplicationKey(String appKeyId) throws ApiException {
     return getApplicationKeyWithHttpInfo(appKeyId, new GetApplicationKeyOptionalParameters())
@@ -624,21 +994,30 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key Get an application key for your org.
+   * Get an application key
+   *
+   * <p>See {@link #getApplicationKeyWithHttpInfo}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
+  public CompletableFuture<ApplicationKeyResponse> getApplicationKeyAsync(String appKeyId) {
+    return getApplicationKeyWithHttpInfoAsync(appKeyId, new GetApplicationKeyOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an application key
+   *
+   * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse getApplicationKey(
       String appKeyId, GetApplicationKeyOptionalParameters parameters) throws ApiException {
@@ -646,14 +1025,35 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key Get an application key for your org.
+   * Get an application key
+   *
+   * <p>See {@link #getApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
+  public CompletableFuture<ApplicationKeyResponse> getApplicationKeyAsync(
+      String appKeyId, GetApplicationKeyOptionalParameters parameters) {
+    return getApplicationKeyWithHttpInfoAsync(appKeyId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an application key
+   *
+   * <p>Get an application key for your org.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -677,72 +1077,137 @@ public class KeyManagementApi {
         "/api/v2/application_keys/{app_key_id}"
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<ApplicationKeyResponse> localVarReturnType =
-        new GenericType<ApplicationKeyResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.getApplicationKey",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.getApplicationKey",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
   }
 
   /**
-   * Get one application key owned by current user Get an application key owned by current user
+   * Get an application key
+   *
+   * <p>See {@link #getApplicationKeyWithHttpInfo}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ApplicationKeyResponse>> getApplicationKeyWithHttpInfoAsync(
+      String appKeyId, GetApplicationKeyOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appKeyId' is set
+    if (appKeyId == null) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appKeyId' when calling getApplicationKey"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/application_keys/{app_key_id}"
+            .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getApplicationKey");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.getApplicationKey",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
+  }
+
+  /**
+   * Get one application key owned by current user
+   *
+   * <p>See {@link #getCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse getCurrentUserApplicationKey(String appKeyId) throws ApiException {
     return getCurrentUserApplicationKeyWithHttpInfo(appKeyId).getData();
   }
 
   /**
-   * Get one application key owned by current user Get an application key owned by current user
+   * Get one application key owned by current user
+   *
+   * <p>See {@link #getCurrentUserApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
+  public CompletableFuture<ApplicationKeyResponse> getCurrentUserApplicationKeyAsync(
+      String appKeyId) {
+    return getCurrentUserApplicationKeyWithHttpInfoAsync(appKeyId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get one application key owned by current user
+   *
+   * <p>Get an application key owned by current user
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -765,41 +1230,88 @@ public class KeyManagementApi {
         "/api/v2/current_user/application_keys/{app_key_id}"
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getCurrentUserApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<ApplicationKeyResponse> localVarReturnType =
-        new GenericType<ApplicationKeyResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.getCurrentUserApplicationKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.getCurrentUserApplicationKey",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
+  }
+
+  /**
+   * Get one application key owned by current user
+   *
+   * <p>See {@link #getCurrentUserApplicationKeyWithHttpInfo}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
+      getCurrentUserApplicationKeyWithHttpInfoAsync(String appKeyId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appKeyId' is set
+    if (appKeyId == null) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'appKeyId' when calling"
+                  + " getCurrentUserApplicationKey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/current_user/application_keys/{app_key_id}"
+            .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getCurrentUserApplicationKey");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.getCurrentUserApplicationKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
   }
 
   /** Manage optional parameters to listAPIKeys. */
@@ -923,50 +1435,73 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys List all API keys available for your account.
+   * Get all API keys
+   *
+   * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
    * @return APIKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeysResponse listAPIKeys() throws ApiException {
     return listAPIKeysWithHttpInfo(new ListAPIKeysOptionalParameters()).getData();
   }
 
   /**
-   * Get all API keys List all API keys available for your account.
+   * Get all API keys
+   *
+   * <p>See {@link #listAPIKeysWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;APIKeysResponse&gt;
+   */
+  public CompletableFuture<APIKeysResponse> listAPIKeysAsync() {
+    return listAPIKeysWithHttpInfoAsync(new ListAPIKeysOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all API keys
+   *
+   * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return APIKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeysResponse listAPIKeys(ListAPIKeysOptionalParameters parameters) throws ApiException {
     return listAPIKeysWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get all API keys List all API keys available for your account.
+   * Get all API keys
+   *
+   * <p>See {@link #listAPIKeysWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;APIKeysResponse&gt;
+   */
+  public CompletableFuture<APIKeysResponse> listAPIKeysAsync(
+      ListAPIKeysOptionalParameters parameters) {
+    return listAPIKeysWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all API keys
+   *
+   * <p>List all API keys available for your account.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;APIKeysResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -989,11 +1524,8 @@ public class KeyManagementApi {
     // create path and map variables
     String localVarPath = "/api/v2/api_keys";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
@@ -1012,31 +1544,94 @@ public class KeyManagementApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listAPIKeys");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<APIKeysResponse> localVarReturnType = new GenericType<APIKeysResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.listAPIKeys",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.listAPIKeys",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<APIKeysResponse>() {});
+  }
+
+  /**
+   * Get all API keys
+   *
+   * <p>See {@link #listAPIKeysWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;APIKeysResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<APIKeysResponse>> listAPIKeysWithHttpInfoAsync(
+      ListAPIKeysOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    APIKeysSort sort = parameters.sort;
+    String filter = parameters.filter;
+    String filterCreatedAtStart = parameters.filterCreatedAtStart;
+    String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    String filterModifiedAtStart = parameters.filterModifiedAtStart;
+    String filterModifiedAtEnd = parameters.filterModifiedAtEnd;
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/api_keys";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[modified_at][start]", filterModifiedAtStart));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[modified_at][end]", filterModifiedAtEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listAPIKeys");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.listAPIKeys",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<APIKeysResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<APIKeysResponse>() {});
   }
 
   /** Manage optional parameters to listApplicationKeys. */
@@ -1120,39 +1715,40 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys List all application keys available for your org
+   * Get all application keys
+   *
+   * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
    * @return ListApplicationKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ListApplicationKeysResponse listApplicationKeys() throws ApiException {
     return listApplicationKeysWithHttpInfo(new ListApplicationKeysOptionalParameters()).getData();
   }
 
   /**
-   * Get all application keys List all application keys available for your org
+   * Get all application keys
+   *
+   * <p>See {@link #listApplicationKeysWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
+   */
+  public CompletableFuture<ListApplicationKeysResponse> listApplicationKeysAsync() {
+    return listApplicationKeysWithHttpInfoAsync(new ListApplicationKeysOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all application keys
+   *
+   * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return ListApplicationKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ListApplicationKeysResponse listApplicationKeys(
       ListApplicationKeysOptionalParameters parameters) throws ApiException {
@@ -1160,13 +1756,33 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys List all application keys available for your org
+   * Get all application keys
+   *
+   * <p>See {@link #listApplicationKeysWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
+   */
+  public CompletableFuture<ListApplicationKeysResponse> listApplicationKeysAsync(
+      ListApplicationKeysOptionalParameters parameters) {
+    return listApplicationKeysWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all application keys
+   *
+   * <p>List all application keys available for your org
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListApplicationKeysResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1187,11 +1803,8 @@ public class KeyManagementApi {
     // create path and map variables
     String localVarPath = "/api/v2/application_keys";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
@@ -1205,32 +1818,87 @@ public class KeyManagementApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listApplicationKeys");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<ListApplicationKeysResponse> localVarReturnType =
-        new GenericType<ListApplicationKeysResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.listApplicationKeys",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.listApplicationKeys",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListApplicationKeysResponse>() {});
+  }
+
+  /**
+   * Get all application keys
+   *
+   * <p>See {@link #listApplicationKeysWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListApplicationKeysResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListApplicationKeysResponse>>
+      listApplicationKeysWithHttpInfoAsync(ListApplicationKeysOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    ApplicationKeysSort sort = parameters.sort;
+    String filter = parameters.filter;
+    String filterCreatedAtStart = parameters.filterCreatedAtStart;
+    String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    // create path and map variables
+    String localVarPath = "/api/v2/application_keys";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listApplicationKeys");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.listApplicationKeys",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListApplicationKeysResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListApplicationKeysResponse>() {});
   }
 
   /** Manage optional parameters to listCurrentUserApplicationKeys. */
@@ -1316,20 +1984,12 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user List all application keys available for current
-   * user
+   * Get all application keys owned by current user
+   *
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
    *
    * @return ListApplicationKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ListApplicationKeysResponse listCurrentUserApplicationKeys() throws ApiException {
     return listCurrentUserApplicationKeysWithHttpInfo(
@@ -1338,21 +1998,29 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user List all application keys available for current
-   * user
+   * Get all application keys owned by current user
+   *
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
+   */
+  public CompletableFuture<ListApplicationKeysResponse> listCurrentUserApplicationKeysAsync() {
+    return listCurrentUserApplicationKeysWithHttpInfoAsync(
+            new ListCurrentUserApplicationKeysOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all application keys owned by current user
+   *
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return ListApplicationKeysResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ListApplicationKeysResponse listCurrentUserApplicationKeys(
       ListCurrentUserApplicationKeysOptionalParameters parameters) throws ApiException {
@@ -1360,14 +2028,33 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user List all application keys available for current
-   * user
+   * Get all application keys owned by current user
+   *
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
+   */
+  public CompletableFuture<ListApplicationKeysResponse> listCurrentUserApplicationKeysAsync(
+      ListCurrentUserApplicationKeysOptionalParameters parameters) {
+    return listCurrentUserApplicationKeysWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all application keys owned by current user
+   *
+   * <p>List all application keys available for current user
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListApplicationKeysResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1388,11 +2075,8 @@ public class KeyManagementApi {
     // create path and map variables
     String localVarPath = "/api/v2/current_user/application_keys";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
@@ -1406,50 +2090,99 @@ public class KeyManagementApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listCurrentUserApplicationKeys");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<ListApplicationKeysResponse> localVarReturnType =
-        new GenericType<ListApplicationKeysResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.listCurrentUserApplicationKeys",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.listCurrentUserApplicationKeys",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListApplicationKeysResponse>() {});
   }
 
   /**
-   * Edit an API key Update an API key.
+   * Get all application keys owned by current user
+   *
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListApplicationKeysResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListApplicationKeysResponse>>
+      listCurrentUserApplicationKeysWithHttpInfoAsync(
+          ListCurrentUserApplicationKeysOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    ApplicationKeysSort sort = parameters.sort;
+    String filter = parameters.filter;
+    String filterCreatedAtStart = parameters.filterCreatedAtStart;
+    String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    // create path and map variables
+    String localVarPath = "/api/v2/current_user/application_keys";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listCurrentUserApplicationKeys");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.listCurrentUserApplicationKeys",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListApplicationKeysResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListApplicationKeysResponse>() {});
+  }
+
+  /**
+   * Edit an API key
+   *
+   * <p>See {@link #updateAPIKeyWithHttpInfo}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param body (required)
    * @return APIKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public APIKeyResponse updateAPIKey(String apiKeyId, APIKeyUpdateRequest body)
       throws ApiException {
@@ -1457,14 +2190,35 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key Update an API key.
+   * Edit an API key
+   *
+   * <p>See {@link #updateAPIKeyWithHttpInfoAsync}.
+   *
+   * @param apiKeyId The ID of the API key. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;APIKeyResponse&gt;
+   */
+  public CompletableFuture<APIKeyResponse> updateAPIKeyAsync(
+      String apiKeyId, APIKeyUpdateRequest body) {
+    return updateAPIKeyWithHttpInfoAsync(apiKeyId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Edit an API key
+   *
+   * <p>Update an API key.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param body (required)
    * @return ApiResponse&lt;APIKeyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1493,57 +2247,106 @@ public class KeyManagementApi {
         "/api/v2/api_keys/{api_key_id}"
             .replaceAll("\\{" + "api_key_id" + "\\}", apiClient.escapeString(apiKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateAPIKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<APIKeyResponse> localVarReturnType = new GenericType<APIKeyResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.updateAPIKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.updateAPIKey",
-        localVarPath,
         "PATCH",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<APIKeyResponse>() {});
   }
 
   /**
-   * Edit an application key Edit an application key
+   * Edit an API key
+   *
+   * <p>See {@link #updateAPIKeyWithHttpInfo}.
+   *
+   * @param apiKeyId The ID of the API key. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;APIKeyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<APIKeyResponse>> updateAPIKeyWithHttpInfoAsync(
+      String apiKeyId, APIKeyUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'apiKeyId' is set
+    if (apiKeyId == null) {
+      CompletableFuture<ApiResponse<APIKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'apiKeyId' when calling updateAPIKey"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<APIKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling updateAPIKey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/api_keys/{api_key_id}"
+            .replaceAll("\\{" + "api_key_id" + "\\}", apiClient.escapeString(apiKeyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateAPIKey");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.updateAPIKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<APIKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<APIKeyResponse>() {});
+  }
+
+  /**
+   * Edit an application key
+   *
+   * <p>See {@link #updateApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse updateApplicationKey(
       String appKeyId, ApplicationKeyUpdateRequest body) throws ApiException {
@@ -1551,14 +2354,35 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key Edit an application key
+   * Edit an application key
+   *
+   * <p>See {@link #updateApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
+  public CompletableFuture<ApplicationKeyResponse> updateApplicationKeyAsync(
+      String appKeyId, ApplicationKeyUpdateRequest body) {
+    return updateApplicationKeyWithHttpInfoAsync(appKeyId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Edit an application key
+   *
+   * <p>Edit an application key
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1587,58 +2411,107 @@ public class KeyManagementApi {
         "/api/v2/application_keys/{app_key_id}"
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<ApplicationKeyResponse> localVarReturnType =
-        new GenericType<ApplicationKeyResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.updateApplicationKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.updateApplicationKey",
-        localVarPath,
         "PATCH",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
   }
 
   /**
-   * Edit an application key owned by current user Edit an application key owned by current user
+   * Edit an application key
+   *
+   * <p>See {@link #updateApplicationKeyWithHttpInfo}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
+      updateApplicationKeyWithHttpInfoAsync(String appKeyId, ApplicationKeyUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appKeyId' is set
+    if (appKeyId == null) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'appKeyId' when calling updateApplicationKey"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateApplicationKey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/application_keys/{app_key_id}"
+            .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateApplicationKey");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.updateApplicationKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
+  }
+
+  /**
+   * Edit an application key owned by current user
+   *
+   * <p>See {@link #updateCurrentUserApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
    * @return ApplicationKeyResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public ApplicationKeyResponse updateCurrentUserApplicationKey(
       String appKeyId, ApplicationKeyUpdateRequest body) throws ApiException {
@@ -1646,14 +2519,35 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key owned by current user Edit an application key owned by current user
+   * Edit an application key owned by current user
+   *
+   * <p>See {@link #updateCurrentUserApplicationKeyWithHttpInfoAsync}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   */
+  public CompletableFuture<ApplicationKeyResponse> updateCurrentUserApplicationKeyAsync(
+      String appKeyId, ApplicationKeyUpdateRequest body) {
+    return updateCurrentUserApplicationKeyWithHttpInfoAsync(appKeyId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Edit an application key owned by current user
+   *
+   * <p>Edit an application key owned by current user
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1684,39 +2578,100 @@ public class KeyManagementApi {
         "/api/v2/current_user/application_keys/{app_key_id}"
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateCurrentUserApplicationKey");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<ApplicationKeyResponse> localVarReturnType =
-        new GenericType<ApplicationKeyResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "KeyManagementApi.updateCurrentUserApplicationKey",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "KeyManagementApi.updateCurrentUserApplicationKey",
-        localVarPath,
         "PATCH",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
+  }
+
+  /**
+   * Edit an application key owned by current user
+   *
+   * <p>See {@link #updateCurrentUserApplicationKeyWithHttpInfo}.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ApplicationKeyResponse>>
+      updateCurrentUserApplicationKeyWithHttpInfoAsync(
+          String appKeyId, ApplicationKeyUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'appKeyId' is set
+    if (appKeyId == null) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'appKeyId' when calling"
+                  + " updateCurrentUserApplicationKey"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateCurrentUserApplicationKey"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/current_user/application_keys/{app_key_id}"
+            .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateCurrentUserApplicationKey");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "KeyManagementApi.updateCurrentUserApplicationKey",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ApplicationKeyResponse>() {});
   }
 }

@@ -6,18 +6,19 @@
 
 package com.datadog.api.v2.client.api;
 
-import static java.util.Collections.emptyMap;
-
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
+import com.datadog.api.v2.client.Pair;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
@@ -117,20 +118,24 @@ public abstract class V2APITest extends TestUtils.APITest {
       generalApiClient.setServerIndex(null);
     }
     try {
+      Invocation.Builder builder =
+          generalApiClient.createBuilder(
+              "",
+              url,
+              new ArrayList<Pair>(),
+              new HashMap<String, String>(),
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
       return generalApiClient.invokeAPI(
-          "",
-          url,
           method,
-          null,
+          builder,
+          new HashMap<String, String>(),
+          new String[] {"application/json"},
           payload,
-          emptyMap(),
-          emptyMap(),
-          emptyMap(),
-          "application/json",
-          "application/json",
-          new String[] {"apiKeyAuth", "appKeyAuth"},
-          responseType,
-          false);
+          new HashMap<String, Object>(),
+          false,
+          responseType);
     } catch (Exception e) {
       throw e;
     } finally {

@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -44,32 +46,45 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Create a pipeline Create a pipeline in your organization.
+   * Create a pipeline
+   *
+   * <p>See {@link #createLogsPipelineWithHttpInfo}.
    *
    * @param body Definition of the new pipeline. (required)
    * @return LogsPipeline
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsPipeline createLogsPipeline(LogsPipeline body) throws ApiException {
     return createLogsPipelineWithHttpInfo(body).getData();
   }
 
   /**
-   * Create a pipeline Create a pipeline in your organization.
+   * Create a pipeline
+   *
+   * <p>See {@link #createLogsPipelineWithHttpInfoAsync}.
+   *
+   * @param body Definition of the new pipeline. (required)
+   * @return CompletableFuture&lt;LogsPipeline&gt;
+   */
+  public CompletableFuture<LogsPipeline> createLogsPipelineAsync(LogsPipeline body) {
+    return createLogsPipelineWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a pipeline
+   *
+   * <p>Create a pipeline in your organization.
    *
    * @param body Definition of the new pipeline. (required)
    * @return ApiResponse&lt;LogsPipeline&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -89,69 +104,124 @@ public class LogsPipelinesApi {
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/pipelines";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createLogsPipeline");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<LogsPipeline> localVarReturnType = new GenericType<LogsPipeline>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsPipelinesApi.createLogsPipeline",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsPipelinesApi.createLogsPipeline",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsPipeline>() {});
   }
 
   /**
-   * Delete a pipeline Delete a given pipeline from your organization. This endpoint takes no JSON
-   * arguments.
+   * Create a pipeline
+   *
+   * <p>See {@link #createLogsPipelineWithHttpInfo}.
+   *
+   * @param body Definition of the new pipeline. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsPipeline&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LogsPipeline>> createLogsPipelineWithHttpInfoAsync(
+      LogsPipeline body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LogsPipeline>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createLogsPipeline"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/logs/config/pipelines";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createLogsPipeline");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsPipelinesApi.createLogsPipeline",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LogsPipeline>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsPipeline>() {});
+  }
+
+  /**
+   * Delete a pipeline
+   *
+   * <p>See {@link #deleteLogsPipelineWithHttpInfo}.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteLogsPipeline(String pipelineId) throws ApiException {
     deleteLogsPipelineWithHttpInfo(pipelineId);
   }
 
   /**
-   * Delete a pipeline Delete a given pipeline from your organization. This endpoint takes no JSON
-   * arguments.
+   * Delete a pipeline
+   *
+   * <p>See {@link #deleteLogsPipelineWithHttpInfoAsync}.
+   *
+   * @param pipelineId ID of the pipeline to delete. (required)
+   */
+  public CompletableFuture<Void> deleteLogsPipelineAsync(String pipelineId) {
+    return deleteLogsPipelineWithHttpInfoAsync(pipelineId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a pipeline
+   *
+   * <p>Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -173,69 +243,129 @@ public class LogsPipelinesApi {
             .replaceAll(
                 "\\{" + "pipeline_id" + "\\}", apiClient.escapeString(pipelineId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteLogsPipeline");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsPipelinesApi.deleteLogsPipeline",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsPipelinesApi.deleteLogsPipeline",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
-   * Get a pipeline Get a specific pipeline from your organization. This endpoint takes no JSON
-   * arguments.
+   * Delete a pipeline
+   *
+   * <p>See {@link #deleteLogsPipelineWithHttpInfo}.
+   *
+   * @param pipelineId ID of the pipeline to delete. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteLogsPipelineWithHttpInfoAsync(
+      String pipelineId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pipelineId' is set
+    if (pipelineId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pipelineId' when calling deleteLogsPipeline"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/logs/config/pipelines/{pipeline_id}"
+            .replaceAll(
+                "\\{" + "pipeline_id" + "\\}", apiClient.escapeString(pipelineId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteLogsPipeline");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsPipelinesApi.deleteLogsPipeline",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Get a pipeline
+   *
+   * <p>See {@link #getLogsPipelineWithHttpInfo}.
    *
    * @param pipelineId ID of the pipeline to get. (required)
    * @return LogsPipeline
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsPipeline getLogsPipeline(String pipelineId) throws ApiException {
     return getLogsPipelineWithHttpInfo(pipelineId).getData();
   }
 
   /**
-   * Get a pipeline Get a specific pipeline from your organization. This endpoint takes no JSON
-   * arguments.
+   * Get a pipeline
+   *
+   * <p>See {@link #getLogsPipelineWithHttpInfoAsync}.
+   *
+   * @param pipelineId ID of the pipeline to get. (required)
+   * @return CompletableFuture&lt;LogsPipeline&gt;
+   */
+  public CompletableFuture<LogsPipeline> getLogsPipelineAsync(String pipelineId) {
+    return getLogsPipelineWithHttpInfoAsync(pipelineId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a pipeline
+   *
+   * <p>Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
    *
    * @param pipelineId ID of the pipeline to get. (required)
    * @return ApiResponse&lt;LogsPipeline&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -258,68 +388,126 @@ public class LogsPipelinesApi {
             .replaceAll(
                 "\\{" + "pipeline_id" + "\\}", apiClient.escapeString(pipelineId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getLogsPipeline");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<LogsPipeline> localVarReturnType = new GenericType<LogsPipeline>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsPipelinesApi.getLogsPipeline",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsPipelinesApi.getLogsPipeline",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsPipeline>() {});
   }
 
   /**
-   * Get pipeline order Get the current order of your pipelines. This endpoint takes no JSON
-   * arguments.
+   * Get a pipeline
+   *
+   * <p>See {@link #getLogsPipelineWithHttpInfo}.
+   *
+   * @param pipelineId ID of the pipeline to get. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsPipeline&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LogsPipeline>> getLogsPipelineWithHttpInfoAsync(
+      String pipelineId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'pipelineId' is set
+    if (pipelineId == null) {
+      CompletableFuture<ApiResponse<LogsPipeline>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pipelineId' when calling getLogsPipeline"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/logs/config/pipelines/{pipeline_id}"
+            .replaceAll(
+                "\\{" + "pipeline_id" + "\\}", apiClient.escapeString(pipelineId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsPipeline");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsPipelinesApi.getLogsPipeline",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LogsPipeline>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsPipeline>() {});
+  }
+
+  /**
+   * Get pipeline order
+   *
+   * <p>See {@link #getLogsPipelineOrderWithHttpInfo}.
    *
    * @return LogsPipelinesOrder
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsPipelinesOrder getLogsPipelineOrder() throws ApiException {
     return getLogsPipelineOrderWithHttpInfo().getData();
   }
 
   /**
-   * Get pipeline order Get the current order of your pipelines. This endpoint takes no JSON
-   * arguments.
+   * Get pipeline order
+   *
+   * <p>See {@link #getLogsPipelineOrderWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;LogsPipelinesOrder&gt;
+   */
+  public CompletableFuture<LogsPipelinesOrder> getLogsPipelineOrderAsync() {
+    return getLogsPipelineOrderWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get pipeline order
+   *
+   * <p>Get the current order of your pipelines. This endpoint takes no JSON arguments.
    *
    * @return ApiResponse&lt;LogsPipelinesOrder&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -331,68 +519,113 @@ public class LogsPipelinesApi {
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/pipeline-order";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getLogsPipelineOrder");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<LogsPipelinesOrder> localVarReturnType = new GenericType<LogsPipelinesOrder>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsPipelinesApi.getLogsPipelineOrder",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsPipelinesApi.getLogsPipelineOrder",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsPipelinesOrder>() {});
   }
 
   /**
-   * Get all pipelines Get all pipelines from your organization. This endpoint takes no JSON
-   * arguments.
+   * Get pipeline order
+   *
+   * <p>See {@link #getLogsPipelineOrderWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsPipelinesOrder&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LogsPipelinesOrder>>
+      getLogsPipelineOrderWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/logs/config/pipeline-order";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsPipelineOrder");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsPipelinesApi.getLogsPipelineOrder",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LogsPipelinesOrder>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsPipelinesOrder>() {});
+  }
+
+  /**
+   * Get all pipelines
+   *
+   * <p>See {@link #listLogsPipelinesWithHttpInfo}.
    *
    * @return List&lt;LogsPipeline&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<LogsPipeline> listLogsPipelines() throws ApiException {
     return listLogsPipelinesWithHttpInfo().getData();
   }
 
   /**
-   * Get all pipelines Get all pipelines from your organization. This endpoint takes no JSON
-   * arguments.
+   * Get all pipelines
+   *
+   * <p>See {@link #listLogsPipelinesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;List&lt;LogsPipeline&gt;&gt;
+   */
+  public CompletableFuture<List<LogsPipeline>> listLogsPipelinesAsync() {
+    return listLogsPipelinesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all pipelines
+   *
+   * <p>Get all pipelines from your organization. This endpoint takes no JSON arguments.
    *
    * @return ApiResponse&lt;List&lt;LogsPipeline&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -404,75 +637,121 @@ public class LogsPipelinesApi {
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/pipelines";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listLogsPipelines");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<List<LogsPipeline>> localVarReturnType = new GenericType<List<LogsPipeline>>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsPipelinesApi.listLogsPipelines",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsPipelinesApi.listLogsPipelines",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<LogsPipeline>>() {});
   }
 
   /**
-   * Update a pipeline Update a given pipeline configuration to change it’s processors or their
-   * order. **Note**: Using this method updates your pipeline configuration by **replacing** your
-   * current configuration with the new one sent to your Datadog organization.
+   * Get all pipelines
+   *
+   * <p>See {@link #listLogsPipelinesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;LogsPipeline&gt;&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<List<LogsPipeline>>> listLogsPipelinesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/logs/config/pipelines";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listLogsPipelines");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsPipelinesApi.listLogsPipelines",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<List<LogsPipeline>>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<LogsPipeline>>() {});
+  }
+
+  /**
+   * Update a pipeline
+   *
+   * <p>See {@link #updateLogsPipelineWithHttpInfo}.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
    * @param body New definition of the pipeline. (required)
    * @return LogsPipeline
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsPipeline updateLogsPipeline(String pipelineId, LogsPipeline body) throws ApiException {
     return updateLogsPipelineWithHttpInfo(pipelineId, body).getData();
   }
 
   /**
-   * Update a pipeline Update a given pipeline configuration to change it’s processors or their
-   * order. **Note**: Using this method updates your pipeline configuration by **replacing** your
-   * current configuration with the new one sent to your Datadog organization.
+   * Update a pipeline
+   *
+   * <p>See {@link #updateLogsPipelineWithHttpInfoAsync}.
+   *
+   * @param pipelineId ID of the pipeline to delete. (required)
+   * @param body New definition of the pipeline. (required)
+   * @return CompletableFuture&lt;LogsPipeline&gt;
+   */
+  public CompletableFuture<LogsPipeline> updateLogsPipelineAsync(
+      String pipelineId, LogsPipeline body) {
+    return updateLogsPipelineWithHttpInfoAsync(pipelineId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a pipeline
+   *
+   * <p>Update a given pipeline configuration to change it’s processors or their order. **Note**:
+   * Using this method updates your pipeline configuration by **replacing** your current
+   * configuration with the new one sent to your Datadog organization.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
    * @param body New definition of the pipeline. (required)
    * @return ApiResponse&lt;LogsPipeline&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -501,77 +780,143 @@ public class LogsPipelinesApi {
             .replaceAll(
                 "\\{" + "pipeline_id" + "\\}", apiClient.escapeString(pipelineId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsPipeline");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<LogsPipeline> localVarReturnType = new GenericType<LogsPipeline>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsPipelinesApi.updateLogsPipeline",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsPipelinesApi.updateLogsPipeline",
-        localVarPath,
         "PUT",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsPipeline>() {});
   }
 
   /**
-   * Update pipeline order Update the order of your pipelines. Since logs are processed
-   * sequentially, reordering a pipeline may change the structure and content of the data processed
-   * by other pipelines and their processors. **Note**: Using the &#x60;PUT&#x60; method updates
-   * your pipeline order by replacing your current order with the new one sent to your Datadog
-   * organization.
+   * Update a pipeline
+   *
+   * <p>See {@link #updateLogsPipelineWithHttpInfo}.
+   *
+   * @param pipelineId ID of the pipeline to delete. (required)
+   * @param body New definition of the pipeline. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsPipeline&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LogsPipeline>> updateLogsPipelineWithHttpInfoAsync(
+      String pipelineId, LogsPipeline body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'pipelineId' is set
+    if (pipelineId == null) {
+      CompletableFuture<ApiResponse<LogsPipeline>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'pipelineId' when calling updateLogsPipeline"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LogsPipeline>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateLogsPipeline"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/logs/config/pipelines/{pipeline_id}"
+            .replaceAll(
+                "\\{" + "pipeline_id" + "\\}", apiClient.escapeString(pipelineId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsPipeline");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsPipelinesApi.updateLogsPipeline",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LogsPipeline>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsPipeline>() {});
+  }
+
+  /**
+   * Update pipeline order
+   *
+   * <p>See {@link #updateLogsPipelineOrderWithHttpInfo}.
    *
    * @param body Object containing the new ordered list of pipeline IDs. (required)
    * @return LogsPipelinesOrder
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsPipelinesOrder updateLogsPipelineOrder(LogsPipelinesOrder body) throws ApiException {
     return updateLogsPipelineOrderWithHttpInfo(body).getData();
   }
 
   /**
-   * Update pipeline order Update the order of your pipelines. Since logs are processed
-   * sequentially, reordering a pipeline may change the structure and content of the data processed
-   * by other pipelines and their processors. **Note**: Using the &#x60;PUT&#x60; method updates
-   * your pipeline order by replacing your current order with the new one sent to your Datadog
-   * organization.
+   * Update pipeline order
+   *
+   * <p>See {@link #updateLogsPipelineOrderWithHttpInfoAsync}.
+   *
+   * @param body Object containing the new ordered list of pipeline IDs. (required)
+   * @return CompletableFuture&lt;LogsPipelinesOrder&gt;
+   */
+  public CompletableFuture<LogsPipelinesOrder> updateLogsPipelineOrderAsync(
+      LogsPipelinesOrder body) {
+    return updateLogsPipelineOrderWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update pipeline order
+   *
+   * <p>Update the order of your pipelines. Since logs are processed sequentially, reordering a
+   * pipeline may change the structure and content of the data processed by other pipelines and
+   * their processors. **Note**: Using the &#x60;PUT&#x60; method updates your pipeline order by
+   * replacing your current order with the new one sent to your Datadog organization.
    *
    * @param body Object containing the new ordered list of pipeline IDs. (required)
    * @return ApiResponse&lt;LogsPipelinesOrder&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -592,38 +937,83 @@ public class LogsPipelinesApi {
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/pipeline-order";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsPipelineOrder");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<LogsPipelinesOrder> localVarReturnType = new GenericType<LogsPipelinesOrder>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsPipelinesApi.updateLogsPipelineOrder",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsPipelinesApi.updateLogsPipelineOrder",
-        localVarPath,
         "PUT",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsPipelinesOrder>() {});
+  }
+
+  /**
+   * Update pipeline order
+   *
+   * <p>See {@link #updateLogsPipelineOrderWithHttpInfo}.
+   *
+   * @param body Object containing the new ordered list of pipeline IDs. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsPipelinesOrder&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LogsPipelinesOrder>>
+      updateLogsPipelineOrderWithHttpInfoAsync(LogsPipelinesOrder body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LogsPipelinesOrder>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateLogsPipelineOrder"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/logs/config/pipeline-order";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsPipelineOrder");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsPipelinesApi.updateLogsPipelineOrder",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LogsPipelinesOrder>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsPipelinesOrder>() {});
   }
 }

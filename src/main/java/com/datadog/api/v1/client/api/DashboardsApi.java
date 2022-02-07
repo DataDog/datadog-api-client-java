@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -47,32 +49,40 @@ public class DashboardsApi {
   }
 
   /**
-   * Create a new dashboard Create a dashboard using the specified options. When defining queries in
-   * your widgets, take note of which queries should have the &#x60;as_count()&#x60; or
-   * &#x60;as_rate()&#x60; modifiers appended. Refer to the following
-   * [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab&#x3D;count#in-application-modifiers)
-   * for more information on these modifiers.
+   * Create a new dashboard
+   *
+   * <p>See {@link #createDashboardWithHttpInfo}.
    *
    * @param body Create a dashboard request body. (required)
    * @return Dashboard
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Dashboard createDashboard(Dashboard body) throws ApiException {
     return createDashboardWithHttpInfo(body).getData();
   }
 
   /**
-   * Create a new dashboard Create a dashboard using the specified options. When defining queries in
-   * your widgets, take note of which queries should have the &#x60;as_count()&#x60; or
-   * &#x60;as_rate()&#x60; modifiers appended. Refer to the following
+   * Create a new dashboard
+   *
+   * <p>See {@link #createDashboardWithHttpInfoAsync}.
+   *
+   * @param body Create a dashboard request body. (required)
+   * @return CompletableFuture&lt;Dashboard&gt;
+   */
+  public CompletableFuture<Dashboard> createDashboardAsync(Dashboard body) {
+    return createDashboardWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new dashboard
+   *
+   * <p>Create a dashboard using the specified options. When defining queries in your widgets, take
+   * note of which queries should have the &#x60;as_count()&#x60; or &#x60;as_rate()&#x60; modifiers
+   * appended. Refer to the following
    * [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab&#x3D;count#in-application-modifiers)
    * for more information on these modifiers.
    *
@@ -80,7 +90,8 @@ public class DashboardsApi {
    * @return ApiResponse&lt;Dashboard&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -99,68 +110,126 @@ public class DashboardsApi {
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createDashboard");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<Dashboard> localVarReturnType = new GenericType<Dashboard>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "DashboardsApi.createDashboard",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "DashboardsApi.createDashboard",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Dashboard>() {});
   }
 
   /**
-   * Delete a dashboard Delete a dashboard using the specified ID.
+   * Create a new dashboard
+   *
+   * <p>See {@link #createDashboardWithHttpInfo}.
+   *
+   * @param body Create a dashboard request body. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Dashboard&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Dashboard>> createDashboardWithHttpInfoAsync(
+      Dashboard body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createDashboard"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/dashboard";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createDashboard");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "DashboardsApi.createDashboard",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Dashboard>() {});
+  }
+
+  /**
+   * Delete a dashboard
+   *
+   * <p>See {@link #deleteDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return DashboardDeleteResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DashboardDeleteResponse deleteDashboard(String dashboardId) throws ApiException {
     return deleteDashboardWithHttpInfo(dashboardId).getData();
   }
 
   /**
-   * Delete a dashboard Delete a dashboard using the specified ID.
+   * Delete a dashboard
+   *
+   * <p>See {@link #deleteDashboardWithHttpInfoAsync}.
+   *
+   * @param dashboardId The ID of the dashboard. (required)
+   * @return CompletableFuture&lt;DashboardDeleteResponse&gt;
+   */
+  public CompletableFuture<DashboardDeleteResponse> deleteDashboardAsync(String dashboardId) {
+    return deleteDashboardWithHttpInfoAsync(dashboardId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a dashboard
+   *
+   * <p>Delete a dashboard using the specified ID.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return ApiResponse&lt;DashboardDeleteResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
@@ -183,72 +252,128 @@ public class DashboardsApi {
             .replaceAll(
                 "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteDashboard");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<DashboardDeleteResponse> localVarReturnType =
-        new GenericType<DashboardDeleteResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "DashboardsApi.deleteDashboard",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "DashboardsApi.deleteDashboard",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DashboardDeleteResponse>() {});
   }
 
   /**
-   * Delete dashboards Delete dashboards using the specified IDs. If there are any failures, no
-   * dashboards will be deleted (partial success is not allowed).
+   * Delete a dashboard
+   *
+   * <p>See {@link #deleteDashboardWithHttpInfo}.
+   *
+   * @param dashboardId The ID of the dashboard. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DashboardDeleteResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DashboardDeleteResponse>> deleteDashboardWithHttpInfoAsync(
+      String dashboardId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'dashboardId' is set
+    if (dashboardId == null) {
+      CompletableFuture<ApiResponse<DashboardDeleteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'dashboardId' when calling deleteDashboard"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/dashboard/{dashboard_id}"
+            .replaceAll(
+                "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteDashboard");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "DashboardsApi.deleteDashboard",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DashboardDeleteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DashboardDeleteResponse>() {});
+  }
+
+  /**
+   * Delete dashboards
+   *
+   * <p>See {@link #deleteDashboardsWithHttpInfo}.
    *
    * @param body Delete dashboards request body. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void deleteDashboards(DashboardBulkDeleteRequest body) throws ApiException {
     deleteDashboardsWithHttpInfo(body);
   }
 
   /**
-   * Delete dashboards Delete dashboards using the specified IDs. If there are any failures, no
-   * dashboards will be deleted (partial success is not allowed).
+   * Delete dashboards
+   *
+   * <p>See {@link #deleteDashboardsWithHttpInfoAsync}.
+   *
+   * @param body Delete dashboards request body. (required)
+   */
+  public CompletableFuture<Void> deleteDashboardsAsync(DashboardBulkDeleteRequest body) {
+    return deleteDashboardsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete dashboards
+   *
+   * <p>Delete dashboards using the specified IDs. If there are any failures, no dashboards will be
+   * deleted (partial success is not allowed).
    *
    * @param body Delete dashboards request body. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -269,66 +394,126 @@ public class DashboardsApi {
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteDashboards");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "DashboardsApi.deleteDashboards",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "DashboardsApi.deleteDashboards",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
-   * Get a dashboard Get a dashboard using the specified ID.
+   * Delete dashboards
+   *
+   * <p>See {@link #deleteDashboardsWithHttpInfo}.
+   *
+   * @param body Delete dashboards request body. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteDashboardsWithHttpInfoAsync(
+      DashboardBulkDeleteRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling deleteDashboards"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/dashboard";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteDashboards");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "DashboardsApi.deleteDashboards",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Get a dashboard
+   *
+   * <p>See {@link #getDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return Dashboard
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Dashboard getDashboard(String dashboardId) throws ApiException {
     return getDashboardWithHttpInfo(dashboardId).getData();
   }
 
   /**
-   * Get a dashboard Get a dashboard using the specified ID.
+   * Get a dashboard
+   *
+   * <p>See {@link #getDashboardWithHttpInfoAsync}.
+   *
+   * @param dashboardId The ID of the dashboard. (required)
+   * @return CompletableFuture&lt;Dashboard&gt;
+   */
+  public CompletableFuture<Dashboard> getDashboardAsync(String dashboardId) {
+    return getDashboardWithHttpInfoAsync(dashboardId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a dashboard
+   *
+   * <p>Get a dashboard using the specified ID.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return ApiResponse&lt;Dashboard&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
@@ -350,40 +535,87 @@ public class DashboardsApi {
             .replaceAll(
                 "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getDashboard");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<Dashboard> localVarReturnType = new GenericType<Dashboard>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "DashboardsApi.getDashboard",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "DashboardsApi.getDashboard",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Dashboard>() {});
+  }
+
+  /**
+   * Get a dashboard
+   *
+   * <p>See {@link #getDashboardWithHttpInfo}.
+   *
+   * @param dashboardId The ID of the dashboard. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Dashboard&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Dashboard>> getDashboardWithHttpInfoAsync(
+      String dashboardId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'dashboardId' is set
+    if (dashboardId == null) {
+      CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'dashboardId' when calling getDashboard"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/dashboard/{dashboard_id}"
+            .replaceAll(
+                "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getDashboard");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "DashboardsApi.getDashboard",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Dashboard>() {});
   }
 
   /** Manage optional parameters to listDashboards. */
@@ -418,37 +650,40 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
-   * cloned dashboards. This query will not return preset dashboards.
+   * Get all dashboards
+   *
+   * <p>See {@link #listDashboardsWithHttpInfo}.
    *
    * @return DashboardSummary
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DashboardSummary listDashboards() throws ApiException {
     return listDashboardsWithHttpInfo(new ListDashboardsOptionalParameters()).getData();
   }
 
   /**
-   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
-   * cloned dashboards. This query will not return preset dashboards.
+   * Get all dashboards
+   *
+   * <p>See {@link #listDashboardsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;DashboardSummary&gt;
+   */
+  public CompletableFuture<DashboardSummary> listDashboardsAsync() {
+    return listDashboardsWithHttpInfoAsync(new ListDashboardsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all dashboards
+   *
+   * <p>See {@link #listDashboardsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return DashboardSummary
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public DashboardSummary listDashboards(ListDashboardsOptionalParameters parameters)
       throws ApiException {
@@ -456,14 +691,34 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
-   * cloned dashboards. This query will not return preset dashboards.
+   * Get all dashboards
+   *
+   * <p>See {@link #listDashboardsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;DashboardSummary&gt;
+   */
+  public CompletableFuture<DashboardSummary> listDashboardsAsync(
+      ListDashboardsOptionalParameters parameters) {
+    return listDashboardsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all dashboards
+   *
+   * <p>Get all dashboards. **Note**: This query will only return custom created or cloned
+   * dashboards. This query will not return preset dashboards.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DashboardSummary&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
@@ -478,11 +733,8 @@ public class DashboardsApi {
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[shared]", filterShared));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[deleted]", filterDeleted));
@@ -490,62 +742,117 @@ public class DashboardsApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listDashboards");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<DashboardSummary> localVarReturnType = new GenericType<DashboardSummary>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "DashboardsApi.listDashboards",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "DashboardsApi.listDashboards",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DashboardSummary>() {});
   }
 
   /**
-   * Restore deleted dashboards Restore dashboards using the specified IDs. If there are any
-   * failures, no dashboards will be restored (partial success is not allowed).
+   * Get all dashboards
+   *
+   * <p>See {@link #listDashboardsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;DashboardSummary&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DashboardSummary>> listDashboardsWithHttpInfoAsync(
+      ListDashboardsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Boolean filterShared = parameters.filterShared;
+    Boolean filterDeleted = parameters.filterDeleted;
+    // create path and map variables
+    String localVarPath = "/api/v1/dashboard";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[shared]", filterShared));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[deleted]", filterDeleted));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listDashboards");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "DashboardsApi.listDashboards",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DashboardSummary>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DashboardSummary>() {});
+  }
+
+  /**
+   * Restore deleted dashboards
+   *
+   * <p>See {@link #restoreDashboardsWithHttpInfo}.
    *
    * @param body Restore dashboards request body. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void restoreDashboards(DashboardRestoreRequest body) throws ApiException {
     restoreDashboardsWithHttpInfo(body);
   }
 
   /**
-   * Restore deleted dashboards Restore dashboards using the specified IDs. If there are any
-   * failures, no dashboards will be restored (partial success is not allowed).
+   * Restore deleted dashboards
+   *
+   * <p>See {@link #restoreDashboardsWithHttpInfoAsync}.
+   *
+   * @param body Restore dashboards request body. (required)
+   */
+  public CompletableFuture<Void> restoreDashboardsAsync(DashboardRestoreRequest body) {
+    return restoreDashboardsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Restore deleted dashboards
+   *
+   * <p>Restore dashboards using the specified IDs. If there are any failures, no dashboards will be
+   * restored (partial success is not allowed).
    *
    * @param body Restore dashboards request body. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -566,69 +873,129 @@ public class DashboardsApi {
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "restoreDashboards");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "DashboardsApi.restoreDashboards",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "DashboardsApi.restoreDashboards",
-        localVarPath,
         "PATCH",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
-   * Update a dashboard Update a dashboard using the specified ID.
+   * Restore deleted dashboards
+   *
+   * <p>See {@link #restoreDashboardsWithHttpInfo}.
+   *
+   * @param body Restore dashboards request body. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> restoreDashboardsWithHttpInfoAsync(
+      DashboardRestoreRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling restoreDashboards"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/dashboard";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "restoreDashboards");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "DashboardsApi.restoreDashboards",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update a dashboard
+   *
+   * <p>See {@link #updateDashboardWithHttpInfo}.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @param body Update Dashboard request body. (required)
    * @return Dashboard
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Dashboard updateDashboard(String dashboardId, Dashboard body) throws ApiException {
     return updateDashboardWithHttpInfo(dashboardId, body).getData();
   }
 
   /**
-   * Update a dashboard Update a dashboard using the specified ID.
+   * Update a dashboard
+   *
+   * <p>See {@link #updateDashboardWithHttpInfoAsync}.
+   *
+   * @param dashboardId The ID of the dashboard. (required)
+   * @param body Update Dashboard request body. (required)
+   * @return CompletableFuture&lt;Dashboard&gt;
+   */
+  public CompletableFuture<Dashboard> updateDashboardAsync(String dashboardId, Dashboard body) {
+    return updateDashboardWithHttpInfoAsync(dashboardId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a dashboard
+   *
+   * <p>Update a dashboard using the specified ID.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @param body Update Dashboard request body. (required)
    * @return ApiResponse&lt;Dashboard&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -658,38 +1025,96 @@ public class DashboardsApi {
             .replaceAll(
                 "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateDashboard");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<Dashboard> localVarReturnType = new GenericType<Dashboard>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "DashboardsApi.updateDashboard",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "DashboardsApi.updateDashboard",
-        localVarPath,
         "PUT",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Dashboard>() {});
+  }
+
+  /**
+   * Update a dashboard
+   *
+   * <p>See {@link #updateDashboardWithHttpInfo}.
+   *
+   * @param dashboardId The ID of the dashboard. (required)
+   * @param body Update Dashboard request body. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Dashboard&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Dashboard>> updateDashboardWithHttpInfoAsync(
+      String dashboardId, Dashboard body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'dashboardId' is set
+    if (dashboardId == null) {
+      CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'dashboardId' when calling updateDashboard"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateDashboard"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/dashboard/{dashboard_id}"
+            .replaceAll(
+                "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateDashboard");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "DashboardsApi.updateDashboard",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Dashboard>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Dashboard>() {});
   }
 }

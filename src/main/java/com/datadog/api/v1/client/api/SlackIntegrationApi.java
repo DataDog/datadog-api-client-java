@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -43,21 +45,14 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Create a Slack integration channel Add a channel to your Datadog-Slack integration.
+   * Create a Slack integration channel
+   *
+   * <p>See {@link #createSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param body Payload describing Slack channel to be created (required)
    * @return SlackIntegrationChannel
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public SlackIntegrationChannel createSlackIntegrationChannel(
       String accountName, SlackIntegrationChannel body) throws ApiException {
@@ -65,14 +60,35 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Create a Slack integration channel Add a channel to your Datadog-Slack integration.
+   * Create a Slack integration channel
+   *
+   * <p>See {@link #createSlackIntegrationChannelWithHttpInfoAsync}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param body Payload describing Slack channel to be created (required)
+   * @return CompletableFuture&lt;SlackIntegrationChannel&gt;
+   */
+  public CompletableFuture<SlackIntegrationChannel> createSlackIntegrationChannelAsync(
+      String accountName, SlackIntegrationChannel body) {
+    return createSlackIntegrationChannelWithHttpInfoAsync(accountName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a Slack integration channel
+   *
+   * <p>Add a channel to your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param body Payload describing Slack channel to be created (required)
    * @return ApiResponse&lt;SlackIntegrationChannel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -104,58 +120,112 @@ public class SlackIntegrationApi {
             .replaceAll(
                 "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createSlackIntegrationChannel");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<SlackIntegrationChannel> localVarReturnType =
-        new GenericType<SlackIntegrationChannel>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "SlackIntegrationApi.createSlackIntegrationChannel",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "SlackIntegrationApi.createSlackIntegrationChannel",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SlackIntegrationChannel>() {});
   }
 
   /**
-   * Get a Slack integration channel Get a channel configured for your Datadog-Slack integration.
+   * Create a Slack integration channel
+   *
+   * <p>See {@link #createSlackIntegrationChannelWithHttpInfo}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param body Payload describing Slack channel to be created (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SlackIntegrationChannel&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SlackIntegrationChannel>>
+      createSlackIntegrationChannelWithHttpInfoAsync(
+          String accountName, SlackIntegrationChannel body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'accountName' is set
+    if (accountName == null) {
+      CompletableFuture<ApiResponse<SlackIntegrationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'accountName' when calling"
+                  + " createSlackIntegrationChannel"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SlackIntegrationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createSlackIntegrationChannel"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/slack/configuration/accounts/{account_name}/channels"
+            .replaceAll(
+                "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createSlackIntegrationChannel");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "SlackIntegrationApi.createSlackIntegrationChannel",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SlackIntegrationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SlackIntegrationChannel>() {});
+  }
+
+  /**
+   * Get a Slack integration channel
+   *
+   * <p>See {@link #getSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @return SlackIntegrationChannel
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public SlackIntegrationChannel getSlackIntegrationChannel(String accountName, String channelName)
       throws ApiException {
@@ -163,14 +233,35 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get a Slack integration channel Get a channel configured for your Datadog-Slack integration.
+   * Get a Slack integration channel
+   *
+   * <p>See {@link #getSlackIntegrationChannelWithHttpInfoAsync}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param channelName The name of the Slack channel being operated on. (required)
+   * @return CompletableFuture&lt;SlackIntegrationChannel&gt;
+   */
+  public CompletableFuture<SlackIntegrationChannel> getSlackIntegrationChannelAsync(
+      String accountName, String channelName) {
+    return getSlackIntegrationChannelWithHttpInfoAsync(accountName, channelName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a Slack integration channel
+   *
+   * <p>Get a channel configured for your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @return ApiResponse&lt;SlackIntegrationChannel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -204,59 +295,113 @@ public class SlackIntegrationApi {
             .replaceAll(
                 "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSlackIntegrationChannel");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<SlackIntegrationChannel> localVarReturnType =
-        new GenericType<SlackIntegrationChannel>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "SlackIntegrationApi.getSlackIntegrationChannel",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "SlackIntegrationApi.getSlackIntegrationChannel",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SlackIntegrationChannel>() {});
   }
 
   /**
-   * Get all channels in a Slack integration Get a list of all channels configured for your
-   * Datadog-Slack integration.
+   * Get a Slack integration channel
+   *
+   * <p>See {@link #getSlackIntegrationChannelWithHttpInfo}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param channelName The name of the Slack channel being operated on. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SlackIntegrationChannel&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SlackIntegrationChannel>>
+      getSlackIntegrationChannelWithHttpInfoAsync(String accountName, String channelName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'accountName' is set
+    if (accountName == null) {
+      CompletableFuture<ApiResponse<SlackIntegrationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'accountName' when calling"
+                  + " getSlackIntegrationChannel"));
+      return result;
+    }
+
+    // verify the required parameter 'channelName' is set
+    if (channelName == null) {
+      CompletableFuture<ApiResponse<SlackIntegrationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'channelName' when calling"
+                  + " getSlackIntegrationChannel"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+            .replaceAll(
+                "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()))
+            .replaceAll(
+                "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getSlackIntegrationChannel");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "SlackIntegrationApi.getSlackIntegrationChannel",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SlackIntegrationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SlackIntegrationChannel>() {});
+  }
+
+  /**
+   * Get all channels in a Slack integration
+   *
+   * <p>See {@link #getSlackIntegrationChannelsWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @return List&lt;SlackIntegrationChannel&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<SlackIntegrationChannel> getSlackIntegrationChannels(String accountName)
       throws ApiException {
@@ -264,14 +409,33 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get all channels in a Slack integration Get a list of all channels configured for your
-   * Datadog-Slack integration.
+   * Get all channels in a Slack integration
+   *
+   * <p>See {@link #getSlackIntegrationChannelsWithHttpInfoAsync}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @return CompletableFuture&lt;List&lt;SlackIntegrationChannel&gt;&gt;
+   */
+  public CompletableFuture<List<SlackIntegrationChannel>> getSlackIntegrationChannelsAsync(
+      String accountName) {
+    return getSlackIntegrationChannelsWithHttpInfoAsync(accountName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all channels in a Slack integration
+   *
+   * <p>Get a list of all channels configured for your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @return ApiResponse&lt;List&lt;SlackIntegrationChannel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -296,58 +460,101 @@ public class SlackIntegrationApi {
             .replaceAll(
                 "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSlackIntegrationChannels");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<List<SlackIntegrationChannel>> localVarReturnType =
-        new GenericType<List<SlackIntegrationChannel>>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "SlackIntegrationApi.getSlackIntegrationChannels",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "SlackIntegrationApi.getSlackIntegrationChannels",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<SlackIntegrationChannel>>() {});
   }
 
   /**
-   * Remove a Slack integration channel Remove a channel from your Datadog-Slack integration.
+   * Get all channels in a Slack integration
+   *
+   * <p>See {@link #getSlackIntegrationChannelsWithHttpInfo}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;SlackIntegrationChannel&gt;&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<List<SlackIntegrationChannel>>>
+      getSlackIntegrationChannelsWithHttpInfoAsync(String accountName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'accountName' is set
+    if (accountName == null) {
+      CompletableFuture<ApiResponse<List<SlackIntegrationChannel>>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'accountName' when calling"
+                  + " getSlackIntegrationChannels"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/slack/configuration/accounts/{account_name}/channels"
+            .replaceAll(
+                "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getSlackIntegrationChannels");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "SlackIntegrationApi.getSlackIntegrationChannels",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<List<SlackIntegrationChannel>>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<SlackIntegrationChannel>>() {});
+  }
+
+  /**
+   * Remove a Slack integration channel
+   *
+   * <p>See {@link #removeSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> The channel was removed successfully. </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public void removeSlackIntegrationChannel(String accountName, String channelName)
       throws ApiException {
@@ -355,14 +562,34 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Remove a Slack integration channel Remove a channel from your Datadog-Slack integration.
+   * Remove a Slack integration channel
+   *
+   * <p>See {@link #removeSlackIntegrationChannelWithHttpInfoAsync}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param channelName The name of the Slack channel being operated on. (required)
+   */
+  public CompletableFuture<Void> removeSlackIntegrationChannelAsync(
+      String accountName, String channelName) {
+    return removeSlackIntegrationChannelWithHttpInfoAsync(accountName, channelName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove a Slack integration channel
+   *
+   * <p>Remove a channel from your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> The channel was removed successfully. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -398,57 +625,115 @@ public class SlackIntegrationApi {
             .replaceAll(
                 "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "removeSlackIntegrationChannel");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "SlackIntegrationApi.removeSlackIntegrationChannel",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "SlackIntegrationApi.removeSlackIntegrationChannel",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
-   * Update a Slack integration channel Update a channel used in your Datadog-Slack integration.
+   * Remove a Slack integration channel
+   *
+   * <p>See {@link #removeSlackIntegrationChannelWithHttpInfo}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param channelName The name of the Slack channel being operated on. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> removeSlackIntegrationChannelWithHttpInfoAsync(
+      String accountName, String channelName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'accountName' is set
+    if (accountName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'accountName' when calling"
+                  + " removeSlackIntegrationChannel"));
+      return result;
+    }
+
+    // verify the required parameter 'channelName' is set
+    if (channelName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'channelName' when calling"
+                  + " removeSlackIntegrationChannel"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+            .replaceAll(
+                "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()))
+            .replaceAll(
+                "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "removeSlackIntegrationChannel");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "SlackIntegrationApi.removeSlackIntegrationChannel",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update a Slack integration channel
+   *
+   * <p>See {@link #updateSlackIntegrationChannelWithHttpInfo}.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
    * @param body Payload describing fields and values to be updated. (required)
    * @return SlackIntegrationChannel
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public SlackIntegrationChannel updateSlackIntegrationChannel(
       String accountName, String channelName, SlackIntegrationChannel body) throws ApiException {
@@ -456,7 +741,28 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Update a Slack integration channel Update a channel used in your Datadog-Slack integration.
+   * Update a Slack integration channel
+   *
+   * <p>See {@link #updateSlackIntegrationChannelWithHttpInfoAsync}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param channelName The name of the Slack channel being operated on. (required)
+   * @param body Payload describing fields and values to be updated. (required)
+   * @return CompletableFuture&lt;SlackIntegrationChannel&gt;
+   */
+  public CompletableFuture<SlackIntegrationChannel> updateSlackIntegrationChannelAsync(
+      String accountName, String channelName, SlackIntegrationChannel body) {
+    return updateSlackIntegrationChannelWithHttpInfoAsync(accountName, channelName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a Slack integration channel
+   *
+   * <p>Update a channel used in your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
@@ -464,7 +770,8 @@ public class SlackIntegrationApi {
    * @return ApiResponse&lt;SlackIntegrationChannel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -506,39 +813,114 @@ public class SlackIntegrationApi {
             .replaceAll(
                 "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateSlackIntegrationChannel");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<SlackIntegrationChannel> localVarReturnType =
-        new GenericType<SlackIntegrationChannel>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "SlackIntegrationApi.updateSlackIntegrationChannel",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "SlackIntegrationApi.updateSlackIntegrationChannel",
-        localVarPath,
         "PATCH",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SlackIntegrationChannel>() {});
+  }
+
+  /**
+   * Update a Slack integration channel
+   *
+   * <p>See {@link #updateSlackIntegrationChannelWithHttpInfo}.
+   *
+   * @param accountName Your Slack account name. (required)
+   * @param channelName The name of the Slack channel being operated on. (required)
+   * @param body Payload describing fields and values to be updated. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SlackIntegrationChannel&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SlackIntegrationChannel>>
+      updateSlackIntegrationChannelWithHttpInfoAsync(
+          String accountName, String channelName, SlackIntegrationChannel body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'accountName' is set
+    if (accountName == null) {
+      CompletableFuture<ApiResponse<SlackIntegrationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'accountName' when calling"
+                  + " updateSlackIntegrationChannel"));
+      return result;
+    }
+
+    // verify the required parameter 'channelName' is set
+    if (channelName == null) {
+      CompletableFuture<ApiResponse<SlackIntegrationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'channelName' when calling"
+                  + " updateSlackIntegrationChannel"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SlackIntegrationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateSlackIntegrationChannel"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+            .replaceAll(
+                "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()))
+            .replaceAll(
+                "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateSlackIntegrationChannel");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "SlackIntegrationApi.updateSlackIntegrationChannel",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SlackIntegrationChannel>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SlackIntegrationChannel>() {});
   }
 }

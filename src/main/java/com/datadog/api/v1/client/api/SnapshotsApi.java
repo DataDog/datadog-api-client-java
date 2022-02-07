@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -99,21 +101,14 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
-   * delay before it is available.
+   * Take graph snapshots
+   *
+   * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)
    * @return GraphSnapshot
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public GraphSnapshot getGraphSnapshot(Long start, Long end) throws ApiException {
     return getGraphSnapshotWithHttpInfo(start, end, new GetGraphSnapshotOptionalParameters())
@@ -121,22 +116,32 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
-   * delay before it is available.
+   * Take graph snapshots
+   *
+   * <p>See {@link #getGraphSnapshotWithHttpInfo}.
+   *
+   * @param start The POSIX timestamp of the start of the query. (required)
+   * @param end The POSIX timestamp of the end of the query. (required)
+   * @return CompletableFuture&lt;GraphSnapshot&gt;
+   */
+  public CompletableFuture<GraphSnapshot> getGraphSnapshotAsync(Long start, Long end) {
+    return getGraphSnapshotWithHttpInfoAsync(start, end, new GetGraphSnapshotOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Take graph snapshots
+   *
+   * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)
    * @param parameters Optional parameters for the request.
    * @return GraphSnapshot
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public GraphSnapshot getGraphSnapshot(
       Long start, Long end, GetGraphSnapshotOptionalParameters parameters) throws ApiException {
@@ -144,8 +149,29 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
-   * delay before it is available.
+   * Take graph snapshots
+   *
+   * <p>See {@link #getGraphSnapshotWithHttpInfoAsync}.
+   *
+   * @param start The POSIX timestamp of the start of the query. (required)
+   * @param end The POSIX timestamp of the end of the query. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;GraphSnapshot&gt;
+   */
+  public CompletableFuture<GraphSnapshot> getGraphSnapshotAsync(
+      Long start, Long end, GetGraphSnapshotOptionalParameters parameters) {
+    return getGraphSnapshotWithHttpInfoAsync(start, end, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Take graph snapshots
+   *
+   * <p>Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is
+   * available.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)
@@ -153,7 +179,8 @@ public class SnapshotsApi {
    * @return ApiResponse&lt;GraphSnapshot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -183,11 +210,8 @@ public class SnapshotsApi {
     // create path and map variables
     String localVarPath = "/api/v1/graph/snapshot";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "metric_query", metricQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
@@ -199,30 +223,101 @@ public class SnapshotsApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getGraphSnapshot");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<GraphSnapshot> localVarReturnType = new GenericType<GraphSnapshot>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "SnapshotsApi.getGraphSnapshot",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "SnapshotsApi.getGraphSnapshot",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GraphSnapshot>() {});
+  }
+
+  /**
+   * Take graph snapshots
+   *
+   * <p>See {@link #getGraphSnapshotWithHttpInfo}.
+   *
+   * @param start The POSIX timestamp of the start of the query. (required)
+   * @param end The POSIX timestamp of the end of the query. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;GraphSnapshot&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GraphSnapshot>> getGraphSnapshotWithHttpInfoAsync(
+      Long start, Long end, GetGraphSnapshotOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'start' is set
+    if (start == null) {
+      CompletableFuture<ApiResponse<GraphSnapshot>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'start' when calling getGraphSnapshot"));
+      return result;
+    }
+
+    // verify the required parameter 'end' is set
+    if (end == null) {
+      CompletableFuture<ApiResponse<GraphSnapshot>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'end' when calling getGraphSnapshot"));
+      return result;
+    }
+    String metricQuery = parameters.metricQuery;
+    String eventQuery = parameters.eventQuery;
+    String graphDef = parameters.graphDef;
+    String title = parameters.title;
+    // create path and map variables
+    String localVarPath = "/api/v1/graph/snapshot";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "metric_query", metricQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "event_query", eventQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "graph_def", graphDef));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "title", title));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getGraphSnapshot");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "SnapshotsApi.getGraphSnapshot",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GraphSnapshot>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GraphSnapshot>() {});
   }
 }
