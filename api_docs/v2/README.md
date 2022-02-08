@@ -4,6 +4,11 @@ All URIs are relative to *https://api.datadoghq.com*
 
 | Class                      | Method                                                                                                       | HTTP request                                                                               | Description                                        |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| _AuthNMappingsApi_         | [**createAuthNMapping**](AuthNMappingsApi.md#createAuthNMapping)                                             | **POST** /api/v2/authn_mappings                                                            | Create an AuthN Mapping                            |
+| _AuthNMappingsApi_         | [**deleteAuthNMapping**](AuthNMappingsApi.md#deleteAuthNMapping)                                             | **DELETE** /api/v2/authn_mappings/{authn_mapping_id}                                       | Delete an AuthN Mapping                            |
+| _AuthNMappingsApi_         | [**getAuthNMapping**](AuthNMappingsApi.md#getAuthNMapping)                                                   | **GET** /api/v2/authn_mappings/{authn_mapping_id}                                          | Get an AuthN Mapping by UUID                       |
+| _AuthNMappingsApi_         | [**listAuthNMappings**](AuthNMappingsApi.md#listAuthNMappings)                                               | **GET** /api/v2/authn_mappings                                                             | List all AuthN Mappings                            |
+| _AuthNMappingsApi_         | [**updateAuthNMapping**](AuthNMappingsApi.md#updateAuthNMapping)                                             | **PATCH** /api/v2/authn_mappings/{authn_mapping_id}                                        | Edit an AuthN Mapping                              |
 | _CloudWorkloadSecurityApi_ | [**createCloudWorkloadSecurityAgentRule**](CloudWorkloadSecurityApi.md#createCloudWorkloadSecurityAgentRule) | **POST** /api/v2/security_monitoring/cloud_workload_security/agent_rules                   | Create a Cloud Workload Security Agent rule        |
 | _CloudWorkloadSecurityApi_ | [**deleteCloudWorkloadSecurityAgentRule**](CloudWorkloadSecurityApi.md#deleteCloudWorkloadSecurityAgentRule) | **DELETE** /api/v2/security_monitoring/cloud_workload_security/agent_rules/{agent_rule_id} | Delete a Cloud Workload Security Agent rule        |
 | _CloudWorkloadSecurityApi_ | [**downloadCloudWorkloadPolicyFile**](CloudWorkloadSecurityApi.md#downloadCloudWorkloadPolicyFile)           | **GET** /api/v2/security/cloud_workload/policy/download                                    | Get the latest Cloud Workload Security policy      |
@@ -137,6 +142,22 @@ All URIs are relative to *https://api.datadoghq.com*
 - [ApplicationKeyUpdateRequest](ApplicationKeyUpdateRequest.md)
 - [ApplicationKeysSort](ApplicationKeysSort.md)
 - [ApplicationKeysType](ApplicationKeysType.md)
+- [AuthNMapping](AuthNMapping.md)
+- [AuthNMappingAttributes](AuthNMappingAttributes.md)
+- [AuthNMappingCreateAttributes](AuthNMappingCreateAttributes.md)
+- [AuthNMappingCreateData](AuthNMappingCreateData.md)
+- [AuthNMappingCreateRelationships](AuthNMappingCreateRelationships.md)
+- [AuthNMappingCreateRequest](AuthNMappingCreateRequest.md)
+- [AuthNMappingIncluded](AuthNMappingIncluded.md)
+- [AuthNMappingRelationships](AuthNMappingRelationships.md)
+- [AuthNMappingResponse](AuthNMappingResponse.md)
+- [AuthNMappingUpdate](AuthNMappingUpdate.md)
+- [AuthNMappingUpdateAttributes](AuthNMappingUpdateAttributes.md)
+- [AuthNMappingUpdateRelationships](AuthNMappingUpdateRelationships.md)
+- [AuthNMappingUpdateRequest](AuthNMappingUpdateRequest.md)
+- [AuthNMappingsResponse](AuthNMappingsResponse.md)
+- [AuthNMappingsSort](AuthNMappingsSort.md)
+- [AuthNMappingsType](AuthNMappingsType.md)
 - [CloudWorkloadSecurityAgentRuleAttributes](CloudWorkloadSecurityAgentRuleAttributes.md)
 - [CloudWorkloadSecurityAgentRuleCreateAttributes](CloudWorkloadSecurityAgentRuleCreateAttributes.md)
 - [CloudWorkloadSecurityAgentRuleCreateData](CloudWorkloadSecurityAgentRuleCreateData.md)
@@ -363,6 +384,8 @@ All URIs are relative to *https://api.datadoghq.com*
 - [RelationshipToRole](RelationshipToRole.md)
 - [RelationshipToRoleData](RelationshipToRoleData.md)
 - [RelationshipToRoles](RelationshipToRoles.md)
+- [RelationshipToSAMLAssertionAttribute](RelationshipToSAMLAssertionAttribute.md)
+- [RelationshipToSAMLAssertionAttributeData](RelationshipToSAMLAssertionAttributeData.md)
 - [RelationshipToUser](RelationshipToUser.md)
 - [RelationshipToUserData](RelationshipToUserData.md)
 - [RelationshipToUsers](RelationshipToUsers.md)
@@ -388,6 +411,9 @@ All URIs are relative to *https://api.datadoghq.com*
 - [RolesResponse](RolesResponse.md)
 - [RolesSort](RolesSort.md)
 - [RolesType](RolesType.md)
+- [SAMLAssertionAttribute](SAMLAssertionAttribute.md)
+- [SAMLAssertionAttributeAttributes](SAMLAssertionAttributeAttributes.md)
+- [SAMLAssertionAttributesType](SAMLAssertionAttributesType.md)
 - [SecurityFilter](SecurityFilter.md)
 - [SecurityFilterAttributes](SecurityFilterAttributes.md)
 - [SecurityFilterCreateAttributes](SecurityFilterCreateAttributes.md)
