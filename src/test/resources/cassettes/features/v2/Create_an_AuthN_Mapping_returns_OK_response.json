@@ -1,0 +1,120 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_an_AuthN_Mapping_returns_OK_response-1644413611\"},\"type\":\"roles\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_an_AuthN_Mapping_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/roles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"df8cb99c-89ac-11ec-80b7-da7ad0900002\",\"attributes\":{\"name\":\"Test-Create_an_AuthN_Mapping_returns_OK_response-1644413611\",\"created_at\":\"2022-02-09T13:33:31.955465+00:00\",\"modified_at\":\"2022-02-09T13:33:31.999958+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0ccadd88-10ab-0c0a-f0f2-6a0a6704ac1b"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"attribute_key\":\"testcreateanauthnmappingreturnsokresponse1644413611\",\"attribute_value\":\"Test-Create_an_AuthN_Mapping_returns_OK_response-1644413611\"},\"relationships\":{\"role\":{\"data\":{\"id\":\"df8cb99c-89ac-11ec-80b7-da7ad0900002\",\"type\":\"roles\"}}},\"type\":\"authn_mappings\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_an_AuthN_Mapping_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/authn_mappings",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"included\":[{\"type\":\"roles\",\"id\":\"df8cb99c-89ac-11ec-80b7-da7ad0900002\",\"attributes\":{\"name\":\"Test-Create_an_AuthN_Mapping_returns_OK_response-1644413611\",\"created_at\":\"2022-02-09T13:33:31.955465+00:00\",\"modified_at\":\"2022-02-09T13:33:31.999958+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}],\"data\":{\"type\":\"authn_mappings\",\"id\":\"dfde6576-89ac-11ec-80b7-da7ad0900002\",\"attributes\":{\"attribute_key\":\"testcreateanauthnmappingreturnsokresponse1644413611\",\"attribute_value\":\"Test-Create_an_AuthN_Mapping_returns_OK_response-1644413611\",\"created_at\":\"2022-02-09T13:33:32.490685+00:00\",\"modified_at\":\"2022-02-09T13:33:32.490685+00:00\"},\"relationships\":{\"role\":{\"data\":{\"type\":\"roles\",\"id\":\"df8cb99c-89ac-11ec-80b7-da7ad0900002\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4b988ee4-68b0-10ea-228a-efd158bc01cf"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_an_AuthN_Mapping_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/authn_mappings/dfde6576-89ac-11ec-80b7-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "861c8823-5060-f85d-d981-c1ae99887201"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_an_AuthN_Mapping_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/roles/df8cb99c-89ac-11ec-80b7-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e7db4872-44b1-777a-46e0-382f8ff43720"
+  }
+]

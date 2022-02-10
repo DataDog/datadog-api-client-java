@@ -1,0 +1,150 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-List_all_AuthN_Mappings_returns_OK_response-1644413615\"},\"type\":\"roles\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_all_AuthN_Mappings_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/roles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"e217f56e-89ac-11ec-80b7-da7ad0900002\",\"attributes\":{\"name\":\"Test-List_all_AuthN_Mappings_returns_OK_response-1644413615\",\"created_at\":\"2022-02-09T13:33:36.223522+00:00\",\"modified_at\":\"2022-02-09T13:33:36.295061+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4b253152-f56c-34cd-15eb-73cf5157c1c9"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"attribute_key\":\"testlistallauthnmappingsreturnsokresponse1644413615\",\"attribute_value\":\"Test-List_all_AuthN_Mappings_returns_OK_response-1644413615\"},\"relationships\":{\"role\":{\"data\":{\"id\":\"e217f56e-89ac-11ec-80b7-da7ad0900002\",\"type\":\"roles\"}}},\"type\":\"authn_mappings\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_all_AuthN_Mappings_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/authn_mappings",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"included\":[{\"type\":\"roles\",\"id\":\"e217f56e-89ac-11ec-80b7-da7ad0900002\",\"attributes\":{\"name\":\"Test-List_all_AuthN_Mappings_returns_OK_response-1644413615\",\"created_at\":\"2022-02-09T13:33:36.223522+00:00\",\"modified_at\":\"2022-02-09T13:33:36.295061+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}],\"data\":{\"type\":\"authn_mappings\",\"id\":\"e217f56f-89ac-11ec-80b7-da7ad0900002\",\"attributes\":{\"attribute_key\":\"testlistallauthnmappingsreturnsokresponse1644413615\",\"attribute_value\":\"Test-List_all_AuthN_Mappings_returns_OK_response-1644413615\",\"created_at\":\"2022-02-09T13:33:36.799760+00:00\",\"modified_at\":\"2022-02-09T13:33:36.799760+00:00\"},\"relationships\":{\"role\":{\"data\":{\"type\":\"roles\",\"id\":\"e217f56e-89ac-11ec-80b7-da7ad0900002\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a3e68456-858a-f3ca-be24-0f53184adf03"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_all_AuthN_Mappings_returns_OK_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v2/authn_mappings",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"included\":[{\"type\":\"roles\",\"id\":\"e217f56e-89ac-11ec-80b7-da7ad0900002\",\"attributes\":{\"name\":\"Test-List_all_AuthN_Mappings_returns_OK_response-1644413615\",\"created_at\":\"2022-02-09T13:33:36.223522+00:00\",\"modified_at\":\"2022-02-09T13:33:36.295061+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}],\"meta\":{\"page\":{\"total_filtered_count\":1,\"total_count\":1}},\"data\":[{\"type\":\"authn_mappings\",\"id\":\"e217f56f-89ac-11ec-80b7-da7ad0900002\",\"attributes\":{\"attribute_key\":\"testlistallauthnmappingsreturnsokresponse1644413615\",\"attribute_value\":\"Test-List_all_AuthN_Mappings_returns_OK_response-1644413615\",\"created_at\":\"2022-02-09T13:33:36.799760+00:00\",\"modified_at\":\"2022-02-09T13:33:36.799760+00:00\"},\"relationships\":{\"role\":{\"data\":{\"type\":\"roles\",\"id\":\"e217f56e-89ac-11ec-80b7-da7ad0900002\"}}}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5250f597-6453-1bf3-5f3d-b2e3d2f8df94"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_all_AuthN_Mappings_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/authn_mappings/e217f56f-89ac-11ec-80b7-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8be08182-4084-11e9-e128-5867240b00b4"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_all_AuthN_Mappings_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/roles/e217f56e-89ac-11ec-80b7-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "69116e0c-4aed-8fbe-25d8-bccc456f02c2"
+  }
+]
