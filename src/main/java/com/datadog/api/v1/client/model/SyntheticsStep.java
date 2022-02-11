@@ -22,6 +22,7 @@ import java.util.Objects;
 @ApiModel(description = "The steps used in a Synthetics browser test.")
 @JsonPropertyOrder({
   SyntheticsStep.JSON_PROPERTY_ALLOW_FAILURE,
+  SyntheticsStep.JSON_PROPERTY_IS_CRITICAL,
   SyntheticsStep.JSON_PROPERTY_NAME,
   SyntheticsStep.JSON_PROPERTY_PARAMS,
   SyntheticsStep.JSON_PROPERTY_TIMEOUT,
@@ -32,6 +33,9 @@ public class SyntheticsStep {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
   private Boolean allowFailure;
+
+  public static final String JSON_PROPERTY_IS_CRITICAL = "isCritical";
+  private Boolean isCritical;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -65,6 +69,32 @@ public class SyntheticsStep {
 
   public void setAllowFailure(Boolean allowFailure) {
     this.allowFailure = allowFailure;
+  }
+
+  public SyntheticsStep isCritical(Boolean isCritical) {
+    this.isCritical = isCritical;
+    return this;
+  }
+
+  /**
+   * A boolean to use in addition to &#x60;allowFailure&#x60; to determine if the test should be
+   * marked as failed when the step fails.
+   *
+   * @return isCritical
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "A boolean to use in addition to `allowFailure` to determine if the test should be"
+              + " marked as failed when the step fails.")
+  @JsonProperty(JSON_PROPERTY_IS_CRITICAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsCritical() {
+    return isCritical;
+  }
+
+  public void setIsCritical(Boolean isCritical) {
+    this.isCritical = isCritical;
   }
 
   public SyntheticsStep name(String name) {
@@ -170,6 +200,7 @@ public class SyntheticsStep {
     }
     SyntheticsStep syntheticsStep = (SyntheticsStep) o;
     return Objects.equals(this.allowFailure, syntheticsStep.allowFailure)
+        && Objects.equals(this.isCritical, syntheticsStep.isCritical)
         && Objects.equals(this.name, syntheticsStep.name)
         && Objects.equals(this.params, syntheticsStep.params)
         && Objects.equals(this.timeout, syntheticsStep.timeout)
@@ -178,7 +209,7 @@ public class SyntheticsStep {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowFailure, name, params, timeout, type);
+    return Objects.hash(allowFailure, isCritical, name, params, timeout, type);
   }
 
   @Override
@@ -186,6 +217,7 @@ public class SyntheticsStep {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsStep {\n");
     sb.append("    allowFailure: ").append(toIndentedString(allowFailure)).append("\n");
+    sb.append("    isCritical: ").append(toIndentedString(isCritical)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
