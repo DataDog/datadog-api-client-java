@@ -286,9 +286,11 @@ public class MonitorsApi {
    * event tags (comma-separated). - **&#x60;rollup&#x60;** the stats roll-up method.
    * &#x60;count&#x60; is the only supported method now. - **&#x60;last&#x60;** the timeframe to
    * roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not
-   * exceed 48 hours. **NOTE** Only available on US1 and EU. **Event V2 Alert Query** Example:
-   * &#x60;events(query).rollup(rollup_method[, measure]).last(time_window) operator #&#x60; -
-   * **&#x60;query&#x60;** The search query - following the [Log search
+   * exceed 48 hours. **NOTE** The Event Alert Query is being deprecated and replaced by the Event
+   * V2 Alert Query. For more information, see the [Event Migration
+   * guide](https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/). **Event V2
+   * Alert Query** Example: &#x60;events(query).rollup(rollup_method[, measure]).last(time_window)
+   * operator #&#x60; - **&#x60;query&#x60;** The search query - following the [Log search
    * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The
    * stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;.
    * - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; -
