@@ -12,6 +12,8 @@ import com.datadog.api.v1.client.model.SyntheticsBrowserTestType;
 import com.datadog.api.v1.client.model.SyntheticsConfigVariable;
 import com.datadog.api.v1.client.model.SyntheticsConfigVariableType;
 import com.datadog.api.v1.client.model.SyntheticsDeviceID;
+import com.datadog.api.v1.client.model.SyntheticsStep;
+import com.datadog.api.v1.client.model.SyntheticsStepType;
 import com.datadog.api.v1.client.model.SyntheticsTestOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.v1.client.model.SyntheticsTestRequest;
@@ -81,7 +83,19 @@ public class Example {
                     add("testing:browser");
                   }
                 })
-            .type(SyntheticsBrowserTestType.BROWSER);
+            .type(SyntheticsBrowserTestType.BROWSER)
+            .steps(
+                new ArrayList<SyntheticsStep>() {
+                  {
+                    add(
+                        new SyntheticsStep()
+                            .allowFailure(false)
+                            .isCritical(true)
+                            .name("Refresh page")
+                            .params(new Object())
+                            .type(SyntheticsStepType.REFRESH));
+                  }
+                });
 
     try {
       SyntheticsBrowserTest result = apiInstance.createSyntheticsBrowserTest(body);
