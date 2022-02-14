@@ -324,6 +324,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [FunnelQuery](FunnelQuery.md)
 - [FunnelRequestType](FunnelRequestType.md)
 - [FunnelSource](FunnelSource.md)
+- [FunnelStep](FunnelStep.md)
 - [FunnelWidgetDefinition](FunnelWidgetDefinition.md)
 - [FunnelWidgetDefinitionType](FunnelWidgetDefinitionType.md)
 - [FunnelWidgetRequest](FunnelWidgetRequest.md)
