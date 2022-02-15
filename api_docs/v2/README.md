@@ -67,7 +67,9 @@ All URIs are relative to *https://api.datadoghq.com*
 | _LogsMetricsApi_           | [**getLogsMetric**](LogsMetricsApi.md#getLogsMetric)                                                         | **GET** /api/v2/logs/config/metrics/{metric_id}                                            | Get a log-based metric                             |
 | _LogsMetricsApi_           | [**listLogsMetrics**](LogsMetricsApi.md#listLogsMetrics)                                                     | **GET** /api/v2/logs/config/metrics                                                        | Get all log-based metrics                          |
 | _LogsMetricsApi_           | [**updateLogsMetric**](LogsMetricsApi.md#updateLogsMetric)                                                   | **PATCH** /api/v2/logs/config/metrics/{metric_id}                                          | Update a log-based metric                          |
+| _MetricsApi_               | [**createBulkTagsMetricsConfiguration**](MetricsApi.md#createBulkTagsMetricsConfiguration)                   | **POST** /api/v2/metrics/config/bulk-tags                                                  | Configure tags for multiple metrics                |
 | _MetricsApi_               | [**createTagConfiguration**](MetricsApi.md#createTagConfiguration)                                           | **POST** /api/v2/metrics/{metric_name}/tags                                                | Create a tag configuration                         |
+| _MetricsApi_               | [**deleteBulkTagsMetricsConfiguration**](MetricsApi.md#deleteBulkTagsMetricsConfiguration)                   | **DELETE** /api/v2/metrics/config/bulk-tags                                                | Configure tags for multiple metrics                |
 | _MetricsApi_               | [**deleteTagConfiguration**](MetricsApi.md#deleteTagConfiguration)                                           | **DELETE** /api/v2/metrics/{metric_name}/tags                                              | Delete a tag configuration                         |
 | _MetricsApi_               | [**listTagConfigurationByName**](MetricsApi.md#listTagConfigurationByName)                                   | **GET** /api/v2/metrics/{metric_name}/tags                                                 | List tag configuration by name                     |
 | _MetricsApi_               | [**listTagConfigurations**](MetricsApi.md#listTagConfigurations)                                             | **GET** /api/v2/metrics                                                                    | List tag configurations                            |
@@ -326,6 +328,16 @@ All URIs are relative to *https://api.datadoghq.com*
 - [MetricAllTags](MetricAllTags.md)
 - [MetricAllTagsAttributes](MetricAllTagsAttributes.md)
 - [MetricAllTagsResponse](MetricAllTagsResponse.md)
+- [MetricBulkConfigureTagsType](MetricBulkConfigureTagsType.md)
+- [MetricBulkTagConfigCreate](MetricBulkTagConfigCreate.md)
+- [MetricBulkTagConfigCreateAttributes](MetricBulkTagConfigCreateAttributes.md)
+- [MetricBulkTagConfigCreateRequest](MetricBulkTagConfigCreateRequest.md)
+- [MetricBulkTagConfigDelete](MetricBulkTagConfigDelete.md)
+- [MetricBulkTagConfigDeleteAttributes](MetricBulkTagConfigDeleteAttributes.md)
+- [MetricBulkTagConfigDeleteRequest](MetricBulkTagConfigDeleteRequest.md)
+- [MetricBulkTagConfigResponse](MetricBulkTagConfigResponse.md)
+- [MetricBulkTagConfigStatus](MetricBulkTagConfigStatus.md)
+- [MetricBulkTagConfigStatusAttributes](MetricBulkTagConfigStatusAttributes.md)
 - [MetricCustomAggregation](MetricCustomAggregation.md)
 - [MetricCustomSpaceAggregation](MetricCustomSpaceAggregation.md)
 - [MetricCustomTimeAggregation](MetricCustomTimeAggregation.md)

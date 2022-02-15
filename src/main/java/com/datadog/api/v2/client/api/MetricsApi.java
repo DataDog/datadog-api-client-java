@@ -6,6 +6,9 @@ import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.MetricAllTagsResponse;
+import com.datadog.api.v2.client.model.MetricBulkTagConfigCreateRequest;
+import com.datadog.api.v2.client.model.MetricBulkTagConfigDeleteRequest;
+import com.datadog.api.v2.client.model.MetricBulkTagConfigResponse;
 import com.datadog.api.v2.client.model.MetricTagConfigurationCreateRequest;
 import com.datadog.api.v2.client.model.MetricTagConfigurationMetricTypes;
 import com.datadog.api.v2.client.model.MetricTagConfigurationResponse;
@@ -48,6 +51,159 @@ public class MetricsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Configure tags for multiple metrics
+   *
+   * <p>See {@link #createBulkTagsMetricsConfigurationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return MetricBulkTagConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MetricBulkTagConfigResponse createBulkTagsMetricsConfiguration(
+      MetricBulkTagConfigCreateRequest body) throws ApiException {
+    return createBulkTagsMetricsConfigurationWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Configure tags for multiple metrics
+   *
+   * <p>See {@link #createBulkTagsMetricsConfigurationWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;MetricBulkTagConfigResponse&gt;
+   */
+  public CompletableFuture<MetricBulkTagConfigResponse> createBulkTagsMetricsConfigurationAsync(
+      MetricBulkTagConfigCreateRequest body) {
+    return createBulkTagsMetricsConfigurationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Configure tags for multiple metrics
+   *
+   * <p>Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and
+   * distribution metrics. Metrics are selected by passing a metric name prefix. Use the Delete
+   * method of this API path to remove tag configurations. Results can be sent to a set of account
+   * email addresses, just like the same operation in the Datadog web app. If multiple calls include
+   * the same metric, the last configuration applied (not by submit order) is used, do not expect
+   * deterministic ordering of concurrent calls. Can only be used with application keys of users
+   * with the &#x60;Manage Tags for Metrics&#x60; permission.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;MetricBulkTagConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MetricBulkTagConfigResponse> createBulkTagsMetricsConfigurationWithHttpInfo(
+      MetricBulkTagConfigCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createBulkTagsMetricsConfiguration");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/config/bulk-tags";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createBulkTagsMetricsConfiguration");
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "MetricsApi.createBulkTagsMetricsConfiguration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricBulkTagConfigResponse>() {});
+  }
+
+  /**
+   * Configure tags for multiple metrics
+   *
+   * <p>See {@link #createBulkTagsMetricsConfigurationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricBulkTagConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>>
+      createBulkTagsMetricsConfigurationWithHttpInfoAsync(MetricBulkTagConfigCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createBulkTagsMetricsConfiguration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/config/bulk-tags";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createBulkTagsMetricsConfiguration");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "MetricsApi.createBulkTagsMetricsConfiguration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricBulkTagConfigResponse>() {});
   }
 
   /**
@@ -223,6 +379,157 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricTagConfigurationResponse>() {});
+  }
+
+  /**
+   * Configure tags for multiple metrics
+   *
+   * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return MetricBulkTagConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MetricBulkTagConfigResponse deleteBulkTagsMetricsConfiguration(
+      MetricBulkTagConfigDeleteRequest body) throws ApiException {
+    return deleteBulkTagsMetricsConfigurationWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Configure tags for multiple metrics
+   *
+   * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;MetricBulkTagConfigResponse&gt;
+   */
+  public CompletableFuture<MetricBulkTagConfigResponse> deleteBulkTagsMetricsConfigurationAsync(
+      MetricBulkTagConfigDeleteRequest body) {
+    return deleteBulkTagsMetricsConfigurationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Configure tags for multiple metrics
+   *
+   * <p>Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and
+   * distribution metrics. Metrics are selected by passing a metric name prefix. Results can be sent
+   * to a set of account email addresses, just like the same operation in the Datadog web app. Can
+   * only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60;
+   * permission.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;MetricBulkTagConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MetricBulkTagConfigResponse> deleteBulkTagsMetricsConfigurationWithHttpInfo(
+      MetricBulkTagConfigDeleteRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling deleteBulkTagsMetricsConfiguration");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/config/bulk-tags";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteBulkTagsMetricsConfiguration");
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "MetricsApi.deleteBulkTagsMetricsConfiguration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricBulkTagConfigResponse>() {});
+  }
+
+  /**
+   * Configure tags for multiple metrics
+   *
+   * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricBulkTagConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>>
+      deleteBulkTagsMetricsConfigurationWithHttpInfoAsync(MetricBulkTagConfigDeleteRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " deleteBulkTagsMetricsConfiguration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/metrics/config/bulk-tags";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteBulkTagsMetricsConfiguration");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "MetricsApi.deleteBulkTagsMetricsConfiguration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricBulkTagConfigResponse>() {});
   }
 
   /**

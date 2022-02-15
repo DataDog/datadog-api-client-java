@@ -2,15 +2,87 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                     | HTTP request                                   | Description                                 |
-| -------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------- |
-| [**createTagConfiguration**](MetricsApi.md#createTagConfiguration)         | **POST** /api/v2/metrics/{metric_name}/tags    | Create a tag configuration                  |
-| [**deleteTagConfiguration**](MetricsApi.md#deleteTagConfiguration)         | **DELETE** /api/v2/metrics/{metric_name}/tags  | Delete a tag configuration                  |
-| [**listTagConfigurationByName**](MetricsApi.md#listTagConfigurationByName) | **GET** /api/v2/metrics/{metric_name}/tags     | List tag configuration by name              |
-| [**listTagConfigurations**](MetricsApi.md#listTagConfigurations)           | **GET** /api/v2/metrics                        | List tag configurations                     |
-| [**listTagsByMetricName**](MetricsApi.md#listTagsByMetricName)             | **GET** /api/v2/metrics/{metric_name}/all-tags | List tags by metric name                    |
-| [**listVolumesByMetricName**](MetricsApi.md#listVolumesByMetricName)       | **GET** /api/v2/metrics/{metric_name}/volumes  | List distinct metric volumes by metric name |
-| [**updateTagConfiguration**](MetricsApi.md#updateTagConfiguration)         | **PATCH** /api/v2/metrics/{metric_name}/tags   | Update a tag configuration                  |
+| Method                                                                                     | HTTP request                                   | Description                                 |
+| ------------------------------------------------------------------------------------------ | ---------------------------------------------- | ------------------------------------------- |
+| [**createBulkTagsMetricsConfiguration**](MetricsApi.md#createBulkTagsMetricsConfiguration) | **POST** /api/v2/metrics/config/bulk-tags      | Configure tags for multiple metrics         |
+| [**createTagConfiguration**](MetricsApi.md#createTagConfiguration)                         | **POST** /api/v2/metrics/{metric_name}/tags    | Create a tag configuration                  |
+| [**deleteBulkTagsMetricsConfiguration**](MetricsApi.md#deleteBulkTagsMetricsConfiguration) | **DELETE** /api/v2/metrics/config/bulk-tags    | Configure tags for multiple metrics         |
+| [**deleteTagConfiguration**](MetricsApi.md#deleteTagConfiguration)                         | **DELETE** /api/v2/metrics/{metric_name}/tags  | Delete a tag configuration                  |
+| [**listTagConfigurationByName**](MetricsApi.md#listTagConfigurationByName)                 | **GET** /api/v2/metrics/{metric_name}/tags     | List tag configuration by name              |
+| [**listTagConfigurations**](MetricsApi.md#listTagConfigurations)                           | **GET** /api/v2/metrics                        | List tag configurations                     |
+| [**listTagsByMetricName**](MetricsApi.md#listTagsByMetricName)                             | **GET** /api/v2/metrics/{metric_name}/all-tags | List tags by metric name                    |
+| [**listVolumesByMetricName**](MetricsApi.md#listVolumesByMetricName)                       | **GET** /api/v2/metrics/{metric_name}/volumes  | List distinct metric volumes by metric name |
+| [**updateTagConfiguration**](MetricsApi.md#updateTagConfiguration)                         | **PATCH** /api/v2/metrics/{metric_name}/tags   | Update a tag configuration                  |
+
+## createBulkTagsMetricsConfiguration
+
+> MetricBulkTagConfigResponse createBulkTagsMetricsConfiguration(body);
+
+Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
+Metrics are selected by passing a metric name prefix. Use the Delete method of this API path to remove tag configurations.
+Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
+If multiple calls include the same metric, the last configuration applied (not by submit order) is used, do not
+expect deterministic ordering of concurrent calls.
+Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.MetricsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        MetricsApi apiInstance = new MetricsApi(defaultClient);
+        MetricBulkTagConfigCreateRequest body = new MetricBulkTagConfigCreateRequest(); // MetricBulkTagConfigCreateRequest |
+        try {
+            MetricBulkTagConfigResponse result = apiInstance.createBulkTagsMetricsConfiguration(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MetricsApi#createBulkTagsMetricsConfiguration");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name     | Type                                                                        | Description | Notes |
+| -------- | --------------------------------------------------------------------------- | ----------- | ----- |
+| **body** | [**MetricBulkTagConfigCreateRequest**](MetricBulkTagConfigCreateRequest.md) |             |
+
+### Return type
+
+[**MetricBulkTagConfigResponse**](MetricBulkTagConfigResponse.md)
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **202**     | Accepted          | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too Many Requests | -                |
 
 ## createTagConfiguration
 
@@ -80,6 +152,74 @@ public class Example {
 | **400**     | Bad Request       | -                |
 | **403**     | Forbidden         | -                |
 | **409**     | Conflict          | -                |
+| **429**     | Too Many Requests | -                |
+
+## deleteBulkTagsMetricsConfiguration
+
+> MetricBulkTagConfigResponse deleteBulkTagsMetricsConfiguration(body);
+
+Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
+Metrics are selected by passing a metric name prefix.
+Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
+Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.MetricsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        MetricsApi apiInstance = new MetricsApi(defaultClient);
+        MetricBulkTagConfigDeleteRequest body = new MetricBulkTagConfigDeleteRequest(); // MetricBulkTagConfigDeleteRequest |
+        try {
+            MetricBulkTagConfigResponse result = apiInstance.deleteBulkTagsMetricsConfiguration(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MetricsApi#deleteBulkTagsMetricsConfiguration");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name     | Type                                                                        | Description | Notes |
+| -------- | --------------------------------------------------------------------------- | ----------- | ----- |
+| **body** | [**MetricBulkTagConfigDeleteRequest**](MetricBulkTagConfigDeleteRequest.md) |             |
+
+### Return type
+
+[**MetricBulkTagConfigResponse**](MetricBulkTagConfigResponse.md)
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **202**     | Accepted          | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
 | **429**     | Too Many Requests | -                |
 
 ## deleteTagConfiguration
