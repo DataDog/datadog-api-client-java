@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,40 +19,47 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** The metadata object containing pagination metadata. */
-@ApiModel(description = "The metadata object containing pagination metadata.")
-@JsonPropertyOrder({IncidentServicesResponseMeta.JSON_PROPERTY_PAGINATION})
+/** Wrapper object for a single bulk tag deletion request. */
+@ApiModel(description = "Wrapper object for a single bulk tag deletion request.")
+@JsonPropertyOrder({MetricBulkTagConfigDeleteRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class IncidentServicesResponseMeta {
+public class MetricBulkTagConfigDeleteRequest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PAGINATION = "pagination";
-  private IncidentServicesResponseMetaPagination pagination;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private MetricBulkTagConfigDelete data;
 
-  public IncidentServicesResponseMeta pagination(
-      IncidentServicesResponseMetaPagination pagination) {
-    this.pagination = pagination;
-    this.unparsed |= pagination.unparsed;
+  public MetricBulkTagConfigDeleteRequest() {}
+
+  @JsonCreator
+  public MetricBulkTagConfigDeleteRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) MetricBulkTagConfigDelete data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public MetricBulkTagConfigDeleteRequest data(MetricBulkTagConfigDelete data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Get pagination
+   * Get data
    *
-   * @return pagination
+   * @return data
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PAGINATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentServicesResponseMetaPagination getPagination() {
-    return pagination;
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MetricBulkTagConfigDelete getData() {
+    return data;
   }
 
-  public void setPagination(IncidentServicesResponseMetaPagination pagination) {
-    this.pagination = pagination;
+  public void setData(MetricBulkTagConfigDelete data) {
+    this.data = data;
   }
 
-  /** Return true if this IncidentServicesResponse_meta object is equal to o. */
+  /** Return true if this MetricBulkTagConfigDeleteRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -60,20 +68,21 @@ public class IncidentServicesResponseMeta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentServicesResponseMeta incidentServicesResponseMeta = (IncidentServicesResponseMeta) o;
-    return Objects.equals(this.pagination, incidentServicesResponseMeta.pagination);
+    MetricBulkTagConfigDeleteRequest metricBulkTagConfigDeleteRequest =
+        (MetricBulkTagConfigDeleteRequest) o;
+    return Objects.equals(this.data, metricBulkTagConfigDeleteRequest.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pagination);
+    return Objects.hash(data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentServicesResponseMeta {\n");
-    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("class MetricBulkTagConfigDeleteRequest {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

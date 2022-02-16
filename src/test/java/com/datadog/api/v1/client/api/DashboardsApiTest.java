@@ -22,6 +22,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import org.junit.*;
 
 /** API tests for DashboardsApi */
@@ -963,6 +965,20 @@ public class DashboardsApiTest extends V1ApiTest {
       APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
       assertNotNull(error.getErrors());
     }
+  }
+
+  @Test
+  public void getAllDashboardAsyncTest() throws InterruptedException, ExecutionException {
+    CompletableFuture<DashboardSummary> future = api.listDashboardsAsync();
+    DashboardSummary getAllResponse = future.get();
+    assertNotNull(getAllResponse.getDashboards().get(0).getAuthorHandle());
+    assertNotNull(getAllResponse.getDashboards().get(0).getCreatedAt());
+    assertNotNull(getAllResponse.getDashboards().get(0).getModifiedAt());
+    assertNotNull(getAllResponse.getDashboards().get(0).getId());
+    assertNotNull(getAllResponse.getDashboards().get(0).getIsReadOnly());
+    assertNotNull(getAllResponse.getDashboards().get(0).getLayoutType());
+    assertNotNull(getAllResponse.getDashboards().get(0).getTitle());
+    assertNotNull(getAllResponse.getDashboards().get(0).getUrl());
   }
 
   @Test

@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -43,32 +45,45 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Create a GCP integration Create a Datadog-GCP integration.
+   * Create a GCP integration
+   *
+   * <p>See {@link #createGCPIntegrationWithHttpInfo}.
    *
    * @param body Create a Datadog-GCP integration. (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object createGCPIntegration(GCPAccount body) throws ApiException {
     return createGCPIntegrationWithHttpInfo(body).getData();
   }
 
   /**
-   * Create a GCP integration Create a Datadog-GCP integration.
+   * Create a GCP integration
+   *
+   * <p>See {@link #createGCPIntegrationWithHttpInfoAsync}.
+   *
+   * @param body Create a Datadog-GCP integration. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
+  public CompletableFuture<Object> createGCPIntegrationAsync(GCPAccount body) {
+    return createGCPIntegrationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a GCP integration
+   *
+   * <p>Create a Datadog-GCP integration.
    *
    * @param body Create a Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -87,68 +102,126 @@ public class GcpIntegrationApi {
     // create path and map variables
     String localVarPath = "/api/v1/integration/gcp";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createGCPIntegration");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "GcpIntegrationApi.createGCPIntegration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "GcpIntegrationApi.createGCPIntegration",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
   }
 
   /**
-   * Delete a GCP integration Delete a given Datadog-GCP integration.
+   * Create a GCP integration
+   *
+   * <p>See {@link #createGCPIntegrationWithHttpInfo}.
+   *
+   * @param body Create a Datadog-GCP integration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Object>> createGCPIntegrationWithHttpInfoAsync(
+      GCPAccount body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createGCPIntegration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/gcp";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createGCPIntegration");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "GcpIntegrationApi.createGCPIntegration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Delete a GCP integration
+   *
+   * <p>See {@link #deleteGCPIntegrationWithHttpInfo}.
    *
    * @param body Delete a given Datadog-GCP integration. (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object deleteGCPIntegration(GCPAccount body) throws ApiException {
     return deleteGCPIntegrationWithHttpInfo(body).getData();
   }
 
   /**
-   * Delete a GCP integration Delete a given Datadog-GCP integration.
+   * Delete a GCP integration
+   *
+   * <p>See {@link #deleteGCPIntegrationWithHttpInfoAsync}.
+   *
+   * @param body Delete a given Datadog-GCP integration. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
+  public CompletableFuture<Object> deleteGCPIntegrationAsync(GCPAccount body) {
+    return deleteGCPIntegrationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a GCP integration
+   *
+   * <p>Delete a given Datadog-GCP integration.
    *
    * @param body Delete a given Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -167,66 +240,123 @@ public class GcpIntegrationApi {
     // create path and map variables
     String localVarPath = "/api/v1/integration/gcp";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteGCPIntegration");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "GcpIntegrationApi.deleteGCPIntegration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "GcpIntegrationApi.deleteGCPIntegration",
-        localVarPath,
         "DELETE",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
   }
 
   /**
-   * List all GCP integrations List all Datadog-GCP integrations configured in your Datadog account.
+   * Delete a GCP integration
+   *
+   * <p>See {@link #deleteGCPIntegrationWithHttpInfo}.
+   *
+   * @param body Delete a given Datadog-GCP integration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Object>> deleteGCPIntegrationWithHttpInfoAsync(
+      GCPAccount body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling deleteGCPIntegration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/gcp";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteGCPIntegration");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "GcpIntegrationApi.deleteGCPIntegration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * List all GCP integrations
+   *
+   * <p>See {@link #listGCPIntegrationWithHttpInfo}.
    *
    * @return List&lt;GCPAccount&gt;
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public List<GCPAccount> listGCPIntegration() throws ApiException {
     return listGCPIntegrationWithHttpInfo().getData();
   }
 
   /**
-   * List all GCP integrations List all Datadog-GCP integrations configured in your Datadog account.
+   * List all GCP integrations
+   *
+   * <p>See {@link #listGCPIntegrationWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;List&lt;GCPAccount&gt;&gt;
+   */
+  public CompletableFuture<List<GCPAccount>> listGCPIntegrationAsync() {
+    return listGCPIntegrationWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all GCP integrations
+   *
+   * <p>List all Datadog-GCP integrations configured in your Datadog account.
    *
    * @return ApiResponse&lt;List&lt;GCPAccount&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -239,75 +369,118 @@ public class GcpIntegrationApi {
     // create path and map variables
     String localVarPath = "/api/v1/integration/gcp";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listGCPIntegration");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<List<GCPAccount>> localVarReturnType = new GenericType<List<GCPAccount>>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "GcpIntegrationApi.listGCPIntegration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "GcpIntegrationApi.listGCPIntegration",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<GCPAccount>>() {});
   }
 
   /**
-   * Update a GCP integration Update a Datadog-GCP integrations host_filters and/or auto-mute.
-   * Requires a &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be
-   * updated. If you need to update these fields, delete and use the create (&#x60;POST&#x60;)
-   * endpoint. The unspecified fields will keep their original values.
+   * List all GCP integrations
+   *
+   * <p>See {@link #listGCPIntegrationWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;GCPAccount&gt;&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<List<GCPAccount>>> listGCPIntegrationWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/gcp";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listGCPIntegration");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "GcpIntegrationApi.listGCPIntegration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<List<GCPAccount>>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<GCPAccount>>() {});
+  }
+
+  /**
+   * Update a GCP integration
+   *
+   * <p>See {@link #updateGCPIntegrationWithHttpInfo}.
    *
    * @param body Update a Datadog-GCP integration. (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object updateGCPIntegration(GCPAccount body) throws ApiException {
     return updateGCPIntegrationWithHttpInfo(body).getData();
   }
 
   /**
-   * Update a GCP integration Update a Datadog-GCP integrations host_filters and/or auto-mute.
-   * Requires a &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be
-   * updated. If you need to update these fields, delete and use the create (&#x60;POST&#x60;)
-   * endpoint. The unspecified fields will keep their original values.
+   * Update a GCP integration
+   *
+   * <p>See {@link #updateGCPIntegrationWithHttpInfoAsync}.
+   *
+   * @param body Update a Datadog-GCP integration. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
+  public CompletableFuture<Object> updateGCPIntegrationAsync(GCPAccount body) {
+    return updateGCPIntegrationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a GCP integration
+   *
+   * <p>Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a
+   * &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be updated. If
+   * you need to update these fields, delete and use the create (&#x60;POST&#x60;) endpoint. The
+   * unspecified fields will keep their original values.
    *
    * @param body Update a Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -326,38 +499,83 @@ public class GcpIntegrationApi {
     // create path and map variables
     String localVarPath = "/api/v1/integration/gcp";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateGCPIntegration");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "GcpIntegrationApi.updateGCPIntegration",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "GcpIntegrationApi.updateGCPIntegration",
-        localVarPath,
         "PUT",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Update a GCP integration
+   *
+   * <p>See {@link #updateGCPIntegrationWithHttpInfo}.
+   *
+   * @param body Update a Datadog-GCP integration. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Object>> updateGCPIntegrationWithHttpInfoAsync(
+      GCPAccount body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateGCPIntegration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/gcp";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateGCPIntegration");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "GcpIntegrationApi.updateGCPIntegration",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
   }
 }

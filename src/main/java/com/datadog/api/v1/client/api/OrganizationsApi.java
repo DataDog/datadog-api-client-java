@@ -14,8 +14,9 @@ import com.datadog.api.v1.client.model.OrganizationResponse;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -49,24 +50,13 @@ public class OrganizationsApi {
   }
 
   /**
-   * Create a child organization Create a child organization. This endpoint requires the
-   * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
-   * feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/). Once a
-   * new child organization is created, you can interact with it by using the
-   * &#x60;org.public_id&#x60;, &#x60;api_key.key&#x60;, and &#x60;application_key.hash&#x60;
-   * provided in the response.
+   * Create a child organization
+   *
+   * <p>See {@link #createChildOrgWithHttpInfo}.
    *
    * @param body Organization object that needs to be created (required)
    * @return OrganizationCreateResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public OrganizationCreateResponse createChildOrg(OrganizationCreateBody body)
       throws ApiException {
@@ -74,18 +64,37 @@ public class OrganizationsApi {
   }
 
   /**
-   * Create a child organization Create a child organization. This endpoint requires the
-   * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
-   * feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/). Once a
-   * new child organization is created, you can interact with it by using the
-   * &#x60;org.public_id&#x60;, &#x60;api_key.key&#x60;, and &#x60;application_key.hash&#x60;
-   * provided in the response.
+   * Create a child organization
+   *
+   * <p>See {@link #createChildOrgWithHttpInfoAsync}.
+   *
+   * @param body Organization object that needs to be created (required)
+   * @return CompletableFuture&lt;OrganizationCreateResponse&gt;
+   */
+  public CompletableFuture<OrganizationCreateResponse> createChildOrgAsync(
+      OrganizationCreateBody body) {
+    return createChildOrgWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a child organization
+   *
+   * <p>Create a child organization. This endpoint requires the [multi-organization
+   * account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be
+   * enabled by [contacting support](https://docs.datadoghq.com/help/). Once a new child
+   * organization is created, you can interact with it by using the &#x60;org.public_id&#x60;,
+   * &#x60;api_key.key&#x60;, and &#x60;application_key.hash&#x60; provided in the response.
    *
    * @param body Organization object that needs to be created (required)
    * @return ApiResponse&lt;OrganizationCreateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -105,71 +114,129 @@ public class OrganizationsApi {
     // create path and map variables
     String localVarPath = "/api/v1/org";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createChildOrg");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<OrganizationCreateResponse> localVarReturnType =
-        new GenericType<OrganizationCreateResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "OrganizationsApi.createChildOrg",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "OrganizationsApi.createChildOrg",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrganizationCreateResponse>() {});
   }
 
   /**
-   * Get organization information Get organization information.
+   * Create a child organization
+   *
+   * <p>See {@link #createChildOrgWithHttpInfo}.
+   *
+   * @param body Organization object that needs to be created (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OrganizationCreateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OrganizationCreateResponse>> createChildOrgWithHttpInfoAsync(
+      OrganizationCreateBody body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<OrganizationCreateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createChildOrg"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/org";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createChildOrg");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "OrganizationsApi.createChildOrg",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OrganizationCreateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrganizationCreateResponse>() {});
+  }
+
+  /**
+   * Get organization information
+   *
+   * <p>See {@link #getOrgWithHttpInfo}.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
    *     (required)
    * @return OrganizationResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public OrganizationResponse getOrg(String publicId) throws ApiException {
     return getOrgWithHttpInfo(publicId).getData();
   }
 
   /**
-   * Get organization information Get organization information.
+   * Get organization information
+   *
+   * <p>See {@link #getOrgWithHttpInfoAsync}.
+   *
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   *     (required)
+   * @return CompletableFuture&lt;OrganizationResponse&gt;
+   */
+  public CompletableFuture<OrganizationResponse> getOrgAsync(String publicId) {
+    return getOrgWithHttpInfoAsync(publicId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get organization information
+   *
+   * <p>Get organization information.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
    *     (required)
    * @return ApiResponse&lt;OrganizationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -189,67 +256,125 @@ public class OrganizationsApi {
         "/api/v1/org/{public_id}"
             .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getOrg");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<OrganizationResponse> localVarReturnType =
-        new GenericType<OrganizationResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "OrganizationsApi.getOrg",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "OrganizationsApi.getOrg",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrganizationResponse>() {});
   }
 
   /**
-   * List your managed organizations List your managed organizations.
+   * Get organization information
+   *
+   * <p>See {@link #getOrgWithHttpInfo}.
+   *
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OrganizationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OrganizationResponse>> getOrgWithHttpInfoAsync(
+      String publicId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<OrganizationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'publicId' when calling getOrg"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/org/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getOrg");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "OrganizationsApi.getOrg",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OrganizationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrganizationResponse>() {});
+  }
+
+  /**
+   * List your managed organizations
+   *
+   * <p>See {@link #listOrgsWithHttpInfo}.
    *
    * @return OrganizationListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public OrganizationListResponse listOrgs() throws ApiException {
     return listOrgsWithHttpInfo().getData();
   }
 
   /**
-   * List your managed organizations List your managed organizations.
+   * List your managed organizations
+   *
+   * <p>See {@link #listOrgsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;OrganizationListResponse&gt;
+   */
+  public CompletableFuture<OrganizationListResponse> listOrgsAsync() {
+    return listOrgsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List your managed organizations
+   *
+   * <p>List your managed organizations.
    *
    * @return ApiResponse&lt;OrganizationListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -261,66 +386,113 @@ public class OrganizationsApi {
     // create path and map variables
     String localVarPath = "/api/v1/org";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listOrgs");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<OrganizationListResponse> localVarReturnType =
-        new GenericType<OrganizationListResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "OrganizationsApi.listOrgs",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "OrganizationsApi.listOrgs",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrganizationListResponse>() {});
   }
 
   /**
-   * Update your organization Update your organization.
+   * List your managed organizations
+   *
+   * <p>See {@link #listOrgsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;OrganizationListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OrganizationListResponse>> listOrgsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/org";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listOrgs");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "OrganizationsApi.listOrgs",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OrganizationListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrganizationListResponse>() {});
+  }
+
+  /**
+   * Update your organization
+   *
+   * <p>See {@link #updateOrgWithHttpInfo}.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
    *     (required)
    * @param body (required)
    * @return OrganizationResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public OrganizationResponse updateOrg(String publicId, Organization body) throws ApiException {
     return updateOrgWithHttpInfo(publicId, body).getData();
   }
 
   /**
-   * Update your organization Update your organization.
+   * Update your organization
+   *
+   * <p>See {@link #updateOrgWithHttpInfoAsync}.
+   *
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   *     (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;OrganizationResponse&gt;
+   */
+  public CompletableFuture<OrganizationResponse> updateOrgAsync(
+      String publicId, Organization body) {
+    return updateOrgWithHttpInfoAsync(publicId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update your organization
+   *
+   * <p>Update your organization.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
    *     (required)
@@ -328,7 +500,8 @@ public class OrganizationsApi {
    * @return ApiResponse&lt;OrganizationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -355,76 +528,143 @@ public class OrganizationsApi {
         "/api/v1/org/{public_id}"
             .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateOrg");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<OrganizationResponse> localVarReturnType =
-        new GenericType<OrganizationResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "OrganizationsApi.updateOrg",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "OrganizationsApi.updateOrg",
-        localVarPath,
         "PUT",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrganizationResponse>() {});
   }
 
   /**
-   * Upload IdP metadata There are a couple of options for updating the Identity Provider (IdP)
-   * metadata from your SAML IdP. * **Multipart Form-Data**: Post the IdP metadata file using a form
-   * post. * **XML Body:** Post the IdP metadata file as the body of the request.
+   * Update your organization
+   *
+   * <p>See {@link #updateOrgWithHttpInfo}.
+   *
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   *     (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OrganizationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OrganizationResponse>> updateOrgWithHttpInfoAsync(
+      String publicId, Organization body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<OrganizationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'publicId' when calling updateOrg"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<OrganizationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling updateOrg"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/org/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateOrg");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "OrganizationsApi.updateOrg",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OrganizationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrganizationResponse>() {});
+  }
+
+  /**
+   * Upload IdP metadata
+   *
+   * <p>See {@link #uploadIdPForOrgWithHttpInfo}.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
    * @param idpFile The path to the XML metadata file you wish to upload. (required)
    * @return IdpResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public IdpResponse uploadIdPForOrg(String publicId, File idpFile) throws ApiException {
     return uploadIdPForOrgWithHttpInfo(publicId, idpFile).getData();
   }
 
   /**
-   * Upload IdP metadata There are a couple of options for updating the Identity Provider (IdP)
-   * metadata from your SAML IdP. * **Multipart Form-Data**: Post the IdP metadata file using a form
-   * post. * **XML Body:** Post the IdP metadata file as the body of the request.
+   * Upload IdP metadata
+   *
+   * <p>See {@link #uploadIdPForOrgWithHttpInfoAsync}.
+   *
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
+   * @param idpFile The path to the XML metadata file you wish to upload. (required)
+   * @return CompletableFuture&lt;IdpResponse&gt;
+   */
+  public CompletableFuture<IdpResponse> uploadIdPForOrgAsync(String publicId, File idpFile) {
+    return uploadIdPForOrgWithHttpInfoAsync(publicId, idpFile)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Upload IdP metadata
+   *
+   * <p>There are a couple of options for updating the Identity Provider (IdP) metadata from your
+   * SAML IdP. * **Multipart Form-Data**: Post the IdP metadata file using a form post. * **XML
+   * Body:** Post the IdP metadata file as the body of the request.
    *
    * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
    * @param idpFile The path to the XML metadata file you wish to upload. (required)
    * @return ApiResponse&lt;IdpResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -453,10 +693,7 @@ public class OrganizationsApi {
         "/api/v1/org/{public_id}/idp_metadata"
             .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
@@ -464,29 +701,93 @@ public class OrganizationsApi {
 
     if (idpFile != null) localVarFormParams.put("idp_file", idpFile);
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"multipart/form-data"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<IdpResponse> localVarReturnType = new GenericType<IdpResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "OrganizationsApi.uploadIdPForOrg",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "OrganizationsApi.uploadIdPForOrg",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
+        new String[] {"multipart/form-data"},
+        localVarPostBody,
         localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        false,
+        new GenericType<IdpResponse>() {});
+  }
+
+  /**
+   * Upload IdP metadata
+   *
+   * <p>See {@link #uploadIdPForOrgWithHttpInfo}.
+   *
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
+   * @param idpFile The path to the XML metadata file you wish to upload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;IdpResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IdpResponse>> uploadIdPForOrgWithHttpInfoAsync(
+      String publicId, File idpFile) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<IdpResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'publicId' when calling uploadIdPForOrg"));
+      return result;
+    }
+
+    // verify the required parameter 'idpFile' is set
+    if (idpFile == null) {
+      CompletableFuture<ApiResponse<IdpResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'idpFile' when calling uploadIdPForOrg"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/org/{public_id}/idp_metadata"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "uploadIdPForOrg");
+
+    if (idpFile != null) localVarFormParams.put("idp_file", idpFile);
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "OrganizationsApi.uploadIdPForOrg",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IdpResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"multipart/form-data"},
+        localVarPostBody,
+        localVarFormParams,
+        false,
+        new GenericType<IdpResponse>() {});
   }
 }

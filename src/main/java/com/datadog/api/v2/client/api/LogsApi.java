@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -50,34 +52,45 @@ public class LogsApi {
   }
 
   /**
-   * Aggregate events The API endpoint to aggregate events into buckets and compute metrics and
-   * timeseries.
+   * Aggregate events
+   *
+   * <p>See {@link #aggregateLogsWithHttpInfo}.
    *
    * @param body (required)
    * @return LogsAggregateResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsAggregateResponse aggregateLogs(LogsAggregateRequest body) throws ApiException {
     return aggregateLogsWithHttpInfo(body).getData();
   }
 
   /**
-   * Aggregate events The API endpoint to aggregate events into buckets and compute metrics and
-   * timeseries.
+   * Aggregate events
+   *
+   * <p>See {@link #aggregateLogsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;LogsAggregateResponse&gt;
+   */
+  public CompletableFuture<LogsAggregateResponse> aggregateLogsAsync(LogsAggregateRequest body) {
+    return aggregateLogsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Aggregate events
+   *
+   * <p>The API endpoint to aggregate events into buckets and compute metrics and timeseries.
    *
    * @param body (required)
    * @return ApiResponse&lt;LogsAggregateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -97,40 +110,84 @@ public class LogsApi {
     // create path and map variables
     String localVarPath = "/api/v2/logs/analytics/aggregate";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "aggregateLogs");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<LogsAggregateResponse> localVarReturnType =
-        new GenericType<LogsAggregateResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsApi.aggregateLogs",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsApi.aggregateLogs",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsAggregateResponse>() {});
+  }
+
+  /**
+   * Aggregate events
+   *
+   * <p>See {@link #aggregateLogsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsAggregateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LogsAggregateResponse>> aggregateLogsWithHttpInfoAsync(
+      LogsAggregateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LogsAggregateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling aggregateLogs"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/analytics/aggregate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "aggregateLogs");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsApi.aggregateLogs",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LogsAggregateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsAggregateResponse>() {});
   }
 
   /** Manage optional parameters to listLogs. */
@@ -150,62 +207,76 @@ public class LogsApi {
   }
 
   /**
-   * Search logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to build complex logs filtering and search. **If you are
-   * considering archiving logs for your organization, consider use of the Datadog archive
-   * capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].** [1]:
-   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+   * Search logs
+   *
+   * <p>See {@link #listLogsWithHttpInfo}.
    *
    * @return LogsListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsListResponse listLogs() throws ApiException {
     return listLogsWithHttpInfo(new ListLogsOptionalParameters()).getData();
   }
 
   /**
-   * Search logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to build complex logs filtering and search. **If you are
-   * considering archiving logs for your organization, consider use of the Datadog archive
-   * capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].** [1]:
-   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+   * Search logs
+   *
+   * <p>See {@link #listLogsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;LogsListResponse&gt;
+   */
+  public CompletableFuture<LogsListResponse> listLogsAsync() {
+    return listLogsWithHttpInfoAsync(new ListLogsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search logs
+   *
+   * <p>See {@link #listLogsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return LogsListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsListResponse listLogs(ListLogsOptionalParameters parameters) throws ApiException {
     return listLogsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Search logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to build complex logs filtering and search. **If you are
-   * considering archiving logs for your organization, consider use of the Datadog archive
-   * capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].** [1]:
+   * Search logs
+   *
+   * <p>See {@link #listLogsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;LogsListResponse&gt;
+   */
+  public CompletableFuture<LogsListResponse> listLogsAsync(ListLogsOptionalParameters parameters) {
+    return listLogsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search logs
+   *
+   * <p>List endpoint returns logs that match a log search query. [Results are paginated][1]. Use
+   * this endpoint to build complex logs filtering and search. **If you are considering archiving
+   * logs for your organization, consider use of the Datadog archive capabilities instead of the log
+   * list API. See [Datadog Logs Archive documentation][2].** [1]:
    * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LogsListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -219,39 +290,75 @@ public class LogsApi {
     // create path and map variables
     String localVarPath = "/api/v2/logs/events/search";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listLogs");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<LogsListResponse> localVarReturnType = new GenericType<LogsListResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsApi.listLogs",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsApi.listLogs",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsListResponse>() {});
+  }
+
+  /**
+   * Search logs
+   *
+   * <p>See {@link #listLogsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LogsListResponse>> listLogsWithHttpInfoAsync(
+      ListLogsOptionalParameters parameters) {
+    Object localVarPostBody = parameters.body;
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/events/search";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listLogs");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsApi.listLogs",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LogsListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsListResponse>() {});
   }
 
   /** Manage optional parameters to listLogsGet. */
@@ -345,45 +452,40 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to see your latest logs. **If you are considering archiving
-   * logs for your organization, consider use of the Datadog archive capabilities instead of the log
-   * list API. See [Datadog Logs Archive documentation][2].** [1]:
-   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+   * Get a list of logs
+   *
+   * <p>See {@link #listLogsGetWithHttpInfo}.
    *
    * @return LogsListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsListResponse listLogsGet() throws ApiException {
     return listLogsGetWithHttpInfo(new ListLogsGetOptionalParameters()).getData();
   }
 
   /**
-   * Get a list of logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to see your latest logs. **If you are considering archiving
-   * logs for your organization, consider use of the Datadog archive capabilities instead of the log
-   * list API. See [Datadog Logs Archive documentation][2].** [1]:
-   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+   * Get a list of logs
+   *
+   * <p>See {@link #listLogsGetWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;LogsListResponse&gt;
+   */
+  public CompletableFuture<LogsListResponse> listLogsGetAsync() {
+    return listLogsGetWithHttpInfoAsync(new ListLogsGetOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of logs
+   *
+   * <p>See {@link #listLogsGetWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return LogsListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public LogsListResponse listLogsGet(ListLogsGetOptionalParameters parameters)
       throws ApiException {
@@ -391,17 +493,37 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to see your latest logs. **If you are considering archiving
-   * logs for your organization, consider use of the Datadog archive capabilities instead of the log
-   * list API. See [Datadog Logs Archive documentation][2].** [1]:
+   * Get a list of logs
+   *
+   * <p>See {@link #listLogsGetWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;LogsListResponse&gt;
+   */
+  public CompletableFuture<LogsListResponse> listLogsGetAsync(
+      ListLogsGetOptionalParameters parameters) {
+    return listLogsGetWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of logs
+   *
+   * <p>List endpoint returns logs that match a log search query. [Results are paginated][1]. Use
+   * this endpoint to see your latest logs. **If you are considering archiving logs for your
+   * organization, consider use of the Datadog archive capabilities instead of the log list API. See
+   * [Datadog Logs Archive documentation][2].** [1]:
    * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LogsListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -422,11 +544,8 @@ public class LogsApi {
     // create path and map variables
     String localVarPath = "/api/v2/logs/events";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[index]", filterIndex));
@@ -439,31 +558,86 @@ public class LogsApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listLogsGet");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<LogsListResponse> localVarReturnType = new GenericType<LogsListResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsApi.listLogsGet",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsApi.listLogsGet",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsListResponse>() {});
+  }
+
+  /**
+   * Get a list of logs
+   *
+   * <p>See {@link #listLogsGetWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LogsListResponse>> listLogsGetWithHttpInfoAsync(
+      ListLogsGetOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String filterQuery = parameters.filterQuery;
+    String filterIndex = parameters.filterIndex;
+    OffsetDateTime filterFrom = parameters.filterFrom;
+    OffsetDateTime filterTo = parameters.filterTo;
+    LogsSort sort = parameters.sort;
+    String pageCursor = parameters.pageCursor;
+    Integer pageLimit = parameters.pageLimit;
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/events";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[index]", filterIndex));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listLogsGet");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsApi.listLogsGet",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LogsListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsListResponse>() {});
   }
 
   /** Manage optional parameters to submitLog. */
@@ -496,79 +670,43 @@ public class LogsApi {
   }
 
   /**
-   * Send logs Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: -
-   * Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB -
-   * Maximum array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is
-   * accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB
-   * and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
-   * larger than 1MB, and returns a 2xx. Datadog recommends sending your logs compressed. Add the
-   * &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs. The
-   * status codes answered by the HTTP API are: - 202: Accepted: the request has been accepted for
-   * processing - 400: Bad request (likely an issue in the payload formatting) - 401: Unauthorized
-   * (likely a missing API Key) - 403: Permission issue (likely using an invalid API Key) - 408:
-   * Request Timeout, request should be retried after some time - 413: Payload too large (batch is
-   * above 5MB uncompressed) - 429: Too Many Requests, request should be retried after some time -
-   * 500: Internal Server Error, the server encountered an unexpected condition that prevented it
-   * from fulfilling the request, request should be retried after some time - 503: Service
-   * Unavailable, the server is not ready to handle the request probably because it is overloaded,
-   * request should be retried after some time
+   * Send logs
+   *
+   * <p>See {@link #submitLogWithHttpInfo}.
    *
    * @param body Log to send (JSON format). (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 202 </td><td> Request accepted for processing (always 202 empty JSON). </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 408 </td><td> Request Timeout </td><td>  -  </td></tr>
-   *       <tr><td> 413 </td><td> Payload Too Large </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-   *       <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object submitLog(List<HTTPLogItem> body) throws ApiException {
     return submitLogWithHttpInfo(body, new SubmitLogOptionalParameters()).getData();
   }
 
   /**
-   * Send logs Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: -
-   * Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB -
-   * Maximum array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is
-   * accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB
-   * and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
-   * larger than 1MB, and returns a 2xx. Datadog recommends sending your logs compressed. Add the
-   * &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs. The
-   * status codes answered by the HTTP API are: - 202: Accepted: the request has been accepted for
-   * processing - 400: Bad request (likely an issue in the payload formatting) - 401: Unauthorized
-   * (likely a missing API Key) - 403: Permission issue (likely using an invalid API Key) - 408:
-   * Request Timeout, request should be retried after some time - 413: Payload too large (batch is
-   * above 5MB uncompressed) - 429: Too Many Requests, request should be retried after some time -
-   * 500: Internal Server Error, the server encountered an unexpected condition that prevented it
-   * from fulfilling the request, request should be retried after some time - 503: Service
-   * Unavailable, the server is not ready to handle the request probably because it is overloaded,
-   * request should be retried after some time
+   * Send logs
+   *
+   * <p>See {@link #submitLogWithHttpInfo}.
+   *
+   * @param body Log to send (JSON format). (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
+  public CompletableFuture<Object> submitLogAsync(List<HTTPLogItem> body) {
+    return submitLogWithHttpInfoAsync(body, new SubmitLogOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Send logs
+   *
+   * <p>See {@link #submitLogWithHttpInfo}.
    *
    * @param body Log to send (JSON format). (required)
    * @param parameters Optional parameters for the request.
    * @return Object
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 202 </td><td> Request accepted for processing (always 202 empty JSON). </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 408 </td><td> Request Timeout </td><td>  -  </td></tr>
-   *       <tr><td> 413 </td><td> Payload Too Large </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-   *       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-   *       <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
-   *     </table>
    */
   public Object submitLog(List<HTTPLogItem> body, SubmitLogOptionalParameters parameters)
       throws ApiException {
@@ -576,11 +714,31 @@ public class LogsApi {
   }
 
   /**
-   * Send logs Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: -
-   * Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB -
-   * Maximum array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is
-   * accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB
-   * and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
+   * Send logs
+   *
+   * <p>See {@link #submitLogWithHttpInfoAsync}.
+   *
+   * @param body Log to send (JSON format). (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;Object&gt;
+   */
+  public CompletableFuture<Object> submitLogAsync(
+      List<HTTPLogItem> body, SubmitLogOptionalParameters parameters) {
+    return submitLogWithHttpInfoAsync(body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Send logs
+   *
+   * <p>Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: - Maximum
+   * content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum
+   * array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is accepted
+   * and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and
+   * returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
    * larger than 1MB, and returns a 2xx. Datadog recommends sending your logs compressed. Add the
    * &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs. The
    * status codes answered by the HTTP API are: - 202: Accepted: the request has been accepted for
@@ -598,7 +756,8 @@ public class LogsApi {
    * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 202 </td><td> Request accepted for processing (always 202 empty JSON). </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -624,11 +783,8 @@ public class LogsApi {
     // create path and map variables
     String localVarPath = "/api/v2/logs";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ddtags", ddtags));
 
@@ -638,31 +794,86 @@ public class LogsApi {
     if (contentEncoding != null)
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "application/logplex-1", "text/plain"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth"};
-
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "LogsApi.submitLog",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth"});
     return apiClient.invokeAPI(
-        "LogsApi.submitLog",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json", "application/logplex-1", "text/plain"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Send logs
+   *
+   * <p>See {@link #submitLogWithHttpInfo}.
+   *
+   * @param body Log to send (JSON format). (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Object>> submitLogWithHttpInfoAsync(
+      List<HTTPLogItem> body, SubmitLogOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling submitLog"));
+      return result;
+    }
+    ContentEncoding contentEncoding = parameters.contentEncoding;
+    String ddtags = parameters.ddtags;
+    // create path and map variables
+    String localVarPath = "/api/v2/logs";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ddtags", ddtags));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "submitLog");
+
+    if (contentEncoding != null)
+      localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "LogsApi.submitLog",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json", "application/logplex-1", "text/plain"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
   }
 }

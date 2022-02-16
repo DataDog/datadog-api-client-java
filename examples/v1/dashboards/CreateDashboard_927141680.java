@@ -9,6 +9,7 @@ import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.datadog.api.v1.client.model.FunnelQuery;
 import com.datadog.api.v1.client.model.FunnelRequestType;
 import com.datadog.api.v1.client.model.FunnelSource;
+import com.datadog.api.v1.client.model.FunnelStep;
 import com.datadog.api.v1.client.model.FunnelWidgetDefinition;
 import com.datadog.api.v1.client.model.FunnelWidgetDefinitionType;
 import com.datadog.api.v1.client.model.FunnelWidgetRequest;
@@ -45,7 +46,7 @@ public class Example {
                                                                 .dataSource(FunnelSource.RUM)
                                                                 .queryString("")
                                                                 .steps(
-                                                                    new ArrayList<>() {
+                                                                    new ArrayList<FunnelStep>() {
                                                                       {
                                                                         ;
                                                                       }

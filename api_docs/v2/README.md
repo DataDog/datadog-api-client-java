@@ -4,6 +4,11 @@ All URIs are relative to *https://api.datadoghq.com*
 
 | Class                      | Method                                                                                                       | HTTP request                                                                               | Description                                        |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| _AuthNMappingsApi_         | [**createAuthNMapping**](AuthNMappingsApi.md#createAuthNMapping)                                             | **POST** /api/v2/authn_mappings                                                            | Create an AuthN Mapping                            |
+| _AuthNMappingsApi_         | [**deleteAuthNMapping**](AuthNMappingsApi.md#deleteAuthNMapping)                                             | **DELETE** /api/v2/authn_mappings/{authn_mapping_id}                                       | Delete an AuthN Mapping                            |
+| _AuthNMappingsApi_         | [**getAuthNMapping**](AuthNMappingsApi.md#getAuthNMapping)                                                   | **GET** /api/v2/authn_mappings/{authn_mapping_id}                                          | Get an AuthN Mapping by UUID                       |
+| _AuthNMappingsApi_         | [**listAuthNMappings**](AuthNMappingsApi.md#listAuthNMappings)                                               | **GET** /api/v2/authn_mappings                                                             | List all AuthN Mappings                            |
+| _AuthNMappingsApi_         | [**updateAuthNMapping**](AuthNMappingsApi.md#updateAuthNMapping)                                             | **PATCH** /api/v2/authn_mappings/{authn_mapping_id}                                        | Edit an AuthN Mapping                              |
 | _CloudWorkloadSecurityApi_ | [**createCloudWorkloadSecurityAgentRule**](CloudWorkloadSecurityApi.md#createCloudWorkloadSecurityAgentRule) | **POST** /api/v2/security_monitoring/cloud_workload_security/agent_rules                   | Create a Cloud Workload Security Agent rule        |
 | _CloudWorkloadSecurityApi_ | [**deleteCloudWorkloadSecurityAgentRule**](CloudWorkloadSecurityApi.md#deleteCloudWorkloadSecurityAgentRule) | **DELETE** /api/v2/security_monitoring/cloud_workload_security/agent_rules/{agent_rule_id} | Delete a Cloud Workload Security Agent rule        |
 | _CloudWorkloadSecurityApi_ | [**downloadCloudWorkloadPolicyFile**](CloudWorkloadSecurityApi.md#downloadCloudWorkloadPolicyFile)           | **GET** /api/v2/security/cloud_workload/policy/download                                    | Get the latest Cloud Workload Security policy      |
@@ -62,7 +67,9 @@ All URIs are relative to *https://api.datadoghq.com*
 | _LogsMetricsApi_           | [**getLogsMetric**](LogsMetricsApi.md#getLogsMetric)                                                         | **GET** /api/v2/logs/config/metrics/{metric_id}                                            | Get a log-based metric                             |
 | _LogsMetricsApi_           | [**listLogsMetrics**](LogsMetricsApi.md#listLogsMetrics)                                                     | **GET** /api/v2/logs/config/metrics                                                        | Get all log-based metrics                          |
 | _LogsMetricsApi_           | [**updateLogsMetric**](LogsMetricsApi.md#updateLogsMetric)                                                   | **PATCH** /api/v2/logs/config/metrics/{metric_id}                                          | Update a log-based metric                          |
+| _MetricsApi_               | [**createBulkTagsMetricsConfiguration**](MetricsApi.md#createBulkTagsMetricsConfiguration)                   | **POST** /api/v2/metrics/config/bulk-tags                                                  | Configure tags for multiple metrics                |
 | _MetricsApi_               | [**createTagConfiguration**](MetricsApi.md#createTagConfiguration)                                           | **POST** /api/v2/metrics/{metric_name}/tags                                                | Create a tag configuration                         |
+| _MetricsApi_               | [**deleteBulkTagsMetricsConfiguration**](MetricsApi.md#deleteBulkTagsMetricsConfiguration)                   | **DELETE** /api/v2/metrics/config/bulk-tags                                                | Configure tags for multiple metrics                |
 | _MetricsApi_               | [**deleteTagConfiguration**](MetricsApi.md#deleteTagConfiguration)                                           | **DELETE** /api/v2/metrics/{metric_name}/tags                                              | Delete a tag configuration                         |
 | _MetricsApi_               | [**listTagConfigurationByName**](MetricsApi.md#listTagConfigurationByName)                                   | **GET** /api/v2/metrics/{metric_name}/tags                                                 | List tag configuration by name                     |
 | _MetricsApi_               | [**listTagConfigurations**](MetricsApi.md#listTagConfigurations)                                             | **GET** /api/v2/metrics                                                                    | List tag configurations                            |
@@ -137,6 +144,22 @@ All URIs are relative to *https://api.datadoghq.com*
 - [ApplicationKeyUpdateRequest](ApplicationKeyUpdateRequest.md)
 - [ApplicationKeysSort](ApplicationKeysSort.md)
 - [ApplicationKeysType](ApplicationKeysType.md)
+- [AuthNMapping](AuthNMapping.md)
+- [AuthNMappingAttributes](AuthNMappingAttributes.md)
+- [AuthNMappingCreateAttributes](AuthNMappingCreateAttributes.md)
+- [AuthNMappingCreateData](AuthNMappingCreateData.md)
+- [AuthNMappingCreateRelationships](AuthNMappingCreateRelationships.md)
+- [AuthNMappingCreateRequest](AuthNMappingCreateRequest.md)
+- [AuthNMappingIncluded](AuthNMappingIncluded.md)
+- [AuthNMappingRelationships](AuthNMappingRelationships.md)
+- [AuthNMappingResponse](AuthNMappingResponse.md)
+- [AuthNMappingUpdateAttributes](AuthNMappingUpdateAttributes.md)
+- [AuthNMappingUpdateData](AuthNMappingUpdateData.md)
+- [AuthNMappingUpdateRelationships](AuthNMappingUpdateRelationships.md)
+- [AuthNMappingUpdateRequest](AuthNMappingUpdateRequest.md)
+- [AuthNMappingsResponse](AuthNMappingsResponse.md)
+- [AuthNMappingsSort](AuthNMappingsSort.md)
+- [AuthNMappingsType](AuthNMappingsType.md)
 - [CloudWorkloadSecurityAgentRuleAttributes](CloudWorkloadSecurityAgentRuleAttributes.md)
 - [CloudWorkloadSecurityAgentRuleCreateAttributes](CloudWorkloadSecurityAgentRuleCreateAttributes.md)
 - [CloudWorkloadSecurityAgentRuleCreateData](CloudWorkloadSecurityAgentRuleCreateData.md)
@@ -187,6 +210,8 @@ All URIs are relative to *https://api.datadoghq.com*
 - [IncidentResponseAttributes](IncidentResponseAttributes.md)
 - [IncidentResponseData](IncidentResponseData.md)
 - [IncidentResponseIncludedItem](IncidentResponseIncludedItem.md)
+- [IncidentResponseMeta](IncidentResponseMeta.md)
+- [IncidentResponseMetaPagination](IncidentResponseMetaPagination.md)
 - [IncidentResponseRelationships](IncidentResponseRelationships.md)
 - [IncidentServiceCreateAttributes](IncidentServiceCreateAttributes.md)
 - [IncidentServiceCreateData](IncidentServiceCreateData.md)
@@ -201,8 +226,6 @@ All URIs are relative to *https://api.datadoghq.com*
 - [IncidentServiceUpdateData](IncidentServiceUpdateData.md)
 - [IncidentServiceUpdateRequest](IncidentServiceUpdateRequest.md)
 - [IncidentServicesResponse](IncidentServicesResponse.md)
-- [IncidentServicesResponseMeta](IncidentServicesResponseMeta.md)
-- [IncidentServicesResponseMetaPagination](IncidentServicesResponseMetaPagination.md)
 - [IncidentTeamCreateAttributes](IncidentTeamCreateAttributes.md)
 - [IncidentTeamCreateData](IncidentTeamCreateData.md)
 - [IncidentTeamCreateRequest](IncidentTeamCreateRequest.md)
@@ -305,6 +328,16 @@ All URIs are relative to *https://api.datadoghq.com*
 - [MetricAllTags](MetricAllTags.md)
 - [MetricAllTagsAttributes](MetricAllTagsAttributes.md)
 - [MetricAllTagsResponse](MetricAllTagsResponse.md)
+- [MetricBulkConfigureTagsType](MetricBulkConfigureTagsType.md)
+- [MetricBulkTagConfigCreate](MetricBulkTagConfigCreate.md)
+- [MetricBulkTagConfigCreateAttributes](MetricBulkTagConfigCreateAttributes.md)
+- [MetricBulkTagConfigCreateRequest](MetricBulkTagConfigCreateRequest.md)
+- [MetricBulkTagConfigDelete](MetricBulkTagConfigDelete.md)
+- [MetricBulkTagConfigDeleteAttributes](MetricBulkTagConfigDeleteAttributes.md)
+- [MetricBulkTagConfigDeleteRequest](MetricBulkTagConfigDeleteRequest.md)
+- [MetricBulkTagConfigResponse](MetricBulkTagConfigResponse.md)
+- [MetricBulkTagConfigStatus](MetricBulkTagConfigStatus.md)
+- [MetricBulkTagConfigStatusAttributes](MetricBulkTagConfigStatusAttributes.md)
 - [MetricCustomAggregation](MetricCustomAggregation.md)
 - [MetricCustomSpaceAggregation](MetricCustomSpaceAggregation.md)
 - [MetricCustomTimeAggregation](MetricCustomTimeAggregation.md)
@@ -363,6 +396,8 @@ All URIs are relative to *https://api.datadoghq.com*
 - [RelationshipToRole](RelationshipToRole.md)
 - [RelationshipToRoleData](RelationshipToRoleData.md)
 - [RelationshipToRoles](RelationshipToRoles.md)
+- [RelationshipToSAMLAssertionAttribute](RelationshipToSAMLAssertionAttribute.md)
+- [RelationshipToSAMLAssertionAttributeData](RelationshipToSAMLAssertionAttributeData.md)
 - [RelationshipToUser](RelationshipToUser.md)
 - [RelationshipToUserData](RelationshipToUserData.md)
 - [RelationshipToUsers](RelationshipToUsers.md)
@@ -388,6 +423,9 @@ All URIs are relative to *https://api.datadoghq.com*
 - [RolesResponse](RolesResponse.md)
 - [RolesSort](RolesSort.md)
 - [RolesType](RolesType.md)
+- [SAMLAssertionAttribute](SAMLAssertionAttribute.md)
+- [SAMLAssertionAttributeAttributes](SAMLAssertionAttributeAttributes.md)
+- [SAMLAssertionAttributesType](SAMLAssertionAttributesType.md)
 - [SecurityFilter](SecurityFilter.md)
 - [SecurityFilterAttributes](SecurityFilterAttributes.md)
 - [SecurityFilterCreateAttributes](SecurityFilterCreateAttributes.md)

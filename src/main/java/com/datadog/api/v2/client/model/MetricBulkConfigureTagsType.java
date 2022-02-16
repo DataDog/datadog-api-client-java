@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-package com.datadog.api.v1.client.model;
+package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -23,23 +23,15 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Error code that can be returned by a Synthetic test. */
-@JsonSerialize(using = SyntheticsErrorCode.SyntheticsErrorCodeSerializer.class)
-public class SyntheticsErrorCode {
+/** The metric bulk configure tags resource. */
+@JsonSerialize(using = MetricBulkConfigureTagsType.MetricBulkConfigureTagsTypeSerializer.class)
+public class MetricBulkConfigureTagsType {
 
-  public static final SyntheticsErrorCode NO_ERROR = new SyntheticsErrorCode("NO_ERROR");
-  public static final SyntheticsErrorCode UNKNOWN = new SyntheticsErrorCode("UNKNOWN");
-  public static final SyntheticsErrorCode DNS = new SyntheticsErrorCode("DNS");
-  public static final SyntheticsErrorCode SSL = new SyntheticsErrorCode("SSL");
-  public static final SyntheticsErrorCode TIMEOUT = new SyntheticsErrorCode("TIMEOUT");
-  public static final SyntheticsErrorCode DENIED = new SyntheticsErrorCode("DENIED");
-  public static final SyntheticsErrorCode INCORRECT_ASSERTION =
-      new SyntheticsErrorCode("INCORRECT_ASSERTION");
+  public static final MetricBulkConfigureTagsType BULK_MANAGE_TAGS =
+      new MetricBulkConfigureTagsType("metric_bulk_configure_tags");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "NO_ERROR", "UNKNOWN", "DNS", "SSL", "TIMEOUT", "DENIED", "INCORRECT_ASSERTION"));
+      new HashSet<String>(Arrays.asList("metric_bulk_configure_tags"));
 
   private String value;
 
@@ -47,22 +39,23 @@ public class SyntheticsErrorCode {
     return allowedValues.contains(this.value);
   }
 
-  SyntheticsErrorCode(String value) {
+  MetricBulkConfigureTagsType(String value) {
     this.value = value;
   }
 
-  public static class SyntheticsErrorCodeSerializer extends StdSerializer<SyntheticsErrorCode> {
-    public SyntheticsErrorCodeSerializer(Class<SyntheticsErrorCode> t) {
+  public static class MetricBulkConfigureTagsTypeSerializer
+      extends StdSerializer<MetricBulkConfigureTagsType> {
+    public MetricBulkConfigureTagsTypeSerializer(Class<MetricBulkConfigureTagsType> t) {
       super(t);
     }
 
-    public SyntheticsErrorCodeSerializer() {
+    public MetricBulkConfigureTagsTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        SyntheticsErrorCode value, JsonGenerator jgen, SerializerProvider provider)
+        MetricBulkConfigureTagsType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -77,7 +70,7 @@ public class SyntheticsErrorCode {
     this.value = value;
   }
 
-  /** Return true if this SyntheticsErrorCode object is equal to o. */
+  /** Return true if this MetricBulkConfigureTagsType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -86,7 +79,7 @@ public class SyntheticsErrorCode {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((SyntheticsErrorCode) o).value);
+    return this.value.equals(((MetricBulkConfigureTagsType) o).value);
   }
 
   @Override
@@ -100,7 +93,7 @@ public class SyntheticsErrorCode {
   }
 
   @JsonCreator
-  public static SyntheticsErrorCode fromValue(String value) {
-    return new SyntheticsErrorCode(value);
+  public static MetricBulkConfigureTagsType fromValue(String value) {
+    return new MetricBulkConfigureTagsType(value);
   }
 }

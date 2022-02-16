@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"config\":{\"assertions\":[{\"operator\":\"lessThan\",\"target\":1000,\"type\":\"responseTime\"}],\"request\":{\"method\":\"GET\",\"url\":\"https://app.datadfoghq.com\"}},\"locations\":[\"aws:eu-west-3\"],\"message\":\"Testing wrong DNS error\",\"name\":\"Test-Get_an_API_test_result_returns_result_with_failure_object-1643638434\",\"options\":{\"min_failure_duration\":0,\"min_location_failed\":1,\"monitor_options\":{\"renotify_interval\":0},\"tick_every\":86400},\"subtype\":\"http\",\"tags\":[],\"type\":\"api\"}"
+        "json": "{\"config\":{\"assertions\":[{\"operator\":\"lessThan\",\"target\":1000,\"type\":\"responseTime\"}],\"request\":{\"method\":\"GET\",\"url\":\"https://app.datadfoghq.com\"}},\"locations\":[\"aws:eu-west-3\"],\"message\":\"Testing wrong DNS error\",\"name\":\"Test-Get_an_API_test_result_returns_result_with_failure_object-1644495858\",\"options\":{\"min_failure_duration\":0,\"min_location_failed\":1,\"monitor_options\":{\"renotify_interval\":0},\"tick_every\":86400},\"subtype\":\"http\",\"tags\":[],\"type\":\"api\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"status\":\"live\",\"public_id\":\"xgn-fta-kae\",\"tags\":[],\"org_id\":321813,\"locations\":[\"aws:eu-west-3\"],\"message\":\"Testing wrong DNS error\",\"deleted_at\":null,\"name\":\"Test-Get_an_API_test_result_returns_result_with_failure_object-1643638434\",\"monitor_id\":62456205,\"type\":\"api\",\"created_at\":\"2022-01-31T14:13:55.301638+00:00\",\"modified_at\":\"2022-01-31T14:13:55.301638+00:00\",\"subtype\":\"http\",\"config\":{\"request\":{\"url\":\"https://app.datadfoghq.com\",\"method\":\"GET\"},\"assertions\":[{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":1000}]},\"options\":{\"monitor_options\":{\"notify_audit\":false,\"locked\":false,\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false,\"renotify_interval\":0},\"tick_every\":86400,\"min_failure_duration\":0,\"min_location_failed\":1}}",
+      "body": "{\"status\":\"live\",\"public_id\":\"ive-g7h-dgu\",\"tags\":[],\"org_id\":321813,\"locations\":[\"aws:eu-west-3\"],\"message\":\"Testing wrong DNS error\",\"deleted_at\":null,\"name\":\"Test-Get_an_API_test_result_returns_result_with_failure_object-1644495858\",\"monitor_id\":63812392,\"type\":\"api\",\"created_at\":\"2022-02-10T12:24:19.316262+00:00\",\"modified_at\":\"2022-02-10T12:24:19.316262+00:00\",\"subtype\":\"http\",\"config\":{\"request\":{\"url\":\"https://app.datadfoghq.com\",\"method\":\"GET\"},\"assertions\":[{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":1000}]},\"options\":{\"monitor_options\":{\"notify_audit\":false,\"locked\":false,\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false,\"renotify_interval\":0},\"tick_every\":86400,\"min_failure_duration\":0,\"min_location_failed\":1}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "04862e5c-dd66-40d4-bf77-7e2196f0bcd3"
+    "id": "d37b8c2b-edc0-7d38-6dd4-cc7a1864476b"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"tests\":[{\"public_id\":\"xgn-fta-kae\"}]}"
+        "json": "{\"tests\":[{\"public_id\":\"ive-g7h-dgu\"}]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -50,7 +50,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"batch_id\":null,\"results\":[{\"result_id\":\"3511815218314776466\",\"public_id\":\"xgn-fta-kae\",\"location\":32153}],\"triggered_check_ids\":[\"xgn-fta-kae\"],\"locations\":[{\"display_name\":\"Paris (AWS)\",\"name\":\"aws:eu-west-3\",\"region\":\"Europe\",\"is_active\":true,\"is_public\":true,\"id\":32153}]}",
+      "body": "{\"batch_id\":null,\"results\":[{\"result_id\":\"990211588540730529\",\"public_id\":\"ive-g7h-dgu\",\"location\":32153}],\"triggered_check_ids\":[\"ive-g7h-dgu\"],\"locations\":[{\"display_name\":\"Paris (AWS)\",\"name\":\"aws:eu-west-3\",\"region\":\"Europe\",\"is_active\":true,\"is_public\":true,\"id\":32153}]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7eba429e-dda0-d938-910c-ca455d5d325f"
+    "id": "e9c42b0a-82bf-6bdc-178d-77a78873f77b"
   },
   {
     "httpRequest": {
@@ -75,12 +75,12 @@
         ]
       },
       "method": "GET",
-      "path": "/api/v1/synthetics/tests/xgn-fta-kae/results/3511815218314776466",
+      "path": "/api/v1/synthetics/tests/ive-g7h-dgu/results/990211588540730529",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"status\":1,\"run_type\":3,\"check_time\":1643638436045,\"check_version\":1,\"result\":{\"subtype\":\"http\",\"eventType\":\"finished\",\"timings\":{\"total\":37.3,\"dns\":2.1},\"failure\":{\"message\":\"Error during DNS resolution (ENOTFOUND).\",\"code\":\"DNS\"},\"mainDC\":\"us1.prod\",\"passed\":false,\"error\":\"Error during DNS resolution (ENOTFOUND).\",\"runType\":3,\"enrichment\":{}},\"probe_dc\":\"aws:eu-west-3\",\"result_id\":\"3511815218314776466\",\"check\":{\"type\":\"api\",\"config\":{\"request\":{\"url\":\"https://app.datadfoghq.com\",\"method\":\"GET\"},\"assertions\":[{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":1000}]},\"options\":{\"monitor_options\":{\"notify_audit\":false,\"locked\":false,\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false,\"renotify_interval\":0},\"tick_every\":86400,\"min_failure_duration\":0,\"min_location_failed\":1}}}",
+      "body": "{\"status\":1,\"run_type\":3,\"check_time\":1644495859933,\"check_version\":1,\"result\":{\"subtype\":\"http\",\"eventType\":\"finished\",\"timings\":{\"total\":45.8,\"dns\":14.5},\"failure\":{\"message\":\"Error during DNS resolution (ENOTFOUND).\",\"code\":\"DNS\"},\"mainDC\":\"us1.prod\",\"passed\":false,\"error\":\"Error during DNS resolution (ENOTFOUND).\",\"runType\":3,\"enrichment\":{}},\"probe_dc\":\"aws:eu-west-3\",\"result_id\":\"990211588540730529\",\"check\":{\"type\":\"api\",\"config\":{\"request\":{\"url\":\"https://app.datadfoghq.com\",\"method\":\"GET\"},\"assertions\":[{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":1000}]},\"options\":{\"monitor_options\":{\"notify_audit\":false,\"locked\":false,\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false,\"renotify_interval\":0},\"tick_every\":86400,\"min_failure_duration\":0,\"min_location_failed\":1}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -95,13 +95,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a05634c1-2788-4145-7a24-eb7795fb86f5"
+    "id": "b28b3dec-20ef-0ef6-6118-e1e2ebdff188"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"public_ids\":[\"xgn-fta-kae\"]}"
+        "json": "{\"public_ids\":[\"ive-g7h-dgu\"]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -114,7 +114,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_tests\":[{\"deleted_at\":\"2022-01-31T14:13:56.956611+00:00\",\"public_id\":\"xgn-fta-kae\"}]}",
+      "body": "{\"deleted_tests\":[{\"deleted_at\":\"2022-02-10T12:24:21.045390+00:00\",\"public_id\":\"ive-g7h-dgu\"}]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -129,6 +129,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "39d3949c-8e7b-3194-96fa-c480142a9595"
+    "id": "7a3e0d8d-78ac-e0c1-8fd3-e83adac713a6"
   }
 ]

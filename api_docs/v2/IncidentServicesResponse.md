@@ -8,4 +8,4 @@ Response with a list of incident service payloads.
 | ------------ | ------------------------------------------------------------------------------- | ---------------------------------------------------- | --------------------- |
 | **data**     | [**List&lt;IncidentServiceResponseData&gt;**](IncidentServiceResponseData.md)   | An array of incident services.                       |
 | **included** | [**List&lt;IncidentServiceIncludedItems&gt;**](IncidentServiceIncludedItems.md) | Included related resources which the user requested. | [optional] [readonly] |
-| **meta**     | [**IncidentServicesResponseMeta**](IncidentServicesResponseMeta.md)             |                                                      | [optional]            |
+| **meta**     | [**IncidentResponseMeta**](IncidentResponseMeta.md)                             |                                                      | [optional]            |

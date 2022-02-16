@@ -38,7 +38,7 @@ public class FunnelQuery {
   private String queryString;
 
   public static final String JSON_PROPERTY_STEPS = "steps";
-  private List<Object> steps = new ArrayList<>();
+  private List<FunnelStep> steps = new ArrayList<>();
 
   public FunnelQuery() {}
 
@@ -46,7 +46,7 @@ public class FunnelQuery {
   public FunnelQuery(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE) FunnelSource dataSource,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY_STRING) String queryString,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STEPS) List<Object> steps) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_STEPS) List<FunnelStep> steps) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     this.queryString = queryString;
@@ -99,13 +99,17 @@ public class FunnelQuery {
     this.queryString = queryString;
   }
 
-  public FunnelQuery steps(List<Object> steps) {
+  public FunnelQuery steps(List<FunnelStep> steps) {
     this.steps = steps;
+    for (FunnelStep item : steps) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public FunnelQuery addStepsItem(Object stepsItem) {
+  public FunnelQuery addStepsItem(FunnelStep stepsItem) {
     this.steps.add(stepsItem);
+    this.unparsed |= stepsItem.unparsed;
     return this;
   }
 
@@ -117,11 +121,11 @@ public class FunnelQuery {
   @ApiModelProperty(required = true, value = "List of funnel steps.")
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<Object> getSteps() {
+  public List<FunnelStep> getSteps() {
     return steps;
   }
 
-  public void setSteps(List<Object> steps) {
+  public void setSteps(List<FunnelStep> steps) {
     this.steps = steps;
   }
 

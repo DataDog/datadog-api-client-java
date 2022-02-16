@@ -31,6 +31,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_PERCENTAGE,
@@ -83,6 +85,14 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
   private Double customTimeseriesUsage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE =
+      "estimated_indexed_logs_percentage";
+  private Double estimatedIndexedLogsPercentage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE =
+      "estimated_indexed_logs_usage";
+  private Double estimatedIndexedLogsUsage;
 
   public static final String JSON_PROPERTY_FARGATE_PERCENTAGE = "fargate_percentage";
   private Double fargatePercentage;
@@ -358,6 +368,55 @@ public class MonthlyUsageAttributionValues {
 
   public void setCustomTimeseriesUsage(Double customTimeseriesUsage) {
     this.customTimeseriesUsage = customTimeseriesUsage;
+  }
+
+  public MonthlyUsageAttributionValues estimatedIndexedLogsPercentage(
+      Double estimatedIndexedLogsPercentage) {
+    this.estimatedIndexedLogsPercentage = estimatedIndexedLogsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of estimated live indexed logs usage by tag(s). This field is in private beta.
+   *
+   * @return estimatedIndexedLogsPercentage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The percentage of estimated live indexed logs usage by tag(s). This field is in private"
+              + " beta.")
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIndexedLogsPercentage() {
+    return estimatedIndexedLogsPercentage;
+  }
+
+  public void setEstimatedIndexedLogsPercentage(Double estimatedIndexedLogsPercentage) {
+    this.estimatedIndexedLogsPercentage = estimatedIndexedLogsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues estimatedIndexedLogsUsage(Double estimatedIndexedLogsUsage) {
+    this.estimatedIndexedLogsUsage = estimatedIndexedLogsUsage;
+    return this;
+  }
+
+  /**
+   * The estimated live indexed logs usage by tag(s). This field is in private beta.
+   *
+   * @return estimatedIndexedLogsUsage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "The estimated live indexed logs usage by tag(s). This field is in private beta.")
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIndexedLogsUsage() {
+    return estimatedIndexedLogsUsage;
+  }
+
+  public void setEstimatedIndexedLogsUsage(Double estimatedIndexedLogsUsage) {
+    this.estimatedIndexedLogsUsage = estimatedIndexedLogsUsage;
   }
 
   public MonthlyUsageAttributionValues fargatePercentage(Double fargatePercentage) {
@@ -781,6 +840,11 @@ public class MonthlyUsageAttributionValues {
             monthlyUsageAttributionValues.customTimeseriesPercentage)
         && Objects.equals(
             this.customTimeseriesUsage, monthlyUsageAttributionValues.customTimeseriesUsage)
+        && Objects.equals(
+            this.estimatedIndexedLogsPercentage,
+            monthlyUsageAttributionValues.estimatedIndexedLogsPercentage)
+        && Objects.equals(
+            this.estimatedIndexedLogsUsage, monthlyUsageAttributionValues.estimatedIndexedLogsUsage)
         && Objects.equals(this.fargatePercentage, monthlyUsageAttributionValues.fargatePercentage)
         && Objects.equals(this.fargateUsage, monthlyUsageAttributionValues.fargateUsage)
         && Objects.equals(
@@ -822,6 +886,8 @@ public class MonthlyUsageAttributionValues {
         containerUsage,
         customTimeseriesPercentage,
         customTimeseriesUsage,
+        estimatedIndexedLogsPercentage,
+        estimatedIndexedLogsUsage,
         fargatePercentage,
         fargateUsage,
         functionsPercentage,
@@ -861,6 +927,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    customTimeseriesUsage: ")
         .append(toIndentedString(customTimeseriesUsage))
+        .append("\n");
+    sb.append("    estimatedIndexedLogsPercentage: ")
+        .append(toIndentedString(estimatedIndexedLogsPercentage))
+        .append("\n");
+    sb.append("    estimatedIndexedLogsUsage: ")
+        .append(toIndentedString(estimatedIndexedLogsUsage))
         .append("\n");
     sb.append("    fargatePercentage: ").append(toIndentedString(fargatePercentage)).append("\n");
     sb.append("    fargateUsage: ").append(toIndentedString(fargateUsage)).append("\n");

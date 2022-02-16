@@ -111,6 +111,31 @@ public class AwsIntegrationApiExample {
 
 ```
 
+### Asynchronous support
+
+All API methods have asynchronous versions returning `CompletableFuture` when adding the `Async` suffix to their names:
+
+```java
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.api.MonitorsApi;
+
+public class ListMonitorsAsyncExample {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    MonitorsApi apiInstance = new MonitorsApi(defaultClient);
+
+    apiInstance.listMonitorsAsync().thenApply(monitors -> {
+      System.out.println(monitors);
+      return null;
+    }).exceptionally(error -> {
+      System.out.println(error);
+      return null;
+    });
+  }
+}
+```
+
 ### Unstable Endpoints
 
 This client includes access to Datadog API endpoints while they are in an unstable state and may undergo breaking changes. An extra configuration step is required to enable these endpoints:

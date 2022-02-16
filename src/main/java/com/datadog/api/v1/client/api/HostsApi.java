@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -63,56 +65,75 @@ public class HostsApi {
   }
 
   /**
-   * Get the total number of active hosts This endpoint returns the total number of active and up
-   * hosts in your Datadog account. Active means the host has reported in the past hour, and up
-   * means it has reported in the past two hours.
+   * Get the total number of active hosts
+   *
+   * <p>See {@link #getHostTotalsWithHttpInfo}.
    *
    * @return HostTotals
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostTotals getHostTotals() throws ApiException {
     return getHostTotalsWithHttpInfo(new GetHostTotalsOptionalParameters()).getData();
   }
 
   /**
-   * Get the total number of active hosts This endpoint returns the total number of active and up
-   * hosts in your Datadog account. Active means the host has reported in the past hour, and up
-   * means it has reported in the past two hours.
+   * Get the total number of active hosts
+   *
+   * <p>See {@link #getHostTotalsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;HostTotals&gt;
+   */
+  public CompletableFuture<HostTotals> getHostTotalsAsync() {
+    return getHostTotalsWithHttpInfoAsync(new GetHostTotalsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the total number of active hosts
+   *
+   * <p>See {@link #getHostTotalsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return HostTotals
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostTotals getHostTotals(GetHostTotalsOptionalParameters parameters) throws ApiException {
     return getHostTotalsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get the total number of active hosts This endpoint returns the total number of active and up
-   * hosts in your Datadog account. Active means the host has reported in the past hour, and up
-   * means it has reported in the past two hours.
+   * Get the total number of active hosts
+   *
+   * <p>See {@link #getHostTotalsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;HostTotals&gt;
+   */
+  public CompletableFuture<HostTotals> getHostTotalsAsync(
+      GetHostTotalsOptionalParameters parameters) {
+    return getHostTotalsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the total number of active hosts
+   *
+   * <p>This endpoint returns the total number of active and up hosts in your Datadog account.
+   * Active means the host has reported in the past hour, and up means it has reported in the past
+   * two hours.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HostTotals&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
@@ -127,42 +148,82 @@ public class HostsApi {
     // create path and map variables
     String localVarPath = "/api/v1/hosts/totals";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getHostTotals");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HostTotals> localVarReturnType = new GenericType<HostTotals>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "HostsApi.getHostTotals",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "HostsApi.getHostTotals",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostTotals>() {});
+  }
+
+  /**
+   * Get the total number of active hosts
+   *
+   * <p>See {@link #getHostTotalsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;HostTotals&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<HostTotals>> getHostTotalsWithHttpInfoAsync(
+      GetHostTotalsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long from = parameters.from;
+    // create path and map variables
+    String localVarPath = "/api/v1/hosts/totals";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getHostTotals");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "HostsApi.getHostTotals",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HostTotals>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostTotals>() {});
   }
 
   /** Manage optional parameters to listHosts. */
@@ -270,56 +331,75 @@ public class HostsApi {
   }
 
   /**
-   * Get all hosts for your organization This endpoint allows searching for hosts by name, alias, or
-   * tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results
-   * are paginated with a max of 1000 results at a time.
+   * Get all hosts for your organization
+   *
+   * <p>See {@link #listHostsWithHttpInfo}.
    *
    * @return HostListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostListResponse listHosts() throws ApiException {
     return listHostsWithHttpInfo(new ListHostsOptionalParameters()).getData();
   }
 
   /**
-   * Get all hosts for your organization This endpoint allows searching for hosts by name, alias, or
-   * tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results
-   * are paginated with a max of 1000 results at a time.
+   * Get all hosts for your organization
+   *
+   * <p>See {@link #listHostsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;HostListResponse&gt;
+   */
+  public CompletableFuture<HostListResponse> listHostsAsync() {
+    return listHostsWithHttpInfoAsync(new ListHostsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all hosts for your organization
+   *
+   * <p>See {@link #listHostsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return HostListResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostListResponse listHosts(ListHostsOptionalParameters parameters) throws ApiException {
     return listHostsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get all hosts for your organization This endpoint allows searching for hosts by name, alias, or
-   * tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results
-   * are paginated with a max of 1000 results at a time.
+   * Get all hosts for your organization
+   *
+   * <p>See {@link #listHostsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;HostListResponse&gt;
+   */
+  public CompletableFuture<HostListResponse> listHostsAsync(
+      ListHostsOptionalParameters parameters) {
+    return listHostsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all hosts for your organization
+   *
+   * <p>This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past
+   * 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000
+   * results at a time.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HostListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
@@ -341,11 +421,8 @@ public class HostsApi {
     // create path and map variables
     String localVarPath = "/api/v1/hosts";
 
-    // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_field", sortField));
@@ -361,62 +438,135 @@ public class HostsApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listHosts");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HostListResponse> localVarReturnType = new GenericType<HostListResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "HostsApi.listHosts",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "HostsApi.listHosts",
-        localVarPath,
         "GET",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostListResponse>() {});
   }
 
   /**
-   * Mute a host Mute a host.
+   * Get all hosts for your organization
+   *
+   * <p>See {@link #listHostsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;HostListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<HostListResponse>> listHostsWithHttpInfoAsync(
+      ListHostsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String filter = parameters.filter;
+    String sortField = parameters.sortField;
+    String sortDir = parameters.sortDir;
+    Long start = parameters.start;
+    Long count = parameters.count;
+    Long from = parameters.from;
+    Boolean includeMutedHostsData = parameters.includeMutedHostsData;
+    Boolean includeHostsMetadata = parameters.includeHostsMetadata;
+    // create path and map variables
+    String localVarPath = "/api/v1/hosts";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_field", sortField));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_muted_hosts_data", includeMutedHostsData));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_hosts_metadata", includeHostsMetadata));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listHosts");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "HostsApi.listHosts",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HostListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostListResponse>() {});
+  }
+
+  /**
+   * Mute a host
+   *
+   * <p>See {@link #muteHostWithHttpInfo}.
    *
    * @param hostName Name of the host to mute. (required)
    * @param body Mute a host request body. (required)
    * @return HostMuteResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostMuteResponse muteHost(String hostName, HostMuteSettings body) throws ApiException {
     return muteHostWithHttpInfo(hostName, body).getData();
   }
 
   /**
-   * Mute a host Mute a host.
+   * Mute a host
+   *
+   * <p>See {@link #muteHostWithHttpInfoAsync}.
+   *
+   * @param hostName Name of the host to mute. (required)
+   * @param body Mute a host request body. (required)
+   * @return CompletableFuture&lt;HostMuteResponse&gt;
+   */
+  public CompletableFuture<HostMuteResponse> muteHostAsync(String hostName, HostMuteSettings body) {
+    return muteHostWithHttpInfoAsync(hostName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Mute a host
+   *
+   * <p>Mute a host.
    *
    * @param hostName Name of the host to mute. (required)
    * @param body Mute a host request body. (required)
    * @return ApiResponse&lt;HostMuteResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
@@ -443,68 +593,136 @@ public class HostsApi {
         "/api/v1/host/{host_name}/mute"
             .replaceAll("\\{" + "host_name" + "\\}", apiClient.escapeString(hostName.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "muteHost");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {"application/json"};
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HostMuteResponse> localVarReturnType = new GenericType<HostMuteResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "HostsApi.muteHost",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "HostsApi.muteHost",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostMuteResponse>() {});
   }
 
   /**
-   * Unmute a host Unmutes a host. This endpoint takes no JSON arguments.
+   * Mute a host
+   *
+   * <p>See {@link #muteHostWithHttpInfo}.
+   *
+   * @param hostName Name of the host to mute. (required)
+   * @param body Mute a host request body. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;HostMuteResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<HostMuteResponse>> muteHostWithHttpInfoAsync(
+      String hostName, HostMuteSettings body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'hostName' is set
+    if (hostName == null) {
+      CompletableFuture<ApiResponse<HostMuteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'hostName' when calling muteHost"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<HostMuteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling muteHost"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/host/{host_name}/mute"
+            .replaceAll("\\{" + "host_name" + "\\}", apiClient.escapeString(hostName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "muteHost");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "HostsApi.muteHost",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HostMuteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostMuteResponse>() {});
+  }
+
+  /**
+   * Unmute a host
+   *
+   * <p>See {@link #unmuteHostWithHttpInfo}.
    *
    * @param hostName Name of the host to unmute. (required)
    * @return HostMuteResponse
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
    */
   public HostMuteResponse unmuteHost(String hostName) throws ApiException {
     return unmuteHostWithHttpInfo(hostName).getData();
   }
 
   /**
-   * Unmute a host Unmutes a host. This endpoint takes no JSON arguments.
+   * Unmute a host
+   *
+   * <p>See {@link #unmuteHostWithHttpInfoAsync}.
+   *
+   * @param hostName Name of the host to unmute. (required)
+   * @return CompletableFuture&lt;HostMuteResponse&gt;
+   */
+  public CompletableFuture<HostMuteResponse> unmuteHostAsync(String hostName) {
+    return unmuteHostWithHttpInfoAsync(hostName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Unmute a host
+   *
+   * <p>Unmutes a host. This endpoint takes no JSON arguments.
    *
    * @param hostName Name of the host to unmute. (required)
    * @return ApiResponse&lt;HostMuteResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table summary="Response Details" border="1">
+   *     <table border="1">
+   *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
@@ -525,39 +743,85 @@ public class HostsApi {
         "/api/v1/host/{host_name}/unmute"
             .replaceAll("\\{" + "host_name" + "\\}", apiClient.escapeString(hostName.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "unmuteHost");
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {};
-
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
-
-    GenericType<HostMuteResponse> localVarReturnType = new GenericType<HostMuteResponse>() {};
-
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "HostsApi.unmuteHost",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "HostsApi.unmuteHost",
-        localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarPostBody,
+        builder,
         localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostMuteResponse>() {});
+  }
+
+  /**
+   * Unmute a host
+   *
+   * <p>See {@link #unmuteHostWithHttpInfo}.
+   *
+   * @param hostName Name of the host to unmute. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;HostMuteResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<HostMuteResponse>> unmuteHostWithHttpInfoAsync(
+      String hostName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'hostName' is set
+    if (hostName == null) {
+      CompletableFuture<ApiResponse<HostMuteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'hostName' when calling unmuteHost"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/host/{host_name}/unmute"
+            .replaceAll("\\{" + "host_name" + "\\}", apiClient.escapeString(hostName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "unmuteHost");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "HostsApi.unmuteHost",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HostMuteResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HostMuteResponse>() {});
   }
 }

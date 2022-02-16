@@ -5,7 +5,6 @@ import com.datadog.api.v2.client.auth.Authentication;
 import com.datadog.api.v2.client.auth.HttpBasicAuth;
 import com.datadog.api.v2.client.auth.HttpBearerAuth;
 import com.datadog.api.v2.client.auth.OAuth;
-import com.github.scribejava.core.model.OAuth2AccessToken;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -29,15 +28,19 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Future;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import javax.ws.rs.client.AsyncInvoker;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.InvocationCallback;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.GenericType;
@@ -879,20 +882,6 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
-   * Parse the given string into Date object.
-   *
-   * @param str String
-   * @return Date
-   */
-  public Date parseDate(String str) {
-    try {
-      return dateFormat.parse(str);
-    } catch (java.text.ParseException e) {
-      throw new RuntimeException(e);
-    }
-  }
-
-  /**
    * Format the given Date object into string.
    *
    * @param date Date
@@ -942,7 +931,7 @@ public class ApiClient extends JavaTimeFormatter {
     // preconditions
     if (name == null || name.isEmpty() || value == null) return params;
 
-    Collection valueCollection;
+    Collection<?> valueCollection;
     if (value instanceof Collection) {
       valueCollection = (Collection) value;
     } else {
@@ -1063,15 +1052,13 @@ public class ApiClient extends JavaTimeFormatter {
    * @param formParams Form parameters
    * @param contentType Context type
    * @return Entity
-   * @throws ApiException API exception
    */
   public Entity<?> serialize(
       Object obj,
       Map<String, Object> formParams,
       String contentType,
       String contentEncoding,
-      boolean isBodyNullable)
-      throws ApiException {
+      boolean isBodyNullable) {
     Entity<?> entity;
     Variant variant = new Variant(MediaType.valueOf(contentType), "", contentEncoding);
     if (contentType.startsWith("multipart/form-data")) {
@@ -1134,62 +1121,15 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
-   * Serialize the given Java object into string according the given Content-Type (only JSON, HTTP
-   * form is supported for now).
-   *
-   * @param obj Object
-   * @param formParams Form parameters
-   * @param contentType Context type
-   * @param isBodyNullable True if the body is nullable
-   * @return String
-   * @throws ApiException API exception
-   */
-  public String serializeToString(
-      Object obj, Map<String, Object> formParams, String contentType, boolean isBodyNullable)
-      throws ApiException {
-    try {
-      if (contentType.startsWith("multipart/form-data")) {
-        throw new ApiException(
-            "multipart/form-data not yet supported for serializeToString (http signature"
-                + " authentication)");
-      } else if (contentType.startsWith("application/x-www-form-urlencoded")) {
-        String formString = "";
-        for (Entry<String, Object> param : formParams.entrySet()) {
-          formString =
-              param.getKey()
-                  + "="
-                  + URLEncoder.encode(parameterToString(param.getValue()), "UTF-8")
-                  + "&";
-        }
-
-        if (formString.length() == 0) { // empty string
-          return formString;
-        } else {
-          return formString.substring(0, formString.length() - 1);
-        }
-      } else {
-        if (isBodyNullable) {
-          return obj == null ? "null" : json.getMapper().writeValueAsString(obj);
-        } else {
-          return obj == null ? "" : json.getMapper().writeValueAsString(obj);
-        }
-      }
-    } catch (Exception ex) {
-      throw new ApiException("Failed to perform serializeToString: " + ex.toString());
-    }
-  }
-
-  /**
    * Deserialize response body to Java object according to the Content-Type.
    *
    * @param <T> Type
    * @param response Response
    * @param returnType Return type
    * @return Deserialize object
-   * @throws ApiException API exception
    */
   @SuppressWarnings("unchecked")
-  public <T> T deserialize(Response response, GenericType<T> returnType) throws ApiException {
+  public <T> T deserialize(Response response, GenericType<T> returnType) {
     if (response == null || returnType == null) {
       return null;
     }
@@ -1211,39 +1151,26 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
-   * Invoke API by sending HTTP request with the given options.
+   * Create builder to invoke the API.
    *
-   * @param <T> Type
    * @param operation The qualified name of the operation
    * @param path The sub-path of the HTTP URL
-   * @param method The request method, one of "GET", "POST", "PUT", "HEAD" and "DELETE"
    * @param queryParams The query parameters
-   * @param body The request body object
    * @param headerParams The header parameters
    * @param cookieParams The cookie parameters
-   * @param formParams The form parameters
-   * @param accept The request's Accept header
-   * @param contentType The request's Content-Type header
+   * @param accepts The list of possible request's Accept header
    * @param authNames The authentications to apply
-   * @param returnType The return type into which to deserialize the response
-   * @param isBodyNullable True if the body is nullable
-   * @return The response body in type of string
+   * @return The invocation builder
    * @throws ApiException API exception
    */
-  public <T> ApiResponse<T> invokeAPI(
+  public Invocation.Builder createBuilder(
       String operation,
       String path,
-      String method,
       List<Pair> queryParams,
-      Object body,
       Map<String, String> headerParams,
       Map<String, String> cookieParams,
-      Map<String, Object> formParams,
-      String accept,
-      String contentType,
-      String[] authNames,
-      GenericType<T> returnType,
-      boolean isBodyNullable)
+      String[] accepts,
+      String[] authNames)
       throws ApiException {
 
     // Not using `.target(targetURL).path(path)` below,
@@ -1271,15 +1198,13 @@ public class ApiClient extends JavaTimeFormatter {
     }
     WebTarget target = httpClient.target(targetURL);
 
-    if (queryParams != null) {
-      for (Pair queryParam : queryParams) {
-        if (queryParam.getValue() != null) {
-          target = target.queryParam(queryParam.getName(), escapeString(queryParam.getValue()));
-        }
+    for (Pair queryParam : queryParams) {
+      if (queryParam.getValue() != null) {
+        target = target.queryParam(queryParam.getName(), escapeString(queryParam.getValue()));
       }
     }
 
-    Invocation.Builder invocationBuilder = target.request().accept(accept);
+    Invocation.Builder invocationBuilder = target.request().accept(selectHeaderAccept(accepts));
 
     for (Entry<String, String> entry : cookieParams.entrySet()) {
       String value = entry.getValue();
@@ -1295,25 +1220,12 @@ public class ApiClient extends JavaTimeFormatter {
       }
     }
 
-    String contentEncoding = headerParams.get(HttpHeaders.CONTENT_ENCODING);
-
-    Entity<?> entity = serialize(body, formParams, contentType, contentEncoding, isBodyNullable);
-
     // put all headers in one place
     Map<String, String> allHeaderParams = new HashMap<>(defaultHeaderMap);
     allHeaderParams.putAll(headerParams);
 
     // update different parameters (e.g. headers) for authentication
-    updateParamsForAuth(
-        authNames,
-        queryParams,
-        allHeaderParams,
-        cookieParams,
-        // NOTE: this is not used in ApiKeyAuthentication anyway, so we comment it out to enable
-        // multipart requests
-        "", // serializeToString(body, formParams, contentType, isBodyNullable),
-        method,
-        target.getUri());
+    updateParamsForAuth(authNames, queryParams, allHeaderParams, cookieParams, target.getUri());
 
     for (Entry<String, String> entry : allHeaderParams.entrySet()) {
       String value = entry.getValue();
@@ -1322,26 +1234,47 @@ public class ApiClient extends JavaTimeFormatter {
       }
     }
 
+    return invocationBuilder;
+  }
+
+  /**
+   * Invoke API by sending HTTP request with the given options.
+   *
+   * @param <T> Type
+   * @param method The request method, one of "GET", "POST", "PUT", "HEAD" and "DELETE"
+   * @param body The request body object
+   * @param headerParams The header parameters
+   * @param formParams The form parameters
+   * @param contentTypes The list of request Content-Type headers
+   * @param returnType The return type into which to deserialize the response
+   * @param isBodyNullable True if the body is nullable
+   * @return The response body in type of string
+   * @throws ApiException API exception
+   */
+  public <T> ApiResponse<T> invokeAPI(
+      String method,
+      Invocation.Builder invocationBuilder,
+      Map<String, String> headerParams,
+      String[] contentTypes,
+      Object body,
+      Map<String, Object> formParams,
+      Boolean isBodyNullable,
+      GenericType<T> returnType)
+      throws ApiException {
+
+    String contentEncoding = headerParams.get(HttpHeaders.CONTENT_ENCODING);
+    Entity<?> entity =
+        serialize(
+            body,
+            formParams,
+            selectHeaderContentType(contentTypes),
+            contentEncoding,
+            isBodyNullable);
+
     Response response = null;
 
     try {
       response = sendRequest(method, invocationBuilder, entity);
-
-      // If OAuth is used and a status 401 is received, renew the access token and retry the request
-      if (response.getStatusInfo() == Status.UNAUTHORIZED) {
-        for (String authName : authNames) {
-          Authentication authentication = authentications.get(authName);
-          if (authentication instanceof OAuth) {
-            OAuth2AccessToken accessToken = ((OAuth) authentication).renewAccessToken();
-            if (accessToken != null) {
-              invocationBuilder.header("Authorization", null);
-              invocationBuilder.header("Authorization", "Bearer " + accessToken.getAccessToken());
-              response = sendRequest(method, invocationBuilder, entity);
-            }
-            break;
-          }
-        }
-      }
 
       int statusCode = response.getStatusInfo().getStatusCode();
       Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
@@ -1395,36 +1328,105 @@ public class ApiClient extends JavaTimeFormatter {
     return response;
   }
 
-  /** @deprecated Add qualified name of the operation as a first parameter. */
-  @Deprecated
-  public <T> ApiResponse<T> invokeAPI(
-      String path,
+  /**
+   * Invoke API by sending HTTP request with the given options, asynchronously.
+   *
+   * @param <T> Type
+   * @param method The request method, one of "GET", "POST", "PUT", "HEAD" and "DELETE"
+   * @param body The request body object
+   * @param headerParams The header parameters
+   * @param formParams The form parameters
+   * @param contentTypes The list of request Content-Type headers
+   * @param returnType The return type into which to deserialize the response
+   * @param isBodyNullable True if the body is nullable
+   * @return The response body in type of string
+   * @return The future which be fired with the response
+   */
+  public <T> CompletableFuture<ApiResponse<T>> invokeAPIAsync(
       String method,
-      List<Pair> queryParams,
-      Object body,
+      Invocation.Builder invocationBuilder,
       Map<String, String> headerParams,
-      Map<String, String> cookieParams,
+      String[] contentTypes,
+      Object body,
       Map<String, Object> formParams,
-      String accept,
-      String contentType,
-      String[] authNames,
-      GenericType<T> returnType,
-      boolean isBodyNullable)
-      throws ApiException {
-    return invokeAPI(
-        null,
-        path,
-        method,
-        queryParams,
-        body,
-        headerParams,
-        cookieParams,
-        formParams,
-        accept,
-        contentType,
-        authNames,
-        returnType,
-        isBodyNullable);
+      Boolean isBodyNullable,
+      GenericType<T> returnType) {
+
+    String contentEncoding = headerParams.get(HttpHeaders.CONTENT_ENCODING);
+
+    Entity<?> entity =
+        serialize(
+            body,
+            formParams,
+            selectHeaderContentType(contentTypes),
+            contentEncoding,
+            isBodyNullable);
+
+    CompletableFuture<ApiResponse<T>> result = new CompletableFuture<>();
+
+    InvocationCallback<Response> callback =
+        new InvocationCallback<Response>() {
+          @Override
+          public void completed(Response response) {
+            int statusCode = response.getStatusInfo().getStatusCode();
+            Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
+
+            if (response.getStatusInfo() == Status.NO_CONTENT) {
+              result.complete(new ApiResponse<T>(statusCode, responseHeaders));
+            } else if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
+              if (returnType == null) {
+                result.complete(new ApiResponse<T>(statusCode, responseHeaders));
+              } else {
+                result.complete(
+                    new ApiResponse<T>(
+                        statusCode, responseHeaders, deserialize(response, returnType)));
+              }
+            } else {
+              String message = "error";
+              String respBody = null;
+              if (response.hasEntity()) {
+                try {
+                  respBody = String.valueOf(response.readEntity(String.class));
+                  message = respBody;
+                } catch (RuntimeException e) {
+                }
+              }
+              result.completeExceptionally(
+                  new ApiException(
+                      response.getStatus(), message, buildResponseHeaders(response), respBody));
+            }
+          }
+
+          @Override
+          public void failed(Throwable throwable) {
+            result.completeExceptionally(throwable);
+          }
+        };
+
+    // XXX Handle 401 for OAuth
+    sendRequestAsync(method, invocationBuilder, entity, callback);
+    return result;
+  }
+
+  private Future<Response> sendRequestAsync(
+      String method,
+      Invocation.Builder invocationBuilder,
+      Entity<?> entity,
+      InvocationCallback<Response> callback) {
+    Future<Response> response;
+    AsyncInvoker invoker = invocationBuilder.async();
+    if ("POST".equals(method)) {
+      response = invoker.post(entity, callback);
+    } else if ("PUT".equals(method)) {
+      response = invoker.put(entity, callback);
+    } else if ("DELETE".equals(method)) {
+      response = invoker.method("DELETE", entity, callback);
+    } else if ("PATCH".equals(method)) {
+      response = invoker.method("PATCH", entity, callback);
+    } else {
+      response = invoker.method(method, callback);
+    }
+    return response;
   }
 
   /**
@@ -1548,7 +1550,6 @@ public class ApiClient extends JavaTimeFormatter {
    * @param queryParams List of query parameters
    * @param headerParams Map of header parameters
    * @param cookieParams Map of cookie parameters
-   * @param method HTTP method (e.g. POST)
    * @param uri HTTP URI
    */
   protected void updateParamsForAuth(
@@ -1556,8 +1557,6 @@ public class ApiClient extends JavaTimeFormatter {
       List<Pair> queryParams,
       Map<String, String> headerParams,
       Map<String, String> cookieParams,
-      String payload,
-      String method,
       URI uri)
       throws ApiException {
     for (String authName : authNames) {
@@ -1565,7 +1564,7 @@ public class ApiClient extends JavaTimeFormatter {
       if (auth == null) {
         continue;
       }
-      auth.applyToParams(queryParams, headerParams, cookieParams, payload, method, uri);
+      auth.applyToParams(queryParams, headerParams, cookieParams, "", "", uri);
     }
   }
 }
