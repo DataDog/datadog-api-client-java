@@ -38,7 +38,7 @@ public class IncidentsResponse {
   private List<IncidentResponseIncludedItem> included = null;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private IncidentServicesResponseMeta meta;
+  private IncidentResponseMeta meta;
 
   public IncidentsResponse() {}
 
@@ -98,7 +98,7 @@ public class IncidentsResponse {
     return included;
   }
 
-  public IncidentsResponse meta(IncidentServicesResponseMeta meta) {
+  public IncidentsResponse meta(IncidentResponseMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
     return this;
@@ -113,11 +113,11 @@ public class IncidentsResponse {
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentServicesResponseMeta getMeta() {
+  public IncidentResponseMeta getMeta() {
     return meta;
   }
 
-  public void setMeta(IncidentServicesResponseMeta meta) {
+  public void setMeta(IncidentResponseMeta meta) {
     this.meta = meta;
   }
 
