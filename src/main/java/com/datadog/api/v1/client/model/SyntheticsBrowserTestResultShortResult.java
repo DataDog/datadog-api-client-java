@@ -74,12 +74,12 @@ public class SyntheticsBrowserTestResultShortResult {
   }
 
   /**
-   * Length in second of the browser test run.
+   * Length in milliseconds of the browser test run.
    *
    * @return duration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Length in second of the browser test run.")
+  @ApiModelProperty(value = "Length in milliseconds of the browser test run.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDuration() {
