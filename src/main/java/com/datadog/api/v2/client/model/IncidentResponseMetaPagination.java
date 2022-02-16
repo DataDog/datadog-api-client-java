@@ -21,12 +21,12 @@ import java.util.Objects;
 /** Pagination properties. */
 @ApiModel(description = "Pagination properties.")
 @JsonPropertyOrder({
-  IncidentServicesResponseMetaPagination.JSON_PROPERTY_NEXT_OFFSET,
-  IncidentServicesResponseMetaPagination.JSON_PROPERTY_OFFSET,
-  IncidentServicesResponseMetaPagination.JSON_PROPERTY_SIZE
+  IncidentResponseMetaPagination.JSON_PROPERTY_NEXT_OFFSET,
+  IncidentResponseMetaPagination.JSON_PROPERTY_OFFSET,
+  IncidentResponseMetaPagination.JSON_PROPERTY_SIZE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class IncidentServicesResponseMetaPagination {
+public class IncidentResponseMetaPagination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NEXT_OFFSET = "next_offset";
   private Long nextOffset;
@@ -37,7 +37,7 @@ public class IncidentServicesResponseMetaPagination {
   public static final String JSON_PROPERTY_SIZE = "size";
   private Long size;
 
-  public IncidentServicesResponseMetaPagination nextOffset(Long nextOffset) {
+  public IncidentResponseMetaPagination nextOffset(Long nextOffset) {
     this.nextOffset = nextOffset;
     return this;
   }
@@ -64,7 +64,7 @@ public class IncidentServicesResponseMetaPagination {
     this.nextOffset = nextOffset;
   }
 
-  public IncidentServicesResponseMetaPagination offset(Long offset) {
+  public IncidentResponseMetaPagination offset(Long offset) {
     this.offset = offset;
     return this;
   }
@@ -86,7 +86,7 @@ public class IncidentServicesResponseMetaPagination {
     this.offset = offset;
   }
 
-  public IncidentServicesResponseMetaPagination size(Long size) {
+  public IncidentResponseMetaPagination size(Long size) {
     this.size = size;
     return this;
   }
@@ -108,7 +108,7 @@ public class IncidentServicesResponseMetaPagination {
     this.size = size;
   }
 
-  /** Return true if this IncidentServicesResponse_meta_pagination object is equal to o. */
+  /** Return true if this IncidentResponseMetaPagination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,11 +117,11 @@ public class IncidentServicesResponseMetaPagination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentServicesResponseMetaPagination incidentServicesResponseMetaPagination =
-        (IncidentServicesResponseMetaPagination) o;
-    return Objects.equals(this.nextOffset, incidentServicesResponseMetaPagination.nextOffset)
-        && Objects.equals(this.offset, incidentServicesResponseMetaPagination.offset)
-        && Objects.equals(this.size, incidentServicesResponseMetaPagination.size);
+    IncidentResponseMetaPagination incidentResponseMetaPagination =
+        (IncidentResponseMetaPagination) o;
+    return Objects.equals(this.nextOffset, incidentResponseMetaPagination.nextOffset)
+        && Objects.equals(this.offset, incidentResponseMetaPagination.offset)
+        && Objects.equals(this.size, incidentResponseMetaPagination.size);
   }
 
   @Override
@@ -132,7 +132,7 @@ public class IncidentServicesResponseMetaPagination {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentServicesResponseMetaPagination {\n");
+    sb.append("class IncidentResponseMetaPagination {\n");
     sb.append("    nextOffset: ").append(toIndentedString(nextOffset)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");

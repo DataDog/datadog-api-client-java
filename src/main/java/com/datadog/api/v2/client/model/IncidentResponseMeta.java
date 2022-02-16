@@ -20,15 +20,14 @@ import java.util.Objects;
 
 /** The metadata object containing pagination metadata. */
 @ApiModel(description = "The metadata object containing pagination metadata.")
-@JsonPropertyOrder({IncidentServicesResponseMeta.JSON_PROPERTY_PAGINATION})
+@JsonPropertyOrder({IncidentResponseMeta.JSON_PROPERTY_PAGINATION})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class IncidentServicesResponseMeta {
+public class IncidentResponseMeta {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
-  private IncidentServicesResponseMetaPagination pagination;
+  private IncidentResponseMetaPagination pagination;
 
-  public IncidentServicesResponseMeta pagination(
-      IncidentServicesResponseMetaPagination pagination) {
+  public IncidentResponseMeta pagination(IncidentResponseMetaPagination pagination) {
     this.pagination = pagination;
     this.unparsed |= pagination.unparsed;
     return this;
@@ -43,15 +42,15 @@ public class IncidentServicesResponseMeta {
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentServicesResponseMetaPagination getPagination() {
+  public IncidentResponseMetaPagination getPagination() {
     return pagination;
   }
 
-  public void setPagination(IncidentServicesResponseMetaPagination pagination) {
+  public void setPagination(IncidentResponseMetaPagination pagination) {
     this.pagination = pagination;
   }
 
-  /** Return true if this IncidentServicesResponse_meta object is equal to o. */
+  /** Return true if this IncidentResponseMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -60,8 +59,8 @@ public class IncidentServicesResponseMeta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentServicesResponseMeta incidentServicesResponseMeta = (IncidentServicesResponseMeta) o;
-    return Objects.equals(this.pagination, incidentServicesResponseMeta.pagination);
+    IncidentResponseMeta incidentResponseMeta = (IncidentResponseMeta) o;
+    return Objects.equals(this.pagination, incidentResponseMeta.pagination);
   }
 
   @Override
@@ -72,7 +71,7 @@ public class IncidentServicesResponseMeta {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentServicesResponseMeta {\n");
+    sb.append("class IncidentResponseMeta {\n");
     sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("}");
     return sb.toString();

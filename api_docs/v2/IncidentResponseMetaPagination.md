@@ -1,4 +1,4 @@
-# IncidentServicesResponseMetaPagination
+# IncidentResponseMetaPagination
 
 Pagination properties.
 
