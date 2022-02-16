@@ -50,6 +50,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("custom_timeseries_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CUSTOM_TIMESERIES_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("custom_timeseries_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("estimated_indexed_logs_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("estimated_indexed_logs_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics FARGATE_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("fargate_usage");
   public static final MonthlyUsageAttributionSupportedMetrics FARGATE_PERCENTAGE =
@@ -102,6 +106,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "container_percentage",
               "custom_timeseries_usage",
               "custom_timeseries_percentage",
+              "estimated_indexed_logs_usage",
+              "estimated_indexed_logs_percentage",
               "fargate_usage",
               "fargate_percentage",
               "functions_usage",

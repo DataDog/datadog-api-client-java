@@ -68,6 +68,10 @@ public class UsageAttributionSort {
   public static final UsageAttributionSort LAMBDA_USAGE = new UsageAttributionSort("lambda_usage");
   public static final UsageAttributionSort LAMBDA_PERCENTAGE =
       new UsageAttributionSort("lambda_percentage");
+  public static final UsageAttributionSort ESTIMATED_INDEXED_LOGS_USAGE =
+      new UsageAttributionSort("estimated_indexed_logs_usage");
+  public static final UsageAttributionSort ESTIMATED_INDEXED_LOGS_PERCENTAGE =
+      new UsageAttributionSort("estimated_indexed_logs_percentage");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -93,7 +97,9 @@ public class UsageAttributionSort {
               "lambda_invocations_usage",
               "lambda_invocations_percentage",
               "lambda_usage",
-              "lambda_percentage"));
+              "lambda_percentage",
+              "estimated_indexed_logs_usage",
+              "estimated_indexed_logs_percentage"));
 
   private String value;
 

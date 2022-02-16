@@ -45,3 +45,7 @@
 - `LAMBDA_USAGE` (value: `"lambda_usage"`)
 
 - `LAMBDA_PERCENTAGE` (value: `"lambda_percentage"`)
+
+- `ESTIMATED_INDEXED_LOGS_USAGE` (value: `"estimated_indexed_logs_usage"`)
+
+- `ESTIMATED_INDEXED_LOGS_PERCENTAGE` (value: `"estimated_indexed_logs_percentage"`)
