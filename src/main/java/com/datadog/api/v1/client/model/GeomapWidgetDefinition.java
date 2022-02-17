@@ -139,7 +139,7 @@ public class GeomapWidgetDefinition {
    * @return requests
    */
   @ApiModelProperty(
-      example = "[{\"rum_query\":\"<METRIC_1>{<SCOPE_1>}\"}]",
+      example = "[{\"rum_query\":{\"search\":{\"query\":\"<METRIC_1>{<SCOPE_1>}\"}}}]",
       required = true,
       value =
           "Array of one request object to display in the widget. The request must contain a"

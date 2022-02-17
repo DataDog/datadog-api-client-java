@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,6 +45,13 @@ public class HTTPLogItem {
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
+
+  public HTTPLogItem() {}
+
+  @JsonCreator
+  public HTTPLogItem(@JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message) {
+    this.message = message;
+  }
 
   public HTTPLogItem ddsource(String ddsource) {
     this.ddsource = ddsource;
@@ -134,9 +142,9 @@ public class HTTPLogItem {
    *
    * @return message
    */
-  @javax.annotation.Nullable
   @ApiModelProperty(
       example = "2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World",
+      required = true,
       value =
           "The message [reserved"
               + " attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes)"
@@ -144,7 +152,7 @@ public class HTTPLogItem {
               + " the body of the log entry. That value is then highlighted and displayed in the"
               + " Logstream, where it is indexed for full text search.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
     return message;
   }

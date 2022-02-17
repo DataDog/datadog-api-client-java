@@ -407,7 +407,7 @@ public class IncidentResponseAttributes {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "00000000-0000-0000-0000-000000000000",
+      example = "00000000-0000-0000-7890-000000000000",
       value = "The UUID of the postmortem object attached to the incident.")
   @JsonProperty(JSON_PROPERTY_POSTMORTEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

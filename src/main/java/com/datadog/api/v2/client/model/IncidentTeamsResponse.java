@@ -71,7 +71,7 @@ public class IncidentTeamsResponse {
   @ApiModelProperty(
       example =
           "[{\"attributes\":{\"name\":\"team"
-              + " name\"},\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"teams\"}]",
+              + " name\"},\"id\":\"00000000-7ea3-0000-0000-000000000000\",\"type\":\"teams\"}]",
       required = true,
       value = "An array of incident teams.")
   @JsonProperty(JSON_PROPERTY_DATA)

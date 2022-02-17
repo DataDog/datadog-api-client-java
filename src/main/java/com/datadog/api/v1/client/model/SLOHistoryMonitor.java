@@ -202,6 +202,7 @@ public class SLOHistoryMonitor {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
+      example = "[[1579212382,0]]",
       value =
           "For `monitor` based SLOs, this includes the aggregated history as arrays that include"
               + " time series and uptime data where `0=monitor` is in `OK` state and `1=monitor`"
@@ -309,7 +310,7 @@ public class SLOHistoryMonitor {
   @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "2",
+      example = "2.0",
       value =
           "The amount of decimal places the SLI value is accurate to for the given from `&&` to"
               + " timestamp. Use `span_precision` instead.")
@@ -387,7 +388,7 @@ public class SLOHistoryMonitor {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "2",
+      example = "2.0",
       value =
           "The amount of decimal places the SLI value is accurate to for the given from `&&` to"
               + " timestamp.")
