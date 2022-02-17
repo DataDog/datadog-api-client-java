@@ -14,3 +14,5 @@ Hour usage for logs.
 | **logsLiveIngestedBytes**       | **Long**           | Contains the number of live log bytes ingested (data available as of December 1, 2020).       | [optional] |
 | **logsRehydratedIndexedCount**  | **Long**           | Contains the number of rehydrated log events indexed (data available as of December 1, 2020). | [optional] |
 | **logsRehydratedIngestedBytes** | **Long**           | Contains the number of rehydrated log bytes ingested (data available as of December 1, 2020). | [optional] |
+| **orgName**                     | **String**         | The organization name.                                                                        | [optional] |
+| **publicId**                    | **String**         | The organization public ID.                                                                   | [optional] |

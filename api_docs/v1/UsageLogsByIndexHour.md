@@ -10,4 +10,6 @@ Number of indexed logs for each hour and index for a given organization.
 | **hour**       | **OffsetDateTime** | The hour for the usage.                                | [optional] |
 | **indexId**    | **String**         | The index ID for this usage.                           | [optional] |
 | **indexName**  | **String**         | The user specified name for this index ID.             | [optional] |
+| **orgName**    | **String**         | The organization name.                                 | [optional] |
+| **publicId**   | **String**         | The organization public ID.                            | [optional] |
 | **retention**  | **Long**           | The retention period (in days) for this index ID.      | [optional] |

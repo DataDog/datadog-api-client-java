@@ -29,6 +29,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageLogsByRetentionHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT,
   UsageLogsByRetentionHour.JSON_PROPERTY_LIVE_INDEXED_EVENTS_COUNT,
+  UsageLogsByRetentionHour.JSON_PROPERTY_ORG_NAME,
+  UsageLogsByRetentionHour.JSON_PROPERTY_PUBLIC_ID,
   UsageLogsByRetentionHour.JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT,
   UsageLogsByRetentionHour.JSON_PROPERTY_RETENTION
 })
@@ -40,6 +42,12 @@ public class UsageLogsByRetentionHour {
 
   public static final String JSON_PROPERTY_LIVE_INDEXED_EVENTS_COUNT = "live_indexed_events_count";
   private Long liveIndexedEventsCount;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public static final String JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT =
       "rehydrated_indexed_events_count";
@@ -90,6 +98,50 @@ public class UsageLogsByRetentionHour {
 
   public void setLiveIndexedEventsCount(Long liveIndexedEventsCount) {
     this.liveIndexedEventsCount = liveIndexedEventsCount;
+  }
+
+  public UsageLogsByRetentionHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageLogsByRetentionHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
   }
 
   public UsageLogsByRetentionHour rehydratedIndexedEventsCount(Long rehydratedIndexedEventsCount) {
@@ -151,6 +203,8 @@ public class UsageLogsByRetentionHour {
     return Objects.equals(this.indexedEventsCount, usageLogsByRetentionHour.indexedEventsCount)
         && Objects.equals(
             this.liveIndexedEventsCount, usageLogsByRetentionHour.liveIndexedEventsCount)
+        && Objects.equals(this.orgName, usageLogsByRetentionHour.orgName)
+        && Objects.equals(this.publicId, usageLogsByRetentionHour.publicId)
         && Objects.equals(
             this.rehydratedIndexedEventsCount,
             usageLogsByRetentionHour.rehydratedIndexedEventsCount)
@@ -160,7 +214,12 @@ public class UsageLogsByRetentionHour {
   @Override
   public int hashCode() {
     return Objects.hash(
-        indexedEventsCount, liveIndexedEventsCount, rehydratedIndexedEventsCount, retention);
+        indexedEventsCount,
+        liveIndexedEventsCount,
+        orgName,
+        publicId,
+        rehydratedIndexedEventsCount,
+        retention);
   }
 
   @Override
@@ -171,6 +230,8 @@ public class UsageLogsByRetentionHour {
     sb.append("    liveIndexedEventsCount: ")
         .append(toIndentedString(liveIndexedEventsCount))
         .append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    rehydratedIndexedEventsCount: ")
         .append(toIndentedString(rehydratedIndexedEventsCount))
         .append("\n");
