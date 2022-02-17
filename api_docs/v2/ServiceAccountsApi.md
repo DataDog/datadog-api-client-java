@@ -31,7 +31,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
-        String serviceAccountId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the service account.
+        String serviceAccountId = "00000000-0000-1234-0000-000000000000"; // String | The ID of the service account.
         ApplicationKeyCreateRequest body = new ApplicationKeyCreateRequest(); // ApplicationKeyCreateRequest |
         try {
             ApplicationKeyResponse result = apiInstance.createServiceAccountApplicationKey(serviceAccountId, body);
@@ -97,7 +97,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
-        String serviceAccountId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the service account.
+        String serviceAccountId = "00000000-0000-1234-0000-000000000000"; // String | The ID of the service account.
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
         try {
             apiInstance.deleteServiceAccountApplicationKey(serviceAccountId, appKeyId);
@@ -162,7 +162,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
-        String serviceAccountId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the service account.
+        String serviceAccountId = "00000000-0000-1234-0000-000000000000"; // String | The ID of the service account.
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
         try {
             PartialApplicationKeyResponse result = apiInstance.getServiceAccountApplicationKey(serviceAccountId, appKeyId);
@@ -228,7 +228,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
-        String serviceAccountId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the service account.
+        String serviceAccountId = "00000000-0000-1234-0000-000000000000"; // String | The ID of the service account.
         Long pageSize = 10L; // Long | Size for a given page.
         Long pageNumber = 0L; // Long | Specific page number to return.
         ApplicationKeysSort sort = ApplicationKeysSort.fromValue("created_at"); // ApplicationKeysSort | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -311,7 +311,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
-        String serviceAccountId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the service account.
+        String serviceAccountId = "00000000-0000-1234-0000-000000000000"; // String | The ID of the service account.
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
         ApplicationKeyUpdateRequest body = new ApplicationKeyUpdateRequest(); // ApplicationKeyUpdateRequest |
         try {

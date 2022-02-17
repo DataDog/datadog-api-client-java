@@ -86,7 +86,7 @@ public class IncidentTeamUpdateData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "00000000-0000-0000-0000-000000000000",
+      example = "00000000-7ea3-0000-0001-000000000000",
       value = "The incident team's ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

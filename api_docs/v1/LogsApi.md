@@ -157,7 +157,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/logplex-1, text/plain
+- **Content-Type**: application/json, application/json;simple, application/logplex-1, text/plain
 - **Accept**: application/json
 
 ### HTTP response details

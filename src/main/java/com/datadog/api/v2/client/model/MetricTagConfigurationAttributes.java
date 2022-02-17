@@ -116,7 +116,7 @@ public class MetricTagConfigurationAttributes {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "2020-03-31T09:48:37.463835Z",
+      example = "2020-03-25T09:48:37.463835Z",
       value = "Timestamp when the tag configuration was created.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,7 +193,7 @@ public class MetricTagConfigurationAttributes {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "2020-03-31T09:48:37.463835Z",
+      example = "2020-03-25T09:48:37.463835Z",
       value = "Timestamp when the tag configuration was last modified.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

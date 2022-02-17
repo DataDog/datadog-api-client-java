@@ -165,7 +165,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
+        String userId = "00000000-0000-9999-0000-000000000000"; // String | The ID of the user.
         try {
             apiInstance.disableUser(userId);
         } catch (ApiException e) {
@@ -228,7 +228,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userInvitationUuid = "00000000-0000-0000-0000-000000000000"; // String | The UUID of the user invitation.
+        String userInvitationUuid = "00000000-0000-0000-3456-000000000000"; // String | The UUID of the user invitation.
         try {
             UserInvitationResponse result = apiInstance.getInvitation(userInvitationUuid);
             System.out.println(result);
@@ -292,7 +292,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
+        String userId = "00000000-0000-9999-0000-000000000000"; // String | The ID of the user.
         try {
             UserResponse result = apiInstance.getUser(userId);
             System.out.println(result);
@@ -357,7 +357,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
+        String userId = "00000000-0000-9999-0000-000000000000"; // String | The ID of the user.
         try {
             UserResponse result = apiInstance.listUserOrganizations(userId);
             System.out.println(result);
@@ -422,7 +422,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
+        String userId = "00000000-0000-9999-0000-000000000000"; // String | The ID of the user.
         try {
             PermissionsResponse result = apiInstance.listUserPermissions(userId);
             System.out.println(result);
@@ -632,7 +632,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
+        String userId = "00000000-0000-9999-0000-000000000000"; // String | The ID of the user.
         UserUpdateRequest body = new UserUpdateRequest(); // UserUpdateRequest |
         try {
             UserResponse result = apiInstance.updateUser(userId, body);

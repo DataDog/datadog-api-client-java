@@ -86,7 +86,7 @@ public class UserUpdateData {
    * @return id
    */
   @ApiModelProperty(
-      example = "00000000-0000-0000-0000-000000000000",
+      example = "00000000-0000-feed-0000-000000000000",
       required = true,
       value = "ID of the user.")
   @JsonProperty(JSON_PROPERTY_ID)
