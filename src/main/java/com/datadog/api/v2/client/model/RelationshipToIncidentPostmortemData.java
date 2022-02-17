@@ -56,7 +56,7 @@ public class RelationshipToIncidentPostmortemData {
    * @return id
    */
   @ApiModelProperty(
-      example = "00000000-0000-0000-0000-000000000000",
+      example = "00000000-0000-abcd-1000-000000000000",
       required = true,
       value = "A unique identifier that represents the postmortem.")
   @JsonProperty(JSON_PROPERTY_ID)

@@ -125,7 +125,7 @@ public class ChangeWidgetDefinition {
    * @return requests
    */
   @ApiModelProperty(
-      example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]",
+      example = "[{\"q\":\"<METRIC_1>{<SCOPE_1>}\"}]",
       required = true,
       value =
           "Array of one request object to display in the widget.  See the dedicated [Request JSON"

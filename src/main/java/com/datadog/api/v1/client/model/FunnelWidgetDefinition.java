@@ -91,7 +91,7 @@ public class FunnelWidgetDefinition {
    */
   @ApiModelProperty(
       example =
-          "[{\"request_type\":\"funnel\"},{\"query\":{\"data_source\":\"rum\",\"query_string\":\"@browser.name:Chrome\",\"steps\":[{\"facet\":\"@view.name\",\"value\":\"/logs\"},{\"facet\":\"@view.name\",\"value\":\"/apm/home\"}]}}]",
+          "[{\"query\":{\"data_source\":\"rum\",\"query_string\":\"@browser.name:Chrome\",\"steps\":[{\"facet\":\"@view.name\",\"value\":\"/logs\"},{\"facet\":\"@view.name\",\"value\":\"/apm/home\"}]},\"request_type\":\"funnel\"}]",
       required = true,
       value = "Request payload used to query items.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)

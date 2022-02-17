@@ -226,7 +226,7 @@ public class Example {
         Long pageSize = 10L; // Long | Size for a given page.
         Long pageNumber = 0L; // Long | Specific page number to return.
         AuthNMappingsSort sort = AuthNMappingsSort.fromValue("created_at"); // AuthNMappingsSort | Sort AuthN Mappings depending on the given field.
-        List<String> include = Arrays.asList(); // List<String> |
+        List<String> include = Arrays.asList(); // List<String> | Include additional information in the response.
         String filter = "filter_example"; // String | Filter all mappings by the given string.
         try {
             AuthNMappingsResponse result = apiInstance.listAuthNMappings(new AuthNMappingsApi.ListAuthNMappingsOptionalParameters()
@@ -254,7 +254,7 @@ public class Example {
 | **pageSize**   | **Long**               | Size for a given page.                            | [optional] [default to 10]                                                                                                                                                                                                                                                                                            |
 | **pageNumber** | **Long**               | Specific page number to return.                   | [optional] [default to 0]                                                                                                                                                                                                                                                                                             |
 | **sort**       | **AuthNMappingsSort**  | Sort AuthN Mappings depending on the given field. | [optional] [enum: created_at, -created_at, role_id, -role_id, saml_assertion_attribute_id, -saml_assertion_attribute_id, role.name, -role.name, saml_assertion_attribute.attribute_key, -saml_assertion_attribute.attribute_key, saml_assertion_attribute.attribute_value, -saml_assertion_attribute.attribute_value] |
-| **include**    | **List&lt;String&gt;** |                                                   | [optional]                                                                                                                                                                                                                                                                                                            |
+| **include**    | **List&lt;String&gt;** | Include additional information in the response.   | [optional]                                                                                                                                                                                                                                                                                                            |
 | **filter**     | **String**             | Filter all mappings by the given string.          | [optional]                                                                                                                                                                                                                                                                                                            |
 
 ### Return type

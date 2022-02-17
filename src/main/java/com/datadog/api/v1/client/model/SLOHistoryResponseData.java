@@ -113,7 +113,6 @@ public class SLOHistoryResponseData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "[]",
       value =
           "For `metric` based SLOs where the query includes a group-by clause, this represents the"
               + " list of grouping parameters.  This is not included in responses for `monitor`"
@@ -153,7 +152,6 @@ public class SLOHistoryResponseData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "[]",
       value =
           "For grouped SLOs, this represents SLI data for specific groups.  This is not included"
               + " in the responses for `metric` based SLOs.")
@@ -192,7 +190,6 @@ public class SLOHistoryResponseData {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "[]",
       value =
           "For multi-monitor SLOs, this represents SLI data for specific monitors.  This is not"
               + " included in the responses for `metric` based SLOs.")
@@ -271,7 +268,9 @@ public class SLOHistoryResponseData {
    * @return thresholds
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{}", value = "mapping of string timeframe to the SLO threshold.")
+  @ApiModelProperty(
+      example = "{\"my_service\":{\"target\":95,\"timeframe\":\"7d\"}}",
+      value = "mapping of string timeframe to the SLO threshold.")
   @JsonProperty(JSON_PROPERTY_THRESHOLDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, SLOThreshold> getThresholds() {

@@ -527,7 +527,7 @@ public class AuthNMappingsApi {
     /**
      * Set include
      *
-     * @param include (optional)
+     * @param include Include additional information in the response. (optional)
      * @return ListAuthNMappingsOptionalParameters
      */
     public ListAuthNMappingsOptionalParameters include(List<String> include) {

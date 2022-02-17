@@ -58,7 +58,7 @@ public class RelationshipToIncidentIntegrationMetadataData {
    * @return id
    */
   @ApiModelProperty(
-      example = "00000000-0000-0000-0000-000000000000",
+      example = "00000000-abcd-0001-0000-000000000000",
       required = true,
       value = "A unique identifier that represents the integration metadata.")
   @JsonProperty(JSON_PROPERTY_ID)

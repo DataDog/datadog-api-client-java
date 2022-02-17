@@ -36,7 +36,7 @@ public class NotebookMetadata {
   private Boolean takeSnapshots = false;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<NotebookMetadataType> type = JsonNullable.<NotebookMetadataType>of(null);
+  private JsonNullable<NotebookMetadataType> type = JsonNullable.<NotebookMetadataType>undefined();
 
   public NotebookMetadata isTemplate(Boolean isTemplate) {
     this.isTemplate = isTemplate;

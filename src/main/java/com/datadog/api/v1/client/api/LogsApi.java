@@ -354,7 +354,9 @@ public class LogsApi {
         "POST",
         builder,
         localVarHeaderParams,
-        new String[] {"application/json", "application/logplex-1", "text/plain"},
+        new String[] {
+          "application/json", "application/json;simple", "application/logplex-1", "text/plain"
+        },
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
@@ -419,7 +421,9 @@ public class LogsApi {
         "POST",
         builder,
         localVarHeaderParams,
-        new String[] {"application/json", "application/logplex-1", "text/plain"},
+        new String[] {
+          "application/json", "application/json;simple", "application/logplex-1", "text/plain"
+        },
         localVarPostBody,
         new HashMap<String, Object>(),
         false,

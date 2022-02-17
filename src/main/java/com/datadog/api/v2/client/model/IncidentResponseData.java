@@ -87,7 +87,7 @@ public class IncidentResponseData {
    * @return id
    */
   @ApiModelProperty(
-      example = "00000000-0000-0000-0000-000000000000",
+      example = "00000000-0000-0000-1234-000000000000",
       required = true,
       value = "The incident's ID.")
   @JsonProperty(JSON_PROPERTY_ID)

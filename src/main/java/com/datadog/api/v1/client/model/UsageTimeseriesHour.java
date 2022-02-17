@@ -25,7 +25,9 @@ import java.util.Objects;
   UsageTimeseriesHour.JSON_PROPERTY_HOUR,
   UsageTimeseriesHour.JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES,
   UsageTimeseriesHour.JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES,
-  UsageTimeseriesHour.JSON_PROPERTY_NUM_CUSTOM_TIMESERIES
+  UsageTimeseriesHour.JSON_PROPERTY_NUM_CUSTOM_TIMESERIES,
+  UsageTimeseriesHour.JSON_PROPERTY_ORG_NAME,
+  UsageTimeseriesHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageTimeseriesHour {
@@ -43,6 +45,12 @@ public class UsageTimeseriesHour {
 
   public static final String JSON_PROPERTY_NUM_CUSTOM_TIMESERIES = "num_custom_timeseries";
   private Long numCustomTimeseries;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public UsageTimeseriesHour hour(OffsetDateTime hour) {
     this.hour = hour;
@@ -144,6 +152,50 @@ public class UsageTimeseriesHour {
     this.numCustomTimeseries = numCustomTimeseries;
   }
 
+  public UsageTimeseriesHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageTimeseriesHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   /** Return true if this UsageTimeseriesHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -159,13 +211,20 @@ public class UsageTimeseriesHour {
             this.numCustomInputTimeseries, usageTimeseriesHour.numCustomInputTimeseries)
         && Objects.equals(
             this.numCustomOutputTimeseries, usageTimeseriesHour.numCustomOutputTimeseries)
-        && Objects.equals(this.numCustomTimeseries, usageTimeseriesHour.numCustomTimeseries);
+        && Objects.equals(this.numCustomTimeseries, usageTimeseriesHour.numCustomTimeseries)
+        && Objects.equals(this.orgName, usageTimeseriesHour.orgName)
+        && Objects.equals(this.publicId, usageTimeseriesHour.publicId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        hour, numCustomInputTimeseries, numCustomOutputTimeseries, numCustomTimeseries);
+        hour,
+        numCustomInputTimeseries,
+        numCustomOutputTimeseries,
+        numCustomTimeseries,
+        orgName,
+        publicId);
   }
 
   @Override
@@ -182,6 +241,8 @@ public class UsageTimeseriesHour {
     sb.append("    numCustomTimeseries: ")
         .append(toIndentedString(numCustomTimeseries))
         .append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -56,7 +56,7 @@ public class RelationshipToOrganizationData {
    * @return id
    */
   @ApiModelProperty(
-      example = "00000000-0000-0000-0000-000000000000",
+      example = "00000000-0000-beef-0000-000000000000",
       required = true,
       value = "ID of the organization.")
   @JsonProperty(JSON_PROPERTY_ID)
