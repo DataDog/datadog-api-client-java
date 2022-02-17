@@ -36,6 +36,8 @@ import java.util.Objects;
   UsageHostHour.JSON_PROPERTY_HOUR,
   UsageHostHour.JSON_PROPERTY_INFRA_AZURE_APP_SERVICE,
   UsageHostHour.JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT,
+  UsageHostHour.JSON_PROPERTY_ORG_NAME,
+  UsageHostHour.JSON_PROPERTY_PUBLIC_ID,
   UsageHostHour.JSON_PROPERTY_VSPHERE_HOST_COUNT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -80,6 +82,12 @@ public class UsageHostHour {
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT = "opentelemetry_host_count";
   private Long opentelemetryHostCount;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public static final String JSON_PROPERTY_VSPHERE_HOST_COUNT = "vsphere_host_count";
   private Long vsphereHostCount;
@@ -412,6 +420,50 @@ public class UsageHostHour {
     this.opentelemetryHostCount = opentelemetryHostCount;
   }
 
+  public UsageHostHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageHostHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   public UsageHostHour vsphereHostCount(Long vsphereHostCount) {
     this.vsphereHostCount = vsphereHostCount;
     return this;
@@ -462,6 +514,8 @@ public class UsageHostHour {
         && Objects.equals(this.hour, usageHostHour.hour)
         && Objects.equals(this.infraAzureAppService, usageHostHour.infraAzureAppService)
         && Objects.equals(this.opentelemetryHostCount, usageHostHour.opentelemetryHostCount)
+        && Objects.equals(this.orgName, usageHostHour.orgName)
+        && Objects.equals(this.publicId, usageHostHour.publicId)
         && Objects.equals(this.vsphereHostCount, usageHostHour.vsphereHostCount);
   }
 
@@ -481,6 +535,8 @@ public class UsageHostHour {
         hour,
         infraAzureAppService,
         opentelemetryHostCount,
+        orgName,
+        publicId,
         vsphereHostCount);
   }
 
@@ -507,6 +563,8 @@ public class UsageHostHour {
     sb.append("    opentelemetryHostCount: ")
         .append(toIndentedString(opentelemetryHostCount))
         .append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    vsphereHostCount: ").append(toIndentedString(vsphereHostCount)).append("\n");
     sb.append("}");
     return sb.toString();

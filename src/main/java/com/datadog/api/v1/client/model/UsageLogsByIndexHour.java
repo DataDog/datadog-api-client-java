@@ -26,6 +26,8 @@ import java.util.Objects;
   UsageLogsByIndexHour.JSON_PROPERTY_HOUR,
   UsageLogsByIndexHour.JSON_PROPERTY_INDEX_ID,
   UsageLogsByIndexHour.JSON_PROPERTY_INDEX_NAME,
+  UsageLogsByIndexHour.JSON_PROPERTY_ORG_NAME,
+  UsageLogsByIndexHour.JSON_PROPERTY_PUBLIC_ID,
   UsageLogsByIndexHour.JSON_PROPERTY_RETENTION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -42,6 +44,12 @@ public class UsageLogsByIndexHour {
 
   public static final String JSON_PROPERTY_INDEX_NAME = "index_name";
   private String indexName;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public static final String JSON_PROPERTY_RETENTION = "retention";
   private Long retention;
@@ -134,6 +142,50 @@ public class UsageLogsByIndexHour {
     this.indexName = indexName;
   }
 
+  public UsageLogsByIndexHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageLogsByIndexHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   public UsageLogsByIndexHour retention(Long retention) {
     this.retention = retention;
     return this;
@@ -170,12 +222,14 @@ public class UsageLogsByIndexHour {
         && Objects.equals(this.hour, usageLogsByIndexHour.hour)
         && Objects.equals(this.indexId, usageLogsByIndexHour.indexId)
         && Objects.equals(this.indexName, usageLogsByIndexHour.indexName)
+        && Objects.equals(this.orgName, usageLogsByIndexHour.orgName)
+        && Objects.equals(this.publicId, usageLogsByIndexHour.publicId)
         && Objects.equals(this.retention, usageLogsByIndexHour.retention);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventCount, hour, indexId, indexName, retention);
+    return Objects.hash(eventCount, hour, indexId, indexName, orgName, publicId, retention);
   }
 
   @Override
@@ -186,6 +240,8 @@ public class UsageLogsByIndexHour {
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    indexId: ").append(toIndentedString(indexId)).append("\n");
     sb.append("    indexName: ").append(toIndentedString(indexName)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    retention: ").append(toIndentedString(retention)).append("\n");
     sb.append("}");
     return sb.toString();

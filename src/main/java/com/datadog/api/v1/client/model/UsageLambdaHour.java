@@ -30,7 +30,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageLambdaHour.JSON_PROPERTY_FUNC_COUNT,
   UsageLambdaHour.JSON_PROPERTY_HOUR,
-  UsageLambdaHour.JSON_PROPERTY_INVOCATIONS_SUM
+  UsageLambdaHour.JSON_PROPERTY_INVOCATIONS_SUM,
+  UsageLambdaHour.JSON_PROPERTY_ORG_NAME,
+  UsageLambdaHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageLambdaHour {
@@ -43,6 +45,12 @@ public class UsageLambdaHour {
 
   public static final String JSON_PROPERTY_INVOCATIONS_SUM = "invocations_sum";
   private Long invocationsSum;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public UsageLambdaHour funcCount(Long funcCount) {
     this.funcCount = funcCount;
@@ -111,6 +119,50 @@ public class UsageLambdaHour {
     this.invocationsSum = invocationsSum;
   }
 
+  public UsageLambdaHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageLambdaHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   /** Return true if this UsageLambdaHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -123,12 +175,14 @@ public class UsageLambdaHour {
     UsageLambdaHour usageLambdaHour = (UsageLambdaHour) o;
     return Objects.equals(this.funcCount, usageLambdaHour.funcCount)
         && Objects.equals(this.hour, usageLambdaHour.hour)
-        && Objects.equals(this.invocationsSum, usageLambdaHour.invocationsSum);
+        && Objects.equals(this.invocationsSum, usageLambdaHour.invocationsSum)
+        && Objects.equals(this.orgName, usageLambdaHour.orgName)
+        && Objects.equals(this.publicId, usageLambdaHour.publicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(funcCount, hour, invocationsSum);
+    return Objects.hash(funcCount, hour, invocationsSum, orgName, publicId);
   }
 
   @Override
@@ -138,6 +192,8 @@ public class UsageLambdaHour {
     sb.append("    funcCount: ").append(toIndentedString(funcCount)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    invocationsSum: ").append(toIndentedString(invocationsSum)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

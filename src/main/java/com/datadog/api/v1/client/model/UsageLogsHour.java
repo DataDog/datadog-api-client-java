@@ -29,7 +29,9 @@ import java.util.Objects;
   UsageLogsHour.JSON_PROPERTY_LOGS_LIVE_INDEXED_COUNT,
   UsageLogsHour.JSON_PROPERTY_LOGS_LIVE_INGESTED_BYTES,
   UsageLogsHour.JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_COUNT,
-  UsageLogsHour.JSON_PROPERTY_LOGS_REHYDRATED_INGESTED_BYTES
+  UsageLogsHour.JSON_PROPERTY_LOGS_REHYDRATED_INGESTED_BYTES,
+  UsageLogsHour.JSON_PROPERTY_ORG_NAME,
+  UsageLogsHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageLogsHour {
@@ -59,6 +61,12 @@ public class UsageLogsHour {
   public static final String JSON_PROPERTY_LOGS_REHYDRATED_INGESTED_BYTES =
       "logs_rehydrated_ingested_bytes";
   private Long logsRehydratedIngestedBytes;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public UsageLogsHour billableIngestedBytes(Long billableIngestedBytes) {
     this.billableIngestedBytes = billableIngestedBytes;
@@ -246,6 +254,50 @@ public class UsageLogsHour {
     this.logsRehydratedIngestedBytes = logsRehydratedIngestedBytes;
   }
 
+  public UsageLogsHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageLogsHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   /** Return true if this UsageLogsHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -264,7 +316,9 @@ public class UsageLogsHour {
         && Objects.equals(this.logsLiveIngestedBytes, usageLogsHour.logsLiveIngestedBytes)
         && Objects.equals(this.logsRehydratedIndexedCount, usageLogsHour.logsRehydratedIndexedCount)
         && Objects.equals(
-            this.logsRehydratedIngestedBytes, usageLogsHour.logsRehydratedIngestedBytes);
+            this.logsRehydratedIngestedBytes, usageLogsHour.logsRehydratedIngestedBytes)
+        && Objects.equals(this.orgName, usageLogsHour.orgName)
+        && Objects.equals(this.publicId, usageLogsHour.publicId);
   }
 
   @Override
@@ -277,7 +331,9 @@ public class UsageLogsHour {
         logsLiveIndexedCount,
         logsLiveIngestedBytes,
         logsRehydratedIndexedCount,
-        logsRehydratedIngestedBytes);
+        logsRehydratedIngestedBytes,
+        orgName,
+        publicId);
   }
 
   @Override
@@ -304,6 +360,8 @@ public class UsageLogsHour {
     sb.append("    logsRehydratedIngestedBytes: ")
         .append(toIndentedString(logsRehydratedIngestedBytes))
         .append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

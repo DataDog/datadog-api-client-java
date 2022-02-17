@@ -24,7 +24,9 @@ import java.util.Objects;
     description = "Number of Synthetics API tests run for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageSyntheticsAPIHour.JSON_PROPERTY_CHECK_CALLS_COUNT,
-  UsageSyntheticsAPIHour.JSON_PROPERTY_HOUR
+  UsageSyntheticsAPIHour.JSON_PROPERTY_HOUR,
+  UsageSyntheticsAPIHour.JSON_PROPERTY_ORG_NAME,
+  UsageSyntheticsAPIHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSyntheticsAPIHour {
@@ -34,6 +36,12 @@ public class UsageSyntheticsAPIHour {
 
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public UsageSyntheticsAPIHour checkCallsCount(Long checkCallsCount) {
     this.checkCallsCount = checkCallsCount;
@@ -79,6 +87,50 @@ public class UsageSyntheticsAPIHour {
     this.hour = hour;
   }
 
+  public UsageSyntheticsAPIHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageSyntheticsAPIHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   /** Return true if this UsageSyntheticsAPIHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -90,12 +142,14 @@ public class UsageSyntheticsAPIHour {
     }
     UsageSyntheticsAPIHour usageSyntheticsAPIHour = (UsageSyntheticsAPIHour) o;
     return Objects.equals(this.checkCallsCount, usageSyntheticsAPIHour.checkCallsCount)
-        && Objects.equals(this.hour, usageSyntheticsAPIHour.hour);
+        && Objects.equals(this.hour, usageSyntheticsAPIHour.hour)
+        && Objects.equals(this.orgName, usageSyntheticsAPIHour.orgName)
+        && Objects.equals(this.publicId, usageSyntheticsAPIHour.publicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkCallsCount, hour);
+    return Objects.hash(checkCallsCount, hour, orgName, publicId);
   }
 
   @Override
@@ -104,6 +158,8 @@ public class UsageSyntheticsAPIHour {
     sb.append("class UsageSyntheticsAPIHour {\n");
     sb.append("    checkCallsCount: ").append(toIndentedString(checkCallsCount)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
