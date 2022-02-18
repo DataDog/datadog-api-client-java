@@ -9,20 +9,30 @@ This project does not have a strict release schedule. However, we would make a r
   - Releases may be done more frequently than the above mentioned window.
 
 ### Prerequisites
-- Install [datadog_checks_dev](https://datadog-checks-base.readthedocs.io/en/latest/datadog_checks_dev.cli.html#installation) using Python 3
 - Ensure all CIs are passing on the master branch that we're about to release.
 
-## Release
-Note that once the release process has started, nobody should be merging/pushing anything.
+## Release Process
 
-- See changes ready for release by running `ddev release show changes . --tag-prefix datadog-api-client-` at the root of this project. Add any missing labels to PRs if needed.
-- Run `ddev release changelog . <NEW_VERSION> --tag-prefix datadog-api-client-` to update the `CHANGELOG.md` file at the root of this repository
-    - In this same branch, remove the `-SNAPSHOT` from the project's version in the `pom.xml` file.
-- Commit the changes to the repository in a release branch and get it approved/merged after you:
-    - Make sure all tests in CIs are passing, as this is the commit we will be releasing!
-- Create a Github release. ([Example](https://github.com/DataDog/datadog-api-client-java/releases/tag/datadog-api-client-1.0.0-beta10))
+The release process is controlled and run by GitHub Actions.
+
+### Prerequisite
+
+1. Make sure you have `write_repo` access.
+1. Share your plan for the release with other maintainers to avoid conflicts during the release process.
+
+### Update Changelog
+
+1. Open [prepare release](https://github.com/DataDog/datadog-api-client-java/actions/workflows/prepare_release.yml) and click on `Run workflow` dropdown.
+1. Enter new version identifier in the `New version tag` input box (e.g. `1.9.0`).
+1. Trigger the action by clicking on `Run workflow` button.
+
+### Review
+
+1. Review the generated pull-request for `release/<New version tag>` branch.
+1. If everything is fine, merge the pull-request.
+1. Check that the [release](https://github.com/DataDog/datadog-api-client-java/actions/workflows/release.yml) action created new release on GitHub.
     - This will kick off a gitlab pipeline that will build and upload the JAR to sonatype.
     - Sign into sonatype and find the uploaded project [here](https://oss.sonatype.org/#stagingRepositories)
     - Check this project and click `Release`. Once confirmed this will start the sync and finalize the release.
       - Note the full sync may take some time but confirm the version is available [here](https://repo1.maven.org/maven2/com/datadoghq/datadog-api-client/)
-- Finally, pull the recent changes and create a PR to begin the next dev cycle by bumping the project's version in `pom.xml` and adding back `-SNAPSHOT`.
+1. Review and merge generated `Post release` pull-request with `dev` version bump.
