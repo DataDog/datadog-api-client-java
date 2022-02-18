@@ -196,12 +196,16 @@ public class ClientSteps {
           java.lang.ClassNotFoundException, com.fasterxml.jackson.core.JsonProcessingException {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
     Object responseValue = World.lookup(responseData, responsePath);
-    assertEquals(
-        World.fromJSON(
-            world.getObjectMapper(),
-            responseValue.getClass(),
-            World.templated(value, world.context)),
-        responseValue);
+    if (responseValue != null) {
+      assertEquals(
+          World.fromJSON(
+              world.getObjectMapper(),
+              responseValue.getClass(),
+              World.templated(value, world.context)),
+          responseValue);
+    } else {
+      assertEquals("null", World.templated(value, world.context));
+    }
   }
 
   @Then("the response {string} is false")

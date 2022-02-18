@@ -19,49 +19,54 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** The relationships the incident will have with other resources once created. */
-@ApiModel(
-    description = "The relationships the incident will have with other resources once created.")
-@JsonPropertyOrder({IncidentCreateRelationships.JSON_PROPERTY_COMMANDER_USER})
+/** Relationship to user. */
+@ApiModel(description = "Relationship to user.")
+@JsonPropertyOrder({NullableRelationshipToUser.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class IncidentCreateRelationships {
+public class NullableRelationshipToUser {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
-  private NullableRelationshipToUser commanderUser;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private NullableRelationshipToUserData data;
 
-  public IncidentCreateRelationships() {}
+  public NullableRelationshipToUser() {}
 
   @JsonCreator
-  public IncidentCreateRelationships(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMMANDER_USER)
-          NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
-    this.unparsed |= commanderUser.unparsed;
+  public NullableRelationshipToUser(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          NullableRelationshipToUserData data) {
+    this.data = data;
+    if (data != null) {
+
+      this.unparsed |= data.unparsed;
+    }
   }
 
-  public IncidentCreateRelationships commanderUser(NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
-    this.unparsed |= commanderUser.unparsed;
+  public NullableRelationshipToUser data(NullableRelationshipToUserData data) {
+    this.data = data;
+    if (data != null) {
+      this.unparsed |= data.unparsed;
+    }
     return this;
   }
 
   /**
-   * Get commanderUser
+   * Get data
    *
-   * @return commanderUser
+   * @return data
    */
+  @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public NullableRelationshipToUser getCommanderUser() {
-    return commanderUser;
+  public NullableRelationshipToUserData getData() {
+    return data;
   }
 
-  public void setCommanderUser(NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
+  public void setData(NullableRelationshipToUserData data) {
+    this.data = data;
   }
 
-  /** Return true if this IncidentCreateRelationships object is equal to o. */
+  /** Return true if this NullableRelationshipToUser object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -70,20 +75,20 @@ public class IncidentCreateRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentCreateRelationships incidentCreateRelationships = (IncidentCreateRelationships) o;
-    return Objects.equals(this.commanderUser, incidentCreateRelationships.commanderUser);
+    NullableRelationshipToUser nullableRelationshipToUser = (NullableRelationshipToUser) o;
+    return Objects.equals(this.data, nullableRelationshipToUser.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commanderUser);
+    return Objects.hash(data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentCreateRelationships {\n");
-    sb.append("    commanderUser: ").append(toIndentedString(commanderUser)).append("\n");
+    sb.append("class NullableRelationshipToUser {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

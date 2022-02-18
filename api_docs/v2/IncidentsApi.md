@@ -285,7 +285,7 @@ public class Example {
 
 ## updateIncident
 
-> IncidentResponse updateIncident(incidentId, body);
+> IncidentResponse updateIncident(incidentId, body, parameters);
 
 Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
 
@@ -306,8 +306,10 @@ public class Example {
         IncidentsApi apiInstance = new IncidentsApi(defaultClient);
         String incidentId = "incidentId_example"; // String | The UUID of the incident.
         IncidentUpdateRequest body = new IncidentUpdateRequest(); // IncidentUpdateRequest | Incident Payload.
+        List<IncidentRelatedObject> include = Arrays.asList(); // List<IncidentRelatedObject> | Specifies which types of related objects should be included in the response.
         try {
-            IncidentResponse result = apiInstance.updateIncident(incidentId, body);
+            IncidentResponse result = apiInstance.updateIncident(incidentId, body, new IncidentsApi.UpdateIncidentOptionalParameters()
+                .include(include));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentsApi#updateIncident");
@@ -322,10 +324,11 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type                                                  | Description               | Notes |
-| -------------- | ----------------------------------------------------- | ------------------------- | ----- |
-| **incidentId** | **String**                                            | The UUID of the incident. |
-| **body**       | [**IncidentUpdateRequest**](IncidentUpdateRequest.md) | Incident Payload.         |
+| Name           | Type                                                  | Description                                                                  | Notes      |
+| -------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------- | ---------- |
+| **incidentId** | **String**                                            | The UUID of the incident.                                                    |
+| **body**       | [**IncidentUpdateRequest**](IncidentUpdateRequest.md) | Incident Payload.                                                            |
+| **include**    | **List&lt;IncidentRelatedObject&gt;**                 | Specifies which types of related objects should be included in the response. | [optional] |
 
 ### Return type
 

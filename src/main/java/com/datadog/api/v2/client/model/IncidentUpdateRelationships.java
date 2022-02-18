@@ -22,30 +22,22 @@ import java.util.Objects;
 @ApiModel(description = "The incident's relationships for an update request.")
 @JsonPropertyOrder({
   IncidentUpdateRelationships.JSON_PROPERTY_COMMANDER_USER,
-  IncidentUpdateRelationships.JSON_PROPERTY_CREATED_BY_USER,
   IncidentUpdateRelationships.JSON_PROPERTY_INTEGRATIONS,
-  IncidentUpdateRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER,
   IncidentUpdateRelationships.JSON_PROPERTY_POSTMORTEM
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentUpdateRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
-  private RelationshipToUser commanderUser;
-
-  public static final String JSON_PROPERTY_CREATED_BY_USER = "created_by_user";
-  private RelationshipToUser createdByUser;
+  private NullableRelationshipToUser commanderUser;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private RelationshipToIncidentIntegrationMetadatas integrations;
 
-  public static final String JSON_PROPERTY_LAST_MODIFIED_BY_USER = "last_modified_by_user";
-  private RelationshipToUser lastModifiedByUser;
-
   public static final String JSON_PROPERTY_POSTMORTEM = "postmortem";
   private RelationshipToIncidentPostmortem postmortem;
 
-  public IncidentUpdateRelationships commanderUser(RelationshipToUser commanderUser) {
+  public IncidentUpdateRelationships commanderUser(NullableRelationshipToUser commanderUser) {
     this.commanderUser = commanderUser;
     this.unparsed |= commanderUser.unparsed;
     return this;
@@ -60,35 +52,12 @@ public class IncidentUpdateRelationships {
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getCommanderUser() {
+  public NullableRelationshipToUser getCommanderUser() {
     return commanderUser;
   }
 
-  public void setCommanderUser(RelationshipToUser commanderUser) {
+  public void setCommanderUser(NullableRelationshipToUser commanderUser) {
     this.commanderUser = commanderUser;
-  }
-
-  public IncidentUpdateRelationships createdByUser(RelationshipToUser createdByUser) {
-    this.createdByUser = createdByUser;
-    this.unparsed |= createdByUser.unparsed;
-    return this;
-  }
-
-  /**
-   * Get createdByUser
-   *
-   * @return createdByUser
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getCreatedByUser() {
-    return createdByUser;
-  }
-
-  public void setCreatedByUser(RelationshipToUser createdByUser) {
-    this.createdByUser = createdByUser;
   }
 
   public IncidentUpdateRelationships integrations(
@@ -113,29 +82,6 @@ public class IncidentUpdateRelationships {
 
   public void setIntegrations(RelationshipToIncidentIntegrationMetadatas integrations) {
     this.integrations = integrations;
-  }
-
-  public IncidentUpdateRelationships lastModifiedByUser(RelationshipToUser lastModifiedByUser) {
-    this.lastModifiedByUser = lastModifiedByUser;
-    this.unparsed |= lastModifiedByUser.unparsed;
-    return this;
-  }
-
-  /**
-   * Get lastModifiedByUser
-   *
-   * @return lastModifiedByUser
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getLastModifiedByUser() {
-    return lastModifiedByUser;
-  }
-
-  public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
-    this.lastModifiedByUser = lastModifiedByUser;
   }
 
   public IncidentUpdateRelationships postmortem(RelationshipToIncidentPostmortem postmortem) {
@@ -172,15 +118,13 @@ public class IncidentUpdateRelationships {
     }
     IncidentUpdateRelationships incidentUpdateRelationships = (IncidentUpdateRelationships) o;
     return Objects.equals(this.commanderUser, incidentUpdateRelationships.commanderUser)
-        && Objects.equals(this.createdByUser, incidentUpdateRelationships.createdByUser)
         && Objects.equals(this.integrations, incidentUpdateRelationships.integrations)
-        && Objects.equals(this.lastModifiedByUser, incidentUpdateRelationships.lastModifiedByUser)
         && Objects.equals(this.postmortem, incidentUpdateRelationships.postmortem);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commanderUser, createdByUser, integrations, lastModifiedByUser, postmortem);
+    return Objects.hash(commanderUser, integrations, postmortem);
   }
 
   @Override
@@ -188,9 +132,7 @@ public class IncidentUpdateRelationships {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentUpdateRelationships {\n");
     sb.append("    commanderUser: ").append(toIndentedString(commanderUser)).append("\n");
-    sb.append("    createdByUser: ").append(toIndentedString(createdByUser)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
-    sb.append("    lastModifiedByUser: ").append(toIndentedString(lastModifiedByUser)).append("\n");
     sb.append("    postmortem: ").append(toIndentedString(postmortem)).append("\n");
     sb.append("}");
     return sb.toString();
