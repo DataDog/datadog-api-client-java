@@ -31,7 +31,7 @@ import java.util.Objects;
 public class IncidentResponseRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
-  private RelationshipToUser commanderUser;
+  private NullableRelationshipToUser commanderUser;
 
   public static final String JSON_PROPERTY_CREATED_BY_USER = "created_by_user";
   private RelationshipToUser createdByUser;
@@ -45,7 +45,7 @@ public class IncidentResponseRelationships {
   public static final String JSON_PROPERTY_POSTMORTEM = "postmortem";
   private RelationshipToIncidentPostmortem postmortem;
 
-  public IncidentResponseRelationships commanderUser(RelationshipToUser commanderUser) {
+  public IncidentResponseRelationships commanderUser(NullableRelationshipToUser commanderUser) {
     this.commanderUser = commanderUser;
     this.unparsed |= commanderUser.unparsed;
     return this;
@@ -60,11 +60,11 @@ public class IncidentResponseRelationships {
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getCommanderUser() {
+  public NullableRelationshipToUser getCommanderUser() {
     return commanderUser;
   }
 
-  public void setCommanderUser(RelationshipToUser commanderUser) {
+  public void setCommanderUser(NullableRelationshipToUser commanderUser) {
     this.commanderUser = commanderUser;
   }
 

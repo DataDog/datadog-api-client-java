@@ -6,7 +6,7 @@ The incident's relationships from a response.
 
 | Name                   | Type                                                                                            | Description | Notes      |
 | ---------------------- | ----------------------------------------------------------------------------------------------- | ----------- | ---------- |
-| **commanderUser**      | [**RelationshipToUser**](RelationshipToUser.md)                                                 |             | [optional] |
+| **commanderUser**      | [**NullableRelationshipToUser**](NullableRelationshipToUser.md)                                 |             | [optional] |
 | **createdByUser**      | [**RelationshipToUser**](RelationshipToUser.md)                                                 |             | [optional] |
 | **integrations**       | [**RelationshipToIncidentIntegrationMetadatas**](RelationshipToIncidentIntegrationMetadatas.md) |             | [optional] |
 | **lastModifiedByUser** | [**RelationshipToUser**](RelationshipToUser.md)                                                 |             | [optional] |

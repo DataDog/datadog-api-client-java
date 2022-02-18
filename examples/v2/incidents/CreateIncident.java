@@ -13,9 +13,10 @@ import com.datadog.api.v2.client.model.IncidentFieldAttributesSingleValue;
 import com.datadog.api.v2.client.model.IncidentFieldAttributesSingleValueType;
 import com.datadog.api.v2.client.model.IncidentResponse;
 import com.datadog.api.v2.client.model.IncidentType;
-import com.datadog.api.v2.client.model.RelationshipToUser;
-import com.datadog.api.v2.client.model.RelationshipToUserData;
+import com.datadog.api.v2.client.model.NullableRelationshipToUser;
+import com.datadog.api.v2.client.model.NullableRelationshipToUserData;
 import com.datadog.api.v2.client.model.UsersType;
+import java.time.*;
 import java.util.*;
 
 public class Example {
@@ -47,10 +48,10 @@ public class Example {
                                                 .value("resolved"))))))
                     .relationships(
                         new IncidentCreateRelationships()
-                            .commander(
-                                new RelationshipToUser()
+                            .commanderUser(
+                                new NullableRelationshipToUser()
                                     .data(
-                                        new RelationshipToUserData()
+                                        new NullableRelationshipToUserData()
                                             .type(UsersType.USERS)
                                             .id(USER_DATA_ID)))));
 
@@ -58,7 +59,7 @@ public class Example {
       IncidentResponse result = apiInstance.createIncident(body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling IncidentsApi#createIncident");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

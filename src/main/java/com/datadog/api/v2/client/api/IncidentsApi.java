@@ -752,6 +752,23 @@ public class IncidentsApi {
         new GenericType<IncidentsResponse>() {});
   }
 
+  /** Manage optional parameters to updateIncident. */
+  public static class UpdateIncidentOptionalParameters {
+    private List<IncidentRelatedObject> include;
+
+    /**
+     * Set include
+     *
+     * @param include Specifies which types of related objects should be included in the response.
+     *     (optional)
+     * @return UpdateIncidentOptionalParameters
+     */
+    public UpdateIncidentOptionalParameters include(List<IncidentRelatedObject> include) {
+      this.include = include;
+      return this;
+    }
+  }
+
   /**
    * Update an existing incident
    *
@@ -764,7 +781,43 @@ public class IncidentsApi {
    */
   public IncidentResponse updateIncident(String incidentId, IncidentUpdateRequest body)
       throws ApiException {
-    return updateIncidentWithHttpInfo(incidentId, body).getData();
+    return updateIncidentWithHttpInfo(incidentId, body, new UpdateIncidentOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Update an existing incident
+   *
+   * <p>See {@link #updateIncidentWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Incident Payload. (required)
+   * @return CompletableFuture&lt;IncidentResponse&gt;
+   */
+  public CompletableFuture<IncidentResponse> updateIncidentAsync(
+      String incidentId, IncidentUpdateRequest body) {
+    return updateIncidentWithHttpInfoAsync(incidentId, body, new UpdateIncidentOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an existing incident
+   *
+   * <p>See {@link #updateIncidentWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Incident Payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentResponse updateIncident(
+      String incidentId, IncidentUpdateRequest body, UpdateIncidentOptionalParameters parameters)
+      throws ApiException {
+    return updateIncidentWithHttpInfo(incidentId, body, parameters).getData();
   }
 
   /**
@@ -774,11 +827,12 @@ public class IncidentsApi {
    *
    * @param incidentId The UUID of the incident. (required)
    * @param body Incident Payload. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;IncidentResponse&gt;
    */
   public CompletableFuture<IncidentResponse> updateIncidentAsync(
-      String incidentId, IncidentUpdateRequest body) {
-    return updateIncidentWithHttpInfoAsync(incidentId, body)
+      String incidentId, IncidentUpdateRequest body, UpdateIncidentOptionalParameters parameters) {
+    return updateIncidentWithHttpInfoAsync(incidentId, body, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -793,6 +847,7 @@ public class IncidentsApi {
    *
    * @param incidentId The UUID of the incident. (required)
    * @param body Incident Payload. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;IncidentResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -808,7 +863,8 @@ public class IncidentsApi {
    *     </table>
    */
   public ApiResponse<IncidentResponse> updateIncidentWithHttpInfo(
-      String incidentId, IncidentUpdateRequest body) throws ApiException {
+      String incidentId, IncidentUpdateRequest body, UpdateIncidentOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'incidentId' is set
@@ -822,13 +878,17 @@ public class IncidentsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateIncident");
     }
+    List<IncidentRelatedObject> include = parameters.include;
     // create path and map variables
     String localVarPath =
         "/api/v2/incidents/{incident_id}"
             .replaceAll(
                 "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateIncident");
@@ -837,7 +897,7 @@ public class IncidentsApi {
         apiClient.createBuilder(
             "IncidentsApi.updateIncident",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -860,10 +920,11 @@ public class IncidentsApi {
    *
    * @param incidentId The UUID of the incident. (required)
    * @param body Incident Payload. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<IncidentResponse>> updateIncidentWithHttpInfoAsync(
-      String incidentId, IncidentUpdateRequest body) {
+      String incidentId, IncidentUpdateRequest body, UpdateIncidentOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'incidentId' is set
@@ -883,13 +944,17 @@ public class IncidentsApi {
               400, "Missing the required parameter 'body' when calling updateIncident"));
       return result;
     }
+    List<IncidentRelatedObject> include = parameters.include;
     // create path and map variables
     String localVarPath =
         "/api/v2/incidents/{incident_id}"
             .replaceAll(
                 "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateIncident");
@@ -900,7 +965,7 @@ public class IncidentsApi {
           apiClient.createBuilder(
               "IncidentsApi.updateIncident",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
