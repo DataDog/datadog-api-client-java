@@ -35,4 +35,4 @@ The release process is controlled and run by GitHub Actions.
     - Sign into sonatype and find the uploaded project [here](https://oss.sonatype.org/#stagingRepositories)
     - Check this project and click `Release`. Once confirmed this will start the sync and finalize the release.
       - Note the full sync may take some time but confirm the version is available [here](https://repo1.maven.org/maven2/com/datadoghq/datadog-api-client/)
-1. Review and merge generated `Post release` pull-request with `dev` version bump.
+1. Review and merge generated `Post release` pull-request with `SNAPSHOT` version bump.
