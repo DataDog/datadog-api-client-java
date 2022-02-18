@@ -9,7 +9,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "hostsListErrorsTest" ],
-      "DD-OPERATION-ID" : [ "listHosts" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -52,7 +51,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "hostsListErrorsTest" ],
-      "DD-OPERATION-ID" : [ "listHosts" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },

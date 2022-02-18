@@ -5,7 +5,6 @@
     "path" : "/api/v1/dashboard/lists/manual",
     "headers" : {
       "Accept" : [ "application/json" ],
-      "DD-OPERATION-ID" : [ "createDashboardList" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "58" ]
@@ -56,7 +55,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListItemCRUDTest" ],
-      "DD-OPERATION-ID" : [ "createDashboardListItems" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "154" ]
@@ -107,7 +105,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListItemCRUDTest" ],
-      "DD-OPERATION-ID" : [ "deleteDashboardListItems" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "154" ]
@@ -158,7 +155,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListItemCRUDTest" ],
-      "DD-OPERATION-ID" : [ "getDashboardListItems" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -204,7 +200,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListItemCRUDTest" ],
-      "DD-OPERATION-ID" : [ "updateDashboardListItems" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "154" ]
@@ -255,7 +250,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListItemCRUDTest" ],
-      "DD-OPERATION-ID" : [ "deleteDashboardListItems" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "105" ]
@@ -306,7 +300,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListItemCRUDTest" ],
-      "DD-OPERATION-ID" : [ "getDashboardListItems" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -351,7 +344,6 @@
     "path" : "/api/v1/dashboard/lists/manual/117062",
     "headers" : {
       "Accept" : [ "application/json" ],
-      "DD-OPERATION-ID" : [ "deleteDashboardList" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]

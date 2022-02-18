@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "testUserListErrorsTest" ],
-      "DD-OPERATION-ID" : [ "listUsers" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },

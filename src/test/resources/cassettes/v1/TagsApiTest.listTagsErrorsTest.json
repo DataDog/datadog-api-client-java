@@ -9,7 +9,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listTagsErrorsTest" ],
-      "DD-OPERATION-ID" : [ "listHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -46,7 +45,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listTagsErrorsTest" ],
-      "DD-OPERATION-ID" : [ "listHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },

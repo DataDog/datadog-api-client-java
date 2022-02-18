@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "testMultipleSLOInstances" ],
-      "DD-OPERATION-ID" : [ "createMonitor" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "146" ]
@@ -61,7 +60,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "testMultipleSLOInstances" ],
-      "DD-OPERATION-ID" : [ "createSLO" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "259" ]
@@ -116,7 +114,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "testMultipleSLOInstances" ],
-      "DD-OPERATION-ID" : [ "createSLO" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "368" ]
@@ -174,7 +171,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "testMultipleSLOInstances" ],
-      "DD-OPERATION-ID" : [ "listSLOs" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -220,7 +216,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "testMultipleSLOInstances" ],
-      "DD-OPERATION-ID" : [ "deleteSLOTimeframeInBulk" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "43" ]
@@ -271,7 +266,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "testMultipleSLOInstances" ],
-      "DD-OPERATION-ID" : [ "deleteSLO" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]
@@ -318,7 +312,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "testMultipleSLOInstances" ],
-      "DD-OPERATION-ID" : [ "deleteSLO" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]
@@ -360,7 +353,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "testMultipleSLOInstances" ],
-      "DD-OPERATION-ID" : [ "deleteMonitor" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]

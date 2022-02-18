@@ -30,7 +30,6 @@ public class TelemetryTest extends V2APITest {
     // success response code.
     stubFor(
         get(urlPathEqualTo("/api/v2/dashboard/lists/manual/1234/dashboards"))
-            .withHeader("DD-OPERATION-ID", equalTo("getDashboardListItems"))
             .withHeader(
                 "User-Agent",
                 matching(

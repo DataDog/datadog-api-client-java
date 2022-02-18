@@ -78,7 +78,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogTest" ],
-      "DD-OPERATION-ID" : [ "listLogs" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "156" ]
@@ -133,7 +132,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogTest" ],
-      "DD-OPERATION-ID" : [ "listLogs" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "156" ]
@@ -188,7 +186,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogTest" ],
-      "DD-OPERATION-ID" : [ "listLogs" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "156" ]
@@ -243,7 +240,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogTest" ],
-      "DD-OPERATION-ID" : [ "listLogs" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "156" ]
@@ -298,7 +294,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogTest" ],
-      "DD-OPERATION-ID" : [ "listLogs" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "156" ]
@@ -353,7 +348,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogTest" ],
-      "DD-OPERATION-ID" : [ "listLogs" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "156" ]
@@ -408,7 +402,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listLogTest" ],
-      "DD-OPERATION-ID" : [ "listLogs" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "219" ]

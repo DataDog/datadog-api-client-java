@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userUpdateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "createUser" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "140" ]
@@ -57,7 +56,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userUpdateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "updateUser" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "41" ]
@@ -102,7 +100,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userUpdateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "updateUser" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "41" ]
@@ -141,7 +138,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userUpdateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "updateUser" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "41" ]
@@ -187,7 +183,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userUpdateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "getUser" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -233,7 +228,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userUpdateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "disableUser" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]

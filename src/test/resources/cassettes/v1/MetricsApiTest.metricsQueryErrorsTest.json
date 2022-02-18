@@ -11,7 +11,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsQueryErrorsTest" ],
-      "DD-OPERATION-ID" : [ "queryMetrics" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },

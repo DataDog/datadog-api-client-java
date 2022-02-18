@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listAndDeleteGCPIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "createGCPIntegration" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "434" ]
@@ -56,7 +55,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listAndDeleteGCPIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "listGCPIntegration" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -102,7 +100,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listAndDeleteGCPIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "deleteGCPIntegration" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "434" ]
@@ -152,7 +149,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listAndDeleteGCPIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "listGCPIntegration" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -198,7 +194,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listAndDeleteGCPIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "deleteGCPIntegration" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "434" ]
@@ -248,7 +243,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "listAndDeleteGCPIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "deleteGCPIntegration" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "193" ]

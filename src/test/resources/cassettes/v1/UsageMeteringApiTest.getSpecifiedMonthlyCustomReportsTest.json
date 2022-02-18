@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getSpecifiedMonthlyCustomReportsTest" ],
-      "DD-OPERATION-ID" : [ "getSpecifiedMonthlyCustomReports" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,

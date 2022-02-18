@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "logsIndexesUpdateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "updateLogsIndex" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "15" ]
@@ -55,7 +54,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "logsIndexesUpdateErrorsTest" ],
-      "DD-OPERATION-ID" : [ "updateLogsIndex" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "15" ]

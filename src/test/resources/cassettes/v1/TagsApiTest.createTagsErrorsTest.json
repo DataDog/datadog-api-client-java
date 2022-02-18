@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "createTagsErrorsTest" ],
-      "DD-OPERATION-ID" : [ "createHostTags" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "2" ]
@@ -45,7 +44,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "createTagsErrorsTest" ],
-      "DD-OPERATION-ID" : [ "createHostTags" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "2" ]

@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListCreateModifyDeleteTest" ],
-      "DD-OPERATION-ID" : [ "createDashboardList" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "68" ]
@@ -57,7 +56,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListCreateModifyDeleteTest" ],
-      "DD-OPERATION-ID" : [ "getDashboardList" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -103,7 +101,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListCreateModifyDeleteTest" ],
-      "DD-OPERATION-ID" : [ "updateDashboardList" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "76" ]
@@ -154,7 +151,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListCreateModifyDeleteTest" ],
-      "DD-OPERATION-ID" : [ "listDashboardLists" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -200,7 +196,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListCreateModifyDeleteTest" ],
-      "DD-OPERATION-ID" : [ "deleteDashboardList" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]
@@ -247,7 +242,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardListCreateModifyDeleteTest" ],
-      "DD-OPERATION-ID" : [ "getDashboardList" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },

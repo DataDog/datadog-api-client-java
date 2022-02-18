@@ -9,7 +9,6 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getUsageTopAvgMetricsTest" ],
-      "DD-OPERATION-ID" : [ "getUsageTopAvgMetrics" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,

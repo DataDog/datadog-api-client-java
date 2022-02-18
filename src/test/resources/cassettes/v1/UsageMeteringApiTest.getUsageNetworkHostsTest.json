@@ -10,7 +10,6 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getUsageNetworkHostsTest" ],
-      "DD-OPERATION-ID" : [ "getUsageNetworkHosts" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,

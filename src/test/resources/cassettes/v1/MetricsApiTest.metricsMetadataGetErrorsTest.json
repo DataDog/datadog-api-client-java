@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsMetadataGetErrorsTest" ],
-      "DD-OPERATION-ID" : [ "getMetricMetadata" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -40,7 +39,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "metricsMetadataGetErrorsTest" ],
-      "DD-OPERATION-ID" : [ "getMetricMetadata" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },

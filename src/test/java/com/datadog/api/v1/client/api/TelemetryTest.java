@@ -30,7 +30,6 @@ public class TelemetryTest extends V1ApiTest {
     // success response code.
     stubFor(
         get(urlPathEqualTo("/api/v1/integration/aws"))
-            .withHeader("DD-OPERATION-ID", equalTo("listAWSAccounts"))
             .withHeader(
                 "User-Agent",
                 matching(

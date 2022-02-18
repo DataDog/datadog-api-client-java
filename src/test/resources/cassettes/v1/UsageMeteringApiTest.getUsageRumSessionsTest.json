@@ -10,7 +10,6 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getUsageRumSessionsTest" ],
-      "DD-OPERATION-ID" : [ "getUsageRumSessions" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,

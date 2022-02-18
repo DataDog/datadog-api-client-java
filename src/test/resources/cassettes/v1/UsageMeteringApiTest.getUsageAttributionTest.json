@@ -10,7 +10,6 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getUsageAttributionTest" ],
-      "DD-OPERATION-ID" : [ "getUsageAttribution" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,

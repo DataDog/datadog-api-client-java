@@ -47,7 +47,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
-      "DD-OPERATION-ID" : [ "getHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -88,7 +87,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
-      "DD-OPERATION-ID" : [ "getHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -129,7 +127,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
-      "DD-OPERATION-ID" : [ "getHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -177,7 +174,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
-      "DD-OPERATION-ID" : [ "createHostTags" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "29" ]
@@ -230,7 +226,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
-      "DD-OPERATION-ID" : [ "getHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -279,7 +274,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
-      "DD-OPERATION-ID" : [ "getHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -327,7 +321,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
-      "DD-OPERATION-ID" : [ "listHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -376,7 +369,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
-      "DD-OPERATION-ID" : [ "listHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -425,7 +417,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
-      "DD-OPERATION-ID" : [ "listHostTags" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -474,7 +465,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
-      "DD-OPERATION-ID" : [ "updateHostTags" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "32" ]
@@ -527,7 +517,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
-      "DD-OPERATION-ID" : [ "deleteHostTags" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]

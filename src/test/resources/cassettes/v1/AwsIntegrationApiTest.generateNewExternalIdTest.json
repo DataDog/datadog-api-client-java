@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "generateNewExternalIdTest" ],
-      "DD-OPERATION-ID" : [ "createAWSAccount" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
@@ -48,7 +47,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "generateNewExternalIdTest" ],
-      "DD-OPERATION-ID" : [ "createNewAWSExternalID" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
@@ -90,7 +88,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "generateNewExternalIdTest" ],
-      "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,

@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "lifecyclePagerDutyIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "createPagerDutyIntegrationService" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "99" ]
@@ -56,7 +55,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "lifecyclePagerDutyIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "getPagerDutyIntegrationService" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -102,7 +100,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "lifecyclePagerDutyIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "updatePagerDutyIntegrationService" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "24" ]
@@ -153,7 +150,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "lifecyclePagerDutyIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "deletePagerDutyIntegrationService" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]
@@ -199,7 +195,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "lifecyclePagerDutyIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "getPagerDutyIntegrationService" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -240,7 +235,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "lifecyclePagerDutyIntegrationTest" ],
-      "DD-OPERATION-ID" : [ "deletePagerDutyIntegrationService" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
       "Content-Length" : [ "0" ]

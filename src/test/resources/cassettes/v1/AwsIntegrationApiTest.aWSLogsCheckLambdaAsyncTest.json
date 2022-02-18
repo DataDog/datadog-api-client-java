@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "DD-OPERATION-ID" : [ "createAWSAccount" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
@@ -48,7 +47,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "DD-OPERATION-ID" : [ "checkAWSLogsLambdaAsync" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
@@ -90,7 +88,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "DD-OPERATION-ID" : [ "checkAWSLogsLambdaAsync" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
@@ -132,7 +129,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "DD-OPERATION-ID" : [ "checkAWSLogsLambdaAsync" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
@@ -174,7 +170,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "DD-OPERATION-ID" : [ "checkAWSLogsLambdaAsync" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
@@ -216,7 +211,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "DD-OPERATION-ID" : [ "deleteAWSAccount" ],
       "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,

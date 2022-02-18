@@ -9,7 +9,6 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getUsageTraceErrorsTest" ],
-      "DD-OPERATION-ID" : [ "getUsageTrace" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
@@ -56,7 +55,6 @@
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getUsageTraceErrorsTest" ],
-      "DD-OPERATION-ID" : [ "getUsageTrace" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },

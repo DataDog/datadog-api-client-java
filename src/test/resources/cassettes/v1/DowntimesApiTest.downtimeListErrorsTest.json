@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "downtimeListErrorsTest" ],
-      "DD-OPERATION-ID" : [ "listDowntimes" ],
       "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
