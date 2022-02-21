@@ -7,7 +7,7 @@ env:
 on:
   workflow_dispatch:
     inputs:
-      tag:
+      version:
         description: New version tag
         required: true
 
