@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## 1.5.0 / 2022-02-21
+
+### Fixed
+* Add missing type to `CloudWorkloadSecurityAgentRuleAttributes` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1192
+* Add missing type to enum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1194
+* Add nullable user relationships to incidents and use this relationship schema for `commander_user` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1162
+### Added
+* Add organization metadata to additional Usage API responses by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1169
+* Add support for formula and function in monitors by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1175
+* Add async support by @therve in https://github.com/DataDog/datadog-api-client-java/pull/1171
+* Add endpoint for managing SAML AuthN mappings by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1173
+* [Synthetics] Add `isCritical` to browser test steps by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1181
+* Add metrics bulk-config endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1177
+* Add support for "estimated usage attribution" by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1188
+* Add org metadata for all hourly usage endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1193
+### Changed
+* Add synthetics test result failure field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1170
+* Fix funnel steps definition by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1184
+* Extract incident meta object by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1187
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-1.4.0...datadog-api-client-1.5.0
+
 ## 1.4.0 / 2022-01-25
 
 * [Added] Add `filter[deleted]` parameter for searching recently deleted dashboards. See [#1152](https://github.com/DataDog/datadog-api-client-java/pull/1152).
