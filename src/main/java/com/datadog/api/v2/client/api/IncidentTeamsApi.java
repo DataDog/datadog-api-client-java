@@ -113,9 +113,6 @@ public class IncidentTeamsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createIncidentTeam");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "IncidentTeamsApi.createIncidentTeam",
@@ -252,9 +249,6 @@ public class IncidentTeamsApi {
             .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteIncidentTeam");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -452,9 +446,6 @@ public class IncidentTeamsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentTeam");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -690,9 +681,6 @@ public class IncidentTeamsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listIncidentTeams");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "IncidentTeamsApi.listIncidentTeams",
@@ -845,9 +833,6 @@ public class IncidentTeamsApi {
             .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateIncidentTeam");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

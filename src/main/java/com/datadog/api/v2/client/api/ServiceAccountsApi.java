@@ -128,9 +128,6 @@ public class ServiceAccountsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createServiceAccountApplicationKey");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "ServiceAccountsApi.createServiceAccountApplicationKey",
@@ -303,9 +300,6 @@ public class ServiceAccountsApi {
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteServiceAccountApplicationKey");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -480,9 +474,6 @@ public class ServiceAccountsApi {
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getServiceAccountApplicationKey");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -788,9 +779,6 @@ public class ServiceAccountsApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listServiceAccountApplicationKeys");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "ServiceAccountsApi.listServiceAccountApplicationKeys",
@@ -986,9 +974,6 @@ public class ServiceAccountsApi {
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateServiceAccountApplicationKey");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

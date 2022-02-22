@@ -184,9 +184,6 @@ public class TagsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createHostTags");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "TagsApi.createHostTags",
@@ -401,9 +398,6 @@ public class TagsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteHostTags");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "TagsApi.deleteHostTags",
@@ -609,9 +603,6 @@ public class TagsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getHostTags");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "TagsApi.getHostTags",
@@ -798,9 +789,6 @@ public class TagsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listHostTags");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1011,9 +999,6 @@ public class TagsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateHostTags");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

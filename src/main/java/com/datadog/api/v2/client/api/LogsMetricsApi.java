@@ -109,9 +109,6 @@ public class LogsMetricsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createLogsMetric");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsMetricsApi.createLogsMetric",
@@ -246,9 +243,6 @@ public class LogsMetricsApi {
             .replaceAll("\\{" + "metric_id" + "\\}", apiClient.escapeString(metricId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteLogsMetric");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -389,9 +383,6 @@ public class LogsMetricsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsMetric");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsMetricsApi.getLogsMetric",
@@ -518,9 +509,6 @@ public class LogsMetricsApi {
     String localVarPath = "/api/v2/logs/config/metrics";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLogsMetrics");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -661,9 +649,6 @@ public class LogsMetricsApi {
             .replaceAll("\\{" + "metric_id" + "\\}", apiClient.escapeString(metricId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsMetric");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

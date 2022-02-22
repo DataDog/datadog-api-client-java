@@ -115,9 +115,6 @@ public class UsersApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createServiceAccount");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsersApi.createServiceAccount",
@@ -253,9 +250,6 @@ public class UsersApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createUser");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsersApi.createUser",
@@ -389,9 +383,6 @@ public class UsersApi {
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "disableUser");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -534,9 +525,6 @@ public class UsersApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getInvitation");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsersApi.getInvitation",
@@ -678,9 +666,6 @@ public class UsersApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUser");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsersApi.getUser",
@@ -819,9 +804,6 @@ public class UsersApi {
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listUserOrganizations");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -963,9 +945,6 @@ public class UsersApi {
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listUserPermissions");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1223,9 +1202,6 @@ public class UsersApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listUsers");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsersApi.listUsers",
@@ -1367,9 +1343,6 @@ public class UsersApi {
     String localVarPath = "/api/v2/user_invitations";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "sendInvitations");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1518,9 +1491,6 @@ public class UsersApi {
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateUser");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

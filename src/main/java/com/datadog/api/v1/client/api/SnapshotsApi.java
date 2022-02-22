@@ -220,9 +220,6 @@ public class SnapshotsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "graph_def", graphDef));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "title", title));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getGraphSnapshot");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "SnapshotsApi.getGraphSnapshot",

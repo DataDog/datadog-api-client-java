@@ -104,9 +104,6 @@ public class GcpIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createGCPIntegration");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "GcpIntegrationApi.createGCPIntegration",
@@ -242,9 +239,6 @@ public class GcpIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteGCPIntegration");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "GcpIntegrationApi.deleteGCPIntegration",
@@ -370,9 +364,6 @@ public class GcpIntegrationApi {
     String localVarPath = "/api/v1/integration/gcp";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listGCPIntegration");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -500,9 +491,6 @@ public class GcpIntegrationApi {
     String localVarPath = "/api/v1/integration/gcp";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateGCPIntegration");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

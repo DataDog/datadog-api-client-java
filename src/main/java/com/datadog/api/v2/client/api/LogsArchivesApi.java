@@ -120,9 +120,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "addReadRoleToArchive");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsArchivesApi.addReadRoleToArchive",
@@ -271,9 +268,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createLogsArchive");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsArchivesApi.createLogsArchive",
@@ -409,9 +403,6 @@ public class LogsArchivesApi {
             .replaceAll("\\{" + "archive_id" + "\\}", apiClient.escapeString(archiveId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteLogsArchive");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -552,9 +543,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsArchive");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsArchivesApi.getLogsArchive",
@@ -681,9 +669,6 @@ public class LogsArchivesApi {
     String localVarPath = "/api/v2/logs/config/archive-order";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsArchiveOrder");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -813,9 +798,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listArchiveReadRoles");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsArchivesApi.listArchiveReadRoles",
@@ -942,9 +924,6 @@ public class LogsArchivesApi {
     String localVarPath = "/api/v2/logs/config/archives";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLogsArchives");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1081,9 +1060,6 @@ public class LogsArchivesApi {
             .replaceAll("\\{" + "archive_id" + "\\}", apiClient.escapeString(archiveId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "removeRoleFromArchive");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1250,9 +1226,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsArchive");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsArchivesApi.updateLogsArchive",
@@ -1404,9 +1377,6 @@ public class LogsArchivesApi {
     String localVarPath = "/api/v2/logs/config/archive-order";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsArchiveOrder");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

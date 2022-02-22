@@ -19,6 +19,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object representing an event. */
 @ApiModel(description = "Object representing an event.")
@@ -62,7 +63,7 @@ public class Event {
   private String payload;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
-  private EventPriority priority;
+  private JsonNullable<EventPriority> priority = JsonNullable.<EventPriority>undefined();
 
   public static final String JSON_PROPERTY_SOURCE_TYPE_NAME = "source_type_name";
   private String sourceTypeName;
@@ -224,8 +225,7 @@ public class Event {
   }
 
   public Event priority(EventPriority priority) {
-    this.priority = priority;
-    this.unparsed |= !priority.isValid();
+    this.priority = JsonNullable.<EventPriority>of(priority);
     return this;
   }
 
@@ -236,17 +236,27 @@ public class Event {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonIgnore
+  public EventPriority getPriority() {
+    return priority.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EventPriority getPriority() {
+  public JsonNullable<EventPriority> getPriority_JsonNullable() {
     return priority;
+  }
+
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  public void setPriority_JsonNullable(JsonNullable<EventPriority> priority) {
+    this.priority = priority;
   }
 
   public void setPriority(EventPriority priority) {
     if (!priority.isValid()) {
       this.unparsed = true;
     }
-    this.priority = priority;
+    this.priority = JsonNullable.<EventPriority>of(priority);
   }
 
   public Event sourceTypeName(String sourceTypeName) {

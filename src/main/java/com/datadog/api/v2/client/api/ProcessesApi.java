@@ -225,9 +225,6 @@ public class ProcessesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listProcesses");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "ProcessesApi.listProcesses",
