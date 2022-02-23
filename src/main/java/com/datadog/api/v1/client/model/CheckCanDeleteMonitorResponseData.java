@@ -59,7 +59,7 @@ public class CheckCanDeleteMonitorResponseData {
     this.ok = ok;
   }
 
-  /** Return true if this CheckCanDeleteMonitorResponse_data object is equal to o. */
+  /** Return true if this CheckCanDeleteMonitorResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

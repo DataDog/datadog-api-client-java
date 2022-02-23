@@ -57,7 +57,7 @@ public class OrganizationSettingsSaml {
     this.enabled = enabled;
   }
 
-  /** Return true if this Organization_settings_saml object is equal to o. */
+  /** Return true if this OrganizationSettingsSaml object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

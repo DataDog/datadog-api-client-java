@@ -160,7 +160,7 @@ public class SecurityMonitoringSignalAttributes {
     this.timestamp = timestamp;
   }
 
-  /** Return true if this SecurityMonitoringSignal_attributes object is equal to o. */
+  /** Return true if this SecurityMonitoringSignalAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

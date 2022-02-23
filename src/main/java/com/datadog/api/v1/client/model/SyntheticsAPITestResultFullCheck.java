@@ -59,7 +59,7 @@ public class SyntheticsAPITestResultFullCheck {
     this.config = config;
   }
 
-  /** Return true if this SyntheticsAPITestResultFull_check object is equal to o. */
+  /** Return true if this SyntheticsAPITestResultFullCheck object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

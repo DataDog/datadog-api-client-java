@@ -122,7 +122,7 @@ public class FormulaAndFunctionEventQueryGroupBySort {
     this.order = order;
   }
 
-  /** Return true if this FormulaAndFunctionEventQueryGroupBy_sort object is equal to o. */
+  /** Return true if this FormulaAndFunctionEventQueryGroupBySort object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -110,7 +110,7 @@ public class SecurityMonitoringSignalListRequestFilter {
     this.to = to;
   }
 
-  /** Return true if this SecurityMonitoringSignalListRequest_filter object is equal to o. */
+  /** Return true if this SecurityMonitoringSignalListRequestFilter object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

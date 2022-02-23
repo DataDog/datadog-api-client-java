@@ -52,7 +52,7 @@ public class LogsAggregateRequestPage {
     this.cursor = cursor;
   }
 
-  /** Return true if this LogsAggregateRequest_page object is equal to o. */
+  /** Return true if this LogsAggregateRequestPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

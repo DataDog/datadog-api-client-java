@@ -56,7 +56,7 @@ public class SyntheticsTestOptionsMonitorOptions {
     this.renotifyInterval = renotifyInterval;
   }
 
-  /** Return true if this SyntheticsTestOptions_monitor_options object is equal to o. */
+  /** Return true if this SyntheticsTestOptionsMonitorOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

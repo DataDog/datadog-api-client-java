@@ -114,7 +114,7 @@ public class SyntheticsAssertionJSONPathTargetTarget {
     this.targetValue = JsonNullable.<Object>of(targetValue);
   }
 
-  /** Return true if this SyntheticsAssertionJSONPathTarget_target object is equal to o. */
+  /** Return true if this SyntheticsAssertionJSONPathTargetTarget object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

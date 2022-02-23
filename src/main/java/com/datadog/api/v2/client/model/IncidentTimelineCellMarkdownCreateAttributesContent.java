@@ -52,7 +52,7 @@ public class IncidentTimelineCellMarkdownCreateAttributesContent {
   }
 
   /**
-   * Return true if this IncidentTimelineCellMarkdownCreateAttributes_content object is equal to o.
+   * Return true if this IncidentTimelineCellMarkdownCreateAttributesContent object is equal to o.
    */
   @Override
   public boolean equals(Object o) {

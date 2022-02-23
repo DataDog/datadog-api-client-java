@@ -51,7 +51,7 @@ public class SLOListResponseMetadata {
     this.page = page;
   }
 
-  /** Return true if this SLOListResponse_metadata object is equal to o. */
+  /** Return true if this SLOListResponseMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

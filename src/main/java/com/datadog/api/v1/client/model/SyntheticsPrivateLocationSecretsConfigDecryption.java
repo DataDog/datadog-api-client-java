@@ -40,9 +40,7 @@ public class SyntheticsPrivateLocationSecretsConfigDecryption {
     return key;
   }
 
-  /**
-   * Return true if this SyntheticsPrivateLocation_secrets_config_decryption object is equal to o.
-   */
+  /** Return true if this SyntheticsPrivateLocationSecretsConfigDecryption object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -60,7 +60,7 @@ public class GeomapWidgetDefinitionView {
     this.focus = focus;
   }
 
-  /** Return true if this GeomapWidgetDefinition_view object is equal to o. */
+  /** Return true if this GeomapWidgetDefinitionView object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -85,7 +85,7 @@ public class SLOListResponseMetadataPage {
     this.totalFilteredCount = totalFilteredCount;
   }
 
-  /** Return true if this SLOListResponse_metadata_page object is equal to o. */
+  /** Return true if this SLOListResponseMetadataPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

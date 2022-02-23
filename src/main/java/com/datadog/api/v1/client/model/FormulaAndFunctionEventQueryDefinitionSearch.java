@@ -57,7 +57,7 @@ public class FormulaAndFunctionEventQueryDefinitionSearch {
     this.query = query;
   }
 
-  /** Return true if this FormulaAndFunctionEventQueryDefinition_search object is equal to o. */
+  /** Return true if this FormulaAndFunctionEventQueryDefinitionSearch object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
