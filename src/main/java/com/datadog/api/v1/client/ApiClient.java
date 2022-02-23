@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
@@ -1267,7 +1268,15 @@ public class ApiClient extends JavaTimeFormatter {
     } else {
       targetURL = this.basePath + path;
     }
-    WebTarget target = httpClient.target(targetURL);
+
+    URI parsedURI;
+    try {
+      parsedURI = new URI(targetURL);
+    } catch (URISyntaxException e) {
+      throw new ApiException(e);
+    }
+
+    WebTarget target = httpClient.target(parsedURI);
 
     for (Pair queryParam : queryParams) {
       if (queryParam.getValue() != null) {
