@@ -59,7 +59,7 @@ public class CheckCanDeleteSLOResponseData {
     this.ok = ok;
   }
 
-  /** Return true if this CheckCanDeleteSLOResponse_data object is equal to o. */
+  /** Return true if this CheckCanDeleteSLOResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

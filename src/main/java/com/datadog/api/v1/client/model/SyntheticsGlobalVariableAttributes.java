@@ -59,7 +59,7 @@ public class SyntheticsGlobalVariableAttributes {
     this.restrictedRoles = restrictedRoles;
   }
 
-  /** Return true if this SyntheticsGlobalVariable_attributes object is equal to o. */
+  /** Return true if this SyntheticsGlobalVariableAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -65,7 +65,7 @@ public class LogsByRetentionOrgs {
     this.usage = usage;
   }
 
-  /** Return true if this LogsByRetention_orgs object is equal to o. */
+  /** Return true if this LogsByRetentionOrgs object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

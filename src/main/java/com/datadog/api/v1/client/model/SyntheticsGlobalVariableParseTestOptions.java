@@ -129,7 +129,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
     this.type = type;
   }
 
-  /** Return true if this SyntheticsGlobalVariable_parse_test_options object is equal to o. */
+  /** Return true if this SyntheticsGlobalVariableParseTestOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

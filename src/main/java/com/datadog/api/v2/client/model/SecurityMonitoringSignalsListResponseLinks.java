@@ -55,7 +55,7 @@ public class SecurityMonitoringSignalsListResponseLinks {
     this.next = next;
   }
 
-  /** Return true if this SecurityMonitoringSignalsListResponse_links object is equal to o. */
+  /** Return true if this SecurityMonitoringSignalsListResponseLinks object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

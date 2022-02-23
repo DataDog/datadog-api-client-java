@@ -82,7 +82,7 @@ public class ProcessSummariesMetaPage {
     this.size = size;
   }
 
-  /** Return true if this ProcessSummariesMeta_page object is equal to o. */
+  /** Return true if this ProcessSummariesMetaPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

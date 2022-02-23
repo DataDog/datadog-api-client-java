@@ -466,7 +466,7 @@ public class HostMeta {
     this.winV = winV;
   }
 
-  /** Return true if this Host_meta object is equal to o. */
+  /** Return true if this HostMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

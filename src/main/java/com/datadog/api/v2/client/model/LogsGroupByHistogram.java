@@ -134,7 +134,7 @@ public class LogsGroupByHistogram {
     this.min = min;
   }
 
-  /** Return true if this LogsGroupBy_histogram object is equal to o. */
+  /** Return true if this LogsGroupByHistogram object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

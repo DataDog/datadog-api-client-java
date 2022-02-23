@@ -54,7 +54,7 @@ public class OrganizationSettingsSamlIdpInitiatedLogin {
     this.enabled = enabled;
   }
 
-  /** Return true if this Organization_settings_saml_idp_initiated_login object is equal to o. */
+  /** Return true if this OrganizationSettingsSamlIdpInitiatedLogin object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

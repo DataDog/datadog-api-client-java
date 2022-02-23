@@ -92,7 +92,7 @@ public class GeomapWidgetDefinitionStyle {
     this.paletteFlip = paletteFlip;
   }
 
-  /** Return true if this GeomapWidgetDefinition_style object is equal to o. */
+  /** Return true if this GeomapWidgetDefinitionStyle object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

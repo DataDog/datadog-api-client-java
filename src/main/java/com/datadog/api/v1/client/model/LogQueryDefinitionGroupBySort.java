@@ -117,7 +117,7 @@ public class LogQueryDefinitionGroupBySort {
     this.order = order;
   }
 
-  /** Return true if this LogQueryDefinitionGroupBy_sort object is equal to o. */
+  /** Return true if this LogQueryDefinitionGroupBySort object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

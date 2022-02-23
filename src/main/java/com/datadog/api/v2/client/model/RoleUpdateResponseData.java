@@ -144,7 +144,7 @@ public class RoleUpdateResponseData {
     this.type = type;
   }
 
-  /** Return true if this RoleUpdateResponse_data object is equal to o. */
+  /** Return true if this RoleUpdateResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

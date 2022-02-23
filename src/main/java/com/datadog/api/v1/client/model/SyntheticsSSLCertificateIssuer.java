@@ -181,7 +181,7 @@ public class SyntheticsSSLCertificateIssuer {
     this.ST = ST;
   }
 
-  /** Return true if this SyntheticsSSLCertificate_issuer object is equal to o. */
+  /** Return true if this SyntheticsSSLCertificateIssuer object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -50,7 +50,7 @@ public class NotebooksResponseMeta {
     this.page = page;
   }
 
-  /** Return true if this NotebooksResponse_meta object is equal to o. */
+  /** Return true if this NotebooksResponseMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

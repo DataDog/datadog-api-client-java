@@ -163,7 +163,7 @@ public class MonitorSearchResponseCounts {
     this.type = type;
   }
 
-  /** Return true if this MonitorSearchResponse_counts object is equal to o. */
+  /** Return true if this MonitorSearchResponseCounts object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

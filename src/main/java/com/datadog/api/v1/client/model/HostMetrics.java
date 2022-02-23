@@ -105,7 +105,7 @@ public class HostMetrics {
     this.load = load;
   }
 
-  /** Return true if this Host_metrics object is equal to o. */
+  /** Return true if this HostMetrics object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

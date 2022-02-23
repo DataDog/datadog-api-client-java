@@ -103,7 +103,7 @@ public class MonitorOptionsAggregation {
     this.type = type;
   }
 
-  /** Return true if this MonitorOptions_aggregation object is equal to o. */
+  /** Return true if this MonitorOptionsAggregation object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

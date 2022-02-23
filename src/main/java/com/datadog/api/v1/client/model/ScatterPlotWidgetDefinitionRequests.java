@@ -106,7 +106,7 @@ public class ScatterPlotWidgetDefinitionRequests {
     this.y = y;
   }
 
-  /** Return true if this ScatterPlotWidgetDefinition_requests object is equal to o. */
+  /** Return true if this ScatterPlotWidgetDefinitionRequests object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
