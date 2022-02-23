@@ -122,9 +122,6 @@ public class SlackIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSlackIntegrationChannel");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "SlackIntegrationApi.createSlackIntegrationChannel",
@@ -297,9 +294,6 @@ public class SlackIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSlackIntegrationChannel");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "SlackIntegrationApi.getSlackIntegrationChannel",
@@ -462,9 +456,6 @@ public class SlackIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSlackIntegrationChannels");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "SlackIntegrationApi.getSlackIntegrationChannels",
@@ -626,9 +617,6 @@ public class SlackIntegrationApi {
                 "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "removeSlackIntegrationChannel");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -814,9 +802,6 @@ public class SlackIntegrationApi {
                 "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateSlackIntegrationChannel");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

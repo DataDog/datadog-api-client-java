@@ -110,9 +110,6 @@ public class LogsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLogs");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsApi.listLogs",
@@ -334,9 +331,6 @@ public class LogsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ddtags", ddtags));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "submitLog");
 
     if (contentEncoding != null)
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));

@@ -114,9 +114,6 @@ public class MetricsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getMetricMetadata");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "MetricsApi.getMetricMetadata",
@@ -327,9 +324,6 @@ public class MetricsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "host", host));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tag_filter", tagFilter));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listActiveMetrics");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "MetricsApi.listActiveMetrics",
@@ -477,9 +471,6 @@ public class MetricsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "q", q));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listMetrics");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -642,9 +633,6 @@ public class MetricsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "queryMetrics");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -864,9 +852,6 @@ public class MetricsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "submitMetrics");
-
     if (contentEncoding != null)
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
 
@@ -1026,9 +1011,6 @@ public class MetricsApi {
                 "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateMetricMetadata");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

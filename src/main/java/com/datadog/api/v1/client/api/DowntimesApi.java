@@ -107,9 +107,6 @@ public class DowntimesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "cancelDowntime");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "DowntimesApi.cancelDowntime",
@@ -251,9 +248,6 @@ public class DowntimesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "cancelDowntimesByScope");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "DowntimesApi.cancelDowntimesByScope",
@@ -388,9 +382,6 @@ public class DowntimesApi {
     String localVarPath = "/api/v1/downtime";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createDowntime");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -528,9 +519,6 @@ public class DowntimesApi {
                 "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getDowntime");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -712,9 +700,6 @@ public class DowntimesApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "current_only", currentOnly));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listDowntimes");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "DowntimesApi.listDowntimes",
@@ -847,9 +832,6 @@ public class DowntimesApi {
             .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listMonitorDowntimes");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1001,9 +983,6 @@ public class DowntimesApi {
                 "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateDowntime");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

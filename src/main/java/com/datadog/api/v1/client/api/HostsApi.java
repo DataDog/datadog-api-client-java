@@ -153,9 +153,6 @@ public class HostsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getHostTotals");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "HostsApi.getHostTotals",
@@ -435,9 +432,6 @@ public class HostsApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_hosts_metadata", includeHostsMetadata));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listHosts");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "HostsApi.listHosts",
@@ -595,9 +589,6 @@ public class HostsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "muteHost");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "HostsApi.muteHost",
@@ -744,9 +735,6 @@ public class HostsApi {
             .replaceAll("\\{" + "host_name" + "\\}", apiClient.escapeString(hostName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "unmuteHost");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

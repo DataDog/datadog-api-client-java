@@ -233,9 +233,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getDailyCustomReports");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getDailyCustomReports",
@@ -489,9 +486,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getHourlyUsageAttribution");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getHourlyUsageAttribution",
@@ -726,9 +720,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentManagement");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getIncidentManagement",
@@ -937,9 +928,6 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIngestedSpans");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1172,9 +1160,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyCustomReports");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1468,9 +1453,6 @@ public class UsageMeteringApi {
         apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyUsageAttribution");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getMonthlyUsageAttribution",
@@ -1649,9 +1631,6 @@ public class UsageMeteringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedDailyCustomReports");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getSpecifiedDailyCustomReports",
@@ -1800,9 +1779,6 @@ public class UsageMeteringApi {
             .replaceAll("\\{" + "report_id" + "\\}", apiClient.escapeString(reportId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedMonthlyCustomReports");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2012,9 +1988,6 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAnalyzedLogs");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2323,9 +2296,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAttribution");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageAttribution",
@@ -2557,9 +2527,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAuditLogs");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageAuditLogs",
@@ -2747,9 +2714,6 @@ public class UsageMeteringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageBillableSummary");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2944,9 +2908,6 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCWS");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -3165,9 +3126,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCloudSecurityPostureManagement");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageCloudSecurityPostureManagement",
@@ -3378,9 +3336,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageDBM");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageDBM",
@@ -3585,9 +3540,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageFargate");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageFargate",
@@ -3791,9 +3743,6 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageHosts");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -4005,9 +3954,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageIndexedSpans");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageIndexedSpans",
@@ -4218,9 +4164,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageInternetOfThings");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageInternetOfThings",
@@ -4426,9 +4369,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLambda");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageLambda",
@@ -4632,9 +4572,6 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogs");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -4859,9 +4796,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "index_name", indexName));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByIndex");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageLogsByIndex",
@@ -5075,9 +5009,6 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByRetention");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -5293,9 +5224,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkFlows");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageNetworkFlows",
@@ -5507,9 +5435,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkHosts");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageNetworkHosts",
@@ -5715,9 +5640,6 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageProfiling");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -5943,9 +5865,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "type", type));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumSessions");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageRumSessions",
@@ -6154,9 +6073,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumUnits");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageRumUnits",
@@ -6361,9 +6277,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSDS");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageSDS",
@@ -6567,9 +6480,6 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSNMP");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -6791,9 +6701,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_org_details", includeOrgDetails));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSummary");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageSummary",
@@ -7014,9 +6921,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSynthetics");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageSynthetics",
@@ -7230,9 +7134,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsAPI");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageSyntheticsAPI",
@@ -7445,9 +7346,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsBrowser");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "UsageMeteringApi.getUsageSyntheticsBrowser",
@@ -7658,9 +7556,6 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTimeseries");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -7913,9 +7808,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "names", names));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTopAvgMetrics");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

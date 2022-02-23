@@ -107,9 +107,6 @@ public class LogsIndexesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createLogsIndex");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsIndexesApi.createLogsIndex",
@@ -247,9 +244,6 @@ public class LogsIndexesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsIndex");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsIndexesApi.getLogsIndex",
@@ -375,9 +369,6 @@ public class LogsIndexesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsIndexOrder");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsIndexesApi.getLogsIndexOrder",
@@ -492,9 +483,6 @@ public class LogsIndexesApi {
     String localVarPath = "/api/v1/logs/config/indexes";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLogIndexes");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -635,9 +623,6 @@ public class LogsIndexesApi {
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsIndex");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -787,9 +772,6 @@ public class LogsIndexesApi {
     String localVarPath = "/api/v1/logs/config/index-order";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsIndexOrder");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

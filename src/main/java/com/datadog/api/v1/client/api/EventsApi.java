@@ -108,9 +108,6 @@ public class EventsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createEvent");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "EventsApi.createEvent",
@@ -247,9 +244,6 @@ public class EventsApi {
             .replaceAll("\\{" + "event_id" + "\\}", apiClient.escapeString(eventId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getEvent");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -540,9 +534,6 @@ public class EventsApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "exclude_aggregate", excludeAggregate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listEvents");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

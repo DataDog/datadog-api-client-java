@@ -116,9 +116,6 @@ public class MonitorsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "monitor_ids", monitorIds));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "checkCanDeleteMonitor");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "MonitorsApi.checkCanDeleteMonitor",
@@ -381,9 +378,6 @@ public class MonitorsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createMonitor");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "MonitorsApi.createMonitor",
@@ -577,9 +571,6 @@ public class MonitorsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "force", force));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteMonitor");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -782,9 +773,6 @@ public class MonitorsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", groupStates));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getMonitor");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1082,9 +1070,6 @@ public class MonitorsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listMonitors");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "MonitorsApi.listMonitors",
@@ -1323,9 +1308,6 @@ public class MonitorsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "per_page", perPage));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "searchMonitorGroups");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "MonitorsApi.searchMonitorGroups",
@@ -1556,9 +1538,6 @@ public class MonitorsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "per_page", perPage));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "searchMonitors");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "MonitorsApi.searchMonitors",
@@ -1709,9 +1688,6 @@ public class MonitorsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateMonitor");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "MonitorsApi.updateMonitor",
@@ -1858,9 +1834,6 @@ public class MonitorsApi {
     String localVarPath = "/api/v1/monitor/validate";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "validateMonitor");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
