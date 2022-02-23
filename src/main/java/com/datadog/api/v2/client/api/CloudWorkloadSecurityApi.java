@@ -114,9 +114,6 @@ public class CloudWorkloadSecurityApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createCloudWorkloadSecurityAgentRule");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule",
@@ -261,9 +258,6 @@ public class CloudWorkloadSecurityApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteCloudWorkloadSecurityAgentRule");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule",
@@ -396,9 +390,6 @@ public class CloudWorkloadSecurityApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "downloadCloudWorkloadPolicyFile");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile",
@@ -530,9 +521,6 @@ public class CloudWorkloadSecurityApi {
                 "\\{" + "agent_rule_id" + "\\}", apiClient.escapeString(agentRuleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getCloudWorkloadSecurityAgentRule");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -668,9 +656,6 @@ public class CloudWorkloadSecurityApi {
     String localVarPath = "/api/v2/security_monitoring/cloud_workload_security/agent_rules";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listCloudWorkloadSecurityAgentRules");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -821,9 +806,6 @@ public class CloudWorkloadSecurityApi {
                 "\\{" + "agent_rule_id" + "\\}", apiClient.escapeString(agentRuleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateCloudWorkloadSecurityAgentRule");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

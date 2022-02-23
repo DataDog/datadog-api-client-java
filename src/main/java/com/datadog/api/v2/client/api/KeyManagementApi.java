@@ -114,9 +114,6 @@ public class KeyManagementApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAPIKey");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "KeyManagementApi.createAPIKey",
@@ -255,9 +252,6 @@ public class KeyManagementApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createCurrentUserApplicationKey");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "KeyManagementApi.createCurrentUserApplicationKey",
@@ -395,9 +389,6 @@ public class KeyManagementApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAPIKey");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "KeyManagementApi.deleteAPIKey",
@@ -533,9 +524,6 @@ public class KeyManagementApi {
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteApplicationKey");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -675,9 +663,6 @@ public class KeyManagementApi {
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteCurrentUserApplicationKey");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -876,9 +861,6 @@ public class KeyManagementApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getAPIKey");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1082,9 +1064,6 @@ public class KeyManagementApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getApplicationKey");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "KeyManagementApi.getApplicationKey",
@@ -1231,9 +1210,6 @@ public class KeyManagementApi {
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getCurrentUserApplicationKey");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1541,9 +1517,6 @@ public class KeyManagementApi {
         apiClient.parameterToPairs("", "filter[modified_at][end]", filterModifiedAtEnd));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAPIKeys");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "KeyManagementApi.listAPIKeys",
@@ -1815,9 +1788,6 @@ public class KeyManagementApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listApplicationKeys");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "KeyManagementApi.listApplicationKeys",
@@ -2087,9 +2057,6 @@ public class KeyManagementApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listCurrentUserApplicationKeys");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "KeyManagementApi.listCurrentUserApplicationKeys",
@@ -2248,9 +2215,6 @@ public class KeyManagementApi {
             .replaceAll("\\{" + "api_key_id" + "\\}", apiClient.escapeString(apiKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateAPIKey");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2412,9 +2376,6 @@ public class KeyManagementApi {
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateApplicationKey");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2579,9 +2540,6 @@ public class KeyManagementApi {
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateCurrentUserApplicationKey");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

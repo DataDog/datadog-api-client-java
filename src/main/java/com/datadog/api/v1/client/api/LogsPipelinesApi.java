@@ -106,9 +106,6 @@ public class LogsPipelinesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createLogsPipeline");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsPipelinesApi.createLogsPipeline",
@@ -244,9 +241,6 @@ public class LogsPipelinesApi {
                 "\\{" + "pipeline_id" + "\\}", apiClient.escapeString(pipelineId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteLogsPipeline");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -390,9 +384,6 @@ public class LogsPipelinesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsPipeline");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsPipelinesApi.getLogsPipeline",
@@ -521,9 +512,6 @@ public class LogsPipelinesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsPipelineOrder");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsPipelinesApi.getLogsPipelineOrder",
@@ -638,9 +626,6 @@ public class LogsPipelinesApi {
     String localVarPath = "/api/v1/logs/config/pipelines";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLogsPipelines");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -781,9 +766,6 @@ public class LogsPipelinesApi {
                 "\\{" + "pipeline_id" + "\\}", apiClient.escapeString(pipelineId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsPipeline");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -938,9 +920,6 @@ public class LogsPipelinesApi {
     String localVarPath = "/api/v1/logs/config/pipeline-order";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsPipelineOrder");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

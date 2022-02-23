@@ -109,9 +109,6 @@ public class PagerDutyIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createPagerDutyIntegrationService");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "PagerDutyIntegrationApi.createPagerDutyIntegrationService",
@@ -252,9 +249,6 @@ public class PagerDutyIntegrationApi {
                 "\\{" + "service_name" + "\\}", apiClient.escapeString(serviceName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deletePagerDutyIntegrationService");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -403,9 +397,6 @@ public class PagerDutyIntegrationApi {
                 "\\{" + "service_name" + "\\}", apiClient.escapeString(serviceName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getPagerDutyIntegrationService");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -563,9 +554,6 @@ public class PagerDutyIntegrationApi {
                 "\\{" + "service_name" + "\\}", apiClient.escapeString(serviceName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updatePagerDutyIntegrationService");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

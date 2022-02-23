@@ -113,9 +113,6 @@ public class IncidentServicesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createIncidentService");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "IncidentServicesApi.createIncidentService",
@@ -252,9 +249,6 @@ public class IncidentServicesApi {
             .replaceAll("\\{" + "service_id" + "\\}", apiClient.escapeString(serviceId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteIncidentService");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -456,9 +450,6 @@ public class IncidentServicesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentService");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -695,9 +686,6 @@ public class IncidentServicesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listIncidentServices");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "IncidentServicesApi.listIncidentServices",
@@ -850,9 +838,6 @@ public class IncidentServicesApi {
             .replaceAll("\\{" + "service_id" + "\\}", apiClient.escapeString(serviceId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateIncidentService");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

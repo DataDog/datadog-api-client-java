@@ -130,9 +130,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "addPermissionToRole");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "RolesApi.addPermissionToRole",
@@ -294,9 +291,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "addUserToRole");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "RolesApi.addUserToRole",
@@ -456,9 +450,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "cloneRole");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "RolesApi.cloneRole",
@@ -604,9 +595,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createRole");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "RolesApi.createRole",
@@ -740,9 +728,6 @@ public class RolesApi {
             .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteRole");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -880,9 +865,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getRole");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "RolesApi.getRole",
@@ -1008,9 +990,6 @@ public class RolesApi {
     String localVarPath = "/api/v2/permissions";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listPermissions");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1138,9 +1117,6 @@ public class RolesApi {
             .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listRolePermissions");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1381,9 +1357,6 @@ public class RolesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listRoleUsers");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "RolesApi.listRoleUsers",
@@ -1617,9 +1590,6 @@ public class RolesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listRoles");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "RolesApi.listRoles",
@@ -1770,9 +1740,6 @@ public class RolesApi {
             .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "removePermissionFromRole");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1937,9 +1904,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "removeUserFromRole");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "RolesApi.removeUserFromRole",
@@ -2100,9 +2064,6 @@ public class RolesApi {
             .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateRole");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

@@ -114,9 +114,6 @@ public class AwsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAWSAccount");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AwsIntegrationApi.createAWSAccount",
@@ -261,9 +258,6 @@ public class AwsIntegrationApi {
     String localVarPath = "/api/v1/integration/aws/filtering";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAWSTagFilter");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -410,9 +404,6 @@ public class AwsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createNewAWSExternalID");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AwsIntegrationApi.createNewAWSExternalID",
@@ -553,9 +544,6 @@ public class AwsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAWSAccount");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AwsIntegrationApi.deleteAWSAccount",
@@ -694,9 +682,6 @@ public class AwsIntegrationApi {
     String localVarPath = "/api/v1/integration/aws/filtering";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAWSTagFilter");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -908,9 +893,6 @@ public class AwsIntegrationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "role_name", roleName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_key_id", accessKeyId));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSAccounts");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AwsIntegrationApi.listAWSAccounts",
@@ -1049,9 +1031,6 @@ public class AwsIntegrationApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSTagFilters");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AwsIntegrationApi.listAWSTagFilters",
@@ -1180,9 +1159,6 @@ public class AwsIntegrationApi {
     String localVarPath = "/api/v1/integration/aws/available_namespace_rules";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAvailableAWSNamespaces");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1395,9 +1371,6 @@ public class AwsIntegrationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "role_name", roleName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_key_id", accessKeyId));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateAWSAccount");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

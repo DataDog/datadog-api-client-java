@@ -117,9 +117,6 @@ public class AwsLogsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "checkAWSLogsLambdaAsync");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AwsLogsIntegrationApi.checkAWSLogsLambdaAsync",
@@ -264,9 +261,6 @@ public class AwsLogsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "checkAWSLogsServicesAsync");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AwsLogsIntegrationApi.checkAWSLogsServicesAsync",
@@ -403,9 +397,6 @@ public class AwsLogsIntegrationApi {
     String localVarPath = "/api/v1/integration/aws/logs";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAWSLambdaARN");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -544,9 +535,6 @@ public class AwsLogsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAWSLambdaARN");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AwsLogsIntegrationApi.deleteAWSLambdaARN",
@@ -684,9 +672,6 @@ public class AwsLogsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "enableAWSLogServices");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AwsLogsIntegrationApi.enableAWSLogServices",
@@ -814,9 +799,6 @@ public class AwsLogsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSLogsIntegrations");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AwsLogsIntegrationApi.listAWSLogsIntegrations",
@@ -934,9 +916,6 @@ public class AwsLogsIntegrationApi {
     String localVarPath = "/api/v1/integration/aws/logs/services";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSLogsServices");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

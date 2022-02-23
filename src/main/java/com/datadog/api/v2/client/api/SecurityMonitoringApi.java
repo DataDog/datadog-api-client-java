@@ -121,9 +121,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSecurityFilter");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "SecurityMonitoringApi.createSecurityFilter",
@@ -261,9 +258,6 @@ public class SecurityMonitoringApi {
     String localVarPath = "/api/v2/security_monitoring/rules";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSecurityMonitoringRule");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -407,9 +401,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSecurityFilter");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "SecurityMonitoringApi.deleteSecurityFilter",
@@ -551,9 +542,6 @@ public class SecurityMonitoringApi {
             .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSecurityMonitoringRule");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -700,9 +688,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSecurityFilter");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "SecurityMonitoringApi.getSecurityFilter",
@@ -847,9 +832,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSecurityMonitoringRule");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "SecurityMonitoringApi.getSecurityMonitoringRule",
@@ -980,9 +962,6 @@ public class SecurityMonitoringApi {
     String localVarPath = "/api/v2/security_monitoring/configuration/security_filters";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listSecurityFilters");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1168,9 +1147,6 @@ public class SecurityMonitoringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listSecurityMonitoringRules");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1430,9 +1406,6 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listSecurityMonitoringSignals");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "SecurityMonitoringApi.listSecurityMonitoringSignals",
@@ -1624,9 +1597,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "searchSecurityMonitoringSignals");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "SecurityMonitoringApi.searchSecurityMonitoringSignals",
@@ -1774,9 +1744,6 @@ public class SecurityMonitoringApi {
                 apiClient.escapeString(securityFilterId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateSecurityFilter");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1948,9 +1915,6 @@ public class SecurityMonitoringApi {
             .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateSecurityMonitoringRule");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

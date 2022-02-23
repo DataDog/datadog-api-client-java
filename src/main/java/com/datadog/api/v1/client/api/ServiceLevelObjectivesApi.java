@@ -122,9 +122,6 @@ public class ServiceLevelObjectivesApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ids", ids));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "checkCanDeleteSLO");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "ServiceLevelObjectivesApi.checkCanDeleteSLO",
@@ -263,9 +260,6 @@ public class ServiceLevelObjectivesApi {
     String localVarPath = "/api/v1/slo";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSLO");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -461,9 +455,6 @@ public class ServiceLevelObjectivesApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "force", force));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSLO");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "ServiceLevelObjectivesApi.deleteSLO",
@@ -609,9 +600,6 @@ public class ServiceLevelObjectivesApi {
     String localVarPath = "/api/v1/slo/bulk_delete";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSLOTimeframeInBulk");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -804,9 +792,6 @@ public class ServiceLevelObjectivesApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "with_configured_alert_ids", withConfiguredAlertIds));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSLO");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "ServiceLevelObjectivesApi.getSLO",
@@ -952,9 +937,6 @@ public class ServiceLevelObjectivesApi {
             .replaceAll("\\{" + "slo_id" + "\\}", apiClient.escapeString(sloId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSLOCorrections");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1201,9 +1183,6 @@ public class ServiceLevelObjectivesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "target", target));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "apply_correction", applyCorrection));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSLOHistory");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1487,9 +1466,6 @@ public class ServiceLevelObjectivesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listSLOs");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "ServiceLevelObjectivesApi.listSLOs",
@@ -1641,9 +1617,6 @@ public class ServiceLevelObjectivesApi {
             .replaceAll("\\{" + "slo_id" + "\\}", apiClient.escapeString(sloId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateSLO");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

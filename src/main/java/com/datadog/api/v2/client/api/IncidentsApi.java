@@ -111,9 +111,6 @@ public class IncidentsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createIncident");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "IncidentsApi.createIncident",
@@ -251,9 +248,6 @@ public class IncidentsApi {
                 "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteIncident");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -452,9 +446,6 @@ public class IncidentsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIncident");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -675,9 +666,6 @@ public class IncidentsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listIncidents");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "IncidentsApi.listIncidents",
@@ -889,9 +877,6 @@ public class IncidentsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateIncident");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

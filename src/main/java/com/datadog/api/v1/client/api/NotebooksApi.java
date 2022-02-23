@@ -108,9 +108,6 @@ public class NotebooksApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createNotebook");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "NotebooksApi.createNotebook",
@@ -247,9 +244,6 @@ public class NotebooksApi {
                 "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteNotebook");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -392,9 +386,6 @@ public class NotebooksApi {
                 "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getNotebook");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -714,9 +705,6 @@ public class NotebooksApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "is_template", isTemplate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "type", type));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listNotebooks");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "NotebooksApi.listNotebooks",
@@ -882,9 +870,6 @@ public class NotebooksApi {
                 "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateNotebook");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

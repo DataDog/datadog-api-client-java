@@ -110,9 +110,6 @@ public class ServiceLevelObjectiveCorrectionsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSLOCorrection");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "ServiceLevelObjectiveCorrectionsApi.createSLOCorrection",
@@ -250,9 +247,6 @@ public class ServiceLevelObjectiveCorrectionsApi {
                 apiClient.escapeString(sloCorrectionId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSLOCorrection");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -399,9 +393,6 @@ public class ServiceLevelObjectiveCorrectionsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSLOCorrection");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "ServiceLevelObjectiveCorrectionsApi.getSLOCorrection",
@@ -532,9 +523,6 @@ public class ServiceLevelObjectiveCorrectionsApi {
     String localVarPath = "/api/v1/slo/correction";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listSLOCorrection");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -677,9 +665,6 @@ public class ServiceLevelObjectiveCorrectionsApi {
                 apiClient.escapeString(sloCorrectionId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateSLOCorrection");
 
     Invocation.Builder builder =
         apiClient.createBuilder(

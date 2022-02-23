@@ -112,9 +112,6 @@ public class LogsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "aggregateLogs");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsApi.aggregateLogs",
@@ -291,9 +288,6 @@ public class LogsApi {
     String localVarPath = "/api/v2/logs/events/search";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLogs");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -555,9 +549,6 @@ public class LogsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLogsGet");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "LogsApi.listLogsGet",
@@ -787,9 +778,6 @@ public class LogsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ddtags", ddtags));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "submitLog");
 
     if (contentEncoding != null)
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));

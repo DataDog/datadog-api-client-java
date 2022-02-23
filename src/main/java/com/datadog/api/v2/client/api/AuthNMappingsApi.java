@@ -112,9 +112,6 @@ public class AuthNMappingsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAuthNMapping");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AuthNMappingsApi.createAuthNMapping",
@@ -252,9 +249,6 @@ public class AuthNMappingsApi {
                 apiClient.escapeString(authnMappingId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAuthNMapping");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -400,9 +394,6 @@ public class AuthNMappingsApi {
                 apiClient.escapeString(authnMappingId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getAuthNMapping");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -642,9 +633,6 @@ public class AuthNMappingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAuthNMappings");
-
     Invocation.Builder builder =
         apiClient.createBuilder(
             "AuthNMappingsApi.listAuthNMappings",
@@ -801,9 +789,6 @@ public class AuthNMappingsApi {
                 apiClient.escapeString(authnMappingId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateAuthNMapping");
 
     Invocation.Builder builder =
         apiClient.createBuilder(
