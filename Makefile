@@ -1,5 +1,5 @@
 .PHONY: all
-all: .generator .env
+all: .generator
 	@rm -rf api_docs/v1 api_docs/v2 src/main/java
 	@pre-commit run --all-files --hook-stage=manual openapi-generator || true
 	@mkdir -p api_docs/v1 api_docs/v2
@@ -15,10 +15,6 @@ all: .generator .env
 	@rm -rf src/test/java/com/datadog/api/v*/client/model
 	@pre-commit run --all-files --hook-stage=manual docs || echo "modified files"
 	@pre-commit run --all-files --hook-stage=manual lint || echo "modified files"
-
-.PHONY: .env
-.env:
-	@echo "export UID=$(shell id -u)\nexport GID=$(shell id -g)" > $@
 
 target:
 	@mkdir $@
