@@ -1,9 +1,5 @@
 .PHONY: all
-all: generate
-	@git add --update
-
-.PHONY: generate
-generate: .generator .env
+all: .generator .env
 	@rm -rf api_docs/v1 api_docs/v2 src/main/java
 	@pre-commit run --all-files --hook-stage=manual openapi-generator || true
 	@mkdir -p api_docs/v1 api_docs/v2
