@@ -207,7 +207,7 @@ public class SyntheticsSSLCertificateSubject {
     this.altName = altName;
   }
 
-  /** Return true if this SyntheticsSSLCertificate_subject object is equal to o. */
+  /** Return true if this SyntheticsSSLCertificateSubject object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

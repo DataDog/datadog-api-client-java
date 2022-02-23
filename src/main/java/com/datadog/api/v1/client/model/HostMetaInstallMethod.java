@@ -103,7 +103,7 @@ public class HostMetaInstallMethod {
     this.toolVersion = toolVersion;
   }
 
-  /** Return true if this Host_meta_install_method object is equal to o. */
+  /** Return true if this HostMetaInstallMethod object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

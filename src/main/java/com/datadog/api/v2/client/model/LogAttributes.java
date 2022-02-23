@@ -249,7 +249,7 @@ public class LogAttributes {
     this.timestamp = timestamp;
   }
 
-  /** Return true if this Log_attributes object is equal to o. */
+  /** Return true if this LogAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

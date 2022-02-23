@@ -156,7 +156,7 @@ public class SyntheticsBrowserTestResultShortResult {
     this.stepCountTotal = stepCountTotal;
   }
 
-  /** Return true if this SyntheticsBrowserTestResultShort_result object is equal to o. */
+  /** Return true if this SyntheticsBrowserTestResultShortResult object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

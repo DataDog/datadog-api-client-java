@@ -223,7 +223,7 @@ public class LogContent {
     this.timestamp = timestamp;
   }
 
-  /** Return true if this Log_content object is equal to o. */
+  /** Return true if this LogContent object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

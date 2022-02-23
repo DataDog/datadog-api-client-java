@@ -88,7 +88,7 @@ public class SyntheticsPrivateLocationSecrets {
     this.configDecryption = configDecryption;
   }
 
-  /** Return true if this SyntheticsPrivateLocation_secrets object is equal to o. */
+  /** Return true if this SyntheticsPrivateLocationSecrets object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

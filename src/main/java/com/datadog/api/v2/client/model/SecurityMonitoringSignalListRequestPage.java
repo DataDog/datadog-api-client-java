@@ -82,7 +82,7 @@ public class SecurityMonitoringSignalListRequestPage {
     this.limit = limit;
   }
 
-  /** Return true if this SecurityMonitoringSignalListRequest_page object is equal to o. */
+  /** Return true if this SecurityMonitoringSignalListRequestPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

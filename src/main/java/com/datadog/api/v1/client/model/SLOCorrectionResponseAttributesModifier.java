@@ -103,7 +103,7 @@ public class SLOCorrectionResponseAttributesModifier {
     this.name = name;
   }
 
-  /** Return true if this SLOCorrectionResponseAttributes_modifier object is equal to o. */
+  /** Return true if this SLOCorrectionResponseAttributesModifier object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

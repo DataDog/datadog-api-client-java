@@ -95,9 +95,7 @@ public class OrganizationSettingsSamlAutocreateUsersDomains {
     this.enabled = enabled;
   }
 
-  /**
-   * Return true if this Organization_settings_saml_autocreate_users_domains object is equal to o.
-   */
+  /** Return true if this OrganizationSettingsSamlAutocreateUsersDomains object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

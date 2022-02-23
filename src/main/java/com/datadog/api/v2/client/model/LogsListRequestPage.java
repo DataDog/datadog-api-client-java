@@ -80,7 +80,7 @@ public class LogsListRequestPage {
     this.limit = limit;
   }
 
-  /** Return true if this LogsListRequest_page object is equal to o. */
+  /** Return true if this LogsListRequestPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -104,7 +104,7 @@ public class SLOBulkDeleteResponseData {
     this.updated = updated;
   }
 
-  /** Return true if this SLOBulkDeleteResponse_data object is equal to o. */
+  /** Return true if this SLOBulkDeleteResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

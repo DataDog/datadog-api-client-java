@@ -355,7 +355,7 @@ public class SLOHistoryResponseData {
     this.typeId = typeId;
   }
 
-  /** Return true if this SLOHistoryResponse_data object is equal to o. */
+  /** Return true if this SLOHistoryResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -59,7 +59,7 @@ public class SyntheticsPrivateLocationSecretsAuthentication {
     return key;
   }
 
-  /** Return true if this SyntheticsPrivateLocation_secrets_authentication object is equal to o. */
+  /** Return true if this SyntheticsPrivateLocationSecretsAuthentication object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

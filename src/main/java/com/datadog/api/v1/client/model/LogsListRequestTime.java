@@ -123,7 +123,7 @@ public class LogsListRequestTime {
     this.to = to;
   }
 
-  /** Return true if this LogsListRequest_time object is equal to o. */
+  /** Return true if this LogsListRequestTime object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

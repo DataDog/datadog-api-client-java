@@ -55,7 +55,7 @@ public class LogsListResponseLinks {
     this.next = next;
   }
 
-  /** Return true if this LogsListResponse_links object is equal to o. */
+  /** Return true if this LogsListResponseLinks object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -55,7 +55,7 @@ public class SecurityMonitoringSignalsListResponseMetaPage {
     this.after = after;
   }
 
-  /** Return true if this SecurityMonitoringSignalsListResponse_meta_page object is equal to o. */
+  /** Return true if this SecurityMonitoringSignalsListResponseMetaPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

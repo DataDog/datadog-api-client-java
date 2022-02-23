@@ -78,7 +78,7 @@ public class SyntheticsPrivateLocationCreationResponseResultEncryption {
   }
 
   /**
-   * Return true if this SyntheticsPrivateLocationCreationResponse_result_encryption object is equal
+   * Return true if this SyntheticsPrivateLocationCreationResponseResultEncryption object is equal
    * to o.
    */
   @Override
