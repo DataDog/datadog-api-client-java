@@ -1,0 +1,96 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Delete_a_dashboard_returns_OK_response-1645779299 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"}}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_dashboard_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"sbs-4fb-9dc\",\"title\":\"Test-Delete_a_dashboard_returns_OK_response-1645779299 with Profile Metrics Query\",\"url\":\"/dashboard/sbs-4fb-9dc/test-deleteadashboardreturnsokresponse-1645779299-with-profile-metrics-query\",\"created_at\":\"2022-02-25T08:55:00.681383+00:00\",\"modified_at\":\"2022-02-25T08:55:00.681383+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"search\":{\"query\":\"runtime:jvm\"},\"group_by\":[{\"facet\":\"service\",\"sort\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\",\"order\":\"desc\"},\"limit\":10}],\"compute\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\"}}}],\"type\":\"timeseries\"},\"id\":7246585146253581}],\"layout_type\":\"ordered\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5e3bf6c6-b5df-202d-0c53-ad284f464256"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_dashboard_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/sbs-4fb-9dc",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"sbs-4fb-9dc\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b8eed09a-07ab-b223-baf9-6760b2fe6b68"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_dashboard_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/sbs-4fb-9dc",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"Dashboard with ID sbs-4fb-9dc not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b8eed09a-07ab-b223-baf9-6760b2fe6b69"
+  }
+]
