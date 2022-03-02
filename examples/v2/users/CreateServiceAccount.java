@@ -40,14 +40,10 @@ public class Example {
                             .roles(
                                 new RelationshipToRoles()
                                     .data(
-                                        new ArrayList<RelationshipToRoleData>() {
-                                          {
-                                            add(
-                                                new RelationshipToRoleData()
-                                                    .id(ROLE_DATA_ID)
-                                                    .type(RolesType.ROLES));
-                                          }
-                                        }))));
+                                        Collections.singletonList(
+                                            new RelationshipToRoleData()
+                                                .id(ROLE_DATA_ID)
+                                                .type(RolesType.ROLES))))));
 
     try {
       UserResponse result = apiInstance.createServiceAccount(body);

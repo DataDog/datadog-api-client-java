@@ -12,7 +12,6 @@ import com.datadog.api.v1.client.model.SyntheticsAssertion;
 import com.datadog.api.v1.client.model.SyntheticsAssertionOperator;
 import com.datadog.api.v1.client.model.SyntheticsAssertionTarget;
 import com.datadog.api.v1.client.model.SyntheticsAssertionType;
-import com.datadog.api.v1.client.model.SyntheticsConfigVariable;
 import com.datadog.api.v1.client.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.v1.client.model.SyntheticsTestOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
@@ -30,36 +29,20 @@ public class Example {
             .config(
                 new SyntheticsAPITestConfig()
                     .assertions(
-                        new ArrayList<SyntheticsAssertion>() {
-                          {
-                            add(
-                                new SyntheticsAssertion(
-                                    new SyntheticsAssertionTarget()
-                                        .operator(SyntheticsAssertionOperator.IS)
-                                        .target("message")
-                                        .type(SyntheticsAssertionType.RECEIVED_MESSAGE)));
-                            add(
-                                new SyntheticsAssertion(
-                                    new SyntheticsAssertionTarget()
-                                        .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                        .target(2000)
-                                        .type(SyntheticsAssertionType.RESPONSE_TIME)));
-                          }
-                        })
-                    .configVariables(
-                        new ArrayList<SyntheticsConfigVariable>() {
-                          {
-                            ;
-                          }
-                        })
+                        Arrays.asList(
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionTarget()
+                                    .operator(SyntheticsAssertionOperator.IS)
+                                    .target("message")
+                                    .type(SyntheticsAssertionType.RECEIVED_MESSAGE)),
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionTarget()
+                                    .operator(SyntheticsAssertionOperator.LESS_THAN)
+                                    .target(2000)
+                                    .type(SyntheticsAssertionType.RESPONSE_TIME))))
                     .request(
                         new SyntheticsTestRequest().url("ws://datadoghq.com").message("message")))
-            .locations(
-                new ArrayList<String>() {
-                  {
-                    add("aws:us-east-2");
-                  }
-                })
+            .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_test_websocket_payload.json")
             .name(
                 "Example-Create_an_API_test_with_WEBSOCKET_subtype_returns_OK_Returns_the_created_test_details_response")
@@ -76,12 +59,7 @@ public class Example {
                     .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
                     .tickEvery(60L))
             .subtype(SyntheticsTestDetailsSubType.WEBSOCKET)
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("testing:api");
-                  }
-                })
+            .tags(Collections.singletonList("testing:api"))
             .type(SyntheticsAPITestType.API);
 
     try {

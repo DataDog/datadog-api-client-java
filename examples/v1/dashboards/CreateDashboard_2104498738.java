@@ -33,78 +33,59 @@ public class Example {
         new Dashboard()
             .title("Example-Create_a_new_dashboard_with_formulas_and_functions_scatterplot_widget")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .id(5346764334358972L)
-                            .definition(
-                                new WidgetDefinition(
-                                    new ScatterPlotWidgetDefinition()
-                                        .title("")
-                                        .titleSize("16")
-                                        .titleAlign(WidgetTextAlign.LEFT)
-                                        .type(ScatterPlotWidgetDefinitionType.SCATTERPLOT)
-                                        .requests(
-                                            new ScatterPlotWidgetDefinitionRequests()
-                                                .table(
-                                                    new ScatterplotTableRequest()
-                                                        .formulas(
-                                                            new ArrayList<
-                                                                ScatterplotWidgetFormula>() {
-                                                              {
-                                                                add(
-                                                                    new ScatterplotWidgetFormula()
-                                                                        .formula("query1")
-                                                                        .dimension(
-                                                                            ScatterplotDimension.X)
-                                                                        .alias("my-query1"));
-                                                                add(
-                                                                    new ScatterplotWidgetFormula()
-                                                                        .formula("query2")
-                                                                        .dimension(
-                                                                            ScatterplotDimension.Y)
-                                                                        .alias("my-query2"));
-                                                              }
-                                                            })
-                                                        .queries(
-                                                            new ArrayList<
-                                                                FormulaAndFunctionQueryDefinition>() {
-                                                              {
-                                                                add(
-                                                                    new FormulaAndFunctionQueryDefinition(
-                                                                        new FormulaAndFunctionMetricQueryDefinition()
-                                                                            .dataSource(
-                                                                                FormulaAndFunctionMetricDataSource
-                                                                                    .METRICS)
-                                                                            .name("query1")
-                                                                            .query(
-                                                                                "avg:system.cpu.user{*}"
-                                                                                    + " by {service}")
-                                                                            .aggregator(
-                                                                                FormulaAndFunctionMetricAggregation
-                                                                                    .AVG)));
-                                                                add(
-                                                                    new FormulaAndFunctionQueryDefinition(
-                                                                        new FormulaAndFunctionMetricQueryDefinition()
-                                                                            .dataSource(
-                                                                                FormulaAndFunctionMetricDataSource
-                                                                                    .METRICS)
-                                                                            .name("query2")
-                                                                            .query(
-                                                                                "avg:system.mem.used{*}"
-                                                                                    + " by {service}")
-                                                                            .aggregator(
-                                                                                FormulaAndFunctionMetricAggregation
-                                                                                    .AVG)));
-                                                              }
-                                                            })
-                                                        .responseFormat(
-                                                            FormulaAndFunctionResponseFormat
-                                                                .SCALAR)))))
-                            .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(2L)));
-                  }
-                })
+                Collections.singletonList(
+                    new Widget()
+                        .id(5346764334358972L)
+                        .definition(
+                            new WidgetDefinition(
+                                new ScatterPlotWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .type(ScatterPlotWidgetDefinitionType.SCATTERPLOT)
+                                    .requests(
+                                        new ScatterPlotWidgetDefinitionRequests()
+                                            .table(
+                                                new ScatterplotTableRequest()
+                                                    .formulas(
+                                                        Arrays.asList(
+                                                            new ScatterplotWidgetFormula()
+                                                                .formula("query1")
+                                                                .dimension(ScatterplotDimension.X)
+                                                                .alias("my-query1"),
+                                                            new ScatterplotWidgetFormula()
+                                                                .formula("query2")
+                                                                .dimension(ScatterplotDimension.Y)
+                                                                .alias("my-query2")))
+                                                    .queries(
+                                                        Arrays.asList(
+                                                            new FormulaAndFunctionQueryDefinition(
+                                                                new FormulaAndFunctionMetricQueryDefinition()
+                                                                    .dataSource(
+                                                                        FormulaAndFunctionMetricDataSource
+                                                                            .METRICS)
+                                                                    .name("query1")
+                                                                    .query(
+                                                                        "avg:system.cpu.user{*} by"
+                                                                            + " {service}")
+                                                                    .aggregator(
+                                                                        FormulaAndFunctionMetricAggregation
+                                                                            .AVG)),
+                                                            new FormulaAndFunctionQueryDefinition(
+                                                                new FormulaAndFunctionMetricQueryDefinition()
+                                                                    .dataSource(
+                                                                        FormulaAndFunctionMetricDataSource
+                                                                            .METRICS)
+                                                                    .name("query2")
+                                                                    .query(
+                                                                        "avg:system.mem.used{*} by"
+                                                                            + " {service}")
+                                                                    .aggregator(
+                                                                        FormulaAndFunctionMetricAggregation
+                                                                            .AVG))))
+                                                    .responseFormat(
+                                                        FormulaAndFunctionResponseFormat.SCALAR)))))
+                        .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(2L))))
             .layoutType(DashboardLayoutType.ORDERED);
 
     try {

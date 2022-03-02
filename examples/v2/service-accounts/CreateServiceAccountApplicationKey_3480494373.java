@@ -29,13 +29,10 @@ public class Example {
                             .name(
                                 "Example-Create_an_application_key_with_scopes_for_this_service_account_returns_Created_response")
                             .scopes(
-                                new ArrayList<String>() {
-                                  {
-                                    add("dashboards_read");
-                                    add("dashboards_write");
-                                    add("dashboards_public_share");
-                                  }
-                                }))
+                                Arrays.asList(
+                                    "dashboards_read",
+                                    "dashboards_write",
+                                    "dashboards_public_share")))
                     .type(ApplicationKeysType.APPLICATION_KEYS));
 
     try {

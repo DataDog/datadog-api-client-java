@@ -6,7 +6,6 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.DashboardTemplateVariable;
 import com.datadog.api.v1.client.model.HeatMapWidgetDefinition;
 import com.datadog.api.v1.client.model.HeatMapWidgetDefinitionType;
 import com.datadog.api.v1.client.model.HeatMapWidgetRequest;
@@ -29,46 +28,25 @@ public class Example {
             .title("Example-Create_a_new_dashboard_with_heatmap_widget")
             .description(null)
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .layout(new WidgetLayout().x(0L).y(0L).width(47L).height(15L))
-                            .definition(
-                                new WidgetDefinition(
-                                    new HeatMapWidgetDefinition()
-                                        .title("")
-                                        .titleSize("16")
-                                        .titleAlign(WidgetTextAlign.LEFT)
-                                        .time(new WidgetTime())
-                                        .type(HeatMapWidgetDefinitionType.HEATMAP)
-                                        .requests(
-                                            new ArrayList<HeatMapWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new HeatMapWidgetRequest()
-                                                        .q("avg:system.cpu.user{*} by {service}")
-                                                        .style(
-                                                            new WidgetStyle()
-                                                                .palette("dog_classic")));
-                                              }
-                                            }))));
-                  }
-                })
-            .templateVariables(
-                new ArrayList<DashboardTemplateVariable>() {
-                  {
-                    ;
-                  }
-                })
+                Collections.singletonList(
+                    new Widget()
+                        .layout(new WidgetLayout().x(0L).y(0L).width(47L).height(15L))
+                        .definition(
+                            new WidgetDefinition(
+                                new HeatMapWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .time(new WidgetTime())
+                                    .type(HeatMapWidgetDefinitionType.HEATMAP)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new HeatMapWidgetRequest()
+                                                .q("avg:system.cpu.user{*} by {service}")
+                                                .style(
+                                                    new WidgetStyle().palette("dog_classic"))))))))
             .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false)
-            .notifyList(
-                new ArrayList<String>() {
-                  {
-                    ;
-                  }
-                });
+            .isReadOnly(false);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

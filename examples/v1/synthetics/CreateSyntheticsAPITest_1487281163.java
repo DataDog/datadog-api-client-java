@@ -37,45 +37,35 @@ public class Example {
             .config(
                 new SyntheticsAPITestConfig()
                     .assertions(
-                        new ArrayList<SyntheticsAssertion>() {
-                          {
-                            add(
-                                new SyntheticsAssertion(
-                                    new SyntheticsAssertionTarget()
-                                        .operator(SyntheticsAssertionOperator.IS)
-                                        .property("{{ PROPERTY }}")
-                                        .target("text/html")
-                                        .type(SyntheticsAssertionType.HEADER)));
-                            add(
-                                new SyntheticsAssertion(
-                                    new SyntheticsAssertionTarget()
-                                        .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                        .target(2000)
-                                        .type(SyntheticsAssertionType.RESPONSE_TIME)));
-                            add(
-                                new SyntheticsAssertion(
-                                    new SyntheticsAssertionJSONPathTarget()
-                                        .operator(
-                                            SyntheticsAssertionJSONPathOperator.VALIDATES_JSON_PATH)
-                                        .target(
-                                            new SyntheticsAssertionJSONPathTargetTarget()
-                                                .jsonPath("topKey")
-                                                .operator("isNot")
-                                                .targetValue("0"))
-                                        .type(SyntheticsAssertionType.BODY)));
-                          }
-                        })
+                        Arrays.asList(
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionTarget()
+                                    .operator(SyntheticsAssertionOperator.IS)
+                                    .property("{{ PROPERTY }}")
+                                    .target("text/html")
+                                    .type(SyntheticsAssertionType.HEADER)),
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionTarget()
+                                    .operator(SyntheticsAssertionOperator.LESS_THAN)
+                                    .target(2000)
+                                    .type(SyntheticsAssertionType.RESPONSE_TIME)),
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionJSONPathTarget()
+                                    .operator(
+                                        SyntheticsAssertionJSONPathOperator.VALIDATES_JSON_PATH)
+                                    .target(
+                                        new SyntheticsAssertionJSONPathTargetTarget()
+                                            .jsonPath("topKey")
+                                            .operator("isNot")
+                                            .targetValue("0"))
+                                    .type(SyntheticsAssertionType.BODY))))
                     .configVariables(
-                        new ArrayList<SyntheticsConfigVariable>() {
-                          {
-                            add(
-                                new SyntheticsConfigVariable()
-                                    .example("content-type")
-                                    .name("PROPERTY")
-                                    .pattern("content-type")
-                                    .type(SyntheticsConfigVariableType.TEXT));
-                          }
-                        })
+                        Collections.singletonList(
+                            new SyntheticsConfigVariable()
+                                .example("content-type")
+                                .name("PROPERTY")
+                                .pattern("content-type")
+                                .type(SyntheticsConfigVariableType.TEXT)))
                     .request(
                         new SyntheticsTestRequest()
                             .certificate(
@@ -102,12 +92,7 @@ public class Example {
                                 new SyntheticsTestRequestProxy()
                                     .url("https://datadoghq.com")
                                     .headers(Map.ofEntries()))))
-            .locations(
-                new ArrayList<String>() {
-                  {
-                    add("aws:us-east-2");
-                  }
-                })
+            .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_http_test_payload.json")
             .name(
                 "Example-Create_an_API_HTTP_test_returns_OK_Returns_the_created_test_details_response")
@@ -124,12 +109,7 @@ public class Example {
                     .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
                     .tickEvery(60L))
             .subtype(SyntheticsTestDetailsSubType.HTTP)
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("testing:api");
-                  }
-                })
+            .tags(Collections.singletonList("testing:api"))
             .type(SyntheticsAPITestType.API);
 
     try {

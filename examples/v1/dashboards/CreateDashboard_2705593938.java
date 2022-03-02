@@ -31,56 +31,38 @@ public class Example {
         new Dashboard()
             .title("Example-Create_a_new_dashboard_with_sunburst_widget_and_metrics_data")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new SunburstWidgetDefinition()
-                                        .title("")
-                                        .titleSize("16")
-                                        .titleAlign(WidgetTextAlign.LEFT)
-                                        .type(SunburstWidgetDefinitionType.SUNBURST)
-                                        .requests(
-                                            new ArrayList<SunburstWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new SunburstWidgetRequest()
-                                                        .responseFormat(
-                                                            FormulaAndFunctionResponseFormat.SCALAR)
-                                                        .formulas(
-                                                            new ArrayList<WidgetFormula>() {
-                                                              {
-                                                                add(
-                                                                    new WidgetFormula()
-                                                                        .formula("query1"));
-                                                              }
-                                                            })
-                                                        .queries(
-                                                            new ArrayList<
-                                                                FormulaAndFunctionQueryDefinition>() {
-                                                              {
-                                                                add(
-                                                                    new FormulaAndFunctionQueryDefinition(
-                                                                        new FormulaAndFunctionMetricQueryDefinition()
-                                                                            .query(
-                                                                                "sum:system.mem.used{*}"
-                                                                                    + " by {service}")
-                                                                            .dataSource(
-                                                                                FormulaAndFunctionMetricDataSource
-                                                                                    .METRICS)
-                                                                            .name("query1")
-                                                                            .aggregator(
-                                                                                FormulaAndFunctionMetricAggregation
-                                                                                    .SUM)));
-                                                              }
-                                                            }));
-                                              }
-                                            })))
-                            .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L)));
-                  }
-                })
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new SunburstWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .type(SunburstWidgetDefinitionType.SUNBURST)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new SunburstWidgetRequest()
+                                                .responseFormat(
+                                                    FormulaAndFunctionResponseFormat.SCALAR)
+                                                .formulas(
+                                                    Collections.singletonList(
+                                                        new WidgetFormula().formula("query1")))
+                                                .queries(
+                                                    Collections.singletonList(
+                                                        new FormulaAndFunctionQueryDefinition(
+                                                            new FormulaAndFunctionMetricQueryDefinition()
+                                                                .query(
+                                                                    "sum:system.mem.used{*} by"
+                                                                        + " {service}")
+                                                                .dataSource(
+                                                                    FormulaAndFunctionMetricDataSource
+                                                                        .METRICS)
+                                                                .name("query1")
+                                                                .aggregator(
+                                                                    FormulaAndFunctionMetricAggregation
+                                                                        .SUM))))))))
+                        .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L))))
             .layoutType(DashboardLayoutType.ORDERED);
 
     try {

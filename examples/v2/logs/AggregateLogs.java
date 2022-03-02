@@ -20,12 +20,7 @@ public class Example {
             .filter(
                 new LogsQueryFilter()
                     .from("now-15m")
-                    .indexes(
-                        new ArrayList<String>() {
-                          {
-                            add("main");
-                          }
-                        })
+                    .indexes(Collections.singletonList("main"))
                     .query("*")
                     .to("now"));
 

@@ -6,6 +6,7 @@ import com.datadog.api.v1.client.api.DowntimesApi;
 import com.datadog.api.v1.client.model.Downtime;
 import com.datadog.api.v1.client.model.DowntimeRecurrence;
 import java.time.*;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 public class Example {
@@ -18,26 +19,12 @@ public class Example {
             .message("Example-Schedule_a_downtime_returns_OK_response")
             .start(OffsetDateTime.now().toInstant().getEpochSecond())
             .timezone("Etc/UTC")
-            .scope(
-                new ArrayList<String>() {
-                  {
-                    add("test:examplescheduleadowntimereturnsokresponse");
-                  }
-                })
+            .scope(Collections.singletonList("test:examplescheduleadowntimereturnsokresponse"))
             .recurrence(
                 new DowntimeRecurrence()
                     .type("weeks")
                     .period(1)
-                    .weekDays(
-                        new ArrayList<String>() {
-                          {
-                            add("Mon");
-                            add("Tue");
-                            add("Wed");
-                            add("Thu");
-                            add("Fri");
-                          }
-                        })
+                    .weekDays(Arrays.asList("Mon", "Tue", "Wed", "Thu", "Fri"))
                     .untilDate(OffsetDateTime.now().plusDays(21).toInstant().getEpochSecond()));
 
     try {

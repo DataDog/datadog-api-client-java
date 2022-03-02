@@ -4,7 +4,6 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.SecurityMonitoringApi;
-import com.datadog.api.v2.client.model.SecurityMonitoringFilter;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCaseCreate;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleDetectionMethod;
@@ -29,42 +28,17 @@ public class Example {
     SecurityMonitoringRuleCreatePayload body =
         new SecurityMonitoringRuleCreatePayload()
             .queries(
-                new ArrayList<SecurityMonitoringRuleQueryCreate>() {
-                  {
-                    add(
-                        new SecurityMonitoringRuleQueryCreate()
-                            .aggregation(SecurityMonitoringRuleQueryAggregation.GEO_DATA)
-                            .groupByFields(
-                                new ArrayList<String>() {
-                                  {
-                                    add("@usr.id");
-                                  }
-                                })
-                            .distinctFields(
-                                new ArrayList<String>() {
-                                  {
-                                    ;
-                                  }
-                                })
-                            .metric("@network.client.geoip")
-                            .query("*"));
-                  }
-                })
+                Collections.singletonList(
+                    new SecurityMonitoringRuleQueryCreate()
+                        .aggregation(SecurityMonitoringRuleQueryAggregation.GEO_DATA)
+                        .groupByFields(Collections.singletonList("@usr.id"))
+                        .metric("@network.client.geoip")
+                        .query("*")))
             .cases(
-                new ArrayList<SecurityMonitoringRuleCaseCreate>() {
-                  {
-                    add(
-                        new SecurityMonitoringRuleCaseCreate()
-                            .name("")
-                            .status(SecurityMonitoringRuleSeverity.INFO)
-                            .notifications(
-                                new ArrayList<String>() {
-                                  {
-                                    ;
-                                  }
-                                }));
-                  }
-                })
+                Collections.singletonList(
+                    new SecurityMonitoringRuleCaseCreate()
+                        .name("")
+                        .status(SecurityMonitoringRuleSeverity.INFO)))
             .hasExtendedTitle(true)
             .message("test")
             .isEnabled(true)
@@ -78,19 +52,7 @@ public class Example {
                         new SecurityMonitoringRuleImpossibleTravelOptions()
                             .baselineUserLocations(false)))
             .name("Example-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response")
-            .type(SecurityMonitoringRuleTypeCreate.LOG_DETECTION)
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    ;
-                  }
-                })
-            .filters(
-                new ArrayList<SecurityMonitoringFilter>() {
-                  {
-                    ;
-                  }
-                });
+            .type(SecurityMonitoringRuleTypeCreate.LOG_DETECTION);
 
     try {
       SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule(body);

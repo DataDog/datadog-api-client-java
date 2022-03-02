@@ -15,22 +15,15 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     ServiceChecksApi apiInstance = new ServiceChecksApi(defaultClient);
 
-    ArrayList<ServiceCheck> body =
-        new ArrayList<ServiceCheck>() {
-          {
-            add(
-                new ServiceCheck()
-                    .check("app.ok")
-                    .hostName("host")
-                    .status(ServiceCheckStatus.OK)
-                    .tags(
-                        new ArrayList<String>() {
-                          {
-                            add("test:ExampleSubmitaServiceCheckreturnsPayloadacceptedresponse");
-                          }
-                        }));
-          }
-        };
+    List<ServiceCheck> body =
+        Collections.singletonList(
+            new ServiceCheck()
+                .check("app.ok")
+                .hostName("host")
+                .status(ServiceCheckStatus.OK)
+                .tags(
+                    Collections.singletonList(
+                        "test:ExampleSubmitaServiceCheckreturnsPayloadacceptedresponse")));
 
     try {
       IntakePayloadAccepted result = apiInstance.submitServiceCheck(body);

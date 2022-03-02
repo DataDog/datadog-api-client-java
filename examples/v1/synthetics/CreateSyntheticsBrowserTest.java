@@ -5,7 +5,6 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 import com.datadog.api.v1.client.model.HTTPMethod;
-import com.datadog.api.v1.client.model.SyntheticsAssertion;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTest;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestConfig;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestType;
@@ -29,34 +28,19 @@ public class Example {
         new SyntheticsBrowserTest()
             .config(
                 new SyntheticsBrowserTestConfig()
-                    .assertions(
-                        new ArrayList<SyntheticsAssertion>() {
-                          {
-                            ;
-                          }
-                        })
                     .configVariables(
-                        new ArrayList<SyntheticsConfigVariable>() {
-                          {
-                            add(
-                                new SyntheticsConfigVariable()
-                                    .example("content-type")
-                                    .name("PROPERTY")
-                                    .pattern("content-type")
-                                    .type(SyntheticsConfigVariableType.TEXT));
-                          }
-                        })
+                        Collections.singletonList(
+                            new SyntheticsConfigVariable()
+                                .example("content-type")
+                                .name("PROPERTY")
+                                .pattern("content-type")
+                                .type(SyntheticsConfigVariableType.TEXT)))
                     .request(
                         new SyntheticsTestRequest()
                             .method(HTTPMethod.GET)
                             .url("https://datadoghq.com"))
                     .setCookie("name:test"))
-            .locations(
-                new ArrayList<String>() {
-                  {
-                    add("aws:us-east-2");
-                  }
-                })
+            .locations(Collections.singletonList("aws:us-east-2"))
             .message("Test message")
             .name(
                 "Example-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response")
@@ -64,12 +48,7 @@ public class Example {
                 new SyntheticsTestOptions()
                     .acceptSelfSigned(false)
                     .allowInsecure(true)
-                    .deviceIds(
-                        new ArrayList<SyntheticsDeviceID>() {
-                          {
-                            add(SyntheticsDeviceID.TABLET);
-                          }
-                        })
+                    .deviceIds(Collections.singletonList(SyntheticsDeviceID.TABLET))
                     .disableCors(true)
                     .followRedirects(true)
                     .minFailureDuration(10L)
@@ -77,25 +56,16 @@ public class Example {
                     .noScreenshot(true)
                     .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
                     .tickEvery(300L))
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("testing:browser");
-                  }
-                })
+            .tags(Collections.singletonList("testing:browser"))
             .type(SyntheticsBrowserTestType.BROWSER)
             .steps(
-                new ArrayList<SyntheticsStep>() {
-                  {
-                    add(
-                        new SyntheticsStep()
-                            .allowFailure(false)
-                            .isCritical(true)
-                            .name("Refresh page")
-                            .params(new Object())
-                            .type(SyntheticsStepType.REFRESH));
-                  }
-                });
+                Collections.singletonList(
+                    new SyntheticsStep()
+                        .allowFailure(false)
+                        .isCritical(true)
+                        .name("Refresh page")
+                        .params(new Object())
+                        .type(SyntheticsStepType.REFRESH)));
 
     try {
       SyntheticsBrowserTest result = apiInstance.createSyntheticsBrowserTest(body);

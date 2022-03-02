@@ -7,6 +7,7 @@ import com.datadog.api.v1.client.model.IntakePayloadAccepted;
 import com.datadog.api.v1.client.model.MetricsPayload;
 import com.datadog.api.v1.client.model.Series;
 import java.time.*;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 public class Example {
@@ -17,37 +18,19 @@ public class Example {
     MetricsPayload body =
         new MetricsPayload()
             .series(
-                new ArrayList<Series>() {
-                  {
-                    add(
-                        new Series()
-                            .metric("system.load.1")
-                            .type("gauge")
-                            .points(
-                                new ArrayList<List<Double>>() {
-                                  {
-                                    add(
-                                        new ArrayList<Double>() {
-                                          {
-                                            add(
-                                                Long.valueOf(
-                                                        OffsetDateTime.now()
-                                                            .toInstant()
-                                                            .getEpochSecond())
-                                                    .doubleValue());
-                                            add(1.1);
-                                          }
-                                        });
-                                  }
-                                })
-                            .tags(
-                                new ArrayList<String>() {
-                                  {
-                                    add("test:ExampleSubmitmetricsreturnsPayloadacceptedresponse");
-                                  }
-                                }));
-                  }
-                });
+                Collections.singletonList(
+                    new Series()
+                        .metric("system.load.1")
+                        .type("gauge")
+                        .points(
+                            Collections.singletonList(
+                                Arrays.asList(
+                                    Long.valueOf(OffsetDateTime.now().toInstant().getEpochSecond())
+                                        .doubleValue(),
+                                    1.1)))
+                        .tags(
+                            Collections.singletonList(
+                                "test:ExampleSubmitmetricsreturnsPayloadacceptedresponse"))));
 
     try {
       IntakePayloadAccepted result = apiInstance.submitMetrics(body);

@@ -6,7 +6,6 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.DashboardTemplateVariable;
 import com.datadog.api.v1.client.model.MonitorSummaryWidgetDefinition;
 import com.datadog.api.v1.client.model.MonitorSummaryWidgetDefinitionType;
 import com.datadog.api.v1.client.model.Widget;
@@ -29,41 +28,25 @@ public class Example {
             .title("Example-Create_a_new_dashboard_with_manage_status_widget")
             .description("")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .layout(new WidgetLayout().x(0L).y(0L).width(50L).height(25L))
-                            .definition(
-                                new WidgetDefinition(
-                                    new MonitorSummaryWidgetDefinition()
-                                        .type(MonitorSummaryWidgetDefinitionType.MANAGE_STATUS)
-                                        .summaryType(WidgetSummaryType.MONITORS)
-                                        .displayFormat(
-                                            WidgetMonitorSummaryDisplayFormat.COUNTS_AND_LIST)
-                                        .colorPreference(WidgetColorPreference.TEXT)
-                                        .hideZeroCounts(true)
-                                        .showLastTriggered(false)
-                                        .query("")
-                                        .sort(WidgetMonitorSummarySort.STATUS_ASCENDING)
-                                        .count(50L)
-                                        .start(0L))));
-                  }
-                })
-            .templateVariables(
-                new ArrayList<DashboardTemplateVariable>() {
-                  {
-                    ;
-                  }
-                })
+                Collections.singletonList(
+                    new Widget()
+                        .layout(new WidgetLayout().x(0L).y(0L).width(50L).height(25L))
+                        .definition(
+                            new WidgetDefinition(
+                                new MonitorSummaryWidgetDefinition()
+                                    .type(MonitorSummaryWidgetDefinitionType.MANAGE_STATUS)
+                                    .summaryType(WidgetSummaryType.MONITORS)
+                                    .displayFormat(
+                                        WidgetMonitorSummaryDisplayFormat.COUNTS_AND_LIST)
+                                    .colorPreference(WidgetColorPreference.TEXT)
+                                    .hideZeroCounts(true)
+                                    .showLastTriggered(false)
+                                    .query("")
+                                    .sort(WidgetMonitorSummarySort.STATUS_ASCENDING)
+                                    .count(50L)
+                                    .start(0L)))))
             .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false)
-            .notifyList(
-                new ArrayList<String>() {
-                  {
-                    ;
-                  }
-                });
+            .isReadOnly(false);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

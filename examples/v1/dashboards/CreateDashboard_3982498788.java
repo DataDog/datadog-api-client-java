@@ -30,33 +30,25 @@ public class Example {
                 "Example-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes"
                     + " with timeseries widget")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new TimeseriesWidgetDefinition()
-                                        .type(TimeseriesWidgetDefinitionType.TIMESERIES)
-                                        .requests(
-                                            new ArrayList<TimeseriesWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new TimeseriesWidgetRequest()
-                                                        .q(
-                                                            "sum:trace.test.errors{env:prod,service:datadog-api-spec}"
-                                                                + " by {resource_name}.as_count()")
-                                                        .onRightYaxis(false)
-                                                        .style(
-                                                            new WidgetRequestStyle()
-                                                                .palette("warm")
-                                                                .lineType(WidgetLineType.SOLID)
-                                                                .lineWidth(WidgetLineWidth.NORMAL))
-                                                        .displayType(WidgetDisplayType.BARS));
-                                              }
-                                            }))));
-                  }
-                });
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new TimeseriesWidgetDefinition()
+                                    .type(TimeseriesWidgetDefinitionType.TIMESERIES)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new TimeseriesWidgetRequest()
+                                                .q(
+                                                    "sum:trace.test.errors{env:prod,service:datadog-api-spec}"
+                                                        + " by {resource_name}.as_count()")
+                                                .onRightYaxis(false)
+                                                .style(
+                                                    new WidgetRequestStyle()
+                                                        .palette("warm")
+                                                        .lineType(WidgetLineType.SOLID)
+                                                        .lineWidth(WidgetLineWidth.NORMAL))
+                                                .displayType(WidgetDisplayType.BARS)))))));
 
     try {
       Dashboard result = apiInstance.createDashboard(body);
