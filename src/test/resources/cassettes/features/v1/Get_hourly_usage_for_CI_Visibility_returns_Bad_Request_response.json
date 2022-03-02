@@ -1,0 +1,40 @@
+[
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_hourly_usage_for_CI_Visibility_returns_Bad_Request_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v1/usage/ci-app",
+      "queryStringParameters": {
+        "start_hr": [
+          "2022-02-21T14:52:00.008Z"
+        ],
+        "end_hr": [
+          "2022-02-19T14:52:00.008Z"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9bb9e12e-84d8-93c8-1872-2e8d736e59b0"
+  }
+]
