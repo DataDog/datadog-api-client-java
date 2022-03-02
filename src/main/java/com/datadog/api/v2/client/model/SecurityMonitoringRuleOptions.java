@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SecurityMonitoringRuleOptions.JSON_PROPERTY_DETECTION_METHOD,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_EVALUATION_WINDOW,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_KEEP_ALIVE,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS
@@ -35,6 +36,9 @@ public class SecurityMonitoringRuleOptions {
 
   public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluationWindow";
   private SecurityMonitoringRuleEvaluationWindow evaluationWindow;
+
+  public static final String JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS = "impossibleTravelOptions";
+  private SecurityMonitoringRuleImpossibleTravelOptions impossibleTravelOptions;
 
   public static final String JSON_PROPERTY_KEEP_ALIVE = "keepAlive";
   private SecurityMonitoringRuleKeepAlive keepAlive;
@@ -97,6 +101,31 @@ public class SecurityMonitoringRuleOptions {
       this.unparsed = true;
     }
     this.evaluationWindow = evaluationWindow;
+  }
+
+  public SecurityMonitoringRuleOptions impossibleTravelOptions(
+      SecurityMonitoringRuleImpossibleTravelOptions impossibleTravelOptions) {
+    this.impossibleTravelOptions = impossibleTravelOptions;
+    this.unparsed |= impossibleTravelOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Get impossibleTravelOptions
+   *
+   * @return impossibleTravelOptions
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleImpossibleTravelOptions getImpossibleTravelOptions() {
+    return impossibleTravelOptions;
+  }
+
+  public void setImpossibleTravelOptions(
+      SecurityMonitoringRuleImpossibleTravelOptions impossibleTravelOptions) {
+    this.impossibleTravelOptions = impossibleTravelOptions;
   }
 
   public SecurityMonitoringRuleOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
@@ -188,6 +217,8 @@ public class SecurityMonitoringRuleOptions {
     SecurityMonitoringRuleOptions securityMonitoringRuleOptions = (SecurityMonitoringRuleOptions) o;
     return Objects.equals(this.detectionMethod, securityMonitoringRuleOptions.detectionMethod)
         && Objects.equals(this.evaluationWindow, securityMonitoringRuleOptions.evaluationWindow)
+        && Objects.equals(
+            this.impossibleTravelOptions, securityMonitoringRuleOptions.impossibleTravelOptions)
         && Objects.equals(this.keepAlive, securityMonitoringRuleOptions.keepAlive)
         && Objects.equals(this.maxSignalDuration, securityMonitoringRuleOptions.maxSignalDuration)
         && Objects.equals(this.newValueOptions, securityMonitoringRuleOptions.newValueOptions);
@@ -196,7 +227,12 @@ public class SecurityMonitoringRuleOptions {
   @Override
   public int hashCode() {
     return Objects.hash(
-        detectionMethod, evaluationWindow, keepAlive, maxSignalDuration, newValueOptions);
+        detectionMethod,
+        evaluationWindow,
+        impossibleTravelOptions,
+        keepAlive,
+        maxSignalDuration,
+        newValueOptions);
   }
 
   @Override
@@ -205,6 +241,9 @@ public class SecurityMonitoringRuleOptions {
     sb.append("class SecurityMonitoringRuleOptions {\n");
     sb.append("    detectionMethod: ").append(toIndentedString(detectionMethod)).append("\n");
     sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
+    sb.append("    impossibleTravelOptions: ")
+        .append(toIndentedString(impossibleTravelOptions))
+        .append("\n");
     sb.append("    keepAlive: ").append(toIndentedString(keepAlive)).append("\n");
     sb.append("    maxSignalDuration: ").append(toIndentedString(maxSignalDuration)).append("\n");
     sb.append("    newValueOptions: ").append(toIndentedString(newValueOptions)).append("\n");

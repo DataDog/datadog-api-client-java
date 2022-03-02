@@ -1,0 +1,61 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"cases\":[{\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"hasExtendedTitle\":true,\"isEnabled\":true,\"message\":\"test\",\"name\":\"Test-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response-1646054517\",\"options\":{\"detectionMethod\":\"impossible_travel\",\"evaluationWindow\":900,\"impossibleTravelOptions\":{\"baselineUserLocations\":false},\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"geo_data\",\"distinctFields\":[],\"groupByFields\":[\"@usr.id\"],\"metric\":\"@network.client.geoip\",\"query\":\"*\"}],\"tags\":[],\"type\":\"log_detection\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_detection_rule_with_type_impossible_travel_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":true,\"message\":\"test\",\"options\":{\"impossibleTravelOptions\":{\"baselineUserLocations\":false},\"detectionMethod\":\"impossible_travel\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1646054517609,\"filters\":[],\"queries\":[{\"distinctFields\":[],\"name\":\"\",\"metric\":\"@network.client.geoip\",\"aggregation\":\"geo_data\",\"groupByFields\":[\"@usr.id\"],\"query\":\"*\"}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\"}],\"type\":\"log_detection\",\"id\":\"7xa-vww-kan\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response-1646054517\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "49af63a7-878d-8b79-2558-be5c73238678"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_detection_rule_with_type_impossible_travel_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/rules/7xa-vww-kan",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "07886f91-301e-dcde-50ad-9b96dd700e94"
+  }
+]
