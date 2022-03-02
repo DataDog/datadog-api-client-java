@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -32,12 +33,12 @@ import java.util.Objects;
 public class LogsByRetentionMonthlyUsage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATE = "date";
-  private String date;
+  private OffsetDateTime date;
 
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<LogsRetentionSumUsage> usage = null;
 
-  public LogsByRetentionMonthlyUsage date(String date) {
+  public LogsByRetentionMonthlyUsage date(OffsetDateTime date) {
     this.date = date;
     return this;
   }
@@ -51,11 +52,11 @@ public class LogsByRetentionMonthlyUsage {
   @ApiModelProperty(value = "The month for the usage.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDate() {
+  public OffsetDateTime getDate() {
     return date;
   }
 
-  public void setDate(String date) {
+  public void setDate(OffsetDateTime date) {
     this.date = date;
   }
 
