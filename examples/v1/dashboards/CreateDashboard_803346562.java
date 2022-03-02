@@ -27,35 +27,26 @@ public class Example {
         new Dashboard()
             .title("Example-Create_a_new_dashboard_with_distribution_widget_and_apm_stats_data")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new DistributionWidgetDefinition()
-                                        .title("")
-                                        .titleSize("16")
-                                        .titleAlign(WidgetTextAlign.LEFT)
-                                        .type(DistributionWidgetDefinitionType.DISTRIBUTION)
-                                        .requests(
-                                            new ArrayList<DistributionWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new DistributionWidgetRequest()
-                                                        .apmStatsQuery(
-                                                            new ApmStatsQueryDefinition()
-                                                                .env("prod")
-                                                                .service("cassandra")
-                                                                .name("cassandra.query")
-                                                                .primaryTag("datacenter:dc1")
-                                                                .rowType(
-                                                                    ApmStatsQueryRowType.SERVICE)));
-                                              }
-                                            })))
-                            .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L)));
-                  }
-                })
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new DistributionWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .type(DistributionWidgetDefinitionType.DISTRIBUTION)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new DistributionWidgetRequest()
+                                                .apmStatsQuery(
+                                                    new ApmStatsQueryDefinition()
+                                                        .env("prod")
+                                                        .service("cassandra")
+                                                        .name("cassandra.query")
+                                                        .primaryTag("datacenter:dc1")
+                                                        .rowType(ApmStatsQueryRowType.SERVICE))))))
+                        .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L))))
             .layoutType(DashboardLayoutType.ORDERED);
 
     try {

@@ -26,21 +26,17 @@ public class Example {
     UserInvitationsRequest body =
         new UserInvitationsRequest()
             .data(
-                new ArrayList<UserInvitationData>() {
-                  {
-                    add(
-                        new UserInvitationData()
-                            .type(UserInvitationsType.USER_INVITATIONS)
-                            .relationships(
-                                new UserInvitationRelationships()
-                                    .user(
-                                        new RelationshipToUser()
-                                            .data(
-                                                new RelationshipToUserData()
-                                                    .type(UsersType.USERS)
-                                                    .id(USER_DATA_ID)))));
-                  }
-                });
+                Collections.singletonList(
+                    new UserInvitationData()
+                        .type(UserInvitationsType.USER_INVITATIONS)
+                        .relationships(
+                            new UserInvitationRelationships()
+                                .user(
+                                    new RelationshipToUser()
+                                        .data(
+                                            new RelationshipToUserData()
+                                                .type(UsersType.USERS)
+                                                .id(USER_DATA_ID))))));
 
     try {
       UserInvitationsResponse result = apiInstance.sendInvitations(body);

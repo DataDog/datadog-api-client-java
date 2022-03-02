@@ -8,7 +8,6 @@ import com.datadog.api.v1.client.model.AlertValueWidgetDefinition;
 import com.datadog.api.v1.client.model.AlertValueWidgetDefinitionType;
 import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.DashboardTemplateVariable;
 import com.datadog.api.v1.client.model.Widget;
 import com.datadog.api.v1.client.model.WidgetDefinition;
 import com.datadog.api.v1.client.model.WidgetLayout;
@@ -29,38 +28,22 @@ public class Example {
             .title("Example-Create_a_new_dashboard_with_alert_value_widget")
             .description("")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .layout(new WidgetLayout().x(0L).y(0L).width(15L).height(8L))
-                            .definition(
-                                new WidgetDefinition(
-                                    new AlertValueWidgetDefinition()
-                                        .title("")
-                                        .titleSize("16")
-                                        .titleAlign(WidgetTextAlign.LEFT)
-                                        .type(AlertValueWidgetDefinitionType.ALERT_VALUE)
-                                        .alertId("1")
-                                        .unit("auto")
-                                        .textAlign(WidgetTextAlign.LEFT)
-                                        .precision(2L))));
-                  }
-                })
-            .templateVariables(
-                new ArrayList<DashboardTemplateVariable>() {
-                  {
-                    ;
-                  }
-                })
+                Collections.singletonList(
+                    new Widget()
+                        .layout(new WidgetLayout().x(0L).y(0L).width(15L).height(8L))
+                        .definition(
+                            new WidgetDefinition(
+                                new AlertValueWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .type(AlertValueWidgetDefinitionType.ALERT_VALUE)
+                                    .alertId("1")
+                                    .unit("auto")
+                                    .textAlign(WidgetTextAlign.LEFT)
+                                    .precision(2L)))))
             .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false)
-            .notifyList(
-                new ArrayList<String>() {
-                  {
-                    ;
-                  }
-                });
+            .isReadOnly(false);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

@@ -21,14 +21,10 @@ public class Example {
     DashboardBulkDeleteRequest body =
         new DashboardBulkDeleteRequest()
             .data(
-                new ArrayList<DashboardBulkActionData>() {
-                  {
-                    add(
-                        new DashboardBulkActionData()
-                            .id(DASHBOARD_ID)
-                            .type(DashboardResourceType.DASHBOARD));
-                  }
-                });
+                Collections.singletonList(
+                    new DashboardBulkActionData()
+                        .id(DASHBOARD_ID)
+                        .type(DashboardResourceType.DASHBOARD)));
 
     try {
       apiInstance.deleteDashboards(body);

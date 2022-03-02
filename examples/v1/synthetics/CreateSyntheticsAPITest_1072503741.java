@@ -27,23 +27,14 @@ public class Example {
             .config(
                 new SyntheticsAPITestConfig()
                     .assertions(
-                        new ArrayList<SyntheticsAssertion>() {
-                          {
-                            add(
-                                new SyntheticsAssertion(
-                                    new SyntheticsAssertionTarget()
-                                        .operator(SyntheticsAssertionOperator.IS_IN_MORE_DAYS_THAN)
-                                        .target(10)
-                                        .type(SyntheticsAssertionType.CERTIFICATE)));
-                          }
-                        })
+                        Collections.singletonList(
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionTarget()
+                                    .operator(SyntheticsAssertionOperator.IS_IN_MORE_DAYS_THAN)
+                                    .target(10)
+                                    .type(SyntheticsAssertionType.CERTIFICATE))))
                     .request(new SyntheticsTestRequest().host("datadoghq.com").port(443L)))
-            .locations(
-                new ArrayList<String>() {
-                  {
-                    add("aws:us-east-2");
-                  }
-                })
+            .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_ssl_test_payload.json")
             .name(
                 "Example-Create_an_API_SSL_test_returns_OK_Returns_the_created_test_details_response")
@@ -53,12 +44,7 @@ public class Example {
                     .checkCertificateRevocation(true)
                     .tickEvery(60L))
             .subtype(SyntheticsTestDetailsSubType.SSL)
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("testing:api");
-                  }
-                })
+            .tags(Collections.singletonList("testing:api"))
             .type(SyntheticsAPITestType.API);
 
     try {

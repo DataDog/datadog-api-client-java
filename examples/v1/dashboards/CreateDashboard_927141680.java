@@ -9,7 +9,6 @@ import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.datadog.api.v1.client.model.FunnelQuery;
 import com.datadog.api.v1.client.model.FunnelRequestType;
 import com.datadog.api.v1.client.model.FunnelSource;
-import com.datadog.api.v1.client.model.FunnelStep;
 import com.datadog.api.v1.client.model.FunnelWidgetDefinition;
 import com.datadog.api.v1.client.model.FunnelWidgetDefinitionType;
 import com.datadog.api.v1.client.model.FunnelWidgetRequest;
@@ -28,34 +27,20 @@ public class Example {
             .layoutType(DashboardLayoutType.ORDERED)
             .title("Example-Create_a_new_dashboard_with_funnel_widget with funnel widget")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new FunnelWidgetDefinition()
-                                        .type(FunnelWidgetDefinitionType.FUNNEL)
-                                        .requests(
-                                            new ArrayList<FunnelWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new FunnelWidgetRequest()
-                                                        .query(
-                                                            new FunnelQuery()
-                                                                .dataSource(FunnelSource.RUM)
-                                                                .queryString("")
-                                                                .steps(
-                                                                    new ArrayList<FunnelStep>() {
-                                                                      {
-                                                                        ;
-                                                                      }
-                                                                    }))
-                                                        .requestType(FunnelRequestType.FUNNEL));
-                                              }
-                                            }))));
-                  }
-                });
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new FunnelWidgetDefinition()
+                                    .type(FunnelWidgetDefinitionType.FUNNEL)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new FunnelWidgetRequest()
+                                                .query(
+                                                    new FunnelQuery()
+                                                        .dataSource(FunnelSource.RUM)
+                                                        .queryString(""))
+                                                .requestType(FunnelRequestType.FUNNEL)))))));
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

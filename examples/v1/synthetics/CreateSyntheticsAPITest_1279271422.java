@@ -33,51 +33,33 @@ public class Example {
             .config(
                 new SyntheticsAPITestConfig()
                     .configVariables(
-                        new ArrayList<SyntheticsConfigVariable>() {
-                          {
-                            add(
-                                new SyntheticsConfigVariable()
-                                    .example("content-type")
-                                    .name("PROPERTY")
-                                    .pattern("content-type")
-                                    .type(SyntheticsConfigVariableType.TEXT));
-                          }
-                        })
+                        Collections.singletonList(
+                            new SyntheticsConfigVariable()
+                                .example("content-type")
+                                .name("PROPERTY")
+                                .pattern("content-type")
+                                .type(SyntheticsConfigVariableType.TEXT)))
                     .steps(
-                        new ArrayList<SyntheticsAPIStep>() {
-                          {
-                            add(
-                                new SyntheticsAPIStep()
-                                    .allowFailure(true)
-                                    .assertions(
-                                        new ArrayList<SyntheticsAssertion>() {
-                                          {
-                                            add(
-                                                new SyntheticsAssertion(
-                                                    new SyntheticsAssertionTarget()
-                                                        .operator(SyntheticsAssertionOperator.IS)
-                                                        .type(SyntheticsAssertionType.STATUS_CODE)
-                                                        .target(200)));
-                                          }
-                                        })
-                                    .isCritical(true)
-                                    .name("request is sent")
-                                    .request(
-                                        new SyntheticsTestRequest()
-                                            .method(HTTPMethod.GET)
-                                            .timeout(10.0)
-                                            .url("https://datadoghq.com"))
-                                    .retry(
-                                        new SyntheticsTestOptionsRetry().count(5L).interval(1000.0))
-                                    .subtype(SyntheticsAPIStepSubtype.HTTP));
-                          }
-                        }))
-            .locations(
-                new ArrayList<String>() {
-                  {
-                    add("aws:us-east-2");
-                  }
-                })
+                        Collections.singletonList(
+                            new SyntheticsAPIStep()
+                                .allowFailure(true)
+                                .assertions(
+                                    Collections.singletonList(
+                                        new SyntheticsAssertion(
+                                            new SyntheticsAssertionTarget()
+                                                .operator(SyntheticsAssertionOperator.IS)
+                                                .type(SyntheticsAssertionType.STATUS_CODE)
+                                                .target(200))))
+                                .isCritical(true)
+                                .name("request is sent")
+                                .request(
+                                    new SyntheticsTestRequest()
+                                        .method(HTTPMethod.GET)
+                                        .timeout(10.0)
+                                        .url("https://datadoghq.com"))
+                                .retry(new SyntheticsTestOptionsRetry().count(5L).interval(1000.0))
+                                .subtype(SyntheticsAPIStepSubtype.HTTP))))
+            .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_test_multi_step_payload.json")
             .name(
                 "Example-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response")
@@ -94,12 +76,7 @@ public class Example {
                     .retry(new SyntheticsTestOptionsRetry().count(3L).interval(1000.0))
                     .tickEvery(60L))
             .subtype(SyntheticsTestDetailsSubType.MULTI)
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("testing:api");
-                  }
-                })
+            .tags(Collections.singletonList("testing:api"))
             .type(SyntheticsAPITestType.API);
 
     try {

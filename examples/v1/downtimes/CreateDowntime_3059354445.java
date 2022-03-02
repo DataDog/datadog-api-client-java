@@ -6,6 +6,7 @@ import com.datadog.api.v1.client.api.DowntimesApi;
 import com.datadog.api.v1.client.model.Downtime;
 import com.datadog.api.v1.client.model.DowntimeRecurrence;
 import java.time.*;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 public class Example {
@@ -17,12 +18,7 @@ public class Example {
         new Downtime()
             .message("Example-Schedule_a_downtime_once_a_year")
             .recurrence(new DowntimeRecurrence().period(1).type("years"))
-            .scope(
-                new ArrayList<String>() {
-                  {
-                    add("*");
-                  }
-                })
+            .scope(Collections.singletonList("*"))
             .start(OffsetDateTime.now().toInstant().getEpochSecond())
             .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
             .timezone("Etc/UTC");

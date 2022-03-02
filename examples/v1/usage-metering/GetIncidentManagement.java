@@ -6,6 +6,7 @@ import com.datadog.api.v1.client.api.UsageMeteringApi;
 import com.datadog.api.v1.client.api.UsageMeteringApi.GetIncidentManagementOptionalParameters;
 import com.datadog.api.v1.client.model.UsageIncidentManagementResponse;
 import java.time.*;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 public class Example {

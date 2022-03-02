@@ -49,18 +49,16 @@ public class Example {
                     .attributes(
                         new NotebookUpdateDataAttributes()
                             .cells(
-                                new ArrayList<NotebookUpdateCell>() {
-                                  {
-                                    add(
-                                        new NotebookUpdateCell(
-                                            new NotebookCellCreateRequest()
-                                                .attributes(
-                                                    new NotebookCellCreateRequestAttributes(
-                                                        new NotebookMarkdownCellAttributes()
-                                                            .definition(
-                                                                new NotebookMarkdownCellDefinition()
-                                                                    .text(
-                                                                        """
+                                Arrays.asList(
+                                    new NotebookUpdateCell(
+                                        new NotebookCellCreateRequest()
+                                            .attributes(
+                                                new NotebookCellCreateRequestAttributes(
+                                                    new NotebookMarkdownCellAttributes()
+                                                        .definition(
+                                                            new NotebookMarkdownCellDefinition()
+                                                                .text(
+                                                                    """
 ## Some test markdown
 
 ```js
@@ -69,67 +67,46 @@ x = 5;
 y = 6;
 ```
 """)
-                                                                    .type(
-                                                                        NotebookMarkdownCellDefinitionType
-                                                                            .MARKDOWN))))
-                                                .type(NotebookCellResourceType.NOTEBOOK_CELLS)));
-                                    add(
-                                        new NotebookUpdateCell(
-                                            new NotebookCellCreateRequest()
-                                                .attributes(
-                                                    new NotebookCellCreateRequestAttributes(
-                                                        new NotebookTimeseriesCellAttributes()
-                                                            .definition(
-                                                                new TimeseriesWidgetDefinition()
-                                                                    .requests(
-                                                                        new ArrayList<
-                                                                            TimeseriesWidgetRequest>() {
-                                                                          {
-                                                                            add(
-                                                                                new TimeseriesWidgetRequest()
-                                                                                    .displayType(
-                                                                                        WidgetDisplayType
-                                                                                            .LINE)
-                                                                                    .q(
-                                                                                        "avg:system.load.1{*}")
-                                                                                    .style(
-                                                                                        new WidgetRequestStyle()
-                                                                                            .lineType(
-                                                                                                WidgetLineType
-                                                                                                    .SOLID)
-                                                                                            .lineWidth(
-                                                                                                WidgetLineWidth
-                                                                                                    .NORMAL)
-                                                                                            .palette(
-                                                                                                "dog_classic")));
-                                                                          }
-                                                                        })
-                                                                    .showLegend(true)
-                                                                    .type(
-                                                                        TimeseriesWidgetDefinitionType
-                                                                            .TIMESERIES)
-                                                                    .yaxis(
-                                                                        new WidgetAxis()
-                                                                            .scale("linear")))
-                                                            .graphSize(NotebookGraphSize.MEDIUM)
-                                                            .splitBy(
-                                                                new NotebookSplitBy()
-                                                                    .keys(
-                                                                        new ArrayList<String>() {
-                                                                          {
-                                                                            ;
-                                                                          }
-                                                                        })
-                                                                    .tags(
-                                                                        new ArrayList<String>() {
-                                                                          {
-                                                                            ;
-                                                                          }
-                                                                        }))
-                                                            .time(null)))
-                                                .type(NotebookCellResourceType.NOTEBOOK_CELLS)));
-                                  }
-                                })
+                                                                .type(
+                                                                    NotebookMarkdownCellDefinitionType
+                                                                        .MARKDOWN))))
+                                            .type(NotebookCellResourceType.NOTEBOOK_CELLS)),
+                                    new NotebookUpdateCell(
+                                        new NotebookCellCreateRequest()
+                                            .attributes(
+                                                new NotebookCellCreateRequestAttributes(
+                                                    new NotebookTimeseriesCellAttributes()
+                                                        .definition(
+                                                            new TimeseriesWidgetDefinition()
+                                                                .requests(
+                                                                    Collections.singletonList(
+                                                                        new TimeseriesWidgetRequest()
+                                                                            .displayType(
+                                                                                WidgetDisplayType
+                                                                                    .LINE)
+                                                                            .q(
+                                                                                "avg:system.load.1{*}")
+                                                                            .style(
+                                                                                new WidgetRequestStyle()
+                                                                                    .lineType(
+                                                                                        WidgetLineType
+                                                                                            .SOLID)
+                                                                                    .lineWidth(
+                                                                                        WidgetLineWidth
+                                                                                            .NORMAL)
+                                                                                    .palette(
+                                                                                        "dog_classic"))))
+                                                                .showLegend(true)
+                                                                .type(
+                                                                    TimeseriesWidgetDefinitionType
+                                                                        .TIMESERIES)
+                                                                .yaxis(
+                                                                    new WidgetAxis()
+                                                                        .scale("linear")))
+                                                        .graphSize(NotebookGraphSize.MEDIUM)
+                                                        .splitBy(new NotebookSplitBy())
+                                                        .time(null)))
+                                            .type(NotebookCellResourceType.NOTEBOOK_CELLS))))
                             .name("Example-Update_a_notebook_returns_OK_response-updated")
                             .status(NotebookStatus.PUBLISHED)
                             .time(

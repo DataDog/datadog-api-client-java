@@ -6,6 +6,7 @@ import com.datadog.api.v1.client.api.UsageMeteringApi;
 import com.datadog.api.v1.client.api.UsageMeteringApi.GetUsageIndexedSpansOptionalParameters;
 import com.datadog.api.v1.client.model.UsageIndexedSpansResponse;
 import java.time.*;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 public class Example {
