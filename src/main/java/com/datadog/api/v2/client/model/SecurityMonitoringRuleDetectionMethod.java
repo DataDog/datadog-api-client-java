@@ -35,9 +35,12 @@ public class SecurityMonitoringRuleDetectionMethod {
       new SecurityMonitoringRuleDetectionMethod("new_value");
   public static final SecurityMonitoringRuleDetectionMethod ANOMALY_DETECTION =
       new SecurityMonitoringRuleDetectionMethod("anomaly_detection");
+  public static final SecurityMonitoringRuleDetectionMethod IMPOSSIBLE_TRAVEL =
+      new SecurityMonitoringRuleDetectionMethod("impossible_travel");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("threshold", "new_value", "anomaly_detection"));
+      new HashSet<String>(
+          Arrays.asList("threshold", "new_value", "anomaly_detection", "impossible_travel"));
 
   private String value;
 
