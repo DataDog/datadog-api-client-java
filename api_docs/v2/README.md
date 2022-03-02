@@ -451,6 +451,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [SecurityMonitoringRuleCreatePayload](SecurityMonitoringRuleCreatePayload.md)
 - [SecurityMonitoringRuleDetectionMethod](SecurityMonitoringRuleDetectionMethod.md)
 - [SecurityMonitoringRuleEvaluationWindow](SecurityMonitoringRuleEvaluationWindow.md)
+- [SecurityMonitoringRuleImpossibleTravelOptions](SecurityMonitoringRuleImpossibleTravelOptions.md)
 - [SecurityMonitoringRuleKeepAlive](SecurityMonitoringRuleKeepAlive.md)
 - [SecurityMonitoringRuleMaxSignalDuration](SecurityMonitoringRuleMaxSignalDuration.md)
 - [SecurityMonitoringRuleNewValueOptions](SecurityMonitoringRuleNewValueOptions.md)
