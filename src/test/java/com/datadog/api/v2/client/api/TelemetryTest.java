@@ -33,8 +33,8 @@ public class TelemetryTest extends V2APITest {
             .withHeader(
                 "User-Agent",
                 matching(
-                    "^datadog-api-client-java/\\d\\.\\d\\.\\d.*? \\(java .*?; java_vendor .*?; os"
-                        + " .*?; os_version .*?; arch .*?\\)$"))
+                    "^datadog-api-client-java/\\d+\\.\\d+\\.\\d+.*? \\(java .*?; java_vendor .*?;"
+                        + " os .*?; os_version .*?; arch .*?\\)$"))
             .willReturn(status(299)));
 
     ApiResponse<DashboardListItems> httpresp = api.getDashboardListItemsWithHttpInfo(1234L);
