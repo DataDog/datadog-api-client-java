@@ -30,61 +30,41 @@ public class Example {
         new Dashboard()
             .title("Example-Create_a_new_dashboard_with_apm_resource_stats_widget")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new TableWidgetDefinition()
-                                        .title("")
-                                        .titleSize("16")
-                                        .titleAlign(WidgetTextAlign.LEFT)
-                                        .type(TableWidgetDefinitionType.QUERY_TABLE)
-                                        .requests(
-                                            new ArrayList<TableWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new TableWidgetRequest()
-                                                        .responseFormat(
-                                                            FormulaAndFunctionResponseFormat.SCALAR)
-                                                        .queries(
-                                                            new ArrayList<
-                                                                FormulaAndFunctionQueryDefinition>() {
-                                                              {
-                                                                add(
-                                                                    new FormulaAndFunctionQueryDefinition(
-                                                                        new FormulaAndFunctionApmResourceStatsQueryDefinition()
-                                                                            .primaryTagValue(
-                                                                                "edge-eu1.prod.dog")
-                                                                            .stat(
-                                                                                FormulaAndFunctionApmResourceStatName
-                                                                                    .HITS)
-                                                                            .name("query1")
-                                                                            .service("cassandra")
-                                                                            .dataSource(
-                                                                                FormulaAndFunctionApmResourceStatsDataSource
-                                                                                    .APM_RESOURCE_STATS)
-                                                                            .env("ci")
-                                                                            .primaryTagName(
-                                                                                "datacenter")
-                                                                            .operationName(
-                                                                                "cassandra.query")
-                                                                            .groupBy(
-                                                                                new ArrayList<
-                                                                                    String>() {
-                                                                                  {
-                                                                                    add(
-                                                                                        "resource_name");
-                                                                                  }
-                                                                                })));
-                                                              }
-                                                            }));
-                                              }
-                                            })))
-                            .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L)));
-                  }
-                })
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new TableWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .type(TableWidgetDefinitionType.QUERY_TABLE)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new TableWidgetRequest()
+                                                .responseFormat(
+                                                    FormulaAndFunctionResponseFormat.SCALAR)
+                                                .queries(
+                                                    Collections.singletonList(
+                                                        new FormulaAndFunctionQueryDefinition(
+                                                            new FormulaAndFunctionApmResourceStatsQueryDefinition()
+                                                                .primaryTagValue(
+                                                                    "edge-eu1.prod.dog")
+                                                                .stat(
+                                                                    FormulaAndFunctionApmResourceStatName
+                                                                        .HITS)
+                                                                .name("query1")
+                                                                .service("cassandra")
+                                                                .dataSource(
+                                                                    FormulaAndFunctionApmResourceStatsDataSource
+                                                                        .APM_RESOURCE_STATS)
+                                                                .env("ci")
+                                                                .primaryTagName("datacenter")
+                                                                .operationName("cassandra.query")
+                                                                .groupBy(
+                                                                    Collections.singletonList(
+                                                                        "resource_name")))))))))
+                        .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L))))
             .layoutType(DashboardLayoutType.ORDERED);
 
     try {

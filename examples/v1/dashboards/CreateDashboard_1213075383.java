@@ -6,7 +6,6 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.DashboardTemplateVariable;
 import com.datadog.api.v1.client.model.FormulaAndFunctionMetricAggregation;
 import com.datadog.api.v1.client.model.FormulaAndFunctionMetricDataSource;
 import com.datadog.api.v1.client.model.FormulaAndFunctionMetricQueryDefinition;
@@ -36,78 +35,46 @@ public class Example {
             .title("Example-Create_a_new_dashboard_with_toplist_widget")
             .description("")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .layout(new WidgetLayout().x(0L).y(0L).width(47L).height(15L))
-                            .definition(
-                                new WidgetDefinition(
-                                    new ToplistWidgetDefinition()
-                                        .title("")
-                                        .titleSize("16")
-                                        .titleAlign(WidgetTextAlign.LEFT)
-                                        .time(new WidgetTime())
-                                        .type(ToplistWidgetDefinitionType.TOPLIST)
-                                        .requests(
-                                            new ArrayList<ToplistWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new ToplistWidgetRequest()
-                                                        .queries(
-                                                            new ArrayList<
-                                                                FormulaAndFunctionQueryDefinition>() {
-                                                              {
-                                                                add(
-                                                                    new FormulaAndFunctionQueryDefinition(
-                                                                        new FormulaAndFunctionMetricQueryDefinition()
-                                                                            .dataSource(
-                                                                                FormulaAndFunctionMetricDataSource
-                                                                                    .METRICS)
-                                                                            .name("query1")
-                                                                            .query(
-                                                                                "avg:system.cpu.user{*}"
-                                                                                    + " by {service}")
-                                                                            .aggregator(
-                                                                                FormulaAndFunctionMetricAggregation
-                                                                                    .AVG)));
-                                                              }
-                                                            })
-                                                        .formulas(
-                                                            new ArrayList<WidgetFormula>() {
-                                                              {
-                                                                add(
-                                                                    new WidgetFormula()
-                                                                        .formula("query1")
-                                                                        .limit(
-                                                                            new WidgetFormulaLimit()
-                                                                                .count(10L)
-                                                                                .order(
-                                                                                    QuerySortOrder
-                                                                                        .DESC)));
-                                                              }
-                                                            })
-                                                        .responseFormat(
-                                                            FormulaAndFunctionResponseFormat
-                                                                .SCALAR));
-                                              }
-                                            }))));
-                  }
-                })
-            .templateVariables(
-                new ArrayList<DashboardTemplateVariable>() {
-                  {
-                    ;
-                  }
-                })
+                Collections.singletonList(
+                    new Widget()
+                        .layout(new WidgetLayout().x(0L).y(0L).width(47L).height(15L))
+                        .definition(
+                            new WidgetDefinition(
+                                new ToplistWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .time(new WidgetTime())
+                                    .type(ToplistWidgetDefinitionType.TOPLIST)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new ToplistWidgetRequest()
+                                                .queries(
+                                                    Collections.singletonList(
+                                                        new FormulaAndFunctionQueryDefinition(
+                                                            new FormulaAndFunctionMetricQueryDefinition()
+                                                                .dataSource(
+                                                                    FormulaAndFunctionMetricDataSource
+                                                                        .METRICS)
+                                                                .name("query1")
+                                                                .query(
+                                                                    "avg:system.cpu.user{*} by"
+                                                                        + " {service}")
+                                                                .aggregator(
+                                                                    FormulaAndFunctionMetricAggregation
+                                                                        .AVG))))
+                                                .formulas(
+                                                    Collections.singletonList(
+                                                        new WidgetFormula()
+                                                            .formula("query1")
+                                                            .limit(
+                                                                new WidgetFormulaLimit()
+                                                                    .count(10L)
+                                                                    .order(QuerySortOrder.DESC))))
+                                                .responseFormat(
+                                                    FormulaAndFunctionResponseFormat.SCALAR)))))))
             .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false)
-            .notifyList(
-                new ArrayList<String>() {
-                  {
-                    ;
-                  }
-                });
+            .isReadOnly(false);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

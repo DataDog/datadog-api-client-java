@@ -8,7 +8,6 @@ import com.datadog.api.v1.client.model.AlertGraphWidgetDefinition;
 import com.datadog.api.v1.client.model.AlertGraphWidgetDefinitionType;
 import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.DashboardTemplateVariable;
 import com.datadog.api.v1.client.model.Widget;
 import com.datadog.api.v1.client.model.WidgetDefinition;
 import com.datadog.api.v1.client.model.WidgetLayout;
@@ -31,37 +30,21 @@ public class Example {
             .title("Example-Create_a_new_dashboard_with_alert_graph_widget")
             .description("")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .layout(new WidgetLayout().x(0L).y(0L).width(47L).height(15L))
-                            .definition(
-                                new WidgetDefinition(
-                                    new AlertGraphWidgetDefinition()
-                                        .title("")
-                                        .titleSize("16")
-                                        .titleAlign(WidgetTextAlign.LEFT)
-                                        .time(new WidgetTime())
-                                        .type(AlertGraphWidgetDefinitionType.ALERT_GRAPH)
-                                        .alertId("1")
-                                        .vizType(WidgetVizType.TIMESERIES))));
-                  }
-                })
-            .templateVariables(
-                new ArrayList<DashboardTemplateVariable>() {
-                  {
-                    ;
-                  }
-                })
+                Collections.singletonList(
+                    new Widget()
+                        .layout(new WidgetLayout().x(0L).y(0L).width(47L).height(15L))
+                        .definition(
+                            new WidgetDefinition(
+                                new AlertGraphWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .time(new WidgetTime())
+                                    .type(AlertGraphWidgetDefinitionType.ALERT_GRAPH)
+                                    .alertId("1")
+                                    .vizType(WidgetVizType.TIMESERIES)))))
             .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false)
-            .notifyList(
-                new ArrayList<String>() {
-                  {
-                    ;
-                  }
-                });
+            .isReadOnly(false);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

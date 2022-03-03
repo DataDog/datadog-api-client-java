@@ -35,6 +35,10 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_BROWSER_RUM_UNITS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P,
@@ -129,6 +133,21 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_BROWSER_RUM_UNITS_SUM = "browser_rum_units_sum";
   private Long browserRumUnitsSum;
+
+  public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM =
+      "ci_pipeline_indexed_spans_sum";
+  private Long ciPipelineIndexedSpansSum;
+
+  public static final String JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM = "ci_test_indexed_spans_sum";
+  private Long ciTestIndexedSpansSum;
+
+  public static final String JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM =
+      "ci_visibility_pipeline_committers_hwm";
+  private Long ciVisibilityPipelineCommittersHwm;
+
+  public static final String JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM =
+      "ci_visibility_test_committers_hwm";
+  private Long ciVisibilityTestCommittersHwm;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
@@ -609,6 +628,111 @@ public class UsageSummaryDateOrg {
 
   public void setBrowserRumUnitsSum(Long browserRumUnitsSum) {
     this.browserRumUnitsSum = browserRumUnitsSum;
+  }
+
+  public UsageSummaryDateOrg ciPipelineIndexedSpansSum(Long ciPipelineIndexedSpansSum) {
+    this.ciPipelineIndexedSpansSum = ciPipelineIndexedSpansSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all CI pipeline indexed spans over all hours in the current date for the given
+   * org.
+   *
+   * @return ciPipelineIndexedSpansSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all CI pipeline indexed spans over all hours in the current date for"
+              + " the given org.")
+  @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCiPipelineIndexedSpansSum() {
+    return ciPipelineIndexedSpansSum;
+  }
+
+  public void setCiPipelineIndexedSpansSum(Long ciPipelineIndexedSpansSum) {
+    this.ciPipelineIndexedSpansSum = ciPipelineIndexedSpansSum;
+  }
+
+  public UsageSummaryDateOrg ciTestIndexedSpansSum(Long ciTestIndexedSpansSum) {
+    this.ciTestIndexedSpansSum = ciTestIndexedSpansSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all CI test indexed spans over all hours in the current date for the given
+   * org.
+   *
+   * @return ciTestIndexedSpansSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all CI test indexed spans over all hours in the current date for the"
+              + " given org.")
+  @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCiTestIndexedSpansSum() {
+    return ciTestIndexedSpansSum;
+  }
+
+  public void setCiTestIndexedSpansSum(Long ciTestIndexedSpansSum) {
+    this.ciTestIndexedSpansSum = ciTestIndexedSpansSum;
+  }
+
+  public UsageSummaryDateOrg ciVisibilityPipelineCommittersHwm(
+      Long ciVisibilityPipelineCommittersHwm) {
+    this.ciVisibilityPipelineCommittersHwm = ciVisibilityPipelineCommittersHwm;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of all CI visibility pipeline committers over all hours in the
+   * current date for the given org.
+   *
+   * @return ciVisibilityPipelineCommittersHwm
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the high-water mark of all CI visibility pipeline committers over all hours in"
+              + " the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCiVisibilityPipelineCommittersHwm() {
+    return ciVisibilityPipelineCommittersHwm;
+  }
+
+  public void setCiVisibilityPipelineCommittersHwm(Long ciVisibilityPipelineCommittersHwm) {
+    this.ciVisibilityPipelineCommittersHwm = ciVisibilityPipelineCommittersHwm;
+  }
+
+  public UsageSummaryDateOrg ciVisibilityTestCommittersHwm(Long ciVisibilityTestCommittersHwm) {
+    this.ciVisibilityTestCommittersHwm = ciVisibilityTestCommittersHwm;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of all CI visibility test committers over all hours in the current
+   * date for the given org.
+   *
+   * @return ciVisibilityTestCommittersHwm
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the high-water mark of all CI visibility test committers over all hours in the"
+              + " current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCiVisibilityTestCommittersHwm() {
+    return ciVisibilityTestCommittersHwm;
+  }
+
+  public void setCiVisibilityTestCommittersHwm(Long ciVisibilityTestCommittersHwm) {
+    this.ciVisibilityTestCommittersHwm = ciVisibilityTestCommittersHwm;
   }
 
   public UsageSummaryDateOrg containerAvg(Long containerAvg) {
@@ -1790,6 +1914,14 @@ public class UsageSummaryDateOrg {
             this.browserRumReplaySessionCountSum,
             usageSummaryDateOrg.browserRumReplaySessionCountSum)
         && Objects.equals(this.browserRumUnitsSum, usageSummaryDateOrg.browserRumUnitsSum)
+        && Objects.equals(
+            this.ciPipelineIndexedSpansSum, usageSummaryDateOrg.ciPipelineIndexedSpansSum)
+        && Objects.equals(this.ciTestIndexedSpansSum, usageSummaryDateOrg.ciTestIndexedSpansSum)
+        && Objects.equals(
+            this.ciVisibilityPipelineCommittersHwm,
+            usageSummaryDateOrg.ciVisibilityPipelineCommittersHwm)
+        && Objects.equals(
+            this.ciVisibilityTestCommittersHwm, usageSummaryDateOrg.ciVisibilityTestCommittersHwm)
         && Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg)
         && Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm)
         && Objects.equals(this.cspmAasHostTop99p, usageSummaryDateOrg.cspmAasHostTop99p)
@@ -1869,6 +2001,10 @@ public class UsageSummaryDateOrg {
         browserRumLiteSessionCountSum,
         browserRumReplaySessionCountSum,
         browserRumUnitsSum,
+        ciPipelineIndexedSpansSum,
+        ciTestIndexedSpansSum,
+        ciVisibilityPipelineCommittersHwm,
+        ciVisibilityTestCommittersHwm,
         containerAvg,
         containerHwm,
         cspmAasHostTop99p,
@@ -1949,6 +2085,18 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(browserRumReplaySessionCountSum))
         .append("\n");
     sb.append("    browserRumUnitsSum: ").append(toIndentedString(browserRumUnitsSum)).append("\n");
+    sb.append("    ciPipelineIndexedSpansSum: ")
+        .append(toIndentedString(ciPipelineIndexedSpansSum))
+        .append("\n");
+    sb.append("    ciTestIndexedSpansSum: ")
+        .append(toIndentedString(ciTestIndexedSpansSum))
+        .append("\n");
+    sb.append("    ciVisibilityPipelineCommittersHwm: ")
+        .append(toIndentedString(ciVisibilityPipelineCommittersHwm))
+        .append("\n");
+    sb.append("    ciVisibilityTestCommittersHwm: ")
+        .append(toIndentedString(ciVisibilityTestCommittersHwm))
+        .append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
     sb.append("    cspmAasHostTop99p: ").append(toIndentedString(cspmAasHostTop99p)).append("\n");

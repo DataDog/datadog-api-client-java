@@ -21,14 +21,10 @@ public class Example {
     DashboardRestoreRequest body =
         new DashboardRestoreRequest()
             .data(
-                new ArrayList<DashboardBulkActionData>() {
-                  {
-                    add(
-                        new DashboardBulkActionData()
-                            .id(DASHBOARD_ID)
-                            .type(DashboardResourceType.DASHBOARD));
-                  }
-                });
+                Collections.singletonList(
+                    new DashboardBulkActionData()
+                        .id(DASHBOARD_ID)
+                        .type(DashboardResourceType.DASHBOARD)));
 
     try {
       apiInstance.restoreDashboards(body);

@@ -15,17 +15,13 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
-    ArrayList<HTTPLogItem> body =
-        new ArrayList<HTTPLogItem>() {
-          {
-            add(
-                new HTTPLogItem()
-                    .message(
-                        "Example-Send_deflate_logs_returns_Response_from_server_always_200_empty_JSON_response")
-                    .ddtags(
-                        "host:ExampleSenddeflatelogsreturnsResponsefromserveralways200emptyJSONresponse"));
-          }
-        };
+    List<HTTPLogItem> body =
+        Collections.singletonList(
+            new HTTPLogItem()
+                .message(
+                    "Example-Send_deflate_logs_returns_Response_from_server_always_200_empty_JSON_response")
+                .ddtags(
+                    "host:ExampleSenddeflatelogsreturnsResponsefromserveralways200emptyJSONresponse"));
 
     try {
       apiInstance.submitLog(

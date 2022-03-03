@@ -22,43 +22,21 @@ public class Example {
         new ServiceLevelObjectiveRequest()
             .type(SLOType.METRIC)
             .description("string")
-            .groups(
-                new ArrayList<String>() {
-                  {
-                    add("env:test");
-                    add("role:mysql");
-                  }
-                })
-            .monitorIds(
-                new ArrayList<Long>() {
-                  {
-                    ;
-                  }
-                })
+            .groups(Arrays.asList("env:test", "role:mysql"))
             .name("Example-Create_an_SLO_object_returns_OK_response")
             .query(
                 new ServiceLevelObjectiveQuery()
                     .denominator("sum:httpservice.hits{!code:3xx}.as_count()")
                     .numerator("sum:httpservice.hits{code:2xx}.as_count()"))
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("env:prod");
-                    add("app:core");
-                  }
-                })
+            .tags(Arrays.asList("env:prod", "app:core"))
             .thresholds(
-                new ArrayList<SLOThreshold>() {
-                  {
-                    add(
-                        new SLOThreshold()
-                            .target(95.0)
-                            .targetDisplay("95.0")
-                            .timeframe(SLOTimeframe.SEVEN_DAYS)
-                            .warning(98.0)
-                            .warningDisplay("98.0"));
-                  }
-                });
+                Collections.singletonList(
+                    new SLOThreshold()
+                        .target(95.0)
+                        .targetDisplay("95.0")
+                        .timeframe(SLOTimeframe.SEVEN_DAYS)
+                        .warning(98.0)
+                        .warningDisplay("98.0")));
 
     try {
       SLOListResponse result = apiInstance.createSLO(body);

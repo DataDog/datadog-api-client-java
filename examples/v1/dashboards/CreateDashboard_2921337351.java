@@ -6,7 +6,6 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.DashboardTemplateVariable;
 import com.datadog.api.v1.client.model.ServiceSummaryWidgetDefinition;
 import com.datadog.api.v1.client.model.ServiceSummaryWidgetDefinitionType;
 import com.datadog.api.v1.client.model.Widget;
@@ -28,45 +27,28 @@ public class Example {
             .title("Example-Create_a_new_dashboard_with_trace_service_widget")
             .description("")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .layout(new WidgetLayout().x(0L).y(0L).width(72L).height(72L))
-                            .definition(
-                                new WidgetDefinition(
-                                    new ServiceSummaryWidgetDefinition()
-                                        .title("Service Summary")
-                                        .time(new WidgetTime())
-                                        .type(ServiceSummaryWidgetDefinitionType.TRACE_SERVICE)
-                                        .env("none")
-                                        .service("")
-                                        .spanName("")
-                                        .showHits(true)
-                                        .showErrors(true)
-                                        .showLatency(true)
-                                        .showBreakdown(true)
-                                        .showDistribution(true)
-                                        .showResourceList(false)
-                                        .sizeFormat(WidgetSizeFormat.MEDIUM)
-                                        .displayFormat(
-                                            WidgetServiceSummaryDisplayFormat.TWO_COLUMN))));
-                  }
-                })
-            .templateVariables(
-                new ArrayList<DashboardTemplateVariable>() {
-                  {
-                    ;
-                  }
-                })
+                Collections.singletonList(
+                    new Widget()
+                        .layout(new WidgetLayout().x(0L).y(0L).width(72L).height(72L))
+                        .definition(
+                            new WidgetDefinition(
+                                new ServiceSummaryWidgetDefinition()
+                                    .title("Service Summary")
+                                    .time(new WidgetTime())
+                                    .type(ServiceSummaryWidgetDefinitionType.TRACE_SERVICE)
+                                    .env("none")
+                                    .service("")
+                                    .spanName("")
+                                    .showHits(true)
+                                    .showErrors(true)
+                                    .showLatency(true)
+                                    .showBreakdown(true)
+                                    .showDistribution(true)
+                                    .showResourceList(false)
+                                    .sizeFormat(WidgetSizeFormat.MEDIUM)
+                                    .displayFormat(WidgetServiceSummaryDisplayFormat.TWO_COLUMN)))))
             .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false)
-            .notifyList(
-                new ArrayList<String>() {
-                  {
-                    ;
-                  }
-                });
+            .isReadOnly(false);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

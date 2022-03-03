@@ -22,11 +22,8 @@ public class Example {
                     + " looooooooooooooooooooooooooong title with 100+ characters")
             .text("A text message.")
             .tags(
-                new ArrayList<String>() {
-                  {
-                    add("test:ExamplePostaneventwithalongtitlereturnsOKresponse");
-                  }
-                });
+                Collections.singletonList(
+                    "test:ExamplePostaneventwithalongtitlereturnsOKresponse"));
 
     try {
       EventCreateResponse result = apiInstance.createEvent(body);

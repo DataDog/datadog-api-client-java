@@ -6,6 +6,7 @@ import com.datadog.api.v1.client.api.SnapshotsApi;
 import com.datadog.api.v1.client.api.SnapshotsApi.GetGraphSnapshotOptionalParameters;
 import com.datadog.api.v1.client.model.GraphSnapshot;
 import java.time.*;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 public class Example {

@@ -21,24 +21,15 @@ public class Example {
     LogsAggregateRequest body =
         new LogsAggregateRequest()
             .compute(
-                new ArrayList<LogsCompute>() {
-                  {
-                    add(
-                        new LogsCompute()
-                            .aggregation(LogsAggregationFunction.COUNT)
-                            .interval("5m")
-                            .type(LogsComputeType.TIMESERIES));
-                  }
-                })
+                Collections.singletonList(
+                    new LogsCompute()
+                        .aggregation(LogsAggregationFunction.COUNT)
+                        .interval("5m")
+                        .type(LogsComputeType.TIMESERIES)))
             .filter(
                 new LogsQueryFilter()
                     .from("now-15m")
-                    .indexes(
-                        new ArrayList<String>() {
-                          {
-                            add("main");
-                          }
-                        })
+                    .indexes(Collections.singletonList("main"))
                     .query("*")
                     .to("now"));
 

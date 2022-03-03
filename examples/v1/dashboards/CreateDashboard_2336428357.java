@@ -6,7 +6,6 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.DashboardTemplateVariable;
 import com.datadog.api.v1.client.model.FormulaAndFunctionMetricAggregation;
 import com.datadog.api.v1.client.model.FormulaAndFunctionMetricDataSource;
 import com.datadog.api.v1.client.model.FormulaAndFunctionMetricQueryDefinition;
@@ -19,7 +18,6 @@ import com.datadog.api.v1.client.model.TableWidgetDefinitionType;
 import com.datadog.api.v1.client.model.TableWidgetHasSearchBar;
 import com.datadog.api.v1.client.model.TableWidgetRequest;
 import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetConditionalFormat;
 import com.datadog.api.v1.client.model.WidgetDefinition;
 import com.datadog.api.v1.client.model.WidgetFormula;
 import com.datadog.api.v1.client.model.WidgetFormulaLimit;
@@ -39,89 +37,49 @@ public class Example {
             .title("Example-Create_a_new_dashboard_with_query_table_widget")
             .description("")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .layout(new WidgetLayout().x(0L).y(0L).width(54L).height(32L))
-                            .definition(
-                                new WidgetDefinition(
-                                    new TableWidgetDefinition()
-                                        .title("")
-                                        .titleSize("16")
-                                        .titleAlign(WidgetTextAlign.LEFT)
-                                        .time(new WidgetTime())
-                                        .type(TableWidgetDefinitionType.QUERY_TABLE)
-                                        .requests(
-                                            new ArrayList<TableWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new TableWidgetRequest()
-                                                        .queries(
-                                                            new ArrayList<
-                                                                FormulaAndFunctionQueryDefinition>() {
-                                                              {
-                                                                add(
-                                                                    new FormulaAndFunctionQueryDefinition(
-                                                                        new FormulaAndFunctionMetricQueryDefinition()
-                                                                            .dataSource(
-                                                                                FormulaAndFunctionMetricDataSource
-                                                                                    .METRICS)
-                                                                            .name("query1")
-                                                                            .query(
-                                                                                "avg:system.cpu.user{*}"
-                                                                                    + " by {host}")
-                                                                            .aggregator(
-                                                                                FormulaAndFunctionMetricAggregation
-                                                                                    .AVG)));
-                                                              }
-                                                            })
-                                                        .formulas(
-                                                            new ArrayList<WidgetFormula>() {
-                                                              {
-                                                                add(
-                                                                    new WidgetFormula()
-                                                                        .formula("query1")
-                                                                        .limit(
-                                                                            new WidgetFormulaLimit()
-                                                                                .count(500L)
-                                                                                .order(
-                                                                                    QuerySortOrder
-                                                                                        .DESC))
-                                                                        .conditionalFormats(
-                                                                            new ArrayList<
-                                                                                WidgetConditionalFormat>() {
-                                                                              {
-                                                                                ;
-                                                                              }
-                                                                            })
-                                                                        .cellDisplayMode(
-                                                                            TableWidgetCellDisplayMode
-                                                                                .BAR));
-                                                              }
-                                                            })
-                                                        .responseFormat(
-                                                            FormulaAndFunctionResponseFormat
-                                                                .SCALAR));
-                                              }
-                                            })
-                                        .hasSearchBar(TableWidgetHasSearchBar.AUTO))));
-                  }
-                })
-            .templateVariables(
-                new ArrayList<DashboardTemplateVariable>() {
-                  {
-                    ;
-                  }
-                })
+                Collections.singletonList(
+                    new Widget()
+                        .layout(new WidgetLayout().x(0L).y(0L).width(54L).height(32L))
+                        .definition(
+                            new WidgetDefinition(
+                                new TableWidgetDefinition()
+                                    .title("")
+                                    .titleSize("16")
+                                    .titleAlign(WidgetTextAlign.LEFT)
+                                    .time(new WidgetTime())
+                                    .type(TableWidgetDefinitionType.QUERY_TABLE)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new TableWidgetRequest()
+                                                .queries(
+                                                    Collections.singletonList(
+                                                        new FormulaAndFunctionQueryDefinition(
+                                                            new FormulaAndFunctionMetricQueryDefinition()
+                                                                .dataSource(
+                                                                    FormulaAndFunctionMetricDataSource
+                                                                        .METRICS)
+                                                                .name("query1")
+                                                                .query(
+                                                                    "avg:system.cpu.user{*} by"
+                                                                        + " {host}")
+                                                                .aggregator(
+                                                                    FormulaAndFunctionMetricAggregation
+                                                                        .AVG))))
+                                                .formulas(
+                                                    Collections.singletonList(
+                                                        new WidgetFormula()
+                                                            .formula("query1")
+                                                            .limit(
+                                                                new WidgetFormulaLimit()
+                                                                    .count(500L)
+                                                                    .order(QuerySortOrder.DESC))
+                                                            .cellDisplayMode(
+                                                                TableWidgetCellDisplayMode.BAR)))
+                                                .responseFormat(
+                                                    FormulaAndFunctionResponseFormat.SCALAR)))
+                                    .hasSearchBar(TableWidgetHasSearchBar.AUTO)))))
             .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false)
-            .notifyList(
-                new ArrayList<String>() {
-                  {
-                    ;
-                  }
-                });
+            .isReadOnly(false);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

@@ -18,12 +18,7 @@ public class Example {
 
     try {
       CheckCanDeleteMonitorResponse result =
-          apiInstance.checkCanDeleteMonitor(
-              new ArrayList<Long>() {
-                {
-                  add(MONITOR_ID);
-                }
-              });
+          apiInstance.checkCanDeleteMonitor(Collections.singletonList(MONITOR_ID));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MonitorsApi#checkCanDeleteMonitor");

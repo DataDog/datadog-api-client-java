@@ -10,7 +10,6 @@ import com.datadog.api.v1.client.model.FormulaAndFunctionEventAggregation;
 import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinition;
 import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionCompute;
 import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionSearch;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryGroupBy;
 import com.datadog.api.v1.client.model.FormulaAndFunctionEventsDataSource;
 import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
 import com.datadog.api.v1.client.model.FormulaAndFunctionResponseFormat;
@@ -33,62 +32,37 @@ public class Example {
             .layoutType(DashboardLayoutType.ORDERED)
             .title("Example-Create_a_new_dashboard_with_an_audit_logs_query with Audit Logs Query")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new TimeseriesWidgetDefinition()
-                                        .type(TimeseriesWidgetDefinitionType.TIMESERIES)
-                                        .requests(
-                                            new ArrayList<TimeseriesWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new TimeseriesWidgetRequest()
-                                                        .responseFormat(
-                                                            FormulaAndFunctionResponseFormat
-                                                                .TIMESERIES)
-                                                        .queries(
-                                                            new ArrayList<
-                                                                FormulaAndFunctionQueryDefinition>() {
-                                                              {
-                                                                add(
-                                                                    new FormulaAndFunctionQueryDefinition(
-                                                                        new FormulaAndFunctionEventQueryDefinition()
-                                                                            .search(
-                                                                                new FormulaAndFunctionEventQueryDefinitionSearch()
-                                                                                    .query(""))
-                                                                            .dataSource(
-                                                                                FormulaAndFunctionEventsDataSource
-                                                                                    .AUDIT)
-                                                                            .compute(
-                                                                                new FormulaAndFunctionEventQueryDefinitionCompute()
-                                                                                    .aggregation(
-                                                                                        FormulaAndFunctionEventAggregation
-                                                                                            .COUNT))
-                                                                            .name("query1")
-                                                                            .indexes(
-                                                                                new ArrayList<
-                                                                                    String>() {
-                                                                                  {
-                                                                                    add("*");
-                                                                                  }
-                                                                                })
-                                                                            .groupBy(
-                                                                                new ArrayList<
-                                                                                    FormulaAndFunctionEventQueryGroupBy>() {
-                                                                                  {
-                                                                                    ;
-                                                                                  }
-                                                                                })));
-                                                              }
-                                                            }));
-                                              }
-                                            })))
-                            .layout(new WidgetLayout().x(2L).y(0L).width(4L).height(2L)));
-                  }
-                });
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new TimeseriesWidgetDefinition()
+                                    .type(TimeseriesWidgetDefinitionType.TIMESERIES)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new TimeseriesWidgetRequest()
+                                                .responseFormat(
+                                                    FormulaAndFunctionResponseFormat.TIMESERIES)
+                                                .queries(
+                                                    Collections.singletonList(
+                                                        new FormulaAndFunctionQueryDefinition(
+                                                            new FormulaAndFunctionEventQueryDefinition()
+                                                                .search(
+                                                                    new FormulaAndFunctionEventQueryDefinitionSearch()
+                                                                        .query(""))
+                                                                .dataSource(
+                                                                    FormulaAndFunctionEventsDataSource
+                                                                        .AUDIT)
+                                                                .compute(
+                                                                    new FormulaAndFunctionEventQueryDefinitionCompute()
+                                                                        .aggregation(
+                                                                            FormulaAndFunctionEventAggregation
+                                                                                .COUNT))
+                                                                .name("query1")
+                                                                .indexes(
+                                                                    Collections.singletonList(
+                                                                        "*")))))))))
+                        .layout(new WidgetLayout().x(2L).y(0L).width(4L).height(2L))));
 
     try {
       Dashboard result = apiInstance.createDashboard(body);
