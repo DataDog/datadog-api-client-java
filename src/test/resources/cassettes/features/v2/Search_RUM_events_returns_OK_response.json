@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"from\":\"now-15m\",\"query\":\"@type:session AND @session.type:user\",\"to\":\"now\"},\"options\":{\"time_offset\":0,\"timezone\":\"GMT\"},\"page\":{\"limit\":25},\"sort\":\"timestamp\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Search_RUM_events_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/rum/events/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "93f07085-709d-c923-f1c7-72c3f1ff893f"
+  }
+]
