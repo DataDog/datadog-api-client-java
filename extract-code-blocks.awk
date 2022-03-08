@@ -22,7 +22,7 @@ function slug(value) {
 }
 
 /^# .+Api/ {
-    tag = slug(substr($2, 0, length($2)-3));
+    tag = tolower(slug(substr($2, 0, length($2)-3)));
 }
 /^## / {
     operation_id = toupper( substr( $2, 1, 1 ) ) substr( $2, 2 );

@@ -90,6 +90,8 @@ All URIs are relative to *https://api.datadoghq.com*
 | _RolesApi_                 | [**removePermissionFromRole**](RolesApi.md#removePermissionFromRole)                                         | **DELETE** /api/v2/roles/{role_id}/permissions                                             | Revoke permission                                  |
 | _RolesApi_                 | [**removeUserFromRole**](RolesApi.md#removeUserFromRole)                                                     | **DELETE** /api/v2/roles/{role_id}/users                                                   | Remove a user from a role                          |
 | _RolesApi_                 | [**updateRole**](RolesApi.md#updateRole)                                                                     | **PATCH** /api/v2/roles/{role_id}                                                          | Update a role                                      |
+| _RumApi_                   | [**listRUMEvents**](RumApi.md#listRUMEvents)                                                                 | **GET** /api/v2/rum/events                                                                 | Get a list of RUM events                           |
+| _RumApi_                   | [**searchRUMEvents**](RumApi.md#searchRUMEvents)                                                             | **POST** /api/v2/rum/events/search                                                         | Search RUM events                                  |
 | _SecurityMonitoringApi_    | [**createSecurityFilter**](SecurityMonitoringApi.md#createSecurityFilter)                                    | **POST** /api/v2/security_monitoring/configuration/security_filters                        | Create a security filter                           |
 | _SecurityMonitoringApi_    | [**createSecurityMonitoringRule**](SecurityMonitoringApi.md#createSecurityMonitoringRule)                    | **POST** /api/v2/security_monitoring/rules                                                 | Create a detection rule                            |
 | _SecurityMonitoringApi_    | [**deleteSecurityFilter**](SecurityMonitoringApi.md#deleteSecurityFilter)                                    | **DELETE** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Delete a security filter                           |
@@ -385,6 +387,20 @@ All URIs are relative to *https://api.datadoghq.com*
 - [ProcessSummaryAttributes](ProcessSummaryAttributes.md)
 - [ProcessSummaryType](ProcessSummaryType.md)
 - [QuerySortOrder](QuerySortOrder.md)
+- [RUMEvent](RUMEvent.md)
+- [RUMEventAttributes](RUMEventAttributes.md)
+- [RUMEventType](RUMEventType.md)
+- [RUMEventsResponse](RUMEventsResponse.md)
+- [RUMQueryFilter](RUMQueryFilter.md)
+- [RUMQueryOptions](RUMQueryOptions.md)
+- [RUMQueryPageOptions](RUMQueryPageOptions.md)
+- [RUMResponseLinks](RUMResponseLinks.md)
+- [RUMResponseMetadata](RUMResponseMetadata.md)
+- [RUMResponsePage](RUMResponsePage.md)
+- [RUMResponseStatus](RUMResponseStatus.md)
+- [RUMSearchEventsRequest](RUMSearchEventsRequest.md)
+- [RUMSort](RUMSort.md)
+- [RUMWarning](RUMWarning.md)
 - [RelationshipToIncidentIntegrationMetadataData](RelationshipToIncidentIntegrationMetadataData.md)
 - [RelationshipToIncidentIntegrationMetadatas](RelationshipToIncidentIntegrationMetadatas.md)
 - [RelationshipToIncidentPostmortem](RelationshipToIncidentPostmortem.md)
