@@ -30,6 +30,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**getUsageLogsByRetention**](UsageMeteringApi.md#getUsageLogsByRetention)                               | **GET** /api/v1/usage/logs-by-retention            | Get hourly logs usage by retention               |
 | [**getUsageNetworkFlows**](UsageMeteringApi.md#getUsageNetworkFlows)                                     | **GET** /api/v1/usage/network_flows                | Get hourly usage for Network Flows               |
 | [**getUsageNetworkHosts**](UsageMeteringApi.md#getUsageNetworkHosts)                                     | **GET** /api/v1/usage/network_hosts                | Get hourly usage for Network Hosts               |
+| [**getUsageOnlineArchive**](UsageMeteringApi.md#getUsageOnlineArchive)                                   | **GET** /api/v1/usage/online-archive               | Get hourly usage for Online Archive              |
 | [**getUsageProfiling**](UsageMeteringApi.md#getUsageProfiling)                                           | **GET** /api/v1/usage/profiling                    | Get hourly usage for profiled hosts              |
 | [**getUsageRumSessions**](UsageMeteringApi.md#getUsageRumSessions)                                       | **GET** /api/v1/usage/rum_sessions                 | Get hourly usage for RUM Sessions                |
 | [**getUsageRumUnits**](UsageMeteringApi.md#getUsageRumUnits)                                             | **GET** /api/v1/usage/rum                          | Get hourly usage for RUM Units                   |
@@ -1831,6 +1832,74 @@ public class Example {
 ### Return type
 
 [**UsageNetworkHostsResponse**](UsageNetworkHostsResponse.md)
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
+
+### HTTP response details
+
+| Status code | Description                        | Response headers |
+| ----------- | ---------------------------------- | ---------------- |
+| **200**     | OK                                 | -                |
+| **400**     | Bad Request                        | -                |
+| **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
+
+## getUsageOnlineArchive
+
+> UsageOnlineArchiveResponse getUsageOnlineArchive(startHr, parameters);
+
+Get hourly usage for Online Archive.
+
+### Example
+
+```java
+import java.time.OffsetDateTime;
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.UsageMeteringApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
+        OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+        OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
+        try {
+            UsageOnlineArchiveResponse result = apiInstance.getUsageOnlineArchive(startHr, new UsageMeteringApi.GetUsageOnlineArchiveOptionalParameters()
+                .endHr(endHr));
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsageMeteringApi#getUsageOnlineArchive");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name        | Type               | Description                                                                                                           | Notes      |
+| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
+| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+### Return type
+
+[**UsageOnlineArchiveResponse**](UsageOnlineArchiveResponse.md)
 
 ### Authorization
 

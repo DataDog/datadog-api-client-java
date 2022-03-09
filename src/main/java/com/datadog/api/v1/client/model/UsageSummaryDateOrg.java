@@ -70,6 +70,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_NAME,
   UsageSummaryDateOrg.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_NPM_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PUBLIC_ID,
@@ -247,6 +248,10 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P = "npm_host_top99p";
   private Long npmHostTop99p;
+
+  public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM =
+      "online_archive_events_count_sum";
+  private Long onlineArchiveEventsCountSum;
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P = "opentelemetry_host_top99p";
   private Long opentelemetryHostTop99p;
@@ -1524,6 +1529,30 @@ public class UsageSummaryDateOrg {
     this.npmHostTop99p = npmHostTop99p;
   }
 
+  public UsageSummaryDateOrg onlineArchiveEventsCountSum(Long onlineArchiveEventsCountSum) {
+    this.onlineArchiveEventsCountSum = onlineArchiveEventsCountSum;
+    return this;
+  }
+
+  /**
+   * Sum of all online archived events over all hours in the current date for the given org.
+   *
+   * @return onlineArchiveEventsCountSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Sum of all online archived events over all hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOnlineArchiveEventsCountSum() {
+    return onlineArchiveEventsCountSum;
+  }
+
+  public void setOnlineArchiveEventsCountSum(Long onlineArchiveEventsCountSum) {
+    this.onlineArchiveEventsCountSum = onlineArchiveEventsCountSum;
+  }
+
   public UsageSummaryDateOrg opentelemetryHostTop99p(Long opentelemetryHostTop99p) {
     this.opentelemetryHostTop99p = opentelemetryHostTop99p;
     return this;
@@ -1961,6 +1990,8 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.netflowIndexedEventsCountSum, usageSummaryDateOrg.netflowIndexedEventsCountSum)
         && Objects.equals(this.npmHostTop99p, usageSummaryDateOrg.npmHostTop99p)
+        && Objects.equals(
+            this.onlineArchiveEventsCountSum, usageSummaryDateOrg.onlineArchiveEventsCountSum)
         && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDateOrg.opentelemetryHostTop99p)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDateOrg.profilingHostTop99p)
         && Objects.equals(this.publicId, usageSummaryDateOrg.publicId)
@@ -2036,6 +2067,7 @@ public class UsageSummaryDateOrg {
         name,
         netflowIndexedEventsCountSum,
         npmHostTop99p,
+        onlineArchiveEventsCountSum,
         opentelemetryHostTop99p,
         profilingHostTop99p,
         publicId,
@@ -2152,6 +2184,9 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(netflowIndexedEventsCountSum))
         .append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
+    sb.append("    onlineArchiveEventsCountSum: ")
+        .append(toIndentedString(onlineArchiveEventsCountSum))
+        .append("\n");
     sb.append("    opentelemetryHostTop99p: ")
         .append(toIndentedString(opentelemetryHostTop99p))
         .append("\n");

@@ -82,6 +82,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_UNITS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NPM_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_CONTAINER_AGENT_COUNT_AVG,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM,
@@ -284,6 +285,10 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P_SUM = "npm_host_top99p_sum";
   private Long npmHostTop99pSum;
+
+  public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM =
+      "online_archive_events_count_agg_sum";
+  private Long onlineArchiveEventsCountAggSum;
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM =
       "opentelemetry_host_top99p_sum";
@@ -1707,6 +1712,31 @@ public class UsageSummaryResponse {
     this.npmHostTop99pSum = npmHostTop99pSum;
   }
 
+  public UsageSummaryResponse onlineArchiveEventsCountAggSum(Long onlineArchiveEventsCountAggSum) {
+    this.onlineArchiveEventsCountAggSum = onlineArchiveEventsCountAggSum;
+    return this;
+  }
+
+  /**
+   * Sum of all online archived events over all hours in the current months for all organizations.
+   *
+   * @return onlineArchiveEventsCountAggSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Sum of all online archived events over all hours in the current months for all"
+              + " organizations.")
+  @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOnlineArchiveEventsCountAggSum() {
+    return onlineArchiveEventsCountAggSum;
+  }
+
+  public void setOnlineArchiveEventsCountAggSum(Long onlineArchiveEventsCountAggSum) {
+    this.onlineArchiveEventsCountAggSum = onlineArchiveEventsCountAggSum;
+  }
+
   public UsageSummaryResponse opentelemetryHostTop99pSum(Long opentelemetryHostTop99pSum) {
     this.opentelemetryHostTop99pSum = opentelemetryHostTop99pSum;
     return this;
@@ -2284,6 +2314,9 @@ public class UsageSummaryResponse {
             usageSummaryResponse.netflowIndexedEventsCountAggSum)
         && Objects.equals(this.npmHostTop99pSum, usageSummaryResponse.npmHostTop99pSum)
         && Objects.equals(
+            this.onlineArchiveEventsCountAggSum,
+            usageSummaryResponse.onlineArchiveEventsCountAggSum)
+        && Objects.equals(
             this.opentelemetryHostTop99pSum, usageSummaryResponse.opentelemetryHostTop99pSum)
         && Objects.equals(
             this.profilingContainerAgentCountAvg,
@@ -2375,6 +2408,7 @@ public class UsageSummaryResponse {
         mobileRumUnitsAggSum,
         netflowIndexedEventsCountAggSum,
         npmHostTop99pSum,
+        onlineArchiveEventsCountAggSum,
         opentelemetryHostTop99pSum,
         profilingContainerAgentCountAvg,
         profilingHostCountTop99pSum,
@@ -2515,6 +2549,9 @@ public class UsageSummaryResponse {
         .append(toIndentedString(netflowIndexedEventsCountAggSum))
         .append("\n");
     sb.append("    npmHostTop99pSum: ").append(toIndentedString(npmHostTop99pSum)).append("\n");
+    sb.append("    onlineArchiveEventsCountAggSum: ")
+        .append(toIndentedString(onlineArchiveEventsCountAggSum))
+        .append("\n");
     sb.append("    opentelemetryHostTop99pSum: ")
         .append(toIndentedString(opentelemetryHostTop99pSum))
         .append("\n");
