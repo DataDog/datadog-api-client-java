@@ -190,6 +190,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _UsageMeteringApi_                    | [**getUsageLogsByRetention**](UsageMeteringApi.md#getUsageLogsByRetention)                                       | **GET** /api/v1/usage/logs-by-retention                                                            | Get hourly logs usage by retention                |
 | _UsageMeteringApi_                    | [**getUsageNetworkFlows**](UsageMeteringApi.md#getUsageNetworkFlows)                                             | **GET** /api/v1/usage/network_flows                                                                | Get hourly usage for Network Flows                |
 | _UsageMeteringApi_                    | [**getUsageNetworkHosts**](UsageMeteringApi.md#getUsageNetworkHosts)                                             | **GET** /api/v1/usage/network_hosts                                                                | Get hourly usage for Network Hosts                |
+| _UsageMeteringApi_                    | [**getUsageOnlineArchive**](UsageMeteringApi.md#getUsageOnlineArchive)                                           | **GET** /api/v1/usage/online-archive                                                               | Get hourly usage for Online Archive               |
 | _UsageMeteringApi_                    | [**getUsageProfiling**](UsageMeteringApi.md#getUsageProfiling)                                                   | **GET** /api/v1/usage/profiling                                                                    | Get hourly usage for profiled hosts               |
 | _UsageMeteringApi_                    | [**getUsageRumSessions**](UsageMeteringApi.md#getUsageRumSessions)                                               | **GET** /api/v1/usage/rum_sessions                                                                 | Get hourly usage for RUM Sessions                 |
 | _UsageMeteringApi_                    | [**getUsageRumUnits**](UsageMeteringApi.md#getUsageRumUnits)                                                     | **GET** /api/v1/usage/rum                                                                          | Get hourly usage for RUM Units                    |
@@ -813,6 +814,8 @@ All URIs are relative to *https://api.datadoghq.com*
 - [UsageNetworkFlowsResponse](UsageNetworkFlowsResponse.md)
 - [UsageNetworkHostsHour](UsageNetworkHostsHour.md)
 - [UsageNetworkHostsResponse](UsageNetworkHostsResponse.md)
+- [UsageOnlineArchiveHour](UsageOnlineArchiveHour.md)
+- [UsageOnlineArchiveResponse](UsageOnlineArchiveResponse.md)
 - [UsageProfilingHour](UsageProfilingHour.md)
 - [UsageProfilingResponse](UsageProfilingResponse.md)
 - [UsageReportsType](UsageReportsType.md)
