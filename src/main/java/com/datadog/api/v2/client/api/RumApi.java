@@ -232,7 +232,7 @@ public class RumApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -287,7 +287,7 @@ public class RumApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<RUMEventsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -414,7 +414,7 @@ public class RumApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -455,7 +455,7 @@ public class RumApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<RUMEventsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
