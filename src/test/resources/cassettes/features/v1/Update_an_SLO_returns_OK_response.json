@@ -1,0 +1,100 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"name\": \"Test-Update_an_SLO_returns_OK_response-1646749095\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_an_SLO_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/slo",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"description\":\"\",\"monitor_tags\":[],\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"thresholds\":[{\"warning\":98.0,\"warning_display\":\"98.\",\"target\":95.0,\"target_display\":\"95.\",\"timeframe\":\"7d\"}],\"type_id\":1,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"id\":\"75d6eadff5155234a11fcf7be783e170\",\"name\":\"Test-Update_an_SLO_returns_OK_response-1646749095\",\"created_at\":1646749096,\"tags\":[],\"modified_at\":1646749096,\"type\":\"metric\"}],\"error\":null}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e08bddef-9942-40f6-252c-f083390fcd8f"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"name\": \"Test-Update_an_SLO_returns_OK_response-1646749095\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 97.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_an_SLO_returns_OK_response"
+        ]
+      },
+      "method": "PUT",
+      "path": "/api/v1/slo/75d6eadff5155234a11fcf7be783e170",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"description\":\"\",\"monitor_tags\":[],\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"thresholds\":[{\"warning\":98.0,\"warning_display\":\"98.\",\"target\":97.0,\"target_display\":\"97.\",\"timeframe\":\"7d\"}],\"type_id\":1,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"id\":\"75d6eadff5155234a11fcf7be783e170\",\"name\":\"Test-Update_an_SLO_returns_OK_response-1646749095\",\"created_at\":1646749096,\"tags\":[],\"modified_at\":1646749097,\"type\":\"metric\"}],\"error\":null}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8f0f1f34-4c6e-52be-7c13-c8b5c1b151cf"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_an_SLO_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/slo/75d6eadff5155234a11fcf7be783e170",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[\"75d6eadff5155234a11fcf7be783e170\"],\"error\":null}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f3b348cc-80bd-c0e4-be8c-073bcfc74db2"
+  }
+]
