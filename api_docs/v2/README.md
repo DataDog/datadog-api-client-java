@@ -4,6 +4,8 @@ All URIs are relative to *https://api.datadoghq.com*
 
 | Class                      | Method                                                                                                       | HTTP request                                                                               | Description                                        |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| _AuditApi_                 | [**listAuditLogs**](AuditApi.md#listAuditLogs)                                                               | **GET** /api/v2/audit/events                                                               | Get a list of Audit Logs events                    |
+| _AuditApi_                 | [**searchAuditLogs**](AuditApi.md#searchAuditLogs)                                                           | **POST** /api/v2/audit/events/search                                                       | Search Audit Logs events                           |
 | _AuthNMappingsApi_         | [**createAuthNMapping**](AuthNMappingsApi.md#createAuthNMapping)                                             | **POST** /api/v2/authn_mappings                                                            | Create an AuthN Mapping                            |
 | _AuthNMappingsApi_         | [**deleteAuthNMapping**](AuthNMappingsApi.md#deleteAuthNMapping)                                             | **DELETE** /api/v2/authn_mappings/{authn_mapping_id}                                       | Delete an AuthN Mapping                            |
 | _AuthNMappingsApi_         | [**getAuthNMapping**](AuthNMappingsApi.md#getAuthNMapping)                                                   | **GET** /api/v2/authn_mappings/{authn_mapping_id}                                          | Get an AuthN Mapping by UUID                       |
@@ -146,6 +148,20 @@ All URIs are relative to *https://api.datadoghq.com*
 - [ApplicationKeyUpdateRequest](ApplicationKeyUpdateRequest.md)
 - [ApplicationKeysSort](ApplicationKeysSort.md)
 - [ApplicationKeysType](ApplicationKeysType.md)
+- [AuditLogsEvent](AuditLogsEvent.md)
+- [AuditLogsEventAttributes](AuditLogsEventAttributes.md)
+- [AuditLogsEventType](AuditLogsEventType.md)
+- [AuditLogsEventsResponse](AuditLogsEventsResponse.md)
+- [AuditLogsQueryFilter](AuditLogsQueryFilter.md)
+- [AuditLogsQueryOptions](AuditLogsQueryOptions.md)
+- [AuditLogsQueryPageOptions](AuditLogsQueryPageOptions.md)
+- [AuditLogsResponseLinks](AuditLogsResponseLinks.md)
+- [AuditLogsResponseMetadata](AuditLogsResponseMetadata.md)
+- [AuditLogsResponsePage](AuditLogsResponsePage.md)
+- [AuditLogsResponseStatus](AuditLogsResponseStatus.md)
+- [AuditLogsSearchEventsRequest](AuditLogsSearchEventsRequest.md)
+- [AuditLogsSort](AuditLogsSort.md)
+- [AuditLogsWarning](AuditLogsWarning.md)
 - [AuthNMapping](AuthNMapping.md)
 - [AuthNMappingAttributes](AuthNMappingAttributes.md)
 - [AuthNMappingCreateAttributes](AuthNMappingCreateAttributes.md)

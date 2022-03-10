@@ -3,16 +3,16 @@
     "httpRequest": {
       "headers": {
         "JAVA-TEST-NAME": [
-          "Validate_API_key_returns_OK_response"
+          "Get_a_list_of_Audit_Logs_events_returns_OK_response"
         ]
       },
       "method": "GET",
-      "path": "/api/v1/validate",
+      "path": "/api/v2/audit/events",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"valid\":true}",
+      "body": "{\"data\":[]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3f83caea-c405-97df-c554-ee2d9f9e4f01"
+    "id": "b4b74b2d-ba5c-1570-8790-c38f0fc03c25"
   }
 ]
