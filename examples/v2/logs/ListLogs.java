@@ -16,7 +16,6 @@ import java.util.*;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("listLogs", true);
     LogsApi apiInstance = new LogsApi(defaultClient);
 
     LogsListRequest body =
