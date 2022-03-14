@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Timeseries or Scalar response. **This feature is currently in beta.** */
+/** Timeseries or Scalar response. */
 @JsonSerialize(
     using = FormulaAndFunctionResponseFormat.FormulaAndFunctionResponseFormatSerializer.class)
 public class FormulaAndFunctionResponseFormat {
