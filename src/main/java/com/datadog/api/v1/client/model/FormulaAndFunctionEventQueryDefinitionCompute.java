@@ -118,7 +118,7 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
     this.metric = metric;
   }
 
-  /** Return true if this FormulaAndFunctionEventQueryDefinition_compute object is equal to o. */
+  /** Return true if this FormulaAndFunctionEventQueryDefinitionCompute object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -25,13 +25,7 @@ public class Example {
 logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2
 """)
             .message("some message Notify: @hipchat-channel")
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("test:examplevalidateamonitorreturnsokresponse");
-                    add("env:ci");
-                  }
-                })
+            .tags(Arrays.asList("test:examplevalidateamonitorreturnsokresponse", "env:ci"))
             .priority(3L)
             .options(
                 new MonitorOptions()

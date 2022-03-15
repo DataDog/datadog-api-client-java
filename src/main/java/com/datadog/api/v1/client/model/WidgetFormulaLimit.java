@@ -78,7 +78,7 @@ public class WidgetFormulaLimit {
     this.order = order;
   }
 
-  /** Return true if this WidgetFormula_limit object is equal to o. */
+  /** Return true if this WidgetFormulaLimit object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -21,11 +21,8 @@ public class Example {
     SyntheticsTriggerBody body =
         new SyntheticsTriggerBody()
             .tests(
-                new ArrayList<SyntheticsTriggerTest>() {
-                  {
-                    add(new SyntheticsTriggerTest().publicId(SYNTHETICS_API_TEST_PUBLIC_ID));
-                  }
-                });
+                Collections.singletonList(
+                    new SyntheticsTriggerTest().publicId(SYNTHETICS_API_TEST_PUBLIC_ID)));
 
     try {
       SyntheticsTriggerCITestsResponse result = apiInstance.triggerTests(body);

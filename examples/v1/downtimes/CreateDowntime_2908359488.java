@@ -6,6 +6,7 @@ import com.datadog.api.v1.client.api.DowntimesApi;
 import com.datadog.api.v1.client.model.Downtime;
 import com.datadog.api.v1.client.model.DowntimeRecurrence;
 import java.time.*;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 public class Example {
@@ -21,22 +22,8 @@ public class Example {
                     .period(1)
                     .type("weeks")
                     .untilDate(OffsetDateTime.now().plusDays(21).toInstant().getEpochSecond())
-                    .weekDays(
-                        new ArrayList<String>() {
-                          {
-                            add("Mon");
-                            add("Tue");
-                            add("Wed");
-                            add("Thu");
-                            add("Fri");
-                          }
-                        }))
-            .scope(
-                new ArrayList<String>() {
-                  {
-                    add("*");
-                  }
-                })
+                    .weekDays(Arrays.asList("Mon", "Tue", "Wed", "Thu", "Fri")))
+            .scope(Collections.singletonList("*"))
             .start(OffsetDateTime.now().toInstant().getEpochSecond())
             .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
             .timezone("Etc/UTC");

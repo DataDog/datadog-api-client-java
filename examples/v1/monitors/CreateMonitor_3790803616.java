@@ -25,13 +25,7 @@ public class Example {
 ci-pipelines("ci_level:pipeline @git.branch:staging* @ci.status:error").rollup("count").by("@git.branch,@ci.pipeline.name").last("5m") >= 1
 """)
             .message("some message Notify: @hipchat-channel")
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("test:examplecreateacipipelinesmonitorreturnsokresponse");
-                    add("env:ci");
-                  }
-                })
+            .tags(Arrays.asList("test:examplecreateacipipelinesmonitorreturnsokresponse", "env:ci"))
             .priority(3L)
             .options(new MonitorOptions().thresholds(new MonitorThresholds().critical(1.0)));
 

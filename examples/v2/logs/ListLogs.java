@@ -16,7 +16,6 @@ import java.util.*;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("listLogs", true);
     LogsApi apiInstance = new LogsApi(defaultClient);
 
     LogsListRequest body =
@@ -24,12 +23,7 @@ public class Example {
             .filter(
                 new LogsQueryFilter()
                     .query("datadog-agent")
-                    .indexes(
-                        new ArrayList<String>() {
-                          {
-                            add("main");
-                          }
-                        })
+                    .indexes(Collections.singletonList("main"))
                     .from("2020-09-17T11:48:36+01:00")
                     .to("2020-09-17T12:48:36+01:00"))
             .sort(LogsSort.TIMESTAMP_ASCENDING)

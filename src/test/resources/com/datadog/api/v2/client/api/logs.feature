@@ -14,6 +14,14 @@ Feature: Logs
     When the request is sent
     Then the response status is 200 OK
 
+  @team:DataDog/logs-app
+  Scenario: Aggregate compute events with group by returns "OK" response
+    Given a valid "appKeyAuth" key in the system
+    And new "AggregateLogs" request
+    And body with value {"compute": [{"aggregation": "count", "interval": "5m", "type": "timeseries"}], "filter": {"from": "now-15m", "indexes": ["main"], "query": "*", "to": "now"}, "group_by": [{"facet": "host", "missing": "miss", "sort": {"type": "measure", "order": "asc", "aggregation": "pc90", "metric": "@duration"}, "total": "recall"}]}
+    When the request is sent
+    Then the response status is 200 OK
+
   @generated @skip @team:DataDog/logs-app
   Scenario: Aggregate events returns "Bad Request" response
     Given a valid "appKeyAuth" key in the system
@@ -67,7 +75,6 @@ Feature: Logs
   @team:DataDog/logs-app
   Scenario: Search logs returns "OK" response
     Given a valid "appKeyAuth" key in the system
-    And operation "ListLogs" enabled
     And new "ListLogs" request
     And body with value {"filter": {"query": "datadog-agent", "indexes": ["main"], "from": "2020-09-17T11:48:36+01:00", "to": "2020-09-17T12:48:36+01:00"}, "sort": "timestamp", "page": {"limit": 5}}
     When the request is sent

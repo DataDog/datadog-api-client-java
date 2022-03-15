@@ -55,7 +55,7 @@ public class LogsResponseMetadataPage {
     this.after = after;
   }
 
-  /** Return true if this LogsResponseMetadata_page object is equal to o. */
+  /** Return true if this LogsResponseMetadataPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

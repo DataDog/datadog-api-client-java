@@ -25,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SyntheticsTestOptions.JSON_PROPERTY_ACCEPT_SELF_SIGNED,
   SyntheticsTestOptions.JSON_PROPERTY_ALLOW_INSECURE,
+  SyntheticsTestOptions.JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION,
   SyntheticsTestOptions.JSON_PROPERTY_DEVICE_IDS,
   SyntheticsTestOptions.JSON_PROPERTY_DISABLE_CORS,
   SyntheticsTestOptions.JSON_PROPERTY_FOLLOW_REDIRECTS,
@@ -45,6 +46,10 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_ALLOW_INSECURE = "allow_insecure";
   private Boolean allowInsecure;
+
+  public static final String JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION =
+      "checkCertificateRevocation";
+  private Boolean checkCertificateRevocation;
 
   public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
   private List<SyntheticsDeviceID> deviceIds = null;
@@ -122,6 +127,31 @@ public class SyntheticsTestOptions {
 
   public void setAllowInsecure(Boolean allowInsecure) {
     this.allowInsecure = allowInsecure;
+  }
+
+  public SyntheticsTestOptions checkCertificateRevocation(Boolean checkCertificateRevocation) {
+    this.checkCertificateRevocation = checkCertificateRevocation;
+    return this;
+  }
+
+  /**
+   * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+   *
+   * @return checkCertificateRevocation
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "For SSL test, whether or not the test should fail on revoked certificate in stapled"
+              + " OCSP.")
+  @JsonProperty(JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCheckCertificateRevocation() {
+    return checkCertificateRevocation;
+  }
+
+  public void setCheckCertificateRevocation(Boolean checkCertificateRevocation) {
+    this.checkCertificateRevocation = checkCertificateRevocation;
   }
 
   public SyntheticsTestOptions deviceIds(List<SyntheticsDeviceID> deviceIds) {
@@ -394,6 +424,8 @@ public class SyntheticsTestOptions {
     SyntheticsTestOptions syntheticsTestOptions = (SyntheticsTestOptions) o;
     return Objects.equals(this.acceptSelfSigned, syntheticsTestOptions.acceptSelfSigned)
         && Objects.equals(this.allowInsecure, syntheticsTestOptions.allowInsecure)
+        && Objects.equals(
+            this.checkCertificateRevocation, syntheticsTestOptions.checkCertificateRevocation)
         && Objects.equals(this.deviceIds, syntheticsTestOptions.deviceIds)
         && Objects.equals(this.disableCors, syntheticsTestOptions.disableCors)
         && Objects.equals(this.followRedirects, syntheticsTestOptions.followRedirects)
@@ -412,6 +444,7 @@ public class SyntheticsTestOptions {
     return Objects.hash(
         acceptSelfSigned,
         allowInsecure,
+        checkCertificateRevocation,
         deviceIds,
         disableCors,
         followRedirects,
@@ -431,6 +464,9 @@ public class SyntheticsTestOptions {
     sb.append("class SyntheticsTestOptions {\n");
     sb.append("    acceptSelfSigned: ").append(toIndentedString(acceptSelfSigned)).append("\n");
     sb.append("    allowInsecure: ").append(toIndentedString(allowInsecure)).append("\n");
+    sb.append("    checkCertificateRevocation: ")
+        .append(toIndentedString(checkCertificateRevocation))
+        .append("\n");
     sb.append("    deviceIds: ").append(toIndentedString(deviceIds)).append("\n");
     sb.append("    disableCors: ").append(toIndentedString(disableCors)).append("\n");
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");

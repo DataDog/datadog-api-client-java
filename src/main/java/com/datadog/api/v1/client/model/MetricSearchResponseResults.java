@@ -59,7 +59,7 @@ public class MetricSearchResponseResults {
     this.metrics = metrics;
   }
 
-  /** Return true if this MetricSearchResponse_results object is equal to o. */
+  /** Return true if this MetricSearchResponseResults object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

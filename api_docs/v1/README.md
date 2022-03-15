@@ -176,6 +176,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _UsageMeteringApi_                    | [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution)                                               | **GET** /api/v1/usage/attribution                                                                  | Get Usage Attribution                             |
 | _UsageMeteringApi_                    | [**getUsageAuditLogs**](UsageMeteringApi.md#getUsageAuditLogs)                                                   | **GET** /api/v1/usage/audit_logs                                                                   | Get hourly usage for audit logs                   |
 | _UsageMeteringApi_                    | [**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary)                                       | **GET** /api/v1/usage/billable-summary                                                             | Get billable usage across your account            |
+| _UsageMeteringApi_                    | [**getUsageCIApp**](UsageMeteringApi.md#getUsageCIApp)                                                           | **GET** /api/v1/usage/ci-app                                                                       | Get hourly usage for CI Visibility                |
 | _UsageMeteringApi_                    | [**getUsageCWS**](UsageMeteringApi.md#getUsageCWS)                                                               | **GET** /api/v1/usage/cws                                                                          | Get hourly usage for Cloud Workload Security      |
 | _UsageMeteringApi_                    | [**getUsageCloudSecurityPostureManagement**](UsageMeteringApi.md#getUsageCloudSecurityPostureManagement)         | **GET** /api/v1/usage/cspm                                                                         | Get hourly usage for CSPM                         |
 | _UsageMeteringApi_                    | [**getUsageDBM**](UsageMeteringApi.md#getUsageDBM)                                                               | **GET** /api/v1/usage/dbm                                                                          | Get hourly usage for Database Monitoring          |
@@ -189,6 +190,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _UsageMeteringApi_                    | [**getUsageLogsByRetention**](UsageMeteringApi.md#getUsageLogsByRetention)                                       | **GET** /api/v1/usage/logs-by-retention                                                            | Get hourly logs usage by retention                |
 | _UsageMeteringApi_                    | [**getUsageNetworkFlows**](UsageMeteringApi.md#getUsageNetworkFlows)                                             | **GET** /api/v1/usage/network_flows                                                                | Get hourly usage for Network Flows                |
 | _UsageMeteringApi_                    | [**getUsageNetworkHosts**](UsageMeteringApi.md#getUsageNetworkHosts)                                             | **GET** /api/v1/usage/network_hosts                                                                | Get hourly usage for Network Hosts                |
+| _UsageMeteringApi_                    | [**getUsageOnlineArchive**](UsageMeteringApi.md#getUsageOnlineArchive)                                           | **GET** /api/v1/usage/online-archive                                                               | Get hourly usage for Online Archive               |
 | _UsageMeteringApi_                    | [**getUsageProfiling**](UsageMeteringApi.md#getUsageProfiling)                                                   | **GET** /api/v1/usage/profiling                                                                    | Get hourly usage for profiled hosts               |
 | _UsageMeteringApi_                    | [**getUsageRumSessions**](UsageMeteringApi.md#getUsageRumSessions)                                               | **GET** /api/v1/usage/rum_sessions                                                                 | Get hourly usage for RUM Sessions                 |
 | _UsageMeteringApi_                    | [**getUsageRumUnits**](UsageMeteringApi.md#getUsageRumUnits)                                                     | **GET** /api/v1/usage/rum                                                                          | Get hourly usage for RUM Units                    |
@@ -774,6 +776,8 @@ All URIs are relative to *https://api.datadoghq.com*
 - [UsageBillableSummaryHour](UsageBillableSummaryHour.md)
 - [UsageBillableSummaryKeys](UsageBillableSummaryKeys.md)
 - [UsageBillableSummaryResponse](UsageBillableSummaryResponse.md)
+- [UsageCIVisibilityHour](UsageCIVisibilityHour.md)
+- [UsageCIVisibilityResponse](UsageCIVisibilityResponse.md)
 - [UsageCWSHour](UsageCWSHour.md)
 - [UsageCWSResponse](UsageCWSResponse.md)
 - [UsageCloudSecurityPostureManagementHour](UsageCloudSecurityPostureManagementHour.md)
@@ -810,6 +814,8 @@ All URIs are relative to *https://api.datadoghq.com*
 - [UsageNetworkFlowsResponse](UsageNetworkFlowsResponse.md)
 - [UsageNetworkHostsHour](UsageNetworkHostsHour.md)
 - [UsageNetworkHostsResponse](UsageNetworkHostsResponse.md)
+- [UsageOnlineArchiveHour](UsageOnlineArchiveHour.md)
+- [UsageOnlineArchiveResponse](UsageOnlineArchiveResponse.md)
 - [UsageProfilingHour](UsageProfilingHour.md)
 - [UsageProfilingResponse](UsageProfilingResponse.md)
 - [UsageReportsType](UsageReportsType.md)
@@ -908,24 +914,24 @@ Authentication schemes defined for the API:
 - **Flow**: accessCode
 - **Authorization URL**: /oauth2/v1/authorize
 - **Scopes**:
-  - dashboards_public_share: The ability to share dashboards externally.
-  - dashboards_read: The ability to view dashboards.
-  - dashboards_write: The ability to create and change dashboards.
-  - events_read: The ability to read Events data.
-  - metrics_read: The ability to view custom metrics.
-  - monitors_downtime: The ability to set downtimes to suppress alerts from any monitor in an organization. The ability to write monitors is not required to set downtimes.
-  - monitors_read: The ability to view monitors.
-  - monitors_write: The ability to change, mute, and delete individual monitors.
-  - synthetics_global_variable_read: The ability to view, search and use in tests the list of global variables available for Synthetics.
-  - synthetics_global_variable_write: The ability to create, edit, and delete global variables for Synthetics.
-  - synthetics_private_location_read: The ability to view, search and use in tests the list of private locations available.
-  - synthetics_private_location_write: The ability to create and delete private locations as well as seeing the associated installation guidelines.
-  - synthetics_read: The ability to list and view configured Synthetic tests.
-  - synthetics_write: The ability to create, edit, and delete Synthetic tests.
-  - timeseries_query: The ability to query Timeseries data.
-  - usage_read: The ability to view your organization&#39;s usage and usage attribution.
-  - user_access_invite: The ability to invite other users to your organization.
-  - user_access_manage: The ability to disable users, manage user roles, and manage SAML-to-role mappings.
+  - dashboards_public_share: Share dashboards externally.
+  - dashboards_read: View dashboards.
+  - dashboards_write: Create and change dashboards.
+  - events_read: Read Events data.
+  - metrics_read: View custom metrics.
+  - monitors_downtime: Set downtimes to suppress alerts from any monitor in an organization. The ability to write monitors is not required to set downtimes.
+  - monitors_read: View monitors.
+  - monitors_write: Change, mute, and delete individual monitors.
+  - synthetics_global_variable_read: View, search, and use in tests the list of global variables available for Synthetics.
+  - synthetics_global_variable_write: Create, edit, and delete global variables for Synthetics.
+  - synthetics_private_location_read: View, search, and use in tests the list of available private locations.
+  - synthetics_private_location_write: Create and delete private locations as well as seeing the associated installation guidelines.
+  - synthetics_read: List and view configured Synthetic tests.
+  - synthetics_write: Create, edit, and delete Synthetic tests.
+  - timeseries_query: Query Timeseries data.
+  - usage_read: View your organization&#39;s usage and usage attribution.
+  - user_access_invite: Invite other users to your organization.
+  - user_access_manage: Disable users, manage user roles, and manage SAML-to-role mappings.
 
 ### apiKeyAuth
 

@@ -29,41 +29,26 @@ public class Example {
             .layoutType(DashboardLayoutType.ORDERED)
             .title("Example-Create_a_new_dashboard_with_list_stream_widget with list_stream widget")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new ListStreamWidgetDefinition()
-                                        .type(ListStreamWidgetDefinitionType.LIST_STREAM)
-                                        .requests(
-                                            new ArrayList<ListStreamWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new ListStreamWidgetRequest()
-                                                        .columns(
-                                                            new ArrayList<ListStreamColumn>() {
-                                                              {
-                                                                add(
-                                                                    new ListStreamColumn()
-                                                                        .width(
-                                                                            ListStreamColumnWidth
-                                                                                .AUTO)
-                                                                        .field("timestamp"));
-                                                              }
-                                                            })
-                                                        .query(
-                                                            new ListStreamQuery()
-                                                                .dataSource(
-                                                                    ListStreamSource.ISSUE_STREAM)
-                                                                .queryString(""))
-                                                        .responseFormat(
-                                                            ListStreamResponseFormat.EVENT_LIST));
-                                              }
-                                            }))));
-                  }
-                });
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new ListStreamWidgetDefinition()
+                                    .type(ListStreamWidgetDefinitionType.LIST_STREAM)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new ListStreamWidgetRequest()
+                                                .columns(
+                                                    Collections.singletonList(
+                                                        new ListStreamColumn()
+                                                            .width(ListStreamColumnWidth.AUTO)
+                                                            .field("timestamp")))
+                                                .query(
+                                                    new ListStreamQuery()
+                                                        .dataSource(ListStreamSource.ISSUE_STREAM)
+                                                        .queryString(""))
+                                                .responseFormat(
+                                                    ListStreamResponseFormat.EVENT_LIST)))))));
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

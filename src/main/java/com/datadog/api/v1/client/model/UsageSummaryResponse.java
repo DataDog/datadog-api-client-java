@@ -44,6 +44,10 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_BROWSER_RUM_UNITS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P_SUM,
@@ -78,6 +82,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_UNITS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NPM_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_CONTAINER_AGENT_COUNT_AVG,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM,
@@ -149,6 +154,22 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_BROWSER_RUM_UNITS_AGG_SUM = "browser_rum_units_agg_sum";
   private Long browserRumUnitsAggSum;
+
+  public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_AGG_SUM =
+      "ci_pipeline_indexed_spans_agg_sum";
+  private Long ciPipelineIndexedSpansAggSum;
+
+  public static final String JSON_PROPERTY_CI_TEST_INDEXED_SPANS_AGG_SUM =
+      "ci_test_indexed_spans_agg_sum";
+  private Long ciTestIndexedSpansAggSum;
+
+  public static final String JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM_SUM =
+      "ci_visibility_pipeline_committers_hwm_sum";
+  private Long ciVisibilityPipelineCommittersHwmSum;
+
+  public static final String JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM_SUM =
+      "ci_visibility_test_committers_hwm_sum";
+  private Long ciVisibilityTestCommittersHwmSum;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG_SUM = "container_avg_sum";
   private Long containerAvgSum;
@@ -264,6 +285,10 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P_SUM = "npm_host_top99p_sum";
   private Long npmHostTop99pSum;
+
+  public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM =
+      "online_archive_events_count_agg_sum";
+  private Long onlineArchiveEventsCountAggSum;
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM =
       "opentelemetry_host_top99p_sum";
@@ -697,6 +722,112 @@ public class UsageSummaryResponse {
 
   public void setBrowserRumUnitsAggSum(Long browserRumUnitsAggSum) {
     this.browserRumUnitsAggSum = browserRumUnitsAggSum;
+  }
+
+  public UsageSummaryResponse ciPipelineIndexedSpansAggSum(Long ciPipelineIndexedSpansAggSum) {
+    this.ciPipelineIndexedSpansAggSum = ciPipelineIndexedSpansAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all CI pipeline indexed spans over all hours in the current months for all
+   * organizations.
+   *
+   * @return ciPipelineIndexedSpansAggSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all CI pipeline indexed spans over all hours in the current months for"
+              + " all organizations.")
+  @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCiPipelineIndexedSpansAggSum() {
+    return ciPipelineIndexedSpansAggSum;
+  }
+
+  public void setCiPipelineIndexedSpansAggSum(Long ciPipelineIndexedSpansAggSum) {
+    this.ciPipelineIndexedSpansAggSum = ciPipelineIndexedSpansAggSum;
+  }
+
+  public UsageSummaryResponse ciTestIndexedSpansAggSum(Long ciTestIndexedSpansAggSum) {
+    this.ciTestIndexedSpansAggSum = ciTestIndexedSpansAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all CI test indexed spans over all hours in the current months for all
+   * organizations.
+   *
+   * @return ciTestIndexedSpansAggSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all CI test indexed spans over all hours in the current months for all"
+              + " organizations.")
+  @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCiTestIndexedSpansAggSum() {
+    return ciTestIndexedSpansAggSum;
+  }
+
+  public void setCiTestIndexedSpansAggSum(Long ciTestIndexedSpansAggSum) {
+    this.ciTestIndexedSpansAggSum = ciTestIndexedSpansAggSum;
+  }
+
+  public UsageSummaryResponse ciVisibilityPipelineCommittersHwmSum(
+      Long ciVisibilityPipelineCommittersHwmSum) {
+    this.ciVisibilityPipelineCommittersHwmSum = ciVisibilityPipelineCommittersHwmSum;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of all CI visibility pipeline committers over all hours in the
+   * current months for all organizations.
+   *
+   * @return ciVisibilityPipelineCommittersHwmSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the high-water mark of all CI visibility pipeline committers over all hours in"
+              + " the current months for all organizations.")
+  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCiVisibilityPipelineCommittersHwmSum() {
+    return ciVisibilityPipelineCommittersHwmSum;
+  }
+
+  public void setCiVisibilityPipelineCommittersHwmSum(Long ciVisibilityPipelineCommittersHwmSum) {
+    this.ciVisibilityPipelineCommittersHwmSum = ciVisibilityPipelineCommittersHwmSum;
+  }
+
+  public UsageSummaryResponse ciVisibilityTestCommittersHwmSum(
+      Long ciVisibilityTestCommittersHwmSum) {
+    this.ciVisibilityTestCommittersHwmSum = ciVisibilityTestCommittersHwmSum;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of all CI visibility test committers over all hours in the current
+   * months for all organizations.
+   *
+   * @return ciVisibilityTestCommittersHwmSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the high-water mark of all CI visibility test committers over all hours in the"
+              + " current months for all organizations.")
+  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCiVisibilityTestCommittersHwmSum() {
+    return ciVisibilityTestCommittersHwmSum;
+  }
+
+  public void setCiVisibilityTestCommittersHwmSum(Long ciVisibilityTestCommittersHwmSum) {
+    this.ciVisibilityTestCommittersHwmSum = ciVisibilityTestCommittersHwmSum;
   }
 
   public UsageSummaryResponse containerAvgSum(Long containerAvgSum) {
@@ -1581,6 +1712,31 @@ public class UsageSummaryResponse {
     this.npmHostTop99pSum = npmHostTop99pSum;
   }
 
+  public UsageSummaryResponse onlineArchiveEventsCountAggSum(Long onlineArchiveEventsCountAggSum) {
+    this.onlineArchiveEventsCountAggSum = onlineArchiveEventsCountAggSum;
+    return this;
+  }
+
+  /**
+   * Sum of all online archived events over all hours in the current months for all organizations.
+   *
+   * @return onlineArchiveEventsCountAggSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Sum of all online archived events over all hours in the current months for all"
+              + " organizations.")
+  @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOnlineArchiveEventsCountAggSum() {
+    return onlineArchiveEventsCountAggSum;
+  }
+
+  public void setOnlineArchiveEventsCountAggSum(Long onlineArchiveEventsCountAggSum) {
+    this.onlineArchiveEventsCountAggSum = onlineArchiveEventsCountAggSum;
+  }
+
   public UsageSummaryResponse opentelemetryHostTop99pSum(Long opentelemetryHostTop99pSum) {
     this.opentelemetryHostTop99pSum = opentelemetryHostTop99pSum;
     return this;
@@ -2096,6 +2252,16 @@ public class UsageSummaryResponse {
             this.browserRumReplaySessionCountAggSum,
             usageSummaryResponse.browserRumReplaySessionCountAggSum)
         && Objects.equals(this.browserRumUnitsAggSum, usageSummaryResponse.browserRumUnitsAggSum)
+        && Objects.equals(
+            this.ciPipelineIndexedSpansAggSum, usageSummaryResponse.ciPipelineIndexedSpansAggSum)
+        && Objects.equals(
+            this.ciTestIndexedSpansAggSum, usageSummaryResponse.ciTestIndexedSpansAggSum)
+        && Objects.equals(
+            this.ciVisibilityPipelineCommittersHwmSum,
+            usageSummaryResponse.ciVisibilityPipelineCommittersHwmSum)
+        && Objects.equals(
+            this.ciVisibilityTestCommittersHwmSum,
+            usageSummaryResponse.ciVisibilityTestCommittersHwmSum)
         && Objects.equals(this.containerAvgSum, usageSummaryResponse.containerAvgSum)
         && Objects.equals(this.containerHwmSum, usageSummaryResponse.containerHwmSum)
         && Objects.equals(this.cspmAasHostTop99pSum, usageSummaryResponse.cspmAasHostTop99pSum)
@@ -2147,6 +2313,9 @@ public class UsageSummaryResponse {
             this.netflowIndexedEventsCountAggSum,
             usageSummaryResponse.netflowIndexedEventsCountAggSum)
         && Objects.equals(this.npmHostTop99pSum, usageSummaryResponse.npmHostTop99pSum)
+        && Objects.equals(
+            this.onlineArchiveEventsCountAggSum,
+            usageSummaryResponse.onlineArchiveEventsCountAggSum)
         && Objects.equals(
             this.opentelemetryHostTop99pSum, usageSummaryResponse.opentelemetryHostTop99pSum)
         && Objects.equals(
@@ -2201,6 +2370,10 @@ public class UsageSummaryResponse {
         browserRumLiteSessionCountAggSum,
         browserRumReplaySessionCountAggSum,
         browserRumUnitsAggSum,
+        ciPipelineIndexedSpansAggSum,
+        ciTestIndexedSpansAggSum,
+        ciVisibilityPipelineCommittersHwmSum,
+        ciVisibilityTestCommittersHwmSum,
         containerAvgSum,
         containerHwmSum,
         cspmAasHostTop99pSum,
@@ -2235,6 +2408,7 @@ public class UsageSummaryResponse {
         mobileRumUnitsAggSum,
         netflowIndexedEventsCountAggSum,
         npmHostTop99pSum,
+        onlineArchiveEventsCountAggSum,
         opentelemetryHostTop99pSum,
         profilingContainerAgentCountAvg,
         profilingHostCountTop99pSum,
@@ -2290,6 +2464,18 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    browserRumUnitsAggSum: ")
         .append(toIndentedString(browserRumUnitsAggSum))
+        .append("\n");
+    sb.append("    ciPipelineIndexedSpansAggSum: ")
+        .append(toIndentedString(ciPipelineIndexedSpansAggSum))
+        .append("\n");
+    sb.append("    ciTestIndexedSpansAggSum: ")
+        .append(toIndentedString(ciTestIndexedSpansAggSum))
+        .append("\n");
+    sb.append("    ciVisibilityPipelineCommittersHwmSum: ")
+        .append(toIndentedString(ciVisibilityPipelineCommittersHwmSum))
+        .append("\n");
+    sb.append("    ciVisibilityTestCommittersHwmSum: ")
+        .append(toIndentedString(ciVisibilityTestCommittersHwmSum))
         .append("\n");
     sb.append("    containerAvgSum: ").append(toIndentedString(containerAvgSum)).append("\n");
     sb.append("    containerHwmSum: ").append(toIndentedString(containerHwmSum)).append("\n");
@@ -2363,6 +2549,9 @@ public class UsageSummaryResponse {
         .append(toIndentedString(netflowIndexedEventsCountAggSum))
         .append("\n");
     sb.append("    npmHostTop99pSum: ").append(toIndentedString(npmHostTop99pSum)).append("\n");
+    sb.append("    onlineArchiveEventsCountAggSum: ")
+        .append(toIndentedString(onlineArchiveEventsCountAggSum))
+        .append("\n");
     sb.append("    opentelemetryHostTop99pSum: ")
         .append(toIndentedString(opentelemetryHostTop99pSum))
         .append("\n");

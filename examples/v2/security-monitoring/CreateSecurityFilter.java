@@ -26,14 +26,10 @@ public class Example {
                     .attributes(
                         new SecurityFilterCreateAttributes()
                             .exclusionFilters(
-                                new ArrayList<SecurityFilterExclusionFilter>() {
-                                  {
-                                    add(
-                                        new SecurityFilterExclusionFilter()
-                                            .name("Exclude staging")
-                                            .query("source:staging"));
-                                  }
-                                })
+                                Collections.singletonList(
+                                    new SecurityFilterExclusionFilter()
+                                        .name("Exclude staging")
+                                        .query("source:staging")))
                             .filteredDataType(SecurityFilterFilteredDataType.LOGS)
                             .isEnabled(true)
                             .name("Example-Create_a_security_filter_returns_OK_response")

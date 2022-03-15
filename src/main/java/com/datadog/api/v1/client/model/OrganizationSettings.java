@@ -310,7 +310,7 @@ public class OrganizationSettings {
     this.samlStrictMode = samlStrictMode;
   }
 
-  /** Return true if this Organization_settings object is equal to o. */
+  /** Return true if this OrganizationSettings object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

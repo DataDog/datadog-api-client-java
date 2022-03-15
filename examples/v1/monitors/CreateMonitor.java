@@ -26,20 +26,9 @@ public class Example {
 logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2
 """)
             .message("some message Notify: @hipchat-channel")
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("test:examplecreateamonitorreturnsokresponse");
-                    add("env:ci");
-                  }
-                })
+            .tags(Arrays.asList("test:examplecreateamonitorreturnsokresponse", "env:ci"))
             .priority(3L)
-            .restrictedRoles(
-                new ArrayList<String>() {
-                  {
-                    add(ROLE_DATA_ID);
-                  }
-                });
+            .restrictedRoles(Collections.singletonList(ROLE_DATA_ID));
 
     try {
       Monitor result = apiInstance.createMonitor(body);

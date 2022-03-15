@@ -4,7 +4,6 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.SecurityMonitoringApi;
-import com.datadog.api.v2.client.model.SecurityFilterExclusionFilter;
 import com.datadog.api.v2.client.model.SecurityFilterFilteredDataType;
 import com.datadog.api.v2.client.model.SecurityFilterResponse;
 import com.datadog.api.v2.client.model.SecurityFilterType;
@@ -28,12 +27,6 @@ public class Example {
                 new SecurityFilterUpdateData()
                     .attributes(
                         new SecurityFilterUpdateAttributes()
-                            .exclusionFilters(
-                                new ArrayList<SecurityFilterExclusionFilter>() {
-                                  {
-                                    ;
-                                  }
-                                })
                             .filteredDataType(SecurityFilterFilteredDataType.LOGS)
                             .isEnabled(true)
                             .name("Example-Update_a_security_filter_returns_OK_response")

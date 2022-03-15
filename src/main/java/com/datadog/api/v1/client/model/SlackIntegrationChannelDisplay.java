@@ -129,7 +129,7 @@ public class SlackIntegrationChannelDisplay {
     this.tags = tags;
   }
 
-  /** Return true if this SlackIntegrationChannel_display object is equal to o. */
+  /** Return true if this SlackIntegrationChannelDisplay object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -57,7 +57,7 @@ public class LogQueryDefinitionSearch {
     this.query = query;
   }
 
-  /** Return true if this LogQueryDefinition_search object is equal to o. */
+  /** Return true if this LogQueryDefinitionSearch object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

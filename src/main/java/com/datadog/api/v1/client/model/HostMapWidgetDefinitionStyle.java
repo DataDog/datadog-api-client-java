@@ -129,7 +129,7 @@ public class HostMapWidgetDefinitionStyle {
     this.paletteFlip = paletteFlip;
   }
 
-  /** Return true if this HostMapWidgetDefinition_style object is equal to o. */
+  /** Return true if this HostMapWidgetDefinitionStyle object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

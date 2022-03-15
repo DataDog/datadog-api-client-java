@@ -4,7 +4,6 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.SecurityMonitoringApi;
-import com.datadog.api.v2.client.model.SecurityMonitoringFilter;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCaseCreate;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleEvaluationWindow;
@@ -28,61 +27,23 @@ public class Example {
         new SecurityMonitoringRuleCreatePayload()
             .name("Example-Create_a_detection_rule_with_type_workload_security_returns_OK_response")
             .queries(
-                new ArrayList<SecurityMonitoringRuleQueryCreate>() {
-                  {
-                    add(
-                        new SecurityMonitoringRuleQueryCreate()
-                            .query("@test:true")
-                            .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
-                            .groupByFields(
-                                new ArrayList<String>() {
-                                  {
-                                    ;
-                                  }
-                                })
-                            .distinctFields(
-                                new ArrayList<String>() {
-                                  {
-                                    ;
-                                  }
-                                })
-                            .metric(""));
-                  }
-                })
-            .filters(
-                new ArrayList<SecurityMonitoringFilter>() {
-                  {
-                    ;
-                  }
-                })
+                Collections.singletonList(
+                    new SecurityMonitoringRuleQueryCreate()
+                        .query("@test:true")
+                        .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
+                        .metric("")))
             .cases(
-                new ArrayList<SecurityMonitoringRuleCaseCreate>() {
-                  {
-                    add(
-                        new SecurityMonitoringRuleCaseCreate()
-                            .name("")
-                            .status(SecurityMonitoringRuleSeverity.INFO)
-                            .condition("a > 0")
-                            .notifications(
-                                new ArrayList<String>() {
-                                  {
-                                    ;
-                                  }
-                                }));
-                  }
-                })
+                Collections.singletonList(
+                    new SecurityMonitoringRuleCaseCreate()
+                        .name("")
+                        .status(SecurityMonitoringRuleSeverity.INFO)
+                        .condition("a > 0")))
             .options(
                 new SecurityMonitoringRuleOptions()
                     .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.FIFTEEN_MINUTES)
                     .keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)
                     .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.ONE_DAY))
             .message("Test rule")
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    ;
-                  }
-                })
             .isEnabled(true)
             .type(SecurityMonitoringRuleTypeCreate.WORKLOAD_SECURITY);
 

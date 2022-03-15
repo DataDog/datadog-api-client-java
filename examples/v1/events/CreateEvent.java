@@ -18,12 +18,7 @@ public class Example {
         new EventCreateRequest()
             .title("Example-Post_an_event_returns_OK_response")
             .text("A text message.")
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("test:ExamplePostaneventreturnsOKresponse");
-                  }
-                });
+            .tags(Collections.singletonList("test:ExamplePostaneventreturnsOKresponse"));
 
     try {
       EventCreateResponse result = apiInstance.createEvent(body);

@@ -30,52 +30,37 @@ public class Example {
             .layoutType(DashboardLayoutType.ORDERED)
             .title("Example-Create_a_new_dashboard_returns_OK_response with Profile Metrics Query")
             .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new TimeseriesWidgetDefinition()
-                                        .type(TimeseriesWidgetDefinitionType.TIMESERIES)
-                                        .requests(
-                                            new ArrayList<TimeseriesWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new TimeseriesWidgetRequest()
-                                                        .profileMetricsQuery(
-                                                            new LogQueryDefinition()
-                                                                .compute(
-                                                                    new LogsQueryCompute()
-                                                                        .aggregation("sum")
-                                                                        .facet(
-                                                                            "@prof_core_cpu_cores"))
-                                                                .search(
-                                                                    new LogQueryDefinitionSearch()
-                                                                        .query("runtime:jvm"))
-                                                                .groupBy(
-                                                                    new ArrayList<
-                                                                        LogQueryDefinitionGroupBy>() {
-                                                                      {
-                                                                        add(
-                                                                            new LogQueryDefinitionGroupBy()
-                                                                                .facet("service")
-                                                                                .limit(10L)
-                                                                                .sort(
-                                                                                    new LogQueryDefinitionGroupBySort()
-                                                                                        .aggregation(
-                                                                                            "sum")
-                                                                                        .order(
-                                                                                            WidgetSort
-                                                                                                .DESCENDING)
-                                                                                        .facet(
-                                                                                            "@prof_core_cpu_cores")));
-                                                                      }
-                                                                    })));
-                                              }
-                                            }))));
-                  }
-                });
+                Collections.singletonList(
+                    new Widget()
+                        .definition(
+                            new WidgetDefinition(
+                                new TimeseriesWidgetDefinition()
+                                    .type(TimeseriesWidgetDefinitionType.TIMESERIES)
+                                    .requests(
+                                        Collections.singletonList(
+                                            new TimeseriesWidgetRequest()
+                                                .profileMetricsQuery(
+                                                    new LogQueryDefinition()
+                                                        .compute(
+                                                            new LogsQueryCompute()
+                                                                .aggregation("sum")
+                                                                .facet("@prof_core_cpu_cores"))
+                                                        .search(
+                                                            new LogQueryDefinitionSearch()
+                                                                .query("runtime:jvm"))
+                                                        .groupBy(
+                                                            Collections.singletonList(
+                                                                new LogQueryDefinitionGroupBy()
+                                                                    .facet("service")
+                                                                    .limit(10L)
+                                                                    .sort(
+                                                                        new LogQueryDefinitionGroupBySort()
+                                                                            .aggregation("sum")
+                                                                            .order(
+                                                                                WidgetSort
+                                                                                    .DESCENDING)
+                                                                            .facet(
+                                                                                "@prof_core_cpu_cores")))))))))));
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

@@ -496,7 +496,7 @@ public class SLOResponseData {
     this.type = type;
   }
 
-  /** Return true if this SLOResponse_data object is equal to o. */
+  /** Return true if this SLOResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

@@ -1194,6 +1194,12 @@
       "type": "safe"
     }
   },
+  "GetUsageCIApp": {
+    "tag": "Usage Metering",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "GetUsageCloudSecurityPostureManagement": {
     "tag": "Usage Metering",
     "undo": {
@@ -1285,6 +1291,12 @@
     }
   },
   "GetUsageNetworkHosts": {
+    "tag": "Usage Metering",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetUsageOnlineArchive": {
     "tag": "Usage Metering",
     "undo": {
       "type": "safe"

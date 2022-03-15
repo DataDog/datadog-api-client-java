@@ -78,7 +78,7 @@ public class SyntheticsAPITestResultShortResult {
     this.timings = timings;
   }
 
-  /** Return true if this SyntheticsAPITestResultShort_result object is equal to o. */
+  /** Return true if this SyntheticsAPITestResultShortResult object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

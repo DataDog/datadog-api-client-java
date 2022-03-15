@@ -15,6 +15,7 @@ import com.datadog.api.v1.client.model.UsageAttributionSort;
 import com.datadog.api.v1.client.model.UsageAttributionSupportedMetrics;
 import com.datadog.api.v1.client.model.UsageAuditLogsResponse;
 import com.datadog.api.v1.client.model.UsageBillableSummaryResponse;
+import com.datadog.api.v1.client.model.UsageCIVisibilityResponse;
 import com.datadog.api.v1.client.model.UsageCWSResponse;
 import com.datadog.api.v1.client.model.UsageCloudSecurityPostureManagementResponse;
 import com.datadog.api.v1.client.model.UsageCustomReportsResponse;
@@ -31,6 +32,7 @@ import com.datadog.api.v1.client.model.UsageLogsByRetentionResponse;
 import com.datadog.api.v1.client.model.UsageLogsResponse;
 import com.datadog.api.v1.client.model.UsageNetworkFlowsResponse;
 import com.datadog.api.v1.client.model.UsageNetworkHostsResponse;
+import com.datadog.api.v1.client.model.UsageOnlineArchiveResponse;
 import com.datadog.api.v1.client.model.UsageProfilingResponse;
 import com.datadog.api.v1.client.model.UsageRumSessionsResponse;
 import com.datadog.api.v1.client.model.UsageRumUnitsResponse;
@@ -2787,6 +2789,210 @@ public class UsageMeteringApi {
         new GenericType<UsageBillableSummaryResponse>() {});
   }
 
+  /** Manage optional parameters to getUsageCIApp. */
+  public static class GetUsageCIAppOptionalParameters {
+    private OffsetDateTime endHr;
+
+    /**
+     * Set endHr
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageCIAppOptionalParameters
+     */
+    public GetUsageCIAppOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly usage for CI Visibility
+   *
+   * <p>See {@link #getUsageCIAppWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageCIVisibilityResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageCIVisibilityResponse getUsageCIApp(OffsetDateTime startHr) throws ApiException {
+    return getUsageCIAppWithHttpInfo(startHr, new GetUsageCIAppOptionalParameters()).getData();
+  }
+
+  /**
+   * Get hourly usage for CI Visibility
+   *
+   * <p>See {@link #getUsageCIAppWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return CompletableFuture&lt;UsageCIVisibilityResponse&gt;
+   */
+  public CompletableFuture<UsageCIVisibilityResponse> getUsageCIAppAsync(OffsetDateTime startHr) {
+    return getUsageCIAppWithHttpInfoAsync(startHr, new GetUsageCIAppOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for CI Visibility
+   *
+   * <p>See {@link #getUsageCIAppWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageCIVisibilityResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageCIVisibilityResponse getUsageCIApp(
+      OffsetDateTime startHr, GetUsageCIAppOptionalParameters parameters) throws ApiException {
+    return getUsageCIAppWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for CI Visibility
+   *
+   * <p>See {@link #getUsageCIAppWithHttpInfoAsync}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;UsageCIVisibilityResponse&gt;
+   */
+  public CompletableFuture<UsageCIVisibilityResponse> getUsageCIAppAsync(
+      OffsetDateTime startHr, GetUsageCIAppOptionalParameters parameters) {
+    return getUsageCIAppWithHttpInfoAsync(startHr, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for CI Visibility
+   *
+   * <p>Get hourly usage for CI Visibility (Tests, Pipeline, Combo, and Spans).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageCIVisibilityResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageCIVisibilityResponse> getUsageCIAppWithHttpInfo(
+      OffsetDateTime startHr, GetUsageCIAppOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'startHr' when calling getUsageCIApp");
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/ci-app";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageCIApp",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCIVisibilityResponse>() {});
+  }
+
+  /**
+   * Get hourly usage for CI Visibility
+   *
+   * <p>See {@link #getUsageCIAppWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageCIVisibilityResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageCIVisibilityResponse>> getUsageCIAppWithHttpInfoAsync(
+      OffsetDateTime startHr, GetUsageCIAppOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      CompletableFuture<ApiResponse<UsageCIVisibilityResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'startHr' when calling getUsageCIApp"));
+      return result;
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/ci-app";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCIApp");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageCIApp",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageCIVisibilityResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCIVisibilityResponse>() {});
+  }
+
   /** Manage optional parameters to getUsageCWS. */
   public static class GetUsageCWSOptionalParameters {
     private OffsetDateTime endHr;
@@ -5516,6 +5722,217 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageNetworkHostsResponse>() {});
+  }
+
+  /** Manage optional parameters to getUsageOnlineArchive. */
+  public static class GetUsageOnlineArchiveOptionalParameters {
+    private OffsetDateTime endHr;
+
+    /**
+     * Set endHr
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageOnlineArchiveOptionalParameters
+     */
+    public GetUsageOnlineArchiveOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly usage for Online Archive
+   *
+   * <p>See {@link #getUsageOnlineArchiveWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageOnlineArchiveResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageOnlineArchiveResponse getUsageOnlineArchive(OffsetDateTime startHr)
+      throws ApiException {
+    return getUsageOnlineArchiveWithHttpInfo(startHr, new GetUsageOnlineArchiveOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get hourly usage for Online Archive
+   *
+   * <p>See {@link #getUsageOnlineArchiveWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return CompletableFuture&lt;UsageOnlineArchiveResponse&gt;
+   */
+  public CompletableFuture<UsageOnlineArchiveResponse> getUsageOnlineArchiveAsync(
+      OffsetDateTime startHr) {
+    return getUsageOnlineArchiveWithHttpInfoAsync(
+            startHr, new GetUsageOnlineArchiveOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for Online Archive
+   *
+   * <p>See {@link #getUsageOnlineArchiveWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageOnlineArchiveResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageOnlineArchiveResponse getUsageOnlineArchive(
+      OffsetDateTime startHr, GetUsageOnlineArchiveOptionalParameters parameters)
+      throws ApiException {
+    return getUsageOnlineArchiveWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Online Archive
+   *
+   * <p>See {@link #getUsageOnlineArchiveWithHttpInfoAsync}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;UsageOnlineArchiveResponse&gt;
+   */
+  public CompletableFuture<UsageOnlineArchiveResponse> getUsageOnlineArchiveAsync(
+      OffsetDateTime startHr, GetUsageOnlineArchiveOptionalParameters parameters) {
+    return getUsageOnlineArchiveWithHttpInfoAsync(startHr, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for Online Archive
+   *
+   * <p>Get hourly usage for Online Archive.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageOnlineArchiveResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageOnlineArchiveResponse> getUsageOnlineArchiveWithHttpInfo(
+      OffsetDateTime startHr, GetUsageOnlineArchiveOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'startHr' when calling getUsageOnlineArchive");
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/online-archive";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageOnlineArchive",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageOnlineArchiveResponse>() {});
+  }
+
+  /**
+   * Get hourly usage for Online Archive
+   *
+   * <p>See {@link #getUsageOnlineArchiveWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageOnlineArchiveResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageOnlineArchiveResponse>>
+      getUsageOnlineArchiveWithHttpInfoAsync(
+          OffsetDateTime startHr, GetUsageOnlineArchiveOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      CompletableFuture<ApiResponse<UsageOnlineArchiveResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'startHr' when calling getUsageOnlineArchive"));
+      return result;
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/online-archive";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageOnlineArchive");
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageOnlineArchive",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageOnlineArchiveResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageOnlineArchiveResponse>() {});
   }
 
   /** Manage optional parameters to getUsageProfiling. */

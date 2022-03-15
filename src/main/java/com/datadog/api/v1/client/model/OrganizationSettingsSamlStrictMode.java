@@ -56,7 +56,7 @@ public class OrganizationSettingsSamlStrictMode {
     this.enabled = enabled;
   }
 
-  /** Return true if this Organization_settings_saml_strict_mode object is equal to o. */
+  /** Return true if this OrganizationSettingsSamlStrictMode object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

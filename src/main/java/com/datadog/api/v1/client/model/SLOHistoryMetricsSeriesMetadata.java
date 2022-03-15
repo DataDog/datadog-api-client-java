@@ -215,7 +215,7 @@ public class SLOHistoryMetricsSeriesMetadata {
     this.unit = JsonNullable.<List<SLOHistoryMetricsSeriesMetadataUnit>>of(unit);
   }
 
-  /** Return true if this SLOHistoryMetricsSeries_metadata object is equal to o. */
+  /** Return true if this SLOHistoryMetricsSeriesMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

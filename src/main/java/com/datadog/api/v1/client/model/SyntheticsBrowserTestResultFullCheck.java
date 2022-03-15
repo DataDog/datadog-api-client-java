@@ -59,7 +59,7 @@ public class SyntheticsBrowserTestResultFullCheck {
     this.config = config;
   }
 
-  /** Return true if this SyntheticsBrowserTestResultFull_check object is equal to o. */
+  /** Return true if this SyntheticsBrowserTestResultFullCheck object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

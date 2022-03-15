@@ -5,6 +5,7 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DowntimesApi;
 import com.datadog.api.v1.client.model.Downtime;
 import java.time.*;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 public class Example {
@@ -21,11 +22,7 @@ public class Example {
             .start(OffsetDateTime.now().toInstant().getEpochSecond())
             .timezone("Etc/UTC")
             .scope(
-                new ArrayList<String>() {
-                  {
-                    add("test:examplescheduleamonitordowntimereturnsokresponse");
-                  }
-                })
+                Collections.singletonList("test:examplescheduleamonitordowntimereturnsokresponse"))
             .monitorId(MONITOR_ID);
 
     try {

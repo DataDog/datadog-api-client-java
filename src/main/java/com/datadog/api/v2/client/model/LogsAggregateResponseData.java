@@ -63,7 +63,7 @@ public class LogsAggregateResponseData {
     this.buckets = buckets;
   }
 
-  /** Return true if this LogsAggregateResponse_data object is equal to o. */
+  /** Return true if this LogsAggregateResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {

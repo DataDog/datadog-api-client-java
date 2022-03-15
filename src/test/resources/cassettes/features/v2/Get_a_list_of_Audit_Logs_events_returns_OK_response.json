@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_a_list_of_Audit_Logs_events_returns_OK_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v2/audit/events",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b4b74b2d-ba5c-1570-8790-c38f0fc03c25"
+  }
+]

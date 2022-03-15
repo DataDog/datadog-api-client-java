@@ -6,6 +6,7 @@ import com.datadog.api.v1.client.api.UsageMeteringApi;
 import com.datadog.api.v1.client.api.UsageMeteringApi.GetUsageProfilingOptionalParameters;
 import com.datadog.api.v1.client.model.UsageProfilingResponse;
 import java.time.*;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 public class Example {

@@ -4,6 +4,8 @@ All URIs are relative to *https://api.datadoghq.com*
 
 | Class                      | Method                                                                                                       | HTTP request                                                                               | Description                                        |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| _AuditApi_                 | [**listAuditLogs**](AuditApi.md#listAuditLogs)                                                               | **GET** /api/v2/audit/events                                                               | Get a list of Audit Logs events                    |
+| _AuditApi_                 | [**searchAuditLogs**](AuditApi.md#searchAuditLogs)                                                           | **POST** /api/v2/audit/events/search                                                       | Search Audit Logs events                           |
 | _AuthNMappingsApi_         | [**createAuthNMapping**](AuthNMappingsApi.md#createAuthNMapping)                                             | **POST** /api/v2/authn_mappings                                                            | Create an AuthN Mapping                            |
 | _AuthNMappingsApi_         | [**deleteAuthNMapping**](AuthNMappingsApi.md#deleteAuthNMapping)                                             | **DELETE** /api/v2/authn_mappings/{authn_mapping_id}                                       | Delete an AuthN Mapping                            |
 | _AuthNMappingsApi_         | [**getAuthNMapping**](AuthNMappingsApi.md#getAuthNMapping)                                                   | **GET** /api/v2/authn_mappings/{authn_mapping_id}                                          | Get an AuthN Mapping by UUID                       |
@@ -90,6 +92,8 @@ All URIs are relative to *https://api.datadoghq.com*
 | _RolesApi_                 | [**removePermissionFromRole**](RolesApi.md#removePermissionFromRole)                                         | **DELETE** /api/v2/roles/{role_id}/permissions                                             | Revoke permission                                  |
 | _RolesApi_                 | [**removeUserFromRole**](RolesApi.md#removeUserFromRole)                                                     | **DELETE** /api/v2/roles/{role_id}/users                                                   | Remove a user from a role                          |
 | _RolesApi_                 | [**updateRole**](RolesApi.md#updateRole)                                                                     | **PATCH** /api/v2/roles/{role_id}                                                          | Update a role                                      |
+| _RumApi_                   | [**listRUMEvents**](RumApi.md#listRUMEvents)                                                                 | **GET** /api/v2/rum/events                                                                 | Get a list of RUM events                           |
+| _RumApi_                   | [**searchRUMEvents**](RumApi.md#searchRUMEvents)                                                             | **POST** /api/v2/rum/events/search                                                         | Search RUM events                                  |
 | _SecurityMonitoringApi_    | [**createSecurityFilter**](SecurityMonitoringApi.md#createSecurityFilter)                                    | **POST** /api/v2/security_monitoring/configuration/security_filters                        | Create a security filter                           |
 | _SecurityMonitoringApi_    | [**createSecurityMonitoringRule**](SecurityMonitoringApi.md#createSecurityMonitoringRule)                    | **POST** /api/v2/security_monitoring/rules                                                 | Create a detection rule                            |
 | _SecurityMonitoringApi_    | [**deleteSecurityFilter**](SecurityMonitoringApi.md#deleteSecurityFilter)                                    | **DELETE** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Delete a security filter                           |
@@ -144,6 +148,20 @@ All URIs are relative to *https://api.datadoghq.com*
 - [ApplicationKeyUpdateRequest](ApplicationKeyUpdateRequest.md)
 - [ApplicationKeysSort](ApplicationKeysSort.md)
 - [ApplicationKeysType](ApplicationKeysType.md)
+- [AuditLogsEvent](AuditLogsEvent.md)
+- [AuditLogsEventAttributes](AuditLogsEventAttributes.md)
+- [AuditLogsEventType](AuditLogsEventType.md)
+- [AuditLogsEventsResponse](AuditLogsEventsResponse.md)
+- [AuditLogsQueryFilter](AuditLogsQueryFilter.md)
+- [AuditLogsQueryOptions](AuditLogsQueryOptions.md)
+- [AuditLogsQueryPageOptions](AuditLogsQueryPageOptions.md)
+- [AuditLogsResponseLinks](AuditLogsResponseLinks.md)
+- [AuditLogsResponseMetadata](AuditLogsResponseMetadata.md)
+- [AuditLogsResponsePage](AuditLogsResponsePage.md)
+- [AuditLogsResponseStatus](AuditLogsResponseStatus.md)
+- [AuditLogsSearchEventsRequest](AuditLogsSearchEventsRequest.md)
+- [AuditLogsSort](AuditLogsSort.md)
+- [AuditLogsWarning](AuditLogsWarning.md)
 - [AuthNMapping](AuthNMapping.md)
 - [AuthNMappingAttributes](AuthNMappingAttributes.md)
 - [AuthNMappingCreateAttributes](AuthNMappingCreateAttributes.md)
@@ -385,6 +403,20 @@ All URIs are relative to *https://api.datadoghq.com*
 - [ProcessSummaryAttributes](ProcessSummaryAttributes.md)
 - [ProcessSummaryType](ProcessSummaryType.md)
 - [QuerySortOrder](QuerySortOrder.md)
+- [RUMEvent](RUMEvent.md)
+- [RUMEventAttributes](RUMEventAttributes.md)
+- [RUMEventType](RUMEventType.md)
+- [RUMEventsResponse](RUMEventsResponse.md)
+- [RUMQueryFilter](RUMQueryFilter.md)
+- [RUMQueryOptions](RUMQueryOptions.md)
+- [RUMQueryPageOptions](RUMQueryPageOptions.md)
+- [RUMResponseLinks](RUMResponseLinks.md)
+- [RUMResponseMetadata](RUMResponseMetadata.md)
+- [RUMResponsePage](RUMResponsePage.md)
+- [RUMResponseStatus](RUMResponseStatus.md)
+- [RUMSearchEventsRequest](RUMSearchEventsRequest.md)
+- [RUMSort](RUMSort.md)
+- [RUMWarning](RUMWarning.md)
 - [RelationshipToIncidentIntegrationMetadataData](RelationshipToIncidentIntegrationMetadataData.md)
 - [RelationshipToIncidentIntegrationMetadatas](RelationshipToIncidentIntegrationMetadatas.md)
 - [RelationshipToIncidentPostmortem](RelationshipToIncidentPostmortem.md)
@@ -451,6 +483,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [SecurityMonitoringRuleCreatePayload](SecurityMonitoringRuleCreatePayload.md)
 - [SecurityMonitoringRuleDetectionMethod](SecurityMonitoringRuleDetectionMethod.md)
 - [SecurityMonitoringRuleEvaluationWindow](SecurityMonitoringRuleEvaluationWindow.md)
+- [SecurityMonitoringRuleImpossibleTravelOptions](SecurityMonitoringRuleImpossibleTravelOptions.md)
 - [SecurityMonitoringRuleKeepAlive](SecurityMonitoringRuleKeepAlive.md)
 - [SecurityMonitoringRuleMaxSignalDuration](SecurityMonitoringRuleMaxSignalDuration.md)
 - [SecurityMonitoringRuleNewValueOptions](SecurityMonitoringRuleNewValueOptions.md)
@@ -512,22 +545,22 @@ Authentication schemes defined for the API:
 - **Flow**: accessCode
 - **Authorization URL**: /oauth2/v1/authorize
 - **Scopes**:
-  - dashboards_public_share: The ability to share dashboards externally.
-  - dashboards_read: The ability to view dashboards.
-  - dashboards_write: The ability to create and change dashboards.
-  - events_read: The ability to read Events data.
-  - incident_read: The ability to view incidents in Datadog.
-  - incident_settings_write: The ability to configure Incidents settings.
-  - incident_write: The ability to create, view, and manage incidents in Datadog.
-  - metrics_read: The ability to view custom metrics.
-  - security_monitoring_filters_read: The ability to read Security Filters.
-  - security_monitoring_filters_write: The ability to create, edit and delete Security Filters.
-  - security_monitoring_rules_read: The ability to read Detection Rules.
-  - security_monitoring_rules_write: The ability to create and edit Detection Rules.
-  - security_monitoring_signals_read: The ability to view Security Signals.
-  - usage_read: The ability to view your organization&#39;s usage and usage attribution.
-  - user_access_invite: The ability to invite other users to your organization.
-  - user_access_manage: The ability to disable users, manage user roles, and manage SAML-to-role mappings.
+  - dashboards_public_share: Share dashboards externally.
+  - dashboards_read: View dashboards.
+  - dashboards_write: Create and change dashboards.
+  - events_read: Read Events data.
+  - incident_read: View incidents in Datadog.
+  - incident_settings_write: Configure Incidents settings.
+  - incident_write: Create, view, and manage incidents in Datadog.
+  - metrics_read: View custom metrics.
+  - security_monitoring_filters_read: Read Security Filters.
+  - security_monitoring_filters_write: Create, edit, and delete Security Filters.
+  - security_monitoring_rules_read: Read Detection Rules.
+  - security_monitoring_rules_write: Create and edit Detection Rules.
+  - security_monitoring_signals_read: View Security Signals.
+  - usage_read: View your organization&#39;s usage and usage attribution.
+  - user_access_invite: Invite other users to your organization.
+  - user_access_manage: Disable users, manage user roles, and manage SAML-to-role mappings.
 
 ### apiKeyAuth
 
