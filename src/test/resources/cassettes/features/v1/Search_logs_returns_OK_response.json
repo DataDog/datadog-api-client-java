@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"index\":\"main\",\"limit\":5,\"query\":\"service:web* AND @http.status_code:[200 TO 299]\",\"sort\":\"asc\",\"time\":{\"from\":1647284967,\"timezone\":\"Europe/Paris\",\"to\":1647371367}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Search_logs_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/logs-queries/list",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"status\":\"done\",\"nextLogId\":null,\"logs\":[],\"requestId\":\"pddv1ChZDZUdZdDZPdVRRMk94LTV4U3JEMXFBIiwKHDeSV_fMV3lW8cL2htIQ-ZZdfNnidnlSY_WPRkoSDBVqgPwDzZlgmthWlA\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3594e5db-4f65-a167-c01b-248dbaa1b92a"
+  }
+]
