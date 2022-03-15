@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"index\":\"main\",\"limit\":5,\"query\":\"service:web* AND @http.status_code:[200 TO 299]\",\"sort\":\"asc\",\"time\":{\"from\":\"2020-02-02T02:02:02Z\",\"timezone\":\"Europe/Paris\",\"to\":\"2020-02-02T20:20:20Z\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Search_logs_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/logs-queries/list",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"status\":\"done\",\"nextLogId\":null,\"logs\":[],\"requestId\":\"pddv1ChZfOXdCSkFqR1FrV3RyTk9weXZ6ZURBIi0KHXKX9-w-svpE9VCe0odJRuASvAJP2s_aPpQzPVLlEgzq1l6Evezev-UXfAQ\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f82a2748-4279-8dd5-4c07-2d19695ab9a1"
+  }
+]
