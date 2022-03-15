@@ -204,17 +204,17 @@ public class GCPAccount {
   }
 
   /**
-   * Should be &#x60;https://www.googleapis.com/robot/v1/metadata/x509/&lt;CLIENT_EMAIL&gt;&#x60;
-   * where &#x60;&lt;CLIENT_EMAIL&gt;&#x60; is the email found in your JSON service account key.
+   * Should be &#x60;https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL&#x60; where
+   * &#x60;$CLIENT_EMAIL&#x60; is the email found in your JSON service account key.
    *
    * @return clientX509CertUrl
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>",
+      example = "https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL",
       value =
-          "Should be `https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>` where"
-              + " `<CLIENT_EMAIL>` is the email found in your JSON service account key.")
+          "Should be `https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL` where"
+              + " `$CLIENT_EMAIL` is the email found in your JSON service account key.")
   @JsonProperty(JSON_PROPERTY_CLIENT_X509_CERT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientX509CertUrl() {
