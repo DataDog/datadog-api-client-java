@@ -249,7 +249,7 @@ public class AWSAccount {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "[\"<KEY>:<VALUE>\"]",
+      example = "[\"$KEY:$VALUE\"]",
       value =
           "The array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when"
               + " collecting metrics from EC2. Wildcards, such as `?` (for single characters) and"
@@ -288,7 +288,7 @@ public class AWSAccount {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "[\"<KEY>:<VALUE>\"]",
+      example = "[\"$KEY:$VALUE\"]",
       value =
           "Array of tags (in the form `key:value`) to add to all hosts and metrics reporting"
               + " through this integration.")
