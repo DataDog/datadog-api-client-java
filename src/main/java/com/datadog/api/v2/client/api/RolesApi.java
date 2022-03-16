@@ -60,7 +60,7 @@ public class RolesApi {
    *
    * <p>See {@link #addPermissionToRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return PermissionsResponse
    * @throws ApiException if fails to make API call
@@ -75,7 +75,7 @@ public class RolesApi {
    *
    * <p>See {@link #addPermissionToRoleWithHttpInfoAsync}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;PermissionsResponse&gt;
    */
@@ -93,7 +93,7 @@ public class RolesApi {
    *
    * <p>Adds a permission to a role.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return ApiResponse&lt;PermissionsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -155,7 +155,7 @@ public class RolesApi {
    *
    * <p>See {@link #addPermissionToRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;PermissionsResponse&gt;&gt;
    */
@@ -222,7 +222,7 @@ public class RolesApi {
    *
    * <p>See {@link #addUserToRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return UsersResponse
    * @throws ApiException if fails to make API call
@@ -236,7 +236,7 @@ public class RolesApi {
    *
    * <p>See {@link #addUserToRoleWithHttpInfoAsync}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;UsersResponse&gt;
    */
@@ -254,7 +254,7 @@ public class RolesApi {
    *
    * <p>Adds a user to a role.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return ApiResponse&lt;UsersResponse&gt;
    * @throws ApiException if fails to make API call
@@ -316,7 +316,7 @@ public class RolesApi {
    *
    * <p>See {@link #addUserToRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;UsersResponse&gt;&gt;
    */
@@ -383,7 +383,7 @@ public class RolesApi {
    *
    * <p>See {@link #cloneRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return RoleResponse
    * @throws ApiException if fails to make API call
@@ -397,7 +397,7 @@ public class RolesApi {
    *
    * <p>See {@link #cloneRoleWithHttpInfoAsync}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;RoleResponse&gt;
    */
@@ -414,7 +414,7 @@ public class RolesApi {
    *
    * <p>Clone an existing role
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return ApiResponse&lt;RoleResponse&gt;
    * @throws ApiException if fails to make API call
@@ -475,7 +475,7 @@ public class RolesApi {
    *
    * <p>See {@link #cloneRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RoleResponse&gt;&gt;
    */
@@ -674,7 +674,7 @@ public class RolesApi {
    *
    * <p>See {@link #deleteRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRole(String roleId) throws ApiException {
@@ -686,7 +686,7 @@ public class RolesApi {
    *
    * <p>See {@link #deleteRoleWithHttpInfoAsync}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    */
   public CompletableFuture<Void> deleteRoleAsync(String roleId) {
     return deleteRoleWithHttpInfoAsync(roleId)
@@ -701,7 +701,7 @@ public class RolesApi {
    *
    * <p>Disables a role.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -754,7 +754,7 @@ public class RolesApi {
    *
    * <p>See {@link #deleteRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteRoleWithHttpInfoAsync(String roleId) {
@@ -809,7 +809,7 @@ public class RolesApi {
    *
    * <p>See {@link #getRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return RoleResponse
    * @throws ApiException if fails to make API call
    */
@@ -822,7 +822,7 @@ public class RolesApi {
    *
    * <p>See {@link #getRoleWithHttpInfoAsync}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return CompletableFuture&lt;RoleResponse&gt;
    */
   public CompletableFuture<RoleResponse> getRoleAsync(String roleId) {
@@ -838,7 +838,7 @@ public class RolesApi {
    *
    * <p>Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return ApiResponse&lt;RoleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -890,7 +890,7 @@ public class RolesApi {
    *
    * <p>See {@link #getRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RoleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RoleResponse>> getRoleWithHttpInfoAsync(String roleId) {
@@ -1060,7 +1060,7 @@ public class RolesApi {
    *
    * <p>See {@link #listRolePermissionsWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return PermissionsResponse
    * @throws ApiException if fails to make API call
    */
@@ -1073,7 +1073,7 @@ public class RolesApi {
    *
    * <p>See {@link #listRolePermissionsWithHttpInfoAsync}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return CompletableFuture&lt;PermissionsResponse&gt;
    */
   public CompletableFuture<PermissionsResponse> listRolePermissionsAsync(String roleId) {
@@ -1089,7 +1089,7 @@ public class RolesApi {
    *
    * <p>Returns a list of all permissions for a single role.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return ApiResponse&lt;PermissionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1143,7 +1143,7 @@ public class RolesApi {
    *
    * <p>See {@link #listRolePermissionsWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;PermissionsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<PermissionsResponse>> listRolePermissionsWithHttpInfoAsync(
@@ -1255,7 +1255,7 @@ public class RolesApi {
    *
    * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return UsersResponse
    * @throws ApiException if fails to make API call
    */
@@ -1268,7 +1268,7 @@ public class RolesApi {
    *
    * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @return CompletableFuture&lt;UsersResponse&gt;
    */
   public CompletableFuture<UsersResponse> listRoleUsersAsync(String roleId) {
@@ -1284,7 +1284,7 @@ public class RolesApi {
    *
    * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param parameters Optional parameters for the request.
    * @return UsersResponse
    * @throws ApiException if fails to make API call
@@ -1299,7 +1299,7 @@ public class RolesApi {
    *
    * <p>See {@link #listRoleUsersWithHttpInfoAsync}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsersResponse&gt;
    */
@@ -1317,7 +1317,7 @@ public class RolesApi {
    *
    * <p>Gets all users of a role.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsersResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1382,7 +1382,7 @@ public class RolesApi {
    *
    * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsersResponse&gt;&gt;
    */
@@ -1558,7 +1558,7 @@ public class RolesApi {
   /**
    * List roles
    *
-   * <p>Returns all roles, including their names and IDs.
+   * <p>Returns all roles, including their names and their unique identifiers.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;RolesResponse&gt;
@@ -1671,7 +1671,7 @@ public class RolesApi {
    *
    * <p>See {@link #removePermissionFromRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return PermissionsResponse
    * @throws ApiException if fails to make API call
@@ -1686,7 +1686,7 @@ public class RolesApi {
    *
    * <p>See {@link #removePermissionFromRoleWithHttpInfoAsync}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;PermissionsResponse&gt;
    */
@@ -1704,7 +1704,7 @@ public class RolesApi {
    *
    * <p>Removes a permission from a role.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return ApiResponse&lt;PermissionsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1766,7 +1766,7 @@ public class RolesApi {
    *
    * <p>See {@link #removePermissionFromRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;PermissionsResponse&gt;&gt;
    */
@@ -1834,7 +1834,7 @@ public class RolesApi {
    *
    * <p>See {@link #removeUserFromRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return UsersResponse
    * @throws ApiException if fails to make API call
@@ -1849,7 +1849,7 @@ public class RolesApi {
    *
    * <p>See {@link #removeUserFromRoleWithHttpInfoAsync}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;UsersResponse&gt;
    */
@@ -1867,7 +1867,7 @@ public class RolesApi {
    *
    * <p>Removes a user from a role.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return ApiResponse&lt;UsersResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1929,7 +1929,7 @@ public class RolesApi {
    *
    * <p>See {@link #removeUserFromRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;UsersResponse&gt;&gt;
    */
@@ -1996,7 +1996,7 @@ public class RolesApi {
    *
    * <p>See {@link #updateRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return RoleUpdateResponse
    * @throws ApiException if fails to make API call
@@ -2010,7 +2010,7 @@ public class RolesApi {
    *
    * <p>See {@link #updateRoleWithHttpInfoAsync}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;RoleUpdateResponse&gt;
    */
@@ -2028,7 +2028,7 @@ public class RolesApi {
    *
    * <p>Edit a role. Can only be used with application keys belonging to administrators.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return ApiResponse&lt;RoleUpdateResponse&gt;
    * @throws ApiException if fails to make API call
@@ -2090,7 +2090,7 @@ public class RolesApi {
    *
    * <p>See {@link #updateRoleWithHttpInfo}.
    *
-   * @param roleId The ID of the role. (required)
+   * @param roleId The unique identifier of the role. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RoleUpdateResponse&gt;&gt;
    */

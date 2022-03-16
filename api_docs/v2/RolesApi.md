@@ -39,7 +39,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String roleId = "roleId_example"; // String | The ID of the role.
+        String roleId = "roleId_example"; // String | The unique identifier of the role.
         RelationshipToPermission body = new RelationshipToPermission(); // RelationshipToPermission |
         try {
             PermissionsResponse result = apiInstance.addPermissionToRole(roleId, body);
@@ -57,10 +57,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type                                                        | Description         | Notes |
-| ---------- | ----------------------------------------------------------- | ------------------- | ----- |
-| **roleId** | **String**                                                  | The ID of the role. |
-| **body**   | [**RelationshipToPermission**](RelationshipToPermission.md) |                     |
+| Name       | Type                                                        | Description                        | Notes |
+| ---------- | ----------------------------------------------------------- | ---------------------------------- | ----- |
+| **roleId** | **String**                                                  | The unique identifier of the role. |
+| **body**   | [**RelationshipToPermission**](RelationshipToPermission.md) |                                    |
 
 ### Return type
 
@@ -106,7 +106,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String roleId = "roleId_example"; // String | The ID of the role.
+        String roleId = "roleId_example"; // String | The unique identifier of the role.
         RelationshipToUser body = new RelationshipToUser(); // RelationshipToUser |
         try {
             UsersResponse result = apiInstance.addUserToRole(roleId, body);
@@ -124,10 +124,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type                                            | Description         | Notes |
-| ---------- | ----------------------------------------------- | ------------------- | ----- |
-| **roleId** | **String**                                      | The ID of the role. |
-| **body**   | [**RelationshipToUser**](RelationshipToUser.md) |                     |
+| Name       | Type                                            | Description                        | Notes |
+| ---------- | ----------------------------------------------- | ---------------------------------- | ----- |
+| **roleId** | **String**                                      | The unique identifier of the role. |
+| **body**   | [**RelationshipToUser**](RelationshipToUser.md) |                                    |
 
 ### Return type
 
@@ -173,7 +173,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String roleId = "roleId_example"; // String | The ID of the role.
+        String roleId = "roleId_example"; // String | The unique identifier of the role.
         RoleCloneRequest body = new RoleCloneRequest(); // RoleCloneRequest |
         try {
             RoleResponse result = apiInstance.cloneRole(roleId, body);
@@ -191,10 +191,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type                                        | Description         | Notes |
-| ---------- | ------------------------------------------- | ------------------- | ----- |
-| **roleId** | **String**                                  | The ID of the role. |
-| **body**   | [**RoleCloneRequest**](RoleCloneRequest.md) |                     |
+| Name       | Type                                        | Description                        | Notes |
+| ---------- | ------------------------------------------- | ---------------------------------- | ----- |
+| **roleId** | **String**                                  | The unique identifier of the role. |
+| **body**   | [**RoleCloneRequest**](RoleCloneRequest.md) |                                    |
 
 ### Return type
 
@@ -305,7 +305,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String roleId = "roleId_example"; // String | The ID of the role.
+        String roleId = "roleId_example"; // String | The unique identifier of the role.
         try {
             apiInstance.deleteRole(roleId);
         } catch (ApiException e) {
@@ -321,9 +321,9 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type       | Description         | Notes |
-| ---------- | ---------- | ------------------- | ----- |
-| **roleId** | **String** | The ID of the role. |
+| Name       | Type       | Description                        | Notes |
+| ---------- | ---------- | ---------------------------------- | ----- |
+| **roleId** | **String** | The unique identifier of the role. |
 
 ### Return type
 
@@ -368,7 +368,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String roleId = "roleId_example"; // String | The ID of the role.
+        String roleId = "roleId_example"; // String | The unique identifier of the role.
         try {
             RoleResponse result = apiInstance.getRole(roleId);
             System.out.println(result);
@@ -385,9 +385,9 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type       | Description         | Notes |
-| ---------- | ---------- | ------------------- | ----- |
-| **roleId** | **String** | The ID of the role. |
+| Name       | Type       | Description                        | Notes |
+| ---------- | ---------- | ---------------------------------- | ----- |
+| **roleId** | **String** | The unique identifier of the role. |
 
 ### Return type
 
@@ -493,7 +493,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String roleId = "roleId_example"; // String | The ID of the role.
+        String roleId = "roleId_example"; // String | The unique identifier of the role.
         try {
             PermissionsResponse result = apiInstance.listRolePermissions(roleId);
             System.out.println(result);
@@ -510,9 +510,9 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type       | Description         | Notes |
-| ---------- | ---------- | ------------------- | ----- |
-| **roleId** | **String** | The ID of the role. |
+| Name       | Type       | Description                        | Notes |
+| ---------- | ---------- | ---------------------------------- | ----- |
+| **roleId** | **String** | The unique identifier of the role. |
 
 ### Return type
 
@@ -557,7 +557,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String roleId = "roleId_example"; // String | The ID of the role.
+        String roleId = "roleId_example"; // String | The unique identifier of the role.
         Long pageSize = 10L; // Long | Size for a given page.
         Long pageNumber = 0L; // Long | Specific page number to return.
         String sort = "name"; // String | User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
@@ -584,7 +584,7 @@ public class Example {
 
 | Name           | Type       | Description                                                                                                                                                                                                                                                      | Notes                        |
 | -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| **roleId**     | **String** | The ID of the role.                                                                                                                                                                                                                                              |
+| **roleId**     | **String** | The unique identifier of the role.                                                                                                                                                                                                                               |
 | **pageSize**   | **Long**   | Size for a given page.                                                                                                                                                                                                                                           | [optional] [default to 10]   |
 | **pageNumber** | **Long**   | Specific page number to return.                                                                                                                                                                                                                                  | [optional] [default to 0]    |
 | **sort**       | **String** | User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;. | [optional] [default to name] |
@@ -616,7 +616,7 @@ public class Example {
 
 > RolesResponse listRoles(parameters);
 
-Returns all roles, including their names and IDs.
+Returns all roles, including their names and their unique identifiers.
 
 ### Example
 
@@ -706,7 +706,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String roleId = "roleId_example"; // String | The ID of the role.
+        String roleId = "roleId_example"; // String | The unique identifier of the role.
         RelationshipToPermission body = new RelationshipToPermission(); // RelationshipToPermission |
         try {
             PermissionsResponse result = apiInstance.removePermissionFromRole(roleId, body);
@@ -724,10 +724,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type                                                        | Description         | Notes |
-| ---------- | ----------------------------------------------------------- | ------------------- | ----- |
-| **roleId** | **String**                                                  | The ID of the role. |
-| **body**   | [**RelationshipToPermission**](RelationshipToPermission.md) |                     |
+| Name       | Type                                                        | Description                        | Notes |
+| ---------- | ----------------------------------------------------------- | ---------------------------------- | ----- |
+| **roleId** | **String**                                                  | The unique identifier of the role. |
+| **body**   | [**RelationshipToPermission**](RelationshipToPermission.md) |                                    |
 
 ### Return type
 
@@ -773,7 +773,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String roleId = "roleId_example"; // String | The ID of the role.
+        String roleId = "roleId_example"; // String | The unique identifier of the role.
         RelationshipToUser body = new RelationshipToUser(); // RelationshipToUser |
         try {
             UsersResponse result = apiInstance.removeUserFromRole(roleId, body);
@@ -791,10 +791,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type                                            | Description         | Notes |
-| ---------- | ----------------------------------------------- | ------------------- | ----- |
-| **roleId** | **String**                                      | The ID of the role. |
-| **body**   | [**RelationshipToUser**](RelationshipToUser.md) |                     |
+| Name       | Type                                            | Description                        | Notes |
+| ---------- | ----------------------------------------------- | ---------------------------------- | ----- |
+| **roleId** | **String**                                      | The unique identifier of the role. |
+| **body**   | [**RelationshipToUser**](RelationshipToUser.md) |                                    |
 
 ### Return type
 
@@ -840,7 +840,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String roleId = "roleId_example"; // String | The ID of the role.
+        String roleId = "roleId_example"; // String | The unique identifier of the role.
         RoleUpdateRequest body = new RoleUpdateRequest(); // RoleUpdateRequest |
         try {
             RoleUpdateResponse result = apiInstance.updateRole(roleId, body);
@@ -858,10 +858,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type                                          | Description         | Notes |
-| ---------- | --------------------------------------------- | ------------------- | ----- |
-| **roleId** | **String**                                    | The ID of the role. |
-| **body**   | [**RoleUpdateRequest**](RoleUpdateRequest.md) |                     |
+| Name       | Type                                          | Description                        | Notes |
+| ---------- | --------------------------------------------- | ---------------------------------- | ----- |
+| **roleId** | **String**                                    | The unique identifier of the role. |
+| **body**   | [**RoleUpdateRequest**](RoleUpdateRequest.md) |                                    |
 
 ### Return type
 

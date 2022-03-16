@@ -47,12 +47,12 @@ public class RelationshipToRoles {
   }
 
   /**
-   * An array containing type and ID of a role.
+   * An array containing type and the unique identifier of a role.
    *
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array containing type and ID of a role.")
+  @ApiModelProperty(value = "An array containing type and the unique identifier of a role.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RelationshipToRoleData> getData() {

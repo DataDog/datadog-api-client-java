@@ -81,14 +81,14 @@ public class RoleUpdateData {
   }
 
   /**
-   * ID of the role.
+   * The unique identifier of the role.
    *
    * @return id
    */
   @ApiModelProperty(
       example = "00000000-0000-1111-0000-000000000000",
       required = true,
-      value = "ID of the role.")
+      value = "The unique identifier of the role.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {

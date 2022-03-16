@@ -4,7 +4,7 @@ Relationship to role object.
 
 ## Properties
 
-| Name     | Type          | Description     | Notes      |
-| -------- | ------------- | --------------- | ---------- |
-| **id**   | **String**    | ID of the role. | [optional] |
-| **type** | **RolesType** |                 | [optional] |
+| Name     | Type          | Description                        | Notes      |
+| -------- | ------------- | ---------------------------------- | ---------- |
+| **id**   | **String**    | The unique identifier of the role. | [optional] |
+| **type** | **RolesType** |                                    | [optional] |

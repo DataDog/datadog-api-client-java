@@ -74,12 +74,14 @@ public class RoleAttributes {
   }
 
   /**
-   * Name of the role.
+   * The name of the role. The name is neither unique nor a stable identifier of the role.
    *
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the role.")
+  @ApiModelProperty(
+      value =
+          "The name of the role. The name is neither unique nor a stable identifier of the role.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
