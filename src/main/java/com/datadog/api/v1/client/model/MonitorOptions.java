@@ -324,13 +324,18 @@ public class MonitorOptions {
   }
 
   /**
-   * Whether or not the monitor is locked (only editable by creator and admins).
+   * Whether or not the monitor is locked (only editable by creator and admins). Use
+   * &#x60;restricted_roles&#x60; instead.
    *
    * @return locked
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "Whether or not the monitor is locked (only editable by creator and admins).")
+      value =
+          "Whether or not the monitor is locked (only editable by creator and admins). Use"
+              + " `restricted_roles` instead.")
   @JsonProperty(JSON_PROPERTY_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getLocked() {

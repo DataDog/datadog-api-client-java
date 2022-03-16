@@ -79,12 +79,12 @@ public class Role {
   }
 
   /**
-   * ID of the role.
+   * The unique identifier of the role.
    *
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the role.")
+  @ApiModelProperty(value = "The unique identifier of the role.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
