@@ -341,12 +341,18 @@
                             <excludes>
                                 <exclude>module-info.class</exclude>
                                 <exclude>META-INF/*.MF</exclude>
-                                <exclude>META-INF/LICENSE</exclude>
-                                <exclude>META-INF/NOTICE</exclude>
+                                <exclude>META-INF/LICENSE*</exclude>
+                                <exclude>META-INF/NOTICE*</exclude>
                             </excludes>
                         </filter>
                     </filters>
                     <artifactSet>
+                        <excludes>
+                            <exclude>javax.inject:javax.inject</exclude>
+                            <exclude>org.glassfish.jersey.core:jersey-common</exclude>
+                            <exclude>org.apache.httpcomponents:*</exclude>
+                            <exclude>com.fasterxml.jackson.module:jackson-module-jaxb-annotations</exclude>
+                        </excludes>
                         <includes>
                             <include>io.swagger:swagger-annotations</include>
                             <include>com.google.code.findbugs:jsr305</include>
@@ -362,6 +368,16 @@
                             <include>org.openapitools:jackson-databind-nullable</include>
                             <include>com.github.scribejava:scribejava-core</include>
                             <include>org.tomitribe:tomitribe-http-signatures</include>
+                            <!-- dependencies pulled by other dependencies -->
+                            <include>javax.ws.rs:javax.ws.rs-api</include>
+                            <include>javax.annotation:javax.annotation-api</include>
+                            <include>org.glassfish.hk2:*</include>
+                            <include>commons-logging:commons-logging</include>
+                            <include>commons-codec:commons-codec</include>
+                            <include>org.glassfish.hk2.external:*</include>
+                            <include>org.javassist:javassist</include>
+                            <include>org.jvnet.mimepull:mimepull</include>
+                            <include>org.glassfish.jersey.ext:jersey-entity-filtering</include>
                         </includes>
                     </artifactSet>
                     <relocations>
@@ -408,6 +424,43 @@
                         <relocation>
                             <pattern>org.tomitribe</pattern>
                             <shadedPattern>com.datadoghq.org.tomitribe</shadedPattern>
+                        </relocation>
+                        <!-- dependencies pulled by other dependencies -->
+                        <relocation>
+                            <pattern>javax.ws.rs</pattern>
+                            <shadedPattern>com.datadoghq.javax.ws.rs</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>javax.annotation</pattern>
+                            <shadedPattern>com.datadoghq.javax.annotation</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.glassfish.hk2</pattern>
+                            <shadedPattern>com.datadoghq.org.glassfish.hk2</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.apache.commons-logging</pattern>
+                            <shadedPattern>com.datadoghq.org.commons-logging</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.apache.commons-codec</pattern>
+                            <shadedPattern>com.datadoghq.org.commons-codec</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.glassfish.hk2.external</pattern>
+                            <shadedPattern>com.datadoghq.org.glassfish.hk2.external</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.javassist</pattern>
+                            <shadedPattern>com.datadoghq.org.javassist</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.jvnet.mimepull</pattern>
+                            <shadedPattern>com.datadoghq.org.jvnet.mimepull</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.glassfish.jersey.ext</pattern>
+                            <shadedPattern>com.datadoghq.org.glassfish.jersey.ext</shadedPattern>
                         </relocation>
                     </relocations>
                     <shadedClassifierName>shaded-jar</shadedClassifierName>
