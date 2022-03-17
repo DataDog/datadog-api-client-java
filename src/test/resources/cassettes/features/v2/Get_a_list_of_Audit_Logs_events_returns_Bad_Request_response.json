@@ -1,0 +1,52 @@
+[
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_a_list_of_Audit_Logs_events_returns_Bad_Request_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v2/audit/events",
+      "queryStringParameters": {
+        "page[limit]": [
+          "10"
+        ],
+        "page[cursor]": [
+          "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ=="
+        ],
+        "filter[query]": [
+          "@type:session AND @session.type:user"
+        ],
+        "filter[to]": [
+          "2022-03-17T20:44:48.092Z"
+        ],
+        "filter[from]": [
+          "2022-03-17T20:29:48.092Z"
+        ],
+        "sort": [
+          "timestamp"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"input_validation_error(Field 'page' is invalid: invalid cursor)\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c74c17c7-ab12-cdf1-f2a5-7d0af85014a7"
+  }
+]

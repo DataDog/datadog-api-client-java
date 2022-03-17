@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"from\":\"now-15m\",\"query\":\"@type:session AND @session.type:user\",\"to\":\"now\"},\"options\":{\"time_offset\":0,\"timezone\":\"GMT\"},\"page\":{\"cursor\":\"eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==\",\"limit\":25},\"sort\":\"timestamp\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Search_Audit_Logs_events_returns_Bad_Request_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/audit/events/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"input_validation_error(Field 'page' is invalid: invalid cursor)\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "485463f6-2bfd-b33b-2da1-5c1300e6a50b"
+  }
+]
