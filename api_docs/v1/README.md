@@ -847,6 +847,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [UsageTimeseriesResponse](UsageTimeseriesResponse.md)
 - [UsageTopAvgMetricsHour](UsageTopAvgMetricsHour.md)
 - [UsageTopAvgMetricsMetadata](UsageTopAvgMetricsMetadata.md)
+- [UsageTopAvgMetricsPagination](UsageTopAvgMetricsPagination.md)
 - [UsageTopAvgMetricsResponse](UsageTopAvgMetricsResponse.md)
 - [User](User.md)
 - [UserDisableResponse](UserDisableResponse.md)
