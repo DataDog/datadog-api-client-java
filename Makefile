@@ -1,13 +1,7 @@
 .PHONY: all
 all: .generator
-	@rm -rf src/main/java
-	@pre-commit run --all-files --hook-stage=manual openapi-generator || true
-	@cp -R v1/src/main ./src/
-	@cp -R v2/src/main ./src/
-	@cp -nR v1/src/test ./src/ || true
-	@cp -nR v2/src/test ./src/ || true
-	@rm -rf v1 v2
-	@rm -rf src/test/java/com/datadog/api/v*/client/model
+	@pre-commit run --all-files --hook-stage=manual generator-v1 || true
+	@pre-commit run --all-files --hook-stage=manual generator-v2 || true
 	@pre-commit run --all-files --hook-stage=manual docs || echo "modified files"
 	@pre-commit run --all-files --hook-stage=manual lint || echo "modified files"
 
