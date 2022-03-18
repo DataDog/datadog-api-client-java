@@ -29,3 +29,5 @@
 - `AUDIT_ALERT` (value: `"audit alert"`)
 
 - `CI_PIPELINES_ALERT` (value: `"ci-pipelines alert"`)
+
+- `ERROR_TRACKING_ALERT` (value: `"error-tracking alert"`)
