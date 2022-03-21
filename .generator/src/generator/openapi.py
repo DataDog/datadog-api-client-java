@@ -1,4 +1,6 @@
 import pathlib
+from collections import defaultdict
+
 import yaml
 import warnings
 from jsonref import JsonRef

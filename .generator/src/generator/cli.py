@@ -7,7 +7,8 @@ from jinja2 import Environment, FileSystemLoader
 from . import openapi
 from . import formatter
 
-PACKAGE_NAME = "datadog"
+PACKAGE_NAME = "com.datadog.api"
+GENERATED_ANNOTATION = "@javax.annotation.Generated(value = \".generator\")"
 
 
 @click.command()
@@ -63,13 +64,24 @@ def cli(input, output):
     env.globals["get_type"] = openapi.type_to_go
     env.globals["openapi"] = spec
     env.globals["package_name"] = PACKAGE_NAME
+    env.globals["generated_annotation"] = GENERATED_ANNOTATION
     env.globals["version"] = version
 
     # api_j2 = env.get_template("api.j2")
     # model_j2 = env.get_template("model.j2")
 
     extra_files = {
+        "ApiClient.java": env.get_template("ApiClient.j2"),
+        "ApiException.java": env.get_template("ApiException.j2"),
+        "ApiResponse.java": env.get_template("ApiResponse.j2"),
+        "Configuration.java": env.get_template("Configuration.j2"),
         "JSON.java": env.get_template("JSON.j2"),
+        "JavaTimeFormatter.java": env.get_template("JavaTimeFormatter.j2"),
+        "Pair.java": env.get_template("Pair.j2"),
+        "RFC3339DateFormat.java": env.get_template("RFC3339DateFormat.j2"),
+        "ServerConfiguration.java": env.get_template("ServerConfiguration.j2"),
+        "ServerVariable.java": env.get_template("ServerVariable.j2"),
+        "StringUtil.java": env.get_template("StringUtil.j2"),
     }
 
     apis = openapi.apis(spec)
