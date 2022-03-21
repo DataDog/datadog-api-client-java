@@ -144,7 +144,9 @@ public class SyntheticsTestDetails {
    * @return locations
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of locations used to run the test.")
+  @ApiModelProperty(
+      example = "[\"aws:eu-west-3\"]",
+      value = "Array of locations used to run the test.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getLocations() {
