@@ -30,6 +30,8 @@ def cli(input, output):
     spec = openapi.load(input)
 
     version = input.parent.name
+    with (input.parent.parent.parent / "config" / f"{version}.json").open() as fp:
+        config = json.load(fp)
 
     env = Environment(
         loader=FileSystemLoader(str(pathlib.Path(__file__).parent / "templates"))
@@ -53,6 +55,7 @@ def cli(input, output):
     env.filters["upperfirst"] = formatter.upperfirst
     env.filters["variable_name"] = formatter.variable_name
 
+    env.globals["config"] = config
     env.globals["enumerate"] = enumerate
     env.globals["get_name"] = openapi.get_name
     env.globals["get_type_for_attribute"] = openapi.get_type_for_attribute
@@ -62,14 +65,11 @@ def cli(input, output):
     env.globals["package_name"] = PACKAGE_NAME
     env.globals["version"] = version
 
-    api_j2 = env.get_template("api.j2")
-    model_j2 = env.get_template("model.j2")
+    # api_j2 = env.get_template("api.j2")
+    # model_j2 = env.get_template("model.j2")
 
     extra_files = {
-        "client.go": env.get_template("client.j2"),
-        "configuration.go": env.get_template("configuration.j2"),
-        "response.go": env.get_template("response.j2"),
-        "utils.go": env.get_template("utils.j2"),
+        "JSON.java": env.get_template("JSON.j2"),
     }
 
     apis = openapi.apis(spec)
@@ -82,16 +82,16 @@ def cli(input, output):
         with filename.open("w") as fp:
             fp.write(template.render(apis=apis, models=models))
 
-    for name, model in models.items():
-        filename = "model_" + formatter.model_filename(name) + ".go"
-        model_path = output / filename
-        model_path.parent.mkdir(parents=True, exist_ok=True)
-        with model_path.open("w") as fp:
-            fp.write(model_j2.render(name=name, model=model))
-
-    for name, operations in apis.items():
-        filename = "api_" + formatter.snake_case(name) + ".go"
-        api_path = output / filename
-        api_path.parent.mkdir(parents=True, exist_ok=True)
-        with api_path.open("w") as fp:
-            fp.write(api_j2.render(name=name, operations=operations))
+    # for name, model in models.items():
+    #     filename = "model_" + formatter.model_filename(name) + ".go"
+    #     model_path = output / filename
+    #     model_path.parent.mkdir(parents=True, exist_ok=True)
+    #     with model_path.open("w") as fp:
+    #         fp.write(model_j2.render(name=name, model=model))
+    #
+    # for name, operations in apis.items():
+    #     filename = "api_" + formatter.snake_case(name) + ".go"
+    #     api_path = output / filename
+    #     api_path.parent.mkdir(parents=True, exist_ok=True)
+    #     with api_path.open("w") as fp:
+    #         fp.write(api_j2.render(name=name, operations=operations))

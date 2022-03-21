@@ -23,7 +23,7 @@ repos:
   - id: generator-v1
     name: generator-v1
     language: python
-    entry: bash -c "cd .generator && poetry install && poetry run python -m generator -i ./schemas/v1/openapi.yaml -o ../api/v1/datadog/"
+    entry: bash -c "cd .generator && poetry install && poetry run python -m generator -i ./schemas/v1/openapi.yaml -o ../src/main/java/com/datadog/api/v1/client/"
     files: "^.generator/(config|schemas/v1|src|poetry.lock|pyproject.toml)"
     stages: [manual]
     pass_filenames: false
@@ -32,7 +32,7 @@ repos:
   - id: generator-v2
     name: generator-v2
     language: python
-    entry: bash -c "cd .generator && poetry install && poetry run python -m generator -i ./schemas/v2/openapi.yaml -o ../api/v2/datadog/"
+    entry: bash -c "cd .generator && poetry install && poetry run python -m generator -i ./schemas/v2/openapi.yaml -o ../src/main/java/com/datadog/api/v2/client"
     files: "^.generator/(config|schemas/v2|src|poetry.lock|pyproject.toml)"
     stages: [manual]
     pass_filenames: false
