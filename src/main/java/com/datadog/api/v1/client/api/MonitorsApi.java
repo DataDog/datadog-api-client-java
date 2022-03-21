@@ -349,8 +349,8 @@ public class MonitorsApi {
    * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
    * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
    * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
-   * an integer or decimal number used to set the threshold. **NOTE** Only available in closed beta
-   * on US1, EU, US3 and US5. **Error Tracking Alert Query** Example(RUM):
+   * an integer or decimal number used to set the threshold. **NOTE** CI Pipeline monitors are in
+   * alpha on US1, EU, US3 and US5. **Error Tracking Alert Query** Example(RUM):
    * &#x60;error-tracking-rum(query).rollup(rollup_method[, measure]).last(time_window) operator
    * #&#x60; Example(APM Traces): &#x60;error-tracking-traces(query).rollup(rollup_method[,
    * measure]).last(time_window) operator #&#x60; - **&#x60;query&#x60;** The search query -
