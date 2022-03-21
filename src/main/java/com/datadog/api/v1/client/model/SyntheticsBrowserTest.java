@@ -130,7 +130,7 @@ public class SyntheticsBrowserTest {
    * @return locations
    */
   @ApiModelProperty(
-      example = "[\"example-location\"]",
+      example = "[\"aws:eu-west-3\"]",
       required = true,
       value = "Array of locations used to run the test.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
@@ -317,7 +317,7 @@ public class SyntheticsBrowserTest {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of tags attached to the test.")
+  @ApiModelProperty(example = "[\"env:prod\"]", value = "Array of tags attached to the test.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
