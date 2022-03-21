@@ -36,7 +36,7 @@ public class UsageTopAvgMetricsMetadata {
   private OffsetDateTime month;
 
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
-  private UsageAttributionPagination pagination;
+  private UsageTopAvgMetricsPagination pagination;
 
   public UsageTopAvgMetricsMetadata day(OffsetDateTime day) {
     this.day = day;
@@ -90,7 +90,7 @@ public class UsageTopAvgMetricsMetadata {
     this.month = month;
   }
 
-  public UsageTopAvgMetricsMetadata pagination(UsageAttributionPagination pagination) {
+  public UsageTopAvgMetricsMetadata pagination(UsageTopAvgMetricsPagination pagination) {
     this.pagination = pagination;
     this.unparsed |= pagination.unparsed;
     return this;
@@ -105,11 +105,11 @@ public class UsageTopAvgMetricsMetadata {
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public UsageAttributionPagination getPagination() {
+  public UsageTopAvgMetricsPagination getPagination() {
     return pagination;
   }
 
-  public void setPagination(UsageAttributionPagination pagination) {
+  public void setPagination(UsageTopAvgMetricsPagination pagination) {
     this.pagination = pagination;
   }
 
