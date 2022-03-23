@@ -238,8 +238,8 @@ public class MonitorsApi {
    * alert&#x60; - network: &#x60;service check&#x60; - outlier: &#x60;query alert&#x60; - process:
    * &#x60;service check&#x60; - rum: &#x60;rum alert&#x60; - SLO: &#x60;slo alert&#x60; - watchdog:
    * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; - audit: &#x60;audit alert&#x60;
-   * #### Query Types **Metric Alert Query** Example:
-   * &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #&#x60; -
+   * - error-tracking: &#x60;error-tracking alert&#x60; #### Query Types **Metric Alert Query**
+   * Example: &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #&#x60; -
    * &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change - &#x60;time_window&#x60;:
    * &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 10080 depending on the monitor type) or
    * &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 168 depending on the monitor type) or
@@ -349,8 +349,19 @@ public class MonitorsApi {
    * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
    * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
    * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
-   * an integer or decimal number used to set the threshold. **NOTE** Only available in closed beta
-   * on US1, EU, US3 and US5.
+   * an integer or decimal number used to set the threshold. **NOTE** CI Pipeline monitors are in
+   * alpha on US1, EU, US3 and US5. **Error Tracking Alert Query** Example(RUM):
+   * &#x60;error-tracking-rum(query).rollup(rollup_method[, measure]).last(time_window) operator
+   * #&#x60; Example(APM Traces): &#x60;error-tracking-traces(query).rollup(rollup_method[,
+   * measure]).last(time_window) operator #&#x60; - **&#x60;query&#x60;** The search query -
+   * following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). -
+   * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
+   * &#x60;avg&#x60;, and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
+   * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
+   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
+   * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
+   * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
+   * an integer or decimal number used to set the threshold.
    *
    * @param body Create a monitor request body. (required)
    * @return ApiResponse&lt;Monitor&gt;

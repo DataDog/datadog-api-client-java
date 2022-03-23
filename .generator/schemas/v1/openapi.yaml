@@ -4708,7 +4708,7 @@ components:
       properties:
         from:
           description: Minimum timestamp for requested logs.
-          example: '2020-02-02T02:02:02Z'
+          example: '2020-02-02T02:02:02.202Z'
           format: date-time
           type: string
         timezone:
@@ -4718,7 +4718,7 @@ components:
           type: string
         to:
           description: Maximum timestamp for requested logs.
-          example: '2020-02-02T20:20:20Z'
+          example: '2020-02-20T02:02:02.202Z'
           format: date-time
           type: string
       required:
@@ -5794,10 +5794,12 @@ components:
       description: Data source for event platform-based queries.
       enum:
       - rum
+      - ci_pipelines
       example: rum
       type: string
       x-enum-varnames:
       - RUM
+      - CI_PIPELINES
     MonitorFormulaAndFunctionQueryDefinition:
       description: A formula and function query.
       oneOf:
@@ -6491,6 +6493,7 @@ components:
       - event-v2 alert
       - audit alert
       - ci-pipelines alert
+      - error-tracking alert
       example: query alert
       type: string
       x-enum-varnames:
@@ -6508,6 +6511,7 @@ components:
       - EVENT_V2_ALERT
       - AUDIT_ALERT
       - CI_PIPELINES_ALERT
+      - ERROR_TRACKING_ALERT
     MonitorUpdateRequest:
       description: Object describing a monitor update request.
       properties:
@@ -10562,7 +10566,7 @@ components:
         locations:
           description: Array of locations used to run the test.
           example:
-          - example-location
+          - aws:eu-west-3
           items:
             description: A location from which the test was run.
             type: string
@@ -10596,6 +10600,8 @@ components:
           type: array
         tags:
           description: Array of tags attached to the test.
+          example:
+          - env:prod
           items:
             description: A tag attached to the test.
             type: string
@@ -10959,6 +10965,8 @@ components:
           $ref: '#/components/schemas/SyntheticsTestHeaders'
         locations:
           description: Array of locations used to run the test.
+          example:
+          - aws:eu-west-3
           items:
             description: A location from which the test was run.
             type: string
@@ -11755,6 +11763,8 @@ components:
           $ref: '#/components/schemas/Creator'
         locations:
           description: Array of locations used to run the test.
+          example:
+          - aws:eu-west-3
           items:
             description: A location from which the test was run.
             type: string
@@ -15495,7 +15505,23 @@ components:
           format: date-time
           type: string
         pagination:
-          $ref: '#/components/schemas/UsageAttributionPagination'
+          $ref: '#/components/schemas/UsageTopAvgMetricsPagination'
+      type: object
+    UsageTopAvgMetricsPagination:
+      description: The metadata for the current pagination.
+      properties:
+        limit:
+          description: Maximum amount of records to be returned.
+          format: int64
+          type: integer
+        next_record_id:
+          description: The cursor to get the next results (if any). To make the next
+            request, use the same parameters and add `next_record_id`.
+          type: string
+        total_number_of_records:
+          description: Total number of records.
+          format: int64
+          type: integer
       type: object
     UsageTopAvgMetricsResponse:
       description: Response containing the number of hourly recorded custom metrics
@@ -21258,6 +21284,8 @@ paths:
 
         - audit: `audit alert`
 
+        - error-tracking: `error-tracking alert`
+
 
         #### Query Types
 
@@ -21534,7 +21562,32 @@ paths:
         - **`#`** an integer or decimal number used to set the threshold.
 
 
-        **NOTE** Only available in closed beta on US1, EU, US3 and US5.'
+        **NOTE** CI Pipeline monitors are in alpha on US1, EU, US3 and US5.
+
+
+        **Error Tracking Alert Query**
+
+
+        Example(RUM): `error-tracking-rum(query).rollup(rollup_method[, measure]).last(time_window)
+        operator #`
+
+        Example(APM Traces): `error-tracking-traces(query).rollup(rollup_method[,
+        measure]).last(time_window) operator #`
+
+
+        - **`query`** The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/).
+
+        - **`rollup_method`** The stats roll-up method - supports `count`, `avg`,
+        and `cardinality`.
+
+        - **`measure`** For `avg` and cardinality `rollup_method` - specify the measure
+        or the facet name you want to use.
+
+        - **`time_window`** #m (between 1 and 2880), #h (between 1 and 48).
+
+        - **`operator`** `<`, `<=`, `>`, `>=`, `==`, or `!=`.
+
+        - **`#`** an integer or decimal number used to set the threshold.'
       operationId: CreateMonitor
       requestBody:
         content:
