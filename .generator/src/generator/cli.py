@@ -68,7 +68,7 @@ def cli(input, output):
     env.globals["version"] = version
 
     # api_j2 = env.get_template("api.j2")
-    # model_j2 = env.get_template("model.j2")
+    model_j2 = env.get_template("model.j2")
 
     extra_files = {
         "ApiClient.java": env.get_template("ApiClient.j2"),
@@ -110,12 +110,12 @@ def cli(input, output):
         with filename.open("w") as fp:
             fp.write(template.render())
 
-    # for name, model in models.items():
-    #     filename = "model_" + formatter.model_filename(name) + ".go"
-    #     model_path = output / filename
-    #     model_path.parent.mkdir(parents=True, exist_ok=True)
-    #     with model_path.open("w") as fp:
-    #         fp.write(model_j2.render(name=name, model=model))
+    model_dir = output / "model"
+    model_dir.mkdir(parents=True, exist_ok=True)
+    for name, model in models.items():
+        model_path = model_dir / name / ".java"
+        with model_path.open("w") as fp:
+            fp.write(model_j2.render(name=name, model=model))
     #
     # for name, operations in apis.items():
     #     filename = "api_" + formatter.snake_case(name) + ".go"

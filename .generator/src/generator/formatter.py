@@ -110,14 +110,6 @@ def schema_name(schema):
         return schema.__reference__["$ref"].split("/")[-1]
 
 
-def model_filename(name):
-    filename = snake_case(name)
-    last = filename.split("_")[-1]
-    if last in SUFFIXES:
-        filename += "_"
-    return filename
-
-
 def escape_reserved_keyword(word):
     """
     Escape reserved language keywords like openapi generator does it

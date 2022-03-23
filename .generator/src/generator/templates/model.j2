@@ -1,0 +1,12 @@
+{% include "ApiInfo.j2" %}
+
+package {{ package_name }}.model;
+
+{% if "enum" in model -%}
+{% include "model_enum.j2" %}
+{%- elif "oneOf" in model -%}
+{% include "model_oneof.j2" %}
+{%- else -%}
+{% include "model_simple.j2" %}
+{%- endif %}
+{# keep new line #}
