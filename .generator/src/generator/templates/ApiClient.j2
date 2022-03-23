@@ -1,6 +1,6 @@
 {% include "api_info.j2" %}
 
-package {{ package_name }}.{{ version }}.client;
+package {{ package_name }};
 
 import javax.ws.rs.client.AsyncInvoker;
 import javax.ws.rs.client.Client;
@@ -72,11 +72,11 @@ import java.text.DateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import {{ package_name }}.{{ version }}.client.auth.ApiKeyAuth;
-import {{ package_name }}.{{ version }}.client.auth.Authentication;
-import {{ package_name }}.{{ version }}.client.auth.HttpBasicAuth;
-import {{ package_name }}.{{ version }}.client.auth.HttpBearerAuth;
-import {{ package_name }}.{{ version }}.client.auth.OAuth;
+import {{ package_name }}.auth.ApiKeyAuth;
+import {{ package_name }}.auth.Authentication;
+import {{ package_name }}.auth.HttpBasicAuth;
+import {{ package_name }}.auth.HttpBearerAuth;
+import {{ package_name }}.auth.OAuth;
 
 {%- macro server_configuration(server) -%}
      new ServerConfiguration(

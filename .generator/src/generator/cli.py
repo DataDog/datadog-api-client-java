@@ -7,7 +7,7 @@ from jinja2 import Environment, FileSystemLoader
 from . import openapi
 from . import formatter
 
-PACKAGE_NAME = "com.datadog.api"
+PACKAGE_NAME = "com.datadog.api.{}.client"
 GENERATED_ANNOTATION = "@javax.annotation.Generated(value = \".generator\")"
 
 
@@ -63,7 +63,7 @@ def cli(input, output):
     env.globals["get_type_for_parameter"] = openapi.get_type_for_parameter
     env.globals["get_type"] = openapi.type_to_go
     env.globals["openapi"] = spec
-    env.globals["package_name"] = PACKAGE_NAME
+    env.globals["package_name"] = PACKAGE_NAME.format(version)
     env.globals["generated_annotation"] = GENERATED_ANNOTATION
     env.globals["version"] = version
 
@@ -84,6 +84,15 @@ def cli(input, output):
         "StringUtil.java": env.get_template("StringUtil.j2"),
     }
 
+    auth_files = {
+        "ApiKeyAuth.java": env.get_template("auth/ApiKeyAuth.j2"),
+        "Authentication.java": env.get_template("auth/Authentication.j2"),
+        "HttpBasicAuth.java": env.get_template("auth/HttpBasicAuth.j2"),
+        "HttpBearerAuth.java": env.get_template("auth/HttpBearerAuth.j2"),
+        "OAuth.java": env.get_template("auth/OAuth.j2"),
+        "OAuthFlow.java": env.get_template("auth/OAuthFlow.j2"),
+    }
+
     apis = openapi.apis(spec)
     models = openapi.models(spec)
 
@@ -93,6 +102,13 @@ def cli(input, output):
         filename = output / name
         with filename.open("w") as fp:
             fp.write(template.render(apis=apis, models=models))
+
+    auth_path = output / "auth"
+    auth_path.mkdir(parents=True, exist_ok=True)
+    for name, template in auth_files.items():
+        filename = auth_path / name
+        with filename.open("w") as fp:
+            fp.write(template.render())
 
     # for name, model in models.items():
     #     filename = "model_" + formatter.model_filename(name) + ".go"
