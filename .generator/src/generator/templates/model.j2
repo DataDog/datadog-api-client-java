@@ -2,11 +2,12 @@
 
 package {{ package_name }}.model;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
 {% if "enum" in model -%}
-{% include "model_enum.j2" %}
-{%- elif "oneOf" in model -%}
-{% include "model_oneof.j2" %}
-{%- else -%}
-{% include "model_simple.j2" %}
+{% include "modelEnum.j2" %}
 {%- endif %}
 {# keep new line #}

@@ -130,11 +130,10 @@ def variable_name(attribute):
 
 
 def format_value(value, quotes='"', schema=None):
-    if schema and "enum" in schema:
-        index = schema["enum"].index(value)
-        enum_varnames = schema["x-enum-varnames"][index]
-        name = schema_name(schema)
-        return f"{name.upper()}_{enum_varnames}"
+    if schema:
+        if schema.get("type") == "integer":
+            if schema.get("format") == "int64":
+                return f"{value}l"
 
     if isinstance(value, str):
         return f"{quotes}{value}{quotes}"
@@ -157,9 +156,9 @@ def simple_type(schema, render_nullable=False):
 
     if type_name == "integer":
         return {
-            "int32": "int32" if not nullable else "NullableInt32",
-            "int64": "int64" if not nullable else "NullableInt64",
-            None: "int32" if not nullable else "NullableInt32",
+            "int32": "Integer",
+            "int64": "Long",
+            None: "Integer",
         }[type_format]
 
     if type_name == "number":
@@ -174,7 +173,7 @@ def simple_type(schema, render_nullable=False):
             "date-time": "time.Time" if not nullable else "NullableTime",
             "email": "string" if not nullable else "NullableString",
             "binary": "*os.File",
-            None: "string" if not nullable else "NullableString",
+            None: "String",
         }[type_format]
     if type_name == "boolean":
         return "bool" if not nullable else "NullableBool"

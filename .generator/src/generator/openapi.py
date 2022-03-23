@@ -223,7 +223,6 @@ def models(spec):
 
     return name_to_schema
 
-
 def apis(spec):
     operations = {}
 

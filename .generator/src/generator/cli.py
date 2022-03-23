@@ -1,5 +1,6 @@
 import json
 import pathlib
+import html
 
 import click
 from jinja2 import Environment, FileSystemLoader
@@ -55,6 +56,7 @@ def cli(input, output):
     env.filters["untitle_case"] = formatter.untitle_case
     env.filters["upperfirst"] = formatter.upperfirst
     env.filters["variable_name"] = formatter.variable_name
+    env.filters["html_escape"] = html.escape
 
     env.globals["config"] = config
     env.globals["enumerate"] = enumerate
@@ -113,13 +115,13 @@ def cli(input, output):
     model_dir = output / "model"
     model_dir.mkdir(parents=True, exist_ok=True)
     for name, model in models.items():
-        model_path = model_dir / name / ".java"
+        model_path = model_dir / f"{name}.java"
         with model_path.open("w") as fp:
             fp.write(model_j2.render(name=name, model=model))
-    #
-    # for name, operations in apis.items():
-    #     filename = "api_" + formatter.snake_case(name) + ".go"
-    #     api_path = output / filename
-    #     api_path.parent.mkdir(parents=True, exist_ok=True)
-    #     with api_path.open("w") as fp:
-    #         fp.write(api_j2.render(name=name, operations=operations))
+
+    for name, operations in apis.items():
+        filename = "api_" + formatter.snake_case(name) + ".go"
+        api_path = output / filename
+        api_path.parent.mkdir(parents=True, exist_ok=True)
+        with api_path.open("w") as fp:
+            fp.write(api_j2.render(name=name, operations=operations))
