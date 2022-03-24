@@ -1,6 +1,5 @@
 import json
 import pathlib
-import html
 
 import click
 from jinja2 import Environment, FileSystemLoader
@@ -9,7 +8,7 @@ from . import openapi
 from . import formatter
 
 PACKAGE_NAME = "com.datadog.api.{}.client"
-GENERATED_ANNOTATION = "@javax.annotation.Generated(value = \".generator\")"
+GENERATED_ANNOTATION = "@javax.annotation.Generated(value = \"org.openapitools.codegen.languages.JavaClientCodegen\")"
 
 
 @click.command()
@@ -56,14 +55,14 @@ def cli(input, output):
     env.filters["untitle_case"] = formatter.untitle_case
     env.filters["upperfirst"] = formatter.upperfirst
     env.filters["variable_name"] = formatter.variable_name
-    env.filters["html_escape"] = html.escape
+    env.filters["is_primitive"] = openapi.is_primitive
 
     env.globals["config"] = config
     env.globals["enumerate"] = enumerate
     env.globals["get_name"] = openapi.get_name
     env.globals["get_type_for_attribute"] = openapi.get_type_for_attribute
     env.globals["get_type_for_parameter"] = openapi.get_type_for_parameter
-    env.globals["get_type"] = openapi.type_to_go
+    env.globals["get_type"] = openapi.type_to_java
     env.globals["openapi"] = spec
     env.globals["package_name"] = PACKAGE_NAME.format(version)
     env.globals["generated_annotation"] = GENERATED_ANNOTATION
@@ -119,9 +118,9 @@ def cli(input, output):
         with model_path.open("w") as fp:
             fp.write(model_j2.render(name=name, model=model))
 
-    for name, operations in apis.items():
-        filename = "api_" + formatter.snake_case(name) + ".go"
-        api_path = output / filename
-        api_path.parent.mkdir(parents=True, exist_ok=True)
-        with api_path.open("w") as fp:
-            fp.write(api_j2.render(name=name, operations=operations))
+    # for name, operations in apis.items():
+    #     filename = "api_" + formatter.snake_case(name) + ".go"
+    #     api_path = output / filename
+    #     api_path.parent.mkdir(parents=True, exist_ok=True)
+    #     with api_path.open("w") as fp:
+    #         fp.write(api_j2.render(name=name, operations=operations))

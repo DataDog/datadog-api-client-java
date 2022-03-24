@@ -9,11 +9,19 @@ from yaml import CSafeLoader
 
 from . import formatter
 
+PRIMITIVE_TYPES = ["string", "number", "boolean", "integer"]
+
 
 def load(filename):
     path = pathlib.Path(filename)
     with path.open() as fp:
         return JsonRef.replace_refs(yaml.load(fp, Loader=CSafeLoader))
+
+
+def is_primitive(schema):
+    if schema.get("type") in PRIMITIVE_TYPES:
+        return True
+    return False
 
 
 def get_name(schema):
@@ -24,17 +32,9 @@ def get_name(schema):
     return name
 
 
-def type_to_go(schema, alternative_name=None, render_nullable=False):
-    """Return Go type name for the type."""
-    if render_nullable and schema.get("nullable", False):
-        prefix = "Nullable"
-    else:
-        prefix = ""
-
-    # special case for additionalProperties: true
-    if schema is True:
-        return "interface{}"
-
+def type_to_java(schema, alternative_name=None, render_nullable=False):
+    """Return Java type name for the type."""
+    prefix = ""
     if "enum" not in schema:
         name = formatter.simple_type(schema, render_nullable=render_nullable)
         if name is not None:
@@ -67,14 +67,14 @@ def type_to_go(schema, alternative_name=None, render_nullable=False):
             return prefix + name
         if name or alternative_name:
             alternative_name = (name or alternative_name) + "Item"
-        name = type_to_go(schema["items"], alternative_name=alternative_name)
+        name = type_to_java(schema["items"], alternative_name=alternative_name)
         # handle nullable arrays
         if formatter.simple_type(schema["items"]) and schema["items"].get("nullable"):
             name = "*" + name
         return "[]{}".format(name)
     elif type_ == "object":
         if "additionalProperties" in schema:
-            return "map[string]{}".format(type_to_go(schema["additionalProperties"]))
+            return "map[string]{}".format(type_to_java(schema["additionalProperties"]))
         return (
             prefix + alternative_name
             if alternative_name
@@ -96,7 +96,7 @@ def get_type_for_attribute(schema, attribute, current_name=None):
     alternative_name = (
         current_name + formatter.camel_case(attribute) if current_name else None
     )
-    return type_to_go(child_schema, alternative_name=alternative_name)
+    return type_to_java(child_schema, alternative_name=alternative_name)
 
 
 def get_type_for_parameter(parameter):
@@ -104,8 +104,8 @@ def get_type_for_parameter(parameter):
     if "content" in parameter:
         assert "in" not in parameter
         for content in parameter["content"].values():
-            return type_to_go(content["schema"])
-    return type_to_go(parameter.get("schema"))
+            return type_to_java(content["schema"])
+    return type_to_java(parameter.get("schema"))
 
 
 def get_type_for_response(response):
@@ -113,7 +113,7 @@ def get_type_for_response(response):
     if "content" in response:
         for content in response["content"].values():
             if "schema" in content:
-                return type_to_go(content["schema"])
+                return type_to_java(content["schema"])
 
 
 def child_models(schema, alternative_name=None, seen=None, parent=None):
@@ -285,7 +285,7 @@ def return_type(operation):
     for response in operation.get("responses", {}).values():
         for content in response.get("content", {}).values():
             if "schema" in content:
-                return type_to_go(content["schema"])
+                return type_to_java(content["schema"])
         return
 
 

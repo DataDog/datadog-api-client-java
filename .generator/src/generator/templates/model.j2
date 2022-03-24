@@ -6,8 +6,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 {% if "enum" in model -%}
 {% include "modelEnum.j2" %}
+{%- elif "oneOf" in model -%}
+{% include "modelOneOf.j2" %}
 {%- endif %}
 {# keep new line #}

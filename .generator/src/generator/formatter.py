@@ -152,7 +152,6 @@ def simple_type(schema, render_nullable=False):
     """
     type_name = schema.get("type")
     type_format = schema.get("format")
-    nullable = render_nullable and schema.get("nullable", False)
 
     if type_name == "integer":
         return {
@@ -163,20 +162,20 @@ def simple_type(schema, render_nullable=False):
 
     if type_name == "number":
         return {
-            "double": "float64" if not nullable else "NullableFloat64",
-            None: "float" if not nullable else "NullableFloat",
+            "double": "Double",
+            None: "Integer",
         }[type_format]
 
     if type_name == "string":
         return {
-            "date": "time.Time" if not nullable else "NullableTime",
-            "date-time": "time.Time" if not nullable else "NullableTime",
-            "email": "string" if not nullable else "NullableString",
+            "date": "time.Time",
+            "date-time": "time.Time" ,
+            "email": "string",
             "binary": "*os.File",
             None: "String",
         }[type_format]
     if type_name == "boolean":
-        return "bool" if not nullable else "NullableBool"
+        return "Boolean"
 
     return None
 
