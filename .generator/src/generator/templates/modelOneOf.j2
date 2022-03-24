@@ -138,7 +138,7 @@ public class {{ name }} extends AbstractOpenApiSchema {
     }
 
     {%- for oneOf in model.oneOf %}
-    public {{ name }}({{ get_name(oneOf) }} o) {
+    public {{ name }}({{ get_type(oneOf) }} o) {
         super("oneOf", Boolean.{{ "TRUE" if model.nullable else "FALSE" }});
         setActualInstance(o);
     }
@@ -146,7 +146,7 @@ public class {{ name }} extends AbstractOpenApiSchema {
 
     static {
         {%- for oneOf in model.oneOf %}
-        schemas.put("{{ get_name(oneOf) }}", new GenericType<{{ get_name(oneOf) }}>() {
+        schemas.put("{{ get_type(oneOf) }}", new GenericType<{{ get_type(oneOf) }}>() {
         });
         {%- endfor  %}
         JSON.registerDescendants({{ name }}.class, Collections.unmodifiableMap(schemas));
@@ -160,7 +160,7 @@ public class {{ name }} extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * {% for oneOf in model.oneOf %}{{ get_name(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %}
+     * {% for oneOf in model.oneOf %}{{ get_type(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %}
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -175,7 +175,7 @@ public class {{ name }} extends AbstractOpenApiSchema {
 
         {% endif %}
         {%- for oneOf in model.oneOf %}
-        if (JSON.isInstanceOf({{ get_name(oneOf) }}.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf({{ get_type(oneOf) }}.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -188,14 +188,14 @@ public class {{ name }} extends AbstractOpenApiSchema {
         }
         {%- endif %}
         {%- endfor %}
-        throw new RuntimeException("Invalid instance type. Must be {% for oneOf in model.oneOf %}{{ get_name(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %}");
+        throw new RuntimeException("Invalid instance type. Must be {% for oneOf in model.oneOf %}{{ get_type(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %}");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * {% for oneOf in model.oneOf %}{{ get_name(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %}
+     * {% for oneOf in model.oneOf %}{{ get_type(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %}
      *
-     * @return The actual instance ({% for oneOf in model.oneOf %}{{ get_name(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %})
+     * @return The actual instance ({% for oneOf in model.oneOf %}{{ get_type(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %})
      */
     @Override
     public Object getActualInstance() {
@@ -203,17 +203,17 @@ public class {{ name }} extends AbstractOpenApiSchema {
     }
 
     {%- for oneOf in model.oneOf %}
-    {%- set oneOfName = get_name(oneOf) %}
+    {%- set dataType = get_type(oneOf) %}
 
     /**
-     * Get the actual instance of `{{ oneOfName }}`. If the actual instance is not `{{ oneOfName }}`,
+     * Get the actual instance of `{{ dataType }}`. If the actual instance is not `{{ dataType }}`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `{{ oneOfName }}`
-     * @throws ClassCastException if the instance is not `{{ oneOfName }}`
+     * @return The actual instance of `{{ dataType }}`
+     * @throws ClassCastException if the instance is not `{{ dataType }}`
      */
-    public {{ oneOfName }} get{{ oneOfName }}() throws ClassCastException {
-        return ({{ oneOfName }})super.getActualInstance();
+    public {{ dataType }} get{{ dataType }}() throws ClassCastException {
+        return ({{ dataType }})super.getActualInstance();
     }
 
     {%- endfor %}
