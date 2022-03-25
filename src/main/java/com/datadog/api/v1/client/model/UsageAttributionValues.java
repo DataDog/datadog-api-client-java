@@ -51,8 +51,6 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_FUNCTIONS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_INVOCATIONS_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_INVOCATIONS_USAGE,
-  UsageAttributionValues.JSON_PROPERTY_LAMBDA_PERCENTAGE,
-  UsageAttributionValues.JSON_PROPERTY_LAMBDA_USAGE,
   UsageAttributionValues.JSON_PROPERTY_NPM_HOST_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_NPM_HOST_USAGE,
   UsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE,
@@ -159,12 +157,6 @@ public class UsageAttributionValues {
 
   public static final String JSON_PROPERTY_LAMBDA_INVOCATIONS_USAGE = "lambda_invocations_usage";
   private Double lambdaInvocationsUsage;
-
-  public static final String JSON_PROPERTY_LAMBDA_PERCENTAGE = "lambda_percentage";
-  private Double lambdaPercentage;
-
-  public static final String JSON_PROPERTY_LAMBDA_USAGE = "lambda_usage";
-  private Double lambdaUsage;
 
   public static final String JSON_PROPERTY_NPM_HOST_PERCENTAGE = "npm_host_percentage";
   private Double npmHostPercentage;
@@ -861,58 +853,6 @@ public class UsageAttributionValues {
     this.lambdaInvocationsUsage = lambdaInvocationsUsage;
   }
 
-  public UsageAttributionValues lambdaPercentage(Double lambdaPercentage) {
-    this.lambdaPercentage = lambdaPercentage;
-    return this;
-  }
-
-  /**
-   * The percentage of Lambda function usage by tag(s). **Note** this field is deprecated. Use
-   * lambda_functions_percentage instead.
-   *
-   * @return lambdaPercentage
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The percentage of Lambda function usage by tag(s).  **Note** this field is deprecated."
-              + " Use lambda_functions_percentage instead.")
-  @JsonProperty(JSON_PROPERTY_LAMBDA_PERCENTAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getLambdaPercentage() {
-    return lambdaPercentage;
-  }
-
-  public void setLambdaPercentage(Double lambdaPercentage) {
-    this.lambdaPercentage = lambdaPercentage;
-  }
-
-  public UsageAttributionValues lambdaUsage(Double lambdaUsage) {
-    this.lambdaUsage = lambdaUsage;
-    return this;
-  }
-
-  /**
-   * The Lambda function usage by tag(s). **Note** this field is deprecated. Use
-   * lambda_functions_usage instead.
-   *
-   * @return lambdaUsage
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The Lambda function usage by tag(s).  **Note** this field is deprecated. Use"
-              + " lambda_functions_usage instead.")
-  @JsonProperty(JSON_PROPERTY_LAMBDA_USAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getLambdaUsage() {
-    return lambdaUsage;
-  }
-
-  public void setLambdaUsage(Double lambdaUsage) {
-    this.lambdaUsage = lambdaUsage;
-  }
-
   public UsageAttributionValues npmHostPercentage(Double npmHostPercentage) {
     this.npmHostPercentage = npmHostPercentage;
     return this;
@@ -1138,8 +1078,6 @@ public class UsageAttributionValues {
             this.lambdaInvocationsPercentage, usageAttributionValues.lambdaInvocationsPercentage)
         && Objects.equals(
             this.lambdaInvocationsUsage, usageAttributionValues.lambdaInvocationsUsage)
-        && Objects.equals(this.lambdaPercentage, usageAttributionValues.lambdaPercentage)
-        && Objects.equals(this.lambdaUsage, usageAttributionValues.lambdaUsage)
         && Objects.equals(this.npmHostPercentage, usageAttributionValues.npmHostPercentage)
         && Objects.equals(this.npmHostUsage, usageAttributionValues.npmHostUsage)
         && Objects.equals(
@@ -1186,8 +1124,6 @@ public class UsageAttributionValues {
         lambdaFunctionsUsage,
         lambdaInvocationsPercentage,
         lambdaInvocationsUsage,
-        lambdaPercentage,
-        lambdaUsage,
         npmHostPercentage,
         npmHostUsage,
         profiledContainerPercentage,
@@ -1258,8 +1194,6 @@ public class UsageAttributionValues {
     sb.append("    lambdaInvocationsUsage: ")
         .append(toIndentedString(lambdaInvocationsUsage))
         .append("\n");
-    sb.append("    lambdaPercentage: ").append(toIndentedString(lambdaPercentage)).append("\n");
-    sb.append("    lambdaUsage: ").append(toIndentedString(lambdaUsage)).append("\n");
     sb.append("    npmHostPercentage: ").append(toIndentedString(npmHostPercentage)).append("\n");
     sb.append("    npmHostUsage: ").append(toIndentedString(npmHostUsage)).append("\n");
     sb.append("    profiledContainerPercentage: ")

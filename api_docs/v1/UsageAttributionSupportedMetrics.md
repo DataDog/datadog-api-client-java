@@ -20,8 +20,6 @@
 
 - `CONTAINER_PERCENTAGE` (value: `"container_percentage"`)
 
-- `LAMBDA_USAGE` (value: `"lambda_usage"`)
-
 - `API_USAGE` (value: `"api_usage"`)
 
 - `APM_HOST_PERCENTAGE` (value: `"apm_host_percentage"`)
@@ -33,8 +31,6 @@
 - `BROWSER_PERCENTAGE` (value: `"browser_percentage"`)
 
 - `API_PERCENTAGE` (value: `"api_percentage"`)
-
-- `LAMBDA_PERCENTAGE` (value: `"lambda_percentage"`)
 
 - `NPM_HOST_USAGE` (value: `"npm_host_usage"`)
 
