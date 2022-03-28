@@ -922,7 +922,7 @@ Authentication schemes defined for the API:
   - metrics_read: View custom metrics.
   - monitors_downtime: Set downtimes to suppress alerts from any monitor in an organization. The ability to write monitors is not required to set downtimes.
   - monitors_read: View monitors.
-  - monitors_write: Change, mute, and delete individual monitors.
+  - monitors_write: Edit, mute, and delete individual monitors.
   - synthetics_global_variable_read: View, search, and use in tests the list of global variables available for Synthetics.
   - synthetics_global_variable_write: Create, edit, and delete global variables for Synthetics.
   - synthetics_private_location_read: View, search, and use in tests the list of available private locations.
