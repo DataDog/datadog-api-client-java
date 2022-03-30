@@ -1,0 +1,241 @@
+{% include "ApiInfo.j2" %}
+
+/**
+{# * {{ model.description if model.description else name }}#}
+{%- if model.deprecated %}* @deprecated{%- endif %}
+ */
+{%- if model.deprecated %}
+@Deprecated
+{%- endif %}
+@ApiModel(description = "{#{ model.description|striptags|escape }#}")
+@JsonPropertyOrder({
+{%- for attr, schema in model.get("properties", {}).items() %}
+{%- set attributeName = attr|attribute_name|upper %}
+  {{ name }}.JSON_PROPERTY_{{ attributeName }}{%- if loop.nextitem %},{%- endif %}
+{%- endfor %}
+})
+{{ generated_annotation }}
+public class {{ name }} {
+  @JsonIgnore
+  public boolean unparsed = false;
+  {%- for attr, schema in model.get("properties", {}).items() %}
+  {%- set propertyName = attr|attribute_name %}
+  {%- set variableName = attr|variable_name %}
+  {%- set dataType = get_type(schema, alternative_name=name + propertyName) %}
+  {%- set isRequired = attr in model.get("required", []) %}
+  {%- set isNullable = schema.nullable %}
+  {%- set isContainer = schema.type in ["array"] %}
+  {%- set defaultValue = schema.default if schema.default is defined else None %}
+{#-
+  TODO: double check this. Doesn't actually seem to be used
+  {%- if schema.enum is defined %}
+  {%- if isContainer %}
+  {{#mostInnerItems}}
+    {{>modelInnerEnum}}
+  {{/mostInnerItems}}
+  {%- endif %}
+  {%- endif %}
+#}
+  public static final String JSON_PROPERTY_{{ propertyName|upper }} = "{{ propertyName }}";
+  {%- if not isRequired and isNullable %}
+    {%- if isContainer %}
+  private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>undefined();
+    {%- else %}
+  private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>{%- if defaultValue %}of({{ defaultValue|format_value(schema=schema) }}){%- else %}undefined(){%- endif%};
+    {%- endif %}
+  {%- else %}
+    {%- if isContainer %}
+  private {{ dataType }} {{ variableName }}{%- if isRequired %} = new {{ defaultValue|format_value(schema=schema) }}(){%- else %} = null{%- endif %};
+    {%- else %}
+  private {{ dataType }} {{ variableName }}{%- if defaultValue != None or schema.additionalProperties is defined %} = {%- if schema|is_primitive %}{{ defaultValue|format_value(schema=schema) }}{%- else %}{{ defaultValue|format_value(schema=schema) }}{%- endif %}{%- endif %};
+    {%- endif %}
+  {%- endif %}
+{#  #}
+  {%- endfor %}
+
+  {%- set requiredAttr = model|get_required_attributes %}
+  {%- if requiredAttr %}
+  public {{ name }}() {}
+
+  @JsonCreator
+  public {{ name }}(
+            {%- for attr, schema in requiredAttr.items() %}
+            {%- set attributeName = attr|attribute_name %}
+            {%- set variableName = attr|variable_name %}
+            {%- set isRequired = attr in model.get("required", []) %}
+            {%- set isNullable = schema.nullable %}
+            {%- set dataType = get_type(schema, alternative_name=name + attributeName) %}
+            @JsonProperty(required=true, value=JSON_PROPERTY_{{ variableName|upper }})
+                {%- if not isRequired and isNullable %}JsonNullable<{{ dataType }}>{%- else %}{{ dataType }}{%- endif %} {{ variableName }}{%- if loop.nextitem %},{%- endif %}
+            {%- endfor %}) {
+        {%- for attr, schema in requiredAttr.items() %}
+        {%- set attributeName = attr|attribute_name %}
+        {%- set variableName = attr|variable_name %}
+        {%- set isNullable = schema.nullable %}
+        this.{{ variableName }} = {{ variableName }};
+        {%- if isNullable %}
+        if ({{ variableName }} != null) {
+        {%- endif %}
+        {%- if schema.enum is defined %}
+        this.unparsed |= !{{ variableName }}.isValid();
+        {%- endif %}
+        {%- if schema.properties is defined and not schema|is_primitive %}
+        this.unparsed |= {{ variableName }}.unparsed;
+        {%- endif %}
+        {%- if isNullable %}
+        }
+        {%- endif %}
+        {%- endfor %}
+  }
+  {%- endif %}
+
+  {%- for attr, schema in model.get("properties", {}).items() %}
+  {%- set attributeName = attr|attribute_name %}
+  {%- set variableName = attr|variable_name %}
+  {%- set isNullable = schema.nullable %}
+  {%- set dataType = get_type(schema, alternative_name=name + attributeName) %}
+  {%- set isArray = schema.type == "array" %}
+  {%- set isRequired = attr in model.get("required", []) %}
+  {%- if not schema.readOnly %}
+  public {{ name }} {{ variableName }}({{ dataType }} {{ variableName }}) {
+    {%- if not isRequired and isNullable %}
+    this.{{ variableName }} = JsonNullable.<{{ dataType }}>of({{ variableName }});
+    {%- else %}
+    this.{{variableName}} = {{variableName}};
+    {%- if not isArray %}
+    {%- if isNullable %}
+        if ({{name}} != null) {
+    {%- endif %}
+    {%- if schema.enum is defined %}
+    {%- if not schema|is_primitive %}
+    this.unparsed |= !{{ variableName }}.isValid();
+    {%- endif %}
+    {%- endif %}
+    {%- if schema.properties is defined and not schema|is_primitive %}
+    this.unparsed |= {{ variableName }}.unparsed;
+    {%- endif %}
+    {%- if isNullable %}
+    }
+    {%- endif %}
+    {%- else %}
+    {%- if schema.get("items", {}).properties is defined and not schema|is_primitive %}
+    {%- set itemsDataType = get_type(schema.get("items", {})) %}
+    for ({{ itemsDataType }} item : {{ variableName }}) {
+      {%- if schema.enum is defined %}
+      this.unparsed |= !item.isValid();
+      {%- endif %}
+      this.unparsed |= item.unparsed;
+    }
+    {%- endif %}
+    {%- endif %}
+    {%- endif %}
+    return this;
+  }
+  {%- if isArray %}
+  {%- set itemsDataType = get_type(schema.get("items", {})) %}
+  public {{ name }} add{{ variableName|upperfirst }}Item({{ itemsDataType }} {{ variableName }}Item) {
+    {%- if not isRequired and isNullable %}
+    if (this.{{ variableName }} == null || !this.{{ variableName }}.isPresent()) {
+      this.{{ variableName }} = JsonNullable.<{{ dataType }}>of(new ArrayList<>());
+    }
+    try {
+      this.{{ variableName }}.get().add({{ variableName }}Item);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+    {%- else %}
+    {%- if not isRequired %}
+    if (this.{{ variableName }} == null) {
+      this.{{ variableName }} = new ArrayList<>();
+    }
+    {%- endif %}
+    this.{{ variableName }}.add({{ variableName }}Item);
+    {%- if schema.get("items", {}).enum is defined %}
+    {%- if not schema.get("items", {})|is_primitive %}
+    this.unparsed |= !{{ variableName }}Item.isValid();
+    {%-  endif %}
+    {%-  endif %}
+    {%- if schema.get("items", {}).properties is defined %}
+    {%- if not schema.get("items", {})|is_primitive %}
+    this.unparsed |= {{ variableName }}Item.unparsed;
+    {%-  endif %}
+    {%-  endif %}
+    return this;
+    {%- endif %}
+  }
+  {%- endif %}
+
+  {%- if schema.additionalProperties is defined %}
+  public {{ name }} put{{ variableName|upperfirst }}Item(String key, {{ get_type(schema.additionalProperties) }} {{ variableName }}Item) {
+    {%- if not isRequired and isNullable %}
+    if (this.{{ variableName }} == null || !this.{{ variableName }}.isPresent()) {
+      this.{{ variableName }} = JsonNullable.<{{ dataType }}>of(new HashMap<>());
+    }
+    try {
+      this.{{ variableName }}.get().put(key, {{ variableName|upperfirst }}Item);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+    {%- else %}
+    {%- if not isRequired %}
+    if (this.{{ variableName }} == null) {
+      this.{{ variableName }} = new HashMap<>();
+    }
+    {%- endif %}
+    this.{{ variableName }}.put(key, {{ variableName }}Item);
+    return this;
+    {%- endif %}
+  }
+  {%- endif %}
+  {%- endif %}
+
+  /**
+  * {#{ schema.description|default("Get" ~ variableName) }#}
+  {%- if schema.minimum is defined %}
+   * minimum: {{ schema.minimum }}
+  {%- endif %}
+  {%- if schema.maximum is defined %}
+   * maximum: {{ schema.maximum }}
+  {%- endif %}
+   * @return {{ variableName }}
+  {%- if schema.deprecated %}
+   * @deprecated
+  {%- endif %}
+  **/
+    {%- if schema.deprecated %}
+      @Deprecated
+    {%- endif %}
+    {%- if isRequired %}
+    {%- if isNullable %}
+      @javax.annotation.Nullable
+    {%- endif %}
+    {%- else %}
+      @javax.annotation.Nullable
+    {%- endif %}
+{#- TODO: format example#}
+    @ApiModelProperty({%- if schema.example is defined %}example = "{#{ schema.example }#}", {%- endif %}{%- if isRequired %}required = true, {%- endif %}value = "{#{ schema.description|striptags|escape }#}")
+    {%- if not isRequired and isNullable %}
+      @JsonIgnore
+    {%- else %}
+      @JsonProperty(JSON_PROPERTY_{{ attributeName|upper }})
+      @JsonInclude(
+        {%- if schema.additionalProperties %}{%- if schema.additionalProperties.nullable %}content = JsonInclude.Include.ALWAYS,{%- endif %}{%- endif %}
+        value = JsonInclude.Include.{%- if isRequired %}ALWAYS{%- else %}USE_DEFAULTS{%- endif %})
+    {%- endif %}
+      public {{ dataType }} get{{ variableName|upperfirst }}() {
+        {%- if not isRequired and isNullable %}
+        {%- if schema.readOnly %}
+        if ({{ variableName }} == null) {
+          {{ variableName }} = JsonNullable.<{{  dataType }}>{%- if defaultValue %}of({{ defaultValue|format_value(schema=schema) }}){%- else %}undefined(){%- endif%};
+        }
+        {%- endif %}
+        return {{ variableName }}.orElse(null);
+        {%- else %}
+        return {{ variableName }};
+        {%- endif %}
+      }
+  {%- endfor %}
+
+}

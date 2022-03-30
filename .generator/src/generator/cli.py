@@ -45,7 +45,6 @@ def cli(input, output):
     env.filters["collection_format"] = openapi.collection_format
     env.filters["format_server"] = openapi.format_server
     env.filters["format_value"] = formatter.format_value
-    env.filters["is_reference"] = formatter.is_reference
     env.filters["parameter_schema"] = openapi.parameter_schema
     env.filters["parameters"] = openapi.parameters
     env.filters["response_type"] = openapi.get_type_for_response
@@ -56,6 +55,7 @@ def cli(input, output):
     env.filters["upperfirst"] = formatter.upperfirst
     env.filters["variable_name"] = formatter.variable_name
     env.filters["is_primitive"] = openapi.is_primitive
+    env.filters["get_required_attributes"] = openapi.get_required_attributes
 
     env.globals["config"] = config
     env.globals["enumerate"] = enumerate
@@ -99,24 +99,25 @@ def cli(input, output):
 
     output.mkdir(parents=True, exist_ok=True)
 
-    for name, template in extra_files.items():
-        filename = output / name
-        with filename.open("w") as fp:
-            fp.write(template.render(apis=apis, models=models))
-
-    auth_path = output / "auth"
-    auth_path.mkdir(parents=True, exist_ok=True)
-    for name, template in auth_files.items():
-        filename = auth_path / name
-        with filename.open("w") as fp:
-            fp.write(template.render())
+    # for name, template in extra_files.items():
+    #     filename = output / name
+    #     with filename.open("w") as fp:
+    #         fp.write(template.render(apis=apis, models=models))
+    #
+    # auth_path = output / "auth"
+    # auth_path.mkdir(parents=True, exist_ok=True)
+    # for name, template in auth_files.items():
+    #     filename = auth_path / name
+    #     with filename.open("w") as fp:
+    #         fp.write(template.render())
 
     model_dir = output / "model"
     model_dir.mkdir(parents=True, exist_ok=True)
     for name, model in models.items():
         model_path = model_dir / f"{name}.java"
-        with model_path.open("w") as fp:
-            fp.write(model_j2.render(name=name, model=model))
+        if "enum" not in model and "oneOf" not in model:
+            with model_path.open("w") as fp:
+                fp.write(model_j2.render(name=name, model=model))
 
     # for name, operations in apis.items():
     #     filename = "api_" + formatter.snake_case(name) + ".go"

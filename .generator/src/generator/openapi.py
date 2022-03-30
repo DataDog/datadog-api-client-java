@@ -19,9 +19,16 @@ def load(filename):
 
 
 def is_primitive(schema):
-    if schema.get("type") in PRIMITIVE_TYPES:
+    # We resolve enums to ClassName.ENUM so don't treat enum's as primitive
+    if schema.get("type") in PRIMITIVE_TYPES and "enum" not in schema:
         return True
     return False
+
+
+def get_required_attributes(schema):
+    required_attr_list = schema.get("required", [])
+    properties = schema.get("properties", {})
+    return {k: v for k, v in properties.items() if k in required_attr_list}
 
 
 def get_name(schema):
@@ -66,15 +73,12 @@ def type_to_java(schema, alternative_name=None, render_nullable=False):
         if name and schema.get("x-generate-alias-as-model", False):
             return prefix + name
         if name or alternative_name:
-            alternative_name = (name or alternative_name) + "Item"
+            alternative_name = (name or alternative_name)
         name = type_to_java(schema["items"], alternative_name=alternative_name)
-        # handle nullable arrays
-        if formatter.simple_type(schema["items"]) and schema["items"].get("nullable"):
-            name = "*" + name
-        return "[]{}".format(name)
+        return "List<{}>".format(name)
     elif type_ == "object":
         if "additionalProperties" in schema:
-            return "map[string]{}".format(type_to_java(schema["additionalProperties"]))
+            return "Map<String, {}>".format(type_to_java(schema["additionalProperties"]))
         return (
             prefix + alternative_name
             if alternative_name
@@ -84,14 +88,14 @@ def type_to_java(schema, alternative_name=None, render_nullable=False):
                 or "anyOf" in schema
                 or "allOf" in schema
             )
-            else "interface{}"
+            else "Object"
         )
 
     raise ValueError(f"Unknown type {type_}")
 
 
 def get_type_for_attribute(schema, attribute, current_name=None):
-    """Return Go type name for the attribute."""
+    """Return Java type name for the attribute."""
     child_schema = schema.get("properties", {}).get(attribute)
     alternative_name = (
         current_name + formatter.camel_case(attribute) if current_name else None

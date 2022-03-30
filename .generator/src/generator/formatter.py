@@ -1,35 +1,61 @@
 """Data formatter."""
 import re
-import warnings
-from functools import singledispatch
-
+import json
 
 KEYWORDS = {
+    "abstract",
+    "assert",
+    "boolean",
     "break",
+    "byte",
     "case",
-    "chan",
+    "catch",
+    "char",
+    "class",
     "const",
     "continue",
     "default",
-    "defer",
+    "double",
+    "do",
     "else",
-    "fallthrough",
+    "enum",
+    "extends",
+    "false",
+    "final",
+    "finally",
+    "float",
     "for",
-    "func",
-    "go",
     "goto",
     "if",
+    "implements",
     "import",
+    "instanceof",
+    "int",
     "interface",
-    "map",
+    "long",
+    "native",
+    "new",
+    "null",
     "package",
-    "range",
+    "private",
+    "protected",
+    "public",
     "return",
-    "select",
-    "struct",
+    "short",
+    "static",
+    "strictfp",
+    "super",
     "switch",
-    "type",
-    "var",
+    "synchronized",
+    "this",
+    "throw",
+    "throws",
+    "transient",
+    "true",
+    "try",
+    "void",
+    "volatile",
+    "while",
 }
 
 SUFFIXES = {
@@ -64,7 +90,6 @@ SUFFIXES = {
     "wasm",
 }
 
-
 PATTERN_DOUBLE_UNDERSCORE = re.compile(r"__+")
 PATTERN_LEADING_ALPHA = re.compile(r"(.)([A-Z][a-z0-9]+)")
 PATTERN_FOLLOWING_ALPHA = re.compile(r"([a-z0-9])([A-Z])")
@@ -83,10 +108,10 @@ def block_comment(comment, prefix="#", first_line=True):
     lines = comment.split("\n")
     start = "" if first_line else lines[0] + "\n"
     return (
-        start
-        + "\n".join(
-            f"{prefix} {line}".rstrip() for line in lines[(0 if first_line else 1) :]
-        )
+            start
+            + "\n".join(
+        f"{prefix} {line}".rstrip() for line in lines[(0 if first_line else 1):]
+    )
     ).rstrip()
 
 
@@ -117,12 +142,12 @@ def escape_reserved_keyword(word):
     :return: The escaped word if it was a reserved keyword, the word unchanged otherwise
     """
     if word in KEYWORDS:
-        return f"{word}_"
+        return f"_{word}"
     return word
 
 
 def attribute_name(attribute):
-    return escape_reserved_keyword(camel_case(attribute))
+    return escape_reserved_keyword(snake_case(attribute))
 
 
 def variable_name(attribute):
@@ -134,13 +159,19 @@ def format_value(value, quotes='"', schema=None):
         if schema.get("type") == "integer":
             if schema.get("format") == "int64":
                 return f"{value}l"
-
+        if schema.get("type") == "array":
+            return "ArrayList<>"
+        if schema.get("enum"):
+            index = schema["enum"].index(value)
+            enum_varnames = schema["x-enum-varnames"][index]
+            name = schema_name(schema)
+            return f"{name}.{enum_varnames}"
     if isinstance(value, str):
         return f"{quotes}{value}{quotes}"
     elif isinstance(value, bool):
         return "true" if value else "false"
     elif value is None:
-        return "nil"
+        return "null"
     return value
 
 
@@ -168,37 +199,13 @@ def simple_type(schema, render_nullable=False):
 
     if type_name == "string":
         return {
-            "date": "time.Time",
-            "date-time": "time.Time" ,
-            "email": "string",
-            "binary": "*os.File",
+            "date": "OffsetDateTime",
+            "date-time": "OffsetDateTime",
+            "email": "String",
+            "binary": "File",
             None: "String",
         }[type_format]
     if type_name == "boolean":
         return "Boolean"
 
     return None
-
-
-def is_reference(schema, attribute):
-    """Check if an attribute is a reference."""
-    is_required = attribute in schema.get("required", [])
-    if is_required:
-        return False
-
-    attribute_schema = schema.get("properties", {}).get(attribute, {})
-
-    is_nullable = attribute_schema.get("nullable", False)
-    if is_nullable:
-        return False
-
-    is_anytype = attribute_schema.get("type", "object") == "object" and not (
-        "properties" in attribute_schema
-        or "oneOf" in attribute_schema
-        or "anyOf" in attribute_schema
-        or "allOf" in attribute_schema
-    )
-    if is_anytype:
-        return False
-
-    return True
