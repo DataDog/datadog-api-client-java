@@ -24,6 +24,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageIngestedSpansHour.JSON_PROPERTY_HOUR,
   UsageIngestedSpansHour.JSON_PROPERTY_INGESTED_EVENTS_BYTES,
+  UsageIngestedSpansHour.JSON_PROPERTY_INGESTED_SPANS_BILLABLE_BYTES,
   UsageIngestedSpansHour.JSON_PROPERTY_ORG_NAME,
   UsageIngestedSpansHour.JSON_PROPERTY_PUBLIC_ID
 })
@@ -35,6 +36,10 @@ public class UsageIngestedSpansHour {
 
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES = "ingested_events_bytes";
   private Long ingestedEventsBytes;
+
+  public static final String JSON_PROPERTY_INGESTED_SPANS_BILLABLE_BYTES =
+      "ingested_spans_billable_bytes";
+  private Long ingestedSpansBillableBytes;
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -70,12 +75,19 @@ public class UsageIngestedSpansHour {
   }
 
   /**
-   * Contains the total number of bytes ingested during a given hour.
+   * Use &#x60;ingested_spans_billable_bytes&#x60; as of 2022-03-01. Contains the total number of
+   * bytes ingested during a given hour using an old method of calculating span volume.
    *
    * @return ingestedEventsBytes
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the total number of bytes ingested during a given hour.")
+  @ApiModelProperty(
+      value =
+          "Use `ingested_spans_billable_bytes` as of 2022-03-01. Contains the total number of"
+              + " bytes ingested during a given hour using an old method of calculating span"
+              + " volume.")
   @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIngestedEventsBytes() {
@@ -84,6 +96,28 @@ public class UsageIngestedSpansHour {
 
   public void setIngestedEventsBytes(Long ingestedEventsBytes) {
     this.ingestedEventsBytes = ingestedEventsBytes;
+  }
+
+  public UsageIngestedSpansHour ingestedSpansBillableBytes(Long ingestedSpansBillableBytes) {
+    this.ingestedSpansBillableBytes = ingestedSpansBillableBytes;
+    return this;
+  }
+
+  /**
+   * Contains the total number of bytes ingested during a given hour.
+   *
+   * @return ingestedSpansBillableBytes
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the total number of bytes ingested during a given hour.")
+  @JsonProperty(JSON_PROPERTY_INGESTED_SPANS_BILLABLE_BYTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getIngestedSpansBillableBytes() {
+    return ingestedSpansBillableBytes;
+  }
+
+  public void setIngestedSpansBillableBytes(Long ingestedSpansBillableBytes) {
+    this.ingestedSpansBillableBytes = ingestedSpansBillableBytes;
   }
 
   public UsageIngestedSpansHour orgName(String orgName) {
@@ -142,13 +176,15 @@ public class UsageIngestedSpansHour {
     UsageIngestedSpansHour usageIngestedSpansHour = (UsageIngestedSpansHour) o;
     return Objects.equals(this.hour, usageIngestedSpansHour.hour)
         && Objects.equals(this.ingestedEventsBytes, usageIngestedSpansHour.ingestedEventsBytes)
+        && Objects.equals(
+            this.ingestedSpansBillableBytes, usageIngestedSpansHour.ingestedSpansBillableBytes)
         && Objects.equals(this.orgName, usageIngestedSpansHour.orgName)
         && Objects.equals(this.publicId, usageIngestedSpansHour.publicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, ingestedEventsBytes, orgName, publicId);
+    return Objects.hash(hour, ingestedEventsBytes, ingestedSpansBillableBytes, orgName, publicId);
   }
 
   @Override
@@ -158,6 +194,9 @@ public class UsageIngestedSpansHour {
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    ingestedEventsBytes: ")
         .append(toIndentedString(ingestedEventsBytes))
+        .append("\n");
+    sb.append("    ingestedSpansBillableBytes: ")
+        .append(toIndentedString(ingestedSpansBillableBytes))
         .append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");

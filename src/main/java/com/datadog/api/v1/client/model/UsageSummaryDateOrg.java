@@ -25,6 +25,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_APM_INGESTED_SPANS_BILLABLE_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_HOST_TOP99P,
@@ -98,6 +99,10 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_APM_HOST_TOP99P = "apm_host_top99p";
   private Long apmHostTop99p;
+
+  public static final String JSON_PROPERTY_APM_INGESTED_SPANS_BILLABLE_BYTES_SUM =
+      "apm_ingested_spans_billable_bytes_sum";
+  private Long apmIngestedSpansBillableBytesSum;
 
   public static final String JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM =
       "audit_logs_lines_indexed_sum";
@@ -379,6 +384,33 @@ public class UsageSummaryDateOrg {
 
   public void setApmHostTop99p(Long apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
+  }
+
+  public UsageSummaryDateOrg apmIngestedSpansBillableBytesSum(
+      Long apmIngestedSpansBillableBytesSum) {
+    this.apmIngestedSpansBillableBytesSum = apmIngestedSpansBillableBytesSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ingested APM span bytes over all hours in the current date for the given
+   * org.
+   *
+   * @return apmIngestedSpansBillableBytesSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all ingested APM span bytes over all hours in the current date for the"
+              + " given org.")
+  @JsonProperty(JSON_PROPERTY_APM_INGESTED_SPANS_BILLABLE_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmIngestedSpansBillableBytesSum() {
+    return apmIngestedSpansBillableBytesSum;
+  }
+
+  public void setApmIngestedSpansBillableBytesSum(Long apmIngestedSpansBillableBytesSum) {
+    this.apmIngestedSpansBillableBytesSum = apmIngestedSpansBillableBytesSum;
   }
 
   public UsageSummaryDateOrg auditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
@@ -1929,6 +1961,9 @@ public class UsageSummaryDateOrg {
             this.apmAzureAppServiceHostTop99p, usageSummaryDateOrg.apmAzureAppServiceHostTop99p)
         && Objects.equals(this.apmHostTop99p, usageSummaryDateOrg.apmHostTop99p)
         && Objects.equals(
+            this.apmIngestedSpansBillableBytesSum,
+            usageSummaryDateOrg.apmIngestedSpansBillableBytesSum)
+        && Objects.equals(
             this.auditLogsLinesIndexedSum, usageSummaryDateOrg.auditLogsLinesIndexedSum)
         && Objects.equals(this.avgProfiledFargateTasks, usageSummaryDateOrg.avgProfiledFargateTasks)
         && Objects.equals(this.awsHostTop99p, usageSummaryDateOrg.awsHostTop99p)
@@ -2022,6 +2057,7 @@ public class UsageSummaryDateOrg {
         agentHostTop99p,
         apmAzureAppServiceHostTop99p,
         apmHostTop99p,
+        apmIngestedSpansBillableBytesSum,
         auditLogsLinesIndexedSum,
         avgProfiledFargateTasks,
         awsHostTop99p,
@@ -2093,6 +2129,9 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(apmAzureAppServiceHostTop99p))
         .append("\n");
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
+    sb.append("    apmIngestedSpansBillableBytesSum: ")
+        .append(toIndentedString(apmIngestedSpansBillableBytesSum))
+        .append("\n");
     sb.append("    auditLogsLinesIndexedSum: ")
         .append(toIndentedString(auditLogsLinesIndexedSum))
         .append("\n");
