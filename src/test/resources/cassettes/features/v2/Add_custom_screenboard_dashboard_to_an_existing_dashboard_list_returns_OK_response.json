@@ -1,0 +1,164 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"name\":\"Test-Add_custom_screenboard_dashboard_to_an_existing_dashboard_list_returns_OK_response-1647890202\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Add_custom_screenboard_dashboard_to_an_existing_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/dashboard/lists/manual",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"is_favorite\":false,\"name\":\"Test-Add_custom_screenboard_dashboard_to_an_existing_dashboard_list_returns_OK_response-1647890202\",\"dashboard_count\":0,\"author\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"created\":\"2022-03-21T19:16:43.096523+00:00\",\"type\":\"manual_dashboard_list\",\"dashboards\":null,\"modified\":\"2022-03-21T19:16:43.096538+00:00\",\"id\":284061}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "93bbdd55-7652-0950-1b5c-85b3c06508f6"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"free\",\"title\":\"Test-Add_custom_screenboard_dashboard_to_an_existing_dashboard_list_returns_OK_response-1647890202 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"},\"layout\":{\"height\":10,\"width\":10,\"x\":10,\"y\":10}}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Add_custom_screenboard_dashboard_to_an_existing_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"sza-uj6-6p4\",\"title\":\"Test-Add_custom_screenboard_dashboard_to_an_existing_dashboard_list_returns_OK_response-1647890202 with Profile Metrics Query\",\"url\":\"/dashboard/sza-uj6-6p4/test-addcustomscreenboarddashboardtoanexistingdashboardlistreturnsokresponse-164\",\"created_at\":\"2022-03-21T19:16:43.625484+00:00\",\"modified_at\":\"2022-03-21T19:16:43.625484+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"search\":{\"query\":\"runtime:jvm\"},\"group_by\":[{\"facet\":\"service\",\"sort\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\",\"order\":\"desc\"},\"limit\":10}],\"compute\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\"}}}],\"type\":\"timeseries\"},\"layout\":{\"y\":10,\"width\":10,\"x\":10,\"height\":10},\"id\":3487499242863939}],\"layout_type\":\"free\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "63a106d2-6afe-141d-9d68-cad4b08bc714"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"dashboards\":[{\"id\":\"sza-uj6-6p4\",\"type\":\"custom_screenboard\"}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Add_custom_screenboard_dashboard_to_an_existing_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/dashboard/lists/manual/284061/dashboards",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"added_dashboards_to_list\":[{\"type\":\"custom_screenboard\",\"id\":\"sza-uj6-6p4\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "627166cf-10e6-de85-e08f-f135b290f4c7"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Add_custom_screenboard_dashboard_to_an_existing_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/sza-uj6-6p4",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"sza-uj6-6p4\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0fbce3fc-03d0-509f-2bf0-3c2c9df6f42a"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Add_custom_screenboard_dashboard_to_an_existing_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/lists/manual/284061",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_list_id\":284061}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c8578eeb-db13-5491-17bf-4268802a1a9d"
+  }
+]
