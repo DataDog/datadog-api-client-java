@@ -346,11 +346,14 @@ public class MonitorUpdateRequest {
   }
 
   /**
-   * A list of unique role identifiers to define which roles are allowed to edit the monitor.
-   * Editing a monitor includes any updates to the monitor configuration, monitor deletion, and
-   * muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the
-   * [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the &#x60;data.id&#x60;
-   * field.
+   * A list of unique role identifiers to define which roles are allowed to edit the monitor. The
+   * unique identifiers for all roles can be pulled from the [Roles
+   * API](https://docs.datadoghq.com/api/latest/roles/#list-roles) and are located in the
+   * &#x60;data.id&#x60; field. Editing a monitor includes any updates to the monitor configuration,
+   * monitor deletion, and muting of the monitor for any amount of time.
+   * &#x60;restricted_roles&#x60; is the successor of &#x60;locked&#x60;. For more information about
+   * &#x60;locked&#x60; and &#x60;restricted_roles&#x60;, see the [monitor options
+   * docs](https://docs.datadoghq.com/monitors/guide/monitor_api_options/#permissions-options).
    *
    * @return restrictedRoles
    */
@@ -358,11 +361,13 @@ public class MonitorUpdateRequest {
   @ApiModelProperty(
       value =
           "A list of unique role identifiers to define which roles are allowed to edit the"
-              + " monitor. Editing a monitor includes any updates to the monitor configuration,"
-              + " monitor deletion, and muting of the monitor for any amount of time. Roles unique"
-              + " identifiers can be pulled from the [Roles"
-              + " API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id`"
-              + " field.")
+              + " monitor. The unique identifiers for all roles can be pulled from the [Roles"
+              + " API](https://docs.datadoghq.com/api/latest/roles/#list-roles) and are located in"
+              + " the `data.id` field. Editing a monitor includes any updates to the monitor"
+              + " configuration, monitor deletion, and muting of the monitor for any amount of"
+              + " time. `restricted_roles` is the successor of `locked`. For more information"
+              + " about `locked` and `restricted_roles`, see the [monitor options"
+              + " docs](https://docs.datadoghq.com/monitors/guide/monitor_api_options/#permissions-options).")
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRestrictedRoles() {
