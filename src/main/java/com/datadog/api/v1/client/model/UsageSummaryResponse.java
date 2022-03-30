@@ -33,6 +33,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_AGENT_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_APM_INGESTED_SPANS_BILLABLE_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AWS_HOST_TOP99P_SUM,
@@ -114,6 +115,10 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_APM_HOST_TOP99P_SUM = "apm_host_top99p_sum";
   private Long apmHostTop99pSum;
+
+  public static final String JSON_PROPERTY_APM_INGESTED_SPANS_BILLABLE_BYTES_AGG_SUM =
+      "apm_ingested_spans_billable_bytes_agg_sum";
+  private Long apmIngestedSpansBillableBytesAggSum;
 
   public static final String JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_AGG_SUM =
       "audit_logs_lines_indexed_agg_sum";
@@ -434,6 +439,33 @@ public class UsageSummaryResponse {
 
   public void setApmHostTop99pSum(Long apmHostTop99pSum) {
     this.apmHostTop99pSum = apmHostTop99pSum;
+  }
+
+  public UsageSummaryResponse apmIngestedSpansBillableBytesAggSum(
+      Long apmIngestedSpansBillableBytesAggSum) {
+    this.apmIngestedSpansBillableBytesAggSum = apmIngestedSpansBillableBytesAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ingested APM span bytes over all hours in the current months for all
+   * organizations.
+   *
+   * @return apmIngestedSpansBillableBytesAggSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all ingested APM span bytes over all hours in the current months for"
+              + " all organizations.")
+  @JsonProperty(JSON_PROPERTY_APM_INGESTED_SPANS_BILLABLE_BYTES_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmIngestedSpansBillableBytesAggSum() {
+    return apmIngestedSpansBillableBytesAggSum;
+  }
+
+  public void setApmIngestedSpansBillableBytesAggSum(Long apmIngestedSpansBillableBytesAggSum) {
+    this.apmIngestedSpansBillableBytesAggSum = apmIngestedSpansBillableBytesAggSum;
   }
 
   public UsageSummaryResponse auditLogsLinesIndexedAggSum(Long auditLogsLinesIndexedAggSum) {
@@ -2233,6 +2265,9 @@ public class UsageSummaryResponse {
             usageSummaryResponse.apmAzureAppServiceHostTop99pSum)
         && Objects.equals(this.apmHostTop99pSum, usageSummaryResponse.apmHostTop99pSum)
         && Objects.equals(
+            this.apmIngestedSpansBillableBytesAggSum,
+            usageSummaryResponse.apmIngestedSpansBillableBytesAggSum)
+        && Objects.equals(
             this.auditLogsLinesIndexedAggSum, usageSummaryResponse.auditLogsLinesIndexedAggSum)
         && Objects.equals(
             this.avgProfiledFargateTasksSum, usageSummaryResponse.avgProfiledFargateTasksSum)
@@ -2359,6 +2394,7 @@ public class UsageSummaryResponse {
         agentHostTop99pSum,
         apmAzureAppServiceHostTop99pSum,
         apmHostTop99pSum,
+        apmIngestedSpansBillableBytesAggSum,
         auditLogsLinesIndexedAggSum,
         avgProfiledFargateTasksSum,
         awsHostTop99pSum,
@@ -2438,6 +2474,9 @@ public class UsageSummaryResponse {
         .append(toIndentedString(apmAzureAppServiceHostTop99pSum))
         .append("\n");
     sb.append("    apmHostTop99pSum: ").append(toIndentedString(apmHostTop99pSum)).append("\n");
+    sb.append("    apmIngestedSpansBillableBytesAggSum: ")
+        .append(toIndentedString(apmIngestedSpansBillableBytesAggSum))
+        .append("\n");
     sb.append("    auditLogsLinesIndexedAggSum: ")
         .append(toIndentedString(auditLogsLinesIndexedAggSum))
         .append("\n");
