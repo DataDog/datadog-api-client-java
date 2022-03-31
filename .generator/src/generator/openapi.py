@@ -70,12 +70,10 @@ def type_to_java(schema, alternative_name=None, render_nullable=False):
             )
 
     if type_ == "array":
-        if name and schema.get("x-generate-alias-as-model", False):
-            return prefix + name
         if name or alternative_name:
             alternative_name = (name or alternative_name)
         name = type_to_java(schema["items"], alternative_name=alternative_name)
-        return "List<{}>".format(name)
+        return "ArrayList<{}>".format(name)
     elif type_ == "object":
         if "additionalProperties" in schema:
             return "Map<String, {}>".format(type_to_java(schema["additionalProperties"]))

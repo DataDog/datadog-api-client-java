@@ -1,13 +1,13 @@
 {% include "ApiInfo.j2" %}
 
 /**
-{# * {{ model.description if model.description else name }}#}
+ * {{ model.description if model.description else name }}
 {%- if model.deprecated %}* @deprecated{%- endif %}
  */
 {%- if model.deprecated %}
 @Deprecated
 {%- endif %}
-@ApiModel(description = "{#{ model.description|striptags|escape }#}")
+@ApiModel(description = {{ model.description|tojson }})
 @JsonPropertyOrder({
 {%- for attr, schema in model.get("properties", {}).items() %}
 {%- set attributeName = attr|attribute_name|upper %}
@@ -15,13 +15,13 @@
 {%- endfor %}
 })
 {{ generated_annotation }}
-public class {{ name }} {
+public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends {{ get_type(model) }} {%-endif %} {
   @JsonIgnore
   public boolean unparsed = false;
   {%- for attr, schema in model.get("properties", {}).items() %}
-  {%- set propertyName = attr|attribute_name %}
+  {%- set attributeName = attr|attribute_name %}
   {%- set variableName = attr|variable_name %}
-  {%- set dataType = get_type(schema, alternative_name=name + propertyName) %}
+  {%- set dataType = get_type(schema, alternative_name=name + attributeName) %}
   {%- set isRequired = attr in model.get("required", []) %}
   {%- set isNullable = schema.nullable %}
   {%- set isContainer = schema.type in ["array"] %}
@@ -36,7 +36,7 @@ public class {{ name }} {
   {%- endif %}
   {%- endif %}
 #}
-  public static final String JSON_PROPERTY_{{ propertyName|upper }} = "{{ propertyName }}";
+  public static final String JSON_PROPERTY_{{ attributeName|upper }} = "{{ attributeName }}";
   {%- if not isRequired and isNullable %}
     {%- if isContainer %}
   private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>undefined();
@@ -45,7 +45,7 @@ public class {{ name }} {
     {%- endif %}
   {%- else %}
     {%- if isContainer %}
-  private {{ dataType }} {{ variableName }}{%- if isRequired %} = new {{ defaultValue|format_value(schema=schema) }}(){%- else %} = null{%- endif %};
+  private {{ dataType }} {{ variableName }}{%- if isRequired %} = new {{ dataType }}(){%- else %} = null{%- endif %};
     {%- else %}
   private {{ dataType }} {{ variableName }}{%- if defaultValue != None or schema.additionalProperties is defined %} = {%- if schema|is_primitive %}{{ defaultValue|format_value(schema=schema) }}{%- else %}{{ defaultValue|format_value(schema=schema) }}{%- endif %}{%- endif %};
     {%- endif %}
@@ -65,7 +65,7 @@ public class {{ name }} {
             {%- set isRequired = attr in model.get("required", []) %}
             {%- set isNullable = schema.nullable %}
             {%- set dataType = get_type(schema, alternative_name=name + attributeName) %}
-            @JsonProperty(required=true, value=JSON_PROPERTY_{{ variableName|upper }})
+            @JsonProperty(required=true, value=JSON_PROPERTY_{{ attributeName|upper }})
                 {%- if not isRequired and isNullable %}JsonNullable<{{ dataType }}>{%- else %}{{ dataType }}{%- endif %} {{ variableName }}{%- if loop.nextitem %},{%- endif %}
             {%- endfor %}) {
         {%- for attr, schema in requiredAttr.items() %}
@@ -192,7 +192,7 @@ public class {{ name }} {
   {%- endif %}
 
   /**
-  * {#{ schema.description|default("Get" ~ variableName) }#}
+  * {{ schema.description|default("Get" ~ variableName) }}
   {%- if schema.minimum is defined %}
    * minimum: {{ schema.minimum }}
   {%- endif %}
@@ -215,7 +215,7 @@ public class {{ name }} {
       @javax.annotation.Nullable
     {%- endif %}
 {#- TODO: format example#}
-    @ApiModelProperty({%- if schema.example is defined %}example = "{#{ schema.example }#}", {%- endif %}{%- if isRequired %}required = true, {%- endif %}value = "{#{ schema.description|striptags|escape }#}")
+    @ApiModelProperty({%- if schema.example is defined %}example = {{ schema|format_example }}, {%- endif %}{%- if isRequired %}required = true, {%- endif %}value = {{ schema.description|tojson }})
     {%- if not isRequired and isNullable %}
       @JsonIgnore
     {%- else %}
@@ -236,6 +236,86 @@ public class {{ name }} {
         return {{ variableName }};
         {%- endif %}
       }
+
+  {%- if not isRequired and isNullable %}
+  @JsonProperty(JSON_PROPERTY_{{ attributeName|upper }})
+  @JsonInclude(
+    {%- if schema.additionalProperties %}{%- if schema.additionalProperties.nullable %}content = JsonInclude.Include.ALWAYS,{%- endif %}{%- endif %}
+    value = JsonInclude.Include.{%- if isRequired %}ALWAYS{%- else %}USE_DEFAULTS{%- endif %})
+  public JsonNullable<{{ dataType }}> get{{ variableName|upperfirst }}_JsonNullable() {
+    return {{ variableName }};
+  }
+  @JsonProperty(JSON_PROPERTY_{{ attributeName|upper }})
+  {%- if schema.readOnly %}private{%- else %}public{%- endif %} void set{{ variableName|upperfirst }}_JsonNullable(JsonNullable<{{ dataType }}> {{ variableName }}) {
+    this.{{ variableName }} = {{ variableName }};
+  }
+  {%- endif %}
+  {%- if not schema.readOnly %}
+  public void set{{ variableName|upperfirst }}({{  dataType }} {{ variableName }}) {
+    {%- if schema.enum is defined %}
+    if (!{{ variableName }}.isValid()) {
+        this.unparsed = true;
+    }
+    {%- endif %}
+    {%- if not isRequired and isNullable %}
+    this.{{ variableName }} = JsonNullable.<{{ dataType }}>of({{ variableName }});
+    {%- else %}
+    this.{{ variableName }} = {{ variableName }};
+    {%- endif %}
+  }
+  {%- endif %}
   {%- endfor %}
 
+  /**
+   * Return true if this {{name}} object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    {%- if model.properties is defined %}
+    {{ name }} {{ name|variable_name }} = ({{ name }}) o;
+    return {%- for attr, schema in model.get("properties").items() %} Objects.equals(this.{{ attr|variable_name }}, {{ name|variable_name }}.{{ attr|variable_name }}){%- if loop.nextitem %} &&{%- endif %}{%- endfor %}
+    {%- if model.get("x-generate-alias-as-model") %} &&
+        super.equals(o){%- endif %};
+    {%- else %}
+    return {%- if model.get("x-generate-alias-as-model") %} super.equals(o){%- else %} true{%-endif %};
+    {%- endif %}
+  }
+
+
+  @Override
+  public int hashCode() {
+    return Objects.hash({%- for attr, schema in model.get("properties", {}).items() %}{{ attr|variable_name }}{%- if loop.nextitem %}, {%- endif %}{%-endfor %}
+    {%- if model.get("x-generate-alias-as-model") %}{%- if model.properties is defined %}, {%- endif %}super.hashCode(){%- endif %});
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class {{ name }} {\n");
+    {%- if model.get("x-generate-alias-as-model") %}
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    {%- endif %}
+    {%- for attr, schema in model.get("properties", {}).items() %}
+    sb.append("    {{ attr|variable_name }}: ").append(toIndentedString({{ attr|variable_name }})).append("\n");
+    {%- endfor %}
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

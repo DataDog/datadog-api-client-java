@@ -159,8 +159,6 @@ def format_value(value, quotes='"', schema=None):
         if schema.get("type") == "integer":
             if schema.get("format") == "int64":
                 return f"{value}l"
-        if schema.get("type") == "array":
-            return "ArrayList<>"
         if schema.get("enum"):
             index = schema["enum"].index(value)
             enum_varnames = schema["x-enum-varnames"][index]
@@ -209,3 +207,14 @@ def simple_type(schema, render_nullable=False):
         return "Boolean"
 
     return None
+
+
+# TODO: clean this up it is messy right now
+def format_json_string(schema):
+    example = schema.get("example")
+    if schema.get("type") in ["integer", "boolean", "number"]:
+        return f"\"{example}\"".lower()
+    if type(example) in [list, dict]:
+        res = json.dumps(example).replace('"', '\\"')
+        return f"\"{res}\""
+    return json.dumps(example)
