@@ -20,7 +20,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- for attr, schema in model.get("properties", {}).items() %}
   {%- set attributeName = attr|attribute_name %}
   {%- set variableName = attr|variable_name %}
-  {%- set dataType = get_type(schema, alternative_name=name + attributeName) %}
+  {%- set dataType = get_type(schema) %}
   {%- set isRequired = attr in model.get("required", []) %}
   {%- set isNullable = schema.nullable %}
   {%- set isContainer = schema.type in ["array"] %}
@@ -44,9 +44,9 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- endif %}
   {%- else %}
     {%- if isContainer %}
-  private {{ dataType }} {{ variableName }}{%- if isRequired %} = new {{ dataType }}(){%- else %} = null{%- endif %};
+  private {{ dataType }} {{ variableName }}{%- if isRequired %} = new ArrayList<>(){%- else %} = null{%- endif %};
     {%- else %}
-  private {{ dataType }} {{ variableName }}{%- if defaultValue != None or schema.additionalProperties is defined %} = {%- if schema|is_primitive %}{{ defaultValue|format_value(schema=schema) }}{%- else %}{{ defaultValue|format_value(schema=schema) }}{%- endif %}{%- endif %};
+  private {{ dataType }} {{ variableName }}{%- if defaultValue != None or schema.additionalProperties is defined %} = {%- if schema|is_primitive %}{{ defaultValue|format_value(schema=schema) }}{%- else %} {{ defaultValue|format_value(schema=schema, type_=dataType) }}{%- endif %}{%- endif %};
     {%- endif %}
   {%- endif %}
 {#  #}
@@ -63,7 +63,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
             {%- set variableName = attr|variable_name %}
             {%- set isRequired = attr in model.get("required", []) %}
             {%- set isNullable = schema.nullable %}
-            {%- set dataType = get_type(schema, alternative_name=name + attributeName) %}
+            {%- set dataType = get_type(schema) %}
             @JsonProperty(required=true, value=JSON_PROPERTY_{{ attr|snake_case|upper }})
                 {%- if not isRequired and isNullable %}JsonNullable<{{ dataType }}>{%- else %}{{ dataType }}{%- endif %} {{ variableName }}{%- if loop.nextitem %},{%- endif %}
             {%- endfor %}) {
@@ -92,18 +92,18 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- set attributeName = attr|attribute_name %}
   {%- set variableName = attr|variable_name %}
   {%- set isNullable = schema.nullable %}
-  {%- set dataType = get_type(schema, alternative_name=name + attributeName) %}
+  {%- set dataType = get_type(schema) %}
   {%- set isArray = schema.type == "array" %}
   {%- set isRequired = attr in model.get("required", []) %}
-  {%- if not schema.readOnly %}
+  {%- if not schema.get("readOnly", False) %}
   public {{ name }} {{ variableName }}({{ dataType }} {{ variableName }}) {
     {%- if not isRequired and isNullable %}
     this.{{ variableName }} = JsonNullable.<{{ dataType }}>of({{ variableName }});
     {%- else %}
-    this.{{variableName}} = {{variableName}};
+    this.{{ variableName }} = {{ variableName }};
     {%- if not isArray %}
     {%- if isNullable %}
-        if ({{name}} != null) {
+        if ({{ variableName }} != null) {
     {%- endif %}
     {%- if schema.enum is defined %}
     {%- if not schema|is_primitive %}
@@ -118,7 +118,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- endif %}
     {%- else %}
     {%- if schema.get("items", {}).properties is defined and not schema|is_primitive %}
-    {%- set itemsDataType = get_type(schema.get("items", {})) %}
+    {%- set itemsDataType = get_type(schema.get("items")) %}
     for ({{ itemsDataType }} item : {{ variableName }}) {
       {%- if schema.enum is defined %}
       this.unparsed |= !item.isValid();
@@ -131,7 +131,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     return this;
   }
   {%- if isArray %}
-  {%- set itemsDataType = get_type(schema.get("items", {})) %}
+  {%- set itemsDataType = get_type(schema.get("items")) %}
   public {{ name }} add{{ variableName|upperfirst }}Item({{ itemsDataType }} {{ variableName }}Item) {
     {%- if not isRequired and isNullable %}
     if (this.{{ variableName }} == null || !this.{{ variableName }}.isPresent()) {
@@ -225,7 +225,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- endif %}
       public {{ dataType }} get{{ attr|camel_case }}() {
         {%- if not isRequired and isNullable %}
-        {%- if schema.readOnly %}
+        {%- if schema.get("readOnly", False) %}
         if ({{ variableName }} == null) {
           {{ variableName }} = JsonNullable.<{{  dataType }}>{%- if defaultValue %}of({{ defaultValue|format_value(schema=schema) }}){%- else %}undefined(){%- endif%};
         }
@@ -245,11 +245,11 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     return {{ variableName }};
   }
   @JsonProperty(JSON_PROPERTY_{{ attr|snake_case|upper }})
-  {%- if schema.readOnly %}private{%- else %}public{%- endif %} void set{{ attr|camel_case }}_JsonNullable(JsonNullable<{{ dataType }}> {{ variableName }}) {
+  {%- if schema.get("readOnly", False) %}private{%- else %}public{%- endif %} void set{{ attr|camel_case }}_JsonNullable(JsonNullable<{{ dataType }}> {{ variableName }}) {
     this.{{ variableName }} = {{ variableName }};
   }
   {%- endif %}
-  {%- if not schema.readOnly %}
+  {%- if not schema.get("readOnly", False) %}
   public void set{{ attr|camel_case }}({{  dataType }} {{ variableName }}) {
     {%- if schema.enum is defined %}
     if (!{{ variableName }}.isValid()) {

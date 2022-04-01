@@ -71,12 +71,17 @@ def type_to_java(schema, alternative_name=None, render_nullable=False):
 
     if type_ == "array":
         if name or alternative_name:
-            alternative_name = (name or alternative_name)
+            alternative_name = (name or alternative_name) + "Item"
         name = type_to_java(schema["items"], alternative_name=alternative_name)
         return "List<{}>".format(name)
     elif type_ == "object":
         if "additionalProperties" in schema:
             return "Map<String, {}>".format(type_to_java(schema["additionalProperties"]))
+
+        if schema.get("parent") and not alternative_name:
+            if schema["parent"].get("type") == "array":
+                return get_name(schema["parent"]) + "Item"
+
         return (
             prefix + alternative_name
             if alternative_name
