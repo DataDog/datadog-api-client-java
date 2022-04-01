@@ -10,8 +10,7 @@
 @ApiModel(description = {{ model.description|tojson }})
 @JsonPropertyOrder({
 {%- for attr, schema in model.get("properties", {}).items() %}
-{%- set attributeName = attr|attribute_name|upper %}
-  {{ name }}.JSON_PROPERTY_{{ attributeName }}{%- if loop.nextitem %},{%- endif %}
+  {{ name }}.JSON_PROPERTY_{{ attr|snake_case|upper }}{%- if loop.nextitem %},{%- endif %}
 {%- endfor %}
 })
 {{ generated_annotation }}
@@ -36,7 +35,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- endif %}
   {%- endif %}
 #}
-  public static final String JSON_PROPERTY_{{ attributeName|upper }} = "{{ attributeName }}";
+  public static final String JSON_PROPERTY_{{ attr|snake_case|upper }} = "{{ attr|snake_case }}";
   {%- if not isRequired and isNullable %}
     {%- if isContainer %}
   private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>undefined();
@@ -65,7 +64,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
             {%- set isRequired = attr in model.get("required", []) %}
             {%- set isNullable = schema.nullable %}
             {%- set dataType = get_type(schema, alternative_name=name + attributeName) %}
-            @JsonProperty(required=true, value=JSON_PROPERTY_{{ attributeName|upper }})
+            @JsonProperty(required=true, value=JSON_PROPERTY_{{ attr|snake_case|upper }})
                 {%- if not isRequired and isNullable %}JsonNullable<{{ dataType }}>{%- else %}{{ dataType }}{%- endif %} {{ variableName }}{%- if loop.nextitem %},{%- endif %}
             {%- endfor %}) {
         {%- for attr, schema in requiredAttr.items() %}
@@ -219,12 +218,12 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- if not isRequired and isNullable %}
       @JsonIgnore
     {%- else %}
-      @JsonProperty(JSON_PROPERTY_{{ attributeName|upper }})
+      @JsonProperty(JSON_PROPERTY_{{ attr|snake_case|upper }})
       @JsonInclude(
         {%- if schema.additionalProperties %}{%- if schema.additionalProperties.nullable %}content = JsonInclude.Include.ALWAYS,{%- endif %}{%- endif %}
         value = JsonInclude.Include.{%- if isRequired %}ALWAYS{%- else %}USE_DEFAULTS{%- endif %})
     {%- endif %}
-      public {{ dataType }} get{{ variableName|upperfirst }}() {
+      public {{ dataType }} get{{ attr|camel_case }}() {
         {%- if not isRequired and isNullable %}
         {%- if schema.readOnly %}
         if ({{ variableName }} == null) {
@@ -238,20 +237,20 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
       }
 
   {%- if not isRequired and isNullable %}
-  @JsonProperty(JSON_PROPERTY_{{ attributeName|upper }})
+  @JsonProperty(JSON_PROPERTY_{{ attr|snake_case|upper }})
   @JsonInclude(
     {%- if schema.additionalProperties %}{%- if schema.additionalProperties.nullable %}content = JsonInclude.Include.ALWAYS,{%- endif %}{%- endif %}
     value = JsonInclude.Include.{%- if isRequired %}ALWAYS{%- else %}USE_DEFAULTS{%- endif %})
-  public JsonNullable<{{ dataType }}> get{{ variableName|upperfirst }}_JsonNullable() {
+  public JsonNullable<{{ dataType }}> get{{ attr|camel_case }}_JsonNullable() {
     return {{ variableName }};
   }
-  @JsonProperty(JSON_PROPERTY_{{ attributeName|upper }})
-  {%- if schema.readOnly %}private{%- else %}public{%- endif %} void set{{ variableName|upperfirst }}_JsonNullable(JsonNullable<{{ dataType }}> {{ variableName }}) {
+  @JsonProperty(JSON_PROPERTY_{{ attr|snake_case|upper }})
+  {%- if schema.readOnly %}private{%- else %}public{%- endif %} void set{{ attr|camel_case }}_JsonNullable(JsonNullable<{{ dataType }}> {{ variableName }}) {
     this.{{ variableName }} = {{ variableName }};
   }
   {%- endif %}
   {%- if not schema.readOnly %}
-  public void set{{ variableName|upperfirst }}({{  dataType }} {{ variableName }}) {
+  public void set{{ attr|camel_case }}({{  dataType }} {{ variableName }}) {
     {%- if schema.enum is defined %}
     if (!{{ variableName }}.isValid()) {
         this.unparsed = true;

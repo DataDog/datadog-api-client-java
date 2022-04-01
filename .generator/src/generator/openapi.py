@@ -73,7 +73,7 @@ def type_to_java(schema, alternative_name=None, render_nullable=False):
         if name or alternative_name:
             alternative_name = (name or alternative_name)
         name = type_to_java(schema["items"], alternative_name=alternative_name)
-        return "ArrayList<{}>".format(name)
+        return "List<{}>".format(name)
     elif type_ == "object":
         if "additionalProperties" in schema:
             return "Map<String, {}>".format(type_to_java(schema["additionalProperties"]))
@@ -224,6 +224,7 @@ def models(spec):
                         name_to_schema.update(dict(child_models(content["schema"])))
 
     return name_to_schema
+
 
 def apis(spec):
     operations = {}
