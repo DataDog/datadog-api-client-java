@@ -216,8 +216,10 @@ def simple_type(schema, render_nullable=False):
 # TODO: clean this up it is messy right now
 def format_json_string(schema):
     example = schema.get("example")
-    if schema.get("type") in ["integer", "boolean", "number"]:
+    if schema.get("type") == "boolean":
         return f"\"{example}\"".lower()
+    if type(example) in [int, float]:
+        return f"\"{example}\""
     if type(example) in [list, dict]:
         res = json.dumps(example).replace('"', '\\"')
         return f"\"{res}\""
