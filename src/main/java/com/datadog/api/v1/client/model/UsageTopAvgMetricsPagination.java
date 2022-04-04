@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The metadata for the current pagination. */
 @ApiModel(description = "The metadata for the current pagination.")
@@ -32,7 +33,7 @@ public class UsageTopAvgMetricsPagination {
   private Long limit;
 
   public static final String JSON_PROPERTY_NEXT_RECORD_ID = "next_record_id";
-  private String nextRecordId;
+  private JsonNullable<String> nextRecordId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS = "total_number_of_records";
   private Long totalNumberOfRecords;
@@ -60,7 +61,7 @@ public class UsageTopAvgMetricsPagination {
   }
 
   public UsageTopAvgMetricsPagination nextRecordId(String nextRecordId) {
-    this.nextRecordId = nextRecordId;
+    this.nextRecordId = JsonNullable.<String>of(nextRecordId);
     return this;
   }
 
@@ -75,14 +76,24 @@ public class UsageTopAvgMetricsPagination {
       value =
           "The cursor to get the next results (if any). To make the next request, use the same"
               + " parameters and add `next_record_id`.")
+  @JsonIgnore
+  public String getNextRecordId() {
+    return nextRecordId.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NEXT_RECORD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getNextRecordId() {
+  public JsonNullable<String> getNextRecordId_JsonNullable() {
     return nextRecordId;
   }
 
-  public void setNextRecordId(String nextRecordId) {
+  @JsonProperty(JSON_PROPERTY_NEXT_RECORD_ID)
+  public void setNextRecordId_JsonNullable(JsonNullable<String> nextRecordId) {
     this.nextRecordId = nextRecordId;
+  }
+
+  public void setNextRecordId(String nextRecordId) {
+    this.nextRecordId = JsonNullable.<String>of(nextRecordId);
   }
 
   public UsageTopAvgMetricsPagination totalNumberOfRecords(Long totalNumberOfRecords) {
