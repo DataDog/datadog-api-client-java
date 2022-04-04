@@ -1,0 +1,81 @@
+[
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Paginate_Monthly_Usage_Attribution"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v1/usage/monthly-attribution",
+      "queryStringParameters": {
+        "start_month": [
+          "2022-03-26T15:05:25.629Z"
+        ],
+        "fields": [
+          "infra_host_usage"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"usage\":[{\"org_name\":\"DD Integration Tests (321813)\",\"public_id\":\"fasjyydbcgwwc2uc\",\"tag_config_source\":\"DD Integration Tests (321813):::project\",\"tags\":null,\"updated_at\":\"2022-03-28T23:02:55Z\",\"month\":\"2022-03-01T00:00:00+00:00\",\"values\":{\"infra_host_usage\":15}}],\"metadata\":{\"pagination\":{\"next_record_id\":null},\"aggregates\":[{\"field\":\"infra_host_usage\",\"value\":15.0,\"agg_type\":\"sum\"}]}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "47b50093-5ca1-c26c-14f4-e085d112f0ef"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Paginate_Monthly_Usage_Attribution"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v1/usage/monthly-attribution",
+      "queryStringParameters": {
+        "next_record_id": [
+          "null"
+        ],
+        "start_month": [
+          "2022-03-26T15:05:25.629Z"
+        ],
+        "fields": [
+          "infra_host_usage"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"usage\":[],\"metadata\":{\"pagination\":{\"next_record_id\":null},\"aggregates\":[{\"field\":\"infra_host_usage\",\"value\":15.0,\"agg_type\":\"sum\"}]}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5b0e2ec4-a0b1-6de1-843d-738ba174bbc1"
+  }
+]
