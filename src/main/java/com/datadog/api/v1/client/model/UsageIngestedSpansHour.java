@@ -70,13 +70,12 @@ public class UsageIngestedSpansHour {
   }
 
   /**
-   * Contains the total number of bytes ingested for APM spans during a given hour.
+   * Contains the total number of bytes ingested during a given hour.
    *
    * @return ingestedEventsBytes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Contains the total number of bytes ingested for APM spans during a given hour.")
+  @ApiModelProperty(value = "Contains the total number of bytes ingested during a given hour.")
   @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIngestedEventsBytes() {
