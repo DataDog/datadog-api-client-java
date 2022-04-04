@@ -39,11 +39,11 @@ def get_name(schema):
     return name
 
 
-def type_to_java(schema, alternative_name=None, render_nullable=False):
+def type_to_java(schema, alternative_name=None):
     """Return Java type name for the type."""
     prefix = ""
     if "enum" not in schema:
-        name = formatter.simple_type(schema, render_nullable=render_nullable)
+        name = formatter.simple_type(schema)
         if name is not None:
             return name
 
@@ -73,6 +73,8 @@ def type_to_java(schema, alternative_name=None, render_nullable=False):
         if name or alternative_name:
             alternative_name = (name or alternative_name) + "Item"
         name = type_to_java(schema["items"], alternative_name=alternative_name)
+        if schema.get("x-generate-alias-as-model", False):
+            return "ArrayList<{}>".format(name)
         return "List<{}>".format(name)
     elif type_ == "object":
         if "additionalProperties" in schema:

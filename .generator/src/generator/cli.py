@@ -69,7 +69,7 @@ def cli(input, output):
     env.globals["generated_annotation"] = GENERATED_ANNOTATION
     env.globals["version"] = version
 
-    # api_j2 = env.get_template("api.j2")
+    api_j2 = env.get_template("api.j2")
     model_j2 = env.get_template("model.j2")
 
     extra_files = {
@@ -100,17 +100,17 @@ def cli(input, output):
 
     output.mkdir(parents=True, exist_ok=True)
 
-    # for name, template in extra_files.items():
-    #     filename = output / name
-    #     with filename.open("w") as fp:
-    #         fp.write(template.render(apis=apis, models=models))
-    #
-    # auth_path = output / "auth"
-    # auth_path.mkdir(parents=True, exist_ok=True)
-    # for name, template in auth_files.items():
-    #     filename = auth_path / name
-    #     with filename.open("w") as fp:
-    #         fp.write(template.render())
+    for name, template in extra_files.items():
+        filename = output / name
+        with filename.open("w") as fp:
+            fp.write(template.render(apis=apis, models=models))
+
+    auth_path = output / "auth"
+    auth_path.mkdir(parents=True, exist_ok=True)
+    for name, template in auth_files.items():
+        filename = auth_path / name
+        with filename.open("w") as fp:
+            fp.write(template.render())
 
     model_dir = output / "model"
     model_dir.mkdir(parents=True, exist_ok=True)
@@ -120,9 +120,9 @@ def cli(input, output):
             with model_path.open("w") as fp:
                 fp.write(model_j2.render(name=name, model=model))
 
-    # for name, operations in apis.items():
-    #     filename = "api_" + formatter.snake_case(name) + ".go"
-    #     api_path = output / filename
-    #     api_path.parent.mkdir(parents=True, exist_ok=True)
-    #     with api_path.open("w") as fp:
-    #         fp.write(api_j2.render(name=name, operations=operations))
+    for name, operations in apis.items():
+        filename = "api_" + formatter.snake_case(name) + ".go"
+        api_path = output / filename
+        api_path.parent.mkdir(parents=True, exist_ok=True)
+        with api_path.open("w") as fp:
+            fp.write(api_j2.render(name=name, operations=operations))

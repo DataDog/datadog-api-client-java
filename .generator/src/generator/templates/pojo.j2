@@ -24,7 +24,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- set isRequired = attr in model.get("required", []) %}
   {%- set isNullable = schema.nullable %}
   {%- set isContainer = schema.type in ["array"] %}
-  {%- set defaultValue = schema.default if schema.default is defined else None %}
+  {%- set defaultValue = schema.get("default", None) %}
 {#-
   TODO: double check this. Doesn't actually seem to be used
   {%- if schema.enum is defined %}
@@ -35,12 +35,12 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- endif %}
   {%- endif %}
 #}
-  public static final String JSON_PROPERTY_{{ attr|snake_case|upper }} = "{{ attr|snake_case }}";
+  public static final String JSON_PROPERTY_{{ attr|snake_case|upper }} = "{{ attr }}";
   {%- if not isRequired and isNullable %}
     {%- if isContainer %}
   private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>undefined();
     {%- else %}
-  private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>{%- if defaultValue %}of({{ defaultValue|format_value(schema=schema) }}){%- else %}undefined(){%- endif%};
+  private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>{%- if defaultValue != None %}of({{ defaultValue|format_value(schema=schema) }}){%- else %}undefined(){%- endif%};
     {%- endif %}
   {%- else %}
     {%- if isContainer %}
@@ -95,6 +95,8 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- set dataType = get_type(schema) %}
   {%- set isArray = schema.type == "array" %}
   {%- set isRequired = attr in model.get("required", []) %}
+  {%- set defaultValue = schema.get("default", None) %}
+
   {%- if not schema.get("readOnly", False) %}
   public {{ name }} {{ variableName }}({{ dataType }} {{ variableName }}) {
     {%- if not isRequired and isNullable %}
@@ -227,7 +229,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
         {%- if not isRequired and isNullable %}
         {%- if schema.get("readOnly", False) %}
         if ({{ variableName }} == null) {
-          {{ variableName }} = JsonNullable.<{{  dataType }}>{%- if defaultValue %}of({{ defaultValue|format_value(schema=schema) }}){%- else %}undefined(){%- endif%};
+          {{ variableName }} = JsonNullable.<{{  dataType }}>{%- if defaultValue != None %}of({{ defaultValue|format_value(schema=schema) }}){%- else %}undefined(){%- endif%};
         }
         {%- endif %}
         return {{ variableName }}.orElse(null);

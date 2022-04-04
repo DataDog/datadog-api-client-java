@@ -177,7 +177,7 @@ def format_value(value, quotes='"', schema=None, type_=None):
     return value
 
 
-def simple_type(schema, render_nullable=False):
+def simple_type(schema):
     """Return the simple type of a schema.
 
     :param schema: The schema to extract the type from
