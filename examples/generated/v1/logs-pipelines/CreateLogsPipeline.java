@@ -1,25 +1,25 @@
-import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsPipelinesApi;
+import com.datadog.api.v1.client.model.*;
+import java.util.*;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-        LogsPipeline body = new LogsPipeline(); // LogsPipeline | Definition of the new pipeline.
-        try {
-            LogsPipeline result = apiInstance.createLogsPipeline(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling LogsPipelinesApi#createLogsPipeline");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
+    LogsPipeline body = new LogsPipeline(); // LogsPipeline | Definition of the new pipeline.
+    try {
+      LogsPipeline result = apiInstance.createLogsPipeline(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LogsPipelinesApi#createLogsPipeline");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
