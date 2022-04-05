@@ -23,3 +23,5 @@
 - `MAX` (value: `"max"`)
 
 - `AVG` (value: `"avg"`)
+
+- `MEDIAN` (value: `"median"`)

@@ -39,6 +39,7 @@ public class LogsAggregationFunction {
   public static final LogsAggregationFunction MIN = new LogsAggregationFunction("min");
   public static final LogsAggregationFunction MAX = new LogsAggregationFunction("max");
   public static final LogsAggregationFunction AVG = new LogsAggregationFunction("avg");
+  public static final LogsAggregationFunction MEDIAN = new LogsAggregationFunction("median");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -53,7 +54,8 @@ public class LogsAggregationFunction {
               "sum",
               "min",
               "max",
-              "avg"));
+              "avg",
+              "median"));
 
   private String value;
 
