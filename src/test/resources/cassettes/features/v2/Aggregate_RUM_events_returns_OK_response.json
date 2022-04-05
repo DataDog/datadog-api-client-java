@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"compute\":[{\"aggregation\":\"pc90\",\"metric\":\"@view.time_spent\",\"type\":\"total\"}],\"filter\":{\"from\":\"now-15m\",\"query\":\"@type:view AND @session.type:user\",\"to\":\"now\"},\"group_by\":[{\"facet\":\"@view.time_spent\",\"limit\":10,\"total\":false}],\"options\":{\"timezone\":\"GMT\"},\"page\":{\"limit\":25}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Aggregate_RUM_events_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/rum/analytics/aggregate",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"status\":\"done\",\"request_id\":\"pddv1ChZiX1d1RWNfM1JuaURhSkJ6elFsRHpnIi0KHQJFlSKZaC6T1BR15cquEEJdzvJ8iKfJO5Kr37vkEgyJYfau6iiq_M5ftbo\",\"elapsed\":0},\"data\":{\"buckets\":[]}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "30d257bc-d9ec-7fde-0a39-9fe71ad14e78"
+  }
+]

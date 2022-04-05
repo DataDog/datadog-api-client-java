@@ -1,0 +1,262 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"name\":\"Test-Update_items_of_a_dashboard_list_returns_OK_response-1647890211\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_items_of_a_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/dashboard/lists/manual",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"is_favorite\":false,\"name\":\"Test-Update_items_of_a_dashboard_list_returns_OK_response-1647890211\",\"dashboard_count\":0,\"author\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"created\":\"2022-03-21T19:16:51.788428+00:00\",\"type\":\"manual_dashboard_list\",\"dashboards\":null,\"modified\":\"2022-03-21T19:16:51.788437+00:00\",\"id\":284066}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "59c7baea-63f5-b6f5-a7e9-038547dcac73"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Update_items_of_a_dashboard_list_returns_OK_response-1647890211 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"}}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_items_of_a_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"niu-g3w-pmy\",\"title\":\"Test-Update_items_of_a_dashboard_list_returns_OK_response-1647890211 with Profile Metrics Query\",\"url\":\"/dashboard/niu-g3w-pmy/test-updateitemsofadashboardlistreturnsokresponse-1647890211-with-profile-metric\",\"created_at\":\"2022-03-21T19:16:52.105822+00:00\",\"modified_at\":\"2022-03-21T19:16:52.105822+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"search\":{\"query\":\"runtime:jvm\"},\"group_by\":[{\"facet\":\"service\",\"sort\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\",\"order\":\"desc\"},\"limit\":10}],\"compute\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\"}}}],\"type\":\"timeseries\"},\"id\":7025397435910312}],\"layout_type\":\"ordered\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "78056b66-8e2b-4640-ade2-52b65e8a7235"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"free\",\"title\":\"Test-Update_items_of_a_dashboard_list_returns_OK_response-1647890211 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"},\"layout\":{\"height\":10,\"width\":10,\"x\":10,\"y\":10}}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_items_of_a_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"kqn-ck6-7nq\",\"title\":\"Test-Update_items_of_a_dashboard_list_returns_OK_response-1647890211 with Profile Metrics Query\",\"url\":\"/dashboard/kqn-ck6-7nq/test-updateitemsofadashboardlistreturnsokresponse-1647890211-with-profile-metric\",\"created_at\":\"2022-03-21T19:16:52.400846+00:00\",\"modified_at\":\"2022-03-21T19:16:52.400846+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"search\":{\"query\":\"runtime:jvm\"},\"group_by\":[{\"facet\":\"service\",\"sort\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\",\"order\":\"desc\"},\"limit\":10}],\"compute\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\"}}}],\"type\":\"timeseries\"},\"layout\":{\"y\":10,\"width\":10,\"x\":10,\"height\":10},\"id\":2927684530303517}],\"layout_type\":\"free\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b2d0b113-b8b3-322f-9ab2-45dc0c2a5ce5"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"dashboards\":[{\"id\":\"niu-g3w-pmy\",\"type\":\"custom_timeboard\"}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_items_of_a_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/dashboard/lists/manual/284066/dashboards",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"added_dashboards_to_list\":[{\"type\":\"custom_timeboard\",\"id\":\"niu-g3w-pmy\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "84090105-ccb0-ba1d-d43b-5ad16aa1a63a"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"dashboards\":[{\"id\":\"kqn-ck6-7nq\",\"type\":\"custom_screenboard\"}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_items_of_a_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "PUT",
+      "path": "/api/v2/dashboard/lists/manual/284066/dashboards",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"dashboards\":[{\"type\":\"custom_screenboard\",\"id\":\"kqn-ck6-7nq\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c5403546-e246-47b9-ae87-03698076bbee"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_items_of_a_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/kqn-ck6-7nq",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"kqn-ck6-7nq\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a3cc8dfe-42d1-3e84-eb76-991e20c63b9a"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_items_of_a_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/niu-g3w-pmy",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"niu-g3w-pmy\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a024818e-ab0c-8f70-2ec0-abc32d8cb987"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_items_of_a_dashboard_list_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/lists/manual/284066",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_list_id\":284066}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d1362cc7-ec69-32da-eb3f-0a14e8b84ff5"
+  }
+]

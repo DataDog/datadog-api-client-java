@@ -49,8 +49,6 @@ public class UsageAttributionSupportedMetrics {
       new UsageAttributionSupportedMetrics("custom_timeseries_percentage");
   public static final UsageAttributionSupportedMetrics CONTAINER_PERCENTAGE =
       new UsageAttributionSupportedMetrics("container_percentage");
-  public static final UsageAttributionSupportedMetrics LAMBDA_USAGE =
-      new UsageAttributionSupportedMetrics("lambda_usage");
   public static final UsageAttributionSupportedMetrics API_USAGE =
       new UsageAttributionSupportedMetrics("api_usage");
   public static final UsageAttributionSupportedMetrics APM_HOST_PERCENTAGE =
@@ -63,8 +61,6 @@ public class UsageAttributionSupportedMetrics {
       new UsageAttributionSupportedMetrics("browser_percentage");
   public static final UsageAttributionSupportedMetrics API_PERCENTAGE =
       new UsageAttributionSupportedMetrics("api_percentage");
-  public static final UsageAttributionSupportedMetrics LAMBDA_PERCENTAGE =
-      new UsageAttributionSupportedMetrics("lambda_percentage");
   public static final UsageAttributionSupportedMetrics NPM_HOST_USAGE =
       new UsageAttributionSupportedMetrics("npm_host_usage");
   public static final UsageAttributionSupportedMetrics LAMBDA_FUNCTIONS_USAGE =
@@ -114,14 +110,12 @@ public class UsageAttributionSupportedMetrics {
               "infra_host_usage",
               "custom_timeseries_percentage",
               "container_percentage",
-              "lambda_usage",
               "api_usage",
               "apm_host_percentage",
               "infra_host_percentage",
               "snmp_usage",
               "browser_percentage",
               "api_percentage",
-              "lambda_percentage",
               "npm_host_usage",
               "lambda_functions_usage",
               "lambda_functions_percentage",

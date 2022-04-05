@@ -92,6 +92,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _RolesApi_                 | [**removePermissionFromRole**](RolesApi.md#removePermissionFromRole)                                         | **DELETE** /api/v2/roles/{role_id}/permissions                                             | Revoke permission                                  |
 | _RolesApi_                 | [**removeUserFromRole**](RolesApi.md#removeUserFromRole)                                                     | **DELETE** /api/v2/roles/{role_id}/users                                                   | Remove a user from a role                          |
 | _RolesApi_                 | [**updateRole**](RolesApi.md#updateRole)                                                                     | **PATCH** /api/v2/roles/{role_id}                                                          | Update a role                                      |
+| _RumApi_                   | [**aggregateRUMEvents**](RumApi.md#aggregateRUMEvents)                                                       | **POST** /api/v2/rum/analytics/aggregate                                                   | Aggregate RUM events                               |
 | _RumApi_                   | [**listRUMEvents**](RumApi.md#listRUMEvents)                                                                 | **GET** /api/v2/rum/events                                                                 | Get a list of RUM events                           |
 | _RumApi_                   | [**searchRUMEvents**](RumApi.md#searchRUMEvents)                                                             | **POST** /api/v2/rum/events/search                                                         | Search RUM events                                  |
 | _SecurityMonitoringApi_    | [**createSecurityFilter**](SecurityMonitoringApi.md#createSecurityFilter)                                    | **POST** /api/v2/security_monitoring/configuration/security_filters                        | Create a security filter                           |
@@ -403,10 +404,26 @@ All URIs are relative to *https://api.datadoghq.com*
 - [ProcessSummaryAttributes](ProcessSummaryAttributes.md)
 - [ProcessSummaryType](ProcessSummaryType.md)
 - [QuerySortOrder](QuerySortOrder.md)
+- [RUMAggregateBucketValue](RUMAggregateBucketValue.md)
+- [RUMAggregateBucketValueTimeseries](RUMAggregateBucketValueTimeseries.md)
+- [RUMAggregateBucketValueTimeseriesPoint](RUMAggregateBucketValueTimeseriesPoint.md)
+- [RUMAggregateRequest](RUMAggregateRequest.md)
+- [RUMAggregateSort](RUMAggregateSort.md)
+- [RUMAggregateSortType](RUMAggregateSortType.md)
+- [RUMAggregationBucketsResponse](RUMAggregationBucketsResponse.md)
+- [RUMAggregationFunction](RUMAggregationFunction.md)
+- [RUMAnalyticsAggregateResponse](RUMAnalyticsAggregateResponse.md)
+- [RUMBucketResponse](RUMBucketResponse.md)
+- [RUMCompute](RUMCompute.md)
+- [RUMComputeType](RUMComputeType.md)
 - [RUMEvent](RUMEvent.md)
 - [RUMEventAttributes](RUMEventAttributes.md)
 - [RUMEventType](RUMEventType.md)
 - [RUMEventsResponse](RUMEventsResponse.md)
+- [RUMGroupBy](RUMGroupBy.md)
+- [RUMGroupByHistogram](RUMGroupByHistogram.md)
+- [RUMGroupByMissing](RUMGroupByMissing.md)
+- [RUMGroupByTotal](RUMGroupByTotal.md)
 - [RUMQueryFilter](RUMQueryFilter.md)
 - [RUMQueryOptions](RUMQueryOptions.md)
 - [RUMQueryPageOptions](RUMQueryPageOptions.md)
@@ -416,6 +433,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [RUMResponseStatus](RUMResponseStatus.md)
 - [RUMSearchEventsRequest](RUMSearchEventsRequest.md)
 - [RUMSort](RUMSort.md)
+- [RUMSortOrder](RUMSortOrder.md)
 - [RUMWarning](RUMWarning.md)
 - [RelationshipToIncidentIntegrationMetadataData](RelationshipToIncidentIntegrationMetadataData.md)
 - [RelationshipToIncidentIntegrationMetadatas](RelationshipToIncidentIntegrationMetadatas.md)

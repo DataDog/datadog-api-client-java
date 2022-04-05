@@ -2,13 +2,13 @@ package com.datadog.api;
 
 import static org.junit.Assert.*;
 
+import com.google.gson.Gson;
 import datadog.trace.api.interceptor.MutableSpan;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.messages.internal.com.google.gson.Gson;
 import io.opentracing.Span;
 import io.opentracing.util.GlobalTracer;
 import java.io.IOException;

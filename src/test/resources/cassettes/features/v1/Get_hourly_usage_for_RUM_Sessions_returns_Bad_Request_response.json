@@ -1,0 +1,40 @@
+[
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_hourly_usage_for_RUM_Sessions_returns_Bad_Request_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v1/usage/rum_sessions",
+      "queryStringParameters": {
+        "start_hr": [
+          "2022-03-29T00:41:26.836Z"
+        ],
+        "end_hr": [
+          "2022-03-27T00:41:26.836Z"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7a52ad74-9770-3580-38ea-c2a090eaab4b"
+  }
+]

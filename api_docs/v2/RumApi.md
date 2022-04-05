@@ -2,10 +2,75 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                           | HTTP request                       | Description              |
-| ------------------------------------------------ | ---------------------------------- | ------------------------ |
-| [**listRUMEvents**](RumApi.md#listRUMEvents)     | **GET** /api/v2/rum/events         | Get a list of RUM events |
-| [**searchRUMEvents**](RumApi.md#searchRUMEvents) | **POST** /api/v2/rum/events/search | Search RUM events        |
+| Method                                                 | HTTP request                             | Description              |
+| ------------------------------------------------------ | ---------------------------------------- | ------------------------ |
+| [**aggregateRUMEvents**](RumApi.md#aggregateRUMEvents) | **POST** /api/v2/rum/analytics/aggregate | Aggregate RUM events     |
+| [**listRUMEvents**](RumApi.md#listRUMEvents)           | **GET** /api/v2/rum/events               | Get a list of RUM events |
+| [**searchRUMEvents**](RumApi.md#searchRUMEvents)       | **POST** /api/v2/rum/events/search       | Search RUM events        |
+
+## aggregateRUMEvents
+
+> RUMAnalyticsAggregateResponse aggregateRUMEvents(body);
+
+The API endpoint to aggregate RUM events into buckets of computed metrics and timeseries.
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.RumApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        RumApi apiInstance = new RumApi(defaultClient);
+        RUMAggregateRequest body = new RUMAggregateRequest(); // RUMAggregateRequest |
+        try {
+            RUMAnalyticsAggregateResponse result = apiInstance.aggregateRUMEvents(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RumApi#aggregateRUMEvents");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name     | Type                                              | Description | Notes |
+| -------- | ------------------------------------------------- | ----------- | ----- |
+| **body** | [**RUMAggregateRequest**](RUMAggregateRequest.md) |             |
+
+### Return type
+
+[**RUMAnalyticsAggregateResponse**](RUMAnalyticsAggregateResponse.md)
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Not Authorized    | -                |
+| **429**     | Too many requests | -                |
 
 ## listRUMEvents
 
@@ -95,7 +160,7 @@ public class Example {
 
 ## searchRUMEvents
 
-> RUMEventsResponse searchRUMEvents(parameters);
+> RUMEventsResponse searchRUMEvents(body);
 
 List endpoint returns RUM events that match a RUM search query.
 [Results are paginated][1].
@@ -121,8 +186,7 @@ public class Example {
         RumApi apiInstance = new RumApi(defaultClient);
         RUMSearchEventsRequest body = new RUMSearchEventsRequest(); // RUMSearchEventsRequest |
         try {
-            RUMEventsResponse result = apiInstance.searchRUMEvents(new RumApi.SearchRUMEventsOptionalParameters()
-                .body(body));
+            RUMEventsResponse result = apiInstance.searchRUMEvents(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RumApi#searchRUMEvents");
@@ -137,9 +201,9 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                    | Description | Notes      |
-| -------- | ------------------------------------------------------- | ----------- | ---------- |
-| **body** | [**RUMSearchEventsRequest**](RUMSearchEventsRequest.md) |             | [optional] |
+| Name     | Type                                                    | Description | Notes |
+| -------- | ------------------------------------------------------- | ----------- | ----- |
+| **body** | [**RUMSearchEventsRequest**](RUMSearchEventsRequest.md) |             |
 
 ### Return type
 

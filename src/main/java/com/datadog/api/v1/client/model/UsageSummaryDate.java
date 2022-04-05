@@ -1870,16 +1870,16 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all tracing without limits bytes ingested over all hours in the current date
-   * for all organizations.
+   * Shows the sum of all ingested APM span bytes over all hours in the current date for all
+   * organizations.
    *
    * @return twolIngestedEventsBytesSum
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Shows the sum of all tracing without limits bytes ingested over all hours in the"
-              + " current date for all organizations.")
+          "Shows the sum of all ingested APM span bytes over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTwolIngestedEventsBytesSum() {

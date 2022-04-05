@@ -4,7 +4,6 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.RumApi;
-import com.datadog.api.v2.client.api.RumApi.SearchRUMEventsOptionalParameters;
 import com.datadog.api.v2.client.model.RUMEventsResponse;
 import com.datadog.api.v2.client.model.RUMQueryFilter;
 import com.datadog.api.v2.client.model.RUMQueryOptions;
@@ -31,8 +30,7 @@ public class Example {
             .sort(RUMSort.TIMESTAMP_ASCENDING);
 
     try {
-      RUMEventsResponse result =
-          apiInstance.searchRUMEvents(new SearchRUMEventsOptionalParameters().body(body));
+      RUMEventsResponse result = apiInstance.searchRUMEvents(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RumApi#searchRUMEvents");

@@ -166,7 +166,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
-        String q = "q_example"; // String | Query string to search metrics upon. Must be prefixed with `metrics:`.
+        String q = "q_example"; // String | Query string to search metrics upon. Can optionally be prefixed with `metrics:`.
         try {
             MetricSearchResponse result = apiInstance.listMetrics(q);
             System.out.println(result);
@@ -183,9 +183,9 @@ public class Example {
 
 ### Parameters
 
-| Name  | Type       | Description                                                                      | Notes |
-| ----- | ---------- | -------------------------------------------------------------------------------- | ----- |
-| **q** | **String** | Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. |
+| Name  | Type       | Description                                                                                | Notes |
+| ----- | ---------- | ------------------------------------------------------------------------------------------ | ----- |
+| **q** | **String** | Query string to search metrics upon. Can optionally be prefixed with &#x60;metrics:&#x60;. |
 
 ### Return type
 
