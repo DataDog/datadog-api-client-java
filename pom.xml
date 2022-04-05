@@ -347,115 +347,63 @@
                         </filter>
                     </filters>
                     <artifactSet>
-                        <excludes>
-                            <exclude>javax.inject:javax.inject</exclude>
-                            <exclude>org.glassfish.jersey.core:jersey-common</exclude>
-                            <exclude>org.apache.httpcomponents:*</exclude>
-                            <exclude>com.fasterxml.jackson.module:jackson-module-jaxb-annotations</exclude>
-                        </excludes>
                         <includes>
                             <include>io.swagger:swagger-annotations</include>
-                            <include>com.google.code.findbugs:jsr305</include>
                             <include>org.glassfish.jersey.core:jersey-client</include>
+                            <include>jakarta.ws.rs:jakarta.ws.rs-api</include>
+                            <include>org.glassfish.jersey.core:jersey-common</include>
+                            <include>org.glassfish.hk2:osgi-resource-locator</include>
+                            <include>org.glassfish.hk2.external:jakarta.inject</include>
                             <include>org.glassfish.jersey.connectors:jersey-apache-connector</include>
+                            <include>org.apache.httpcomponents:httpclient</include>
+                            <include>org.apache.httpcomponents:httpcore</include>
                             <include>org.glassfish.jersey.inject:jersey-hk2</include>
+                            <include>org.glassfish.hk2:hk2-locator</include>
+                            <include>org.glassfish.hk2.external:aopalliance-repackaged</include>
+                            <include>org.glassfish.hk2:hk2-api</include>
+                            <include>org.glassfish.hk2:hk2-utils</include>
                             <include>org.glassfish.jersey.media:jersey-media-multipart</include>
                             <include>org.glassfish.jersey.media:jersey-media-json-jackson</include>
+                            <include>org.glassfish.jersey.ext:jersey-entity-filtering</include>
+                            <include>com.fasterxml.jackson.module:jackson-module-jaxb-annotations</include>
                             <include>com.fasterxml.jackson.core:jackson-core</include>
                             <include>com.fasterxml.jackson.core:jackson-annotations</include>
-                            <include>com.fasterxml.jackson.core:jackson-databind</include>
                             <include>com.fasterxml.jackson.datatype:jackson-datatype-jsr310</include>
+                            <include>com.fasterxml.jackson.core:jackson-databind</include>
                             <include>org.openapitools:jackson-databind-nullable</include>
-                            <include>com.github.scribejava:scribejava-core</include>
-                            <!-- dependencies pulled by other dependencies -->
-                            <include>javax.ws.rs:javax.ws.rs-api</include>
-                            <include>javax.annotation:javax.annotation-api</include>
-                            <include>org.glassfish.hk2:*</include>
-                            <include>commons-logging:commons-logging</include>
-                            <include>commons-codec:commons-codec</include>
-                            <include>org.glassfish.hk2.external:*</include>
-                            <include>org.javassist:javassist</include>
-                            <include>org.jvnet.mimepull:mimepull</include>
-                            <include>org.glassfish.jersey.ext:jersey-entity-filtering</include>
                         </includes>
                     </artifactSet>
+                    <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                    </transformers>
                     <relocations>
                         <relocation>
                             <pattern>io.swagger</pattern>
                             <shadedPattern>com.datadoghq.io.swagger</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>com.google.code.findbugs</pattern>
-                            <shadedPattern>com.datadoghq.com.google.code.findbugs</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.glassfish.jersey.core</pattern>
-                            <shadedPattern>com.datadoghq.org.glassfish.jersey.core</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.glassfish.jersey.connectors</pattern>
-                            <shadedPattern>com.datadoghq.org.glassfish.jersey.connectors</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.glassfish.jersey.inject</pattern>
-                            <shadedPattern>com.datadoghq.org.glassfish.jersey.inject</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.glassfish.jersey.media</pattern>
-                            <shadedPattern>com.datadoghq.org.glassfish.jersey.media</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>com.fasterxml.jackson.core</pattern>
-                            <shadedPattern>com.datadoghq.com.fasterxml.jackson.core</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>com.fasterxml.jackson.datatype</pattern>
-                            <shadedPattern>com.datadoghq.com.fasterxml.jackson.datatype</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.openapitools</pattern>
-                            <shadedPattern>com.datadoghq.org.openapitools</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>com.github.scribejava</pattern>
-                            <shadedPattern>com.datadoghq.com.github.scribejava</shadedPattern>
-                        </relocation>
-                        <!-- dependencies pulled by other dependencies -->
-                        <relocation>
-                            <pattern>javax.ws.rs</pattern>
-                            <shadedPattern>com.datadoghq.javax.ws.rs</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>javax.annotation</pattern>
-                            <shadedPattern>com.datadoghq.javax.annotation</shadedPattern>
+                            <pattern>org.glassfish.jersey</pattern>
+                            <shadedPattern>com.datadoghq.org.glassfish.jersey</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>org.glassfish.hk2</pattern>
                             <shadedPattern>com.datadoghq.org.glassfish.hk2</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.apache.commons-logging</pattern>
-                            <shadedPattern>com.datadoghq.org.commons-logging</shadedPattern>
+                            <pattern>com.fasterxml.jackson</pattern>
+                            <shadedPattern>com.datadoghq.com.fasterxml.jackson</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.apache.commons-codec</pattern>
-                            <shadedPattern>com.datadoghq.org.commons-codec</shadedPattern>
+                            <pattern>org.openapitools.jackson</pattern>
+                            <shadedPattern>com.datadoghq.org.openapitools.jackson</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.glassfish.hk2.external</pattern>
-                            <shadedPattern>com.datadoghq.org.glassfish.hk2.external</shadedPattern>
+                            <pattern>javax.ws.rs</pattern>
+                            <shadedPattern>com.datadoghq.javax.ws.rs</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.javassist</pattern>
-                            <shadedPattern>com.datadoghq.org.javassist</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.jvnet.mimepull</pattern>
-                            <shadedPattern>com.datadoghq.org.jvnet.mimepull</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.glassfish.jersey.ext</pattern>
-                            <shadedPattern>com.datadoghq.org.glassfish.jersey.ext</shadedPattern>
+                            <pattern>org.apache.hc</pattern>
+                            <shadedPattern>com.datadoghq.org.apache.hc</shadedPattern>
                         </relocation>
                     </relocations>
                     <shadedClassifierName>shaded-jar</shadedClassifierName>
@@ -582,6 +530,7 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.9.0</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.github.tomakehurst</groupId>
