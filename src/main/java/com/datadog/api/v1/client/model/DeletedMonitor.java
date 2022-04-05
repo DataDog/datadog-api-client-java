@@ -38,7 +38,7 @@ public class DeletedMonitor {
    * @return deletedMonitorId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the deleted monitor.")
+  @ApiModelProperty(example = "666486743", value = "ID of the deleted monitor.")
   @JsonProperty(JSON_PROPERTY_DELETED_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDeletedMonitorId() {
