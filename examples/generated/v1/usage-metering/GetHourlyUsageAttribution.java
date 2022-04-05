@@ -12,24 +12,22 @@ public class Example {
 
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
     OffsetDateTime startHr =
-        OffsetDateTime
-            .now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour:
-                    // `[YYYY-MM-DDThh]` for usage beginning at this hour.
+        OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour:
+    // `[YYYY-MM-DDThh]` for usage beginning at this hour.
     HourlyUsageAttributionUsageType usageType =
         HourlyUsageAttributionUsageType.fromValue(
             "api_usage"); // HourlyUsageAttributionUsageType | Usage type to retrieve.
     OffsetDateTime endHr =
-        OffsetDateTime
-            .now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour:
-                    // `[YYYY-MM-DDThh]` for usage ending **before** this hour.
+        OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour:
+    // `[YYYY-MM-DDThh]` for usage ending **before** this hour.
     String nextRecordId =
         "nextRecordId_example"; // String | List following results with a next_record_id provided in
-                                // the previous query.
+    // the previous query.
     String tagBreakdownKeys =
         "tagBreakdownKeys_example"; // String | Comma separated list of tags used to group usage. If
-                                    // no value is provided the usage will not be broken down by
-                                    // tags.  To see which tags are available, look for the value of
-                                    // `tag_config_source` in the API response.
+    // no value is provided the usage will not be broken down by
+    // tags.  To see which tags are available, look for the value of
+    // `tag_config_source` in the API response.
     try {
       HourlyUsageAttributionResponse result =
           apiInstance.getHourlyUsageAttribution(

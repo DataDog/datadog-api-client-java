@@ -20,10 +20,10 @@ public class Example {
         56L; // Long | Number of seconds since UNIX epoch from which you want to search your hosts.
     Boolean includeMutedHostsData =
         true; // Boolean | Include information on the muted status of hosts and when the mute
-              // expires.
+    // expires.
     Boolean includeHostsMetadata =
         true; // Boolean | Include additional metadata about the hosts (agent_version, machine,
-              // platform, processor, etc.).
+    // platform, processor, etc.).
     try {
       HostListResponse result =
           apiInstance.listHosts(

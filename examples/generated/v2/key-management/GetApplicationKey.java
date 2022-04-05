@@ -13,7 +13,7 @@ public class Example {
     String appKeyId = "appKeyId_example"; // String | The ID of the application key.
     String include =
         "owned_by"; // String | Resource path for related resources to include in the response. Only
-                    // `owned_by` is supported.
+    // `owned_by` is supported.
     try {
       ApplicationKeyResponse result =
           apiInstance.getApplicationKey(

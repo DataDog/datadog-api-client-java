@@ -14,15 +14,15 @@ public class Example {
     OffsetDateTime startMonth =
         OffsetDateTime
             .now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month:
-                    // `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
+    // `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
     UsageAttributionSupportedMetrics fields =
         UsageAttributionSupportedMetrics.fromValue(
             "custom_timeseries_usage"); // UsageAttributionSupportedMetrics | Comma-separated list
-                                        // of usage types to return, or `*` for all usage types.
+    // of usage types to return, or `*` for all usage types.
     OffsetDateTime endMonth =
         OffsetDateTime
             .now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month:
-                    // `[YYYY-MM]` for usage ending this month.
+    // `[YYYY-MM]` for usage ending this month.
     UsageSortDirection sortDirection =
         UsageSortDirection.fromValue(
             "desc"); // UsageSortDirection | The direction to sort by: `[desc, asc]`.

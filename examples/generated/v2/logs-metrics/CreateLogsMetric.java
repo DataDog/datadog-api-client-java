@@ -12,7 +12,7 @@ public class Example {
     LogsMetricsApi apiInstance = new LogsMetricsApi(defaultClient);
     LogsMetricCreateRequest body =
         new LogsMetricCreateRequest(); // LogsMetricCreateRequest | The definition of the new
-                                       // log-based metric.
+    // log-based metric.
     try {
       LogsMetricResponse result = apiInstance.createLogsMetric(body);
       System.out.println(result);

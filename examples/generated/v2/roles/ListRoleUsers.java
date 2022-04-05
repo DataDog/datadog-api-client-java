@@ -15,11 +15,11 @@ public class Example {
     Long pageNumber = 0L; // Long | Specific page number to return.
     String sort =
         "name"; // String | User attribute to order results by. Sort order is **ascending** by
-                // default. Sort order is **descending** if the field is prefixed by a negative
-                // sign, for example `sort=-name`. Options: `name`, `email`, `status`.
+    // default. Sort order is **descending** if the field is prefixed by a negative
+    // sign, for example `sort=-name`. Options: `name`, `email`, `status`.
     String filter =
         "filter_example"; // String | Filter all users by the given string. Defaults to no
-                          // filtering.
+    // filtering.
     try {
       UsersResponse result =
           apiInstance.listRoleUsers(

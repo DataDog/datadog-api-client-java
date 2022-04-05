@@ -15,11 +15,11 @@ public class Example {
     Long toTs = 56L; // Long | The `to` timestamp for the query window in epoch seconds.
     Double target =
         3.4D; // Double | The SLO target. If `target` is passed in, the response will include the
-              // remaining error budget and a timeframe value of `custom`.
+    // remaining error budget and a timeframe value of `custom`.
     Boolean applyCorrection =
         true; // Boolean | Defaults to `true`. If any SLO corrections are applied and this parameter
-              // is set to `false`, then the corrections will not be applied and the SLI values will
-              // not be affected.
+    // is set to `false`, then the corrections will not be applied and the SLI values will
+    // not be affected.
     try {
       SLOHistoryResponse result =
           apiInstance.getSLOHistory(

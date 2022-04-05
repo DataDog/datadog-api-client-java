@@ -12,7 +12,7 @@ public class Example {
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
     AWSAccountAndLambdaRequest body =
         new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Delete AWS Lambda ARN
-                                          // request body.
+    // request body.
     try {
       Object result = apiInstance.deleteAWSLambdaARN(body);
       System.out.println(result);

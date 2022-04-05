@@ -12,7 +12,7 @@ public class Example {
     IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
     IncidentServiceCreateRequest body =
         new IncidentServiceCreateRequest(); // IncidentServiceCreateRequest | Incident Service
-                                            // Payload.
+    // Payload.
     try {
       IncidentServiceResponse result = apiInstance.createIncidentService(body);
       System.out.println(result);

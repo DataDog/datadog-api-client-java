@@ -12,11 +12,10 @@ public class Example {
     TagsApi apiInstance = new TagsApi(defaultClient);
     String hostName =
         "hostName_example"; // String | This endpoint allows you to add new tags to a host,
-                            // optionally specifying where the tags came from.
+    // optionally specifying where the tags came from.
     HostTags body = new HostTags(); // HostTags | Update host tags request body.
-    String source =
-        "chef"; // String | The source of the tags. [Complete list of source attribute
-                // values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+    String source = "chef"; // String | The source of the tags. [Complete list of source attribute
+    // values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
     try {
       HostTags result =
           apiInstance.createHostTags(

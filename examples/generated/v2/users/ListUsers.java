@@ -14,17 +14,17 @@ public class Example {
     Long pageNumber = 0L; // Long | Specific page number to return.
     String sort =
         "name"; // String | User attribute to order results by. Sort order is ascending by default.
-                // Sort order is descending if the field is prefixed by a negative sign, for example
-                // `sort=-name`. Options: `name`, `modified_at`, `user_count`.
+    // Sort order is descending if the field is prefixed by a negative sign, for example
+    // `sort=-name`. Options: `name`, `modified_at`, `user_count`.
     QuerySortOrder sortDir =
         QuerySortOrder.fromValue(
             "asc"); // QuerySortOrder | Direction of sort. Options: `asc`, `desc`.
     String filter =
         "filter_example"; // String | Filter all users by the given string. Defaults to no
-                          // filtering.
+    // filtering.
     String filterStatus =
         "Active"; // String | Filter on status attribute. Comma separated list, with possible values
-                  // `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
+    // `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
     try {
       UsersResponse result =
           apiInstance.listUsers(

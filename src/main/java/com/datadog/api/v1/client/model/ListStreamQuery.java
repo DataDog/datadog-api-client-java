@@ -32,7 +32,7 @@ import java.util.Objects;
 public class ListStreamQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
-  private ListStreamSource dataSource = ListStreamSource.ISSUE_STREAM;
+  private ListStreamSource dataSource = ListStreamSource.APM_ISSUE_STREAM;
 
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;

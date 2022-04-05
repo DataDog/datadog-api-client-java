@@ -20,16 +20,16 @@ public class Example {
     String sortDir = "desc"; // String | Sort by direction `asc` or `desc`.
     String query =
         "postmortem"; // String | Return only notebooks with `query` string in notebook name or
-                      // author handle.
+    // author handle.
     Boolean includeCells =
         true; // Boolean | Value of `false` excludes the `cells` and global `time` for each
-              // notebook.
+    // notebook.
     Boolean isTemplate =
         false; // Boolean | True value returns only template notebooks. Default is false (returns
-               // only non-template notebooks).
+    // only non-template notebooks).
     String type =
         "investigation"; // String | If type is provided, returns only notebooks with that metadata
-                         // type. Default does not have type filtering.
+    // type. Default does not have type filtering.
     try {
       NotebooksResponse result =
           apiInstance.listNotebooks(

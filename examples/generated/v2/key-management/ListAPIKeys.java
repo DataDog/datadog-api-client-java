@@ -15,25 +15,25 @@ public class Example {
     APIKeysSort sort =
         APIKeysSort.fromValue(
             "created_at"); // APIKeysSort | API key attribute used to sort results. Sort order is
-                           // ascending by default. In order to specify a descending sort, prefix
-                           // the attribute with a minus sign.
+    // ascending by default. In order to specify a descending sort, prefix
+    // the attribute with a minus sign.
     String filter = "filter_example"; // String | Filter API keys by the specified string.
     String filterCreatedAtStart =
         "2020-11-24T18:46:21+00:00"; // String | Only include API keys created on or after the
-                                     // specified date.
+    // specified date.
     String filterCreatedAtEnd =
         "2020-11-24T18:46:21+00:00"; // String | Only include API keys created on or before the
-                                     // specified date.
+    // specified date.
     String filterModifiedAtStart =
         "2020-11-24T18:46:21+00:00"; // String | Only include API keys modified on or after the
-                                     // specified date.
+    // specified date.
     String filterModifiedAtEnd =
         "2020-11-24T18:46:21+00:00"; // String | Only include API keys modified on or before the
-                                     // specified date.
+    // specified date.
     String include =
         "created_by,modified_by"; // String | Comma separated list of resource paths for related
-                                  // resources to include in the response. Supported resource paths
-                                  // are `created_by` and `modified_by`.
+    // resources to include in the response. Supported resource paths
+    // are `created_by` and `modified_by`.
     try {
       APIKeysResponse result =
           apiInstance.listAPIKeys(

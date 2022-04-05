@@ -12,7 +12,7 @@ public class Example {
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
     OrganizationCreateBody body =
         new OrganizationCreateBody(); // OrganizationCreateBody | Organization object that needs to
-                                      // be created
+    // be created
     try {
       OrganizationCreateResponse result = apiInstance.createChildOrg(body);
       System.out.println(result);

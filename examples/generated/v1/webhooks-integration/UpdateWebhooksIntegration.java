@@ -13,7 +13,7 @@ public class Example {
     String webhookName = "webhookName_example"; // String | The name of the webhook.
     WebhooksIntegrationUpdateRequest body =
         new WebhooksIntegrationUpdateRequest(); // WebhooksIntegrationUpdateRequest | Update an
-                                                // existing Datadog-Webhooks integration.
+    // existing Datadog-Webhooks integration.
     try {
       WebhooksIntegration result = apiInstance.updateWebhooksIntegration(webhookName, body);
       System.out.println(result);

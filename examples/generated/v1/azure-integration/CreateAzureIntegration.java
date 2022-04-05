@@ -12,7 +12,7 @@ public class Example {
     AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
     AzureAccount body =
         new AzureAccount(); // AzureAccount | Create a Datadog-Azure integration for your Datadog
-                            // account request body.
+    // account request body.
     try {
       Object result = apiInstance.createAzureIntegration(body);
       System.out.println(result);

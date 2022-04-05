@@ -12,7 +12,7 @@ public class Example {
     LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
     LogsIndexesOrder body =
         new LogsIndexesOrder(); // LogsIndexesOrder | Object containing the new ordered list of
-                                // index names
+    // index names
     try {
       LogsIndexesOrder result = apiInstance.updateLogsIndexOrder(body);
       System.out.println(result);

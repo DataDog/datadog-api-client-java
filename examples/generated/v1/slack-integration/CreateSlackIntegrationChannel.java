@@ -13,7 +13,7 @@ public class Example {
     String accountName = "accountName_example"; // String | Your Slack account name.
     SlackIntegrationChannel body =
         new SlackIntegrationChannel(); // SlackIntegrationChannel | Payload describing Slack channel
-                                       // to be created
+    // to be created
     try {
       SlackIntegrationChannel result = apiInstance.createSlackIntegrationChannel(accountName, body);
       System.out.println(result);

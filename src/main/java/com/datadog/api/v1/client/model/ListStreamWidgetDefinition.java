@@ -126,7 +126,7 @@ public class ListStreamWidgetDefinition {
    */
   @ApiModelProperty(
       example =
-          "[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"issue_stream\",\"query_string\":\"@data_source:APM\"},\"response_format\":\"event_list\"}]",
+          "[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"apm_issue_stream\",\"query_string\":\"@data_source:APM\"},\"response_format\":\"event_list\"}]",
       required = true,
       value = "Request payload used to query items.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)

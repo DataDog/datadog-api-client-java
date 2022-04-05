@@ -12,7 +12,7 @@ public class Example {
     AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
     AzureAccount body =
         new AzureAccount(); // AzureAccount | Update a Datadog-Azure integration's host filters
-                            // request body.
+    // request body.
     try {
       Object result = apiInstance.updateAzureHostFilters(body);
       System.out.println(result);

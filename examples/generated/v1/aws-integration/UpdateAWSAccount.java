@@ -15,11 +15,11 @@ public class Example {
         "accountId_example"; // String | Only return AWS accounts that matches this `account_id`.
     String roleName =
         "roleName_example"; // String | Only return AWS accounts that match this `role_name`.
-                            // Required if `account_id` is specified.
+    // Required if `account_id` is specified.
     String accessKeyId =
         "accessKeyId_example"; // String | Only return AWS accounts that matches this
-                               // `access_key_id`. Required if none of the other two options are
-                               // specified.
+    // `access_key_id`. Required if none of the other two options are
+    // specified.
     try {
       Object result =
           apiInstance.updateAWSAccount(

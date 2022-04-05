@@ -12,7 +12,7 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
     String publicId =
         "publicId_example"; // String | The public ID of the browser test for which to search
-                            // results for.
+    // results for.
     Long fromTs = 56L; // Long | Timestamp in milliseconds from which to start querying results.
     Long toTs = 56L; // Long | Timestamp in milliseconds up to which to query results.
     List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
