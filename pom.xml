@@ -367,7 +367,6 @@
                             <include>com.fasterxml.jackson.datatype:jackson-datatype-jsr310</include>
                             <include>org.openapitools:jackson-databind-nullable</include>
                             <include>com.github.scribejava:scribejava-core</include>
-                            <include>org.tomitribe:tomitribe-http-signatures</include>
                             <!-- dependencies pulled by other dependencies -->
                             <include>javax.ws.rs:javax.ws.rs-api</include>
                             <include>javax.annotation:javax.annotation-api</include>
@@ -420,10 +419,6 @@
                         <relocation>
                             <pattern>com.github.scribejava</pattern>
                             <shadedPattern>com.datadoghq.com.github.scribejava</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.tomitribe</pattern>
-                            <shadedPattern>com.datadoghq.org.tomitribe</shadedPattern>
                         </relocation>
                         <!-- dependencies pulled by other dependencies -->
                         <relocation>
