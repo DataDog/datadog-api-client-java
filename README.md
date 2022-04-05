@@ -175,8 +175,6 @@ defaultClient.setDebugging(true)
 
 ## Documentation for API Endpoints and Models
 
-Documentation for API endpoints and models can be found under the [`api_docs`](/api_docs) directory.
-
 Javadoc is available on [javadoc.io](https://www.javadoc.io/doc/com.datadoghq/datadog-api-client/latest/).
 
 ## Documentation for Authorization
