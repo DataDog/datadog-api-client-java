@@ -39,6 +39,7 @@ public class RUMAggregationFunction {
   public static final RUMAggregationFunction MIN = new RUMAggregationFunction("min");
   public static final RUMAggregationFunction MAX = new RUMAggregationFunction("max");
   public static final RUMAggregationFunction AVG = new RUMAggregationFunction("avg");
+  public static final RUMAggregationFunction MEDIAN = new RUMAggregationFunction("median");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -53,7 +54,8 @@ public class RUMAggregationFunction {
               "sum",
               "min",
               "max",
-              "avg"));
+              "avg",
+              "median"));
 
   private String value;
 
