@@ -354,8 +354,8 @@ def accept_headers(operation):
             for media_type in response["content"].keys():
                 if media_type not in seen:
                     seen.append(media_type)
-        else:
-            return [any_type]
+    if not seen:
+        return [any_type]
     return seen
 
 
