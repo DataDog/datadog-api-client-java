@@ -1,0 +1,40 @@
+[
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_hourly_usage_for_Synthetics_Browser_Checks_returns_Bad_Request_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v1/usage/synthetics_browser",
+      "queryStringParameters": {
+        "start_hr": [
+          "2022-03-29T00:41:28.391Z"
+        ],
+        "end_hr": [
+          "2022-03-27T00:41:28.391Z"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "81a7a11e-4a23-9d2d-edbf-480594a7cfaa"
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_hourly_usage_for_Logs_by_Index_returns_Bad_Request_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v1/usage/logs_by_index",
+      "queryStringParameters": {
+        "start_hr": [
+          "2022-03-29T17:01:53.545Z"
+        ],
+        "end_hr": [
+          "2022-03-27T17:01:53.545Z"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5ca0c9fa-cd69-7a26-453b-abfb3f6e3d5f"
+  }
+]
