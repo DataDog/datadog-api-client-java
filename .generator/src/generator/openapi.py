@@ -1,5 +1,4 @@
 import pathlib
-from collections import defaultdict
 
 import yaml
 import warnings
@@ -29,6 +28,44 @@ def get_required_attributes(schema):
     required_attr_list = schema.get("required", [])
     properties = schema.get("properties", {})
     return {k: v for k, v in properties.items() if k in required_attr_list}
+
+
+def get_api_models(operations):
+    seen = set()
+    for _, _, operation in operations:
+        for response in operation.get("responses", {}).values():
+            for content in response.get("content", {}).values():
+                if "schema" in content:
+                    name = formatter.schema_name(content["schema"])
+                    if name and name not in seen:
+                        seen.add(name)
+                        yield name
+                    elif "items" in content["schema"]:
+                        name = formatter.schema_name(content["schema"]["items"])
+                        if name and name not in seen:
+                            seen.add(name)
+                            yield name
+            break
+        for content in operation.get("parameters", []):
+            if "schema" in content and (
+                content["schema"].get("type") in ("object", "array") or content["schema"].get("enum")
+            ):
+                name = formatter.schema_name(content["schema"])
+                if name and name not in seen:
+                    seen.add(name)
+                    yield name
+                elif "items" in content["schema"]:
+                    name = formatter.schema_name(content["schema"]["items"])
+                    if name and name not in seen:
+                        seen.add(name)
+                        yield name
+        if "requestBody" in operation:
+            for content in operation["requestBody"].get("content", {}).values():
+                if "schema" in content:
+                    name = formatter.schema_name(content["schema"])
+                    if name and name not in seen:
+                        seen.add(name)
+                        yield name
 
 
 def get_name(schema):

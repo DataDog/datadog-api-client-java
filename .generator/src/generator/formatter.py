@@ -1,6 +1,7 @@
 """Data formatter."""
 import re
 import json
+from html import escape
 
 KEYWORDS = {
     "abstract",

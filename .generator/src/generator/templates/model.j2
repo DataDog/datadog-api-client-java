@@ -27,6 +27,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
 {%- elif "oneOf" in model -%}
 {% include "modelOneOf.j2" %}
 {%- else %}
-{% include "pojo.j2" %}
+{% include "modelSimple.j2" %}
 {%- endif %}
 {# keep new line #}

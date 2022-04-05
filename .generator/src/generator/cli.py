@@ -1,5 +1,6 @@
 import json
 import pathlib
+from html import escape
 
 import click
 from jinja2 import Environment, FileSystemLoader
@@ -57,6 +58,7 @@ def cli(input, output):
     env.filters["is_primitive"] = openapi.is_primitive
     env.filters["get_required_attributes"] = openapi.get_required_attributes
     env.filters["format_example"] = formatter.format_json_string
+    env.filters["escape_html"] = escape
 
     env.globals["config"] = config
     env.globals["enumerate"] = enumerate
@@ -64,12 +66,13 @@ def cli(input, output):
     env.globals["get_type_for_attribute"] = openapi.get_type_for_attribute
     env.globals["get_type_for_parameter"] = openapi.get_type_for_parameter
     env.globals["get_type"] = openapi.type_to_java
+    env.globals["get_api_models"] = openapi.get_api_models
     env.globals["openapi"] = spec
     env.globals["package_name"] = PACKAGE_NAME.format(version)
     env.globals["generated_annotation"] = GENERATED_ANNOTATION
     env.globals["version"] = version
 
-    api_j2 = env.get_template("api.j2")
+    api_j2 = env.get_template("Api.j2")
     model_j2 = env.get_template("model.j2")
 
     extra_files = {
@@ -100,29 +103,30 @@ def cli(input, output):
 
     output.mkdir(parents=True, exist_ok=True)
 
-    for name, template in extra_files.items():
-        filename = output / name
-        with filename.open("w") as fp:
-            fp.write(template.render(apis=apis, models=models))
+    # for name, template in extra_files.items():
+    #     filename = output / name
+    #     with filename.open("w") as fp:
+    #         fp.write(template.render(apis=apis, models=models))
+    #
+    # auth_path = output / "auth"
+    # auth_path.mkdir(parents=True, exist_ok=True)
+    # for name, template in auth_files.items():
+    #     filename = auth_path / name
+    #     with filename.open("w") as fp:
+    #         fp.write(template.render())
+    # #
+    # model_dir = output / "model"
+    # model_dir.mkdir(parents=True, exist_ok=True)
+    # for name, model in models.items():
+    #     model_path = model_dir / f"{name}.java"
+    #     if "enum" not in model and "oneOf" not in model:
+    #         with model_path.open("w") as fp:
+    #             fp.write(model_j2.render(name=name, model=model))
 
-    auth_path = output / "auth"
-    auth_path.mkdir(parents=True, exist_ok=True)
-    for name, template in auth_files.items():
-        filename = auth_path / name
-        with filename.open("w") as fp:
-            fp.write(template.render())
-
-    model_dir = output / "model"
-    model_dir.mkdir(parents=True, exist_ok=True)
-    for name, model in models.items():
-        model_path = model_dir / f"{name}.java"
-        if "enum" not in model and "oneOf" not in model:
-            with model_path.open("w") as fp:
-                fp.write(model_j2.render(name=name, model=model))
-
+    api_dir = output / "api"
+    api_dir.mkdir(parents=True, exist_ok=True)
     for name, operations in apis.items():
-        filename = "api_" + formatter.snake_case(name) + ".go"
-        api_path = output / filename
-        api_path.parent.mkdir(parents=True, exist_ok=True)
-        with api_path.open("w") as fp:
-            fp.write(api_j2.render(name=name, operations=operations))
+        api_name = formatter.camel_case(name) + "Api"
+        filename = api_dir / f"{api_name}.java"
+        with filename.open("w") as fp:
+            fp.write(api_j2.render(name=api_name, operations=operations))
