@@ -284,8 +284,8 @@ public class {{ name }} {
       if ({{ name|variable_name }} != null) localVarFormParams.put("{{ name }}", {{ name|variable_name }});
     {% endfor %}
 
-    Invocation.Builder builder = apiClient.createBuilder("{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- if operation.requestBody %} {%- for mediaType in operation.requestBody.content.keys() %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% endif %} }, new String[] { {% for authMethod in authMethods %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %} });
-    return apiClient.invokeAPI("{{ method.upper() }}", builder, localVarHeaderParams,  new String[] { {%- for mediaType in operation|accept_headers %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %} }, localVarPostBody,{% if formParams %}localVarFormParams{% else %}new HashMap<String, Object>(){% endif %} , {% if operation.requestBody %}{% if operation.requestBody.nullable %}true{% else %}false{% endif %}{% else %}false{% endif %}, {% if returnType %}new GenericType<{{ returnType }}>() {}{% else %}null{% endif %});
+    Invocation.Builder builder = apiClient.createBuilder("{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- for mediaType in operation|accept_headers %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %} }, new String[] { {% for authMethod in authMethods %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %} });
+    return apiClient.invokeAPI("{{ method.upper() }}", builder, localVarHeaderParams,  new String[] { {%- if operation.requestBody is defined %} {%- for mediaType in operation.requestBody.content.keys() %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{%- endfor %}{%- endif %} }, localVarPostBody,{% if formParams %}localVarFormParams{% else %}new HashMap<String, Object>(){% endif %} , {% if operation.requestBody %}{% if operation.requestBody.nullable %}true{% else %}false{% endif %}{% else %}false{% endif %}, {% if returnType %}new GenericType<{{ returnType }}>() {}{% else %}null{% endif %});
   }
 
   /**
@@ -351,13 +351,13 @@ public class {{ name }} {
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- if operation.requestBody is defined %} {%- for mediaType in operation.requestBody.content.keys() %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% endif %} }, new String[] { {% for authMethod in authMethods %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %} });
+      builder = apiClient.createBuilder("{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- for mediaType in operation|accept_headers %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %} }, new String[] { {% for authMethod in authMethods %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %} });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync("{{ method.upper() }}", builder, localVarHeaderParams,  new String[] { {%- for mediaType in operation|accept_headers %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{%- endfor %} }, localVarPostBody,{% if formParams %}localVarFormParams{% else %}new HashMap<String, Object>(){% endif %} , {% if operation.requestBody %}{% if operation.requestBody.nullable %}true{% else %}false{% endif %}{% else %}false{% endif %}, {% if returnType %}new GenericType<{{ returnType }}>() {}{% else %}null{% endif %});
+    return apiClient.invokeAPIAsync("{{ method.upper() }}", builder, localVarHeaderParams,  new String[] { {%- if operation.requestBody is defined %} {%- for mediaType in operation.requestBody.content.keys() %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{%- endfor %}{%- endif %} }, localVarPostBody,{% if formParams %}localVarFormParams{% else %}new HashMap<String, Object>(){% endif %} , {% if operation.requestBody %}{% if operation.requestBody.nullable %}true{% else %}false{% endif %}{% else %}false{% endif %}, {% if returnType %}new GenericType<{{ returnType }}>() {}{% else %}null{% endif %});
   }
   {%- endfor %}
 }
