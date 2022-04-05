@@ -12,7 +12,7 @@ public class Example {
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
     ServiceLevelObjectiveRequest body =
         new ServiceLevelObjectiveRequest(); // ServiceLevelObjectiveRequest | Service level
-                                            // objective request object.
+    // objective request object.
     try {
       SLOListResponse result = apiInstance.createSLO(body);
       System.out.println(result);

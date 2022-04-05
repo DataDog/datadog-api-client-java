@@ -15,7 +15,7 @@ public class Example {
         "channelName_example"; // String | The name of the Slack channel being operated on.
     SlackIntegrationChannel body =
         new SlackIntegrationChannel(); // SlackIntegrationChannel | Payload describing fields and
-                                       // values to be updated.
+    // values to be updated.
     try {
       SlackIntegrationChannel result =
           apiInstance.updateSlackIntegrationChannel(accountName, channelName, body);

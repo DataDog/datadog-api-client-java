@@ -13,8 +13,8 @@ public class Example {
     String apiKeyId = "apiKeyId_example"; // String | The ID of the API key.
     String include =
         "created_by,modified_by"; // String | Comma separated list of resource paths for related
-                                  // resources to include in the response. Supported resource paths
-                                  // are `created_by` and `modified_by`.
+    // resources to include in the response. Supported resource paths
+    // are `created_by` and `modified_by`.
     try {
       APIKeyResponse result =
           apiInstance.getAPIKey(

@@ -12,7 +12,7 @@ public class Example {
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
     SecurityFilterCreateRequest body =
         new SecurityFilterCreateRequest(); // SecurityFilterCreateRequest | The definition of the
-                                           // new security filter.
+    // new security filter.
     try {
       SecurityFilterResponse result = apiInstance.createSecurityFilter(body);
       System.out.println(result);

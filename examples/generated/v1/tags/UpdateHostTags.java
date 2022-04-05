@@ -12,12 +12,12 @@ public class Example {
     TagsApi apiInstance = new TagsApi(defaultClient);
     String hostName =
         "hostName_example"; // String | This endpoint allows you to update/replace all in an
-                            // integration source with those supplied in the request.
+    // integration source with those supplied in the request.
     HostTags body = new HostTags(); // HostTags | Add tags to host
     String source =
         "source_example"; // String | The source of the tags (for example chef, puppet). [Complete
-                          // list of source attribute
-                          // values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+    // list of source attribute
+    // values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
     try {
       HostTags result =
           apiInstance.updateHostTags(

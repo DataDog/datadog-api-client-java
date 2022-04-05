@@ -13,7 +13,7 @@ public class Example {
     Long dashboardListId = 56L; // Long | ID of the dashboard list to update items from.
     DashboardListUpdateItemsRequest body =
         new DashboardListUpdateItemsRequest(); // DashboardListUpdateItemsRequest | New dashboards
-                                               // of the dashboard list.
+    // of the dashboard list.
     try {
       DashboardListUpdateItemsResponse result =
           apiInstance.updateDashboardListItems(dashboardListId, body);

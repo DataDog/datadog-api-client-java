@@ -14,7 +14,7 @@ public class Example {
     String filterQuery = "@datacenter:us @role:db"; // String | Search query following logs syntax.
     String filterIndex =
         "main"; // String | For customers with multiple indexes, the indexes to search Defaults to
-                // '*' which means all indexes
+    // '*' which means all indexes
     OffsetDateTime filterFrom =
         OffsetDateTime.parse(
             "2019-01-02T09:42:36.320Z"); // OffsetDateTime | Minimum timestamp for requested logs.

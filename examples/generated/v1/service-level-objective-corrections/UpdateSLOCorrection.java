@@ -15,7 +15,7 @@ public class Example {
         "sloCorrectionId_example"; // String | The ID of the SLO correction object.
     SLOCorrectionUpdateRequest body =
         new SLOCorrectionUpdateRequest(); // SLOCorrectionUpdateRequest | The edited SLO correction
-                                          // object.
+    // object.
     try {
       SLOCorrectionResponse result = apiInstance.updateSLOCorrection(sloCorrectionId, body);
       System.out.println(result);

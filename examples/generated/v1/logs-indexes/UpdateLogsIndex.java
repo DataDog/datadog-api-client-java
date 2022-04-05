@@ -13,7 +13,7 @@ public class Example {
     String name = "name_example"; // String | Name of the log index.
     LogsIndexUpdateRequest body =
         new LogsIndexUpdateRequest(); // LogsIndexUpdateRequest | Object containing the new
-                                      // `LogsIndexUpdateRequest`.
+    // `LogsIndexUpdateRequest`.
     try {
       LogsIndex result = apiInstance.updateLogsIndex(name, body);
       System.out.println(result);

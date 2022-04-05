@@ -12,7 +12,7 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
     SyntheticsTriggerBody body =
         new SyntheticsTriggerBody(); // SyntheticsTriggerBody | The identifiers of the tests to
-                                     // trigger.
+    // trigger.
     try {
       SyntheticsTriggerCITestsResponse result = apiInstance.triggerTests(body);
       System.out.println(result);

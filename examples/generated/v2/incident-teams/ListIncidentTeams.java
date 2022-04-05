@@ -13,7 +13,7 @@ public class Example {
     IncidentRelatedObject include =
         IncidentRelatedObject.fromValue(
             "users"); // IncidentRelatedObject | Specifies which types of related objects should be
-                      // included in the response.
+    // included in the response.
     Long pageSize = 10L; // Long | Size for a given page.
     Long pageOffset = 0L; // Long | Specific offset to use as the beginning of the returned page.
     String filter = "ExampleTeamName"; // String | A search query that filters teams by name.

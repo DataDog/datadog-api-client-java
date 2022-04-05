@@ -16,11 +16,11 @@ public class Example {
     OffsetDateTime filterFrom =
         OffsetDateTime.parse(
             "2019-01-02T09:42:36.320Z"); // OffsetDateTime | The minimum timestamp for requested
-                                         // security signals.
+    // security signals.
     OffsetDateTime filterTo =
         OffsetDateTime.parse(
             "2019-01-03T09:42:36.320Z"); // OffsetDateTime | The maximum timestamp for requested
-                                         // security signals.
+    // security signals.
     SecurityMonitoringSignalsSort sort =
         SecurityMonitoringSignalsSort.fromValue(
             "timestamp"); // SecurityMonitoringSignalsSort | The order of the security signals in

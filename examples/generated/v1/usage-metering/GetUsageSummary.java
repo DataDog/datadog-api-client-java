@@ -14,11 +14,11 @@ public class Example {
     OffsetDateTime startMonth =
         OffsetDateTime
             .now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month:
-                    // `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
+    // `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
     OffsetDateTime endMonth =
         OffsetDateTime
             .now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month:
-                    // `[YYYY-MM]` for usage ending this month.
+    // `[YYYY-MM]` for usage ending this month.
     Boolean includeOrgDetails = true; // Boolean | Include usage summaries for each sub-org.
     try {
       UsageSummaryResponse result =

@@ -13,7 +13,7 @@ public class Example {
     String serviceName = "serviceName_example"; // String | The service name
     PagerDutyServiceKey body =
         new PagerDutyServiceKey(); // PagerDutyServiceKey | Update an existing service object
-                                   // request body.
+    // request body.
     try {
       apiInstance.updatePagerDutyIntegrationService(serviceName, body);
     } catch (ApiException e) {

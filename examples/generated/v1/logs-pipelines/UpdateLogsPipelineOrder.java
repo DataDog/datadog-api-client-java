@@ -12,7 +12,7 @@ public class Example {
     LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
     LogsPipelinesOrder body =
         new LogsPipelinesOrder(); // LogsPipelinesOrder | Object containing the new ordered list of
-                                  // pipeline IDs.
+    // pipeline IDs.
     try {
       LogsPipelinesOrder result = apiInstance.updateLogsPipelineOrder(body);
       System.out.println(result);

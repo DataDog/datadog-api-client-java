@@ -12,10 +12,10 @@ public class Example {
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
     Boolean filterShared =
         true; // Boolean | When `true`, this query only returns shared custom created or cloned
-              // dashboards.
+    // dashboards.
     Boolean filterDeleted =
         true; // Boolean | When `true`, this query returns only deleted custom-created or cloned
-              // dashboards. This parameter is incompatible with `filter[shared]`.
+    // dashboards. This parameter is incompatible with `filter[shared]`.
     try {
       DashboardSummary result =
           apiInstance.listDashboards(

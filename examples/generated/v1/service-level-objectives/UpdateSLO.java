@@ -13,7 +13,7 @@ public class Example {
     String sloId = "sloId_example"; // String | The ID of the service level objective object.
     ServiceLevelObjective body =
         new ServiceLevelObjective(); // ServiceLevelObjective | The edited service level objective
-                                     // request object.
+    // request object.
     try {
       SLOListResponse result = apiInstance.updateSLO(sloId, body);
       System.out.println(result);

@@ -16,7 +16,7 @@ public class Example {
         "roleName_example"; // String | Only return AWS accounts that matches this role_name.
     String accessKeyId =
         "accessKeyId_example"; // String | Only return AWS accounts that matches this
-                               // `access_key_id`.
+    // `access_key_id`.
     try {
       AWSAccountListResponse result =
           apiInstance.listAWSAccounts(

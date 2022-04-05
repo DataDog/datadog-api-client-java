@@ -12,7 +12,7 @@ public class Example {
     NotebooksApi apiInstance = new NotebooksApi(defaultClient);
     NotebookCreateRequest body =
         new NotebookCreateRequest(); // NotebookCreateRequest | The JSON description of the notebook
-                                     // you want to create.
+    // you want to create.
     try {
       NotebookResponse result = apiInstance.createNotebook(body);
       System.out.println(result);

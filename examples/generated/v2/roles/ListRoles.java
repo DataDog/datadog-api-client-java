@@ -15,8 +15,8 @@ public class Example {
     RolesSort sort =
         RolesSort.fromValue(
             "name"); // RolesSort | Sort roles depending on the given field. Sort order is
-                     // **ascending** by default. Sort order is **descending** if the field is
-                     // prefixed by a negative sign, for example: `sort=-name`.
+    // **ascending** by default. Sort order is **descending** if the field is
+    // prefixed by a negative sign, for example: `sort=-name`.
     String filter = "filter_example"; // String | Filter all roles by the given string.
     try {
       RolesResponse result =

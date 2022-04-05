@@ -12,7 +12,7 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
     SyntheticsPrivateLocation body =
         new SyntheticsPrivateLocation(); // SyntheticsPrivateLocation | Details of the private
-                                         // location to create.
+    // location to create.
     try {
       SyntheticsPrivateLocationCreationResponse result = apiInstance.createPrivateLocation(body);
       System.out.println(result);

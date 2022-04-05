@@ -12,7 +12,7 @@ public class Example {
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
     Map<String, List<SLOTimeframe>> body =
         new HashMap(); // Map<String, List<SLOTimeframe>> | Delete multiple service level objective
-                       // objects request body.
+    // objects request body.
     try {
       SLOBulkDeleteResponse result = apiInstance.deleteSLOTimeframeInBulk(body);
       System.out.println(result);

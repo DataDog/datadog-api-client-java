@@ -12,13 +12,11 @@ public class Example {
 
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
     OffsetDateTime startHr =
-        OffsetDateTime
-            .now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour:
-                    // [YYYY-MM-DDThh] for usage beginning at this hour.
+        OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour:
+    // [YYYY-MM-DDThh] for usage beginning at this hour.
     OffsetDateTime endHr =
-        OffsetDateTime
-            .now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour:
-                    // [YYYY-MM-DDThh] for usage ending **before** this hour.
+        OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour:
+    // [YYYY-MM-DDThh] for usage ending **before** this hour.
     try {
       UsageFargateResponse result =
           apiInstance.getUsageFargate(

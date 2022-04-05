@@ -10,9 +10,8 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
 
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-    String ids =
-        "id1, id2, id3"; // String | A comma separated list of the IDs of the service level
-                         // objectives objects.
+    String ids = "id1, id2, id3"; // String | A comma separated list of the IDs of the service level
+    // objectives objects.
     try {
       CheckCanDeleteSLOResponse result = apiInstance.checkCanDeleteSLO(ids);
       System.out.println(result);

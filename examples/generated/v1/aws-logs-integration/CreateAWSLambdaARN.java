@@ -12,7 +12,7 @@ public class Example {
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
     AWSAccountAndLambdaRequest body =
         new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | AWS Log Lambda Async
-                                          // request body.
+    // request body.
     try {
       Object result = apiInstance.createAWSLambdaARN(body);
       System.out.println(result);

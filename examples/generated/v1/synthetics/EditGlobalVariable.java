@@ -13,7 +13,7 @@ public class Example {
     String variableId = "variableId_example"; // String | The ID of the global variable.
     SyntheticsGlobalVariable body =
         new SyntheticsGlobalVariable(); // SyntheticsGlobalVariable | Details of the global variable
-                                        // to update.
+    // to update.
     try {
       SyntheticsGlobalVariable result = apiInstance.editGlobalVariable(variableId, body);
       System.out.println(result);

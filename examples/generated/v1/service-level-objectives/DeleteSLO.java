@@ -13,7 +13,7 @@ public class Example {
     String sloId = "sloId_example"; // String | The ID of the service level objective.
     String force =
         "force_example"; // String | Delete the monitor even if it's referenced by other resources
-                         // (for example SLO, composite monitor).
+    // (for example SLO, composite monitor).
     try {
       SLODeleteResponse result =
           apiInstance.deleteSLO(
