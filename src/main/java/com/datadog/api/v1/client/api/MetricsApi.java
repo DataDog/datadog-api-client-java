@@ -817,7 +817,7 @@ public class MetricsApi {
    * dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must
    * have a decompressed size of less than 62 megabytes (62914560 bytes). If you’re submitting
    * metrics directly to the Datadog API without using DogStatsD, expect: - 64 bits for the
-   * timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries
+   * timestamp - 32 bits for the value - 40 bytes for the metric names - 50 bytes for the timeseries
    * - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is
    * applied, which reduces the payload size.
    *
