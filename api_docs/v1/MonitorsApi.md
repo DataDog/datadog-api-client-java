@@ -2,17 +2,18 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                            | HTTP request                            | Description                       |
-| ----------------------------------------------------------------- | --------------------------------------- | --------------------------------- |
-| [**checkCanDeleteMonitor**](MonitorsApi.md#checkCanDeleteMonitor) | **GET** /api/v1/monitor/can_delete      | Check if a monitor can be deleted |
-| [**createMonitor**](MonitorsApi.md#createMonitor)                 | **POST** /api/v1/monitor                | Create a monitor                  |
-| [**deleteMonitor**](MonitorsApi.md#deleteMonitor)                 | **DELETE** /api/v1/monitor/{monitor_id} | Delete a monitor                  |
-| [**getMonitor**](MonitorsApi.md#getMonitor)                       | **GET** /api/v1/monitor/{monitor_id}    | Get a monitor&#39;s details       |
-| [**listMonitors**](MonitorsApi.md#listMonitors)                   | **GET** /api/v1/monitor                 | Get all monitor details           |
-| [**searchMonitorGroups**](MonitorsApi.md#searchMonitorGroups)     | **GET** /api/v1/monitor/groups/search   | Monitors group search             |
-| [**searchMonitors**](MonitorsApi.md#searchMonitors)               | **GET** /api/v1/monitor/search          | Monitors search                   |
-| [**updateMonitor**](MonitorsApi.md#updateMonitor)                 | **PUT** /api/v1/monitor/{monitor_id}    | Edit a monitor                    |
-| [**validateMonitor**](MonitorsApi.md#validateMonitor)             | **POST** /api/v1/monitor/validate       | Validate a monitor                |
+| Method                                                                | HTTP request                                   | Description                       |
+| --------------------------------------------------------------------- | ---------------------------------------------- | --------------------------------- |
+| [**checkCanDeleteMonitor**](MonitorsApi.md#checkCanDeleteMonitor)     | **GET** /api/v1/monitor/can_delete             | Check if a monitor can be deleted |
+| [**createMonitor**](MonitorsApi.md#createMonitor)                     | **POST** /api/v1/monitor                       | Create a monitor                  |
+| [**deleteMonitor**](MonitorsApi.md#deleteMonitor)                     | **DELETE** /api/v1/monitor/{monitor_id}        | Delete a monitor                  |
+| [**getMonitor**](MonitorsApi.md#getMonitor)                           | **GET** /api/v1/monitor/{monitor_id}           | Get a monitor&#39;s details       |
+| [**listMonitors**](MonitorsApi.md#listMonitors)                       | **GET** /api/v1/monitor                        | Get all monitor details           |
+| [**searchMonitorGroups**](MonitorsApi.md#searchMonitorGroups)         | **GET** /api/v1/monitor/groups/search          | Monitors group search             |
+| [**searchMonitors**](MonitorsApi.md#searchMonitors)                   | **GET** /api/v1/monitor/search                 | Monitors search                   |
+| [**updateMonitor**](MonitorsApi.md#updateMonitor)                     | **PUT** /api/v1/monitor/{monitor_id}           | Edit a monitor                    |
+| [**validateExistingMonitor**](MonitorsApi.md#validateExistingMonitor) | **POST** /api/v1/monitor/{monitor_id}/validate | Validate an existing monitor      |
+| [**validateMonitor**](MonitorsApi.md#validateMonitor)                 | **POST** /api/v1/monitor/validate              | Validate a monitor                |
 
 ## checkCanDeleteMonitor
 
@@ -334,7 +335,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        Long monitorId = 56L; // Long | The ID of the monitor.
+        Long monitorId = 666486743L; // Long | The ID of the monitor.
         String force = "false"; // String | Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
         try {
             DeletedMonitor result = apiInstance.deleteMonitor(monitorId, new MonitorsApi.DeleteMonitorOptionalParameters()
@@ -403,7 +404,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        Long monitorId = 56L; // Long | The ID of the monitor
+        Long monitorId = 666486743L; // Long | The ID of the monitor
         String groupStates = "groupStates_example"; // String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
         try {
             Monitor result = apiInstance.getMonitor(monitorId, new MonitorsApi.GetMonitorOptionalParameters()
@@ -705,7 +706,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        Long monitorId = 56L; // Long | The ID of the monitor.
+        Long monitorId = 666486743L; // Long | The ID of the monitor.
         MonitorUpdateRequest body = new MonitorUpdateRequest(); // MonitorUpdateRequest | Edit a monitor request body.
         try {
             Monitor result = apiInstance.updateMonitor(monitorId, body);
@@ -751,6 +752,72 @@ public class Example {
 | **403**     | Forbidden               | -                |
 | **404**     | Monitor Not Found error | -                |
 | **429**     | Too many requests       | -                |
+
+## validateExistingMonitor
+
+> Object validateExistingMonitor(monitorId, body);
+
+Validate the monitor provided in the request.
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.MonitorsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        MonitorsApi apiInstance = new MonitorsApi(defaultClient);
+        Long monitorId = 666486743L; // Long | The ID of the monitor
+        Monitor body = new Monitor(); // Monitor | Monitor request object
+        try {
+            Object result = apiInstance.validateExistingMonitor(monitorId, body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MonitorsApi#validateExistingMonitor");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name          | Type                      | Description            | Notes |
+| ------------- | ------------------------- | ---------------------- | ----- |
+| **monitorId** | **Long**                  | The ID of the monitor  |
+| **body**      | [**Monitor**](Monitor.md) | Monitor request object |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Invalid JSON      | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## validateMonitor
 
