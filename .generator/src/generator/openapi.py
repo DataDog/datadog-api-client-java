@@ -61,8 +61,18 @@ def get_api_models(operations):
                         yield name
         if "requestBody" in operation:
             for content in operation["requestBody"].get("content", {}).values():
-                if "schema" in content:
+                if "schema" in content and "items" not in content["schema"]:
                     name = formatter.schema_name(content["schema"])
+                    if name and name not in seen:
+                        seen.add(name)
+                        yield name
+                elif "items" in content["schema"]:
+                    name = formatter.schema_name(content["schema"]["items"])
+                    if name and name not in seen:
+                        seen.add(name)
+                        yield name
+                if "additionalProperties" in content["schema"] and "items" in content["schema"]["additionalProperties"]:
+                    name = formatter.schema_name(content["schema"]["additionalProperties"]["items"])
                     if name and name not in seen:
                         seen.add(name)
                         yield name

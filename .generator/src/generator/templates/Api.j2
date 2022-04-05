@@ -351,7 +351,7 @@ public class {{ name }} {
 
     Invocation.Builder builder;
     try {
-      builder = apiClient.createBuilder("{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- if operation.requestBody is defined %} {%- for mediaType in operation.requestBody.content.keys() %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% endif %} }, new String[] { {% for name in authMethods %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %} });
+      builder = apiClient.createBuilder("{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- if operation.requestBody is defined %} {%- for mediaType in operation.requestBody.content.keys() %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% endif %} }, new String[] { {% for authMethod in authMethods %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %} });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
