@@ -16,7 +16,7 @@ public class Example {
             "gzip"); // ContentEncoding | HTTP header used to compress the media-type.
     String ddtags =
         "env:prod,user:my-user"; // String | Log tags can be passed as query parameters with
-                                 // `text/plain` content type.
+    // `text/plain` content type.
     try {
       Object result =
           apiInstance.submitLog(

@@ -12,7 +12,7 @@ public class Example {
     WebhooksIntegrationApi apiInstance = new WebhooksIntegrationApi(defaultClient);
     WebhooksIntegrationCustomVariable body =
         new WebhooksIntegrationCustomVariable(); // WebhooksIntegrationCustomVariable | Define a
-                                                 // custom variable request body.
+    // custom variable request body.
     try {
       WebhooksIntegrationCustomVariableResponse result =
           apiInstance.createWebhooksIntegrationCustomVariable(body);

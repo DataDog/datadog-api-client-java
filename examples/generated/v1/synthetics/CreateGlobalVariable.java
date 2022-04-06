@@ -12,7 +12,7 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
     SyntheticsGlobalVariable body =
         new SyntheticsGlobalVariable(); // SyntheticsGlobalVariable | Details of the global variable
-                                        // to create.
+    // to create.
     try {
       SyntheticsGlobalVariable result = apiInstance.createGlobalVariable(body);
       System.out.println(result);

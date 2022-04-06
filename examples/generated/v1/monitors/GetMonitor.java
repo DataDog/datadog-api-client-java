@@ -13,8 +13,8 @@ public class Example {
     Long monitorId = 666486743L; // Long | The ID of the monitor
     String groupStates =
         "groupStates_example"; // String | When specified, shows additional information about the
-                               // group states. Choose one or more from `all`, `alert`, `warn`, and
-                               // `no data`.
+    // group states. Choose one or more from `all`, `alert`, `warn`, and
+    // `no data`.
     try {
       Monitor result =
           apiInstance.getMonitor(

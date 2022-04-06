@@ -10,15 +10,14 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
 
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
-    String ids =
-        "id1, id2, id3"; // String | A comma separated list of the IDs of the service level
-                         // objectives objects.
+    String ids = "id1, id2, id3"; // String | A comma separated list of the IDs of the service level
+    // objectives objects.
     String query = "monitor"; // String | The query string to filter results based on SLO names.
     String tagsQuery =
         "env:prod"; // String | The query string to filter results based on a single SLO tag.
     String metricsQuery =
         "aws.elb.request_count"; // String | The query string to filter results based on SLO
-                                 // numerator and denominator.
+    // numerator and denominator.
     Long limit = 56L; // Long | The number of SLOs to return in the response.
     Long offset =
         56L; // Long | The specific offset to use as the beginning of the returned response.

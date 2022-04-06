@@ -1,0 +1,125 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"series\": [{\"metric\": \"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134\", \"points\": [[1648845134.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_distinct_metric_volumes_by_metric_name_returns_Success_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/series",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"status\": \"ok\"}",
+      "headers": {
+        "Content-Type": [
+          "text/json"
+        ]
+      },
+      "statusCode": 202,
+      "reasonPhrase": "Accepted"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4049159e-00bc-5df0-7ba3-47d9de4d0982"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134\"]},\"id\":\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134\",\"type\":\"manage_tags\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_distinct_metric_volumes_by_metric_name_returns_Success_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134\"],\"created_at\":\"2022-04-01T20:32:15.216397+00:00\",\"modified_at\":\"2022-04-01T20:32:15.216397+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "62ef2e47-4d40-023d-bdaa-6fb69ef6eb60"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_distinct_metric_volumes_by_metric_name_returns_Success_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134/volumes",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"metric_volumes\",\"id\":\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134\",\"attributes\":{\"indexed_volume\":0,\"ingested_volume\":0}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5558224c-0698-41c9-1c83-f150fdd7862a"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_distinct_metric_volumes_by_metric_name_returns_Success_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1648845134/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ecfdd8b7-bb1e-0c44-10de-a423f7b2aca9"
+  }
+]

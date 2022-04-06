@@ -12,7 +12,7 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
     String publicId =
         "publicId_example"; // String | The public ID of the browser test to which the target result
-                            // belongs.
+    // belongs.
     String resultId = "resultId_example"; // String | The ID of the result to get.
     try {
       SyntheticsBrowserTestResultFull result = apiInstance.getBrowserTestResult(publicId, resultId);

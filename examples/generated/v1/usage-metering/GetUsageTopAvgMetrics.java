@@ -14,20 +14,19 @@ public class Example {
     OffsetDateTime month =
         OffsetDateTime
             .now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month:
-                    // [YYYY-MM] for usage beginning at this hour. (Either month or day should be
-                    // specified, but not both)
+    // [YYYY-MM] for usage beginning at this hour. (Either month or day should be
+    // specified, but not both)
     OffsetDateTime day =
-        OffsetDateTime
-            .now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to day:
-                    // [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be
-                    // specified, but not both)
+        OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to day:
+    // [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be
+    // specified, but not both)
     List<String> names = Arrays.asList(); // List<String> | Comma-separated list of metric names.
     Integer limit =
         500; // Integer | Maximum number of results to return (between 1 and 5000) - defaults to 500
-             // results if limit not specified.
+    // results if limit not specified.
     String nextRecordId =
         "nextRecordId_example"; // String | List following results with a next_record_id provided in
-                                // the previous query.
+    // the previous query.
     try {
       UsageTopAvgMetricsResponse result =
           apiInstance.getUsageTopAvgMetrics(

@@ -12,7 +12,7 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
     SyntheticsDeleteTestsPayload body =
         new SyntheticsDeleteTestsPayload(); // SyntheticsDeleteTestsPayload | Public ID list of the
-                                            // Synthetic tests to be deleted.
+    // Synthetic tests to be deleted.
     try {
       SyntheticsDeleteTestsResponse result = apiInstance.deleteTests(body);
       System.out.println(result);

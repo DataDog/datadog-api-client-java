@@ -12,7 +12,7 @@ public class Example {
     LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
     LogsArchiveOrder body =
         new LogsArchiveOrder(); // LogsArchiveOrder | An object containing the new ordered list of
-                                // archive IDs.
+    // archive IDs.
     try {
       LogsArchiveOrder result = apiInstance.updateLogsArchiveOrder(body);
       System.out.println(result);

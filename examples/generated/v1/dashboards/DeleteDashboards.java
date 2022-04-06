@@ -12,7 +12,7 @@ public class Example {
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
     DashboardBulkDeleteRequest body =
         new DashboardBulkDeleteRequest(); // DashboardBulkDeleteRequest | Delete dashboards request
-                                          // body.
+    // body.
     try {
       apiInstance.deleteDashboards(body);
     } catch (ApiException e) {

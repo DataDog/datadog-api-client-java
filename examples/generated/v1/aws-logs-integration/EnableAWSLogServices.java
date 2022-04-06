@@ -12,7 +12,7 @@ public class Example {
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
     AWSLogsServicesRequest body =
         new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Enable AWS Log Services request
-                                      // body.
+    // body.
     try {
       Object result = apiInstance.enableAWSLogServices(body);
       System.out.println(result);

@@ -14,7 +14,7 @@ public class Example {
     IncidentRelatedObject include =
         IncidentRelatedObject.fromValue(
             "users"); // IncidentRelatedObject | Specifies which types of related objects should be
-                      // included in the response.
+    // included in the response.
     try {
       IncidentTeamResponse result =
           apiInstance.getIncidentTeam(

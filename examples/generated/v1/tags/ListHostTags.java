@@ -12,7 +12,7 @@ public class Example {
     TagsApi apiInstance = new TagsApi(defaultClient);
     String source =
         "source_example"; // String | When specified, filters host list to those tags with the
-                          // specified source.
+    // specified source.
     try {
       TagToHosts result =
           apiInstance.listHostTags(new TagsApi.ListHostTagsOptionalParameters().source(source));

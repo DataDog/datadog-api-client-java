@@ -13,7 +13,7 @@ public class Example {
     Long monitorId = 666486743L; // Long | The ID of the monitor.
     String force =
         "false"; // String | Delete the monitor even if it's referenced by other resources (for
-                 // example SLO, composite monitor).
+    // example SLO, composite monitor).
     try {
       DeletedMonitor result =
           apiInstance.deleteMonitor(

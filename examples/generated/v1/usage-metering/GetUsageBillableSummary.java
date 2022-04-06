@@ -14,7 +14,7 @@ public class Example {
     OffsetDateTime month =
         OffsetDateTime
             .now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month:
-                    // `[YYYY-MM]` for usage starting this month.
+    // `[YYYY-MM]` for usage starting this month.
     try {
       UsageBillableSummaryResponse result =
           apiInstance.getUsageBillableSummary(

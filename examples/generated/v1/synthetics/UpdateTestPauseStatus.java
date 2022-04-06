@@ -13,7 +13,7 @@ public class Example {
     String publicId = "publicId_example"; // String | The public ID of the Synthetic test to update.
     SyntheticsUpdateTestPauseStatusPayload body =
         new SyntheticsUpdateTestPauseStatusPayload(); // SyntheticsUpdateTestPauseStatusPayload |
-                                                      // Status to set the given Synthetic test to.
+    // Status to set the given Synthetic test to.
     try {
       Boolean result = apiInstance.updateTestPauseStatus(publicId, body);
       System.out.println(result);

@@ -12,9 +12,8 @@ public class Example {
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
     String incidentId = "incidentId_example"; // String | The UUID of the incident.
     List<IncidentRelatedObject> include =
-        Arrays
-            .asList(); // List<IncidentRelatedObject> | Specifies which types of related objects
-                       // should be included in the response.
+        Arrays.asList(); // List<IncidentRelatedObject> | Specifies which types of related objects
+    // should be included in the response.
     try {
       IncidentResponse result =
           apiInstance.getIncident(

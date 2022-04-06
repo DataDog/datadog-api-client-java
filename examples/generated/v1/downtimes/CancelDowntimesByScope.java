@@ -12,7 +12,7 @@ public class Example {
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);
     CancelDowntimesByScopeRequest body =
         new CancelDowntimesByScopeRequest(); // CancelDowntimesByScopeRequest | Scope to cancel
-                                             // downtimes for.
+    // downtimes for.
     try {
       CanceledDowntimesIds result = apiInstance.cancelDowntimesByScope(body);
       System.out.println(result);

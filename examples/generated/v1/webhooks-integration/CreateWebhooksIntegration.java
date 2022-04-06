@@ -12,7 +12,7 @@ public class Example {
     WebhooksIntegrationApi apiInstance = new WebhooksIntegrationApi(defaultClient);
     WebhooksIntegration body =
         new WebhooksIntegration(); // WebhooksIntegration | Create a webhooks integration request
-                                   // body.
+    // body.
     try {
       WebhooksIntegration result = apiInstance.createWebhooksIntegration(body);
       System.out.println(result);

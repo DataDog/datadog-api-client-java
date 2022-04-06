@@ -13,14 +13,14 @@ public class Example {
     Long pageSize = 56L; // Long | The number of files to return in the response. `[default=60]`.
     Long pageNumber =
         56L; // Long | The identifier of the first page to return. This parameter is used for the
-             // pagination feature `[default=0]`.
+    // pagination feature `[default=0]`.
     UsageSortDirection sortDir =
         UsageSortDirection.fromValue(
             "desc"); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
     UsageSort sort =
         UsageSort.fromValue(
             "computed_on"); // UsageSort | The field to sort by: `[computed_on, size, start_date,
-                            // end_date]`.
+    // end_date]`.
     try {
       UsageCustomReportsResponse result =
           apiInstance.getDailyCustomReports(

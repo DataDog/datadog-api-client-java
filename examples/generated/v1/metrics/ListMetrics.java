@@ -12,7 +12,7 @@ public class Example {
     MetricsApi apiInstance = new MetricsApi(defaultClient);
     String q =
         "q_example"; // String | Query string to search metrics upon. Can optionally be prefixed
-                     // with `metrics:`.
+    // with `metrics:`.
     try {
       MetricSearchResponse result = apiInstance.listMetrics(q);
       System.out.println(result);

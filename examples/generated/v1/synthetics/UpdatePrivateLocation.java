@@ -13,7 +13,7 @@ public class Example {
     String locationId = "locationId_example"; // String | The ID of the private location.
     SyntheticsPrivateLocation body =
         new SyntheticsPrivateLocation(); // SyntheticsPrivateLocation | Details of the private
-                                         // location to be updated.
+    // location to be updated.
     try {
       SyntheticsPrivateLocation result = apiInstance.updatePrivateLocation(locationId, body);
       System.out.println(result);

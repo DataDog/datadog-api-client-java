@@ -13,7 +13,7 @@ public class Example {
     Long dashboardListId = 56L; // Long | ID of the dashboard list to delete items from.
     DashboardListDeleteItemsRequest body =
         new DashboardListDeleteItemsRequest(); // DashboardListDeleteItemsRequest | Dashboards to
-                                               // delete from the dashboard list.
+    // delete from the dashboard list.
     try {
       DashboardListDeleteItemsResponse result =
           apiInstance.deleteDashboardListItems(dashboardListId, body);

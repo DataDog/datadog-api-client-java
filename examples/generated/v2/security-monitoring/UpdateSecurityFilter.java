@@ -13,7 +13,7 @@ public class Example {
     String securityFilterId = "securityFilterId_example"; // String | The ID of the security filter.
     SecurityFilterUpdateRequest body =
         new SecurityFilterUpdateRequest(); // SecurityFilterUpdateRequest | New definition of the
-                                           // security filter.
+    // security filter.
     try {
       SecurityFilterResponse result = apiInstance.updateSecurityFilter(securityFilterId, body);
       System.out.println(result);

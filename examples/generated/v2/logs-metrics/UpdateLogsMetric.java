@@ -13,7 +13,7 @@ public class Example {
     String metricId = "metricId_example"; // String | The name of the log-based metric.
     LogsMetricUpdateRequest body =
         new LogsMetricUpdateRequest(); // LogsMetricUpdateRequest | New definition of the log-based
-                                       // metric.
+    // metric.
     try {
       LogsMetricResponse result = apiInstance.updateLogsMetric(metricId, body);
       System.out.println(result);

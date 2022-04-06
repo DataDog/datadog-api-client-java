@@ -12,9 +12,9 @@ public class Example {
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
     AWSTagFilterCreateRequest body =
         new AWSTagFilterCreateRequest(); // AWSTagFilterCreateRequest | Set an AWS tag filter using
-                                         // an `aws_account_identifier`, `namespace`, and filtering
-                                         // string. Namespace options are `application_elb`, `elb`,
-                                         // `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
+    // an `aws_account_identifier`, `namespace`, and filtering
+    // string. Namespace options are `application_elb`, `elb`,
+    // `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
     try {
       Object result = apiInstance.createAWSTagFilter(body);
       System.out.println(result);

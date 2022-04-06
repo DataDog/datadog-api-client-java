@@ -14,9 +14,8 @@ public class Example {
     IncidentUpdateRequest body =
         new IncidentUpdateRequest(); // IncidentUpdateRequest | Incident Payload.
     List<IncidentRelatedObject> include =
-        Arrays
-            .asList(); // List<IncidentRelatedObject> | Specifies which types of related objects
-                       // should be included in the response.
+        Arrays.asList(); // List<IncidentRelatedObject> | Specifies which types of related objects
+    // should be included in the response.
     try {
       IncidentResponse result =
           apiInstance.updateIncident(

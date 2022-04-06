@@ -12,7 +12,7 @@ public class Example {
     LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
     LogsArchiveCreateRequest body =
         new LogsArchiveCreateRequest(); // LogsArchiveCreateRequest | The definition of the new
-                                        // archive.
+    // archive.
     try {
       LogsArchive result = apiInstance.createLogsArchive(body);
       System.out.println(result);

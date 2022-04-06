@@ -13,7 +13,7 @@ public class Example {
     String serviceId = "serviceId_example"; // String | The ID of the incident service.
     IncidentServiceUpdateRequest body =
         new IncidentServiceUpdateRequest(); // IncidentServiceUpdateRequest | Incident Service
-                                            // Payload.
+    // Payload.
     try {
       IncidentServiceResponse result = apiInstance.updateIncidentService(serviceId, body);
       System.out.println(result);

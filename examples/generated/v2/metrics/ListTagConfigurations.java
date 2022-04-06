@@ -15,18 +15,18 @@ public class Example {
     MetricTagConfigurationMetricTypes filterMetricType =
         MetricTagConfigurationMetricTypes.fromValue(
             "gauge"); // MetricTagConfigurationMetricTypes | Filter tag configurations by metric
-                      // type.
+    // type.
     Boolean filterIncludePercentiles =
         true; // Boolean | Filter distributions with additional percentile aggregations enabled or
-              // disabled.
+    // disabled.
     String filterTags =
         "env IN (staging,test) AND service:web"; // String | Filter metrics that have been submitted
-                                                 // with the given tags. Supports boolean and
-                                                 // wildcard expressions. Cannot be combined with
-                                                 // other filters.
+    // with the given tags. Supports boolean and
+    // wildcard expressions. Cannot be combined with
+    // other filters.
     Long windowSeconds =
         3600L; // Long | The number of seconds of look back (from now) to apply to a filter[tag]
-               // query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
+    // query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
     try {
       MetricsAndMetricTagConfigurationsResponse result =
           apiInstance.listTagConfigurations(

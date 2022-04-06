@@ -12,7 +12,7 @@ public class Example {
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
     AWSTagFilterDeleteRequest body =
         new AWSTagFilterDeleteRequest(); // AWSTagFilterDeleteRequest | Delete a tag filtering entry
-                                         // for a given AWS account and `dd-aws` namespace.
+    // for a given AWS account and `dd-aws` namespace.
     try {
       Object result = apiInstance.deleteAWSTagFilter(body);
       System.out.println(result);
