@@ -1,0 +1,66 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_timeseries_background-1648850756 with QVW Timeseries Background\",\"widgets\":[{\"definition\":{\"autoscale\":true,\"precision\":2,\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"sum:my.cool.count.metric{*}\"}],\"response_format\":\"scalar\"}],\"time\":{},\"timeseries_background\":{\"type\":\"area\",\"yaxis\":{\"include_zero\":true}},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_value\"},\"layout\":{\"height\":2,\"width\":2,\"x\":0,\"y\":0}}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_new_dashboard_with_a_query_value_widget_using_timeseries_background"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"qpb-ufq-tfj\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_timeseries_background-1648850756 with QVW Timeseries Background\",\"url\":\"/dashboard/qpb-ufq-tfj/test-createanewdashboardwithaqueryvaluewidgetusingtimeseriesbackground-164885075\",\"created_at\":\"2022-04-01T22:05:56.882433+00:00\",\"modified_at\":\"2022-04-01T22:05:56.882433+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"autoscale\":true,\"title\":\"\",\"title_align\":\"left\",\"precision\":2,\"timeseries_background\":{\"type\":\"area\",\"yaxis\":{\"include_zero\":true}},\"time\":{},\"title_size\":\"16\",\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"response_format\":\"scalar\",\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"sum:my.cool.count.metric{*}\"}]}],\"type\":\"query_value\"},\"layout\":{\"y\":0,\"width\":2,\"x\":0,\"height\":2},\"id\":1355546266470286}],\"layout_type\":\"ordered\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1a7b11b0-9c18-7346-af11-a3fe21bf0fd0"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_new_dashboard_with_a_query_value_widget_using_timeseries_background"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/qpb-ufq-tfj",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"qpb-ufq-tfj\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2d04403c-8538-9ba2-4420-6c669106338d"
+  }
+]
