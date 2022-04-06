@@ -1,0 +1,125 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"series\": [{\"metric\": \"TestDeleteatagconfigurationreturnsNoContentresponse1648560542\", \"points\": [[1648560542.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_tag_configuration_returns_No_Content_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/series",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"status\": \"ok\"}",
+      "headers": {
+        "Content-Type": [
+          "text/json"
+        ]
+      },
+      "statusCode": 202,
+      "reasonPhrase": "Accepted"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6cb63514-9edf-3d5f-ec70-2fb3c2418546"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestDeleteatagconfigurationreturnsNoContentresponse1648560542\"]},\"id\":\"TestDeleteatagconfigurationreturnsNoContentresponse1648560542\",\"type\":\"manage_tags\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_tag_configuration_returns_No_Content_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1648560542/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestDeleteatagconfigurationreturnsNoContentresponse1648560542\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"TestDeleteatagconfigurationreturnsNoContentresponse1648560542\"],\"created_at\":\"2022-03-29T13:29:03.991675+00:00\",\"modified_at\":\"2022-03-29T13:29:03.991675+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1b6d45a4-0b6d-dc9b-4a9e-1656eb362d43"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_tag_configuration_returns_No_Content_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1648560542/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e80e3df0-008d-c04e-a69e-70d93ada3107"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_tag_configuration_returns_No_Content_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1648560542/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"TestDeleteatagconfigurationreturnsNoContentresponse1648560542 not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e80e3df0-008d-c04e-a69e-70d93ada3108"
+  }
+]

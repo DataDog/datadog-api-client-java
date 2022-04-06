@@ -1,0 +1,129 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"series\": [{\"metric\": \"TestUpdateatagconfigurationreturnsOKresponse1648572657\", \"points\": [[1648572657.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_tag_configuration_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/series",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"status\": \"ok\"}",
+      "headers": {
+        "Content-Type": [
+          "text/json"
+        ]
+      },
+      "statusCode": 202,
+      "reasonPhrase": "Accepted"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a9fdafd1-b2e4-0629-0b71-d26f3b34515d"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestUpdateatagconfigurationreturnsOKresponse1648572657\"]},\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1648572657\",\"type\":\"manage_tags\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_tag_configuration_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1648572657/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1648572657\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"TestUpdateatagconfigurationreturnsOKresponse1648572657\"],\"created_at\":\"2022-03-29T16:50:58.686271+00:00\",\"modified_at\":\"2022-03-29T16:50:58.686271+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d1260d61-3239-3dab-6ce4-3e2ea3b69bff"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"tags\":[\"app\"]},\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1648572657\",\"type\":\"manage_tags\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_tag_configuration_returns_OK_response"
+        ]
+      },
+      "method": "PATCH",
+      "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1648572657/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1648572657\",\"attributes\":{\"tags\":[\"app\"],\"created_at\":\"2022-03-29T16:50:58.686271+00:00\",\"modified_at\":\"2022-03-29T16:50:59.386565+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1f7163bf-fb1f-d960-cb08-d2aaa77be329"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_tag_configuration_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1648572657/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "faf851b2-ee95-1b71-6338-5a01663f4b84"
+  }
+]

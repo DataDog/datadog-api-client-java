@@ -10,7 +10,7 @@
       "path": "/api/v2/metrics",
       "queryStringParameters": {
         "filter[tags]": [
-          "TestListtagconfigurationswithatagfilterreturnsSuccessresponse1641430311"
+          "TestListtagconfigurationswithatagfilterreturnsSuccessresponse1648572657"
         ]
       },
       "keepAlive": false,
@@ -32,6 +32,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4b9ebfcf-592d-9ac0-05ac-70d654f9aca0"
+    "id": "704e5269-b3c4-442d-206c-54f565f69909"
   }
 ]
