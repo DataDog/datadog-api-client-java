@@ -1,5 +1,4 @@
-{% include "ApiInfo.j2" %}
-
+{#-{% include "ApiInfo.j2" %}#}
 package {{ package_name }}.api;
 
 import {{ package_name }}.ApiException;
@@ -62,6 +61,7 @@ public class {{ name }} {
   {%- set authMethods = operation.security if "security" in operation else openapi.security %}
   {%- set returnType = operation|return_type %}
   {%- set operationId = operation.operationId|untitle_case %}
+  {%- set bodyParamName = operation.get("x-codegen-request-body-name", "body") %}
 
   {%- if optionalParams %}
   /**
@@ -118,7 +118,7 @@ public class {{ name }} {
    * See {@link #{{ operationId }}WithHttpInfo}.
    *
    {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter. description }} {}}(required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default }}{%- endif %})
+   * @param {{ name|variable_name }} {{ parameter.description }} {}}(required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default }}{%- endif %})
    {%- endfor %}
    {%- if returnType %}
    * @return CompletableFuture&lt;{{ returnType }}&gt;
@@ -166,7 +166,7 @@ public class {{ name }} {
    * See {@link #{{ operationId }}WithHttpInfoAsync}.
    *
    {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description}} (required)
+   * @param {{ name|variable_name }} {{ parameter.description }} (required)
    {%- endfor %}
    * @param parameters Optional parameters for the request.
    {%- if returnType %}
@@ -217,7 +217,7 @@ public class {{ name }} {
   /**
    * {{ operation.summary }}
    *
-   * {{ operation.description }}
+   * {{ operation.description|escape_html }}
    *
    {%- for name, parameter in requiredParams %}
    * @param {{ name|variable_name }} {{ parameter.description }} (required)
@@ -249,7 +249,8 @@ public class {{ name }} {
   {%- else %}
   public ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}> {{ operationId }}WithHttpInfo({% for name, parameter in allParams %}{{ get_type_for_parameter(parameter) }} {{name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
   {%- endif %}
-    Object localVarPostBody = {% if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}{% if operation.requestBody.required %}body{% else %}parameters.body{% endif %}{% else %}null{% endif %};
+    Object localVarPostBody = {% if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}{% if operation.requestBody.required %}{{ bodyParamName }}{% else %}parameters.body{% endif %}{% else %}null{% endif %};
+
     {%- for name, parameter in allParams %}
     {%- if parameter.required %}
     // verify the required parameter '{{ name|variable_name }}' is set
@@ -257,7 +258,7 @@ public class {{ name }} {
       throw new ApiException(400, "Missing the required parameter '{{ name|variable_name }}' when calling {{ operationId }}");
     }
     {%- else %}
-    {%- if name != "body" %}
+    {%- if name != bodyParamName %}
     {{ get_type_for_parameter(parameter) }} {{ name|variable_name }} = parameters.{{ name|variable_name }};
     {%- endif %}
     {%- endif %}
@@ -269,8 +270,10 @@ public class {{ name }} {
       {%- endfor %};
 
     {%- if queryParams %}
-    ArrayList<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     {%- endif %}
+
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     {%- if formParams %}
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -312,7 +315,8 @@ public class {{ name }} {
   {%- else %}
   public CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> {{ operationId }}WithHttpInfoAsync({% for name, parameter in allParams %}{{ get_type_for_parameter(parameter) }} {{name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) {
   {%- endif %}
-    Object localVarPostBody = {% if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}{% if operation.requestBody.required %}body{% else %}parameters.body{% endif %}{% else %}null{% endif %};
+    Object localVarPostBody = {% if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}{% if operation.requestBody.required %}{{ bodyParamName }}{% else %}parameters.body{% endif %}{% else %}null{% endif %};
+
     {%- for name, parameter in allParams %}
     {%- if parameter.required %}
     // verify the required parameter '{{ name|variable_name }}' is set
@@ -322,7 +326,7 @@ public class {{ name }} {
         return result;
     }
     {%- else %}
-    {%- if name != "body" %}
+    {%- if name != bodyParamName %}
     {{ get_type_for_parameter(parameter) }} {{ name|variable_name }} = parameters.{{ name|variable_name }};
     {%- endif %}
     {%- endif %}
@@ -334,8 +338,10 @@ public class {{ name }} {
       {%- endfor %};
 
     {%- if queryParams %}
-    ArrayList<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     {%- endif %}
+
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     {%- if formParams %}
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
