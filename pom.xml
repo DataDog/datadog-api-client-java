@@ -329,6 +329,96 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+
+                <configuration>
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>module-info.class</exclude>
+                                <exclude>META-INF/*.MF</exclude>
+                                <exclude>META-INF/LICENSE*</exclude>
+                                <exclude>META-INF/NOTICE*</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
+                    <artifactSet>
+                        <includes>
+                            <include>io.swagger:swagger-annotations</include>
+                            <include>org.glassfish.jersey.core:jersey-client</include>
+                            <include>jakarta.ws.rs:jakarta.ws.rs-api</include>
+                            <include>org.glassfish.jersey.core:jersey-common</include>
+                            <include>org.glassfish.hk2:osgi-resource-locator</include>
+                            <include>org.glassfish.hk2.external:jakarta.inject</include>
+                            <include>org.glassfish.jersey.connectors:jersey-apache-connector</include>
+                            <include>org.apache.httpcomponents:httpclient</include>
+                            <include>org.apache.httpcomponents:httpcore</include>
+                            <include>org.glassfish.jersey.inject:jersey-hk2</include>
+                            <include>org.glassfish.hk2:hk2-locator</include>
+                            <include>org.glassfish.hk2.external:aopalliance-repackaged</include>
+                            <include>org.glassfish.hk2:hk2-api</include>
+                            <include>org.glassfish.hk2:hk2-utils</include>
+                            <include>org.glassfish.jersey.media:jersey-media-multipart</include>
+                            <include>org.glassfish.jersey.media:jersey-media-json-jackson</include>
+                            <include>org.glassfish.jersey.ext:jersey-entity-filtering</include>
+                            <include>com.fasterxml.jackson.module:jackson-module-jaxb-annotations</include>
+                            <include>com.fasterxml.jackson.core:jackson-core</include>
+                            <include>com.fasterxml.jackson.core:jackson-annotations</include>
+                            <include>com.fasterxml.jackson.datatype:jackson-datatype-jsr310</include>
+                            <include>com.fasterxml.jackson.core:jackson-databind</include>
+                            <include>org.openapitools:jackson-databind-nullable</include>
+                        </includes>
+                    </artifactSet>
+                    <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                    </transformers>
+                    <relocations>
+                        <relocation>
+                            <pattern>io.swagger</pattern>
+                            <shadedPattern>com.datadoghq.io.swagger</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.glassfish.jersey</pattern>
+                            <shadedPattern>com.datadoghq.org.glassfish.jersey</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.glassfish.hk2</pattern>
+                            <shadedPattern>com.datadoghq.org.glassfish.hk2</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.fasterxml.jackson</pattern>
+                            <shadedPattern>com.datadoghq.com.fasterxml.jackson</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.openapitools.jackson</pattern>
+                            <shadedPattern>com.datadoghq.org.openapitools.jackson</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>javax.ws.rs</pattern>
+                            <shadedPattern>com.datadoghq.javax.ws.rs</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.apache.hc</pattern>
+                            <shadedPattern>com.datadoghq.org.apache.hc</shadedPattern>
+                        </relocation>
+                    </relocations>
+                    <shadedClassifierName>shaded-jar</shadedClassifierName>
+                    <shadedArtifactAttached>true</shadedArtifactAttached>
+                    <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -440,6 +530,7 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.9.0</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.github.tomakehurst</groupId>
