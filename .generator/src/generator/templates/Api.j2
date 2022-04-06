@@ -76,7 +76,7 @@ public class {{ name }} {
     {%- set paramName = name|variable_name %}
     /**
      * Set {{ paramName }}
-     * @param {{ paramName }} {{ parameter.description }} (optional{% if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default }}{% endif %})
+     * @param {{ paramName }} {{ parameter.description|escape_html }} (optional{% if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default }}{% endif %})
      * @return {{ operationId|upperfirst }}OptionalParameters
      */
     public {{ operationId|upperfirst }}OptionalParameters {{ paramName }}({{ get_type_for_parameter(parameter) }} {{ paramName }}) {
@@ -93,8 +93,7 @@ public class {{ name }} {
    * See {@link #{{ operationId }}WithHttpInfo}.
    *
    {%- for name, parameter in requiredParams %}
-   {%- set paramName = name|variable_name %}
-   * @param {{ paramName }} {{ parameter.description }} (required)
+   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
    {%- endfor %}
    {%- if returnType %}
    * @return {{ returnType }}
@@ -118,10 +117,10 @@ public class {{ name }} {
    * See {@link #{{ operationId }}WithHttpInfo}.
    *
    {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description }} {}}(required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default }}{%- endif %})
+   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default }}{%- endif %})
    {%- endfor %}
    {%- if returnType %}
-   * @return CompletableFuture&lt;{{ returnType }}&gt;
+   * @return CompletableFuture&lt;{{ returnType|html_escape }}&gt;
    {%- endif %}
    {%- if operation.deprecated %}
    * @deprecated
@@ -142,7 +141,7 @@ public class {{ name }} {
    * See {@link #{{ operationId }}WithHttpInfo}.
    *
    {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description }} (required)
+   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
    {%- endfor %}
    * @param parameters Optional parameters for the request.
    {%- if returnType %}
@@ -166,11 +165,11 @@ public class {{ name }} {
    * See {@link #{{ operationId }}WithHttpInfoAsync}.
    *
    {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description }} (required)
+   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
    {%- endfor %}
    * @param parameters Optional parameters for the request.
    {%- if returnType %}
-   * @return CompletableFuture&lt;{{ returnType }}&gt;
+   * @return CompletableFuture&lt;{{ returnType|html_escape }}&gt;
    {%- endif %}
    {%- if operation.deprecated %}
    * @deprecated
@@ -195,10 +194,10 @@ public class {{ name }} {
    * See {@link #{{ operationId }}WithHttpInfoAsync}.
    *
    {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description }} (required)
+   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
    {%- endfor %}
    {%- if returnType %}
-   * @return CompletableFuture&lt;{{ returnType }}&gt;
+   * @return CompletableFuture&lt;{{ returnType|html_escape }}&gt;
    {%- endif %}
    {%- if operation.deprecated %}
    * @deprecated
@@ -220,7 +219,7 @@ public class {{ name }} {
    * {{ operation.description|escape_html }}
    *
    {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description }} (required)
+   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
    {%- endfor %}
    {%- if optionalParams %}
    * @param parameters Optional parameters for the request.
@@ -233,7 +232,7 @@ public class {{ name }} {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        {%- for responseCode, response in operation.responses.items() %}
-   *       <tr><td> {{ responseCode }} </td><td> {{ response.description }} </td><td>  -{# {{#headers}} #}  </td></tr>
+   *       <tr><td> {{ responseCode }} </td><td> {{ response.description|escape_html }} </td><td>  -{# {{#headers}} #}  </td></tr>
        {%- endfor %}
    *     </table>
    {%- endif %}
@@ -297,7 +296,7 @@ public class {{ name }} {
    * See {@link #{{ operationId }}WithHttpInfo}.
    *
    {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description }} (required)
+   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
    {%- endfor %}
    {%- if optionalParams %}
    * @param parameters Optional parameters for the request.

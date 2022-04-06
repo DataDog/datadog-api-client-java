@@ -91,6 +91,17 @@ SUFFIXES = {
     "wasm",
 }
 
+HTML_ESCAPE_CHARACTERS = {
+    "&": "&amp;",
+    "'": "&#39;",
+    ">": "&gt;",
+    "<": "&lt;",
+    '"': "&quot;",
+    "`": "&#x60;",
+    "=": "&#x3D;",
+}
+
+
 PATTERN_DOUBLE_UNDERSCORE = re.compile(r"__+")
 PATTERN_LEADING_ALPHA = re.compile(r"(.)([A-Z][a-z0-9]+)")
 PATTERN_FOLLOWING_ALPHA = re.compile(r"([a-z0-9])([A-Z])")
@@ -212,6 +223,15 @@ def simple_type(schema):
         return "Boolean"
 
     return None
+
+
+def escape_html(text):
+    if isinstance(text, dict):
+        import pdb; pdb.set_trace()
+    if not text:
+        return ""
+    text = " ".join(text.splitlines())
+    return "".join(HTML_ESCAPE_CHARACTERS.get(c, c) for c in text)
 
 
 # TODO: clean this up it is messy right now
