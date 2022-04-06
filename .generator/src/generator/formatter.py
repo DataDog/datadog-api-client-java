@@ -166,20 +166,23 @@ def variable_name(attribute):
     return escape_reserved_keyword(untitle_case(camel_case(attribute)))
 
 
-def format_value(value, quotes='"', schema=None, type_=None):
+def format_value(value, quotes='"', schema=None, default_value=False, type_=None):
     if schema:
-        if schema.get("type") == "integer":
-            if schema.get("format") == "int64":
-                return f"{value}l"
-        if "enum" in schema:
+        if "enum" in schema and default_value:
             index = schema["enum"].index(value)
             enum_varnames = schema["x-enum-varnames"][index]
             name = schema_name(schema)
             return f"{name}.{enum_varnames}"
-        if "oneOf" in schema:
+        if "oneOf" in schema and default_value:
             if isinstance(value, bool):
                 value = "true" if value else "false"
-            return f"new {type_}({value})"
+            if type_:
+                return f"new {type_}({value})"
+        if schema.get("type") == "integer":
+            if schema.get("format") == "int64":
+                return f"{value}l"
+        if schema.get("type") == "string":
+            return f"\"{value}\""
     if isinstance(value, str):
         return f"{quotes}{value}{quotes}"
     elif isinstance(value, bool):

@@ -117,11 +117,11 @@ def type_to_java(schema, alternative_name=None):
             )
 
     if type_ == "array":
+        if schema.get("x-generate-alias-as-model", False):
+            return name
         if name or alternative_name:
             alternative_name = (name or alternative_name) + "Item"
         name = type_to_java(schema["items"], alternative_name=alternative_name)
-        if schema.get("x-generate-alias-as-model", False):
-            return "ArrayList<{}>".format(name)
         return "List<{}>".format(name)
     elif type_ == "object":
         if "additionalProperties" in schema:

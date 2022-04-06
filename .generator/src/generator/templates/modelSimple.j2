@@ -14,7 +14,7 @@
 {%- endfor %}
 })
 {{ generated_annotation }}
-public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends {{ get_type(model) }} {%-endif %} {
+public class {{ name }} {#{%- if model.get("x-generate-alias-as-model") %} extends {{ get_type(model) }} {%-endif %} #} {
   @JsonIgnore
   public boolean unparsed = false;
   {%- for attr, schema in model.get("properties", {}).items() %}
@@ -40,13 +40,13 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- if isContainer %}
   private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>undefined();
     {%- else %}
-  private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>{%- if defaultValue != None %}of({{ defaultValue|format_value(schema=schema) }}){%- else %}undefined(){%- endif%};
+  private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>{%- if defaultValue != None %}of({{ defaultValue|format_value(schema=schema, default_value=True, type_=dataType) }}){%- else %}undefined(){%- endif%};
     {%- endif %}
   {%- else %}
     {%- if isContainer %}
   private {{ dataType }} {{ variableName }}{%- if isRequired %} = new ArrayList<>(){%- else %} = null{%- endif %};
     {%- else %}
-  private {{ dataType }} {{ variableName }}{%- if defaultValue != None or schema.additionalProperties is defined %} = {%- if schema|is_primitive %}{{ defaultValue|format_value(schema=schema) }}{%- else %} {{ defaultValue|format_value(schema=schema, type_=dataType) }}{%- endif %}{%- endif %};
+  private {{ dataType }} {{ variableName }}{%- if defaultValue != None %} = {{ defaultValue|format_value(schema=schema, default_value=True, type_=dataType) }}{%- endif %};
     {%- endif %}
   {%- endif %}
 {#  #}
@@ -229,7 +229,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
         {%- if not isRequired and isNullable %}
         {%- if schema.get("readOnly", False) %}
         if ({{ variableName }} == null) {
-          {{ variableName }} = JsonNullable.<{{  dataType }}>{%- if defaultValue != None %}of({{ defaultValue|format_value(schema=schema) }}){%- else %}undefined(){%- endif%};
+          {{ variableName }} = JsonNullable.<{{  dataType }}>{%- if defaultValue != None %}of({{ defaultValue|format_value(schema=schema, default_value=True, type_=dataType) }}){%- else %}undefined(){%- endif%};
         }
         {%- endif %}
         return {{ variableName }}.orElse(null);
