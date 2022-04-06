@@ -118,9 +118,8 @@ def cli(input, output):
     model_dir.mkdir(parents=True, exist_ok=True)
     for name, model in models.items():
         model_path = model_dir / f"{name}.java"
-        if "enum" not in model and "oneOf" not in model:
-            with model_path.open("w") as fp:
-                fp.write(model_j2.render(name=name, model=model))
+        with model_path.open("w") as fp:
+            fp.write(model_j2.render(name=name, model=model))
 
     api_dir = output / "api"
     api_dir.mkdir(parents=True, exist_ok=True)
