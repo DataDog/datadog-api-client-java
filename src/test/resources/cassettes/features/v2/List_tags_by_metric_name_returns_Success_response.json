@@ -1,0 +1,125 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"series\": [{\"metric\": \"TestListtagsbymetricnamereturnsSuccessresponse1648572430\", \"points\": [[1648572430.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_tags_by_metric_name_returns_Success_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/series",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"status\": \"ok\"}",
+      "headers": {
+        "Content-Type": [
+          "text/json"
+        ]
+      },
+      "statusCode": 202,
+      "reasonPhrase": "Accepted"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1007f555-8cbf-df23-3efb-a06bba5e8df7"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestListtagsbymetricnamereturnsSuccessresponse1648572430\"]},\"id\":\"TestListtagsbymetricnamereturnsSuccessresponse1648572430\",\"type\":\"manage_tags\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_tags_by_metric_name_returns_Success_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1648572430/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestListtagsbymetricnamereturnsSuccessresponse1648572430\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"TestListtagsbymetricnamereturnsSuccessresponse1648572430\"],\"created_at\":\"2022-03-29T16:47:10.957888+00:00\",\"modified_at\":\"2022-03-29T16:47:10.957888+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "95c304ba-ad53-6b03-db68-caa10b994406"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_tags_by_metric_name_returns_Success_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1648572430/all-tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"metrics\",\"id\":\"TestListtagsbymetricnamereturnsSuccessresponse1648572430\",\"attributes\":{\"tags\":[]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "13ee6b30-ec5f-cc30-af82-ce241df599de"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_tags_by_metric_name_returns_Success_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1648572430/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "05d0d23e-6ab9-a1db-94d9-ce5397a2179c"
+  }
+]

@@ -1,0 +1,95 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"series\": [{\"metric\": \"TestCreateatagconfigurationreturnsCreatedresponse1648499546\", \"points\": [[1648499546.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_tag_configuration_returns_Created_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/series",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"status\": \"ok\"}",
+      "headers": {
+        "Content-Type": [
+          "text/json"
+        ]
+      },
+      "statusCode": 202,
+      "reasonPhrase": "Accepted"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "956bd4e4-ee6c-fb27-81da-58ae0e162b13"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\"]},\"id\":\"TestCreateatagconfigurationreturnsCreatedresponse1648499546\",\"type\":\"manage_tags\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_tag_configuration_returns_Created_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/metrics/TestCreateatagconfigurationreturnsCreatedresponse1648499546/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestCreateatagconfigurationreturnsCreatedresponse1648499546\",\"attributes\":{\"tags\":[\"datacenter\",\"app\"],\"created_at\":\"2022-03-28T20:32:28.716208+00:00\",\"modified_at\":\"2022-03-28T20:32:28.716208+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "217405b5-df0b-3b54-5862-5e49051f07bf"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_tag_configuration_returns_Created_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/metrics/TestCreateatagconfigurationreturnsCreatedresponse1648499546/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ac32d63b-c6ba-8ed7-326e-ecf4c1c73120"
+  }
+]
