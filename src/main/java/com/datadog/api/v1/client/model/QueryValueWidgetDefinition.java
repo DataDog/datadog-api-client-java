@@ -32,7 +32,6 @@ import java.util.Objects;
   QueryValueWidgetDefinition.JSON_PROPERTY_REQUESTS,
   QueryValueWidgetDefinition.JSON_PROPERTY_TEXT_ALIGN,
   QueryValueWidgetDefinition.JSON_PROPERTY_TIME,
-  QueryValueWidgetDefinition.JSON_PROPERTY_TIMESERIES_BACKGROUND,
   QueryValueWidgetDefinition.JSON_PROPERTY_TITLE,
   QueryValueWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
   QueryValueWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
@@ -61,9 +60,6 @@ public class QueryValueWidgetDefinition {
 
   public static final String JSON_PROPERTY_TIME = "time";
   private WidgetTime time;
-
-  public static final String JSON_PROPERTY_TIMESERIES_BACKGROUND = "timeseries_background";
-  private TimeseriesBackground timeseriesBackground;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -273,30 +269,6 @@ public class QueryValueWidgetDefinition {
     this.time = time;
   }
 
-  public QueryValueWidgetDefinition timeseriesBackground(
-      TimeseriesBackground timeseriesBackground) {
-    this.timeseriesBackground = timeseriesBackground;
-    this.unparsed |= timeseriesBackground.unparsed;
-    return this;
-  }
-
-  /**
-   * Get timeseriesBackground
-   *
-   * @return timeseriesBackground
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TIMESERIES_BACKGROUND)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TimeseriesBackground getTimeseriesBackground() {
-    return timeseriesBackground;
-  }
-
-  public void setTimeseriesBackground(TimeseriesBackground timeseriesBackground) {
-    this.timeseriesBackground = timeseriesBackground;
-  }
-
   public QueryValueWidgetDefinition title(String title) {
     this.title = title;
     return this;
@@ -409,8 +381,6 @@ public class QueryValueWidgetDefinition {
         && Objects.equals(this.requests, queryValueWidgetDefinition.requests)
         && Objects.equals(this.textAlign, queryValueWidgetDefinition.textAlign)
         && Objects.equals(this.time, queryValueWidgetDefinition.time)
-        && Objects.equals(
-            this.timeseriesBackground, queryValueWidgetDefinition.timeseriesBackground)
         && Objects.equals(this.title, queryValueWidgetDefinition.title)
         && Objects.equals(this.titleAlign, queryValueWidgetDefinition.titleAlign)
         && Objects.equals(this.titleSize, queryValueWidgetDefinition.titleSize)
@@ -427,7 +397,6 @@ public class QueryValueWidgetDefinition {
         requests,
         textAlign,
         time,
-        timeseriesBackground,
         title,
         titleAlign,
         titleSize,
@@ -445,9 +414,6 @@ public class QueryValueWidgetDefinition {
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    textAlign: ").append(toIndentedString(textAlign)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
-    sb.append("    timeseriesBackground: ")
-        .append(toIndentedString(timeseriesBackground))
-        .append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
     sb.append("    titleSize: ").append(toIndentedString(titleSize)).append("\n");

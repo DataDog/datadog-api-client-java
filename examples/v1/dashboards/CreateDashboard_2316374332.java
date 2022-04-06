@@ -38,7 +38,7 @@ public class Example {
                                     .titleSize("16")
                                     .titleAlign(WidgetTextAlign.LEFT)
                                     .type(AlertValueWidgetDefinitionType.ALERT_VALUE)
-                                    .alertId("7")
+                                    .alertId("1")
                                     .unit("auto")
                                     .textAlign(WidgetTextAlign.LEFT)
                                     .precision(2L)))))

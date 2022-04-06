@@ -345,8 +345,7 @@ public class UsageMeteringApi {
      * Set tagBreakdownKeys
      *
      * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is
-     *     provided the usage will not be broken down by tags. To see which tags are available, look
-     *     for the value of &#x60;tag_config_source&#x60; in the API response. (optional)
+     *     provided the usage will not be broken down by tags. (optional)
      * @return GetHourlyUsageAttributionOptionalParameters
      */
     public GetHourlyUsageAttributionOptionalParameters tagBreakdownKeys(String tagBreakdownKeys) {
@@ -438,14 +437,7 @@ public class UsageMeteringApi {
   /**
    * Get Hourly Usage Attribution
    *
-   * <p>Get Hourly Usage Attribution. This API endpoint is paginated. To make sure you receive all
-   * records, check if the value of &#x60;next_record_id&#x60; is set in the response. If it is,
-   * make another request and pass &#x60;next_record_id&#x60; as a parameter. Pseudo code example:
-   * &#x60;&#x60;&#x60; response :&#x3D; GetHourlyUsageAttribution(start_month) cursor :&#x3D;
-   * response.metadata.pagination.next_record_id WHILE cursor !&#x3D; null BEGIN sleep(5 seconds) #
-   * Avoid running into rate limit response :&#x3D; GetHourlyUsageAttribution(start_month,
-   * next_record_id&#x3D;cursor) cursor :&#x3D; response.metadata.pagination.next_record_id END
-   * &#x60;&#x60;&#x60;
+   * <p>Get Hourly Usage Attribution.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -1296,9 +1288,8 @@ public class UsageMeteringApi {
     /**
      * Set tagBreakdownKeys
      *
-     * @param tagBreakdownKeys Comma separated list of tag keys used to group usage. If no value is
-     *     provided the usage will not be broken down by tags. To see which tags are available, look
-     *     for the value of &#x60;tag_config_source&#x60; in the API response. (optional)
+     * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is
+     *     provided the usage will not be broken down by tags. (optional)
      * @return GetMonthlyUsageAttributionOptionalParameters
      */
     public GetMonthlyUsageAttributionOptionalParameters tagBreakdownKeys(String tagBreakdownKeys) {
@@ -1407,14 +1398,7 @@ public class UsageMeteringApi {
   /**
    * Get Monthly Usage Attribution
    *
-   * <p>Get Monthly Usage Attribution. This API endpoint is paginated. To make sure you receive all
-   * records, check if the value of &#x60;next_record_id&#x60; is set in the response. If it is,
-   * make another request and pass &#x60;next_record_id&#x60; as a parameter. Pseudo code example:
-   * &#x60;&#x60;&#x60; response :&#x3D; GetMonthlyUsageAttribution(start_month) cursor :&#x3D;
-   * response.metadata.pagination.next_record_id WHILE cursor !&#x3D; null BEGIN sleep(5 seconds) #
-   * Avoid running into rate limit response :&#x3D; GetMonthlyUsageAttribution(start_month,
-   * next_record_id&#x3D;cursor) cursor :&#x3D; response.metadata.pagination.next_record_id END
-   * &#x60;&#x60;&#x60;
+   * <p>Get Monthly Usage Attribution.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)

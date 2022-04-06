@@ -412,8 +412,8 @@ public class MetricsApi {
    *
    * <p>See {@link #listMetricsWithHttpInfo}.
    *
-   * @param q Query string to search metrics upon. Can optionally be prefixed with
-   *     &#x60;metrics:&#x60;. (required)
+   * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
+   *     (required)
    * @return MetricSearchResponse
    * @throws ApiException if fails to make API call
    */
@@ -426,8 +426,8 @@ public class MetricsApi {
    *
    * <p>See {@link #listMetricsWithHttpInfoAsync}.
    *
-   * @param q Query string to search metrics upon. Can optionally be prefixed with
-   *     &#x60;metrics:&#x60;. (required)
+   * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
+   *     (required)
    * @return CompletableFuture&lt;MetricSearchResponse&gt;
    */
   public CompletableFuture<MetricSearchResponse> listMetricsAsync(String q) {
@@ -443,8 +443,8 @@ public class MetricsApi {
    *
    * <p>Search for metrics from the last 24 hours in Datadog.
    *
-   * @param q Query string to search metrics upon. Can optionally be prefixed with
-   *     &#x60;metrics:&#x60;. (required)
+   * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
+   *     (required)
    * @return ApiResponse&lt;MetricSearchResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -497,8 +497,8 @@ public class MetricsApi {
    *
    * <p>See {@link #listMetricsWithHttpInfo}.
    *
-   * @param q Query string to search metrics upon. Can optionally be prefixed with
-   *     &#x60;metrics:&#x60;. (required)
+   * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
+   *     (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricSearchResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricSearchResponse>> listMetricsWithHttpInfoAsync(
@@ -817,7 +817,7 @@ public class MetricsApi {
    * dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must
    * have a decompressed size of less than 62 megabytes (62914560 bytes). If you’re submitting
    * metrics directly to the Datadog API without using DogStatsD, expect: - 64 bits for the
-   * timestamp - 32 bits for the value - 40 bytes for the metric names - 50 bytes for the timeseries
+   * timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries
    * - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is
    * applied, which reduces the payload size.
    *

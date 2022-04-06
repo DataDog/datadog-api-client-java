@@ -41,7 +41,7 @@ public class Example {
                                     .titleAlign(WidgetTextAlign.LEFT)
                                     .time(new WidgetTime())
                                     .type(AlertGraphWidgetDefinitionType.ALERT_GRAPH)
-                                    .alertId("7")
+                                    .alertId("1")
                                     .vizType(WidgetVizType.TIMESERIES)))))
             .layoutType(DashboardLayoutType.FREE)
             .isReadOnly(false);

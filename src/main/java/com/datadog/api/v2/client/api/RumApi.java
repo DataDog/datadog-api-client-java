@@ -5,8 +5,6 @@ import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.Pair;
-import com.datadog.api.v2.client.model.RUMAggregateRequest;
-import com.datadog.api.v2.client.model.RUMAnalyticsAggregateResponse;
 import com.datadog.api.v2.client.model.RUMEventsResponse;
 import com.datadog.api.v2.client.model.RUMSearchEventsRequest;
 import com.datadog.api.v2.client.model.RUMSort;
@@ -47,146 +45,6 @@ public class RumApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
-  }
-
-  /**
-   * Aggregate RUM events
-   *
-   * <p>See {@link #aggregateRUMEventsWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return RUMAnalyticsAggregateResponse
-   * @throws ApiException if fails to make API call
-   */
-  public RUMAnalyticsAggregateResponse aggregateRUMEvents(RUMAggregateRequest body)
-      throws ApiException {
-    return aggregateRUMEventsWithHttpInfo(body).getData();
-  }
-
-  /**
-   * Aggregate RUM events
-   *
-   * <p>See {@link #aggregateRUMEventsWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;RUMAnalyticsAggregateResponse&gt;
-   */
-  public CompletableFuture<RUMAnalyticsAggregateResponse> aggregateRUMEventsAsync(
-      RUMAggregateRequest body) {
-    return aggregateRUMEventsWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Aggregate RUM events
-   *
-   * <p>The API endpoint to aggregate RUM events into buckets of computed metrics and timeseries.
-   *
-   * @param body (required)
-   * @return ApiResponse&lt;RUMAnalyticsAggregateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<RUMAnalyticsAggregateResponse> aggregateRUMEventsWithHttpInfo(
-      RUMAggregateRequest body) throws ApiException {
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling aggregateRUMEvents");
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/rum/analytics/aggregate";
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "RumApi.aggregateRUMEvents",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<RUMAnalyticsAggregateResponse>() {});
-  }
-
-  /**
-   * Aggregate RUM events
-   *
-   * <p>See {@link #aggregateRUMEventsWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RUMAnalyticsAggregateResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<RUMAnalyticsAggregateResponse>>
-      aggregateRUMEventsWithHttpInfoAsync(RUMAggregateRequest body) {
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      CompletableFuture<ApiResponse<RUMAnalyticsAggregateResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling aggregateRUMEvents"));
-      return result;
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/rum/analytics/aggregate";
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "aggregateRUMEvents");
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "RumApi.aggregateRUMEvents",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RUMAnalyticsAggregateResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<RUMAnalyticsAggregateResponse>() {});
   }
 
   /** Manage optional parameters to listRUMEvents. */
@@ -446,17 +304,61 @@ public class RumApi {
         new GenericType<RUMEventsResponse>() {});
   }
 
+  /** Manage optional parameters to searchRUMEvents. */
+  public static class SearchRUMEventsOptionalParameters {
+    private RUMSearchEventsRequest body;
+
+    /**
+     * Set body
+     *
+     * @param body (optional)
+     * @return SearchRUMEventsOptionalParameters
+     */
+    public SearchRUMEventsOptionalParameters body(RUMSearchEventsRequest body) {
+      this.body = body;
+      return this;
+    }
+  }
+
   /**
    * Search RUM events
    *
    * <p>See {@link #searchRUMEventsWithHttpInfo}.
    *
-   * @param body (required)
    * @return RUMEventsResponse
    * @throws ApiException if fails to make API call
    */
-  public RUMEventsResponse searchRUMEvents(RUMSearchEventsRequest body) throws ApiException {
-    return searchRUMEventsWithHttpInfo(body).getData();
+  public RUMEventsResponse searchRUMEvents() throws ApiException {
+    return searchRUMEventsWithHttpInfo(new SearchRUMEventsOptionalParameters()).getData();
+  }
+
+  /**
+   * Search RUM events
+   *
+   * <p>See {@link #searchRUMEventsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;RUMEventsResponse&gt;
+   */
+  public CompletableFuture<RUMEventsResponse> searchRUMEventsAsync() {
+    return searchRUMEventsWithHttpInfoAsync(new SearchRUMEventsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search RUM events
+   *
+   * <p>See {@link #searchRUMEventsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return RUMEventsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RUMEventsResponse searchRUMEvents(SearchRUMEventsOptionalParameters parameters)
+      throws ApiException {
+    return searchRUMEventsWithHttpInfo(parameters).getData();
   }
 
   /**
@@ -464,11 +366,12 @@ public class RumApi {
    *
    * <p>See {@link #searchRUMEventsWithHttpInfoAsync}.
    *
-   * @param body (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;RUMEventsResponse&gt;
    */
-  public CompletableFuture<RUMEventsResponse> searchRUMEventsAsync(RUMSearchEventsRequest body) {
-    return searchRUMEventsWithHttpInfoAsync(body)
+  public CompletableFuture<RUMEventsResponse> searchRUMEventsAsync(
+      SearchRUMEventsOptionalParameters parameters) {
+    return searchRUMEventsWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -482,7 +385,7 @@ public class RumApi {
    * Use this endpoint to build complex RUM events filtering and search. [1]:
    * https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    *
-   * @param body (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;RUMEventsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -495,15 +398,9 @@ public class RumApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RUMEventsResponse> searchRUMEventsWithHttpInfo(RUMSearchEventsRequest body)
-      throws ApiException {
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling searchRUMEvents");
-    }
+  public ApiResponse<RUMEventsResponse> searchRUMEventsWithHttpInfo(
+      SearchRUMEventsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = parameters.body;
     // create path and map variables
     String localVarPath = "/api/v2/rum/events/search";
 
@@ -534,21 +431,12 @@ public class RumApi {
    *
    * <p>See {@link #searchRUMEventsWithHttpInfo}.
    *
-   * @param body (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;RUMEventsResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RUMEventsResponse>> searchRUMEventsWithHttpInfoAsync(
-      RUMSearchEventsRequest body) {
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      CompletableFuture<ApiResponse<RUMEventsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling searchRUMEvents"));
-      return result;
-    }
+      SearchRUMEventsOptionalParameters parameters) {
+    Object localVarPostBody = parameters.body;
     // create path and map variables
     String localVarPath = "/api/v2/rum/events/search";
 
