@@ -96,7 +96,7 @@ public class {{ name }} {
    * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
    {%- endfor %}
    {%- if returnType %}
-   * @return {{ returnType }}
+   * @return {{ returnType|escape_html }}
    * @throws ApiException if fails to make API call
    {%- endif %}
    {%- if operation.deprecated %}
@@ -120,7 +120,7 @@ public class {{ name }} {
    * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default }}{%- endif %})
    {%- endfor %}
    {%- if returnType %}
-   * @return CompletableFuture&lt;{{ returnType|html_escape }}&gt;
+   * @return CompletableFuture&lt;{{ returnType|escape_html }}&gt;
    {%- endif %}
    {%- if operation.deprecated %}
    * @deprecated
@@ -145,7 +145,7 @@ public class {{ name }} {
    {%- endfor %}
    * @param parameters Optional parameters for the request.
    {%- if returnType %}
-   * @return {{ returnType }}
+   * @return {{ returnType|escape_html }}
    {%- endif %}
    * @throws ApiException if fails to make API call
    {%- if operation.deprecated %}
@@ -169,7 +169,7 @@ public class {{ name }} {
    {%- endfor %}
    * @param parameters Optional parameters for the request.
    {%- if returnType %}
-   * @return CompletableFuture&lt;{{ returnType|html_escape }}&gt;
+   * @return CompletableFuture&lt;{{ returnType|escape_html }}&gt;
    {%- endif %}
    {%- if operation.deprecated %}
    * @deprecated
@@ -197,7 +197,7 @@ public class {{ name }} {
    * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
    {%- endfor %}
    {%- if returnType %}
-   * @return CompletableFuture&lt;{{ returnType|html_escape }}&gt;
+   * @return CompletableFuture&lt;{{ returnType|escape_html }}&gt;
    {%- endif %}
    {%- if operation.deprecated %}
    * @deprecated
@@ -224,7 +224,7 @@ public class {{ name }} {
    {%- if optionalParams %}
    * @param parameters Optional parameters for the request.
    {%- endif %}
-   * @return ApiResponse&lt;{% if returnType %}{{ returnType }}{% else %}Void{% endif %}&gt;
+   * @return ApiResponse&lt;{% if returnType %}{{ returnType|escape_html }}{% else %}Void{% endif %}&gt;
    * @throws ApiException if fails to make API call
    {%- if operation.responses %}
    * @http.response.details
@@ -301,7 +301,7 @@ public class {{ name }} {
    {%- if optionalParams %}
    * @param parameters Optional parameters for the request.
    {%- endif %}
-   * @return CompletableFuture&lt;ApiResponse&lt;{% if returnType %}{{ returnType }}{% else %}Void{% endif %}&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;{% if returnType %}{{ returnType|escape_html }}{% else %}Void{% endif %}&gt;&gt;
    {%- if operation.deprecated %}
    * @deprecated
    {%- endif %}

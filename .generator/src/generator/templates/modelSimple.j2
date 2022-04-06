@@ -1,13 +1,13 @@
 {% include "ApiInfo.j2" %}
 
 /**
- * {{ model.description if model.description else name }}
+ * {{ model.description if model.description else name|escape_html|tojson }}
 {%- if model.deprecated %}* @deprecated{%- endif %}
  */
 {%- if model.deprecated %}
 @Deprecated
 {%- endif %}
-@ApiModel(description = {{ model.description|escape_html }})
+@ApiModel(description = {{ model.description|escape_html|tojson }})
 @JsonPropertyOrder({
 {%- for attr, schema in model.get("properties", {}).items() %}
   {{ name }}.JSON_PROPERTY_{{ attr|snake_case|upper }}{%- if loop.nextitem %},{%- endif %}
@@ -216,7 +216,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
       @javax.annotation.Nullable
     {%- endif %}
 {#- TODO: format example#}
-    @ApiModelProperty({%- if schema.example is defined %}example = {{ schema|format_example }}, {%- endif %}{%- if isRequired %}required = true, {%- endif %}value = {{ schema.description|tojson }})
+    @ApiModelProperty({%- if schema.example is defined %}example = {{ schema|format_example }}, {%- endif %}{%- if isRequired %}required = true, {%- endif %}value = {{ schema.description|escape_html|tojson }})
     {%- if not isRequired and isNullable %}
       @JsonIgnore
     {%- else %}
