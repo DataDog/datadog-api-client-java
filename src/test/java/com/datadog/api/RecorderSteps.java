@@ -156,7 +156,7 @@ public class RecorderSteps {
     // write the cassette
     File cassette =
         new File(
-            Paths.get(TestUtils.APITest.cassettesDir, world.getVersion(), getCassetteName())
+            Paths.get(cassettesDir, world.getVersion(), getCassetteName())
                 .toString());
     cassette.getParentFile().mkdirs();
     if (!cassette.exists()) {
