@@ -20,21 +20,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Attributes of the global variable. */
-@ApiModel(description = "Attributes of the global variable.")
-@JsonPropertyOrder({SyntheticsGlobalVariableAttributes.JSON_PROPERTY_RESTRICTED_ROLES})
+/** Object containing metadata about the private location. */
+@ApiModel(description = "Object containing metadata about the private location.")
+@JsonPropertyOrder({SyntheticsPrivateLocationMetadata.JSON_PROPERTY_RESTRICTED_ROLES})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SyntheticsGlobalVariableAttributes {
+public class SyntheticsPrivateLocationMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
   private List<String> restrictedRoles = null;
 
-  public SyntheticsGlobalVariableAttributes restrictedRoles(List<String> restrictedRoles) {
+  public SyntheticsPrivateLocationMetadata restrictedRoles(List<String> restrictedRoles) {
     this.restrictedRoles = restrictedRoles;
     return this;
   }
 
-  public SyntheticsGlobalVariableAttributes addRestrictedRolesItem(String restrictedRolesItem) {
+  public SyntheticsPrivateLocationMetadata addRestrictedRolesItem(String restrictedRolesItem) {
     if (this.restrictedRoles == null) {
       this.restrictedRoles = new ArrayList<>();
     }
@@ -64,7 +64,7 @@ public class SyntheticsGlobalVariableAttributes {
     this.restrictedRoles = restrictedRoles;
   }
 
-  /** Return true if this SyntheticsGlobalVariableAttributes object is equal to o. */
+  /** Return true if this SyntheticsPrivateLocationMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -73,9 +73,9 @@ public class SyntheticsGlobalVariableAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsGlobalVariableAttributes syntheticsGlobalVariableAttributes =
-        (SyntheticsGlobalVariableAttributes) o;
-    return Objects.equals(this.restrictedRoles, syntheticsGlobalVariableAttributes.restrictedRoles);
+    SyntheticsPrivateLocationMetadata syntheticsPrivateLocationMetadata =
+        (SyntheticsPrivateLocationMetadata) o;
+    return Objects.equals(this.restrictedRoles, syntheticsPrivateLocationMetadata.restrictedRoles);
   }
 
   @Override
@@ -86,7 +86,7 @@ public class SyntheticsGlobalVariableAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsGlobalVariableAttributes {\n");
+    sb.append("class SyntheticsPrivateLocationMetadata {\n");
     sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
     sb.append("}");
     return sb.toString();

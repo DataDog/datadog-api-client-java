@@ -35,6 +35,7 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_MONITOR_OPTIONS,
   SyntheticsTestOptions.JSON_PROPERTY_MONITOR_PRIORITY,
   SyntheticsTestOptions.JSON_PROPERTY_NO_SCREENSHOT,
+  SyntheticsTestOptions.JSON_PROPERTY_RESTRICTED_ROLES,
   SyntheticsTestOptions.JSON_PROPERTY_RETRY,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
 })
@@ -77,6 +78,9 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_NO_SCREENSHOT = "noScreenshot";
   private Boolean noScreenshot;
+
+  public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
+  private List<String> restrictedRoles = null;
 
   public static final String JSON_PROPERTY_RETRY = "retry";
   private SyntheticsTestOptionsRetry retry;
@@ -367,6 +371,41 @@ public class SyntheticsTestOptions {
     this.noScreenshot = noScreenshot;
   }
 
+  public SyntheticsTestOptions restrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = restrictedRoles;
+    return this;
+  }
+
+  public SyntheticsTestOptions addRestrictedRolesItem(String restrictedRolesItem) {
+    if (this.restrictedRoles == null) {
+      this.restrictedRoles = new ArrayList<>();
+    }
+    this.restrictedRoles.add(restrictedRolesItem);
+    return this;
+  }
+
+  /**
+   * A list of role identifiers that can be pulled from the Roles API, for restricting read and
+   * write access.
+   *
+   * @return restrictedRoles
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "[\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"]",
+      value =
+          "A list of role identifiers that can be pulled from the Roles API, for restricting read"
+              + " and write access.")
+  @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getRestrictedRoles() {
+    return restrictedRoles;
+  }
+
+  public void setRestrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = restrictedRoles;
+  }
+
   public SyntheticsTestOptions retry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
     this.unparsed |= retry.unparsed;
@@ -435,6 +474,7 @@ public class SyntheticsTestOptions {
         && Objects.equals(this.monitorOptions, syntheticsTestOptions.monitorOptions)
         && Objects.equals(this.monitorPriority, syntheticsTestOptions.monitorPriority)
         && Objects.equals(this.noScreenshot, syntheticsTestOptions.noScreenshot)
+        && Objects.equals(this.restrictedRoles, syntheticsTestOptions.restrictedRoles)
         && Objects.equals(this.retry, syntheticsTestOptions.retry)
         && Objects.equals(this.tickEvery, syntheticsTestOptions.tickEvery);
   }
@@ -454,6 +494,7 @@ public class SyntheticsTestOptions {
         monitorOptions,
         monitorPriority,
         noScreenshot,
+        restrictedRoles,
         retry,
         tickEvery);
   }
@@ -476,6 +517,7 @@ public class SyntheticsTestOptions {
     sb.append("    monitorOptions: ").append(toIndentedString(monitorOptions)).append("\n");
     sb.append("    monitorPriority: ").append(toIndentedString(monitorPriority)).append("\n");
     sb.append("    noScreenshot: ").append(toIndentedString(noScreenshot)).append("\n");
+    sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    tickEvery: ").append(toIndentedString(tickEvery)).append("\n");
     sb.append("}");
