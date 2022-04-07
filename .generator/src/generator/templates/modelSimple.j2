@@ -14,7 +14,8 @@
 {%- endfor %}
 })
 {{ generated_annotation }}
-public class {{ name }} {#{%- if model.get("x-generate-alias-as-model") %} extends {{ get_type(model) }} {%-endif %} #} {
+{%- set isContainer = model.type in ["array"] %}
+public class {{ name }} {#{%- if model.get("x-generate-alias-as-model") %} extends {%- if isContainer %}{{ get_type(model["items"]) }}{%- else %}{{ get_type(model) }}{%-endif %}{%-endif %}#} {
   @JsonIgnore
   public boolean unparsed = false;
   {%- for attr, schema in model.get("properties", {}).items() %}
