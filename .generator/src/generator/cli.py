@@ -88,6 +88,11 @@ def cli(input, output):
         "StringUtil.java": env.get_template("StringUtil.j2"),
     }
 
+    extra_models = {
+        "AbstractOpenApiSchema.java": env.get_template("AbstractOpenApiSchema.j2"),
+        "UnparsedObject.java": env.get_template("UnparsedObject.j2"),
+    }
+
     auth_files = {
         "ApiKeyAuth.java": env.get_template("auth/ApiKeyAuth.j2"),
         "Authentication.java": env.get_template("auth/Authentication.j2"),
@@ -113,9 +118,14 @@ def cli(input, output):
         filename = auth_path / name
         with filename.open("w") as fp:
             fp.write(template.render())
-    #
+
     model_dir = output / "model"
     model_dir.mkdir(parents=True, exist_ok=True)
+    for name, template in extra_models.items():
+        filename = model_dir / name
+        with filename.open("w") as fp:
+            fp.write(template.render())
+
     for name, model in models.items():
         model_path = model_dir / f"{name}.java"
         with model_path.open("w") as fp:
