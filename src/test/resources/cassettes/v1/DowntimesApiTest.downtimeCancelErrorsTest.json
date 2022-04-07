@@ -1,14 +1,15 @@
 [{
-  "id" : "4608514f-92b4-4ebb-9d64-53011eebc8ef",
+  "id" : "f9e65b39-9406-40b5-b6df-6203683d5a14",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/downtime/1234",
     "headers" : {
-      "Accept" : [ "application/json" ],
+      "Accept" : [ "*/*" ],
       "JAVA-TEST-NAME" : [ "downtimeCancelErrorsTest" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "0" ]
+      "Content-Language" : [ "" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ]
     },
     "keepAlive" : false,
     "secure" : true
@@ -23,26 +24,27 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:21:46 GMT" ],
+      "Date" : [ "Thu, 07 Apr 2022 15:32:26 GMT" ],
       "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Via" : [ "1.1 haproxy" ],
-      "content-length" : [ "170" ]
+      "cache-control" : [ "no-cache" ],
+      "via" : [ "haproxy" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "8f1946e3-b34b-4689-ba3e-e6c720e2312b",
+  "id" : "e4d80277-e6fd-4c4f-8224-a39464169d29",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/downtime/1234",
     "headers" : {
-      "Accept" : [ "application/json" ],
+      "Accept" : [ "*/*" ],
       "JAVA-TEST-NAME" : [ "downtimeCancelErrorsTest" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "0" ]
+      "Content-Language" : [ "" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ]
     },
     "keepAlive" : false,
     "secure" : true
@@ -57,20 +59,22 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:21:47 GMT" ],
+      "Date" : [ "Thu, 07 Apr 2022 15:32:27 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "38" ]
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-remaining" : [ "11976" ],
+      "x-ratelimit-limit" : [ "12000" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "33" ],
+      "vary" : [ "Accept-Encoding" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "39" ]
     },
-    "body" : "{\"errors\":[\"Downtime 1234 not found\"]}"
+    "body" : "{\"errors\": [\"Downtime 1234 not found\"]}"
   }
 }]

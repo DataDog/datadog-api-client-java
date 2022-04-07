@@ -4,7 +4,7 @@
     "method" : "DELETE",
     "path" : "/api/v1/tags/hosts/notahostname1234",
     "headers" : {
-      "Accept" : [ "application/json" ],
+      "Accept" : [ "*/*" ],
       "JAVA-TEST-NAME" : [ "deleteTagsErrorsTest" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
@@ -38,7 +38,7 @@
     "method" : "DELETE",
     "path" : "/api/v1/tags/hosts/notahostname1234",
     "headers" : {
-      "Accept" : [ "application/json" ],
+      "Accept" : [ "*/*" ],
       "JAVA-TEST-NAME" : [ "deleteTagsErrorsTest" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],
