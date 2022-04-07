@@ -77,7 +77,7 @@ public class {{ name }} {
     {%- set paramName = name|variable_name %}
     /**
      * Set {{ paramName }}
-     * @param {{ paramName }} {{ parameter.description|escape_html }} (optional{% if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default }}{% endif %})
+     * @param {{ paramName }} {{ parameter.description|escape_html }} (optional{% if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{% endif %})
      * @return {{ operationId|upperfirst }}OptionalParameters
      */
     public {{ operationId|upperfirst }}OptionalParameters {{ paramName }}({{ get_type_for_parameter(parameter) }} {{ paramName }}) {
@@ -89,7 +89,7 @@ public class {{ name }} {
   {%- endif %}
 
   /**
-   * {{ operation.summary }}
+   * {{ operation.summary|escape_html }}
    *
    * See {@link #{{ operationId }}WithHttpInfo}.
    *
@@ -113,12 +113,12 @@ public class {{ name }} {
   }
 
   /**
-   * {{ operation.summary }}
+   * {{ operation.summary|escape_html }}
    *
    * See {@link #{{ operationId }}WithHttpInfo}.
    *
    {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default }}{%- endif %})
+   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{%- endif %})
    {%- endfor %}
    {%- if returnType %}
    * @return CompletableFuture&lt;{{ returnType|escape_html }}&gt;
@@ -137,7 +137,7 @@ public class {{ name }} {
   }
 
   /**
-   * {{ operation.summary }}
+   * {{ operation.summary|escape_html }}
    *
    * See {@link #{{ operationId }}WithHttpInfo}.
    *
@@ -161,7 +161,7 @@ public class {{ name }} {
   }
 
   /**
-   * {{ operation.summary }}
+   * {{ operation.summary|escape_html }}
    *
    * See {@link #{{ operationId }}WithHttpInfoAsync}.
    *
@@ -190,7 +190,7 @@ public class {{ name }} {
   }
 
   /**
-   * {{ operation.summary }}
+   * {{ operation.summary|escape_html }}
    *
    * See {@link #{{ operationId }}WithHttpInfoAsync}.
    *
@@ -215,7 +215,7 @@ public class {{ name }} {
   {%- endif %}
 
   /**
-   * {{ operation.summary }}
+   * {{ operation.summary|escape_html }}
    *
    * {{ operation.description|escape_html }}
    *
@@ -296,9 +296,9 @@ public class {{ name }} {
   }
 
   /**
-   * {{ operation.summary }}
+   * {{ operation.summary|escape_html }}
    *
-   * See {@link #{{ operationId }}WithHttpInfo}.
+   * See {@link #{{ operationId }}WithHttpInfo.
    *
    {%- for name, parameter in requiredParams %}
    * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
