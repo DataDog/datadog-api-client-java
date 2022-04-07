@@ -280,11 +280,11 @@ public class {{ name }} {
     {%- endif %}
 
     {%- for name, parameter in queryParams %}
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "{{ name }}", {{ name|variable_name }}));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("{{ parameter|collection_format }}", "{{ name }}", {{ name|variable_name }}));
     {%- endfor %}
 
     {%- for name, parameter in headerParams %}
-      localVarHeaderParams.put("{{ name }}", apiClient.parameterToString({{ name|variable_name }}));
+      if ({{ name|variable_name }} != null) localVarHeaderParams.put("{{ name }}", apiClient.parameterToString({{ name|variable_name }}));
     {%- endfor %}
 
     {%- for name, parameter in formParams %}
@@ -352,7 +352,11 @@ public class {{ name }} {
     {%- endif %}
 
     {%- for name, parameter in queryParams %}
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "{{ name }}", {{ name|variable_name }}));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("{{ parameter|collection_format }}", "{{ name }}", {{ name|variable_name }}));
+    {%- endfor %}
+
+    {%- for name, parameter in headerParams %}
+      if ({{ name|variable_name }} != null) localVarHeaderParams.put("{{ name }}", apiClient.parameterToString({{ name|variable_name }}));
     {%- endfor %}
 
     {%- for name, parameter in formParams %}
