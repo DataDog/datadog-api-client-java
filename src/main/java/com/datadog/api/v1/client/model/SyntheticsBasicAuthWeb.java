@@ -43,8 +43,11 @@ public class SyntheticsBasicAuthWeb {
   @JsonCreator
   public SyntheticsBasicAuthWeb(
       @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsBasicAuthWebType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
     this.password = password;
+    this.type = type;
+    this.unparsed |= !type.isValid();
     this.username = username;
   }
 
@@ -59,7 +62,7 @@ public class SyntheticsBasicAuthWeb {
    * @return password
    */
   @ApiModelProperty(
-      example = "PaSSw0RD!",
+      example = "",
       required = true,
       value = "Password to use for the basic authentication.")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
@@ -83,10 +86,9 @@ public class SyntheticsBasicAuthWeb {
    *
    * @return type
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBasicAuthWebType getType() {
     return type;
   }
@@ -109,7 +111,7 @@ public class SyntheticsBasicAuthWeb {
    * @return username
    */
   @ApiModelProperty(
-      example = "my_username",
+      example = "",
       required = true,
       value = "Username to use for the basic authentication.")
   @JsonProperty(JSON_PROPERTY_USERNAME)

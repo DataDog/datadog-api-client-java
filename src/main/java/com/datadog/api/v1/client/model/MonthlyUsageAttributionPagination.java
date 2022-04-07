@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The metadata for the current pagination. */
 @ApiModel(description = "The metadata for the current pagination.")
@@ -26,10 +25,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class MonthlyUsageAttributionPagination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NEXT_RECORD_ID = "next_record_id";
-  private JsonNullable<String> nextRecordId = JsonNullable.<String>undefined();
+  private String nextRecordId;
 
   public MonthlyUsageAttributionPagination nextRecordId(String nextRecordId) {
-    this.nextRecordId = JsonNullable.<String>of(nextRecordId);
+    this.nextRecordId = nextRecordId;
     return this;
   }
 
@@ -44,24 +43,14 @@ public class MonthlyUsageAttributionPagination {
       value =
           "The cursor to use to get the next results, if any. To make the next request, use the"
               + " same parameters with the addition of the `next_record_id`.")
-  @JsonIgnore
-  public String getNextRecordId() {
-    return nextRecordId.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NEXT_RECORD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getNextRecordId_JsonNullable() {
+  public String getNextRecordId() {
     return nextRecordId;
   }
 
-  @JsonProperty(JSON_PROPERTY_NEXT_RECORD_ID)
-  public void setNextRecordId_JsonNullable(JsonNullable<String> nextRecordId) {
-    this.nextRecordId = nextRecordId;
-  }
-
   public void setNextRecordId(String nextRecordId) {
-    this.nextRecordId = JsonNullable.<String>of(nextRecordId);
+    this.nextRecordId = nextRecordId;
   }
 
   /** Return true if this MonthlyUsageAttributionPagination object is equal to o. */
