@@ -64,7 +64,39 @@ public class {{ name }} {
   {%- set operationId = operation.operationId|untitle_case %}
   {%- set bodyParamName = operation.get("x-codegen-request-body-name", "body") %}
 
+{%- macro endpointDocAndAnnotation(async=False, showRequired=True, showOptional=False, optionalParameterArg=False, throwsApiException=True) -%}
+/**
+ * {{ operation.summary|escape_html }}
+ *
+ * See {@link #{{ operationId }}WithHttpInfo{{ "Async" if async }}}.
+ *
+ {%- for name, parameter in allParams %}
+ {%- if parameter.required and showRequired %}
+ * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{%- endif %})
+ {%- elif not parameter.required and showOptional %}
+ * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (optional{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{%- endif %})
+ {%- endif %}
+ {%- endfor %}
+ {%- if optionalParameterArg %}
+ * @param parameters Optional parameters for the request.
+ {%- endif %}
+ {%- if returnType %}
+ * @return {% if async %}CompletableFuture&lt;{{ returnType|escape_html }}&gt;{% else%}{{ returnType|escape_html }}{%endif %}
+ {%- endif %}
+ {%- if throwsApiException %}
+ * @throws ApiException if fails to make API call
+ {%- endif %}
+ {%- if operation.deprecated %}
+ * @deprecated
+ {%- endif %}
+ */
+{%- if operation.deprecated %}
+@Deprecated
+{%- endif %}
+{%- endmacro %}
+
   {%- if optionalParams %}
+
   /**
    * Manage optional parameters to {{ operationId }}.
    */
@@ -75,6 +107,7 @@ public class {{ name }} {
 
     {%- for name, parameter in optionalParams %}
     {%- set paramName = name|variable_name %}
+
     /**
      * Set {{ paramName }}
      * @param {{ paramName }} {{ parameter.description|escape_html }} (optional{% if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{% endif %})
@@ -88,97 +121,25 @@ public class {{ name }} {
   }
   {%- endif %}
 
-  /**
-   * {{ operation.summary|escape_html }}
-   *
-   * See {@link #{{ operationId }}WithHttpInfo}.
-   *
-   {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
-   {%- endfor %}
-   {%- if returnType %}
-   * @return {{ returnType|escape_html }}
-   * @throws ApiException if fails to make API call
-   {%- endif %}
-   {%- if operation.deprecated %}
-   * @deprecated
-   {%- endif %}
-   */
-  {%- if operation.deprecated %}
-  @Deprecated
-  {%- endif %}
+  {{ endpointDocAndAnnotation() }}
   {%- if optionalParams %}
   public {% if returnType %}{{ returnType }}{% else %}void{% endif %} {{ operationId }} ({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
     {% if returnType %}return{% endif %} {{ operationId }}WithHttpInfo({% for name, parameter in requiredParams %} {{ name|variable_name }}, {% endfor %}new {{ operationId|upperfirst }}OptionalParameters()){% if returnType %}.getData(){% endif %};
   }
 
-  /**
-   * {{ operation.summary|escape_html }}
-   *
-   * See {@link #{{ operationId }}WithHttpInfo}.
-   *
-   {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{%- endif %})
-   {%- endfor %}
-   {%- if returnType %}
-   * @return CompletableFuture&lt;{{ returnType|escape_html }}&gt;
-   {%- endif %}
-   {%- if operation.deprecated %}
-   * @deprecated
-   {%- endif %}
-   */
-  {%- if operation.deprecated %}
-  @Deprecated
-  {%- endif %}
+  {{ endpointDocAndAnnotation(async=True, throwsApiException=False) }}
   public CompletableFuture<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>{{ operationId }}Async({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) {
     return {{ operationId }}WithHttpInfoAsync({% for name, parameter in requiredParams %}{{ name|variable_name }}, {% endfor %}new {{ operationId|upperfirst }}OptionalParameters()).thenApply(response -> {
         return response.getData();
     });
   }
 
-  /**
-   * {{ operation.summary|escape_html }}
-   *
-   * See {@link #{{ operationId }}WithHttpInfo}.
-   *
-   {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
-   {%- endfor %}
-   * @param parameters Optional parameters for the request.
-   {%- if returnType %}
-   * @return {{ returnType|escape_html }}
-   {%- endif %}
-   * @throws ApiException if fails to make API call
-   {%- if operation.deprecated %}
-   * @deprecated
-   {%- endif %}
-   */
-  {%- if operation.deprecated %}
-  @Deprecated
-  {%- endif %}
+  {{ endpointDocAndAnnotation(optionalParameterArg=True) }}
   public {% if returnType %}{{ returnType }}{% else %} void{% endif %} {{ operationId }}({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) throws ApiException {
     {% if returnType %}return{% endif %} {{ operationId }}WithHttpInfo({% for name, parameter in requiredParams %}{{ name|variable_name }}, {% endfor %}parameters){% if returnType %}.getData(){% endif %};
   }
 
-  /**
-   * {{ operation.summary|escape_html }}
-   *
-   * See {@link #{{ operationId }}WithHttpInfoAsync}.
-   *
-   {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
-   {%- endfor %}
-   * @param parameters Optional parameters for the request.
-   {%- if returnType %}
-   * @return CompletableFuture&lt;{{ returnType|escape_html }}&gt;
-   {%- endif %}
-   {%- if operation.deprecated %}
-   * @deprecated
-   {%- endif %}
-   */
-  {%- if operation.deprecated %}
-  @Deprecated
-  {%- endif %}
+  {{ endpointDocAndAnnotation(async=True, optionalParameterArg=True, throwsApiException=False) }}
   public CompletableFuture<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>{{ operationId }}Async({% for name, parameter in requiredParams %} {{ get_type_for_parameter(parameter) }} {{ name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) {
     return {{ operationId }}WithHttpInfoAsync({% for name, parameter in requiredParams %}{{ name|variable_name }}, {% endfor %}parameters).thenApply(response -> {
         return response.getData();
@@ -189,24 +150,7 @@ public class {{ name }} {
     {% if returnType %}return {% endif %}{{ operationId }}WithHttpInfo({% for name, parameter in allParams %}{{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}){% if returnType %}.getData(){% endif %};
   }
 
-  /**
-   * {{ operation.summary|escape_html }}
-   *
-   * See {@link #{{ operationId }}WithHttpInfoAsync}.
-   *
-   {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
-   {%- endfor %}
-   {%- if returnType %}
-   * @return CompletableFuture&lt;{{ returnType|escape_html }}&gt;
-   {%- endif %}
-   {%- if operation.deprecated %}
-   * @deprecated
-   {%- endif %}
-   */
-  {%- if operation.deprecated %}
-  @Deprecated
-  {%- endif %}
+  {{ endpointDocAndAnnotation(async=True, throwsApiException=False) }}
   public CompletableFuture<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>{{ operationId }}Async({% for name, parameter in allParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{%- if loop.nextitem %}, {% endif %}{% endfor %}) {
     return {{ operationId }}WithHttpInfoAsync({% for name, parameter in allParams %}{{ name|variable_name }}{%- if loop.nextitem %}, {% endif %}{% endfor %}).thenApply(response -> {
         return response.getData();
@@ -250,9 +194,10 @@ public class {{ name }} {
   public ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}> {{ operationId }}WithHttpInfo({% for name, parameter in allParams %}{{ get_type_for_parameter(parameter) }} {{name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
   {%- endif %}
     Object localVarPostBody = {% if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}{% if operation.requestBody.required %}{{ bodyParamName }}{% else %}parameters.body{% endif %}{% else %}null{% endif %};
-
+{# keep line #}
     {%- for name, parameter in allParams %}
     {%- if parameter.required %}
+
     // verify the required parameter '{{ name|variable_name }}' is set
     if ({{ name|variable_name }} == null) {
       throw new ApiException(400, "Missing the required parameter '{{ name|variable_name }}' when calling {{ operationId }}");
@@ -269,16 +214,14 @@ public class {{ name }} {
       .replaceAll("\\{" + "{{ name }}" + "\\}", apiClient.escapeString({{ name|variable_name }}.toString()))
       {%- endfor %};
 
-    {%- if queryParams %}
-
+    {% if queryParams %}
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     {%- endif %}
-
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     {%- if formParams %}
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
     {%- endif %}
-
+{# keep line #}
     {%- for name, parameter in queryParams %}
     localVarQueryParams.addAll(apiClient.parameterToPairs("{{ parameter|collection_format }}", "{{ name }}", {{ name|variable_name }}));
     {%- endfor %}
@@ -298,7 +241,7 @@ public class {{ name }} {
   /**
    * {{ operation.summary|escape_html }}
    *
-   * See {@link #{{ operationId }}WithHttpInfo.
+   * See {@link #{{ operationId }}WithHttpInfo}.
    *
    {%- for name, parameter in requiredParams %}
    * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
@@ -323,6 +266,7 @@ public class {{ name }} {
 
     {%- for name, parameter in allParams %}
     {%- if parameter.required %}
+
     // verify the required parameter '{{ name|variable_name }}' is set
     if ({{ name|variable_name }} == null) {
         CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> result = new CompletableFuture<>();
@@ -341,16 +285,14 @@ public class {{ name }} {
       .replaceAll("\\{" + "{{ name }}" + "\\}", apiClient.escapeString({{ name|variable_name }}.toString()))
       {%- endfor %};
 
-    {%- if queryParams %}
-
+    {% if queryParams %}
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     {%- endif %}
-
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     {%- if formParams %}
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
     {%- endif %}
-
+{# keep line #}
     {%- for name, parameter in queryParams %}
     localVarQueryParams.addAll(apiClient.parameterToPairs("{{ parameter|collection_format }}", "{{ name }}", {{ name|variable_name }}));
     {%- endfor %}

@@ -1,5 +1,3 @@
-{% include "ApiInfo.j2" %}
-
 /**
  * {{ model.description if model.description else name|escape_html|tojson }}
 {%- if model.deprecated %}* @deprecated{%- endif %}
@@ -26,16 +24,6 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- set isNullable = schema.nullable %}
   {%- set isContainer = schema.type in ["array"] %}
   {%- set defaultValue = schema.get("default", None) %}
-{#-
-  TODO: double check this. Doesn't actually seem to be used
-  {%- if schema.enum is defined %}
-  {%- if isContainer %}
-  {{#mostInnerItems}}
-    {{>modelInnerEnum}}
-  {{/mostInnerItems}}
-  {%- endif %}
-  {%- endif %}
-#}
   public static final String JSON_PROPERTY_{{ attr|snake_case|upper }} = "{{ attr }}";
   {%- if not isRequired and isNullable %}
     {%- if isContainer or schema.additionalProperties is defined %}
@@ -219,7 +207,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
       @javax.annotation.Nullable
     {%- endif %}
 {#- TODO: format example#}
-    @ApiModelProperty({%- if schema.example is defined %}example = {{ schema|format_example }}, {%- endif %}{%- if isRequired %}required = true, {%- endif %}value = {{ schema.description|escape_html|tojson }})
+    @ApiModelProperty({%- if schema.example is defined %}example = {{ schema|format_example }}, {%- endif %}{%- if isRequired %}required = true, {%- endif %}value = {{ schema.description|tojson }})
     {%- if not isRequired and isNullable %}
       @JsonIgnore
     {%- else %}

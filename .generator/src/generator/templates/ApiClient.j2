@@ -117,6 +117,7 @@ public class ApiClient extends JavaTimeFormatter {
   protected String basePath = "{{ default_server.geturl() }}";
   protected String userAgent;
   private static final Logger log = Logger.getLogger(ApiClient.class.getName());
+
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(
     {%- for server in openapi.servers %}
         {%- if loop.first %}
