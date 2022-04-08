@@ -26,6 +26,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SyntheticsPrivateLocation.JSON_PROPERTY_DESCRIPTION,
   SyntheticsPrivateLocation.JSON_PROPERTY_ID,
+  SyntheticsPrivateLocation.JSON_PROPERTY_METADATA,
   SyntheticsPrivateLocation.JSON_PROPERTY_NAME,
   SyntheticsPrivateLocation.JSON_PROPERTY_SECRETS,
   SyntheticsPrivateLocation.JSON_PROPERTY_TAGS
@@ -38,6 +39,9 @@ public class SyntheticsPrivateLocation {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private SyntheticsPrivateLocationMetadata metadata;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -95,6 +99,29 @@ public class SyntheticsPrivateLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
+  }
+
+  public SyntheticsPrivateLocation metadata(SyntheticsPrivateLocationMetadata metadata) {
+    this.metadata = metadata;
+    this.unparsed |= metadata.unparsed;
+    return this;
+  }
+
+  /**
+   * Get metadata
+   *
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsPrivateLocationMetadata getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(SyntheticsPrivateLocationMetadata metadata) {
+    this.metadata = metadata;
   }
 
   public SyntheticsPrivateLocation name(String name) {
@@ -185,6 +212,7 @@ public class SyntheticsPrivateLocation {
     SyntheticsPrivateLocation syntheticsPrivateLocation = (SyntheticsPrivateLocation) o;
     return Objects.equals(this.description, syntheticsPrivateLocation.description)
         && Objects.equals(this.id, syntheticsPrivateLocation.id)
+        && Objects.equals(this.metadata, syntheticsPrivateLocation.metadata)
         && Objects.equals(this.name, syntheticsPrivateLocation.name)
         && Objects.equals(this.secrets, syntheticsPrivateLocation.secrets)
         && Objects.equals(this.tags, syntheticsPrivateLocation.tags);
@@ -192,7 +220,7 @@ public class SyntheticsPrivateLocation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, name, secrets, tags);
+    return Objects.hash(description, id, metadata, name, secrets, tags);
   }
 
   @Override
@@ -201,6 +229,7 @@ public class SyntheticsPrivateLocation {
     sb.append("class SyntheticsPrivateLocation {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    secrets: ").append(toIndentedString(secrets)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
