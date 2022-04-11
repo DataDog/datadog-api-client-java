@@ -17,6 +17,12 @@ def load(filename):
         return JsonRef.replace_refs(yaml.load(fp, Loader=CSafeLoader))
 
 
+def is_model(schema):
+    if "properties" in schema or "oneOf" in schema:
+        return True
+    return False
+
+
 def is_primitive(schema):
     # We resolve enums to ClassName.ENUM so don't treat enum's as primitive
     if schema.get("type") in PRIMITIVE_TYPES and "enum" not in schema:

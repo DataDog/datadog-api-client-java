@@ -55,6 +55,7 @@ def cli(input, output):
     env.filters["upperfirst"] = formatter.upperfirst
     env.filters["variable_name"] = formatter.variable_name
     env.filters["is_primitive"] = openapi.is_primitive
+    env.filters["is_model"] = openapi.is_model
     env.filters["get_required_attributes"] = openapi.get_required_attributes
     env.filters["format_example"] = formatter.format_json_string
     env.filters["escape_html"] = formatter.escape_html

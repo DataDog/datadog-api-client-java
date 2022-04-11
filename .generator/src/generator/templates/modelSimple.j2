@@ -69,7 +69,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
         {%- if schema.enum is defined %}
         this.unparsed |= !{{ variableName }}.isValid();
         {%- endif %}
-        {%- if schema.properties is defined and not schema|is_primitive %}
+        {%- if (schema.properties is defined or schema.oneOf is defined) and not schema|is_primitive %}
         this.unparsed |= {{ variableName }}.unparsed;
         {%- endif %}
         {%- if isNullable %}
@@ -103,14 +103,14 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     this.unparsed |= !{{ variableName }}.isValid();
     {%- endif %}
     {%- endif %}
-    {%- if schema.properties is defined and not schema|is_primitive %}
+    {%- if schema|is_model and not schema|is_primitive %}
     this.unparsed |= {{ variableName }}.unparsed;
     {%- endif %}
     {%- if isNullable %}
     }
     {%- endif %}
     {%- else %}
-    {%- if schema.get("items", {}).properties is defined and not schema|is_primitive %}
+    {%- if schema.get("items")|is_model and not schema|is_primitive %}
     {%- set itemsDataType = get_type(schema.get("items")) %}
     for ({{ itemsDataType }} item : {{ variableName }}) {
       {%- if schema.enum is defined %}
@@ -148,7 +148,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     this.unparsed |= !{{ variableName }}Item.isValid();
     {%-  endif %}
     {%-  endif %}
-    {%- if schema.get("items", {}).properties is defined %}
+    {%- if schema.get("items", {})|is_model %}
     {%- if not schema.get("items", {})|is_primitive %}
     this.unparsed |= {{ variableName }}Item.unparsed;
     {%-  endif %}
