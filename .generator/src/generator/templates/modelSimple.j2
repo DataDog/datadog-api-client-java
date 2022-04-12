@@ -1,11 +1,13 @@
 /**
- * {{ model.description if model.description else name|escape_html|tojson }}
-{%- if model.deprecated %}* @deprecated{%- endif %}
+ * {{ model.description|escape_html if model.description else name }}
+ {%- if model.deprecated %}
+ * @deprecated
+ {%- endif %}
  */
 {%- if model.deprecated %}
 @Deprecated
 {%- endif %}
-@ApiModel(description = {{ model.description|escape_html|tojson }})
+@ApiModel(description = {{ model.description|format_example }})
 @JsonPropertyOrder({
 {%- for attr, schema in model.get("properties", {}).items() %}
   {{ name }}.JSON_PROPERTY_{{ attr|snake_case|upper }}{%- if loop.nextitem %},{%- endif %}
@@ -205,7 +207,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
       @javax.annotation.Nullable
     {%- endif %}
 {#- TODO: format example#}
-    @ApiModelProperty({%- if schema.example is defined %}example = {{ schema|format_example }}, {%- endif %}{%- if isRequired %}required = true, {%- endif %}value = {{ schema.description|tojson }})
+    @ApiModelProperty({%- if schema.example is defined %}example = {{ schema.example|format_example(schema=schema) }}, {%- endif %}{%- if isRequired %}required = true, {%- endif %}value = {{ schema.description|format_example }})
     {%- if not isRequired and isNullable %}
       @JsonIgnore
     {%- else %}
@@ -217,6 +219,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
       public {{ dataType }} get{{ attr|camel_case }}() {
         {%- if not isRequired and isNullable %}
         {%- if schema.get("readOnly", False) %}
+
         if ({{ variableName }} == null) {
           {{ variableName }} = JsonNullable.<{{  dataType }}>{%- if defaultValue != None %}of({{ defaultValue|format_value(schema=schema, default_value=True, type_=dataType) }}){%- else %}undefined(){%- endif%};
         }

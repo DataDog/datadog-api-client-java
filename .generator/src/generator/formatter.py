@@ -229,8 +229,6 @@ def simple_type(schema):
 
 
 def escape_html(text):
-    if isinstance(text, dict):
-        import pdb; pdb.set_trace()
     if not text:
         return ""
     text = " ".join(text.splitlines())
@@ -238,13 +236,15 @@ def escape_html(text):
 
 
 # TODO: clean this up it is messy right now
-def format_json_string(schema):
-    example = schema.get("example")
-    if schema.get("type") == "boolean":
-        return f"\"{example}\"".lower()
-    if type(example) in [int, float]:
-        return f"\"{example}\""
+def format_json_string(example, schema=None):
+    if schema:
+        if schema.get("type") == "boolean":
+            return f"\"{example}\"".lower()
     if type(example) in [list, dict]:
-        res = json.dumps(example).replace('"', '\\"')
+        res = json.dumps(example, separators=(',', ':')).replace('\\n', " ").replace('"', '\\"')
         return f"\"{res}\""
-    return json.dumps(example)
+    if type(example) == str:
+        example = re.sub(r"(?<!\\)(\n)", " ", example)
+        example = re.sub(r"(?<!\\)(\")", r"\\\1", example)
+        return f"\"{example}\""
+    return f"\"{example}\""
