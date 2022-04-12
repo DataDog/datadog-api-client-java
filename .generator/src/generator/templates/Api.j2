@@ -194,7 +194,6 @@ public class {{ name }} {
   public ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}> {{ operationId }}WithHttpInfo({% for name, parameter in allParams %}{{ get_type_for_parameter(parameter) }} {{name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
   {%- endif %}
     Object localVarPostBody = {% if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}{% if operation.requestBody.required %}{{ bodyParamName }}{% else %}parameters.body{% endif %}{% else %}null{% endif %};
-{# keep line #}
     {%- for name, parameter in allParams %}
     {%- if parameter.required %}
 
