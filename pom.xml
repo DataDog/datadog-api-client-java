@@ -348,7 +348,6 @@
                     </filters>
                     <artifactSet>
                         <includes>
-                            <include>io.swagger:swagger-annotations</include>
                             <include>org.glassfish.jersey.core:jersey-client</include>
                             <include>jakarta.ws.rs:jakarta.ws.rs-api</include>
                             <include>org.glassfish.jersey.core:jersey-common</include>
@@ -377,10 +376,6 @@
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                     </transformers>
                     <relocations>
-                        <relocation>
-                            <pattern>io.swagger</pattern>
-                            <shadedPattern>com.datadoghq.io.swagger</shadedPattern>
-                        </relocation>
                         <relocation>
                             <pattern>org.glassfish.jersey</pattern>
                             <shadedPattern>com.datadoghq.org.glassfish.jersey</shadedPattern>
@@ -423,12 +418,6 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>${swagger-annotations-version}</version>
-        </dependency>
-
         <!-- @Nullable annotation -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
@@ -585,7 +574,6 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <swagger-annotations-version>1.6.5</swagger-annotations-version>
         <jersey-version>2.35</jersey-version>
         <jackson-version>2.13.2</jackson-version>
         <jackson-databind-version>2.13.2.2</jackson-databind-version>
