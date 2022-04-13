@@ -108,7 +108,30 @@ PATTERN_FOLLOWING_ALPHA = re.compile(r"([a-z0-9])([A-Z])")
 PATTERN_WHITESPACE = re.compile(r"\W")
 
 
+# TODO: revisit this and find permanent solution
+# Edge cases to maintain backward compatibility with Openapi generator
+SNAKE_CASE_EDGE_CASES = {
+    "CN": "C_N",
+    "OU": "O_U",
+    "ST": "S_T",
+    "C": "C",
+    "O": "O",
+    "L": "L",
+    "logs_indexed_3day_sum": "logs_indexed3day_sum",
+    "logs_indexed_7day_sum": "logs_indexed7day_sum",
+    "logs_indexed_15day_sum": "logs_indexed15day_sum",
+    "logs_indexed_30day_sum": "logs_indexed30day_sum",
+    "logs_indexed_45day_sum": "logs_indexed45day_sum",
+    "logs_indexed_60day_sum": "logs_indexed60day_sum",
+    "logs_indexed_90day_sum": "logs_indexed90day_sum",
+    "logs_indexed_180day_sum": "logs_indexed180day_sum",
+}
+
+
 def snake_case(value):
+    if value in SNAKE_CASE_EDGE_CASES:
+        return SNAKE_CASE_EDGE_CASES[value]
+
     s1 = PATTERN_LEADING_ALPHA.sub(r"\1_\2", value)
     s1 = PATTERN_FOLLOWING_ALPHA.sub(r"\1_\2", s1).lower()
     s1 = PATTERN_WHITESPACE.sub("_", s1)
@@ -128,7 +151,7 @@ def block_comment(comment, prefix="#", first_line=True):
 
 
 def camel_case(value):
-    return "".join(upperfirst(x) for x in snake_case(value).split("_"))
+    return "".join(upperfirst(x) if idx != 0 else x for idx, x in enumerate(snake_case(value).split("_")))
 
 
 def untitle_case(value):
@@ -159,11 +182,11 @@ def escape_reserved_keyword(word):
 
 
 def attribute_name(attribute):
-    return escape_reserved_keyword(snake_case(attribute))
+    return escape_reserved_keyword(upperfirst(snake_case(attribute)))
 
 
 def variable_name(attribute):
-    return escape_reserved_keyword(untitle_case(camel_case(attribute)))
+    return escape_reserved_keyword((camel_case(attribute)))
 
 
 def format_value(value, quotes='"', schema=None, default_value=False, type_=None):

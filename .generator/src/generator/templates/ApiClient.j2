@@ -136,7 +136,7 @@ public class ApiClient extends JavaTimeFormatter {
     {%- for operation in path.values() %}
     {%- for server in operation.servers %}
         {%- if loop.first %}
-        put("{{ operation.tags[0].replace(" ", "")|camel_case }}Api.{{ operation.operationId|untitle_case }}", new ArrayList<ServerConfiguration>(Arrays.asList(
+        put("{{ operation.tags[0].replace(" ", "")|camel_case|upperfirst }}Api.{{ operation.operationId|untitle_case }}", new ArrayList<ServerConfiguration>(Arrays.asList(
         {%- endif %}
             {{ server_configuration(server) }}{% if loop.nextitem %},{% endif %}
         {%- if loop.last %}

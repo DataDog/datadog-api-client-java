@@ -135,7 +135,7 @@ def cli(input, output):
     api_dir = output / "api"
     api_dir.mkdir(parents=True, exist_ok=True)
     for name, operations in apis.items():
-        api_name = formatter.camel_case(name) + "Api"
+        api_name = formatter.upperfirst(formatter.camel_case(name)) + "Api"
         filename = api_dir / f"{api_name}.java"
         with filename.open("w") as fp:
             fp.write(api_j2.render(name=api_name, operations=operations))
