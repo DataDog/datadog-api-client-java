@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** An Object of metric units. */
-@ApiModel(description = "An Object of metric units.")
 @JsonPropertyOrder({
   SLOHistoryMetricsSeriesMetadataUnit.JSON_PROPERTY_FAMILY,
   SLOHistoryMetricsSeriesMetadataUnit.JSON_PROPERTY_ID,
@@ -62,10 +59,6 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    * @return family
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`,"
-              + " and `bit` units.")
   @JsonProperty(JSON_PROPERTY_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFamily() {
@@ -87,7 +80,6 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the metric unit.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -109,7 +101,6 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The unit of the metric, for instance `byte`.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -131,7 +122,6 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    * @return plural
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The plural Unit of metric, for instance `bytes`.")
   @JsonIgnore
   public String getPlural() {
     return plural.orElse(null);
@@ -163,7 +153,6 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    * @return scaleFactor
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The scale factor of metric unit, for instance `1.0`.")
   @JsonProperty(JSON_PROPERTY_SCALE_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getScaleFactor() {
@@ -185,8 +174,6 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    * @return shortName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "A shorter and abbreviated version of the metric unit, for instance `B`.")
   @JsonIgnore
   public String getShortName() {
     return shortName.orElse(null);

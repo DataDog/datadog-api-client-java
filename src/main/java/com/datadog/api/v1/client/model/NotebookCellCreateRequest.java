@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The description of a notebook cell create request. */
-@ApiModel(description = "The description of a notebook cell create request.")
 @JsonPropertyOrder({
   NotebookCellCreateRequest.JSON_PROPERTY_ATTRIBUTES,
   NotebookCellCreateRequest.JSON_PROPERTY_TYPE
@@ -58,7 +55,6 @@ public class NotebookCellCreateRequest {
    *
    * @return attributes
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NotebookCellCreateRequestAttributes getAttributes() {
@@ -80,7 +76,6 @@ public class NotebookCellCreateRequest {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NotebookCellResourceType getType() {

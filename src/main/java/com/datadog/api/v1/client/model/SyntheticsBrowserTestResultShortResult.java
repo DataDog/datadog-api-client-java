@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object with the result of the last browser test run. */
-@ApiModel(description = "Object with the result of the last browser test run.")
 @JsonPropertyOrder({
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_DEVICE,
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_DURATION,
@@ -57,7 +54,6 @@ public class SyntheticsBrowserTestResultShortResult {
    * @return device
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsDevice getDevice() {
@@ -79,7 +75,6 @@ public class SyntheticsBrowserTestResultShortResult {
    * @return duration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Length in milliseconds of the browser test run.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDuration() {
@@ -101,7 +96,6 @@ public class SyntheticsBrowserTestResultShortResult {
    * @return errorCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Amount of errors collected for a single browser test run.")
   @JsonProperty(JSON_PROPERTY_ERROR_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getErrorCount() {
@@ -123,7 +117,6 @@ public class SyntheticsBrowserTestResultShortResult {
    * @return stepCountCompleted
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Amount of browser test steps completed before failing.")
   @JsonProperty(JSON_PROPERTY_STEP_COUNT_COMPLETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStepCountCompleted() {
@@ -145,7 +138,6 @@ public class SyntheticsBrowserTestResultShortResult {
    * @return stepCountTotal
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total amount of browser test steps.")
   @JsonProperty(JSON_PROPERTY_STEP_COUNT_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStepCountTotal() {

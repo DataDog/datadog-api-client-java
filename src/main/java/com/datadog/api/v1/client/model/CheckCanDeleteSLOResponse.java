@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 /** A service level objective response containing the requested object. */
-@ApiModel(description = "A service level objective response containing the requested object.")
 @JsonPropertyOrder({
   CheckCanDeleteSLOResponse.JSON_PROPERTY_DATA,
   CheckCanDeleteSLOResponse.JSON_PROPERTY_ERRORS
@@ -47,7 +44,6 @@ public class CheckCanDeleteSLOResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CheckCanDeleteSLOResponseData getData() {
@@ -77,7 +73,6 @@ public class CheckCanDeleteSLOResponse {
    * @return errors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A mapping of SLO id to it's current usages.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getErrors() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object describing the retry strategy to apply to a Synthetic test. */
-@ApiModel(description = "Object describing the retry strategy to apply to a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
   SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
@@ -44,10 +41,6 @@ public class SyntheticsTestOptionsRetry {
    * @return count
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Number of times a test needs to be retried before marking a location as failed."
-              + " Defaults to 0.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCount() {
@@ -69,7 +62,6 @@ public class SyntheticsTestOptionsRetry {
    * @return interval
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time interval between retries (in milliseconds). Defaults to 300ms.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getInterval() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Permission object. */
-@ApiModel(description = "Permission object.")
 @JsonPropertyOrder({
   Permission.JSON_PROPERTY_ATTRIBUTES,
   Permission.JSON_PROPERTY_ID,
@@ -59,7 +56,6 @@ public class Permission {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PermissionAttributes getAttributes() {
@@ -81,7 +77,6 @@ public class Permission {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the permission.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -103,7 +98,6 @@ public class Permission {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public PermissionsType getType() {

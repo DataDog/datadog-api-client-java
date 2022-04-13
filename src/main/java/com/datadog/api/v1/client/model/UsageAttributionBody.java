@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +21,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Usage Summary by tag for a given organization. */
-@ApiModel(description = "Usage Summary by tag for a given organization.")
 @JsonPropertyOrder({
   UsageAttributionBody.JSON_PROPERTY_MONTH,
   UsageAttributionBody.JSON_PROPERTY_ORG_NAME,
@@ -68,7 +65,6 @@ public class UsageAttributionBody {
    * @return month
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM].")
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getMonth() {
@@ -90,7 +86,6 @@ public class UsageAttributionBody {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the organization.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -112,7 +107,6 @@ public class UsageAttributionBody {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -136,10 +130,6 @@ public class UsageAttributionBody {
    * @return tagConfigSource
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The source of the usage attribution tag configuration and the selected tags in the"
-              + " format `<source_org_name>:<selected tag 1>-<selected tag 2>-<selected tag 3>`.")
   @JsonProperty(JSON_PROPERTY_TAG_CONFIG_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagConfigSource() {
@@ -169,7 +159,6 @@ public class UsageAttributionBody {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Usage Summary by tag name.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getTags() {
@@ -192,10 +181,6 @@ public class UsageAttributionBody {
    * @return updatedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the the most recent hour in the current months for all organizations for which"
-              + " all usages were calculated.")
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUpdatedAt() {
@@ -218,7 +203,6 @@ public class UsageAttributionBody {
    * @return values
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageAttributionValues getValues() {

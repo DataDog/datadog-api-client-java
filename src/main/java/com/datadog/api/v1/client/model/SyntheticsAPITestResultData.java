@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 /** Object containing results for your Synthetic API test. */
-@ApiModel(description = "Object containing results for your Synthetic API test.")
 @JsonPropertyOrder({
   SyntheticsAPITestResultData.JSON_PROPERTY_CERT,
   SyntheticsAPITestResultData.JSON_PROPERTY_EVENT_TYPE,
@@ -75,7 +72,6 @@ public class SyntheticsAPITestResultData {
    * @return cert
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsSSLCertificate getCert() {
@@ -98,7 +94,6 @@ public class SyntheticsAPITestResultData {
    * @return eventType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestProcessStatus getEventType() {
@@ -124,7 +119,6 @@ public class SyntheticsAPITestResultData {
    * @return failure
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FAILURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsApiTestResultFailure getFailure() {
@@ -146,7 +140,6 @@ public class SyntheticsAPITestResultData {
    * @return httpStatusCode
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The API test HTTP status code.")
   @JsonProperty(JSON_PROPERTY_HTTP_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getHttpStatusCode() {
@@ -176,7 +169,6 @@ public class SyntheticsAPITestResultData {
    * @return requestHeaders
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Request header object used for the API test.")
   @JsonProperty(JSON_PROPERTY_REQUEST_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Object> getRequestHeaders() {
@@ -198,7 +190,6 @@ public class SyntheticsAPITestResultData {
    * @return responseBody
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Response body returned for the API test.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResponseBody() {
@@ -229,7 +220,6 @@ public class SyntheticsAPITestResultData {
    * @return responseHeaders
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Response headers returned for the API test.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Object> getResponseHeaders() {
@@ -251,7 +241,6 @@ public class SyntheticsAPITestResultData {
    * @return responseSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Global size in byte of the API test response.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getResponseSize() {
@@ -274,7 +263,6 @@ public class SyntheticsAPITestResultData {
    * @return timings
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIMINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTiming getTimings() {

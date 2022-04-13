@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * The host map widget graphs any metric across your hosts using the same visualization available
  * from the main Host Map page.
  */
-@ApiModel(
-    description =
-        "The host map widget graphs any metric across your hosts using the same visualization"
-            + " available from the main Host Map page.")
 @JsonPropertyOrder({
   HostMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   HostMapWidgetDefinition.JSON_PROPERTY_GROUP,
@@ -122,7 +116,6 @@ public class HostMapWidgetDefinition {
    * @return customLinks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -152,7 +145,6 @@ public class HostMapWidgetDefinition {
    * @return group
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of tag prefixes to group by.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroup() {
@@ -174,7 +166,6 @@ public class HostMapWidgetDefinition {
    * @return noGroupHosts
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the hosts that don’t fit in a group.")
   @JsonProperty(JSON_PROPERTY_NO_GROUP_HOSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNoGroupHosts() {
@@ -196,7 +187,6 @@ public class HostMapWidgetDefinition {
    * @return noMetricHosts
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the hosts with no metrics.")
   @JsonProperty(JSON_PROPERTY_NO_METRIC_HOSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNoMetricHosts() {
@@ -219,7 +209,6 @@ public class HostMapWidgetDefinition {
    * @return nodeType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NODE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetNodeType getNodeType() {
@@ -244,7 +233,6 @@ public class HostMapWidgetDefinition {
    * @return notes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Notes on the title.")
   @JsonProperty(JSON_PROPERTY_NOTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNotes() {
@@ -266,7 +254,6 @@ public class HostMapWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public HostMapWidgetDefinitionRequests getRequests() {
@@ -296,7 +283,6 @@ public class HostMapWidgetDefinition {
    * @return scope
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of tags used to filter the map.")
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getScope() {
@@ -319,7 +305,6 @@ public class HostMapWidgetDefinition {
    * @return style
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMapWidgetDefinitionStyle getStyle() {
@@ -341,7 +326,6 @@ public class HostMapWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -364,7 +348,6 @@ public class HostMapWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -389,7 +372,6 @@ public class HostMapWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -411,7 +393,6 @@ public class HostMapWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public HostMapWidgetDefinitionType getType() {

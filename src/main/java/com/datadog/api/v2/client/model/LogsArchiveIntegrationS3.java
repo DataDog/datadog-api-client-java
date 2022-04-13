@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The S3 Archive&#39;s integration destination. */
-@ApiModel(description = "The S3 Archive's integration destination.")
 @JsonPropertyOrder({
   LogsArchiveIntegrationS3.JSON_PROPERTY_ACCOUNT_ID,
   LogsArchiveIntegrationS3.JSON_PROPERTY_ROLE_NAME
@@ -54,10 +51,6 @@ public class LogsArchiveIntegrationS3 {
    *
    * @return accountId
    */
-  @ApiModelProperty(
-      example = "123456789012",
-      required = true,
-      value = "The account ID for the integration.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAccountId() {
@@ -78,7 +71,6 @@ public class LogsArchiveIntegrationS3 {
    *
    * @return roleName
    */
-  @ApiModelProperty(example = "role-name", required = true, value = "The path of the integration.")
   @JsonProperty(JSON_PROPERTY_ROLE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getRoleName() {

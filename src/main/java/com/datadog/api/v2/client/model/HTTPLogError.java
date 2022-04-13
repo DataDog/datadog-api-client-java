@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** List of errors. */
-@ApiModel(description = "List of errors.")
 @JsonPropertyOrder({
   HTTPLogError.JSON_PROPERTY_DETAIL,
   HTTPLogError.JSON_PROPERTY_STATUS,
@@ -48,7 +45,6 @@ public class HTTPLogError {
    * @return detail
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Malformed payload", value = "Error message.")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDetail() {
@@ -70,7 +66,6 @@ public class HTTPLogError {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "400", value = "Error code.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -92,7 +87,6 @@ public class HTTPLogError {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Bad Request", value = "Error title.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {

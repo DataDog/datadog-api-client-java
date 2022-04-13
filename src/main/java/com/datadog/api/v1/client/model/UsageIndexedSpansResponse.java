@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** A response containing indexed spans usage. */
-@ApiModel(description = "A response containing indexed spans usage.")
 @JsonPropertyOrder({UsageIndexedSpansResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageIndexedSpansResponse {
@@ -52,8 +49,6 @@ public class UsageIndexedSpansResponse {
    * @return usage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Array with the number of hourly traces indexed for a given organization.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageIndexedSpansHour> getUsage() {

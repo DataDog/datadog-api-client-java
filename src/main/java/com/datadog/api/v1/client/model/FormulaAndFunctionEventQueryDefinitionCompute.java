@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Compute options. */
-@ApiModel(description = "Compute options.")
 @JsonPropertyOrder({
   FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_AGGREGATION,
   FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_INTERVAL,
@@ -60,7 +57,6 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
    *
    * @return aggregation
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FormulaAndFunctionEventAggregation getAggregation() {
@@ -85,7 +81,6 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
    * @return interval
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "60000", value = "A time interval in milliseconds.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInterval() {
@@ -107,7 +102,6 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
    * @return metric
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "@duration", value = "Measurable attribute to compute.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {

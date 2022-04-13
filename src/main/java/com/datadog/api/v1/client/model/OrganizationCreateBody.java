@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object describing an organization to create. */
-@ApiModel(description = "Object describing an organization to create.")
 @JsonPropertyOrder({
   OrganizationCreateBody.JSON_PROPERTY_BILLING,
   OrganizationCreateBody.JSON_PROPERTY_NAME,
@@ -60,7 +57,6 @@ public class OrganizationCreateBody {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationBilling getBilling() {
@@ -81,10 +77,6 @@ public class OrganizationCreateBody {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "New child org",
-      required = true,
-      value = "The name of the new child-organization, limited to 32 characters.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -109,7 +101,6 @@ public class OrganizationCreateBody {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationSubscription getSubscription() {

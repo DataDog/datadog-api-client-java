@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** An application key with its associated metadata. */
-@ApiModel(description = "An application key with its associated metadata.")
 @JsonPropertyOrder({
   ApplicationKey.JSON_PROPERTY_HASH,
   ApplicationKey.JSON_PROPERTY_NAME,
@@ -43,9 +40,6 @@ public class ApplicationKey {
    * @return hash
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1234512345123459cda4eb9ced49a3d84fd0138c",
-      value = "Hash of an application key.")
   @JsonProperty(JSON_PROPERTY_HASH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHash() {
@@ -63,7 +57,6 @@ public class ApplicationKey {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example user", value = "Name of an application key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -80,7 +73,6 @@ public class ApplicationKey {
    * @return owner
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example.com", value = "Owner of an application key.")
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOwner() {

@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response for a list of application keys. */
-@ApiModel(description = "Response for a list of application keys.")
 @JsonPropertyOrder({
   ListApplicationKeysResponse.JSON_PROPERTY_DATA,
   ListApplicationKeysResponse.JSON_PROPERTY_INCLUDED
@@ -58,7 +55,6 @@ public class ListApplicationKeysResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of application keys.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PartialApplicationKey> getData() {
@@ -93,7 +89,6 @@ public class ListApplicationKeysResponse {
    * @return included
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of objects related to the application key.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ApplicationKeyResponseIncludedItem> getIncluded() {

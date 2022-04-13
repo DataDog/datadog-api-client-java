@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Paging attributes for listing events. */
-@ApiModel(description = "Paging attributes for listing events.")
 @JsonPropertyOrder({
   AuditLogsQueryPageOptions.JSON_PROPERTY_CURSOR,
   AuditLogsQueryPageOptions.JSON_PROPERTY_LIMIT
@@ -44,10 +41,6 @@ public class AuditLogsQueryPageOptions {
    * @return cursor
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
-      value = "List following results with a cursor provided in the previous query.")
   @JsonProperty(JSON_PROPERTY_CURSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCursor() {
@@ -69,7 +62,6 @@ public class AuditLogsQueryPageOptions {
    * @return limit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "25", value = "Maximum number of events in the response.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getLimit() {

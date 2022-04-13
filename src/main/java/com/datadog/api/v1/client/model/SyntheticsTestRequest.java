@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 /** Object describing the Synthetic test request. */
-@ApiModel(description = "Object describing the Synthetic test request.")
 @JsonPropertyOrder({
   SyntheticsTestRequest.JSON_PROPERTY_ALLOW_INSECURE,
   SyntheticsTestRequest.JSON_PROPERTY_BASIC_AUTH,
@@ -118,8 +115,6 @@ public class SyntheticsTestRequest {
    * @return allowInsecure
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Allows loading insecure content for an HTTP request in a multistep test step.")
   @JsonProperty(JSON_PROPERTY_ALLOW_INSECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowInsecure() {
@@ -142,7 +137,6 @@ public class SyntheticsTestRequest {
    * @return basicAuth
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BASIC_AUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBasicAuth getBasicAuth() {
@@ -164,7 +158,6 @@ public class SyntheticsTestRequest {
    * @return body
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Body to include in the test.")
   @JsonProperty(JSON_PROPERTY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBody() {
@@ -187,7 +180,6 @@ public class SyntheticsTestRequest {
    * @return certificate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequestCertificate getCertificate() {
@@ -209,7 +201,6 @@ public class SyntheticsTestRequest {
    * @return dnsServer
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "DNS server to use for DNS tests.")
   @JsonProperty(JSON_PROPERTY_DNS_SERVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDnsServer() {
@@ -231,7 +222,6 @@ public class SyntheticsTestRequest {
    * @return dnsServerPort
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "DNS server port to use for DNS tests.")
   @JsonProperty(JSON_PROPERTY_DNS_SERVER_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getDnsServerPort() {
@@ -253,7 +243,6 @@ public class SyntheticsTestRequest {
    * @return followRedirects
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies whether or not the request follows redirects.")
   @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getFollowRedirects() {
@@ -283,7 +272,6 @@ public class SyntheticsTestRequest {
    * @return headers
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Headers to include when performing the test.")
   @JsonProperty(JSON_PROPERTY_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getHeaders() {
@@ -305,7 +293,6 @@ public class SyntheticsTestRequest {
    * @return host
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Host name to perform the test with.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -327,7 +314,6 @@ public class SyntheticsTestRequest {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Message to send for UDP or WebSocket tests.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -350,7 +336,6 @@ public class SyntheticsTestRequest {
    * @return method
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HTTPMethod getMethod() {
@@ -375,7 +360,6 @@ public class SyntheticsTestRequest {
    * @return noSavingResponseBody
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Determines whether or not to save the response body.")
   @JsonProperty(JSON_PROPERTY_NO_SAVING_RESPONSE_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNoSavingResponseBody() {
@@ -397,7 +381,6 @@ public class SyntheticsTestRequest {
    * @return numberOfPackets
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of pings to use per test.")
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_PACKETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getNumberOfPackets() {
@@ -419,7 +402,6 @@ public class SyntheticsTestRequest {
    * @return port
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Port to use when performing the test.")
   @JsonProperty(JSON_PROPERTY_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPort() {
@@ -442,7 +424,6 @@ public class SyntheticsTestRequest {
    * @return proxy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROXY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequestProxy getProxy() {
@@ -464,7 +445,6 @@ public class SyntheticsTestRequest {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query to use for the test.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Object getQuery() {
@@ -488,11 +468,6 @@ public class SyntheticsTestRequest {
    * @return servername
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "For SSL tests, it specifies on which server you want to initiate the TLS handshake,"
-              + " allowing the server to present one of multiple possible certificates on the same"
-              + " IP address and TCP port number.")
   @JsonProperty(JSON_PROPERTY_SERVERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getServername() {
@@ -514,10 +489,6 @@ public class SyntheticsTestRequest {
    * @return shouldTrackHops
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Turns on a traceroute probe to discover all gateways along the path to the host"
-              + " destination.")
   @JsonProperty(JSON_PROPERTY_SHOULD_TRACK_HOPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShouldTrackHops() {
@@ -539,7 +510,6 @@ public class SyntheticsTestRequest {
    * @return timeout
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timeout in seconds for the test.")
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTimeout() {
@@ -561,7 +531,6 @@ public class SyntheticsTestRequest {
    * @return url
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://example.com", value = "URL to perform the test with.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The S3 archive destination. */
-@ApiModel(description = "The S3 archive destination.")
 @JsonPropertyOrder({
   LogsArchiveDestinationS3.JSON_PROPERTY_BUCKET,
   LogsArchiveDestinationS3.JSON_PROPERTY_INTEGRATION,
@@ -68,10 +65,6 @@ public class LogsArchiveDestinationS3 {
    *
    * @return bucket
    */
-  @ApiModelProperty(
-      example = "bucket-name",
-      required = true,
-      value = "The bucket where the archive will be stored.")
   @JsonProperty(JSON_PROPERTY_BUCKET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getBucket() {
@@ -93,7 +86,6 @@ public class LogsArchiveDestinationS3 {
    *
    * @return integration
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INTEGRATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsArchiveIntegrationS3 getIntegration() {
@@ -115,7 +107,6 @@ public class LogsArchiveDestinationS3 {
    * @return path
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The archive path.")
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPath() {
@@ -137,7 +128,6 @@ public class LogsArchiveDestinationS3 {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsArchiveDestinationS3Type getType() {

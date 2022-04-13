@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The request for a logs list. */
-@ApiModel(description = "The request for a logs list.")
 @JsonPropertyOrder({
   LogsListRequest.JSON_PROPERTY_FILTER,
   LogsListRequest.JSON_PROPERTY_OPTIONS,
@@ -53,7 +50,6 @@ public class LogsListRequest {
    * @return filter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsQueryFilter getFilter() {
@@ -76,7 +72,6 @@ public class LogsListRequest {
    * @return options
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsQueryOptions getOptions() {
@@ -99,7 +94,6 @@ public class LogsListRequest {
    * @return page
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsListRequestPage getPage() {
@@ -122,7 +116,6 @@ public class LogsListRequest {
    * @return sort
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsSort getSort() {

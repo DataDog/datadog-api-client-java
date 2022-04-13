@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object describing the logs filter. */
-@ApiModel(description = "Object describing the logs filter.")
 @JsonPropertyOrder({
   LogsCategoryProcessorCategory.JSON_PROPERTY_FILTER,
   LogsCategoryProcessorCategory.JSON_PROPERTY_NAME
@@ -45,7 +42,6 @@ public class LogsCategoryProcessorCategory {
    * @return filter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsFilter getFilter() {
@@ -67,7 +63,6 @@ public class LogsCategoryProcessorCategory {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Value to assign to the target attribute.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

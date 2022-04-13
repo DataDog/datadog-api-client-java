@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The objects used to set an AWS tag filter. */
-@ApiModel(description = "The objects used to set an AWS tag filter.")
 @JsonPropertyOrder({
   AWSTagFilterCreateRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSTagFilterCreateRequest.JSON_PROPERTY_NAMESPACE,
@@ -48,7 +45,6 @@ public class AWSTagFilterCreateRequest {
    * @return accountId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1234567", value = "Your AWS Account ID without dashes.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountId() {
@@ -71,7 +67,6 @@ public class AWSTagFilterCreateRequest {
    * @return namespace
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AWSNamespace getNamespace() {
@@ -96,7 +91,6 @@ public class AWSTagFilterCreateRequest {
    * @return tagFilterStr
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "prod*", value = "The tag filter string.")
   @JsonProperty(JSON_PROPERTY_TAG_FILTER_STR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagFilterStr() {

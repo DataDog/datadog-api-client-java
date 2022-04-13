@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing the definition of a metric&#39;s tags. */
-@ApiModel(description = "Object containing the definition of a metric's tags.")
 @JsonPropertyOrder({MetricAllTagsAttributes.JSON_PROPERTY_TAGS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MetricAllTagsAttributes {
@@ -48,9 +45,6 @@ public class MetricAllTagsAttributes {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"sport:golf\",\"sport:football\",\"animal:dog\"]",
-      value = "List of indexed tag value pairs.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

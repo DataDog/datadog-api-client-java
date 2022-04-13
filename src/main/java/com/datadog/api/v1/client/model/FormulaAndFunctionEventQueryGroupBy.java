@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** List of objects used to group by. */
-@ApiModel(description = "List of objects used to group by.")
 @JsonPropertyOrder({
   FormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_FACET,
   FormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_LIMIT,
@@ -56,7 +53,6 @@ public class FormulaAndFunctionEventQueryGroupBy {
    *
    * @return facet
    */
-  @ApiModelProperty(example = "status.", required = true, value = "Event facet.")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getFacet() {
@@ -78,7 +74,6 @@ public class FormulaAndFunctionEventQueryGroupBy {
    * @return limit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10", value = "Number of groups to return.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -101,7 +96,6 @@ public class FormulaAndFunctionEventQueryGroupBy {
    * @return sort
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionEventQueryGroupBySort getSort() {

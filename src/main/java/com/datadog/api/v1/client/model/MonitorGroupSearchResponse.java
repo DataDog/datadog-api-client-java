@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import java.util.Objects;
 
 /** The response of a monitor group search. */
-@ApiModel(description = "The response of a monitor group search.")
 @JsonPropertyOrder({
   MonitorGroupSearchResponse.JSON_PROPERTY_COUNTS,
   MonitorGroupSearchResponse.JSON_PROPERTY_GROUPS,
@@ -50,7 +47,6 @@ public class MonitorGroupSearchResponse {
    * @return counts
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorGroupSearchResponseCounts getCounts() {
@@ -67,7 +63,6 @@ public class MonitorGroupSearchResponse {
    * @return groups
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list of found monitor groups.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorGroupSearchResult> getGroups() {
@@ -86,7 +81,6 @@ public class MonitorGroupSearchResponse {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorSearchResponseMetadata getMetadata() {

@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on
  * screenboards and timeboards.
  */
-@ApiModel(
-    description =
-        "Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on"
-            + " screenboards and timeboards.")
 @JsonPropertyOrder({
   SLOWidgetDefinition.JSON_PROPERTY_GLOBAL_TIME_TARGET,
   SLOWidgetDefinition.JSON_PROPERTY_SHOW_ERROR_BUDGET,
@@ -96,7 +90,6 @@ public class SLOWidgetDefinition {
    * @return globalTimeTarget
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Defined global time target.")
   @JsonProperty(JSON_PROPERTY_GLOBAL_TIME_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGlobalTimeTarget() {
@@ -118,7 +111,6 @@ public class SLOWidgetDefinition {
    * @return showErrorBudget
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Defined error budget.")
   @JsonProperty(JSON_PROPERTY_SHOW_ERROR_BUDGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowErrorBudget() {
@@ -140,7 +132,6 @@ public class SLOWidgetDefinition {
    * @return sloId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the SLO displayed.")
   @JsonProperty(JSON_PROPERTY_SLO_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSloId() {
@@ -171,7 +162,6 @@ public class SLOWidgetDefinition {
    * @return timeWindows
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Times being monitored.")
   @JsonProperty(JSON_PROPERTY_TIME_WINDOWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetTimeWindows> getTimeWindows() {
@@ -193,7 +183,6 @@ public class SLOWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -216,7 +205,6 @@ public class SLOWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -241,7 +229,6 @@ public class SLOWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -263,7 +250,6 @@ public class SLOWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SLOWidgetDefinitionType getType() {
@@ -289,7 +275,6 @@ public class SLOWidgetDefinition {
    * @return viewMode
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VIEW_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetViewMode getViewMode() {
@@ -313,10 +298,6 @@ public class SLOWidgetDefinition {
    *
    * @return viewType
    */
-  @ApiModelProperty(
-      example = "detail",
-      required = true,
-      value = "Type of view displayed by the widget.")
   @JsonProperty(JSON_PROPERTY_VIEW_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getViewType() {

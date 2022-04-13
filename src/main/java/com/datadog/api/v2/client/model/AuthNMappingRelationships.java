@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** All relationships associated with AuthN Mapping. */
-@ApiModel(description = "All relationships associated with AuthN Mapping.")
 @JsonPropertyOrder({
   AuthNMappingRelationships.JSON_PROPERTY_ROLE,
   AuthNMappingRelationships.JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE
@@ -45,7 +42,6 @@ public class AuthNMappingRelationships {
    * @return role
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToRole getRole() {
@@ -69,7 +65,6 @@ public class AuthNMappingRelationships {
    * @return samlAssertionAttribute
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToSAMLAssertionAttribute getSamlAssertionAttribute() {

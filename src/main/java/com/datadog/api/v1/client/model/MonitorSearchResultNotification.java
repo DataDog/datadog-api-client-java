@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A notification triggered by the monitor. */
-@ApiModel(description = "A notification triggered by the monitor.")
 @JsonPropertyOrder({
   MonitorSearchResultNotification.JSON_PROPERTY_HANDLE,
   MonitorSearchResultNotification.JSON_PROPERTY_NAME
@@ -39,7 +36,6 @@ public class MonitorSearchResultNotification {
    * @return handle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The email address that received the notification.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHandle() {
@@ -52,7 +48,6 @@ public class MonitorSearchResultNotification {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The username receiving the notification")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

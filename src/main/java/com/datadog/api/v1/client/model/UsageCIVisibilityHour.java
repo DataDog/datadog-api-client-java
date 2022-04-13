@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** CI visibility usage in a given hour. */
-@ApiModel(description = "CI visibility usage in a given hour.")
 @JsonPropertyOrder({
   UsageCIVisibilityHour.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS,
   UsageCIVisibilityHour.JSON_PROPERTY_CI_TEST_INDEXED_SPANS,
@@ -62,7 +59,6 @@ public class UsageCIVisibilityHour {
    * @return ciPipelineIndexedSpans
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of spans for pipelines in the queried hour.")
   @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCiPipelineIndexedSpans() {
@@ -84,7 +80,6 @@ public class UsageCIVisibilityHour {
    * @return ciTestIndexedSpans
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of spans for tests in the queried hour.")
   @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCiTestIndexedSpans() {
@@ -108,10 +103,6 @@ public class UsageCIVisibilityHour {
    * @return ciVisibilityPipelineCommitters
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the total count of all active Git committers for Pipelines in the current month."
-              + " A committer is active if they commit at least 3 times in a given month.")
   @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCiVisibilityPipelineCommitters() {
@@ -134,10 +125,6 @@ public class UsageCIVisibilityHour {
    * @return ciVisibilityTestCommitters
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The total count of all active Git committers for tests in the current month. A"
-              + " committer is active if they commit at least 3 times in a given month.")
   @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCiVisibilityTestCommitters() {
@@ -159,7 +146,6 @@ public class UsageCIVisibilityHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -181,7 +167,6 @@ public class UsageCIVisibilityHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

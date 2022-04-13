@@ -14,16 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Cloud Security Posture Management usage for a given organization for a given hour. */
-@ApiModel(
-    description =
-        "Cloud Security Posture Management usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_AAS_HOST_COUNT,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_AZURE_HOST_COUNT,
@@ -72,10 +67,6 @@ public class UsageCloudSecurityPostureManagementHour {
    * @return aasHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The number of Cloud Security Posture Management Azure app services hosts during a given"
-              + " hour.")
   @JsonIgnore
   public Double getAasHostCount() {
     return aasHostCount.orElse(null);
@@ -107,8 +98,6 @@ public class UsageCloudSecurityPostureManagementHour {
    * @return azureHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The number of Cloud Security Posture Management Azure hosts during a given hour.")
   @JsonIgnore
   public Double getAzureHostCount() {
     return azureHostCount.orElse(null);
@@ -140,8 +129,6 @@ public class UsageCloudSecurityPostureManagementHour {
    * @return complianceHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The number of Cloud Security Posture Management hosts during a given hour.")
   @JsonIgnore
   public Double getComplianceHostCount() {
     return complianceHostCount.orElse(null);
@@ -173,9 +160,6 @@ public class UsageCloudSecurityPostureManagementHour {
    * @return containerCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The total number of Cloud Security Posture Management containers during a given hour.")
   @JsonIgnore
   public Double getContainerCount() {
     return containerCount.orElse(null);
@@ -207,8 +191,6 @@ public class UsageCloudSecurityPostureManagementHour {
    * @return hostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The total number of Cloud Security Posture Management hosts during a given hour.")
   @JsonIgnore
   public Double getHostCount() {
     return hostCount.orElse(null);
@@ -240,7 +222,6 @@ public class UsageCloudSecurityPostureManagementHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -262,7 +243,6 @@ public class UsageCloudSecurityPostureManagementHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -284,7 +264,6 @@ public class UsageCloudSecurityPostureManagementHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

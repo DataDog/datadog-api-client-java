@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The new log-based metric properties. */
-@ApiModel(description = "The new log-based metric properties.")
 @JsonPropertyOrder({
   LogsMetricCreateData.JSON_PROPERTY_ATTRIBUTES,
   LogsMetricCreateData.JSON_PROPERTY_ID,
@@ -64,7 +61,6 @@ public class LogsMetricCreateData {
    *
    * @return attributes
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsMetricCreateAttributes getAttributes() {
@@ -85,10 +81,6 @@ public class LogsMetricCreateData {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "logs.page.load.count",
-      required = true,
-      value = "The name of the log-based metric.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -110,7 +102,6 @@ public class LogsMetricCreateData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsMetricType getType() {

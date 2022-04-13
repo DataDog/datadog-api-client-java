@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Number of RUM Sessions recorded for each hour for a given organization. */
-@ApiModel(description = "Number of RUM Sessions recorded for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageRumSessionsHour.JSON_PROPERTY_HOUR,
   UsageRumSessionsHour.JSON_PROPERTY_ORG_NAME,
@@ -65,7 +62,6 @@ public class UsageRumSessionsHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -87,7 +83,6 @@ public class UsageRumSessionsHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -109,7 +104,6 @@ public class UsageRumSessionsHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -131,9 +125,6 @@ public class UsageRumSessionsHour {
    * @return replaySessionCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the number of RUM Replay Sessions (data available beginning November 1, 2021).")
   @JsonProperty(JSON_PROPERTY_REPLAY_SESSION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getReplaySessionCount() {
@@ -155,7 +146,6 @@ public class UsageRumSessionsHour {
    * @return sessionCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of browser RUM Lite Sessions.")
   @JsonProperty(JSON_PROPERTY_SESSION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSessionCount() {
@@ -178,10 +168,6 @@ public class UsageRumSessionsHour {
    * @return sessionCountAndroid
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the number of mobile RUM Sessions on Android (data available beginning"
-              + " December 1, 2020).")
   @JsonProperty(JSON_PROPERTY_SESSION_COUNT_ANDROID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSessionCountAndroid() {
@@ -203,10 +189,6 @@ public class UsageRumSessionsHour {
    * @return sessionCountIos
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the number of mobile RUM Sessions on iOS (data available beginning December 1,"
-              + " 2020).")
   @JsonProperty(JSON_PROPERTY_SESSION_COUNT_IOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSessionCountIos() {

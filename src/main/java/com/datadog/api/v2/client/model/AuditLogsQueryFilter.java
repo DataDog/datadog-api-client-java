@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Search and filter query settings. */
-@ApiModel(description = "Search and filter query settings.")
 @JsonPropertyOrder({
   AuditLogsQueryFilter.JSON_PROPERTY_FROM,
   AuditLogsQueryFilter.JSON_PROPERTY_QUERY,
@@ -49,11 +46,6 @@ public class AuditLogsQueryFilter {
    * @return from
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "now-15m",
-      value =
-          "Minimum time for the requested events. Supports date, math, and regular timestamps (in"
-              + " milliseconds).")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFrom() {
@@ -75,9 +67,6 @@ public class AuditLogsQueryFilter {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "@type:session AND @session.type:user",
-      value = "Search query following the Audit Logs search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -100,11 +89,6 @@ public class AuditLogsQueryFilter {
    * @return to
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "now",
-      value =
-          "Maximum time for the requested events. Supports date, math, and regular timestamps (in"
-              + " milliseconds).")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTo() {

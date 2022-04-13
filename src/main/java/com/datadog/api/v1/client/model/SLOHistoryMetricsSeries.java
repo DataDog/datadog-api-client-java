@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * A representation of &#x60;metric&#x60; based SLO time series for the provided queries. This is
  * the same response type from &#x60;batch_query&#x60; endpoint.
  */
-@ApiModel(
-    description =
-        "A representation of `metric` based SLO time series for the provided queries. This is the"
-            + " same response type from `batch_query` endpoint.")
 @JsonPropertyOrder({
   SLOHistoryMetricsSeries.JSON_PROPERTY_COUNT,
   SLOHistoryMetricsSeries.JSON_PROPERTY_METADATA,
@@ -72,7 +66,6 @@ public class SLOHistoryMetricsSeries {
    *
    * @return count
    */
-  @ApiModelProperty(example = "0", required = true, value = "Count of submitted metrics.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getCount() {
@@ -95,7 +88,6 @@ public class SLOHistoryMetricsSeries {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOHistoryMetricsSeriesMetadata getMetadata() {
@@ -116,7 +108,6 @@ public class SLOHistoryMetricsSeries {
    *
    * @return sum
    */
-  @ApiModelProperty(example = "0.0", required = true, value = "Total sum of the query.")
   @JsonProperty(JSON_PROPERTY_SUM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getSum() {
@@ -142,7 +133,6 @@ public class SLOHistoryMetricsSeries {
    *
    * @return values
    */
-  @ApiModelProperty(example = "[]", required = true, value = "The query values for each metric.")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<Double> getValues() {

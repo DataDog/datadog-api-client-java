@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The incident team&#39;s attributes for an update request. */
-@ApiModel(description = "The incident team's attributes for an update request.")
 @JsonPropertyOrder({IncidentTeamUpdateAttributes.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentTeamUpdateAttributes {
@@ -46,7 +43,6 @@ public class IncidentTeamUpdateAttributes {
    *
    * @return name
    */
-  @ApiModelProperty(example = "team name", required = true, value = "Name of the incident team.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {

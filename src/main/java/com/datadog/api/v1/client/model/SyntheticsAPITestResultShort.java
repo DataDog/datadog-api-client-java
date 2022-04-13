@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object with the results of a single Synthetic API test. */
-@ApiModel(description = "Object with the results of a single Synthetic API test.")
 @JsonPropertyOrder({
   SyntheticsAPITestResultShort.JSON_PROPERTY_CHECK_TIME,
   SyntheticsAPITestResultShort.JSON_PROPERTY_PROBE_DC,
@@ -56,7 +53,6 @@ public class SyntheticsAPITestResultShort {
    * @return checkTime
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Last time the API test was performed.")
   @JsonProperty(JSON_PROPERTY_CHECK_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCheckTime() {
@@ -78,7 +74,6 @@ public class SyntheticsAPITestResultShort {
    * @return probeDc
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Location from which the API test was performed.")
   @JsonProperty(JSON_PROPERTY_PROBE_DC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProbeDc() {
@@ -101,7 +96,6 @@ public class SyntheticsAPITestResultShort {
    * @return result
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsAPITestResultShortResult getResult() {
@@ -123,7 +117,6 @@ public class SyntheticsAPITestResultShort {
    * @return resultId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the API test result.")
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultId() {
@@ -146,7 +139,6 @@ public class SyntheticsAPITestResultShort {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestMonitorStatus getStatus() {

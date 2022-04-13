@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The object containing page total count for specified ID. */
-@ApiModel(description = "The object containing page total count for specified ID.")
 @JsonPropertyOrder({UsageSpecifiedCustomReportsPage.JSON_PROPERTY_TOTAL_COUNT})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSpecifiedCustomReportsPage {
@@ -38,7 +35,6 @@ public class UsageSpecifiedCustomReportsPage {
    * @return totalCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total page count.")
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalCount() {

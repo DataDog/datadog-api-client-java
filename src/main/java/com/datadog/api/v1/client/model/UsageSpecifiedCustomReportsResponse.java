@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Returns available specified custom reports. */
-@ApiModel(description = "Returns available specified custom reports.")
 @JsonPropertyOrder({
   UsageSpecifiedCustomReportsResponse.JSON_PROPERTY_DATA,
   UsageSpecifiedCustomReportsResponse.JSON_PROPERTY_META
@@ -45,7 +42,6 @@ public class UsageSpecifiedCustomReportsResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageSpecifiedCustomReportsData getData() {
@@ -68,7 +64,6 @@ public class UsageSpecifiedCustomReportsResponse {
    * @return meta
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageSpecifiedCustomReportsMeta getMeta() {

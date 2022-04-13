@@ -14,14 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Number of hosts/containers recorded for each hour for a given organization. */
-@ApiModel(
-    description = "Number of hosts/containers recorded for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageHostHour.JSON_PROPERTY_AGENT_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_ALIBABA_HOST_COUNT,
@@ -104,10 +100,6 @@ public class UsageHostHour {
    * @return agentHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the total number of infrastructure hosts reporting during a given hour that"
-              + " were running the Datadog Agent.")
   @JsonProperty(JSON_PROPERTY_AGENT_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAgentHostCount() {
@@ -130,10 +122,6 @@ public class UsageHostHour {
    * @return alibabaHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the total number of hosts that reported through Alibaba integration (and were"
-              + " NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_ALIBABA_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAlibabaHostCount() {
@@ -155,7 +143,6 @@ public class UsageHostHour {
    * @return apmAzureAppServiceHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the total number of Azure App Services hosts using APM.")
   @JsonProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getApmAzureAppServiceHostCount() {
@@ -178,10 +165,6 @@ public class UsageHostHour {
    * @return apmHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the total number of hosts using APM during the hour, these are counted as"
-              + " billable (except during trial periods).")
   @JsonProperty(JSON_PROPERTY_APM_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getApmHostCount() {
@@ -204,10 +187,6 @@ public class UsageHostHour {
    * @return awsHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the total number of hosts that reported through the AWS integration (and were"
-              + " NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_AWS_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAwsHostCount() {
@@ -230,10 +209,6 @@ public class UsageHostHour {
    * @return azureHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the total number of hosts that reported through Azure integration (and were"
-              + " NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_AZURE_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAzureHostCount() {
@@ -255,10 +230,6 @@ public class UsageHostHour {
    * @return containerCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the total number of containers reported by the Docker integration during the"
-              + " hour.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getContainerCount() {
@@ -281,10 +252,6 @@ public class UsageHostHour {
    * @return gcpHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the total number of hosts that reported through the Google Cloud integration"
-              + " (and were NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_GCP_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getGcpHostCount() {
@@ -306,8 +273,6 @@ public class UsageHostHour {
    * @return herokuHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Contains the total number of Heroku dynos reported by the Datadog Agent.")
   @JsonProperty(JSON_PROPERTY_HEROKU_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getHerokuHostCount() {
@@ -331,11 +296,6 @@ public class UsageHostHour {
    * @return hostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the total number of billable infrastructure hosts reporting during a given"
-              + " hour. This is the sum of `agent_host_count`, `aws_host_count`, and"
-              + " `gcp_host_count`.")
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getHostCount() {
@@ -357,7 +317,6 @@ public class UsageHostHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -380,10 +339,6 @@ public class UsageHostHour {
    * @return infraAzureAppService
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the total number of hosts that reported through the Azure App Services"
-              + " integration (and were NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_INFRA_AZURE_APP_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInfraAzureAppService() {
@@ -406,10 +361,6 @@ public class UsageHostHour {
    * @return opentelemetryHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry"
-              + " Collector.")
   @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOpentelemetryHostCount() {
@@ -431,7 +382,6 @@ public class UsageHostHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -453,7 +403,6 @@ public class UsageHostHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -476,10 +425,6 @@ public class UsageHostHour {
    * @return vsphereHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the total number of hosts that reported through vSphere integration (and were"
-              + " NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVsphereHostCount() {

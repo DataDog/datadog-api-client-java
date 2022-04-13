@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Updated funnel widget. */
-@ApiModel(description = "Updated funnel widget.")
 @JsonPropertyOrder({
   FunnelQuery.JSON_PROPERTY_DATA_SOURCE,
   FunnelQuery.JSON_PROPERTY_QUERY_STRING,
@@ -64,7 +61,6 @@ public class FunnelQuery {
    *
    * @return dataSource
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FunnelSource getDataSource() {
@@ -88,7 +84,6 @@ public class FunnelQuery {
    *
    * @return queryString
    */
-  @ApiModelProperty(example = "@browser.name:Chrome", required = true, value = "The widget query.")
   @JsonProperty(JSON_PROPERTY_QUERY_STRING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQueryString() {
@@ -118,7 +113,6 @@ public class FunnelQuery {
    *
    * @return steps
    */
-  @ApiModelProperty(required = true, value = "List of funnel steps.")
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<FunnelStep> getSteps() {

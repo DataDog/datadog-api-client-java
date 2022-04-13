@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Cloud Workload Security usage for a given organization for a given hour. */
-@ApiModel(description = "Cloud Workload Security usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageCWSHour.JSON_PROPERTY_CWS_CONTAINER_COUNT,
   UsageCWSHour.JSON_PROPERTY_CWS_HOST_COUNT,
@@ -58,10 +55,6 @@ public class UsageCWSHour {
    * @return cwsContainerCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The total number of Cloud Workload Security container hours from the start of the given"
-              + " hour’s month until the given hour.")
   @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCwsContainerCount() {
@@ -84,10 +77,6 @@ public class UsageCWSHour {
    * @return cwsHostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The total number of Cloud Workload Security host hours from the start of the given"
-              + " hour’s month until the given hour.")
   @JsonProperty(JSON_PROPERTY_CWS_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCwsHostCount() {
@@ -109,7 +98,6 @@ public class UsageCWSHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -131,7 +119,6 @@ public class UsageCWSHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -153,7 +140,6 @@ public class UsageCWSHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -27,12 +25,6 @@ import java.util.Objects;
  * start/restart. The treemap is only supported for process data on a single host dashboard — this
  * may not be reused in other dashboards or for other metrics.
  */
-@ApiModel(
-    description =
-        "The treemap visualization found on the Host Dashboards comes from the output of `ps"
-            + " auxww`. This is not continuously run on your hosts. Instead, it’s run once on"
-            + " Agent start/restart. The treemap is only supported for process data on a single"
-            + " host dashboard — this may not be reused in other dashboards or for other metrics.")
 @JsonPropertyOrder({
   TreeMapWidgetDefinition.JSON_PROPERTY_COLOR_BY,
   TreeMapWidgetDefinition.JSON_PROPERTY_GROUP_BY,
@@ -86,7 +78,6 @@ public class TreeMapWidgetDefinition {
    * @return colorBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COLOR_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TreeMapColorBy getColorBy() {
@@ -112,7 +103,6 @@ public class TreeMapWidgetDefinition {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TreeMapGroupBy getGroupBy() {
@@ -145,10 +135,6 @@ public class TreeMapWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(
-      example = "[{\"q\":\"system.load.1\"}]",
-      required = true,
-      value = "List of top list widget requests.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<TreeMapWidgetRequest> getRequests() {
@@ -171,7 +157,6 @@ public class TreeMapWidgetDefinition {
    * @return sizeBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIZE_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TreeMapSizeBy getSizeBy() {
@@ -196,7 +181,6 @@ public class TreeMapWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -218,7 +202,6 @@ public class TreeMapWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TreeMapWidgetDefinitionType getType() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The style to apply to the widget. */
-@ApiModel(description = "The style to apply to the widget.")
 @JsonPropertyOrder({
   GeomapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE,
   GeomapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE_FLIP
@@ -54,10 +51,6 @@ public class GeomapWidgetDefinitionStyle {
    *
    * @return palette
    */
-  @ApiModelProperty(
-      example = "hostmap_blues",
-      required = true,
-      value = "The color palette to apply to the widget.")
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPalette() {
@@ -78,10 +71,6 @@ public class GeomapWidgetDefinitionStyle {
    *
    * @return paletteFlip
    */
-  @ApiModelProperty(
-      example = "false",
-      required = true,
-      value = "Whether to flip the palette tones.")
   @JsonProperty(JSON_PROPERTY_PALETTE_FLIP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getPaletteFlip() {

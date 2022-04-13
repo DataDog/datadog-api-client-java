@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * The list stream visualization displays a table of recent events in your application that match a
  * search criteria using user-defined columns.
  */
-@ApiModel(
-    description =
-        "The list stream visualization displays a table of recent events in your application that"
-            + " match a search criteria using user-defined columns. ")
 @JsonPropertyOrder({
   ListStreamWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   ListStreamWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -91,10 +85,6 @@ public class ListStreamWidgetDefinition {
    * @return legendSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\","
-              + " \"16\", or \"auto\".")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegendSize() {
@@ -124,11 +114,6 @@ public class ListStreamWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(
-      example =
-          "[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"apm_issue_stream\",\"query_string\":\"@data_source:APM\"},\"response_format\":\"event_list\"}]",
-      required = true,
-      value = "Request payload used to query items.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<ListStreamWidgetRequest> getRequests() {
@@ -150,7 +135,6 @@ public class ListStreamWidgetDefinition {
    * @return showLegend
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not to display the legend on this widget.")
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowLegend() {
@@ -173,7 +157,6 @@ public class ListStreamWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -195,7 +178,6 @@ public class ListStreamWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -218,7 +200,6 @@ public class ListStreamWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -243,7 +224,6 @@ public class ListStreamWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -265,7 +245,6 @@ public class ListStreamWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ListStreamWidgetDefinitionType getType() {

@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** IoT usage for a given organization for a given hour. */
-@ApiModel(description = "IoT usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageIoTHour.JSON_PROPERTY_HOUR,
   UsageIoTHour.JSON_PROPERTY_IOT_DEVICE_COUNT,
@@ -53,7 +50,6 @@ public class UsageIoTHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -75,7 +71,6 @@ public class UsageIoTHour {
    * @return iotDeviceCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total number of IoT devices during a given hour.")
   @JsonProperty(JSON_PROPERTY_IOT_DEVICE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIotDeviceCount() {
@@ -97,7 +92,6 @@ public class UsageIoTHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -119,7 +113,6 @@ public class UsageIoTHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

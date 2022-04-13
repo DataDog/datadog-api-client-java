@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The metadata for the current pagination. */
-@ApiModel(description = "The metadata for the current pagination.")
 @JsonPropertyOrder({HourlyUsageAttributionPagination.JSON_PROPERTY_NEXT_RECORD_ID})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HourlyUsageAttributionPagination {
@@ -40,10 +37,6 @@ public class HourlyUsageAttributionPagination {
    * @return nextRecordId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The cursor to get the next results (if any). To make the next request, use the same"
-              + " parameters and add `next_record_id`.")
   @JsonIgnore
   public String getNextRecordId() {
     return nextRecordId.orElse(null);

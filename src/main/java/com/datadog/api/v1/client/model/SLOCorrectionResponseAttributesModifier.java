@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Modifier of the object. */
-@ApiModel(description = "Modifier of the object.")
 @JsonPropertyOrder({
   SLOCorrectionResponseAttributesModifier.JSON_PROPERTY_EMAIL,
   SLOCorrectionResponseAttributesModifier.JSON_PROPERTY_HANDLE,
@@ -48,7 +45,6 @@ public class SLOCorrectionResponseAttributesModifier {
    * @return email
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Email of the Modifier.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -70,7 +66,6 @@ public class SLOCorrectionResponseAttributesModifier {
    * @return handle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Handle of the Modifier.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHandle() {
@@ -92,7 +87,6 @@ public class SLOCorrectionResponseAttributesModifier {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the Modifier.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

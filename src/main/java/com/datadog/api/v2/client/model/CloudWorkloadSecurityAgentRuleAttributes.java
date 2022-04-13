@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A Cloud Workload Security Agent rule returned by the API. */
-@ApiModel(description = "A Cloud Workload Security Agent rule returned by the API.")
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CATEGORY,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CREATION_DATE,
@@ -80,7 +77,6 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    * @return category
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Process Activity", value = "The category of the Agent rule.")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCategory() {
@@ -102,9 +98,6 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    * @return creationDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1624366480320",
-      value = "When the Agent rule was created, timestamp in milliseconds.")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCreationDate() {
@@ -128,7 +121,6 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    * @return creator
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CloudWorkloadSecurityAgentRuleCreatorAttributes getCreator() {
@@ -150,7 +142,6 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    * @return defaultRule
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "Whether the rule is included by default.")
   @JsonProperty(JSON_PROPERTY_DEFAULT_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDefaultRule() {
@@ -172,7 +163,6 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    * @return description
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "My Agent rule", value = "The description of the Agent rule.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -194,7 +184,6 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    * @return enabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "Whether the Agent rule is enabled.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {
@@ -216,9 +205,6 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    * @return expression
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "exec.file.name == \\\"sh\\\"",
-      value = "The SECL expression of the Agent rule.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpression() {
@@ -240,7 +226,6 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "my_agent_rule", value = "The name of the Agent rule.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -262,9 +247,6 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    * @return updatedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1624366480320",
-      value = "When the Agent rule was last updated, timestamp in milliseconds.")
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getUpdatedAt() {
@@ -288,7 +270,6 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    * @return updater
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UPDATER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CloudWorkloadSecurityAgentRuleUpdaterAttributes getUpdater() {
@@ -310,7 +291,6 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    * @return version
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "23", value = "The version of the Agent rule.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVersion() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Number of hourly recorded custom metrics for a given organization. */
-@ApiModel(description = "Number of hourly recorded custom metrics for a given organization.")
 @JsonPropertyOrder({
   UsageTopAvgMetricsHour.JSON_PROPERTY_AVG_METRIC_HOUR,
   UsageTopAvgMetricsHour.JSON_PROPERTY_MAX_METRIC_HOUR,
@@ -52,7 +49,6 @@ public class UsageTopAvgMetricsHour {
    * @return avgMetricHour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Average number of timeseries per hour in which the metric occurs.")
   @JsonProperty(JSON_PROPERTY_AVG_METRIC_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAvgMetricHour() {
@@ -74,7 +70,6 @@ public class UsageTopAvgMetricsHour {
    * @return maxMetricHour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Maximum number of timeseries per hour in which the metric occurs.")
   @JsonProperty(JSON_PROPERTY_MAX_METRIC_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMaxMetricHour() {
@@ -97,7 +92,6 @@ public class UsageTopAvgMetricsHour {
    * @return metricCategory
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METRIC_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageMetricCategory getMetricCategory() {
@@ -122,7 +116,6 @@ public class UsageTopAvgMetricsHour {
    * @return metricName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the custom metric name.")
   @JsonProperty(JSON_PROPERTY_METRIC_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetricName() {

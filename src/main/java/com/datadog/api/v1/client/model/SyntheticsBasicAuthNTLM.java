@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object to handle &#x60;NTLM&#x60; authentication when performing the test. */
-@ApiModel(description = "Object to handle `NTLM` authentication when performing the test.")
 @JsonPropertyOrder({
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_DOMAIN,
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_PASSWORD,
@@ -66,9 +63,6 @@ public class SyntheticsBasicAuthNTLM {
    * @return domain
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "DOMAINNAME",
-      value = "Domain for the authentication to use when performing the test.")
   @JsonProperty(JSON_PROPERTY_DOMAIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDomain() {
@@ -90,9 +84,6 @@ public class SyntheticsBasicAuthNTLM {
    * @return password
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "examplepassword",
-      value = "Password for the authentication to use when performing the test.")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPassword() {
@@ -114,7 +105,6 @@ public class SyntheticsBasicAuthNTLM {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBasicAuthNTLMType getType() {
@@ -139,9 +129,6 @@ public class SyntheticsBasicAuthNTLM {
    * @return username
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "joedoe",
-      value = "Username for the authentication to use when performing the test.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUsername() {
@@ -163,9 +150,6 @@ public class SyntheticsBasicAuthNTLM {
    * @return workstation
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "",
-      value = "Workstation for the authentication to use when performing the test.")
   @JsonProperty(JSON_PROPERTY_WORKSTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWorkstation() {

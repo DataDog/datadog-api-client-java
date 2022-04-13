@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A formula and functions metrics query. */
-@ApiModel(description = "A formula and functions metrics query.")
 @JsonPropertyOrder({
   FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_AGGREGATOR,
   FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
@@ -69,7 +66,6 @@ public class FormulaAndFunctionMetricQueryDefinition {
    * @return aggregator
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionMetricAggregation getAggregator() {
@@ -95,7 +91,6 @@ public class FormulaAndFunctionMetricQueryDefinition {
    *
    * @return dataSource
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FormulaAndFunctionMetricDataSource getDataSource() {
@@ -119,10 +114,6 @@ public class FormulaAndFunctionMetricQueryDefinition {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "my_query",
-      required = true,
-      value = "Name of the query for use in formulas.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -143,10 +134,6 @@ public class FormulaAndFunctionMetricQueryDefinition {
    *
    * @return query
    */
-  @ApiModelProperty(
-      example = "avg:system.cpu.user{*}",
-      required = true,
-      value = "Metrics query definition.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Invalid query performed. */
-@ApiModel(description = "Invalid query performed.")
 @JsonPropertyOrder({HTTPLogError.JSON_PROPERTY_CODE, HTTPLogError.JSON_PROPERTY_MESSAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HTTPLogError {
@@ -51,7 +48,6 @@ public class HTTPLogError {
    *
    * @return code
    */
-  @ApiModelProperty(example = "0", required = true, value = "Error code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getCode() {
@@ -72,10 +68,6 @@ public class HTTPLogError {
    *
    * @return message
    */
-  @ApiModelProperty(
-      example = "Your browser sent an invalid request.",
-      required = true,
-      value = "Error message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {

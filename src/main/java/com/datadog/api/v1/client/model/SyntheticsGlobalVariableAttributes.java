@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Attributes of the global variable. */
-@ApiModel(description = "Attributes of the global variable.")
 @JsonPropertyOrder({SyntheticsGlobalVariableAttributes.JSON_PROPERTY_RESTRICTED_ROLES})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsGlobalVariableAttributes {
@@ -49,11 +46,6 @@ public class SyntheticsGlobalVariableAttributes {
    * @return restrictedRoles
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"]",
-      value =
-          "A list of role identifiers that can be pulled from the Roles API, for restricting read"
-              + " and write access.")
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRestrictedRoles() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object used to create an application key. */
-@ApiModel(description = "Object used to create an application key.")
 @JsonPropertyOrder({
   ApplicationKeyCreateData.JSON_PROPERTY_ATTRIBUTES,
   ApplicationKeyCreateData.JSON_PROPERTY_TYPE
@@ -58,7 +55,6 @@ public class ApplicationKeyCreateData {
    *
    * @return attributes
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ApplicationKeyCreateAttributes getAttributes() {
@@ -80,7 +76,6 @@ public class ApplicationKeyCreateData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ApplicationKeysType getType() {

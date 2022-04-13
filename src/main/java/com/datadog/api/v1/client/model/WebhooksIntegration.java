@@ -15,13 +15,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Datadog-Webhooks integration. */
-@ApiModel(description = "Datadog-Webhooks integration.")
 @JsonPropertyOrder({
   WebhooksIntegration.JSON_PROPERTY_CUSTOM_HEADERS,
   WebhooksIntegration.JSON_PROPERTY_ENCODE_AS,
@@ -69,10 +66,6 @@ public class WebhooksIntegration {
    * @return customHeaders
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "If `null`, uses no header. If given a JSON payload, these will be headers attached to"
-              + " your webhook.")
   @JsonIgnore
   public String getCustomHeaders() {
     return customHeaders.orElse(null);
@@ -105,7 +98,6 @@ public class WebhooksIntegration {
    * @return encodeAs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENCODE_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WebhooksIntegrationEncoding getEncodeAs() {
@@ -130,12 +122,6 @@ public class WebhooksIntegration {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "WEBHOOK_NAME",
-      required = true,
-      value =
-          "The name of the webhook. It corresponds with `<WEBHOOK_NAME>`. Learn more on how to use"
-              + " it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -159,11 +145,6 @@ public class WebhooksIntegration {
    * @return payload
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "If `null`, uses the default payload. If given a JSON payload, the webhook returns the"
-              + " payload specified by the given payload. [Webhooks variable"
-              + " usage](https://docs.datadoghq.com/integrations/webhooks/#usage).")
   @JsonIgnore
   public String getPayload() {
     return payload.orElse(null);
@@ -194,10 +175,6 @@ public class WebhooksIntegration {
    *
    * @return url
    */
-  @ApiModelProperty(
-      example = "https://example.com/webhook",
-      required = true,
-      value = "URL of the webhook.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getUrl() {

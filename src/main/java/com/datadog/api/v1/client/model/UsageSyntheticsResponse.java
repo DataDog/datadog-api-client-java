@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -24,10 +22,6 @@ import java.util.Objects;
  * Response containing the number of Synthetics API tests run for each hour for a given
  * organization.
  */
-@ApiModel(
-    description =
-        "Response containing the number of Synthetics API tests run for each hour for a given"
-            + " organization.")
 @JsonPropertyOrder({UsageSyntheticsResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSyntheticsResponse {
@@ -58,8 +52,6 @@ public class UsageSyntheticsResponse {
    * @return usage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Array with the number of hourly Synthetics test run for a given organization.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageSyntheticsHour> getUsage() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** X Axis controls for the distribution widget. */
-@ApiModel(description = "X Axis controls for the distribution widget.")
 @JsonPropertyOrder({
   DistributionWidgetXAxis.JSON_PROPERTY_INCLUDE_ZERO,
   DistributionWidgetXAxis.JSON_PROPERTY_MAX,
@@ -52,7 +49,6 @@ public class DistributionWidgetXAxis {
    * @return includeZero
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "True includes zero.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_ZERO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludeZero() {
@@ -75,10 +71,6 @@ public class DistributionWidgetXAxis {
    * @return max
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 ==="
-              + " 90th percentile), or auto for default behavior.")
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMax() {
@@ -101,10 +93,6 @@ public class DistributionWidgetXAxis {
    * @return min
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 ==="
-              + " 90th percentile), or auto for default behavior.")
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMin() {
@@ -126,7 +114,6 @@ public class DistributionWidgetXAxis {
    * @return scale
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the scale type. Possible values are `linear`.")
   @JsonProperty(JSON_PROPERTY_SCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getScale() {

@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
@@ -26,13 +24,6 @@ import java.util.Objects;
  * &#x60;reflow_type&#x60; is &#x60;fixed&#x60;, &#x60;layout&#x60; is required. - If
  * &#x60;reflow_type&#x60; is &#x60;auto&#x60;, &#x60;layout&#x60; should not be set.
  */
-@ApiModel(
-    description =
-        "Information about widget.  **Note**: The `layout` property is required for widgets in"
-            + " dashboards with `free` `layout_type`.       For the **new dashboard layout**, the"
-            + " `layout` property depends on the `reflow_type` of the dashboard.       - If"
-            + " `reflow_type` is `fixed`, `layout` is required.       - If `reflow_type` is"
-            + " `auto`, `layout` should not be set.")
 @JsonPropertyOrder({
   Widget.JSON_PROPERTY_DEFINITION,
   Widget.JSON_PROPERTY_ID,
@@ -71,7 +62,6 @@ public class Widget {
    *
    * @return definition
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DEFINITION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public WidgetDefinition getDefinition() {
@@ -93,7 +83,6 @@ public class Widget {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the widget.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -116,7 +105,6 @@ public class Widget {
    * @return layout
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAYOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetLayout getLayout() {

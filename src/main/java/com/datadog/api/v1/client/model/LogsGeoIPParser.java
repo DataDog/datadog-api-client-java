@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * The GeoIP parser takes an IP address attribute and extracts if available the Continent, Country,
  * Subdivision, and City information in the target attribute path.
  */
-@ApiModel(
-    description =
-        "The GeoIP parser takes an IP address attribute and extracts if available the Continent,"
-            + " Country, Subdivision, and City information in the target attribute path.")
 @JsonPropertyOrder({
   LogsGeoIPParser.JSON_PROPERTY_IS_ENABLED,
   LogsGeoIPParser.JSON_PROPERTY_NAME,
@@ -78,7 +72,6 @@ public class LogsGeoIPParser {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -100,7 +93,6 @@ public class LogsGeoIPParser {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -126,10 +118,6 @@ public class LogsGeoIPParser {
    *
    * @return sources
    */
-  @ApiModelProperty(
-      example = "[\"network.client.ip\"]",
-      required = true,
-      value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getSources() {
@@ -151,12 +139,6 @@ public class LogsGeoIPParser {
    *
    * @return target
    */
-  @ApiModelProperty(
-      example = "network.client.geoip",
-      required = true,
-      value =
-          "Name of the parent attribute that contains all the extracted details from the"
-              + " `sources`.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTarget() {
@@ -178,7 +160,6 @@ public class LogsGeoIPParser {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsGeoIPParserType getType() {

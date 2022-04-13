@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Update request of a custom variable object. *All properties are optional.* */
-@ApiModel(
-    description = "Update request of a custom variable object.  *All properties are optional.*")
 @JsonPropertyOrder({
   WebhooksIntegrationCustomVariableUpdateRequest.JSON_PROPERTY_IS_SECRET,
   WebhooksIntegrationCustomVariableUpdateRequest.JSON_PROPERTY_NAME,
@@ -50,10 +46,6 @@ public class WebhooksIntegrationCustomVariableUpdateRequest {
    * @return isSecret
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Make custom variable is secret or not. If the custom variable is secret, the value is"
-              + " not returned in the response payload.")
   @JsonProperty(JSON_PROPERTY_IS_SECRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsSecret() {
@@ -76,11 +68,6 @@ public class WebhooksIntegrationCustomVariableUpdateRequest {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "CUSTOM_VARIABLE_NAME",
-      value =
-          "The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`. It must only"
-              + " contains upper-case characters, integers or underscores.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -102,7 +89,6 @@ public class WebhooksIntegrationCustomVariableUpdateRequest {
    * @return value
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CUSTOM_VARIABLE_VALUE", value = "Value of the custom variable.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {

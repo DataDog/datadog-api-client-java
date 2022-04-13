@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Organization object. */
-@ApiModel(description = "Organization object.")
 @JsonPropertyOrder({
   Organization.JSON_PROPERTY_ATTRIBUTES,
   Organization.JSON_PROPERTY_ID,
@@ -59,7 +56,6 @@ public class Organization {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationAttributes getAttributes() {
@@ -81,7 +77,6 @@ public class Organization {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the organization.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -103,7 +98,6 @@ public class Organization {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OrganizationsType getType() {

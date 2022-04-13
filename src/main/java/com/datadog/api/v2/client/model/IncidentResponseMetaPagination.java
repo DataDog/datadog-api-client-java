@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Pagination properties. */
-@ApiModel(description = "Pagination properties.")
 @JsonPropertyOrder({
   IncidentResponseMetaPagination.JSON_PROPERTY_NEXT_OFFSET,
   IncidentResponseMetaPagination.JSON_PROPERTY_OFFSET,
@@ -49,11 +46,6 @@ public class IncidentResponseMetaPagination {
    * @return nextOffset
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1000",
-      value =
-          "The index of the first element in the next page of results. Equal to page size added to"
-              + " the current offset.")
   @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNextOffset() {
@@ -75,7 +67,6 @@ public class IncidentResponseMetaPagination {
    * @return offset
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10", value = "The index of the first element in the results.")
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOffset() {
@@ -97,7 +88,6 @@ public class IncidentResponseMetaPagination {
    * @return size
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "Maximum size of pages to return.")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSize() {

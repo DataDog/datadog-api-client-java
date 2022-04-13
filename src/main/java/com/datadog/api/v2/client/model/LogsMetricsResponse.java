@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** All the available log-based metric objects. */
-@ApiModel(description = "All the available log-based metric objects.")
 @JsonPropertyOrder({LogsMetricsResponse.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsMetricsResponse {
@@ -52,7 +49,6 @@ public class LogsMetricsResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of log-based metric objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsMetricResponseData> getData() {

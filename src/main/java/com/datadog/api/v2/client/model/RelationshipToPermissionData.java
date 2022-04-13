@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Relationship to permission object. */
-@ApiModel(description = "Relationship to permission object.")
 @JsonPropertyOrder({
   RelationshipToPermissionData.JSON_PROPERTY_ID,
   RelationshipToPermissionData.JSON_PROPERTY_TYPE
@@ -44,7 +41,6 @@ public class RelationshipToPermissionData {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the permission.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -67,7 +63,6 @@ public class RelationshipToPermissionData {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PermissionsType getType() {

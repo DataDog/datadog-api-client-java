@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object containing the definition of a metric&#39;s distinct volume. */
-@ApiModel(description = "Object containing the definition of a metric's distinct volume.")
 @JsonPropertyOrder({MetricDistinctVolumeAttributes.JSON_PROPERTY_DISTINCT_VOLUME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MetricDistinctVolumeAttributes {
@@ -38,7 +35,6 @@ public class MetricDistinctVolumeAttributes {
    * @return distinctVolume
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10", value = "Distinct volume for the given metric.")
   @JsonProperty(JSON_PROPERTY_DISTINCT_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDistinctVolume() {

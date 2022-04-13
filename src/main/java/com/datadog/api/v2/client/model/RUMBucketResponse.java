@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 /** Bucket values. */
-@ApiModel(description = "Bucket values.")
 @JsonPropertyOrder({RUMBucketResponse.JSON_PROPERTY_BY, RUMBucketResponse.JSON_PROPERTY_COMPUTES})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RUMBucketResponse {
@@ -51,9 +48,6 @@ public class RUMBucketResponse {
    * @return by
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "{\"@session.type\":\"user\",\"@type\":\"view\"}",
-      value = "The key-value pairs for each group-by.")
   @JsonProperty(JSON_PROPERTY_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getBy() {
@@ -83,10 +77,6 @@ public class RUMBucketResponse {
    * @return computes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A map of the metric name to value for regular compute, or a list of values for a"
-              + " timeseries.")
   @JsonProperty(JSON_PROPERTY_COMPUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, RUMAggregateBucketValue> getComputes() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Response from the delete dashboard call. */
-@ApiModel(description = "Response from the delete dashboard call.")
 @JsonPropertyOrder({DashboardDeleteResponse.JSON_PROPERTY_DELETED_DASHBOARD_ID})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardDeleteResponse {
@@ -38,7 +35,6 @@ public class DashboardDeleteResponse {
    * @return deletedDashboardId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the deleted dashboard.")
   @JsonProperty(JSON_PROPERTY_DELETED_DASHBOARD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeletedDashboardId() {

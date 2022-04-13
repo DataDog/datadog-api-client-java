@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +21,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** The usage for one set of tags for one hour. */
-@ApiModel(description = "The usage for one set of tags for one hour.")
 @JsonPropertyOrder({
   HourlyUsageAttributionBody.JSON_PROPERTY_HOUR,
   HourlyUsageAttributionBody.JSON_PROPERTY_ORG_NAME,
@@ -72,7 +69,6 @@ public class HourlyUsageAttributionBody {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -94,7 +90,6 @@ public class HourlyUsageAttributionBody {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the organization.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -116,7 +111,6 @@ public class HourlyUsageAttributionBody {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -140,11 +134,6 @@ public class HourlyUsageAttributionBody {
    * @return tagConfigSource
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The source of the usage attribution tag configuration and the selected tags in the"
-              + " format of `<source_org_name>:::<selected tag 1>///<selected tag 2>///<selected"
-              + " tag 3>`.")
   @JsonProperty(JSON_PROPERTY_TAG_CONFIG_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagConfigSource() {
@@ -174,7 +163,6 @@ public class HourlyUsageAttributionBody {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Usage Summary by tag name.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getTags() {
@@ -196,7 +184,6 @@ public class HourlyUsageAttributionBody {
    * @return totalUsageSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total product usage for the given tags within the hour.")
   @JsonProperty(JSON_PROPERTY_TOTAL_USAGE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTotalUsageSum() {
@@ -219,10 +206,6 @@ public class HourlyUsageAttributionBody {
    * @return updatedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the most recent hour in the current month for all organizations where usages are"
-              + " calculated.")
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUpdatedAt() {
@@ -245,7 +228,6 @@ public class HourlyUsageAttributionBody {
    * @return usageType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HourlyUsageAttributionUsageType getUsageType() {

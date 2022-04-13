@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +21,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Available prefix information for the Synthetics endpoints. */
-@ApiModel(description = "Available prefix information for the Synthetics endpoints.")
 @JsonPropertyOrder({
   IPPrefixesSynthetics.JSON_PROPERTY_PREFIXES_IPV4,
   IPPrefixesSynthetics.JSON_PROPERTY_PREFIXES_IPV4_BY_LOCATION,
@@ -64,7 +61,6 @@ public class IPPrefixesSynthetics {
    * @return prefixesIpv4
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of IPv4 prefixes.")
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV4)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPrefixesIpv4() {
@@ -96,7 +92,6 @@ public class IPPrefixesSynthetics {
    * @return prefixesIpv4ByLocation
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of IPv4 prefixes by location.")
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV4_BY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getPrefixesIpv4ByLocation() {
@@ -126,7 +121,6 @@ public class IPPrefixesSynthetics {
    * @return prefixesIpv6
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of IPv6 prefixes.")
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV6)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPrefixesIpv6() {
@@ -158,7 +152,6 @@ public class IPPrefixesSynthetics {
    * @return prefixesIpv6ByLocation
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of IPv6 prefixes by location.")
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV6_BY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getPrefixesIpv6ByLocation() {

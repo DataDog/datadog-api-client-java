@@ -15,13 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The relationships the incident will have with other resources once created. */
-@ApiModel(
-    description = "The relationships the incident will have with other resources once created.")
 @JsonPropertyOrder({IncidentCreateRelationships.JSON_PROPERTY_COMMANDER_USER})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentCreateRelationships {
@@ -50,7 +46,6 @@ public class IncidentCreateRelationships {
    *
    * @return commanderUser
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NullableRelationshipToUser getCommanderUser() {

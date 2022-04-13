@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Description of the CI provider. */
-@ApiModel(description = "Description of the CI provider.")
 @JsonPropertyOrder({
   SyntheticsCIBatchMetadataCI.JSON_PROPERTY_PIPELINE,
   SyntheticsCIBatchMetadataCI.JSON_PROPERTY_PROVIDER
@@ -45,7 +42,6 @@ public class SyntheticsCIBatchMetadataCI {
    * @return pipeline
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PIPELINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadataPipeline getPipeline() {
@@ -68,7 +64,6 @@ public class SyntheticsCIBatchMetadataCI {
    * @return provider
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadataProvider getProvider() {

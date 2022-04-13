@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Incident Service data from responses. */
-@ApiModel(description = "Incident Service data from responses.")
 @JsonPropertyOrder({
   IncidentServiceResponseData.JSON_PROPERTY_ATTRIBUTES,
   IncidentServiceResponseData.JSON_PROPERTY_ID,
@@ -65,7 +62,6 @@ public class IncidentServiceResponseData {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentServiceResponseAttributes getAttributes() {
@@ -86,10 +82,6 @@ public class IncidentServiceResponseData {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "00000000-0000-0000-0000-000000000000",
-      required = true,
-      value = "The incident service's ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -112,7 +104,6 @@ public class IncidentServiceResponseData {
    * @return relationships
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentServiceRelationships getRelationships() {
@@ -134,7 +125,6 @@ public class IncidentServiceResponseData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public IncidentServiceType getType() {

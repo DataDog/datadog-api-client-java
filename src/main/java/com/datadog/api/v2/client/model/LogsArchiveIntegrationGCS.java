@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The GCS archive&#39;s integration destination. */
-@ApiModel(description = "The GCS archive's integration destination.")
 @JsonPropertyOrder({
   LogsArchiveIntegrationGCS.JSON_PROPERTY_CLIENT_EMAIL,
   LogsArchiveIntegrationGCS.JSON_PROPERTY_PROJECT_ID
@@ -54,7 +51,6 @@ public class LogsArchiveIntegrationGCS {
    *
    * @return clientEmail
    */
-  @ApiModelProperty(example = "youremail@example.com", required = true, value = "A client email.")
   @JsonProperty(JSON_PROPERTY_CLIENT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getClientEmail() {
@@ -75,7 +71,6 @@ public class LogsArchiveIntegrationGCS {
    *
    * @return projectId
    */
-  @ApiModelProperty(example = "project-id", required = true, value = "A project ID.")
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getProjectId() {

@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -26,10 +24,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * A metric to submit to Datadog. See [Datadog
  * metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
  */
-@ApiModel(
-    description =
-        "A metric to submit to Datadog. See [Datadog"
-            + " metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).")
 @JsonPropertyOrder({
   Series.JSON_PROPERTY_HOST,
   Series.JSON_PROPERTY_INTERVAL,
@@ -80,9 +74,6 @@ public class Series {
    * @return host
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "test.example.com",
-      value = "The name of the host that produced the metric.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -104,9 +95,6 @@ public class Series {
    * @return interval
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "20",
-      value = "If the type of the metric is rate or count, define the corresponding interval.")
   @JsonIgnore
   public Long getInterval() {
     return interval.orElse(null);
@@ -137,10 +125,6 @@ public class Series {
    *
    * @return metric
    */
-  @ApiModelProperty(
-      example = "system.load.1",
-      required = true,
-      value = "The name of the timeseries.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMetric() {
@@ -168,13 +152,6 @@ public class Series {
    *
    * @return points
    */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Points relating to a metric. All points must be tuples with timestamp and a scalar"
-              + " value (cannot be a string). Timestamps should be in POSIX time in seconds, and"
-              + " cannot be more than ten minutes in the future or more than one hour in the"
-              + " past.")
   @JsonProperty(JSON_PROPERTY_POINTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<List<Double>> getPoints() {
@@ -204,9 +181,6 @@ public class Series {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"environment:test\"]",
-      value = "A list of tags associated with the metric.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -228,9 +202,6 @@ public class Series {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "rate",
-      value = "The type of the metric either `count`, `gauge`, or `rate`.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {

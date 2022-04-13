@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import java.util.Objects;
 
 /** The response form a monitor search. */
-@ApiModel(description = "The response form a monitor search.")
 @JsonPropertyOrder({
   MonitorSearchResponse.JSON_PROPERTY_COUNTS,
   MonitorSearchResponse.JSON_PROPERTY_METADATA,
@@ -50,7 +47,6 @@ public class MonitorSearchResponse {
    * @return counts
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorSearchResponseCounts getCounts() {
@@ -73,7 +69,6 @@ public class MonitorSearchResponse {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorSearchResponseMetadata getMetadata() {
@@ -90,7 +85,6 @@ public class MonitorSearchResponse {
    * @return monitors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list of found monitors.")
   @JsonProperty(JSON_PROPERTY_MONITORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorSearchResult> getMonitors() {

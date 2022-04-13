@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Incident Team data for a create request. */
-@ApiModel(description = "Incident Team data for a create request.")
 @JsonPropertyOrder({
   IncidentTeamCreateData.JSON_PROPERTY_ATTRIBUTES,
   IncidentTeamCreateData.JSON_PROPERTY_RELATIONSHIPS,
@@ -59,7 +56,6 @@ public class IncidentTeamCreateData {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentTeamCreateAttributes getAttributes() {
@@ -82,7 +78,6 @@ public class IncidentTeamCreateData {
    * @return relationships
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentTeamRelationships getRelationships() {
@@ -104,7 +99,6 @@ public class IncidentTeamCreateData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public IncidentTeamType getType() {

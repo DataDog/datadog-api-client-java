@@ -15,15 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The attributes of a notebook in get all response. */
-@ApiModel(description = "The attributes of a notebook in get all response.")
 @JsonPropertyOrder({
   NotebooksResponseDataAttributes.JSON_PROPERTY_AUTHOR,
   NotebooksResponseDataAttributes.JSON_PROPERTY_CELLS,
@@ -81,7 +78,6 @@ public class NotebooksResponseDataAttributes {
    * @return author
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookAuthor getAuthor() {
@@ -115,7 +111,6 @@ public class NotebooksResponseDataAttributes {
    * @return cells
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of cells to display in the notebook.")
   @JsonProperty(JSON_PROPERTY_CELLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<NotebookCellResponse> getCells() {
@@ -132,9 +127,6 @@ public class NotebooksResponseDataAttributes {
    * @return created
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2021-02-24T23:14:15.173964Z",
-      value = "UTC time stamp for when the notebook was created.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -153,7 +145,6 @@ public class NotebooksResponseDataAttributes {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookMetadata getMetadata() {
@@ -170,9 +161,6 @@ public class NotebooksResponseDataAttributes {
    * @return modified
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2021-02-24T23:15:23.274966Z",
-      value = "UTC time stamp for when the notebook was last modified.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -189,10 +177,6 @@ public class NotebooksResponseDataAttributes {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "Example Notebook",
-      required = true,
-      value = "The name of the notebook.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -215,7 +199,6 @@ public class NotebooksResponseDataAttributes {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookStatus getStatus() {
@@ -241,7 +224,6 @@ public class NotebooksResponseDataAttributes {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookGlobalTime getTime() {

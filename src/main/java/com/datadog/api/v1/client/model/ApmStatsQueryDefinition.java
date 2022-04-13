@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The APM stats query for table and distributions widgets. */
-@ApiModel(description = "The APM stats query for table and distributions widgets.")
 @JsonPropertyOrder({
   ApmStatsQueryDefinition.JSON_PROPERTY_COLUMNS,
   ApmStatsQueryDefinition.JSON_PROPERTY_ENV,
@@ -96,7 +93,6 @@ public class ApmStatsQueryDefinition {
    * @return columns
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Column properties used by the front end for display.")
   @JsonProperty(JSON_PROPERTY_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ApmStatsQueryColumnType> getColumns() {
@@ -117,7 +113,6 @@ public class ApmStatsQueryDefinition {
    *
    * @return env
    */
-  @ApiModelProperty(example = "prod", required = true, value = "Environment name.")
   @JsonProperty(JSON_PROPERTY_ENV)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEnv() {
@@ -138,10 +133,6 @@ public class ApmStatsQueryDefinition {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "rack.request",
-      required = true,
-      value = "Operation name associated with service.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -162,10 +153,6 @@ public class ApmStatsQueryDefinition {
    *
    * @return primaryTag
    */
-  @ApiModelProperty(
-      example = "datacenter:*",
-      required = true,
-      value = "The organization's host group name and value.")
   @JsonProperty(JSON_PROPERTY_PRIMARY_TAG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPrimaryTag() {
@@ -187,7 +174,6 @@ public class ApmStatsQueryDefinition {
    * @return resource
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CartsController", value = "Resource name.")
   @JsonProperty(JSON_PROPERTY_RESOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResource() {
@@ -209,7 +195,6 @@ public class ApmStatsQueryDefinition {
    *
    * @return rowType
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ROW_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ApmStatsQueryRowType getRowType() {
@@ -233,7 +218,6 @@ public class ApmStatsQueryDefinition {
    *
    * @return service
    */
-  @ApiModelProperty(example = "web-store", required = true, value = "Service name.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getService() {

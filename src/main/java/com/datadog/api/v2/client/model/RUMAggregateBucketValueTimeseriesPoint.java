@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** A timeseries point. */
-@ApiModel(description = "A timeseries point.")
 @JsonPropertyOrder({
   RUMAggregateBucketValueTimeseriesPoint.JSON_PROPERTY_TIME,
   RUMAggregateBucketValueTimeseriesPoint.JSON_PROPERTY_VALUE
@@ -45,7 +42,6 @@ public class RUMAggregateBucketValueTimeseriesPoint {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2020-06-08T11:55:00.123Z", value = "The time value for this point.")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTime() {
@@ -67,7 +63,6 @@ public class RUMAggregateBucketValueTimeseriesPoint {
    * @return value
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "19", value = "The value for this point.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getValue() {

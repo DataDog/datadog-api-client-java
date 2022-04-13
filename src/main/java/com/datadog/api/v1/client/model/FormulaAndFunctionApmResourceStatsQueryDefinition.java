@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** APM resource stats query using formulas and functions. */
-@ApiModel(description = "APM resource stats query using formulas and functions.")
 @JsonPropertyOrder({
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_ENV,
@@ -100,7 +97,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return dataSource
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FormulaAndFunctionApmResourceStatsDataSource getDataSource() {
@@ -124,7 +120,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return env
    */
-  @ApiModelProperty(example = "staging", required = true, value = "APM environment.")
   @JsonProperty(JSON_PROPERTY_ENV)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEnv() {
@@ -154,7 +149,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of fields to group results by.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupBy() {
@@ -175,10 +169,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "query_errors",
-      required = true,
-      value = "Name of this query to use in formulas.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -200,7 +190,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    * @return operationName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "cassandra.query", value = "Name of operation on service.")
   @JsonProperty(JSON_PROPERTY_OPERATION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOperationName() {
@@ -224,12 +213,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    * @return primaryTagName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "datacenter",
-      value =
-          "Name of the second primary tag used within APM. Required when `primary_tag_value` is"
-              + " specified. See"
-              + " https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog")
   @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrimaryTagName() {
@@ -252,11 +235,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    * @return primaryTagValue
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "us-east-az",
-      value =
-          "Value of the second primary tag by which to filter APM data. `primary_tag_name` must"
-              + " also be specified.")
   @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrimaryTagValue() {
@@ -278,7 +256,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    * @return resourceName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Admin::ProductsController#create", value = "APM resource name.")
   @JsonProperty(JSON_PROPERTY_RESOURCE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResourceName() {
@@ -299,7 +276,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return service
    */
-  @ApiModelProperty(example = "web-store", required = true, value = "APM service name.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getService() {
@@ -322,7 +298,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return stat
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STAT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FormulaAndFunctionApmResourceStatName getStat() {

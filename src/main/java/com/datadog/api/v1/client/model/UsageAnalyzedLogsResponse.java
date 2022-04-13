@@ -14,16 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** A response containing the number of analyzed logs for each hour for a given organization. */
-@ApiModel(
-    description =
-        "A response containing the number of analyzed logs for each hour for a given organization.")
 @JsonPropertyOrder({UsageAnalyzedLogsResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageAnalyzedLogsResponse {
@@ -54,7 +49,6 @@ public class UsageAnalyzedLogsResponse {
    * @return usage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Get hourly usage for analyzed logs.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageAnalyzedLogsHour> getUsage() {

@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The counts of monitors per different criteria. */
-@ApiModel(description = "The counts of monitors per different criteria.")
 @JsonPropertyOrder({
   MonitorSearchResponseCounts.JSON_PROPERTY_MUTED,
   MonitorSearchResponseCounts.JSON_PROPERTY_STATUS,
@@ -62,7 +59,6 @@ public class MonitorSearchResponseCounts {
    * @return muted
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Search facets.")
   @JsonProperty(JSON_PROPERTY_MUTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Object> getMuted() {
@@ -92,7 +88,6 @@ public class MonitorSearchResponseCounts {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Search facets.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Object> getStatus() {
@@ -122,7 +117,6 @@ public class MonitorSearchResponseCounts {
    * @return tag
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Search facets.")
   @JsonProperty(JSON_PROPERTY_TAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Object> getTag() {
@@ -152,7 +146,6 @@ public class MonitorSearchResponseCounts {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Search facets.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Object> getType() {

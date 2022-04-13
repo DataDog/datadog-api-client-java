@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A dashboard within a list. */
-@ApiModel(description = "A dashboard within a list.")
 @JsonPropertyOrder({
   DashboardListItemResponse.JSON_PROPERTY_ID,
   DashboardListItemResponse.JSON_PROPERTY_TYPE
@@ -50,7 +47,6 @@ public class DashboardListItemResponse {
    *
    * @return id
    */
-  @ApiModelProperty(example = "q5j-nti-fv6", required = true, value = "ID of the dashboard.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -68,7 +64,6 @@ public class DashboardListItemResponse {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public DashboardType getType() {

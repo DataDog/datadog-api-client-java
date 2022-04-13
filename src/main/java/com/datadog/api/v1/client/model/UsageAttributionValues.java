@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Fields in Usage Summary by tag(s). */
-@ApiModel(description = "Fields in Usage Summary by tag(s).")
 @JsonPropertyOrder({
   UsageAttributionValues.JSON_PROPERTY_API_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_API_USAGE,
@@ -194,7 +191,6 @@ public class UsageAttributionValues {
    * @return apiPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of synthetic API test usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_API_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApiPercentage() {
@@ -216,7 +212,6 @@ public class UsageAttributionValues {
    * @return apiUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The synthetic API test usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_API_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApiUsage() {
@@ -238,7 +233,6 @@ public class UsageAttributionValues {
    * @return apmHostPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of APM host usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_APM_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApmHostPercentage() {
@@ -260,7 +254,6 @@ public class UsageAttributionValues {
    * @return apmHostUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The APM host usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_APM_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApmHostUsage() {
@@ -282,7 +275,6 @@ public class UsageAttributionValues {
    * @return browserPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of synthetic browser test usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_BROWSER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getBrowserPercentage() {
@@ -304,7 +296,6 @@ public class UsageAttributionValues {
    * @return browserUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The synthetic browser test usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_BROWSER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getBrowserUsage() {
@@ -326,7 +317,6 @@ public class UsageAttributionValues {
    * @return containerPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of container usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_CONTAINER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getContainerPercentage() {
@@ -348,7 +338,6 @@ public class UsageAttributionValues {
    * @return containerUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The container usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_CONTAINER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getContainerUsage() {
@@ -370,8 +359,6 @@ public class UsageAttributionValues {
    * @return cspmContainerPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The percentage of Cloud Security Posture Management container usage by tag(s)")
   @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCspmContainerPercentage() {
@@ -393,7 +380,6 @@ public class UsageAttributionValues {
    * @return cspmContainerUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Cloud Security Posture Management container usage by tag(s)")
   @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCspmContainerUsage() {
@@ -415,8 +401,6 @@ public class UsageAttributionValues {
    * @return cspmHostPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The percentage of Cloud Security Posture Management host usage by tag(s)")
   @JsonProperty(JSON_PROPERTY_CSPM_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCspmHostPercentage() {
@@ -438,7 +422,6 @@ public class UsageAttributionValues {
    * @return cspmHostUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Cloud Security Posture Management host usage by tag(s)")
   @JsonProperty(JSON_PROPERTY_CSPM_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCspmHostUsage() {
@@ -460,7 +443,6 @@ public class UsageAttributionValues {
    * @return customTimeseriesPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of custom metrics usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCustomTimeseriesPercentage() {
@@ -482,7 +464,6 @@ public class UsageAttributionValues {
    * @return customTimeseriesUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The custom metrics usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCustomTimeseriesUsage() {
@@ -504,7 +485,6 @@ public class UsageAttributionValues {
    * @return cwsContainerPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of Cloud Workload Security container usage by tag(s)")
   @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCwsContainerPercentage() {
@@ -526,7 +506,6 @@ public class UsageAttributionValues {
    * @return cwsContainerUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Cloud Workload Security container usage by tag(s)")
   @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCwsContainerUsage() {
@@ -548,7 +527,6 @@ public class UsageAttributionValues {
    * @return cwsHostPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of Cloud Workload Security host usage by tag(s)")
   @JsonProperty(JSON_PROPERTY_CWS_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCwsHostPercentage() {
@@ -570,7 +548,6 @@ public class UsageAttributionValues {
    * @return cwsHostUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Cloud Workload Security host usage by tag(s)")
   @JsonProperty(JSON_PROPERTY_CWS_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCwsHostUsage() {
@@ -592,7 +569,6 @@ public class UsageAttributionValues {
    * @return dbmHostsPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of Database Monitoring host usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_DBM_HOSTS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDbmHostsPercentage() {
@@ -614,7 +590,6 @@ public class UsageAttributionValues {
    * @return dbmHostsUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Database Monitoring host usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_DBM_HOSTS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDbmHostsUsage() {
@@ -636,8 +611,6 @@ public class UsageAttributionValues {
    * @return dbmQueriesPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The percentage of Database Monitoring normalized queries usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_DBM_QUERIES_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDbmQueriesPercentage() {
@@ -659,7 +632,6 @@ public class UsageAttributionValues {
    * @return dbmQueriesUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Database Monitoring normalized queries usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_DBM_QUERIES_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDbmQueriesUsage() {
@@ -683,10 +655,6 @@ public class UsageAttributionValues {
    * @return estimatedIndexedLogsPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The percentage of estimated live indexed logs usage by tag(s). Note this field is in"
-              + " private beta.")
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIndexedLogsPercentage() {
@@ -708,9 +676,6 @@ public class UsageAttributionValues {
    * @return estimatedIndexedLogsUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The estimated live indexed logs usage by tag(s). Note this field is in private beta.")
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIndexedLogsUsage() {
@@ -732,7 +697,6 @@ public class UsageAttributionValues {
    * @return infraHostPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of infrastructure host usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getInfraHostPercentage() {
@@ -754,7 +718,6 @@ public class UsageAttributionValues {
    * @return infraHostUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The infrastructure host usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getInfraHostUsage() {
@@ -776,7 +739,6 @@ public class UsageAttributionValues {
    * @return lambdaFunctionsPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of Lambda function usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_LAMBDA_FUNCTIONS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLambdaFunctionsPercentage() {
@@ -798,7 +760,6 @@ public class UsageAttributionValues {
    * @return lambdaFunctionsUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Lambda function usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_LAMBDA_FUNCTIONS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLambdaFunctionsUsage() {
@@ -820,7 +781,6 @@ public class UsageAttributionValues {
    * @return lambdaInvocationsPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of Lambda invocation usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_LAMBDA_INVOCATIONS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLambdaInvocationsPercentage() {
@@ -842,7 +802,6 @@ public class UsageAttributionValues {
    * @return lambdaInvocationsUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Lambda invocation usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_LAMBDA_INVOCATIONS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLambdaInvocationsUsage() {
@@ -864,7 +823,6 @@ public class UsageAttributionValues {
    * @return npmHostPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of network host usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_NPM_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getNpmHostPercentage() {
@@ -886,7 +844,6 @@ public class UsageAttributionValues {
    * @return npmHostUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The network host usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_NPM_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getNpmHostUsage() {
@@ -908,7 +865,6 @@ public class UsageAttributionValues {
    * @return profiledContainerPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of profiled containers usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledContainerPercentage() {
@@ -930,7 +886,6 @@ public class UsageAttributionValues {
    * @return profiledContainerUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The profiled container usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_PROFILED_CONTAINER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledContainerUsage() {
@@ -952,7 +907,6 @@ public class UsageAttributionValues {
    * @return profiledHostsPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of profiled hosts usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_PROFILED_HOSTS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledHostsPercentage() {
@@ -974,7 +928,6 @@ public class UsageAttributionValues {
    * @return profiledHostsUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The profiled host usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_PROFILED_HOSTS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledHostsUsage() {
@@ -996,7 +949,6 @@ public class UsageAttributionValues {
    * @return snmpPercentage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of network device usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_SNMP_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getSnmpPercentage() {
@@ -1018,7 +970,6 @@ public class UsageAttributionValues {
    * @return snmpUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The network device usage by tag(s).")
   @JsonProperty(JSON_PROPERTY_SNMP_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getSnmpUsage() {

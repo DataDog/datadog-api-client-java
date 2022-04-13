@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Wrapper object with the list of monitor IDs. */
-@ApiModel(description = "Wrapper object with the list of monitor IDs.")
 @JsonPropertyOrder({CheckCanDeleteMonitorResponseData.JSON_PROPERTY_OK})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CheckCanDeleteMonitorResponseData {
@@ -48,7 +45,6 @@ public class CheckCanDeleteMonitorResponseData {
    * @return ok
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of of Monitor IDs that can be safely deleted.")
   @JsonProperty(JSON_PROPERTY_OK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Long> getOk() {

@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object containing the definition of a metric&#39;s ingested and indexed volume. */
-@ApiModel(
-    description = "Object containing the definition of a metric's ingested and indexed volume.")
 @JsonPropertyOrder({
   MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INDEXED_VOLUME,
   MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INGESTED_VOLUME
@@ -45,7 +41,6 @@ public class MetricIngestedIndexedVolumeAttributes {
    * @return indexedVolume
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10", value = "Indexed volume for the given metric.")
   @JsonProperty(JSON_PROPERTY_INDEXED_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIndexedVolume() {
@@ -67,7 +62,6 @@ public class MetricIngestedIndexedVolumeAttributes {
    * @return ingestedVolume
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "20", value = "Ingested volume for the given metric.")
   @JsonProperty(JSON_PROPERTY_INGESTED_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIngestedVolume() {

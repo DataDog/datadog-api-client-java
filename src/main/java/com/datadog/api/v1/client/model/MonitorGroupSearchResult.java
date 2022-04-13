@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A single monitor group search result. */
-@ApiModel(description = "A single monitor group search result.")
 @JsonPropertyOrder({
   MonitorGroupSearchResult.JSON_PROPERTY_GROUP,
   MonitorGroupSearchResult.JSON_PROPERTY_GROUP_TAGS,
@@ -61,7 +58,6 @@ public class MonitorGroupSearchResult {
    * @return group
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the group.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGroup() {
@@ -74,7 +70,6 @@ public class MonitorGroupSearchResult {
    * @return groupTags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list of tags of the monitor group.")
   @JsonProperty(JSON_PROPERTY_GROUP_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupTags() {
@@ -87,7 +82,6 @@ public class MonitorGroupSearchResult {
    * @return lastNodataTs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Latest timestamp the monitor group was in NO_DATA state.")
   @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastNodataTs() {
@@ -100,7 +94,6 @@ public class MonitorGroupSearchResult {
    * @return lastTriggeredTs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Latest timestamp the monitor group triggered.")
   @JsonIgnore
   public Long getLastTriggeredTs() {
 
@@ -127,7 +120,6 @@ public class MonitorGroupSearchResult {
    * @return monitorId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the monitor.")
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorId() {
@@ -140,7 +132,6 @@ public class MonitorGroupSearchResult {
    * @return monitorName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the monitor.")
   @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMonitorName() {
@@ -159,7 +150,6 @@ public class MonitorGroupSearchResult {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getStatus() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Cancel downtimes according to scope. */
-@ApiModel(description = "Cancel downtimes according to scope.")
 @JsonPropertyOrder({CancelDowntimesByScopeRequest.JSON_PROPERTY_SCOPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CancelDowntimesByScopeRequest {
@@ -49,14 +46,6 @@ public class CancelDowntimesByScopeRequest {
    *
    * @return scope
    */
-  @ApiModelProperty(
-      example = "host:myserver",
-      required = true,
-      value =
-          "The scope(s) to which the downtime applies. For example, `host:app2`. Provide multiple"
-              + " scopes as a comma-separated list like `env:dev,env:prod`. The resulting downtime"
-              + " applies to sources that matches ALL provided scopes (`env:dev` **AND**"
-              + " `env:prod`).")
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getScope() {

@@ -15,13 +15,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import java.util.Objects;
 
 /** Response with an incident service payload. */
-@ApiModel(description = "Response with an incident service payload.")
 @JsonPropertyOrder({
   IncidentServiceResponse.JSON_PROPERTY_DATA,
   IncidentServiceResponse.JSON_PROPERTY_INCLUDED
@@ -55,7 +52,6 @@ public class IncidentServiceResponse {
    *
    * @return data
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public IncidentServiceResponseData getData() {
@@ -72,7 +68,6 @@ public class IncidentServiceResponse {
    * @return included
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Included objects from relationships.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<IncidentServiceIncludedItems> getIncluded() {

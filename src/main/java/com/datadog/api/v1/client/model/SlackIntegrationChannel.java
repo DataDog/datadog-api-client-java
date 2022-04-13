@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The Slack channel configuration. */
-@ApiModel(description = "The Slack channel configuration.")
 @JsonPropertyOrder({
   SlackIntegrationChannel.JSON_PROPERTY_DISPLAY,
   SlackIntegrationChannel.JSON_PROPERTY_NAME
@@ -45,7 +42,6 @@ public class SlackIntegrationChannel {
    * @return display
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SlackIntegrationChannelDisplay getDisplay() {
@@ -67,7 +63,6 @@ public class SlackIntegrationChannel {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "#general", value = "Your channel name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

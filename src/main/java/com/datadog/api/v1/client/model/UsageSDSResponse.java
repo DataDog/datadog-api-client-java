@@ -14,17 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response containing the Sensitive Data Scanner usage for each hour for a given organization. */
-@ApiModel(
-    description =
-        "Response containing the Sensitive Data Scanner usage for each hour for a given"
-            + " organization.")
 @JsonPropertyOrder({UsageSDSResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSDSResponse {
@@ -55,7 +49,6 @@ public class UsageSDSResponse {
    * @return usage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Get hourly usage for Sensitive Data Scanner.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageSDSHour> getUsage() {

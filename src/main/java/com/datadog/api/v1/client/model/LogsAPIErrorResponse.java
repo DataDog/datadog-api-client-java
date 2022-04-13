@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Response returned by the Logs API when errors occur. */
-@ApiModel(description = "Response returned by the Logs API when errors occur.")
 @JsonPropertyOrder({LogsAPIErrorResponse.JSON_PROPERTY_ERROR})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAPIErrorResponse {
@@ -39,7 +36,6 @@ public class LogsAPIErrorResponse {
    * @return error
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsAPIError getError() {

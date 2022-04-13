@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +22,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** JSON object containing all event attributes and their associated values. */
-@ApiModel(description = "JSON object containing all event attributes and their associated values.")
 @JsonPropertyOrder({
   RUMEventAttributes.JSON_PROPERTY_ATTRIBUTES,
   RUMEventAttributes.JSON_PROPERTY_SERVICE,
@@ -65,9 +62,6 @@ public class RUMEventAttributes {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "{\"customAttribute\":123,\"duration\":2345}",
-      value = "JSON object of attributes from RUM events.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Object> getAttributes() {
@@ -90,11 +84,6 @@ public class RUMEventAttributes {
    * @return service
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "web-app",
-      value =
-          "The name of the application or service generating RUM events. It is used to switch from"
-              + " RUM to APM, so make sure you define the same value when you use both products.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getService() {
@@ -124,7 +113,6 @@ public class RUMEventAttributes {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"team:A\"]", value = "Array of tags associated with your event.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -146,7 +134,6 @@ public class RUMEventAttributes {
    * @return timestamp
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-01-02T09:42:36.320Z", value = "Timestamp of your event.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTimestamp() {

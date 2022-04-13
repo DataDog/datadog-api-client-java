@@ -14,14 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import java.util.Objects;
 
 /** Response Object that includes your query and the list of metrics retrieved. */
-@ApiModel(
-    description = "Response Object that includes your query and the list of metrics retrieved.")
 @JsonPropertyOrder({
   MetricsQueryResponse.JSON_PROPERTY_ERROR,
   MetricsQueryResponse.JSON_PROPERTY_FROM_DATE,
@@ -69,7 +65,6 @@ public class MetricsQueryResponse {
    * @return error
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Message indicating the errors if status is not `ok`.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getError() {
@@ -82,7 +77,6 @@ public class MetricsQueryResponse {
    * @return fromDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Start of requested time window, milliseconds since Unix epoch.")
   @JsonProperty(JSON_PROPERTY_FROM_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFromDate() {
@@ -95,7 +89,6 @@ public class MetricsQueryResponse {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of tag keys on which to group.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupBy() {
@@ -108,7 +101,6 @@ public class MetricsQueryResponse {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Message indicating `success` if status is `ok`.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -121,7 +113,6 @@ public class MetricsQueryResponse {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query string")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -134,7 +125,6 @@ public class MetricsQueryResponse {
    * @return resType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "time_series", value = "Type of response.")
   @JsonProperty(JSON_PROPERTY_RES_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResType() {
@@ -147,7 +137,6 @@ public class MetricsQueryResponse {
    * @return series
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of timeseries queried.")
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MetricsQueryMetadata> getSeries() {
@@ -160,7 +149,6 @@ public class MetricsQueryResponse {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ok", value = "Status of the query.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -173,7 +161,6 @@ public class MetricsQueryResponse {
    * @return toDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "End of requested time window, milliseconds since Unix epoch.")
   @JsonProperty(JSON_PROPERTY_TO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getToDate() {

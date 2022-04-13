@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Relationship of AuthN Mapping create object to Role. */
-@ApiModel(description = "Relationship of AuthN Mapping create object to Role.")
 @JsonPropertyOrder({AuthNMappingCreateRelationships.JSON_PROPERTY_ROLE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AuthNMappingCreateRelationships {
@@ -39,7 +36,6 @@ public class AuthNMappingCreateRelationships {
    * @return role
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToRole getRole() {

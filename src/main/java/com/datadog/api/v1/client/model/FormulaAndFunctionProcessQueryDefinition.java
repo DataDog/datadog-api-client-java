@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Process query using formulas and functions. */
-@ApiModel(description = "Process query using formulas and functions.")
 @JsonPropertyOrder({
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_AGGREGATOR,
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
@@ -91,7 +88,6 @@ public class FormulaAndFunctionProcessQueryDefinition {
    * @return aggregator
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionMetricAggregation getAggregator() {
@@ -117,7 +113,6 @@ public class FormulaAndFunctionProcessQueryDefinition {
    *
    * @return dataSource
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FormulaAndFunctionProcessQueryDataSource getDataSource() {
@@ -142,7 +137,6 @@ public class FormulaAndFunctionProcessQueryDefinition {
    * @return isNormalizedCpu
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to normalize the CPU percentages.")
   @JsonProperty(JSON_PROPERTY_IS_NORMALIZED_CPU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsNormalizedCpu() {
@@ -164,7 +158,6 @@ public class FormulaAndFunctionProcessQueryDefinition {
    * @return limit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of hits to return.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -185,10 +178,6 @@ public class FormulaAndFunctionProcessQueryDefinition {
    *
    * @return metric
    */
-  @ApiModelProperty(
-      example = "avg:system.cpu.user{*}",
-      required = true,
-      value = "Process metric name.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMetric() {
@@ -209,10 +198,6 @@ public class FormulaAndFunctionProcessQueryDefinition {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "query_errors",
-      required = true,
-      value = "Name of query for use in formulas.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -235,7 +220,6 @@ public class FormulaAndFunctionProcessQueryDefinition {
    * @return sort
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public QuerySortOrder getSort() {
@@ -268,7 +252,6 @@ public class FormulaAndFunctionProcessQueryDefinition {
    * @return tagFilters
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of tags to filter by.")
   @JsonProperty(JSON_PROPERTY_TAG_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTagFilters() {
@@ -290,7 +273,6 @@ public class FormulaAndFunctionProcessQueryDefinition {
    * @return textFilter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Text to use as filter.")
   @JsonProperty(JSON_PROPERTY_TEXT_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTextFilter() {

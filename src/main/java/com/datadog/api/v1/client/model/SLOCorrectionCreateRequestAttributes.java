@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The attribute object associated with the SLO correction to be created. */
-@ApiModel(description = "The attribute object associated with the SLO correction to be created.")
 @JsonPropertyOrder({
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_CATEGORY,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -82,7 +79,6 @@ public class SLOCorrectionCreateRequestAttributes {
    *
    * @return category
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SLOCorrectionCategory getCategory() {
@@ -107,7 +103,6 @@ public class SLOCorrectionCreateRequestAttributes {
    * @return description
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the correction being made.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -129,9 +124,6 @@ public class SLOCorrectionCreateRequestAttributes {
    * @return duration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1600000000",
-      value = "Length of time (in seconds) for a specified `rrule` recurring SLO correction.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDuration() {
@@ -153,9 +145,6 @@ public class SLOCorrectionCreateRequestAttributes {
    * @return end
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1600000000",
-      value = "Ending time of the correction in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
@@ -179,11 +168,6 @@ public class SLOCorrectionCreateRequestAttributes {
    * @return rrule
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "FREQ=DAILY;INTERVAL=10;COUNT=5",
-      value =
-          "The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO"
-              + " corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.")
   @JsonProperty(JSON_PROPERTY_RRULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRrule() {
@@ -204,10 +188,6 @@ public class SLOCorrectionCreateRequestAttributes {
    *
    * @return sloId
    */
-  @ApiModelProperty(
-      example = "sloId",
-      required = true,
-      value = "ID of the SLO that this correction will be applied to.")
   @JsonProperty(JSON_PROPERTY_SLO_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSloId() {
@@ -228,10 +208,6 @@ public class SLOCorrectionCreateRequestAttributes {
    *
    * @return start
    */
-  @ApiModelProperty(
-      example = "1600000000",
-      required = true,
-      value = "Starting time of the correction in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getStart() {
@@ -253,9 +229,6 @@ public class SLOCorrectionCreateRequestAttributes {
    * @return timezone
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "UTC",
-      value = "The timezone to display in the UI for the correction times (defaults to \"UTC\").")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {

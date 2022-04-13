@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Description of errors. */
-@ApiModel(description = "Description of errors.")
 @JsonPropertyOrder({AWSLogsAsyncError.JSON_PROPERTY_CODE, AWSLogsAsyncError.JSON_PROPERTY_MESSAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSLogsAsyncError {
@@ -41,7 +38,6 @@ public class AWSLogsAsyncError {
    * @return code
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "no_such_config", value = "Code properties")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCode() {
@@ -63,9 +59,6 @@ public class AWSLogsAsyncError {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "AWS account 12345 has no lambda config to update",
-      value = "Message content.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {

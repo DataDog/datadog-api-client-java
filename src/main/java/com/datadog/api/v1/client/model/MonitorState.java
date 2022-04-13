@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 /** Wrapper object with the different monitor states. */
-@ApiModel(description = "Wrapper object with the different monitor states.")
 @JsonPropertyOrder({MonitorState.JSON_PROPERTY_GROUPS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorState {
@@ -49,10 +46,6 @@ public class MonitorState {
    * @return groups
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Dictionary where the keys are groups (comma separated lists of tags) and the values are"
-              + " the list of groups your monitor is broken down on.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, MonitorStateGroup> getGroups() {

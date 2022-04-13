@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Create, edit, and disable users. */
-@ApiModel(description = "Create, edit, and disable users.")
 @JsonPropertyOrder({
   User.JSON_PROPERTY_ACCESS_ROLE,
   User.JSON_PROPERTY_DISABLED,
@@ -65,7 +62,6 @@ public class User {
    * @return accessRole
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCESS_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AccessRole getAccessRole() {
@@ -90,7 +86,6 @@ public class User {
    * @return disabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "The new disabled status of the user.")
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisabled() {
@@ -112,7 +107,6 @@ public class User {
    * @return email
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "test@datadoghq.com", value = "The new email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -134,9 +128,6 @@ public class User {
    * @return handle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "test@datadoghq.com",
-      value = "The user handle, must be a valid email.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHandle() {
@@ -153,9 +144,6 @@ public class User {
    * @return icon
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "/path/to/matching/gravatar/icon",
-      value = "Gravatar icon associated to the user.")
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIcon() {
@@ -173,7 +161,6 @@ public class User {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "test user", value = "The name of the user.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -190,9 +177,6 @@ public class User {
    * @return verified
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "true",
-      value = "Whether or not the user logged in Datadog at least once.")
   @JsonProperty(JSON_PROPERTY_VERIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getVerified() {

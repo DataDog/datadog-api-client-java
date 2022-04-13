@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response containing the hourly usage attribution by tag(s). */
-@ApiModel(description = "Response containing the hourly usage attribution by tag(s).")
 @JsonPropertyOrder({
   HourlyUsageAttributionResponse.JSON_PROPERTY_METADATA,
   HourlyUsageAttributionResponse.JSON_PROPERTY_USAGE
@@ -47,7 +44,6 @@ public class HourlyUsageAttributionResponse {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HourlyUsageAttributionMetadata getMetadata() {
@@ -81,7 +77,6 @@ public class HourlyUsageAttributionResponse {
    * @return usage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Get the hourly usage attribution by tag(s).")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<HourlyUsageAttributionBody> getUsage() {

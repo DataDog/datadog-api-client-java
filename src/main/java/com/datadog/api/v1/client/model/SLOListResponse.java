@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** A response with one or more service level objective. */
-@ApiModel(description = "A response with one or more service level objective.")
 @JsonPropertyOrder({
   SLOListResponse.JSON_PROPERTY_DATA,
   SLOListResponse.JSON_PROPERTY_ERRORS,
@@ -62,7 +59,6 @@ public class SLOListResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of service level objective objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ServiceLevelObjective> getData() {
@@ -92,8 +88,6 @@ public class SLOListResponse {
    * @return errors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "An array of error messages. Each endpoint documents how/whether this field is used.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getErrors() {
@@ -116,7 +110,6 @@ public class SLOListResponse {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOListResponseMetadata getMetadata() {

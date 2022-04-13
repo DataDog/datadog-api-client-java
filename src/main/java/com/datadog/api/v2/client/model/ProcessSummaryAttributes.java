@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Attributes for a process summary. */
-@ApiModel(description = "Attributes for a process summary.")
 @JsonPropertyOrder({
   ProcessSummaryAttributes.JSON_PROPERTY_CMDLINE,
   ProcessSummaryAttributes.JSON_PROPERTY_HOST,
@@ -70,7 +67,6 @@ public class ProcessSummaryAttributes {
    * @return cmdline
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Process command line.")
   @JsonProperty(JSON_PROPERTY_CMDLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCmdline() {
@@ -92,7 +88,6 @@ public class ProcessSummaryAttributes {
    * @return host
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Host running the process.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -114,7 +109,6 @@ public class ProcessSummaryAttributes {
    * @return pid
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Process ID.")
   @JsonProperty(JSON_PROPERTY_PID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPid() {
@@ -136,7 +130,6 @@ public class ProcessSummaryAttributes {
    * @return ppid
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Parent process ID.")
   @JsonProperty(JSON_PROPERTY_PPID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPpid() {
@@ -158,7 +151,6 @@ public class ProcessSummaryAttributes {
    * @return start
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time the process was started.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStart() {
@@ -188,7 +180,6 @@ public class ProcessSummaryAttributes {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of tags associated with the process.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -210,7 +201,6 @@ public class ProcessSummaryAttributes {
    * @return timestamp
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time the process was seen.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimestamp() {
@@ -232,7 +222,6 @@ public class ProcessSummaryAttributes {
    * @return user
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Process owner.")
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUser() {

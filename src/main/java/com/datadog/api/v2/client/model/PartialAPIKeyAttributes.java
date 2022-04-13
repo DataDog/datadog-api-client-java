@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Attributes of a partial API key. */
-@ApiModel(description = "Attributes of a partial API key.")
 @JsonPropertyOrder({
   PartialAPIKeyAttributes.JSON_PROPERTY_CREATED_AT,
   PartialAPIKeyAttributes.JSON_PROPERTY_LAST4,
@@ -47,7 +44,6 @@ public class PartialAPIKeyAttributes {
    * @return createdAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2020-11-23T10:00:00.000Z", value = "Creation date of the API key.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreatedAt() {
@@ -60,7 +56,6 @@ public class PartialAPIKeyAttributes {
    * @return last4
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "abcd", value = "The last four characters of the API key.")
   @JsonProperty(JSON_PROPERTY_LAST4)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLast4() {
@@ -73,9 +68,6 @@ public class PartialAPIKeyAttributes {
    * @return modifiedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2020-11-23T10:00:00.000Z",
-      value = "Date the API key was last modified.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getModifiedAt() {
@@ -93,7 +85,6 @@ public class PartialAPIKeyAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "API Key for submitting metrics", value = "Name of the API key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

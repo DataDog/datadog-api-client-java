@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * The heat map visualization shows metrics aggregated across many tags, such as hosts. The more
  * hosts that have a particular value, the darker that square is.
  */
-@ApiModel(
-    description =
-        "The heat map visualization shows metrics aggregated across many tags, such as hosts. The"
-            + " more hosts that have a particular value, the darker that square is.")
 @JsonPropertyOrder({
   HeatMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   HeatMapWidgetDefinition.JSON_PROPERTY_EVENTS,
@@ -113,7 +107,6 @@ public class HeatMapWidgetDefinition {
    * @return customLinks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -147,7 +140,6 @@ public class HeatMapWidgetDefinition {
    * @return events
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of widget events.")
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetEvent> getEvents() {
@@ -170,10 +162,6 @@ public class HeatMapWidgetDefinition {
    * @return legendSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\","
-              + " \"16\", or \"auto\".")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegendSize() {
@@ -203,10 +191,6 @@ public class HeatMapWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(
-      example = "[{\"q\":\"jvm.heap.memory\"}]",
-      required = true,
-      value = "List of widget types.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<HeatMapWidgetRequest> getRequests() {
@@ -228,7 +212,6 @@ public class HeatMapWidgetDefinition {
    * @return showLegend
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not to display the legend on this widget.")
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowLegend() {
@@ -251,7 +234,6 @@ public class HeatMapWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -273,7 +255,6 @@ public class HeatMapWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -296,7 +277,6 @@ public class HeatMapWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -321,7 +301,6 @@ public class HeatMapWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -343,7 +322,6 @@ public class HeatMapWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public HeatMapWidgetDefinitionType getType() {
@@ -369,7 +347,6 @@ public class HeatMapWidgetDefinition {
    * @return yaxis
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetAxis getYaxis() {

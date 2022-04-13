@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object describing the extra options for a Synthetic test. */
-@ApiModel(description = "Object describing the extra options for a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestOptions.JSON_PROPERTY_ACCEPT_SELF_SIGNED,
   SyntheticsTestOptions.JSON_PROPERTY_ALLOW_INSECURE,
@@ -99,8 +96,6 @@ public class SyntheticsTestOptions {
    * @return acceptSelfSigned
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "For SSL test, whether or not the test should allow self signed certificates.")
   @JsonProperty(JSON_PROPERTY_ACCEPT_SELF_SIGNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAcceptSelfSigned() {
@@ -122,7 +117,6 @@ public class SyntheticsTestOptions {
    * @return allowInsecure
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Allows loading insecure content for an HTTP request.")
   @JsonProperty(JSON_PROPERTY_ALLOW_INSECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowInsecure() {
@@ -144,10 +138,6 @@ public class SyntheticsTestOptions {
    * @return checkCertificateRevocation
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "For SSL test, whether or not the test should fail on revoked certificate in stapled"
-              + " OCSP.")
   @JsonProperty(JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getCheckCertificateRevocation() {
@@ -178,8 +168,6 @@ public class SyntheticsTestOptions {
    * @return deviceIds
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "For browser test, array with the different device IDs used to run the test.")
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsDeviceID> getDeviceIds() {
@@ -201,7 +189,6 @@ public class SyntheticsTestOptions {
    * @return disableCors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not to disable CORS mechanism.")
   @JsonProperty(JSON_PROPERTY_DISABLE_CORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisableCors() {
@@ -223,7 +210,6 @@ public class SyntheticsTestOptions {
    * @return followRedirects
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For API HTTP test, whether or not the test should follow redirects.")
   @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getFollowRedirects() {
@@ -245,7 +231,6 @@ public class SyntheticsTestOptions {
    * @return minFailureDuration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minimum amount of time in failure required to trigger an alert.")
   @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMinFailureDuration() {
@@ -267,7 +252,6 @@ public class SyntheticsTestOptions {
    * @return minLocationFailed
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minimum number of locations in failure required to trigger an alert.")
   @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMinLocationFailed() {
@@ -290,10 +274,6 @@ public class SyntheticsTestOptions {
    * @return monitorName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The monitor name is used for the alert title as well as for all monitor dashboard"
-              + " widgets and SLOs.")
   @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMonitorName() {
@@ -316,7 +296,6 @@ public class SyntheticsTestOptions {
    * @return monitorOptions
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MONITOR_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestOptionsMonitorOptions getMonitorOptions() {
@@ -338,7 +317,6 @@ public class SyntheticsTestOptions {
    * @return monitorPriority
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Integer from 1 (high) to 5 (low) indicating alert severity.")
   @JsonProperty(JSON_PROPERTY_MONITOR_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getMonitorPriority() {
@@ -360,7 +338,6 @@ public class SyntheticsTestOptions {
    * @return noScreenshot
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Prevents saving screenshots of the steps.")
   @JsonProperty(JSON_PROPERTY_NO_SCREENSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNoScreenshot() {
@@ -391,11 +368,6 @@ public class SyntheticsTestOptions {
    * @return restrictedRoles
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"]",
-      value =
-          "A list of role identifiers that can be pulled from the Roles API, for restricting read"
-              + " and write access.")
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRestrictedRoles() {
@@ -418,7 +390,6 @@ public class SyntheticsTestOptions {
    * @return retry
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestOptionsRetry getRetry() {
@@ -440,7 +411,6 @@ public class SyntheticsTestOptions {
    * @return tickEvery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The frequency at which to run the Synthetic test (in seconds).")
   @JsonProperty(JSON_PROPERTY_TICK_EVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTickEvery() {

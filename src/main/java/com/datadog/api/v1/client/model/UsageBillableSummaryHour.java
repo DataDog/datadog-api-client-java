@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Response with monthly summary of data billed by Datadog. */
-@ApiModel(description = "Response with monthly summary of data billed by Datadog.")
 @JsonPropertyOrder({
   UsageBillableSummaryHour.JSON_PROPERTY_BILLING_PLAN,
   UsageBillableSummaryHour.JSON_PROPERTY_END_DATE,
@@ -69,7 +66,6 @@ public class UsageBillableSummaryHour {
    * @return billingPlan
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The billing plan.")
   @JsonProperty(JSON_PROPERTY_BILLING_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBillingPlan() {
@@ -91,7 +87,6 @@ public class UsageBillableSummaryHour {
    * @return endDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the last date of usage.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getEndDate() {
@@ -113,7 +108,6 @@ public class UsageBillableSummaryHour {
    * @return numOrgs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of organizations.")
   @JsonProperty(JSON_PROPERTY_NUM_ORGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNumOrgs() {
@@ -135,7 +129,6 @@ public class UsageBillableSummaryHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -157,7 +150,6 @@ public class UsageBillableSummaryHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -179,7 +171,6 @@ public class UsageBillableSummaryHour {
    * @return ratioInMonth
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows usage aggregation for a billing period.")
   @JsonProperty(JSON_PROPERTY_RATIO_IN_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getRatioInMonth() {
@@ -201,7 +192,6 @@ public class UsageBillableSummaryHour {
    * @return startDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the first date of usage.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getStartDate() {
@@ -224,7 +214,6 @@ public class UsageBillableSummaryHour {
    * @return usage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryKeys getUsage() {

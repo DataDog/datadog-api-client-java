@@ -14,14 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object description of an Audit Logs event after it is processed and stored by Datadog. */
-@ApiModel(
-    description =
-        "Object description of an Audit Logs event after it is processed and stored by Datadog.")
 @JsonPropertyOrder({
   AuditLogsEvent.JSON_PROPERTY_ATTRIBUTES,
   AuditLogsEvent.JSON_PROPERTY_ID,
@@ -51,7 +46,6 @@ public class AuditLogsEvent {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuditLogsEventAttributes getAttributes() {
@@ -73,9 +67,6 @@ public class AuditLogsEvent {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "AAAAAWgN8Xwgr1vKDQAAAABBV2dOOFh3ZzZobm1mWXJFYTR0OA",
-      value = "Unique ID of the event.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -98,7 +89,6 @@ public class AuditLogsEvent {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuditLogsEventType getType() {

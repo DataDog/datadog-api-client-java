@@ -14,16 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing the definition of a metric tag configuration attributes. */
-@ApiModel(
-    description = "Object containing the definition of a metric tag configuration attributes.")
 @JsonPropertyOrder({
   MetricTagConfigurationAttributes.JSON_PROPERTY_AGGREGATIONS,
   MetricTagConfigurationAttributes.JSON_PROPERTY_CREATED_AT,
@@ -83,17 +79,6 @@ public class MetricTagConfigurationAttributes {
    * @return aggregations
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[{\"space\":\"sum\",\"time\":\"sum\"},{\"space\":\"sum\",\"time\":\"count\"}]",
-      value =
-          "A list of queryable aggregation combinations for a count, rate, or gauge metric. By"
-              + " default, count and rate metrics require the (time: sum, space: sum) aggregation"
-              + " and Gauge metrics require the (time: avg, space: avg) aggregation. Additional"
-              + " time & space combinations are also available:  - time: avg, space: avg - time:"
-              + " avg, space: max - time: avg, space: min - time: avg, space: sum - time: count,"
-              + " space: sum - time: max, space: max - time: min, space: min - time: sum, space:"
-              + " avg - time: sum, space: sum  Can only be applied to metrics that have a"
-              + " `metric_type` of `count`, `rate`, or `gauge`.")
   @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MetricCustomAggregation> getAggregations() {
@@ -115,9 +100,6 @@ public class MetricTagConfigurationAttributes {
    * @return createdAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2020-03-25T09:48:37.463835Z",
-      value = "Timestamp when the tag configuration was created.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -140,11 +122,6 @@ public class MetricTagConfigurationAttributes {
    * @return includePercentiles
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "true",
-      value =
-          "Toggle to turn on/off percentile aggregations for distribution metrics. Only present"
-              + " when the `metric_type` is `distribution`.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_PERCENTILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludePercentiles() {
@@ -167,7 +144,6 @@ public class MetricTagConfigurationAttributes {
    * @return metricType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METRIC_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricTagConfigurationMetricTypes getMetricType() {
@@ -192,9 +168,6 @@ public class MetricTagConfigurationAttributes {
    * @return modifiedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2020-03-25T09:48:37.463835Z",
-      value = "Timestamp when the tag configuration was last modified.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModifiedAt() {
@@ -224,9 +197,6 @@ public class MetricTagConfigurationAttributes {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"app\",\"datacenter\"]",
-      value = "List of tag keys on which to group.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

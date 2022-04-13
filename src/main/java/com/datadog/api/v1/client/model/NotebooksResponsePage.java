@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Pagination metadata returned by the API. */
-@ApiModel(description = "Pagination metadata returned by the API.")
 @JsonPropertyOrder({
   NotebooksResponsePage.JSON_PROPERTY_TOTAL_COUNT,
   NotebooksResponsePage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
@@ -45,10 +42,6 @@ public class NotebooksResponsePage {
    * @return totalCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The total number of notebooks that would be returned if the request was not filtered by"
-              + " `start` and `count` parameters.")
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalCount() {
@@ -70,7 +63,6 @@ public class NotebooksResponsePage {
    * @return totalFilteredCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total number of notebooks returned.")
   @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalFilteredCount() {

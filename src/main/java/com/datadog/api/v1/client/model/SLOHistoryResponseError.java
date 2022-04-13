@@ -14,14 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A list of errors while querying the history data for the service level objective. */
-@ApiModel(
-    description =
-        "A list of errors while querying the history data for the service level objective.")
 @JsonPropertyOrder({SLOHistoryResponseError.JSON_PROPERTY_ERROR})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistoryResponseError {
@@ -40,7 +35,6 @@ public class SLOHistoryResponseError {
    * @return error
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Human readable error.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getError() {

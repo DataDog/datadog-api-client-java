@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Resources related to the API key. */
-@ApiModel(description = "Resources related to the API key.")
 @JsonPropertyOrder({
   APIKeyRelationships.JSON_PROPERTY_CREATED_BY,
   APIKeyRelationships.JSON_PROPERTY_MODIFIED_BY
@@ -45,7 +42,6 @@ public class APIKeyRelationships {
    * @return createdBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getCreatedBy() {
@@ -68,7 +64,6 @@ public class APIKeyRelationships {
    * @return modifiedBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getModifiedBy() {

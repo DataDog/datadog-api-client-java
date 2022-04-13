@@ -14,18 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML
  * documentation for more information about all SAML settings.
  */
-@ApiModel(
-    description =
-        "Set the boolean property enabled to enable or disable single sign on with SAML. See the"
-            + " SAML documentation for more information about all SAML settings.")
 @JsonPropertyOrder({OrganizationSettingsSaml.JSON_PROPERTY_ENABLED})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationSettingsSaml {
@@ -44,9 +38,6 @@ public class OrganizationSettingsSaml {
    * @return enabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value = "Whether or not SAML is enabled for this organization.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {

@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The counts of monitor groups per different criteria. */
-@ApiModel(description = "The counts of monitor groups per different criteria.")
 @JsonPropertyOrder({
   MonitorGroupSearchResponseCounts.JSON_PROPERTY_STATUS,
   MonitorGroupSearchResponseCounts.JSON_PROPERTY_TYPE
@@ -54,7 +51,6 @@ public class MonitorGroupSearchResponseCounts {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Search facets.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Object> getStatus() {
@@ -84,7 +80,6 @@ public class MonitorGroupSearchResponseCounts {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Search facets.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Object> getType() {

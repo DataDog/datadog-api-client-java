@@ -15,14 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle. */
-@ApiModel(
-    description =
-        "Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.")
 @JsonPropertyOrder({
   LogsExclusionFilter.JSON_PROPERTY_QUERY,
   LogsExclusionFilter.JSON_PROPERTY_SAMPLE_RATE
@@ -56,11 +51,6 @@ public class LogsExclusionFilter {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "*",
-      value =
-          "Default query is `*`, meaning all logs flowing in the index would be excluded. Scope"
-              + " down exclusion filter to only a subset of logs with a log query.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -82,12 +72,6 @@ public class LogsExclusionFilter {
    *
    * @return sampleRate
    */
-  @ApiModelProperty(
-      example = "1.0",
-      required = true,
-      value =
-          "Sample rate to apply to logs going through this exclusion filter, a value of 1.0"
-              + " excludes all logs matching the query.")
   @JsonProperty(JSON_PROPERTY_SAMPLE_RATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getSampleRate() {

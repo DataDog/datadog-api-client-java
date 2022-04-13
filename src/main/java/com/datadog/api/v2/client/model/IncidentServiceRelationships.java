@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The incident service&#39;s relationships. */
-@ApiModel(description = "The incident service's relationships.")
 @JsonPropertyOrder({
   IncidentServiceRelationships.JSON_PROPERTY_CREATED_BY,
   IncidentServiceRelationships.JSON_PROPERTY_LAST_MODIFIED_BY
@@ -45,7 +42,6 @@ public class IncidentServiceRelationships {
    * @return createdBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getCreatedBy() {
@@ -68,7 +64,6 @@ public class IncidentServiceRelationships {
    * @return lastModifiedBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getLastModifiedBy() {

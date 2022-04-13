@@ -14,15 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of a full application key. */
-@ApiModel(description = "Attributes of a full application key.")
 @JsonPropertyOrder({
   FullApplicationKeyAttributes.JSON_PROPERTY_CREATED_AT,
   FullApplicationKeyAttributes.JSON_PROPERTY_KEY,
@@ -54,9 +51,6 @@ public class FullApplicationKeyAttributes {
    * @return createdAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2020-11-23T10:00:00.000Z",
-      value = "Creation date of the application key.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreatedAt() {
@@ -69,7 +63,6 @@ public class FullApplicationKeyAttributes {
    * @return key
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The application key.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getKey() {
@@ -82,7 +75,6 @@ public class FullApplicationKeyAttributes {
    * @return last4
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "abcd", value = "The last four characters of the application key.")
   @JsonProperty(JSON_PROPERTY_LAST4)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLast4() {
@@ -100,9 +92,6 @@ public class FullApplicationKeyAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Application Key for managing dashboards",
-      value = "Name of the application key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -137,11 +126,6 @@ public class FullApplicationKeyAttributes {
    * @return scopes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"dashboards_read\",\"dashboards_write\",\"dashboards_public_share\"]",
-      value =
-          "Array of scopes to grant the application key. This feature is in private beta, please"
-              + " contact Datadog support to enable scopes for your application keys.")
   @JsonIgnore
   public List<String> getScopes() {
     return scopes.orElse(null);

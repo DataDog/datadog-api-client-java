@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Define a request certificate. */
-@ApiModel(description = "Define a request certificate.")
 @JsonPropertyOrder({
   SyntheticsTestRequestCertificateItem.JSON_PROPERTY_CONTENT,
   SyntheticsTestRequestCertificateItem.JSON_PROPERTY_FILENAME,
@@ -48,7 +45,6 @@ public class SyntheticsTestRequestCertificateItem {
    * @return content
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Content of the certificate or key.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getContent() {
@@ -70,7 +66,6 @@ public class SyntheticsTestRequestCertificateItem {
    * @return filename
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "File name for the certificate or key.")
   @JsonProperty(JSON_PROPERTY_FILENAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFilename() {
@@ -92,7 +87,6 @@ public class SyntheticsTestRequestCertificateItem {
    * @return updatedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date of update of the certificate or key, ISO format.")
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUpdatedAt() {

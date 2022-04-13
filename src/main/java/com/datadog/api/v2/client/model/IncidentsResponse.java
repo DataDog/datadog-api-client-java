@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response with a list of incidents. */
-@ApiModel(description = "Response with a list of incidents.")
 @JsonPropertyOrder({
   IncidentsResponse.JSON_PROPERTY_DATA,
   IncidentsResponse.JSON_PROPERTY_INCLUDED,
@@ -67,14 +64,6 @@ public class IncidentsResponse {
    *
    * @return data
    */
-  @ApiModelProperty(
-      example =
-          "[{\"attributes\":{\"created\":\"2020-04-21T15:34:08.627205+00:00\",\"creation_idempotency_key\":null,\"customer_impact_duration\":0,\"customer_impact_end\":null,\"customer_impact_scope\":null,\"customer_impact_start\":null,\"customer_impacted\":false,\"detected\":\"2020-04-14T00:00:00+00:00\",\"modified\":\"2020-09-17T14:16:58.696424+00:00\",\"postmortem_id\":\"00000000-0000-bbbb-0000-000000000000\",\"public_id\":1,\"resolved\":null,\"severity\":\"SEV-1\",\"time_to_detect\":0,\"time_to_internal_response\":0,\"time_to_repair\":0,\"time_to_resolve\":0,\"title\":\"Example"
-              + " Incident\"},\"id\":\"00000000-aaaa-0000-0000-000000000000\",\"relationships\":{\"commander_user\":{\"data\":{\"id\":\"00000000-0000-0000-cccc-000000000000\",\"type\":\"users\"}},\"created_by_user\":{\"data\":{\"id\":\"00000000-0000-0000-cccc-000000000000\",\"type\":\"users\"}},\"integrations\":{\"data\":[{\"id\":\"00000000-0000-0000-4444-000000000000\",\"type\":\"incident_integrations\"},{\"id\":\"00000000-0000-0000-5555-000000000000\",\"type\":\"incident_integrations\"}]},\"last_modified_by_user\":{\"data\":{\"id\":\"00000000-0000-0000-cccc-000000000000\",\"type\":\"users\"}},\"postmortem\":{\"data\":{\"id\":\"00000000-9999-0000-0000-000000000000\",\"type\":\"incident_postmortems\"}}},\"type\":\"incidents\"},{\"attributes\":{\"created\":\"2020-04-21T15:34:08.627205+00:00\",\"creation_idempotency_key\":null,\"customer_impact_duration\":0,\"customer_impact_end\":null,\"customer_impact_scope\":null,\"customer_impact_start\":null,\"customer_impacted\":false,\"detected\":\"2020-04-14T00:00:00+00:00\",\"modified\":\"2020-09-17T14:16:58.696424+00:00\",\"postmortem_id\":\"00000000-6006-0000-0000-000000000000\",\"public_id\":2,\"resolved\":null,\"severity\":\"SEV-5\",\"time_to_detect\":0,\"time_to_internal_response\":0,\"time_to_repair\":0,\"time_to_resolve\":0,\"title\":\"Example"
-              + " Incident"
-              + " 2\"},\"id\":\"00000000-1111-0000-0000-000000000000\",\"relationships\":{\"commander_user\":{\"data\":{\"id\":\"00000000-aaaa-0000-0000-000000000000\",\"type\":\"users\"}},\"created_by_user\":{\"data\":{\"id\":\"00000000-aaaa-0000-0000-000000000000\",\"type\":\"users\"}},\"integrations\":{\"data\":[{\"id\":\"00000000-0000-0000-0001-000000000000\",\"type\":\"incident_integrations\"},{\"id\":\"00000000-0000-0000-0002-000000000000\",\"type\":\"incident_integrations\"}]},\"last_modified_by_user\":{\"data\":{\"id\":\"00000000-aaaa-0000-0000-000000000000\",\"type\":\"users\"}},\"postmortem\":{\"data\":{\"id\":\"00000000-6006-0000-0000-000000000000\",\"type\":\"incident_postmortems\"}}},\"type\":\"incidents\"}]",
-      required = true,
-      value = "An array of incidents.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<IncidentResponseData> getData() {
@@ -91,7 +80,6 @@ public class IncidentsResponse {
    * @return included
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Included related resources that the user requested.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<IncidentResponseIncludedItem> getIncluded() {
@@ -110,7 +98,6 @@ public class IncidentsResponse {
    * @return meta
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentResponseMeta getMeta() {

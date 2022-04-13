@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +24,6 @@ import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The incident&#39;s attributes from a response. */
-@ApiModel(description = "The incident's attributes from a response.")
 @JsonPropertyOrder({
   IncidentResponseAttributes.JSON_PROPERTY_CREATED,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_DURATION,
@@ -120,7 +117,6 @@ public class IncidentResponseAttributes {
    * @return created
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when the incident was created.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -134,10 +130,6 @@ public class IncidentResponseAttributes {
    * @return customerImpactDuration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Length of the incident's customer impact in seconds. Equals the difference between"
-              + " `customer_impact_start` and `customer_impact_end`.")
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCustomerImpactDuration() {
@@ -155,7 +147,6 @@ public class IncidentResponseAttributes {
    * @return customerImpactEnd
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when customers were no longer impacted by the incident.")
   @JsonIgnore
   public OffsetDateTime getCustomerImpactEnd() {
     return customerImpactEnd.orElse(null);
@@ -187,9 +178,6 @@ public class IncidentResponseAttributes {
    * @return customerImpactScope
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "An example customer impact scope",
-      value = "A summary of the impact customers experienced during the incident.")
   @JsonIgnore
   public String getCustomerImpactScope() {
     return customerImpactScope.orElse(null);
@@ -221,7 +209,6 @@ public class IncidentResponseAttributes {
    * @return customerImpactStart
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when customers began being impacted by the incident.")
   @JsonIgnore
   public OffsetDateTime getCustomerImpactStart() {
     return customerImpactStart.orElse(null);
@@ -254,9 +241,6 @@ public class IncidentResponseAttributes {
    * @return customerImpacted
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value = "A flag indicating whether the incident caused customer impact.")
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getCustomerImpacted() {
@@ -278,7 +262,6 @@ public class IncidentResponseAttributes {
    * @return detected
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when the incident was detected.")
   @JsonIgnore
   public OffsetDateTime getDetected() {
     return detected.orElse(null);
@@ -318,9 +301,6 @@ public class IncidentResponseAttributes {
    * @return fields
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "{\"severity\":{\"type\":\"dropdown\",\"value\":\"SEV-5\"}}",
-      value = "A condensed view of the user-defined fields attached to incidents.")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, IncidentFieldAttributes> getFields() {
@@ -337,7 +317,6 @@ public class IncidentResponseAttributes {
    * @return modified
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when the incident was last modified.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -371,8 +350,6 @@ public class IncidentResponseAttributes {
    * @return notificationHandles
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Notification handles that will be notified of the incident during update.")
   @JsonIgnore
   public List<IncidentNotificationHandle> getNotificationHandles() {
     return notificationHandles.orElse(null);
@@ -406,9 +383,6 @@ public class IncidentResponseAttributes {
    * @return postmortemId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "00000000-0000-0000-7890-000000000000",
-      value = "The UUID of the postmortem object attached to the incident.")
   @JsonProperty(JSON_PROPERTY_POSTMORTEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPostmortemId() {
@@ -430,9 +404,6 @@ public class IncidentResponseAttributes {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1",
-      value = "The monotonically increasing integer ID for the incident.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPublicId() {
@@ -454,7 +425,6 @@ public class IncidentResponseAttributes {
    * @return resolved
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when the incident's state was set to resolved.")
   @JsonIgnore
   public OffsetDateTime getResolved() {
     return resolved.orElse(null);
@@ -482,10 +452,6 @@ public class IncidentResponseAttributes {
    * @return timeToDetect
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The amount of time in seconds to detect the incident. Equals the difference between"
-              + " `customer_impact_start` and `detected`.")
   @JsonProperty(JSON_PROPERTY_TIME_TO_DETECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeToDetect() {
@@ -499,10 +465,6 @@ public class IncidentResponseAttributes {
    * @return timeToInternalResponse
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The amount of time in seconds to call incident after detection. Equals the difference"
-              + " of `detected` and `created`.")
   @JsonProperty(JSON_PROPERTY_TIME_TO_INTERNAL_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeToInternalResponse() {
@@ -516,10 +478,6 @@ public class IncidentResponseAttributes {
    * @return timeToRepair
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The amount of time in seconds to resolve customer impact after detecting the issue."
-              + " Equals the difference between `customer_impact_end` and `detected`.")
   @JsonProperty(JSON_PROPERTY_TIME_TO_REPAIR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeToRepair() {
@@ -533,10 +491,6 @@ public class IncidentResponseAttributes {
    * @return timeToResolve
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The amount of time in seconds to resolve the incident after it was created. Equals the"
-              + " difference between `created` and `resolved`.")
   @JsonProperty(JSON_PROPERTY_TIME_TO_RESOLVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeToResolve() {
@@ -553,10 +507,6 @@ public class IncidentResponseAttributes {
    *
    * @return title
    */
-  @ApiModelProperty(
-      example = "A test incident title",
-      required = true,
-      value = "The title of the incident, which summarizes what happened.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTitle() {

@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** All the available security filters objects. */
-@ApiModel(description = "All the available security filters objects.")
 @JsonPropertyOrder({
   SecurityFiltersResponse.JSON_PROPERTY_DATA,
   SecurityFiltersResponse.JSON_PROPERTY_META
@@ -58,7 +55,6 @@ public class SecurityFiltersResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of security filters objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityFilter> getData() {
@@ -81,7 +77,6 @@ public class SecurityFiltersResponse {
    * @return meta
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityFilterMeta getMeta() {

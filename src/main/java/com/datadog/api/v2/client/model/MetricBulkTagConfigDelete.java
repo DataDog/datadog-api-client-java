@@ -15,15 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Request object to bulk delete all tag configurations for metrics matching the given prefix. */
-@ApiModel(
-    description =
-        "Request object to bulk delete all tag configurations for metrics matching the given"
-            + " prefix.")
 @JsonPropertyOrder({
   MetricBulkTagConfigDelete.JSON_PROPERTY_ATTRIBUTES,
   MetricBulkTagConfigDelete.JSON_PROPERTY_ID,
@@ -64,7 +58,6 @@ public class MetricBulkTagConfigDelete {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricBulkTagConfigDeleteAttributes getAttributes() {
@@ -85,10 +78,6 @@ public class MetricBulkTagConfigDelete {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "kafka.lag",
-      required = true,
-      value = "A text prefix to match against metric names.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -110,7 +99,6 @@ public class MetricBulkTagConfigDelete {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MetricBulkConfigureTagsType getType() {

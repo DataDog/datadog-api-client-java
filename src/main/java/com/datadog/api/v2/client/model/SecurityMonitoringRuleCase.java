@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Case when signal is generated. */
-@ApiModel(description = "Case when signal is generated.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleCase.JSON_PROPERTY_CONDITION,
   SecurityMonitoringRuleCase.JSON_PROPERTY_NAME,
@@ -56,11 +53,6 @@ public class SecurityMonitoringRuleCase {
    * @return condition
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal"
-              + " should be generated based on the event counts in the previously defined"
-              + " queries.")
   @JsonProperty(JSON_PROPERTY_CONDITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCondition() {
@@ -82,7 +74,6 @@ public class SecurityMonitoringRuleCase {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the case.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -112,7 +103,6 @@ public class SecurityMonitoringRuleCase {
    * @return notifications
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Notification targets for each rule case.")
   @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getNotifications() {
@@ -135,7 +125,6 @@ public class SecurityMonitoringRuleCase {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleSeverity getStatus() {

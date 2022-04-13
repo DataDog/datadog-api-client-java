@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Metadata about the response. */
-@ApiModel(description = "Metadata about the response.")
 @JsonPropertyOrder({
   MonitorSearchResponseMetadata.JSON_PROPERTY_PAGE,
   MonitorSearchResponseMetadata.JSON_PROPERTY_PAGE_COUNT,
@@ -47,7 +44,6 @@ public class MonitorSearchResponseMetadata {
    * @return page
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The page to start paginating from.")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPage() {
@@ -60,7 +56,6 @@ public class MonitorSearchResponseMetadata {
    * @return pageCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of pages.")
   @JsonProperty(JSON_PROPERTY_PAGE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPageCount() {
@@ -73,7 +68,6 @@ public class MonitorSearchResponseMetadata {
    * @return perPage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of monitors to return per page.")
   @JsonProperty(JSON_PROPERTY_PER_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPerPage() {
@@ -86,7 +80,6 @@ public class MonitorSearchResponseMetadata {
    * @return totalCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total number of monitors.")
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalCount() {

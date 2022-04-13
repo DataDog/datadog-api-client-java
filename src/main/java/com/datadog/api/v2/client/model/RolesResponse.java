@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response containing information about multiple roles. */
-@ApiModel(description = "Response containing information about multiple roles.")
 @JsonPropertyOrder({RolesResponse.JSON_PROPERTY_DATA, RolesResponse.JSON_PROPERTY_META})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RolesResponse {
@@ -55,7 +52,6 @@ public class RolesResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of returned roles.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Role> getData() {
@@ -78,7 +74,6 @@ public class RolesResponse {
    * @return meta
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResponseMetaAttributes getMeta() {

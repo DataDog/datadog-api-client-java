@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 /** The proxy to perform the test. */
-@ApiModel(description = "The proxy to perform the test.")
 @JsonPropertyOrder({
   SyntheticsTestRequestProxy.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequestProxy.JSON_PROPERTY_URL
@@ -63,7 +60,6 @@ public class SyntheticsTestRequestProxy {
    * @return headers
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Headers to include when performing the test.")
   @JsonProperty(JSON_PROPERTY_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getHeaders() {
@@ -84,10 +80,6 @@ public class SyntheticsTestRequestProxy {
    *
    * @return url
    */
-  @ApiModelProperty(
-      example = "https://example.com",
-      required = true,
-      value = "URL of the proxy to perform the test.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getUrl() {

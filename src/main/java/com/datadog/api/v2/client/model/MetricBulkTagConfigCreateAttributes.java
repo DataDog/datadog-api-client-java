@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Optional parameters for bulk creating metric tag configurations. */
-@ApiModel(description = "Optional parameters for bulk creating metric tag configurations.")
 @JsonPropertyOrder({
   MetricBulkTagConfigCreateAttributes.JSON_PROPERTY_EMAILS,
   MetricBulkTagConfigCreateAttributes.JSON_PROPERTY_TAGS
@@ -54,9 +51,6 @@ public class MetricBulkTagConfigCreateAttributes {
    * @return emails
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"sue@example.com\",\"bob@example.com\"]",
-      value = "A list of account emails to notify when the configuration is applied.")
   @JsonProperty(JSON_PROPERTY_EMAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getEmails() {
@@ -86,9 +80,6 @@ public class MetricBulkTagConfigCreateAttributes {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"host\",\"pod_name\",\"is_shadow\"]",
-      value = "A list of tag names to apply to the configuration.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

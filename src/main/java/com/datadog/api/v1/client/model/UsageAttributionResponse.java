@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response containing the Usage Summary by tag(s). */
-@ApiModel(description = "Response containing the Usage Summary by tag(s).")
 @JsonPropertyOrder({
   UsageAttributionResponse.JSON_PROPERTY_METADATA,
   UsageAttributionResponse.JSON_PROPERTY_USAGE
@@ -47,7 +44,6 @@ public class UsageAttributionResponse {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageAttributionMetadata getMetadata() {
@@ -81,7 +77,6 @@ public class UsageAttributionResponse {
    * @return usage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Get Usage Summary by tag(s).")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageAttributionBody> getUsage() {

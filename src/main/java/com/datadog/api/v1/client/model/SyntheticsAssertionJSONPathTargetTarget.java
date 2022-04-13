@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Composed target for &#x60;validatesJSONPath&#x60; operator. */
-@ApiModel(description = "Composed target for `validatesJSONPath` operator.")
 @JsonPropertyOrder({
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_JSON_PATH,
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_OPERATOR,
@@ -49,7 +46,6 @@ public class SyntheticsAssertionJSONPathTargetTarget {
    * @return jsonPath
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The JSON path to assert.")
   @JsonProperty(JSON_PROPERTY_JSON_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getJsonPath() {
@@ -71,7 +67,6 @@ public class SyntheticsAssertionJSONPathTargetTarget {
    * @return operator
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The specific operator to use on the path.")
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOperator() {
@@ -93,7 +88,6 @@ public class SyntheticsAssertionJSONPathTargetTarget {
    * @return targetValue
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The path target value to compare to.")
   @JsonIgnore
   public Object getTargetValue() {
     return targetValue.orElse(null);

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The description of a notebook cell update request. */
-@ApiModel(description = "The description of a notebook cell update request.")
 @JsonPropertyOrder({
   NotebookCellUpdateRequest.JSON_PROPERTY_ATTRIBUTES,
   NotebookCellUpdateRequest.JSON_PROPERTY_ID,
@@ -64,7 +61,6 @@ public class NotebookCellUpdateRequest {
    *
    * @return attributes
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NotebookCellUpdateRequestAttributes getAttributes() {
@@ -85,7 +81,6 @@ public class NotebookCellUpdateRequest {
    *
    * @return id
    */
-  @ApiModelProperty(example = "abcd1234", required = true, value = "Notebook cell ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -107,7 +102,6 @@ public class NotebookCellUpdateRequest {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NotebookCellResourceType getType() {

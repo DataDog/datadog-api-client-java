@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Response from the delete monitor call. */
-@ApiModel(description = "Response from the delete monitor call.")
 @JsonPropertyOrder({DeletedMonitor.JSON_PROPERTY_DELETED_MONITOR_ID})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeletedMonitor {
@@ -38,7 +35,6 @@ public class DeletedMonitor {
    * @return deletedMonitorId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "666486743", value = "ID of the deleted monitor.")
   @JsonProperty(JSON_PROPERTY_DELETED_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDeletedMonitorId() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Relationships of the role object returned by the API. */
-@ApiModel(description = "Relationships of the role object returned by the API.")
 @JsonPropertyOrder({RoleResponseRelationships.JSON_PROPERTY_PERMISSIONS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleResponseRelationships {
@@ -39,7 +36,6 @@ public class RoleResponseRelationships {
    * @return permissions
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToPermissions getPermissions() {

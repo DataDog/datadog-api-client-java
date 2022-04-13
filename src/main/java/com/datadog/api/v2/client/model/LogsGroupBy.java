@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A group by rule */
-@ApiModel(description = "A group by rule")
 @JsonPropertyOrder({
   LogsGroupBy.JSON_PROPERTY_FACET,
   LogsGroupBy.JSON_PROPERTY_HISTOGRAM,
@@ -67,10 +64,6 @@ public class LogsGroupBy {
    *
    * @return facet
    */
-  @ApiModelProperty(
-      example = "host",
-      required = true,
-      value = "The name of the facet to use (required)")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getFacet() {
@@ -93,7 +86,6 @@ public class LogsGroupBy {
    * @return histogram
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HISTOGRAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsGroupByHistogram getHistogram() {
@@ -115,7 +107,6 @@ public class LogsGroupBy {
    * @return limit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The maximum buckets to return for this group by")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -138,7 +129,6 @@ public class LogsGroupBy {
    * @return missing
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MISSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsGroupByMissing getMissing() {
@@ -161,7 +151,6 @@ public class LogsGroupBy {
    * @return sort
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsAggregateSort getSort() {
@@ -184,7 +173,6 @@ public class LogsGroupBy {
    * @return total
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsGroupByTotal getTotal() {

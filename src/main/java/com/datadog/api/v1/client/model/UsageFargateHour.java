@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Number of Fargate tasks run and hourly usage. */
-@ApiModel(description = "Number of Fargate tasks run and hourly usage.")
 @JsonPropertyOrder({
   UsageFargateHour.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
   UsageFargateHour.JSON_PROPERTY_HOUR,
@@ -58,7 +55,6 @@ public class UsageFargateHour {
    * @return avgProfiledFargateTasks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The average profiled task count for Fargate Profiling.")
   @JsonProperty(JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAvgProfiledFargateTasks() {
@@ -80,7 +76,6 @@ public class UsageFargateHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -102,7 +97,6 @@ public class UsageFargateHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -124,7 +118,6 @@ public class UsageFargateHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -146,7 +139,6 @@ public class UsageFargateHour {
    * @return tasksCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of Fargate tasks run.")
   @JsonProperty(JSON_PROPERTY_TASKS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTasksCount() {

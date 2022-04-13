@@ -15,19 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/),
  * which enables the use of headings, subheadings, links, images, lists, and code blocks.
  */
-@ApiModel(
-    description =
-        "Text in a notebook is formatted with"
-            + " [Markdown](https://daringfireball.net/projects/markdown/), which enables the use"
-            + " of headings, subheadings, links, images, lists, and code blocks.")
 @JsonPropertyOrder({
   NotebookMarkdownCellDefinition.JSON_PROPERTY_TEXT,
   NotebookMarkdownCellDefinition.JSON_PROPERTY_TYPE
@@ -63,10 +56,6 @@ public class NotebookMarkdownCellDefinition {
    *
    * @return text
    */
-  @ApiModelProperty(
-      example = "# Example Header  example content",
-      required = true,
-      value = "The markdown content.")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getText() {
@@ -88,7 +77,6 @@ public class NotebookMarkdownCellDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NotebookMarkdownCellDefinitionType getType() {

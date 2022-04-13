@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The steps used in a Synthetics browser test. */
-@ApiModel(description = "The steps used in a Synthetics browser test.")
 @JsonPropertyOrder({
   SyntheticsStep.JSON_PROPERTY_ALLOW_FAILURE,
   SyntheticsStep.JSON_PROPERTY_IS_CRITICAL,
@@ -60,7 +57,6 @@ public class SyntheticsStep {
    * @return allowFailure
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A boolean set to allow this step to fail.")
   @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowFailure() {
@@ -83,10 +79,6 @@ public class SyntheticsStep {
    * @return isCritical
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A boolean to use in addition to `allowFailure` to determine if the test should be"
-              + " marked as failed when the step fails.")
   @JsonProperty(JSON_PROPERTY_IS_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsCritical() {
@@ -108,7 +100,6 @@ public class SyntheticsStep {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the step.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -130,7 +121,6 @@ public class SyntheticsStep {
    * @return params
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The parameters of the step.")
   @JsonProperty(JSON_PROPERTY_PARAMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Object getParams() {
@@ -152,7 +142,6 @@ public class SyntheticsStep {
    * @return timeout
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The time before declaring a step failed.")
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeout() {
@@ -175,7 +164,6 @@ public class SyntheticsStep {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsStepType getType() {

@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Attributes of a user invitation. */
-@ApiModel(description = "Attributes of a user invitation.")
 @JsonPropertyOrder({
   UserInvitationDataAttributes.JSON_PROPERTY_CREATED_AT,
   UserInvitationDataAttributes.JSON_PROPERTY_EXPIRES_AT,
@@ -53,7 +50,6 @@ public class UserInvitationDataAttributes {
    * @return createdAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation time of the user invitation.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -75,7 +71,6 @@ public class UserInvitationDataAttributes {
    * @return expiresAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time of invitation expiration.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getExpiresAt() {
@@ -97,7 +92,6 @@ public class UserInvitationDataAttributes {
    * @return inviteType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of invitation.")
   @JsonProperty(JSON_PROPERTY_INVITE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInviteType() {
@@ -119,7 +113,6 @@ public class UserInvitationDataAttributes {
    * @return uuid
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "UUID of the user invitation.")
   @JsonProperty(JSON_PROPERTY_UUID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUuid() {

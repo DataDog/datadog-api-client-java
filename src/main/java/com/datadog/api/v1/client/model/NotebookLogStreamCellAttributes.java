@@ -15,13 +15,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The attributes of a notebook &#x60;log_stream&#x60; cell. */
-@ApiModel(description = "The attributes of a notebook `log_stream` cell.")
 @JsonPropertyOrder({
   NotebookLogStreamCellAttributes.JSON_PROPERTY_DEFINITION,
   NotebookLogStreamCellAttributes.JSON_PROPERTY_GRAPH_SIZE,
@@ -60,7 +57,6 @@ public class NotebookLogStreamCellAttributes {
    *
    * @return definition
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DEFINITION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogStreamWidgetDefinition getDefinition() {
@@ -83,7 +79,6 @@ public class NotebookLogStreamCellAttributes {
    * @return graphSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GRAPH_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookGraphSize getGraphSize() {
@@ -108,7 +103,6 @@ public class NotebookLogStreamCellAttributes {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonIgnore
   public NotebookCellTime getTime() {
     return time.orElse(null);

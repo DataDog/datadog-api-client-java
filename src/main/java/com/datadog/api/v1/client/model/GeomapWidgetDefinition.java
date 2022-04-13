@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** This visualization displays a series of values by country on a world map. */
-@ApiModel(description = "This visualization displays a series of values by country on a world map.")
 @JsonPropertyOrder({
   GeomapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   GeomapWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -105,7 +102,6 @@ public class GeomapWidgetDefinition {
    * @return customLinks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -138,14 +134,6 @@ public class GeomapWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(
-      example = "[{\"rum_query\":{\"search\":{\"query\":\"<METRIC_1>{<SCOPE_1>}\"}}}]",
-      required = true,
-      value =
-          "Array of one request object to display in the widget. The request must contain a"
-              + " `group-by` tag whose value is a country ISO code.  See the [Request JSON schema"
-              + " documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)"
-              + " for information about building the `REQUEST_SCHEMA`.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<GeomapWidgetRequest> getRequests() {
@@ -167,7 +155,6 @@ public class GeomapWidgetDefinition {
    *
    * @return style
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public GeomapWidgetDefinitionStyle getStyle() {
@@ -190,7 +177,6 @@ public class GeomapWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -212,7 +198,6 @@ public class GeomapWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -235,7 +220,6 @@ public class GeomapWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -260,7 +244,6 @@ public class GeomapWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -282,7 +265,6 @@ public class GeomapWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public GeomapWidgetDefinitionType getType() {
@@ -307,7 +289,6 @@ public class GeomapWidgetDefinition {
    *
    * @return view
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_VIEW)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public GeomapWidgetDefinitionView getView() {

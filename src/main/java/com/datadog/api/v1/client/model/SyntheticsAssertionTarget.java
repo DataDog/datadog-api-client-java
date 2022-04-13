@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** An assertion which uses a simple target. */
-@ApiModel(description = "An assertion which uses a simple target.")
 @JsonPropertyOrder({
   SyntheticsAssertionTarget.JSON_PROPERTY_OPERATOR,
   SyntheticsAssertionTarget.JSON_PROPERTY_PROPERTY,
@@ -70,7 +67,6 @@ public class SyntheticsAssertionTarget {
    *
    * @return operator
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsAssertionOperator getOperator() {
@@ -95,7 +91,6 @@ public class SyntheticsAssertionTarget {
    * @return property
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The associated assertion property.")
   @JsonProperty(JSON_PROPERTY_PROPERTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProperty() {
@@ -118,7 +113,6 @@ public class SyntheticsAssertionTarget {
    * @return target
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", required = true, value = "Value used by the operator.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Object getTarget() {
@@ -140,7 +134,6 @@ public class SyntheticsAssertionTarget {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsAssertionType getType() {

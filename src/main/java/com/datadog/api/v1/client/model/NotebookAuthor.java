@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of user object returned by the API. */
-@ApiModel(description = "Attributes of user object returned by the API.")
 @JsonPropertyOrder({
   NotebookAuthor.JSON_PROPERTY_CREATED_AT,
   NotebookAuthor.JSON_PROPERTY_DISABLED,
@@ -74,7 +71,6 @@ public class NotebookAuthor {
    * @return createdAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation time of the user.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -96,7 +92,6 @@ public class NotebookAuthor {
    * @return disabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the user is disabled.")
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisabled() {
@@ -118,7 +113,6 @@ public class NotebookAuthor {
    * @return email
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -140,7 +134,6 @@ public class NotebookAuthor {
    * @return handle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Handle of the user.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHandle() {
@@ -162,7 +155,6 @@ public class NotebookAuthor {
    * @return icon
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL of the user's icon.")
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIcon() {
@@ -184,7 +176,6 @@ public class NotebookAuthor {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the user.")
   @JsonIgnore
   public String getName() {
     return name.orElse(null);
@@ -216,7 +207,6 @@ public class NotebookAuthor {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Status of the user.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -238,7 +228,6 @@ public class NotebookAuthor {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the user.")
   @JsonIgnore
   public String getTitle() {
     return title.orElse(null);
@@ -270,7 +259,6 @@ public class NotebookAuthor {
    * @return verified
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the user is verified.")
   @JsonProperty(JSON_PROPERTY_VERIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getVerified() {

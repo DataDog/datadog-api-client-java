@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Options on impossible travel rules. */
-@ApiModel(description = "Options on impossible travel rules.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleImpossibleTravelOptions.JSON_PROPERTY_BASELINE_USER_LOCATIONS
 })
@@ -43,12 +40,6 @@ public class SecurityMonitoringRuleImpossibleTravelOptions {
    * @return baselineUserLocations
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "true",
-      value =
-          "If true, signals are suppressed for the first 24 hours. In that time, Datadog learns"
-              + " the user's regular access locations. This can be helpful to reduce noise and"
-              + " infer VPN usage or credentialed API access.")
   @JsonProperty(JSON_PROPERTY_BASELINE_USER_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getBaselineUserLocations() {

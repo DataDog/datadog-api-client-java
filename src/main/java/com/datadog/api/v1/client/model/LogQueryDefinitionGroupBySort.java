@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Define a sorting method. */
-@ApiModel(description = "Define a sorting method.")
 @JsonPropertyOrder({
   LogQueryDefinitionGroupBySort.JSON_PROPERTY_AGGREGATION,
   LogQueryDefinitionGroupBySort.JSON_PROPERTY_FACET,
@@ -59,7 +56,6 @@ public class LogQueryDefinitionGroupBySort {
    *
    * @return aggregation
    */
-  @ApiModelProperty(example = "avg", required = true, value = "The aggregation method.")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAggregation() {
@@ -81,7 +77,6 @@ public class LogQueryDefinitionGroupBySort {
    * @return facet
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "@string_query.interval", value = "Facet name.")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFacet() {
@@ -103,7 +98,6 @@ public class LogQueryDefinitionGroupBySort {
    *
    * @return order
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public WidgetSort getOrder() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** List of definitions. */
-@ApiModel(description = "List of definitions.")
 @JsonPropertyOrder({
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_FILL,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_SIZE
@@ -45,7 +42,6 @@ public class HostMapWidgetDefinitionRequests {
    * @return fill
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMapRequest getFill() {
@@ -68,7 +64,6 @@ public class HostMapWidgetDefinitionRequests {
    * @return size
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMapRequest getSize() {

@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -23,10 +21,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * Number of RUM Units used for each hour for a given organization (data available as of November 1,
  * 2021).
  */
-@ApiModel(
-    description =
-        "Number of RUM Units used for each hour for a given organization (data available as of"
-            + " November 1, 2021).")
 @JsonPropertyOrder({
   UsageRumUnitsHour.JSON_PROPERTY_BROWSER_RUM_UNITS,
   UsageRumUnitsHour.JSON_PROPERTY_MOBILE_RUM_UNITS,
@@ -63,7 +57,6 @@ public class UsageRumUnitsHour {
    * @return browserRumUnits
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of browser RUM units.")
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBrowserRumUnits() {
@@ -85,7 +78,6 @@ public class UsageRumUnitsHour {
    * @return mobileRumUnits
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of mobile RUM units.")
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumUnits() {
@@ -107,7 +99,6 @@ public class UsageRumUnitsHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -129,7 +120,6 @@ public class UsageRumUnitsHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -151,7 +141,6 @@ public class UsageRumUnitsHour {
    * @return rumUnits
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total RUM units across mobile and browser RUM.")
   @JsonIgnore
   public Long getRumUnits() {
     return rumUnits.orElse(null);

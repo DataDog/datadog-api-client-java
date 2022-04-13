@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object listing all metric names stored by Datadog since a given time. */
-@ApiModel(description = "Object listing all metric names stored by Datadog since a given time.")
 @JsonPropertyOrder({
   MetricsListResponse.JSON_PROPERTY_FROM,
   MetricsListResponse.JSON_PROPERTY_METRICS
@@ -46,7 +43,6 @@ public class MetricsListResponse {
    * @return from
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time when the metrics were active, seconds since the Unix epoch.")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFrom() {
@@ -76,7 +72,6 @@ public class MetricsListResponse {
    * @return metrics
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of metric names.")
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getMetrics() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Dashboard bulk action request data. */
-@ApiModel(description = "Dashboard bulk action request data.")
 @JsonPropertyOrder({
   DashboardBulkActionData.JSON_PROPERTY_ID,
   DashboardBulkActionData.JSON_PROPERTY_TYPE
@@ -55,7 +52,6 @@ public class DashboardBulkActionData {
    *
    * @return id
    */
-  @ApiModelProperty(example = "123-abc-456", required = true, value = "Dashboard resource ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -77,7 +73,6 @@ public class DashboardBulkActionData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public DashboardResourceType getType() {

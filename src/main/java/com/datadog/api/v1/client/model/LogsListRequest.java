@@ -15,14 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object to send with the request to retrieve a list of logs from your Organization. */
-@ApiModel(
-    description =
-        "Object to send with the request to retrieve a list of logs from your Organization.")
 @JsonPropertyOrder({
   LogsListRequest.JSON_PROPERTY_INDEX,
   LogsListRequest.JSON_PROPERTY_LIMIT,
@@ -73,12 +68,6 @@ public class LogsListRequest {
    * @return index
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "retention-3,retention-15",
-      value =
-          "The log index on which the request is performed. For multi-index organizations, the"
-              + " default is all live indexes. Historical indexes of rehydrated logs must be"
-              + " specified.")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIndex() {
@@ -100,7 +89,6 @@ public class LogsListRequest {
    * @return limit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of logs return in the response.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getLimit() {
@@ -122,9 +110,6 @@ public class LogsListRequest {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "service:web* AND @http.status_code:[200 TO 299]",
-      value = "The search query - following the log search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -147,7 +132,6 @@ public class LogsListRequest {
    * @return sort
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsSort getSort() {
@@ -174,12 +158,6 @@ public class LogsListRequest {
    * @return startAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Hash identifier of the first log to return in the list, available in a log `id`"
-              + " attribute. This parameter is used for the pagination feature.  **Note**: This"
-              + " parameter is ignored if the corresponding log is out of the scope of the"
-              + " specified time window.")
   @JsonProperty(JSON_PROPERTY_START_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartAt() {
@@ -201,7 +179,6 @@ public class LogsListRequest {
    *
    * @return time
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsListRequestTime getTime() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** SLO thresholds (target and optionally warning) for a single time window. */
-@ApiModel(description = "SLO thresholds (target and optionally warning) for a single time window.")
 @JsonPropertyOrder({
   SLOThreshold.JSON_PROPERTY_TARGET,
   SLOThreshold.JSON_PROPERTY_TARGET_DISPLAY,
@@ -67,11 +64,6 @@ public class SLOThreshold {
    *
    * @return target
    */
-  @ApiModelProperty(
-      example = "99.9",
-      required = true,
-      value =
-          "The target value for the service level indicator within the corresponding timeframe.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getTarget() {
@@ -95,12 +87,6 @@ public class SLOThreshold {
    * @return targetDisplay
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "99.9",
-      value =
-          "A string representation of the target that indicates its precision. It uses trailing"
-              + " zeros to show significant decimal places (for example `98.00`).  Always included"
-              + " in service level objective responses. Ignored in create/update requests.")
   @JsonProperty(JSON_PROPERTY_TARGET_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTargetDisplay() {
@@ -122,7 +108,6 @@ public class SLOThreshold {
    *
    * @return timeframe
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SLOTimeframe getTimeframe() {
@@ -147,7 +132,6 @@ public class SLOThreshold {
    * @return warning
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "90.0", value = "The warning value for the service level objective.")
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getWarning() {
@@ -171,12 +155,6 @@ public class SLOThreshold {
    * @return warningDisplay
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "90.0",
-      value =
-          "A string representation of the warning target (see the description of the"
-              + " `target_display` field for details).  Included in service level objective"
-              + " responses if a warning target exists. Ignored in create/update requests.")
   @JsonProperty(JSON_PROPERTY_WARNING_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWarningDisplay() {

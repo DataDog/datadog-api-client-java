@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +22,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** JSON object containing all log attributes and their associated values. */
-@ApiModel(description = "JSON object containing all log attributes and their associated values.")
 @JsonPropertyOrder({
   LogAttributes.JSON_PROPERTY_ATTRIBUTES,
   LogAttributes.JSON_PROPERTY_HOST,
@@ -77,9 +74,6 @@ public class LogAttributes {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "{\"customAttribute\":123,\"duration\":2345}",
-      value = "JSON object of attributes from your log.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Object> getAttributes() {
@@ -101,9 +95,6 @@ public class LogAttributes {
    * @return host
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "i-0123",
-      value = "Name of the machine from where the logs are being sent.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -129,14 +120,6 @@ public class LogAttributes {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Host connected to remote",
-      value =
-          "The message [reserved"
-              + " attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes)"
-              + " of your log. By default, Datadog ingests the value of the message attribute as"
-              + " the body of the log entry. That value is then highlighted and displayed in the"
-              + " Logstream, where it is indexed for full text search.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -159,12 +142,6 @@ public class LogAttributes {
    * @return service
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "agent",
-      value =
-          "The name of the application or service generating the log events. It is used to switch"
-              + " from Logs to APM, so make sure you define the same value when you use both"
-              + " products.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getService() {
@@ -186,7 +163,6 @@ public class LogAttributes {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "INFO", value = "Status of the message associated with your log.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -216,7 +192,6 @@ public class LogAttributes {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"team:A\"]", value = "Array of tags associated with your log.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -238,7 +213,6 @@ public class LogAttributes {
    * @return timestamp
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-01-02T09:42:36.320Z", value = "Timestamp of your log.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTimestamp() {

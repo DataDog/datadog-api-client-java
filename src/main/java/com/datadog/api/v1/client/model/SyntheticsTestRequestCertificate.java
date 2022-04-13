@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Client certificate to use when performing the test request. */
-@ApiModel(description = "Client certificate to use when performing the test request.")
 @JsonPropertyOrder({
   SyntheticsTestRequestCertificate.JSON_PROPERTY_CERT,
   SyntheticsTestRequestCertificate.JSON_PROPERTY_KEY
@@ -45,7 +42,6 @@ public class SyntheticsTestRequestCertificate {
    * @return cert
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequestCertificateItem getCert() {
@@ -68,7 +64,6 @@ public class SyntheticsTestRequestCertificate {
    * @return key
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequestCertificateItem getKey() {

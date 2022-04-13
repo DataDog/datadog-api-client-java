@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Total number of host currently monitored by Datadog. */
-@ApiModel(description = "Total number of host currently monitored by Datadog.")
 @JsonPropertyOrder({HostTotals.JSON_PROPERTY_TOTAL_ACTIVE, HostTotals.JSON_PROPERTY_TOTAL_UP})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostTotals {
@@ -41,7 +38,6 @@ public class HostTotals {
    * @return totalActive
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total number of active host (UP and ???) reporting to Datadog.")
   @JsonProperty(JSON_PROPERTY_TOTAL_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalActive() {
@@ -63,7 +59,6 @@ public class HostTotals {
    * @return totalUp
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of host that are UP and reporting to Datadog.")
   @JsonProperty(JSON_PROPERTY_TOTAL_UP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalUp() {

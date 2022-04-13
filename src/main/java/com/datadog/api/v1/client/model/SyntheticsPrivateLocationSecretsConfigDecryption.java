@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Private key for the private location. */
-@ApiModel(description = "Private key for the private location.")
 @JsonPropertyOrder({SyntheticsPrivateLocationSecretsConfigDecryption.JSON_PROPERTY_KEY})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsPrivateLocationSecretsConfigDecryption {
@@ -33,7 +30,6 @@ public class SyntheticsPrivateLocationSecretsConfigDecryption {
    * @return key
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Private key for the private location.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getKey() {

@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing details about a Synthetic browser test. */
-@ApiModel(description = "Object containing details about a Synthetic browser test.")
 @JsonPropertyOrder({
   SyntheticsBrowserTest.JSON_PROPERTY_CONFIG,
   SyntheticsBrowserTest.JSON_PROPERTY_LOCATIONS,
@@ -103,7 +100,6 @@ public class SyntheticsBrowserTest {
    *
    * @return config
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBrowserTestConfig getConfig() {
@@ -129,10 +125,6 @@ public class SyntheticsBrowserTest {
    *
    * @return locations
    */
-  @ApiModelProperty(
-      example = "[\"aws:eu-west-3\"]",
-      required = true,
-      value = "Array of locations used to run the test.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getLocations() {
@@ -154,11 +146,6 @@ public class SyntheticsBrowserTest {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "",
-      value =
-          "Notification message associated with the test. Message can either be text or an empty"
-              + " string.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -175,7 +162,6 @@ public class SyntheticsBrowserTest {
    * @return monitorId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The associated monitor ID.")
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorId() {
@@ -192,7 +178,6 @@ public class SyntheticsBrowserTest {
    *
    * @return name
    */
-  @ApiModelProperty(example = "Example test name", required = true, value = "Name of the test.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -214,7 +199,6 @@ public class SyntheticsBrowserTest {
    *
    * @return options
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsTestOptions getOptions() {
@@ -231,7 +215,6 @@ public class SyntheticsBrowserTest {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The public ID of the test.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -250,7 +233,6 @@ public class SyntheticsBrowserTest {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestPauseStatus getStatus() {
@@ -287,7 +269,6 @@ public class SyntheticsBrowserTest {
    * @return steps
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The steps of the test.")
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsStep> getSteps() {
@@ -317,7 +298,6 @@ public class SyntheticsBrowserTest {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"env:prod\"]", value = "Array of tags attached to the test.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -339,7 +319,6 @@ public class SyntheticsBrowserTest {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBrowserTestType getType() {

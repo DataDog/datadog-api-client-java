@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Value of the global variable. */
-@ApiModel(description = "Value of the global variable.")
 @JsonPropertyOrder({
   SyntheticsGlobalVariableValue.JSON_PROPERTY_SECURE,
   SyntheticsGlobalVariableValue.JSON_PROPERTY_VALUE
@@ -44,7 +41,6 @@ public class SyntheticsGlobalVariableValue {
    * @return secure
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Determines if the value of the variable is hidden.")
   @JsonProperty(JSON_PROPERTY_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSecure() {
@@ -67,11 +63,6 @@ public class SyntheticsGlobalVariableValue {
    * @return value
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "example-value",
-      value =
-          "Value of the global variable. When reading a global variable, the value will not be"
-              + " present if the variable is hidden with the `secure` property.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {

@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response containing hourly usage of timeseries. */
-@ApiModel(description = "Response containing hourly usage of timeseries.")
 @JsonPropertyOrder({UsageTimeseriesResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageTimeseriesResponse {
@@ -52,7 +49,6 @@ public class UsageTimeseriesResponse {
    * @return usage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of objects regarding hourly usage of timeseries.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageTimeseriesHour> getUsage() {

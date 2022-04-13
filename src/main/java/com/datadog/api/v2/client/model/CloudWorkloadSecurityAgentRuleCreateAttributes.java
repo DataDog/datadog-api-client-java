@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Create a new Cloud Workload Security Agent rule. */
-@ApiModel(description = "Create a new Cloud Workload Security Agent rule.")
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_DESCRIPTION,
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_ENABLED,
@@ -63,7 +60,6 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
    * @return description
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "My Agent rule", value = "The description of the Agent rule.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -85,7 +81,6 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
    * @return enabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "Whether the Agent rule is enabled.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {
@@ -106,10 +101,6 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
    *
    * @return expression
    */
-  @ApiModelProperty(
-      example = "exec.file.name == \\\"sh\\\"",
-      required = true,
-      value = "The SECL expression of the Agent rule.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getExpression() {
@@ -130,10 +121,6 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "my_agent_rule",
-      required = true,
-      value = "The name of the Agent rule.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {

@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The attributes associated with the archive. */
-@ApiModel(description = "The attributes associated with the archive.")
 @JsonPropertyOrder({
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_DESTINATION,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_INCLUDE_TAGS,
@@ -74,7 +71,6 @@ public class LogsArchiveCreateRequestAttributes {
    *
    * @return destination
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DESTINATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsArchiveCreateRequestDestination getDestination() {
@@ -97,11 +93,6 @@ public class LogsArchiveCreateRequestAttributes {
    * @return includeTags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value =
-          "To store the tags in the archive, set the value \"true\". If it is set to \"false\","
-              + " the tags will be deleted when the logs are sent to the archive.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludeTags() {
@@ -122,7 +113,6 @@ public class LogsArchiveCreateRequestAttributes {
    *
    * @return name
    */
-  @ApiModelProperty(example = "Nginx Archive", required = true, value = "The archive name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -143,10 +133,6 @@ public class LogsArchiveCreateRequestAttributes {
    *
    * @return query
    */
-  @ApiModelProperty(
-      example = "source:nginx",
-      required = true,
-      value = "The archive query/filter. Logs matching this query are included in the archive.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {
@@ -176,9 +162,6 @@ public class LogsArchiveCreateRequestAttributes {
    * @return rehydrationTags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"team:intake\",\"team:app\"]",
-      value = "An array of tags to add to rehydrated logs from an archive.")
   @JsonProperty(JSON_PROPERTY_REHYDRATION_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRehydrationTags() {

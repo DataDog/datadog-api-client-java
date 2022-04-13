@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -28,13 +26,6 @@ import java.util.Objects;
  * can contain Nested Pipelines and Processors whereas a Nested Pipeline can only contain
  * Processors.
  */
-@ApiModel(
-    description =
-        "Nested Pipelines are pipelines within a pipeline. Use Nested Pipelines to split the"
-            + " processing into two steps. For example, first use a high-level filtering such as"
-            + " team and then a second level of filtering based on the integration, service, or"
-            + " any other tag or attribute.  A pipeline can contain Nested Pipelines and"
-            + " Processors whereas a Nested Pipeline can only contain Processors.")
 @JsonPropertyOrder({
   LogsPipelineProcessor.JSON_PROPERTY_FILTER,
   LogsPipelineProcessor.JSON_PROPERTY_IS_ENABLED,
@@ -81,7 +72,6 @@ public class LogsPipelineProcessor {
    * @return filter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsFilter getFilter() {
@@ -103,7 +93,6 @@ public class LogsPipelineProcessor {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -125,7 +114,6 @@ public class LogsPipelineProcessor {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -159,7 +147,6 @@ public class LogsPipelineProcessor {
    * @return processors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Ordered list of processors in this pipeline.")
   @JsonProperty(JSON_PROPERTY_PROCESSORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsProcessor> getProcessors() {
@@ -181,7 +168,6 @@ public class LogsPipelineProcessor {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsPipelineProcessorType getType() {

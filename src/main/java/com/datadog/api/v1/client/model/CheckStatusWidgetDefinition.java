@@ -15,16 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Check status shows the current status or number of results for any check performed. */
-@ApiModel(
-    description =
-        "Check status shows the current status or number of results for any check performed.")
 @JsonPropertyOrder({
   CheckStatusWidgetDefinition.JSON_PROPERTY_CHECK,
   CheckStatusWidgetDefinition.JSON_PROPERTY_GROUP,
@@ -95,10 +90,6 @@ public class CheckStatusWidgetDefinition {
    *
    * @return check
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "Name of the check to use in the widget.")
   @JsonProperty(JSON_PROPERTY_CHECK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCheck() {
@@ -120,7 +111,6 @@ public class CheckStatusWidgetDefinition {
    * @return group
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group reporting a single check.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGroup() {
@@ -150,7 +140,6 @@ public class CheckStatusWidgetDefinition {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of tag prefixes to group by in the case of a cluster check.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupBy() {
@@ -172,7 +161,6 @@ public class CheckStatusWidgetDefinition {
    *
    * @return grouping
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_GROUPING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public WidgetGrouping getGrouping() {
@@ -205,7 +193,6 @@ public class CheckStatusWidgetDefinition {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of tags used to filter the groups reporting a cluster check.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -228,7 +215,6 @@ public class CheckStatusWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -250,7 +236,6 @@ public class CheckStatusWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -273,7 +258,6 @@ public class CheckStatusWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -298,7 +282,6 @@ public class CheckStatusWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -320,7 +303,6 @@ public class CheckStatusWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CheckStatusWidgetDefinitionType getType() {

@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +22,6 @@ import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** List of options associated with your monitor. */
-@ApiModel(description = "List of options associated with your monitor.")
 @JsonPropertyOrder({
   MonitorOptions.JSON_PROPERTY_AGGREGATION,
   MonitorOptions.JSON_PROPERTY_DEVICE_IDS,
@@ -143,7 +140,6 @@ public class MonitorOptions {
    * @return aggregation
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOptionsAggregation getAggregation() {
@@ -162,7 +158,6 @@ public class MonitorOptions {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "IDs of the device the Synthetics monitor is running on.")
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorDeviceID> getDeviceIds() {
@@ -180,7 +175,6 @@ public class MonitorOptions {
    * @return enableLogsSample
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not to send a log sample when the log monitor triggers.")
   @JsonProperty(JSON_PROPERTY_ENABLE_LOGS_SAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnableLogsSample() {
@@ -206,13 +200,6 @@ public class MonitorOptions {
    * @return escalationMessage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "We recommend using the"
-              + " [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify),"
-              + " block in the original message instead. A message to include with a"
-              + " re-notification. Supports the `@username` notification we allow elsewhere. Not"
-              + " applicable if `renotify_interval` is `None`.")
   @JsonProperty(JSON_PROPERTY_ESCALATION_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEscalationMessage() {
@@ -237,13 +224,6 @@ public class MonitorOptions {
    * @return evaluationDelay
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the"
-              + " value is set to `300` (5min), the timeframe is set to `last_5m` and the time is"
-              + " 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS"
-              + " CloudWatch and other backfilled metrics to ensure the monitor always has data"
-              + " during evaluation.")
   @JsonIgnore
   public Long getEvaluationDelay() {
     return evaluationDelay.orElse(null);
@@ -276,10 +256,6 @@ public class MonitorOptions {
    * @return groupbySimpleMonitor
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Whether the log alert monitor triggers a single alert or multiple alerts when any group"
-              + " breaches a threshold.")
   @JsonProperty(JSON_PROPERTY_GROUPBY_SIMPLE_MONITOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getGroupbySimpleMonitor() {
@@ -303,11 +279,6 @@ public class MonitorOptions {
    * @return includeTags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A Boolean indicating whether notifications from this monitor automatically inserts its"
-              + " triggering tags into the title.  **Examples** - If `True`, `[Triggered on"
-              + " {host:h1}] Monitor Title` - If `False`, `[Triggered] Monitor Title`")
   @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludeTags() {
@@ -332,10 +303,6 @@ public class MonitorOptions {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Whether or not the monitor is locked (only editable by creator and admins). Use"
-              + " `restricted_roles` instead.")
   @JsonProperty(JSON_PROPERTY_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getLocked() {
@@ -358,10 +325,6 @@ public class MonitorOptions {
    * @return minFailureDuration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "How long the test should be in failure before alerting (integer, number of seconds, max"
-              + " 7200).")
   @JsonIgnore
   public Long getMinFailureDuration() {
     return minFailureDuration.orElse(null);
@@ -396,12 +359,6 @@ public class MonitorOptions {
    * @return minLocationFailed
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The minimum number of locations in failure at the same time during at least one moment"
-              + " in the `min_failure_duration` period (`min_location_failed` and"
-              + " `min_failure_duration` are part of the advanced alerting rules - integer, >="
-              + " 1).")
   @JsonIgnore
   public Long getMinLocationFailed() {
     return minLocationFailed.orElse(null);
@@ -434,11 +391,6 @@ public class MonitorOptions {
    * @return newGroupDelay
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Time (in seconds) to skip evaluations for new groups.  For example, this option can be"
-              + " used to skip evaluations for new hosts while they initialize.  Must be a non"
-              + " negative integer.")
   @JsonIgnore
   public Long getNewGroupDelay() {
     return newGroupDelay.orElse(null);
@@ -473,11 +425,6 @@ public class MonitorOptions {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Time (in seconds) to allow a host to boot and applications to fully start before"
-              + " starting the evaluation of monitor results. Should be a non negative integer. "
-              + " Use new_group_delay instead.")
   @JsonIgnore
   public Long getNewHostDelay() {
     return newHostDelay.orElse(null);
@@ -511,12 +458,6 @@ public class MonitorOptions {
    * @return noDataTimeframe
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The number of minutes before a monitor notifies after data stops reporting. Datadog"
-              + " recommends at least 2x the monitor timeframe for query alerts or 2 minutes for"
-              + " service checks. If omitted, 2x the evaluation timeframe is used for query"
-              + " alerts, and 24 hours is used for service checks.")
   @JsonIgnore
   public Long getNoDataTimeframe() {
     return noDataTimeframe.orElse(null);
@@ -548,8 +489,6 @@ public class MonitorOptions {
    * @return notifyAudit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "A Boolean indicating whether tagged users is notified on changes to this monitor.")
   @JsonProperty(JSON_PROPERTY_NOTIFY_AUDIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNotifyAudit() {
@@ -571,8 +510,6 @@ public class MonitorOptions {
    * @return notifyNoData
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "A Boolean indicating whether this monitor notifies when data stops reporting.")
   @JsonProperty(JSON_PROPERTY_NOTIFY_NO_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNotifyNoData() {
@@ -595,10 +532,6 @@ public class MonitorOptions {
    * @return renotifyInterval
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The number of minutes after the last notification before a monitor re-notifies on the"
-              + " current status. It only re-notifies if it’s not resolved.")
   @JsonIgnore
   public Long getRenotifyInterval() {
     return renotifyInterval.orElse(null);
@@ -631,10 +564,6 @@ public class MonitorOptions {
    * @return renotifyOccurrences
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The number of times re-notification messages should be sent on the current status at"
-              + " the provided re-notification interval.")
   @JsonIgnore
   public Long getRenotifyOccurrences() {
     return renotifyOccurrences.orElse(null);
@@ -678,8 +607,6 @@ public class MonitorOptions {
    * @return renotifyStatuses
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The types of monitor statuses for which re-notification messages are sent.")
   @JsonIgnore
   public List<MonitorRenotifyStatusType> getRenotifyStatuses() {
     return renotifyStatuses.orElse(null);
@@ -714,11 +641,6 @@ public class MonitorOptions {
    * @return requireFullWindow
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A Boolean indicating whether this monitor needs a full window of data before it’s"
-              + " evaluated. We highly recommend you set this to `false` for sparse metrics,"
-              + " otherwise some evaluations are skipped. Default is false.")
   @JsonProperty(JSON_PROPERTY_REQUIRE_FULL_WINDOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getRequireFullWindow() {
@@ -750,7 +672,6 @@ public class MonitorOptions {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Information about the downtime applied to the monitor.")
   @JsonProperty(JSON_PROPERTY_SILENCED)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Long> getSilenced() {
@@ -774,7 +695,6 @@ public class MonitorOptions {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the corresponding Synthetic check.")
   @JsonIgnore
   public String getSyntheticsCheckId() {
     return syntheticsCheckId.orElse(null);
@@ -807,7 +727,6 @@ public class MonitorOptions {
    * @return thresholdWindows
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THRESHOLD_WINDOWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorThresholdWindowOptions getThresholdWindows() {
@@ -830,7 +749,6 @@ public class MonitorOptions {
    * @return thresholds
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THRESHOLDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorThresholds getThresholds() {
@@ -853,11 +771,6 @@ public class MonitorOptions {
    * @return timeoutH
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The number of hours of the monitor not reporting data before it automatically resolves"
-              + " from a triggered state. The minimum allowed value is 0 hours. The maximum"
-              + " allowed value is 24 hours.")
   @JsonIgnore
   public Long getTimeoutH() {
     return timeoutH.orElse(null);
@@ -901,10 +814,6 @@ public class MonitorOptions {
    * @return variables
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "List of requests that can be used in the monitor query. **This feature is currently in"
-              + " beta.**")
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorFormulaAndFunctionQueryDefinition> getVariables() {

@@ -14,18 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Global query options that are used during the query. Note: You should only supply timezone or
  * time offset but not both otherwise the query will fail.
  */
-@ApiModel(
-    description =
-        "Global query options that are used during the query. Note: You should only supply"
-            + " timezone or time offset but not both otherwise the query will fail.")
 @JsonPropertyOrder({
   LogsQueryOptions.JSON_PROPERTY_TIME_OFFSET,
   LogsQueryOptions.JSON_PROPERTY_TIMEZONE
@@ -50,7 +44,6 @@ public class LogsQueryOptions {
    * @return timeOffset
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The time offset (in seconds) to apply to the query.")
   @JsonProperty(JSON_PROPERTY_TIME_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeOffset() {
@@ -72,9 +65,6 @@ public class LogsQueryOptions {
    * @return timezone
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "GMT",
-      value = "The timezone can be specified both as an offset, for example: \"UTC+03:00\".")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {

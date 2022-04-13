@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The definition of an archive. */
-@ApiModel(description = "The definition of an archive.")
 @JsonPropertyOrder({
   LogsArchiveCreateRequestDefinition.JSON_PROPERTY_ATTRIBUTES,
   LogsArchiveCreateRequestDefinition.JSON_PROPERTY_TYPE
@@ -55,7 +52,6 @@ public class LogsArchiveCreateRequestDefinition {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsArchiveCreateRequestAttributes getAttributes() {
@@ -76,10 +72,6 @@ public class LogsArchiveCreateRequestDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(
-      example = "archives",
-      required = true,
-      value = "The type of the resource. The value should always be archives.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getType() {

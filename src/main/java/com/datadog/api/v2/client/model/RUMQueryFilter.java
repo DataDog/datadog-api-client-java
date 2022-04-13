@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The search and filter query settings. */
-@ApiModel(description = "The search and filter query settings.")
 @JsonPropertyOrder({
   RUMQueryFilter.JSON_PROPERTY_FROM,
   RUMQueryFilter.JSON_PROPERTY_QUERY,
@@ -49,11 +46,6 @@ public class RUMQueryFilter {
    * @return from
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "now-15m",
-      value =
-          "The minimum time for the requested events; supports date, math, and regular timestamps"
-              + " (in milliseconds).")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFrom() {
@@ -75,9 +67,6 @@ public class RUMQueryFilter {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "@type:session AND @session.type:user",
-      value = "The search query following the RUM search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -100,11 +89,6 @@ public class RUMQueryFilter {
    * @return to
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "now",
-      value =
-          "The maximum time for the requested events; supports date, math, and regular timestamps"
-              + " (in milliseconds).")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTo() {

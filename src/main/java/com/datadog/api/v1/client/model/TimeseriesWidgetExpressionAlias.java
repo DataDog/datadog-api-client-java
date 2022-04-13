@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Define an expression alias. */
-@ApiModel(description = "Define an expression alias.")
 @JsonPropertyOrder({
   TimeseriesWidgetExpressionAlias.JSON_PROPERTY_ALIAS_NAME,
   TimeseriesWidgetExpressionAlias.JSON_PROPERTY_EXPRESSION
@@ -53,7 +50,6 @@ public class TimeseriesWidgetExpressionAlias {
    * @return aliasName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Expression alias.")
   @JsonProperty(JSON_PROPERTY_ALIAS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAliasName() {
@@ -74,7 +70,6 @@ public class TimeseriesWidgetExpressionAlias {
    *
    * @return expression
    */
-  @ApiModelProperty(example = "", required = true, value = "Expression name.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getExpression() {

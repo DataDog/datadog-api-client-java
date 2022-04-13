@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** List of API and application keys available for a given organization. */
-@ApiModel(description = "List of API and application keys available for a given organization.")
 @JsonPropertyOrder({ApiKeyListResponse.JSON_PROPERTY_API_KEYS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiKeyListResponse {
@@ -52,7 +49,6 @@ public class ApiKeyListResponse {
    * @return apiKeys
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of API keys.")
   @JsonProperty(JSON_PROPERTY_API_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ApiKey> getApiKeys() {

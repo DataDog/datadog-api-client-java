@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** An array of service level objective objects. */
-@ApiModel(description = "An array of service level objective objects.")
 @JsonPropertyOrder({CheckCanDeleteSLOResponseData.JSON_PROPERTY_OK})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CheckCanDeleteSLOResponseData {
@@ -48,7 +45,6 @@ public class CheckCanDeleteSLOResponseData {
    * @return ok
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of of SLO IDs that can be safely deleted.")
   @JsonProperty(JSON_PROPERTY_OK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getOk() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** AWS account ID and Lambda ARN. */
-@ApiModel(description = "AWS account ID and Lambda ARN.")
 @JsonPropertyOrder({
   AWSAccountAndLambdaRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSAccountAndLambdaRequest.JSON_PROPERTY_LAMBDA_ARN
@@ -54,10 +51,6 @@ public class AWSAccountAndLambdaRequest {
    *
    * @return accountId
    */
-  @ApiModelProperty(
-      example = "1234567",
-      required = true,
-      value = "Your AWS Account ID without dashes.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAccountId() {
@@ -78,12 +71,6 @@ public class AWSAccountAndLambdaRequest {
    *
    * @return lambdaArn
    */
-  @ApiModelProperty(
-      example = "arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest",
-      required = true,
-      value =
-          "ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection"
-              + " setup.")
   @JsonProperty(JSON_PROPERTY_LAMBDA_ARN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getLambdaArn() {

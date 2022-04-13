@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The object describing the Datadog log-based metric to create. */
-@ApiModel(description = "The object describing the Datadog log-based metric to create.")
 @JsonPropertyOrder({
   LogsMetricCreateAttributes.JSON_PROPERTY_COMPUTE,
   LogsMetricCreateAttributes.JSON_PROPERTY_FILTER,
@@ -60,7 +57,6 @@ public class LogsMetricCreateAttributes {
    *
    * @return compute
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsMetricCompute getCompute() {
@@ -83,7 +79,6 @@ public class LogsMetricCreateAttributes {
    * @return filter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsMetricFilter getFilter() {
@@ -117,7 +112,6 @@ public class LogsMetricCreateAttributes {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The rules for the group by.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsMetricGroupBy> getGroupBy() {

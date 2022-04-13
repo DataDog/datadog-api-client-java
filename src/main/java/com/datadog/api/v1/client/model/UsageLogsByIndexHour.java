@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Number of indexed logs for each hour and index for a given organization. */
-@ApiModel(description = "Number of indexed logs for each hour and index for a given organization.")
 @JsonPropertyOrder({
   UsageLogsByIndexHour.JSON_PROPERTY_EVENT_COUNT,
   UsageLogsByIndexHour.JSON_PROPERTY_HOUR,
@@ -65,7 +62,6 @@ public class UsageLogsByIndexHour {
    * @return eventCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total number of indexed logs for the queried hour.")
   @JsonProperty(JSON_PROPERTY_EVENT_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEventCount() {
@@ -87,7 +83,6 @@ public class UsageLogsByIndexHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -109,7 +104,6 @@ public class UsageLogsByIndexHour {
    * @return indexId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The index ID for this usage.")
   @JsonProperty(JSON_PROPERTY_INDEX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIndexId() {
@@ -131,7 +125,6 @@ public class UsageLogsByIndexHour {
    * @return indexName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The user specified name for this index ID.")
   @JsonProperty(JSON_PROPERTY_INDEX_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIndexName() {
@@ -153,7 +146,6 @@ public class UsageLogsByIndexHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -175,7 +167,6 @@ public class UsageLogsByIndexHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -197,7 +188,6 @@ public class UsageLogsByIndexHour {
    * @return retention
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The retention period (in days) for this index ID.")
   @JsonProperty(JSON_PROPERTY_RETENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRetention() {

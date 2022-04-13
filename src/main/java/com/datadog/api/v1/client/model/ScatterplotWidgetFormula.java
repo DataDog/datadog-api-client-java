@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Formula to be used in a Scatterplot widget query. */
-@ApiModel(description = "Formula to be used in a Scatterplot widget query.")
 @JsonPropertyOrder({
   ScatterplotWidgetFormula.JSON_PROPERTY_ALIAS,
   ScatterplotWidgetFormula.JSON_PROPERTY_DIMENSION,
@@ -61,7 +58,6 @@ public class ScatterplotWidgetFormula {
    * @return alias
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "my-query", value = "Expression alias.")
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAlias() {
@@ -83,7 +79,6 @@ public class ScatterplotWidgetFormula {
    *
    * @return dimension
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DIMENSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ScatterplotDimension getDimension() {
@@ -107,10 +102,6 @@ public class ScatterplotWidgetFormula {
    *
    * @return formula
    */
-  @ApiModelProperty(
-      example = "func(a) + b",
-      required = true,
-      value = "String expression built from queries, formulas, and functions.")
   @JsonProperty(JSON_PROPERTY_FORMULA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getFormula() {

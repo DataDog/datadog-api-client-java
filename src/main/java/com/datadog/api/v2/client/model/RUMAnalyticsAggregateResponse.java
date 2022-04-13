@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The response object for the RUM events aggregate API endpoint. */
-@ApiModel(description = "The response object for the RUM events aggregate API endpoint.")
 @JsonPropertyOrder({
   RUMAnalyticsAggregateResponse.JSON_PROPERTY_DATA,
   RUMAnalyticsAggregateResponse.JSON_PROPERTY_LINKS,
@@ -49,7 +46,6 @@ public class RUMAnalyticsAggregateResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMAggregationBucketsResponse getData() {
@@ -72,7 +68,6 @@ public class RUMAnalyticsAggregateResponse {
    * @return links
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMResponseLinks getLinks() {
@@ -95,7 +90,6 @@ public class RUMAnalyticsAggregateResponse {
    * @return meta
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMResponseMetadata getMeta() {

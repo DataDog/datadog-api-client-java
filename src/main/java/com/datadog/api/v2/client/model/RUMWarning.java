@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A warning message indicating something that went wrong with the query. */
-@ApiModel(description = "A warning message indicating something that went wrong with the query.")
 @JsonPropertyOrder({
   RUMWarning.JSON_PROPERTY_CODE,
   RUMWarning.JSON_PROPERTY_DETAIL,
@@ -48,7 +45,6 @@ public class RUMWarning {
    * @return code
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "unknown_index", value = "A unique code for this type of warning.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCode() {
@@ -70,9 +66,6 @@ public class RUMWarning {
    * @return detail
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "indexes: foo, bar",
-      value = "A detailed explanation of this specific warning.")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDetail() {
@@ -94,10 +87,6 @@ public class RUMWarning {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "One or several indexes are missing or invalid, results hold data from the other indexes",
-      value = "A short human-readable summary of the warning.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {

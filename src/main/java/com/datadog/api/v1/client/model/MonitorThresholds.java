@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** List of the different monitor threshold available. */
-@ApiModel(description = "List of the different monitor threshold available.")
 @JsonPropertyOrder({
   MonitorThresholds.JSON_PROPERTY_CRITICAL,
   MonitorThresholds.JSON_PROPERTY_CRITICAL_RECOVERY,
@@ -61,7 +58,6 @@ public class MonitorThresholds {
    * @return critical
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor `CRITICAL` threshold.")
   @JsonProperty(JSON_PROPERTY_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCritical() {
@@ -83,7 +79,6 @@ public class MonitorThresholds {
    * @return criticalRecovery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor `CRITICAL` recovery threshold.")
   @JsonIgnore
   public Double getCriticalRecovery() {
     return criticalRecovery.orElse(null);
@@ -115,7 +110,6 @@ public class MonitorThresholds {
    * @return ok
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor `OK` threshold.")
   @JsonIgnore
   public Double getOk() {
     return ok.orElse(null);
@@ -147,7 +141,6 @@ public class MonitorThresholds {
    * @return unknown
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor UNKNOWN threshold.")
   @JsonIgnore
   public Double getUnknown() {
     return unknown.orElse(null);
@@ -179,7 +172,6 @@ public class MonitorThresholds {
    * @return warning
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor `WARNING` threshold.")
   @JsonIgnore
   public Double getWarning() {
     return warning.orElse(null);
@@ -211,7 +203,6 @@ public class MonitorThresholds {
    * @return warningRecovery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor `WARNING` recovery threshold.")
   @JsonIgnore
   public Double getWarningRecovery() {
     return warningRecovery.orElse(null);

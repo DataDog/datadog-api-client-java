@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** The incident team&#39;s attributes from a response. */
-@ApiModel(description = "The incident team's attributes from a response.")
 @JsonPropertyOrder({
   IncidentTeamResponseAttributes.JSON_PROPERTY_CREATED,
   IncidentTeamResponseAttributes.JSON_PROPERTY_MODIFIED,
@@ -44,7 +41,6 @@ public class IncidentTeamResponseAttributes {
    * @return created
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the incident team was created.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -57,7 +53,6 @@ public class IncidentTeamResponseAttributes {
    * @return modified
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the incident team was modified.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -75,7 +70,6 @@ public class IncidentTeamResponseAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "team name", value = "Name of the incident team.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The log query. */
-@ApiModel(description = "The log query.")
 @JsonPropertyOrder({
   LogQueryDefinition.JSON_PROPERTY_COMPUTE,
   LogQueryDefinition.JSON_PROPERTY_GROUP_BY,
@@ -59,7 +56,6 @@ public class LogQueryDefinition {
    * @return compute
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsQueryCompute getCompute() {
@@ -93,7 +89,6 @@ public class LogQueryDefinition {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of tag prefixes to group by in the case of a cluster check.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogQueryDefinitionGroupBy> getGroupBy() {
@@ -116,11 +111,6 @@ public class LogQueryDefinition {
    * @return index
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "days-3,days-7",
-      value =
-          "A coma separated-list of index names. Use \"*\" query all indexes at once. [Multiple"
-              + " Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIndex() {
@@ -154,7 +144,6 @@ public class LogQueryDefinition {
    * @return multiCompute
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "This field is mutually exclusive with `compute`.")
   @JsonProperty(JSON_PROPERTY_MULTI_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsQueryCompute> getMultiCompute() {
@@ -177,7 +166,6 @@ public class LogQueryDefinition {
    * @return search
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SEARCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinitionSearch getSearch() {

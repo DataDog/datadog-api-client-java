@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Alerting time window options. */
-@ApiModel(description = "Alerting time window options.")
 @JsonPropertyOrder({
   MonitorThresholdWindowOptions.JSON_PROPERTY_RECOVERY_WINDOW,
   MonitorThresholdWindowOptions.JSON_PROPERTY_TRIGGER_WINDOW
@@ -45,8 +42,6 @@ public class MonitorThresholdWindowOptions {
    * @return recoveryWindow
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Describes how long an anomalous metric must be normal before the alert recovers.")
   @JsonIgnore
   public String getRecoveryWindow() {
     return recoveryWindow.orElse(null);
@@ -78,8 +73,6 @@ public class MonitorThresholdWindowOptions {
    * @return triggerWindow
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Describes how long a metric must be anomalous before an alert triggers.")
   @JsonIgnore
   public String getTriggerWindow() {
     return triggerWindow.orElse(null);

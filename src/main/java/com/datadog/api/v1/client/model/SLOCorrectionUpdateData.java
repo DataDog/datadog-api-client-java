@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The data object associated with the SLO correction to be updated. */
-@ApiModel(description = "The data object associated with the SLO correction to be updated.")
 @JsonPropertyOrder({
   SLOCorrectionUpdateData.JSON_PROPERTY_ATTRIBUTES,
   SLOCorrectionUpdateData.JSON_PROPERTY_TYPE
@@ -45,7 +42,6 @@ public class SLOCorrectionUpdateData {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOCorrectionUpdateRequestAttributes getAttributes() {
@@ -68,7 +64,6 @@ public class SLOCorrectionUpdateData {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOCorrectionType getType() {

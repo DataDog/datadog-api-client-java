@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Represent validation endpoint responses. */
-@ApiModel(description = "Represent validation endpoint responses.")
 @JsonPropertyOrder({AuthenticationValidationResponse.JSON_PROPERTY_VALID})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AuthenticationValidationResponse {
@@ -33,9 +30,6 @@ public class AuthenticationValidationResponse {
    * @return valid
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "true",
-      value = "Return `true` if the authentication response is valid.")
   @JsonProperty(JSON_PROPERTY_VALID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getValid() {

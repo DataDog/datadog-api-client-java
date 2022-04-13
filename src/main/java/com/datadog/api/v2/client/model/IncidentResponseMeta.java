@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The metadata object containing pagination metadata. */
-@ApiModel(description = "The metadata object containing pagination metadata.")
 @JsonPropertyOrder({IncidentResponseMeta.JSON_PROPERTY_PAGINATION})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentResponseMeta {
@@ -39,7 +36,6 @@ public class IncidentResponseMeta {
    * @return pagination
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentResponseMetaPagination getPagination() {

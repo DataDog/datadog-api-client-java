@@ -14,15 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object containing information about the tests triggered. */
-@ApiModel(description = "Object containing information about the tests triggered.")
 @JsonPropertyOrder({
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_BATCH_ID,
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_LOCATIONS,
@@ -55,7 +52,6 @@ public class SyntheticsTriggerCITestsResponse {
    * @return batchId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The public ID of the batch triggered.")
   @JsonIgnore
   public String getBatchId() {
     return batchId.orElse(null);
@@ -101,7 +97,6 @@ public class SyntheticsTriggerCITestsResponse {
    * @return locations
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of Synthetics locations.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsTriggerCITestLocation> getLocations() {
@@ -136,7 +131,6 @@ public class SyntheticsTriggerCITestsResponse {
    * @return results
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Information about the tests runs.")
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsTriggerCITestRunResult> getResults() {
@@ -166,7 +160,6 @@ public class SyntheticsTriggerCITestsResponse {
    * @return triggeredCheckIds
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The public IDs of the Synthetics test triggered.")
   @JsonProperty(JSON_PROPERTY_TRIGGERED_CHECK_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTriggeredCheckIds() {

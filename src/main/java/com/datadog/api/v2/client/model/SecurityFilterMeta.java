@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Optional metadata associated to the response. */
-@ApiModel(description = "Optional metadata associated to the response.")
 @JsonPropertyOrder({SecurityFilterMeta.JSON_PROPERTY_WARNING})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityFilterMeta {
@@ -38,9 +35,6 @@ public class SecurityFilterMeta {
    * @return warning
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "All the security filters are disabled. As a result, no logs are being analyzed.",
-      value = "A warning message.")
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWarning() {

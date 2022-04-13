@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing the ordered list of pipeline IDs. */
-@ApiModel(description = "Object containing the ordered list of pipeline IDs.")
 @JsonPropertyOrder({LogsPipelinesOrder.JSON_PROPERTY_PIPELINE_IDS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsPipelinesOrder {
@@ -54,12 +51,6 @@ public class LogsPipelinesOrder {
    *
    * @return pipelineIds
    */
-  @ApiModelProperty(
-      example = "[\"tags\",\"org_ids\",\"products\"]",
-      required = true,
-      value =
-          "Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array define"
-              + " the overall Pipelines order for Datadog.")
   @JsonProperty(JSON_PROPERTY_PIPELINE_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getPipelineIds() {

@@ -14,15 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response object with all logs matching the request and pagination information. */
-@ApiModel(
-    description = "Response object with all logs matching the request and pagination information.")
 @JsonPropertyOrder({
   LogsListResponse.JSON_PROPERTY_DATA,
   LogsListResponse.JSON_PROPERTY_LINKS,
@@ -63,7 +59,6 @@ public class LogsListResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of logs matching the request.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Log> getData() {
@@ -86,7 +81,6 @@ public class LogsListResponse {
    * @return links
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsListResponseLinks getLinks() {
@@ -109,7 +103,6 @@ public class LogsListResponse {
    * @return meta
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsResponseMetadata getMeta() {

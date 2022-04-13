@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object describing the error. */
-@ApiModel(description = "Object describing the error.")
 @JsonPropertyOrder({
   SLOBulkDeleteError.JSON_PROPERTY_ID,
   SLOBulkDeleteError.JSON_PROPERTY_MESSAGE,
@@ -61,10 +58,6 @@ public class SLOBulkDeleteError {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "The ID of the service level objective object associated with this error.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -85,7 +78,6 @@ public class SLOBulkDeleteError {
    *
    * @return message
    */
-  @ApiModelProperty(example = "", required = true, value = "The error message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
@@ -107,7 +99,6 @@ public class SLOBulkDeleteError {
    *
    * @return timeframe
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SLOErrorTimeframe getTimeframe() {

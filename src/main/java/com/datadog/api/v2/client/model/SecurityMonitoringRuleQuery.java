@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Query for matching rule. */
-@ApiModel(description = "Query for matching rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleQuery.JSON_PROPERTY_AGGREGATION,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_DISTINCT_FIELDS,
@@ -64,7 +61,6 @@ public class SecurityMonitoringRuleQuery {
    * @return aggregation
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleQueryAggregation getAggregation() {
@@ -97,7 +93,6 @@ public class SecurityMonitoringRuleQuery {
    * @return distinctFields
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Field for which the cardinality is measured. Sent as an array.")
   @JsonProperty(JSON_PROPERTY_DISTINCT_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getDistinctFields() {
@@ -127,7 +122,6 @@ public class SecurityMonitoringRuleQuery {
    * @return groupByFields
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Fields to group by.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupByFields() {
@@ -149,8 +143,6 @@ public class SecurityMonitoringRuleQuery {
    * @return metric
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The target field to aggregate over when using the sum or max aggregations.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -172,7 +164,6 @@ public class SecurityMonitoringRuleQuery {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the query.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -194,7 +185,6 @@ public class SecurityMonitoringRuleQuery {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query to run on logs.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {

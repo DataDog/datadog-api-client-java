@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Options for limiting results returned. */
-@ApiModel(description = "Options for limiting results returned.")
 @JsonPropertyOrder({WidgetFormulaLimit.JSON_PROPERTY_COUNT, WidgetFormulaLimit.JSON_PROPERTY_ORDER})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetFormulaLimit {
@@ -41,7 +38,6 @@ public class WidgetFormulaLimit {
    * @return count
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of results to return.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCount() {
@@ -64,7 +60,6 @@ public class WidgetFormulaLimit {
    * @return order
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public QuerySortOrder getOrder() {

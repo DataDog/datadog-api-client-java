@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Relationships of the role object. */
-@ApiModel(description = "Relationships of the role object.")
 @JsonPropertyOrder({
   RoleRelationships.JSON_PROPERTY_PERMISSIONS,
   RoleRelationships.JSON_PROPERTY_USERS
@@ -45,7 +42,6 @@ public class RoleRelationships {
    * @return permissions
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToPermissions getPermissions() {
@@ -68,7 +64,6 @@ public class RoleRelationships {
    * @return users
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUsers getUsers() {

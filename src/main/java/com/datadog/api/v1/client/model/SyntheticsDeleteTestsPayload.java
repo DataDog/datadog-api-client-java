@@ -14,15 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** A JSON list of the ID or IDs of the Synthetic tests that you want to delete. */
-@ApiModel(
-    description = "A JSON list of the ID or IDs of the Synthetic tests that you want to delete.")
 @JsonPropertyOrder({SyntheticsDeleteTestsPayload.JSON_PROPERTY_PUBLIC_IDS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsDeleteTestsPayload {
@@ -49,7 +45,6 @@ public class SyntheticsDeleteTestsPayload {
    * @return publicIds
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[]", value = "An array of Synthetic test IDs you want to delete.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPublicIds() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Search options. */
-@ApiModel(description = "Search options.")
 @JsonPropertyOrder({MonitorFormulaAndFunctionEventQueryDefinitionSearch.JSON_PROPERTY_QUERY})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
@@ -46,7 +43,6 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
    *
    * @return query
    */
-  @ApiModelProperty(example = "service:query", required = true, value = "Events search string.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {

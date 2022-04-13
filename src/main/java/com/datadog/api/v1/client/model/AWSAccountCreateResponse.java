@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The Response returned by the AWS Create Account call. */
-@ApiModel(description = "The Response returned by the AWS Create Account call.")
 @JsonPropertyOrder({AWSAccountCreateResponse.JSON_PROPERTY_EXTERNAL_ID})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSAccountCreateResponse {
@@ -38,7 +35,6 @@ public class AWSAccountCreateResponse {
    * @return externalId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "AWS external_id.")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExternalId() {

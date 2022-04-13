@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -32,19 +30,6 @@ import java.util.Objects;
  * categories must be unique. - Once defined in the Category Processor, you can map categories to
  * log status using the Log Status Remapper.
  */
-@ApiModel(
-    description =
-        "Use the Category Processor to add a new attribute (without spaces or special characters"
-            + " in the new attribute name) to a log matching a provided search query. Use"
-            + " categories to create groups for an analytical view. For example, URL groups,"
-            + " machine groups, environments, and response time buckets.  **Notes**:  - The syntax"
-            + " of the query is the one of Logs Explorer search bar.   The query can be done on"
-            + " any log attribute or tag, whether it is a facet or not.   Wildcards can also be"
-            + " used inside your query. - Once the log has matched one of the Processor queries,"
-            + " it stops.   Make sure they are properly ordered in case a log could match several"
-            + " queries. - The names of the categories must be unique. - Once defined in the"
-            + " Category Processor, you can map categories to log status using the Log Status"
-            + " Remapper.")
 @JsonPropertyOrder({
   LogsCategoryProcessor.JSON_PROPERTY_CATEGORIES,
   LogsCategoryProcessor.JSON_PROPERTY_IS_ENABLED,
@@ -104,12 +89,6 @@ public class LogsCategoryProcessor {
    *
    * @return categories
    */
-  @ApiModelProperty(
-      example = "[]",
-      required = true,
-      value =
-          "Array of filters to match or not a log and their corresponding `name`to assign a custom"
-              + " value to the log.")
   @JsonProperty(JSON_PROPERTY_CATEGORIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<LogsCategoryProcessorCategory> getCategories() {
@@ -131,7 +110,6 @@ public class LogsCategoryProcessor {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -153,7 +131,6 @@ public class LogsCategoryProcessor {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -174,10 +151,6 @@ public class LogsCategoryProcessor {
    *
    * @return target
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "Name of the target attribute which value is defined by the matching category.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTarget() {
@@ -199,7 +172,6 @@ public class LogsCategoryProcessor {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsCategoryProcessorType getType() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** An object describing the error with error type and error message. */
-@ApiModel(description = "An object describing the error with error type and error message.")
 @JsonPropertyOrder({
   SLOHistoryResponseErrorWithType.JSON_PROPERTY_ERROR_MESSAGE,
   SLOHistoryResponseErrorWithType.JSON_PROPERTY_ERROR_TYPE
@@ -54,10 +51,6 @@ public class SLOHistoryResponseErrorWithType {
    *
    * @return errorMessage
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "A message with more details about the error.")
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getErrorMessage() {
@@ -78,7 +71,6 @@ public class SLOHistoryResponseErrorWithType {
    *
    * @return errorType
    */
-  @ApiModelProperty(example = "", required = true, value = "Type of the error.")
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getErrorType() {

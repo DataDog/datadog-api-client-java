@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Incident management usage for a given organization for a given hour. */
-@ApiModel(description = "Incident management usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageIncidentManagementHour.JSON_PROPERTY_HOUR,
   UsageIncidentManagementHour.JSON_PROPERTY_MONTHLY_ACTIVE_USERS,
@@ -53,7 +50,6 @@ public class UsageIncidentManagementHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -76,10 +72,6 @@ public class UsageIncidentManagementHour {
    * @return monthlyActiveUsers
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the total number monthly active users from the start of the given hour's month"
-              + " until the given hour.")
   @JsonProperty(JSON_PROPERTY_MONTHLY_ACTIVE_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonthlyActiveUsers() {
@@ -101,7 +93,6 @@ public class UsageIncidentManagementHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -123,7 +114,6 @@ public class UsageIncidentManagementHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

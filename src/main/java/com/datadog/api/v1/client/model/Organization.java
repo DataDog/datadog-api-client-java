@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Create, edit, and manage organizations. */
-@ApiModel(description = "Create, edit, and manage organizations.")
 @JsonPropertyOrder({
   Organization.JSON_PROPERTY_BILLING,
   Organization.JSON_PROPERTY_CREATED,
@@ -67,7 +64,6 @@ public class Organization {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationBilling getBilling() {
@@ -84,7 +80,6 @@ public class Organization {
    * @return created
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-09-26T17:28:28Z", value = "Date of the organization creation.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreated() {
@@ -102,7 +97,6 @@ public class Organization {
    * @return description
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "some description", value = "Description of the organization.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -124,9 +118,6 @@ public class Organization {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "New child org",
-      value = "The name of the new child-organization, limited to 32 characters.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -148,9 +139,6 @@ public class Organization {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "abcdef12345",
-      value = "The `public_id` of the organization you are operating within.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -173,7 +161,6 @@ public class Organization {
    * @return settings
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationSettings getSettings() {
@@ -198,7 +185,6 @@ public class Organization {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationSubscription getSubscription() {

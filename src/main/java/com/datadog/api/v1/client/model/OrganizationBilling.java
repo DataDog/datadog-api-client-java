@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
@@ -24,7 +22,6 @@ import java.util.Objects;
  * @deprecated
  */
 @Deprecated
-@ApiModel(description = "A JSON array of billing type.")
 @JsonPropertyOrder({OrganizationBilling.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationBilling {
@@ -43,7 +40,6 @@ public class OrganizationBilling {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The type of billing. Only `parent_billing` is supported.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {

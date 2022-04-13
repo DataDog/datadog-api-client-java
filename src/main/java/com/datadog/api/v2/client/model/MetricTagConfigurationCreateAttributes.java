@@ -15,15 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing the definition of a metric tag configuration to be created. */
-@ApiModel(
-    description = "Object containing the definition of a metric tag configuration to be created.")
 @JsonPropertyOrder({
   MetricTagConfigurationCreateAttributes.JSON_PROPERTY_AGGREGATIONS,
   MetricTagConfigurationCreateAttributes.JSON_PROPERTY_INCLUDE_PERCENTILES,
@@ -88,17 +84,6 @@ public class MetricTagConfigurationCreateAttributes {
    * @return aggregations
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[{\"space\":\"sum\",\"time\":\"sum\"},{\"space\":\"sum\",\"time\":\"count\"}]",
-      value =
-          "A list of queryable aggregation combinations for a count, rate, or gauge metric. By"
-              + " default, count and rate metrics require the (time: sum, space: sum) aggregation"
-              + " and Gauge metrics require the (time: avg, space: avg) aggregation. Additional"
-              + " time & space combinations are also available:  - time: avg, space: avg - time:"
-              + " avg, space: max - time: avg, space: min - time: avg, space: sum - time: count,"
-              + " space: sum - time: max, space: max - time: min, space: min - time: sum, space:"
-              + " avg - time: sum, space: sum  Can only be applied to metrics that have a"
-              + " `metric_type` of `count`, `rate`, or `gauge`.")
   @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MetricCustomAggregation> getAggregations() {
@@ -121,11 +106,6 @@ public class MetricTagConfigurationCreateAttributes {
    * @return includePercentiles
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "true",
-      value =
-          "Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can"
-              + " only be applied to metrics that have a `metric_type` of `distribution`.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_PERCENTILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludePercentiles() {
@@ -148,7 +128,6 @@ public class MetricTagConfigurationCreateAttributes {
    *
    * @return metricType
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_METRIC_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MetricTagConfigurationMetricTypes getMetricType() {
@@ -177,10 +156,6 @@ public class MetricTagConfigurationCreateAttributes {
    *
    * @return tags
    */
-  @ApiModelProperty(
-      example = "[\"app\",\"datacenter\"]",
-      required = true,
-      value = "A list of tag keys that will be queryable for your metric.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getTags() {

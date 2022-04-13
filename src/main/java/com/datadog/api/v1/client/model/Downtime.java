@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -26,11 +24,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times,
  * prevent all alerting related to specified Datadog tags.
  */
-@ApiModel(
-    description =
-        "Downtiming gives you greater control over monitor notifications by allowing you to"
-            + " globally exclude scopes from alerting. Downtime settings, which can be scheduled"
-            + " with start and end times, prevent all alerting related to specified Datadog tags.")
 @JsonPropertyOrder({
   Downtime.JSON_PROPERTY_ACTIVE,
   Downtime.JSON_PROPERTY_ACTIVE_CHILD,
@@ -111,7 +104,6 @@ public class Downtime {
    * @return active
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "If a scheduled downtime currently exists.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
@@ -129,7 +121,6 @@ public class Downtime {
    * @return activeChild
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonIgnore
   public DowntimeChild getActiveChild() {
     return activeChild.orElse(null);
@@ -156,7 +147,6 @@ public class Downtime {
    * @return canceled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1412799983", value = "If a scheduled downtime is canceled.")
   @JsonIgnore
   public Long getCanceled() {
 
@@ -183,7 +173,6 @@ public class Downtime {
    * @return creatorId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "User ID of the downtime creator.")
   @JsonProperty(JSON_PROPERTY_CREATOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCreatorId() {
@@ -201,7 +190,6 @@ public class Downtime {
    * @return disabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "If a downtime has been disabled.")
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisabled() {
@@ -220,11 +208,6 @@ public class Downtime {
    * @return downtimeType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2",
-      value =
-          "`0` for a downtime applied on `*` or all, `1` when the downtime is only scoped to"
-              + " hosts, or `2` when the downtime is scoped to anything but hosts.")
   @JsonProperty(JSON_PROPERTY_DOWNTIME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getDowntimeType() {
@@ -243,11 +226,6 @@ public class Downtime {
    * @return end
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1412793983",
-      value =
-          "POSIX timestamp to end the downtime. If not provided, the downtime is in effect"
-              + " indefinitely until you cancel it.")
   @JsonIgnore
   public Long getEnd() {
     return end.orElse(null);
@@ -274,7 +252,6 @@ public class Downtime {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1625", value = "The downtime ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -293,11 +270,6 @@ public class Downtime {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Message on the downtime",
-      value =
-          "A message to include with notifications for this downtime. Email notifications can be"
-              + " sent to specific users by using the same `@username` notation as events.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -320,11 +292,6 @@ public class Downtime {
    * @return monitorId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "123456",
-      value =
-          "A single monitor to which the downtime applies. If not provided, the downtime applies"
-              + " to all monitors.")
   @JsonIgnore
   public Long getMonitorId() {
     return monitorId.orElse(null);
@@ -368,14 +335,6 @@ public class Downtime {
    * @return monitorTags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"*\"]",
-      value =
-          "A comma-separated list of monitor tags. For example, tags that are applied directly to"
-              + " monitors, not tags that are used in monitor queries (which are filtered by the"
-              + " scope parameter), to which the downtime applies. The resulting downtime applies"
-              + " to monitors that match ALL provided monitor tags. For example,"
-              + " `service:postgres` **AND** `team:frontend`.")
   @JsonProperty(JSON_PROPERTY_MONITOR_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getMonitorTags() {
@@ -397,7 +356,6 @@ public class Downtime {
    * @return parentId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123", value = "ID of the parent Downtime.")
   @JsonIgnore
   public Long getParentId() {
     return parentId.orElse(null);
@@ -429,7 +387,6 @@ public class Downtime {
    * @return recurrence
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonIgnore
   public DowntimeRecurrence getRecurrence() {
     return recurrence.orElse(null);
@@ -472,13 +429,6 @@ public class Downtime {
    * @return scope
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"env:staging\"]",
-      value =
-          "The scope(s) to which the downtime applies. For example, `host:app2`. Provide multiple"
-              + " scopes as a comma-separated list like `env:dev,env:prod`. The resulting downtime"
-              + " applies to sources that matches ALL provided scopes (`env:dev` **AND**"
-              + " `env:prod`).")
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getScope() {
@@ -501,11 +451,6 @@ public class Downtime {
    * @return start
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1412792983",
-      value =
-          "POSIX timestamp to start the downtime. If not provided, the downtime starts the moment"
-              + " it is created.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStart() {
@@ -528,11 +473,6 @@ public class Downtime {
    * @return timezone
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "America/New_York",
-      value =
-          "The timezone in which to display the downtime's start and end times in Datadog"
-              + " applications.")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {
@@ -549,7 +489,6 @@ public class Downtime {
    * @return updaterId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "ID of the last user that updated the downtime.")
   @JsonIgnore
   public Integer getUpdaterId() {
 

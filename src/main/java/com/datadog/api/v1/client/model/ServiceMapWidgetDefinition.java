@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * This widget displays a map of a service to all of the services that call it, and all of the
  * services that it calls.
  */
-@ApiModel(
-    description =
-        "This widget displays a map of a service to all of the services that call it, and all of"
-            + " the services that it calls.")
 @JsonPropertyOrder({
   ServiceMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   ServiceMapWidgetDefinition.JSON_PROPERTY_FILTERS,
@@ -99,7 +93,6 @@ public class ServiceMapWidgetDefinition {
    * @return customLinks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -125,10 +118,6 @@ public class ServiceMapWidgetDefinition {
    *
    * @return filters
    */
-  @ApiModelProperty(
-      example = "[\"*\"]",
-      required = true,
-      value = "Your environment and primary tag (or * if enabled for your account).")
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getFilters() {
@@ -149,7 +138,6 @@ public class ServiceMapWidgetDefinition {
    *
    * @return service
    */
-  @ApiModelProperty(example = "", required = true, value = "The ID of the service you want to map.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getService() {
@@ -171,7 +159,6 @@ public class ServiceMapWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -194,7 +181,6 @@ public class ServiceMapWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -219,7 +205,6 @@ public class ServiceMapWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -241,7 +226,6 @@ public class ServiceMapWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ServiceMapWidgetDefinitionType getType() {

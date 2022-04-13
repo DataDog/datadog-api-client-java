@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Filter for logs. */
-@ApiModel(description = "Filter for logs.")
 @JsonPropertyOrder({LogsFilter.JSON_PROPERTY_QUERY})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsFilter {
@@ -38,7 +35,6 @@ public class LogsFilter {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "source:python", value = "The filter query.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {

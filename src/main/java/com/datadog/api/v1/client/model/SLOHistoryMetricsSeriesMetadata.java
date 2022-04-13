@@ -14,15 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Query metadata. */
-@ApiModel(description = "Query metadata.")
 @JsonPropertyOrder({
   SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_AGGR,
   SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_EXPRESSION,
@@ -64,7 +61,6 @@ public class SLOHistoryMetricsSeriesMetadata {
    * @return aggr
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query aggregator function.")
   @JsonProperty(JSON_PROPERTY_AGGR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAggr() {
@@ -86,7 +82,6 @@ public class SLOHistoryMetricsSeriesMetadata {
    * @return expression
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query expression.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpression() {
@@ -108,7 +103,6 @@ public class SLOHistoryMetricsSeriesMetadata {
    * @return metric
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query metric used.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -130,7 +124,6 @@ public class SLOHistoryMetricsSeriesMetadata {
    * @return queryIndex
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query index from original combined query.")
   @JsonProperty(JSON_PROPERTY_QUERY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getQueryIndex() {
@@ -152,7 +145,6 @@ public class SLOHistoryMetricsSeriesMetadata {
    * @return scope
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query scope.")
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getScope() {
@@ -188,13 +180,6 @@ public class SLOHistoryMetricsSeriesMetadata {
    * @return unit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "[{\"family\":\"bytes\",\"id\":2,\"name\":\"byte\",\"plural\":\"bytes\",\"scale_factor\":1.0,\"short_name\":\"B\"},null]",
-      value =
-          "An array of metric units that contains up to two unit objects. For example, bytes"
-              + " represents one unit object and bytes per second represents two unit objects. If"
-              + " a metric query only has one unit object, the second array element is null.")
   @JsonIgnore
   public List<SLOHistoryMetricsSeriesMetadataUnit> getUnit() {
     return unit.orElse(null);

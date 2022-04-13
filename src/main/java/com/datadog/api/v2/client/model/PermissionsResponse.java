@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Payload with API-returned permissions. */
-@ApiModel(description = "Payload with API-returned permissions.")
 @JsonPropertyOrder({PermissionsResponse.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PermissionsResponse {
@@ -52,7 +49,6 @@ public class PermissionsResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of permissions.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Permission> getData() {

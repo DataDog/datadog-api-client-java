@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The log-based metric properties that will be updated. */
-@ApiModel(description = "The log-based metric properties that will be updated.")
 @JsonPropertyOrder({
   LogsMetricUpdateAttributes.JSON_PROPERTY_FILTER,
   LogsMetricUpdateAttributes.JSON_PROPERTY_GROUP_BY
@@ -47,7 +44,6 @@ public class LogsMetricUpdateAttributes {
    * @return filter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsMetricFilter getFilter() {
@@ -81,7 +77,6 @@ public class LogsMetricUpdateAttributes {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The rules for the group by.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsMetricGroupBy> getGroupBy() {

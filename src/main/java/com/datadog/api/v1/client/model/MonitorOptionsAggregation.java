@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Type of aggregation performed in the monitor query. */
-@ApiModel(description = "Type of aggregation performed in the monitor query.")
 @JsonPropertyOrder({
   MonitorOptionsAggregation.JSON_PROPERTY_GROUP_BY,
   MonitorOptionsAggregation.JSON_PROPERTY_METRIC,
@@ -48,7 +45,6 @@ public class MonitorOptionsAggregation {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "host", value = "Group to break down the monitor on.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGroupBy() {
@@ -70,7 +66,6 @@ public class MonitorOptionsAggregation {
    * @return metric
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "metrics.name", value = "Metric name used in the monitor.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -92,7 +87,6 @@ public class MonitorOptionsAggregation {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "count", value = "Metric type used in the monitor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {

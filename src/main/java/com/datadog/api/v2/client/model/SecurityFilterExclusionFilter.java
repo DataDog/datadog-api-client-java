@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Exclusion filter for the security filter. */
-@ApiModel(description = "Exclusion filter for the security filter.")
 @JsonPropertyOrder({
   SecurityFilterExclusionFilter.JSON_PROPERTY_NAME,
   SecurityFilterExclusionFilter.JSON_PROPERTY_QUERY
@@ -54,7 +51,6 @@ public class SecurityFilterExclusionFilter {
    *
    * @return name
    */
-  @ApiModelProperty(example = "Exclude staging", required = true, value = "Exclusion filter name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -75,12 +71,6 @@ public class SecurityFilterExclusionFilter {
    *
    * @return query
    */
-  @ApiModelProperty(
-      example = "source:staging",
-      required = true,
-      value =
-          "Exclusion filter query. Logs that match this query are excluded from the security"
-              + " filter.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {

@@ -14,15 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object describing a step for a Synthetic test. */
-@ApiModel(description = "Object describing a step for a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsStepDetail.JSON_PROPERTY_BROWSER_ERRORS,
   SyntheticsStepDetail.JSON_PROPERTY_CHECK_TYPE,
@@ -119,7 +116,6 @@ public class SyntheticsStepDetail {
    * @return browserErrors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of errors collected for a browser test.")
   @JsonProperty(JSON_PROPERTY_BROWSER_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsBrowserError> getBrowserErrors() {
@@ -142,7 +138,6 @@ public class SyntheticsStepDetail {
    * @return checkType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CHECK_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCheckType getCheckType() {
@@ -167,7 +162,6 @@ public class SyntheticsStepDetail {
    * @return description
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the test.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -189,7 +183,6 @@ public class SyntheticsStepDetail {
    * @return duration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total duration in millisecond of the test.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDuration() {
@@ -211,7 +204,6 @@ public class SyntheticsStepDetail {
    * @return error
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Error returned by the test.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getError() {
@@ -234,7 +226,6 @@ public class SyntheticsStepDetail {
    * @return playingTab
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PLAYING_TAB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsPlayingTab getPlayingTab() {
@@ -259,7 +250,6 @@ public class SyntheticsStepDetail {
    * @return screenshotBucketKey
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not screenshots where collected by the test.")
   @JsonProperty(JSON_PROPERTY_SCREENSHOT_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getScreenshotBucketKey() {
@@ -281,7 +271,6 @@ public class SyntheticsStepDetail {
    * @return skipped
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not to skip this step.")
   @JsonProperty(JSON_PROPERTY_SKIPPED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSkipped() {
@@ -303,7 +292,6 @@ public class SyntheticsStepDetail {
    * @return snapshotBucketKey
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not snapshots where collected by the test.")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSnapshotBucketKey() {
@@ -325,7 +313,6 @@ public class SyntheticsStepDetail {
    * @return stepId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The step ID.")
   @JsonProperty(JSON_PROPERTY_STEP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStepId() {
@@ -361,10 +348,6 @@ public class SyntheticsStepDetail {
    * @return subTestStepDetails
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "If this steps include a sub-test. [Subtests"
-              + " documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).")
   @JsonProperty(JSON_PROPERTY_SUB_TEST_STEP_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsStepDetail> getSubTestStepDetails() {
@@ -386,7 +369,6 @@ public class SyntheticsStepDetail {
    * @return timeToInteractive
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time before starting the step.")
   @JsonProperty(JSON_PROPERTY_TIME_TO_INTERACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTimeToInteractive() {
@@ -409,7 +391,6 @@ public class SyntheticsStepDetail {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsStepType getType() {
@@ -434,7 +415,6 @@ public class SyntheticsStepDetail {
    * @return url
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL to perform the step against.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
@@ -456,7 +436,6 @@ public class SyntheticsStepDetail {
    * @return value
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Value for the step.")
   @JsonIgnore
   public Object getValue() {
     return value.orElse(null);
@@ -500,7 +479,6 @@ public class SyntheticsStepDetail {
    * @return vitalsMetrics
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of Core Web Vitals metrics for the step.")
   @JsonProperty(JSON_PROPERTY_VITALS_METRICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsCoreWebVitals> getVitalsMetrics() {
@@ -534,7 +512,6 @@ public class SyntheticsStepDetail {
    * @return warnings
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Warning collected that didn't failed the step.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsStepDetailWarning> getWarnings() {

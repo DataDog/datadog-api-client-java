@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Axis controls for the widget. */
-@ApiModel(description = "Axis controls for the widget.")
 @JsonPropertyOrder({
   WidgetAxis.JSON_PROPERTY_INCLUDE_ZERO,
   WidgetAxis.JSON_PROPERTY_LABEL,
@@ -56,7 +53,6 @@ public class WidgetAxis {
    * @return includeZero
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "True includes zero.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_ZERO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludeZero() {
@@ -78,7 +74,6 @@ public class WidgetAxis {
    * @return label
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The label of the axis to display on the graph.")
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLabel() {
@@ -101,10 +96,6 @@ public class WidgetAxis {
    * @return max
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Specifies the maximum value to show on the y-axis. It takes a number, or auto for"
-              + " default behavior.")
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMax() {
@@ -126,10 +117,6 @@ public class WidgetAxis {
    * @return min
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Specifies minimum value to show on the y-axis. It takes a number, or auto for default"
-              + " behavior.")
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMin() {
@@ -152,10 +139,6 @@ public class WidgetAxis {
    * @return scale
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (for"
-              + " example `pow2`, `pow0.5` etc.).")
   @JsonProperty(JSON_PROPERTY_SCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getScale() {

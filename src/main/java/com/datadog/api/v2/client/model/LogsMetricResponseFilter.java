@@ -14,14 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The log-based metric filter. Logs matching this filter will be aggregated in this metric. */
-@ApiModel(
-    description =
-        "The log-based metric filter. Logs matching this filter will be aggregated in this metric.")
 @JsonPropertyOrder({LogsMetricResponseFilter.JSON_PROPERTY_QUERY})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsMetricResponseFilter {
@@ -40,9 +35,6 @@ public class LogsMetricResponseFilter {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "service:web* AND @http.status_code:[200 TO 299]",
-      value = "The search query - following the log search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Description of the Lambdas. */
-@ApiModel(description = "Description of the Lambdas.")
 @JsonPropertyOrder({AWSLogsLambda.JSON_PROPERTY_ARN})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSLogsLambda {
@@ -38,7 +35,6 @@ public class AWSLogsLambda {
    * @return arn
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Available ARN IDs.")
   @JsonProperty(JSON_PROPERTY_ARN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getArn() {

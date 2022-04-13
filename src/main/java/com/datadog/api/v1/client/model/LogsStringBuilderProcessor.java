@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
@@ -29,18 +27,6 @@ import java.util.Objects;
  * selection. - If the target attribute already exists, it is overwritten by the result of the
  * template. - Results of the template cannot exceed 256 characters.
  */
-@ApiModel(
-    description =
-        "Use the string builder processor to add a new attribute (without spaces or special"
-            + " characters) to a log with the result of the provided template. This enables"
-            + " aggregation of different attributes or raw strings into a single attribute.  The"
-            + " template is defined by both raw text and blocks with the syntax"
-            + " `%{attribute_path}`.  **Notes**:  - The processor only accepts attributes with"
-            + " values or an array of values in the blocks. - If an attribute cannot be used"
-            + " (object or array of object),   it is replaced by an empty string or the entire"
-            + " operation is skipped depending on your selection. - If the target attribute"
-            + " already exists, it is overwritten by the result of the template. - Results of the"
-            + " template cannot exceed 256 characters.")
 @JsonPropertyOrder({
   LogsStringBuilderProcessor.JSON_PROPERTY_IS_ENABLED,
   LogsStringBuilderProcessor.JSON_PROPERTY_IS_REPLACE_MISSING,
@@ -96,7 +82,6 @@ public class LogsStringBuilderProcessor {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -119,10 +104,6 @@ public class LogsStringBuilderProcessor {
    * @return isReplaceMissing
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "If true, it replaces all missing attributes of `template` by an empty string. If"
-              + " `false` (default), skips the operation for missing attributes.")
   @JsonProperty(JSON_PROPERTY_IS_REPLACE_MISSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsReplaceMissing() {
@@ -144,7 +125,6 @@ public class LogsStringBuilderProcessor {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -165,10 +145,6 @@ public class LogsStringBuilderProcessor {
    *
    * @return target
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "The name of the attribute that contains the result of the template.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTarget() {
@@ -189,10 +165,6 @@ public class LogsStringBuilderProcessor {
    *
    * @return template
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "A formula with one or more attributes and raw text.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTemplate() {
@@ -214,7 +186,6 @@ public class LogsStringBuilderProcessor {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsStringBuilderProcessorType getType() {

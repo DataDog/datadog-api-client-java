@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The object describing a security filter. */
-@ApiModel(description = "The object describing a security filter.")
 @JsonPropertyOrder({
   SecurityFilterAttributes.JSON_PROPERTY_EXCLUSION_FILTERS,
   SecurityFilterAttributes.JSON_PROPERTY_FILTERED_DATA_TYPE,
@@ -80,7 +77,6 @@ public class SecurityFilterAttributes {
    * @return exclusionFilters
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list of exclusion filters applied in this security filter.")
   @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityFilterExclusionFilterResponse> getExclusionFilters() {
@@ -104,7 +100,6 @@ public class SecurityFilterAttributes {
    * @return filteredDataType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTERED_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityFilterFilteredDataType getFilteredDataType() {
@@ -129,9 +124,6 @@ public class SecurityFilterAttributes {
    * @return isBuiltin
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value = "Whether the security filter is the built-in filter.")
   @JsonProperty(JSON_PROPERTY_IS_BUILTIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsBuiltin() {
@@ -153,7 +145,6 @@ public class SecurityFilterAttributes {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "Whether the security filter is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -175,7 +166,6 @@ public class SecurityFilterAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Custom security filter", value = "The security filter name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -197,10 +187,6 @@ public class SecurityFilterAttributes {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "service:api",
-      value =
-          "The security filter query. Logs accepted by this query will be accepted by this filter.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -222,7 +208,6 @@ public class SecurityFilterAttributes {
    * @return version
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "The version of the security filter.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getVersion() {

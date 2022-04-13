@@ -15,18 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or
  * animated GIF. Only available on FREE layout dashboards.
  */
-@ApiModel(
-    description =
-        "The image widget allows you to embed an image on your dashboard. An image can be a PNG,"
-            + " JPG, or animated GIF. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   ImageWidgetDefinition.JSON_PROPERTY_HAS_BACKGROUND,
   ImageWidgetDefinition.JSON_PROPERTY_HAS_BORDER,
@@ -90,7 +84,6 @@ public class ImageWidgetDefinition {
    * @return hasBackground
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "Whether to display a background or not.")
   @JsonProperty(JSON_PROPERTY_HAS_BACKGROUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasBackground() {
@@ -112,7 +105,6 @@ public class ImageWidgetDefinition {
    * @return hasBorder
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "Whether to display a border or not.")
   @JsonProperty(JSON_PROPERTY_HAS_BORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasBorder() {
@@ -135,7 +127,6 @@ public class ImageWidgetDefinition {
    * @return horizontalAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HORIZONTAL_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetHorizontalAlign getHorizontalAlign() {
@@ -161,7 +152,6 @@ public class ImageWidgetDefinition {
    * @return margin
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetMargin getMargin() {
@@ -187,7 +177,6 @@ public class ImageWidgetDefinition {
    * @return sizing
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIZING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetImageSizing getSizing() {
@@ -212,7 +201,6 @@ public class ImageWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ImageWidgetDefinitionType getType() {
@@ -236,10 +224,6 @@ public class ImageWidgetDefinition {
    *
    * @return url
    */
-  @ApiModelProperty(
-      example = "https://example.com/image.png",
-      required = true,
-      value = "URL of the image.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getUrl() {
@@ -261,9 +245,6 @@ public class ImageWidgetDefinition {
    * @return urlDarkTheme
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "https://example.com/image-dark-mode.png",
-      value = "URL of the image in dark mode.")
   @JsonProperty(JSON_PROPERTY_URL_DARK_THEME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrlDarkTheme() {
@@ -286,7 +267,6 @@ public class ImageWidgetDefinition {
    * @return verticalAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VERTICAL_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetVerticalAlign getVerticalAlign() {

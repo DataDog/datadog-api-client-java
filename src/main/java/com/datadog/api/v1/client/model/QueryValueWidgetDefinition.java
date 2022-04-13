@@ -15,15 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Query values display the current value of a given metric, APM, or log query. */
-@ApiModel(
-    description = "Query values display the current value of a given metric, APM, or log query.")
 @JsonPropertyOrder({
   QueryValueWidgetDefinition.JSON_PROPERTY_AUTOSCALE,
   QueryValueWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
@@ -101,7 +97,6 @@ public class QueryValueWidgetDefinition {
    * @return autoscale
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to use auto-scaling or not.")
   @JsonProperty(JSON_PROPERTY_AUTOSCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAutoscale() {
@@ -135,7 +130,6 @@ public class QueryValueWidgetDefinition {
    * @return customLinks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -157,7 +151,6 @@ public class QueryValueWidgetDefinition {
    * @return customUnit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Display a unit of your choice on the widget.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomUnit() {
@@ -179,8 +172,6 @@ public class QueryValueWidgetDefinition {
    * @return precision
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Number of decimals to show. If not defined, the widget uses the raw value.")
   @JsonProperty(JSON_PROPERTY_PRECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPrecision() {
@@ -210,10 +201,6 @@ public class QueryValueWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(
-      example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]",
-      required = true,
-      value = "Widget definition.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<QueryValueWidgetRequest> getRequests() {
@@ -236,7 +223,6 @@ public class QueryValueWidgetDefinition {
    * @return textAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEXT_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTextAlign() {
@@ -262,7 +248,6 @@ public class QueryValueWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -286,7 +271,6 @@ public class QueryValueWidgetDefinition {
    * @return timeseriesBackground
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIMESERIES_BACKGROUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TimeseriesBackground getTimeseriesBackground() {
@@ -308,7 +292,6 @@ public class QueryValueWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -331,7 +314,6 @@ public class QueryValueWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -356,7 +338,6 @@ public class QueryValueWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -378,7 +359,6 @@ public class QueryValueWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public QueryValueWidgetDefinitionType getType() {

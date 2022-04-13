@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Metadata for the Synthetics tests run. */
-@ApiModel(description = "Metadata for the Synthetics tests run.")
 @JsonPropertyOrder({
   SyntheticsCIBatchMetadata.JSON_PROPERTY_CI,
   SyntheticsCIBatchMetadata.JSON_PROPERTY_GIT
@@ -45,7 +42,6 @@ public class SyntheticsCIBatchMetadata {
    * @return ci
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadataCI getCi() {
@@ -68,7 +64,6 @@ public class SyntheticsCIBatchMetadata {
    * @return git
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadataGit getGit() {

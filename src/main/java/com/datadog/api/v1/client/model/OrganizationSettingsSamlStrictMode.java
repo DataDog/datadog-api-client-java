@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Has one property enabled (boolean). */
-@ApiModel(description = "Has one property enabled (boolean).")
 @JsonPropertyOrder({OrganizationSettingsSamlStrictMode.JSON_PROPERTY_ENABLED})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationSettingsSamlStrictMode {
@@ -40,12 +37,6 @@ public class OrganizationSettingsSamlStrictMode {
    * @return enabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value =
-          "Whether or not the SAML strict mode is enabled. If true, all users must log in with"
-              + " SAML. Learn more on the [SAML Strict"
-              + " documentation](https://docs.datadoghq.com/account_management/saml/#saml-strict).")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {

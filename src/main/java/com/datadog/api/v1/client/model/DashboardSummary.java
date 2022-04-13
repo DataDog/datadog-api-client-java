@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Dashboard summary response. */
-@ApiModel(description = "Dashboard summary response.")
 @JsonPropertyOrder({DashboardSummary.JSON_PROPERTY_DASHBOARDS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardSummary {
@@ -52,7 +49,6 @@ public class DashboardSummary {
    * @return dashboards
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of dashboard definitions.")
   @JsonProperty(JSON_PROPERTY_DASHBOARDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DashboardSummaryDefinition> getDashboards() {

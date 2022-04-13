@@ -15,18 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Alert values are query values showing the current value of the metric in any monitor defined on
  * your system.
  */
-@ApiModel(
-    description =
-        "Alert values are query values showing the current value of the metric in any monitor"
-            + " defined on your system.")
 @JsonPropertyOrder({
   AlertValueWidgetDefinition.JSON_PROPERTY_ALERT_ID,
   AlertValueWidgetDefinition.JSON_PROPERTY_PRECISION,
@@ -86,7 +80,6 @@ public class AlertValueWidgetDefinition {
    *
    * @return alertId
    */
-  @ApiModelProperty(example = "", required = true, value = "ID of the alert to use in the widget.")
   @JsonProperty(JSON_PROPERTY_ALERT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAlertId() {
@@ -108,7 +101,6 @@ public class AlertValueWidgetDefinition {
    * @return precision
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of decimal to show. If not defined, will use the raw value.")
   @JsonProperty(JSON_PROPERTY_PRECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPrecision() {
@@ -131,7 +123,6 @@ public class AlertValueWidgetDefinition {
    * @return textAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEXT_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTextAlign() {
@@ -156,7 +147,6 @@ public class AlertValueWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -179,7 +169,6 @@ public class AlertValueWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -204,7 +193,6 @@ public class AlertValueWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of value in the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -226,7 +214,6 @@ public class AlertValueWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public AlertValueWidgetDefinitionType getType() {
@@ -251,7 +238,6 @@ public class AlertValueWidgetDefinition {
    * @return unit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unit to display with the value.")
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUnit() {

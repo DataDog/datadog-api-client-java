@@ -15,15 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The attributes of a notebook. */
-@ApiModel(description = "The attributes of a notebook.")
 @JsonPropertyOrder({
   NotebookResponseDataAttributes.JSON_PROPERTY_AUTHOR,
   NotebookResponseDataAttributes.JSON_PROPERTY_CELLS,
@@ -86,7 +83,6 @@ public class NotebookResponseDataAttributes {
    * @return author
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookAuthor getAuthor() {
@@ -116,17 +112,6 @@ public class NotebookResponseDataAttributes {
    *
    * @return cells
    */
-  @ApiModelProperty(
-      example =
-          "[{\"attributes\":{\"definition\":{\"text\":\"## Some test markdown\\n"
-              + "\\n"
-              + "```js\\n"
-              + "var x, y;\\n"
-              + "x = 5;\\n"
-              + "y = 6;\\n"
-              + "```\",\"type\":\"markdown\"}},\"id\":\"bzbycoya\",\"type\":\"notebook_cells\"},{\"attributes\":{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"q\":\"avg:system.load.1{*}\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"type\":\"timeseries\",\"yaxis\":{\"scale\":\"linear\"}},\"graph_size\":\"m\",\"split_by\":{\"keys\":[],\"tags\":[]},\"time\":null},\"id\":\"9k6bc6xc\",\"type\":\"notebook_cells\"}]",
-      required = true,
-      value = "List of cells to display in the notebook.")
   @JsonProperty(JSON_PROPERTY_CELLS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<NotebookCellResponse> getCells() {
@@ -143,9 +128,6 @@ public class NotebookResponseDataAttributes {
    * @return created
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2021-02-24T23:14:15.173964Z",
-      value = "UTC time stamp for when the notebook was created.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -164,7 +146,6 @@ public class NotebookResponseDataAttributes {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookMetadata getMetadata() {
@@ -181,9 +162,6 @@ public class NotebookResponseDataAttributes {
    * @return modified
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2021-02-24T23:15:23.274966Z",
-      value = "UTC time stamp for when the notebook was last modified.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -200,10 +178,6 @@ public class NotebookResponseDataAttributes {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "Example Notebook",
-      required = true,
-      value = "The name of the notebook.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -226,7 +200,6 @@ public class NotebookResponseDataAttributes {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookStatus getStatus() {
@@ -251,7 +224,6 @@ public class NotebookResponseDataAttributes {
    *
    * @return time
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NotebookGlobalTime getTime() {

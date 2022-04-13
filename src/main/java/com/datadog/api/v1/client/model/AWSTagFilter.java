@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A tag filter. */
-@ApiModel(description = "A tag filter.")
 @JsonPropertyOrder({
   AWSTagFilter.JSON_PROPERTY_NAMESPACE,
   AWSTagFilter.JSON_PROPERTY_TAG_FILTER_STR
@@ -45,7 +42,6 @@ public class AWSTagFilter {
    * @return namespace
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AWSNamespace getNamespace() {
@@ -70,7 +66,6 @@ public class AWSTagFilter {
    * @return tagFilterStr
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "prod*", value = "The tag filter string.")
   @JsonProperty(JSON_PROPERTY_TAG_FILTER_STR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagFilterStr() {

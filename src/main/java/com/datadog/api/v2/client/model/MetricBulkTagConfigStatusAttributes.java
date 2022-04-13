@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Optional attributes for the status of a bulk tag configuration request. */
-@ApiModel(description = "Optional attributes for the status of a bulk tag configuration request.")
 @JsonPropertyOrder({
   MetricBulkTagConfigStatusAttributes.JSON_PROPERTY_EMAILS,
   MetricBulkTagConfigStatusAttributes.JSON_PROPERTY_STATUS,
@@ -58,9 +55,6 @@ public class MetricBulkTagConfigStatusAttributes {
    * @return emails
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"sue@example.com\",\"bob@example.com\"]",
-      value = "A list of account emails to notify when the configuration is applied.")
   @JsonProperty(JSON_PROPERTY_EMAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getEmails() {
@@ -82,7 +76,6 @@ public class MetricBulkTagConfigStatusAttributes {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Accepted", value = "The status of the request.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -112,9 +105,6 @@ public class MetricBulkTagConfigStatusAttributes {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"host\",\"pod_name\",\"is_shadow\"]",
-      value = "A list of tag names to apply to the configuration.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

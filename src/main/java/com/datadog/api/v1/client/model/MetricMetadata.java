@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object with all metric related metadata. */
-@ApiModel(description = "Object with all metric related metadata.")
 @JsonPropertyOrder({
   MetricMetadata.JSON_PROPERTY_DESCRIPTION,
   MetricMetadata.JSON_PROPERTY_INTEGRATION,
@@ -64,7 +61,6 @@ public class MetricMetadata {
    * @return description
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metric description.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -81,7 +77,6 @@ public class MetricMetadata {
    * @return integration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the integration that sent the metric if applicable.")
   @JsonProperty(JSON_PROPERTY_INTEGRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIntegration() {
@@ -99,9 +94,6 @@ public class MetricMetadata {
    * @return perUnit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "second",
-      value = "Per unit of the metric such as `second` in `bytes per second`.")
   @JsonProperty(JSON_PROPERTY_PER_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPerUnit() {
@@ -123,7 +115,6 @@ public class MetricMetadata {
    * @return shortName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A more human-readable and abbreviated version of the metric name.")
   @JsonProperty(JSON_PROPERTY_SHORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShortName() {
@@ -145,7 +136,6 @@ public class MetricMetadata {
    * @return statsdInterval
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "StatsD flush interval of the metric in seconds if applicable.")
   @JsonProperty(JSON_PROPERTY_STATSD_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStatsdInterval() {
@@ -167,7 +157,6 @@ public class MetricMetadata {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "count", value = "Metric type such as `gauge` or `rate`.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -189,9 +178,6 @@ public class MetricMetadata {
    * @return unit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "byte",
-      value = "Primary unit of the metric such as `byte` or `operation`.")
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUnit() {

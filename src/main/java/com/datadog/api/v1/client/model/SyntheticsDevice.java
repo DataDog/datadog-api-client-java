@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object describing the device used to perform the Synthetic test. */
-@ApiModel(description = "Object describing the device used to perform the Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsDevice.JSON_PROPERTY_HEIGHT,
   SyntheticsDevice.JSON_PROPERTY_ID,
@@ -71,7 +68,6 @@ public class SyntheticsDevice {
    *
    * @return height
    */
-  @ApiModelProperty(example = "0", required = true, value = "Screen height of the device.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getHeight() {
@@ -93,7 +89,6 @@ public class SyntheticsDevice {
    *
    * @return id
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsDeviceID getId() {
@@ -118,7 +113,6 @@ public class SyntheticsDevice {
    * @return isMobile
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the device is a mobile.")
   @JsonProperty(JSON_PROPERTY_IS_MOBILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsMobile() {
@@ -139,7 +133,6 @@ public class SyntheticsDevice {
    *
    * @return name
    */
-  @ApiModelProperty(example = "", required = true, value = "The device name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -160,7 +153,6 @@ public class SyntheticsDevice {
    *
    * @return width
    */
-  @ApiModelProperty(example = "0", required = true, value = "Screen width of the device.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getWidth() {

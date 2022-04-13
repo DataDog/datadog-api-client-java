@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * The scatter plot visualization allows you to graph a chosen scope over two different metrics with
  * their respective aggregation.
  */
-@ApiModel(
-    description =
-        "The scatter plot visualization allows you to graph a chosen scope over two different"
-            + " metrics with their respective aggregation.")
 @JsonPropertyOrder({
   ScatterPlotWidgetDefinition.JSON_PROPERTY_COLOR_BY_GROUPS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
@@ -107,7 +101,6 @@ public class ScatterPlotWidgetDefinition {
    * @return colorByGroups
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of groups used for colors.")
   @JsonProperty(JSON_PROPERTY_COLOR_BY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getColorByGroups() {
@@ -141,7 +134,6 @@ public class ScatterPlotWidgetDefinition {
    * @return customLinks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -163,7 +155,6 @@ public class ScatterPlotWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ScatterPlotWidgetDefinitionRequests getRequests() {
@@ -186,7 +177,6 @@ public class ScatterPlotWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -208,7 +198,6 @@ public class ScatterPlotWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -231,7 +220,6 @@ public class ScatterPlotWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -256,7 +244,6 @@ public class ScatterPlotWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -278,7 +265,6 @@ public class ScatterPlotWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ScatterPlotWidgetDefinitionType getType() {
@@ -304,7 +290,6 @@ public class ScatterPlotWidgetDefinition {
    * @return xaxis
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_XAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetAxis getXaxis() {
@@ -327,7 +312,6 @@ public class ScatterPlotWidgetDefinition {
    * @return yaxis
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetAxis getYaxis() {

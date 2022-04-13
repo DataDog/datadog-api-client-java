@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The search and filter query settings */
-@ApiModel(description = "The search and filter query settings")
 @JsonPropertyOrder({
   LogsQueryFilter.JSON_PROPERTY_FROM,
   LogsQueryFilter.JSON_PROPERTY_INDEXES,
@@ -55,11 +52,6 @@ public class LogsQueryFilter {
    * @return from
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "now-15m",
-      value =
-          "The minimum time for the requested logs, supports date math and regular timestamps"
-              + " (milliseconds).")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFrom() {
@@ -90,11 +82,6 @@ public class LogsQueryFilter {
    * @return indexes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"main\",\"web\"]",
-      value =
-          "For customers with multiple indexes, the indexes to search. Defaults to ['*'] which"
-              + " means all indexes.")
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getIndexes() {
@@ -116,9 +103,6 @@ public class LogsQueryFilter {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "service:web* AND @http.status_code:[200 TO 299]",
-      value = "The search query - following the log search syntax.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -141,11 +125,6 @@ public class LogsQueryFilter {
    * @return to
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "now",
-      value =
-          "The maximum time for the requested logs, supports date math and regular timestamps"
-              + " (milliseconds).")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTo() {

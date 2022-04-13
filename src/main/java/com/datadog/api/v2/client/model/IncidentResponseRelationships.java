@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The incident&#39;s relationships from a response. */
-@ApiModel(description = "The incident's relationships from a response.")
 @JsonPropertyOrder({
   IncidentResponseRelationships.JSON_PROPERTY_COMMANDER_USER,
   IncidentResponseRelationships.JSON_PROPERTY_CREATED_BY_USER,
@@ -57,7 +54,6 @@ public class IncidentResponseRelationships {
    * @return commanderUser
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NullableRelationshipToUser getCommanderUser() {
@@ -80,7 +76,6 @@ public class IncidentResponseRelationships {
    * @return createdByUser
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getCreatedByUser() {
@@ -104,7 +99,6 @@ public class IncidentResponseRelationships {
    * @return integrations
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToIncidentIntegrationMetadatas getIntegrations() {
@@ -127,7 +121,6 @@ public class IncidentResponseRelationships {
    * @return lastModifiedByUser
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getLastModifiedByUser() {
@@ -150,7 +143,6 @@ public class IncidentResponseRelationships {
    * @return postmortem
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_POSTMORTEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToIncidentPostmortem getPostmortem() {

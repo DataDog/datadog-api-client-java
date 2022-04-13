@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** A formula and functions events query. */
-@ApiModel(description = "A formula and functions events query.")
 @JsonPropertyOrder({
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_COMPUTE,
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
@@ -80,7 +77,6 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
    *
    * @return compute
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MonitorFormulaAndFunctionEventQueryDefinitionCompute getCompute() {
@@ -103,7 +99,6 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
    *
    * @return dataSource
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MonitorFormulaAndFunctionEventsDataSource getDataSource() {
@@ -142,7 +137,6 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group by options.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorFormulaAndFunctionEventQueryGroupBy> getGroupBy() {
@@ -173,11 +167,6 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
    * @return indexes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"days-3\",\"days-7\"]",
-      value =
-          "An array of index names to query in the stream. Omit or use `[]` to query all indexes"
-              + " at once.")
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getIndexes() {
@@ -198,10 +187,6 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "query_errors",
-      required = true,
-      value = "Name of the query for use in formulas.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -225,7 +210,6 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
    * @return search
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SEARCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorFormulaAndFunctionEventQueryDefinitionSearch getSearch() {

@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
@@ -23,11 +21,6 @@ import java.util.Objects;
  * about those metrics in [Synthetics
  * documentation](https://docs.datadoghq.com/synthetics/#metrics).
  */
-@ApiModel(
-    description =
-        "Object containing all metrics and their values collected for a Synthetic API test. Learn"
-            + " more about those metrics in [Synthetics"
-            + " documentation](https://docs.datadoghq.com/synthetics/#metrics).")
 @JsonPropertyOrder({
   SyntheticsTiming.JSON_PROPERTY_DNS,
   SyntheticsTiming.JSON_PROPERTY_DOWNLOAD,
@@ -80,7 +73,6 @@ public class SyntheticsTiming {
    * @return dns
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The duration in millisecond of the DNS lookup.")
   @JsonProperty(JSON_PROPERTY_DNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDns() {
@@ -102,7 +94,6 @@ public class SyntheticsTiming {
    * @return download
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The time in millisecond to download the response.")
   @JsonProperty(JSON_PROPERTY_DOWNLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDownload() {
@@ -124,7 +115,6 @@ public class SyntheticsTiming {
    * @return firstByte
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The time in millisecond to first byte.")
   @JsonProperty(JSON_PROPERTY_FIRST_BYTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getFirstByte() {
@@ -146,7 +136,6 @@ public class SyntheticsTiming {
    * @return handshake
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The duration in millisecond of the TLS handshake.")
   @JsonProperty(JSON_PROPERTY_HANDSHAKE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getHandshake() {
@@ -168,7 +157,6 @@ public class SyntheticsTiming {
    * @return redirect
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The time in millisecond spent during redirections.")
   @JsonProperty(JSON_PROPERTY_REDIRECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getRedirect() {
@@ -190,7 +178,6 @@ public class SyntheticsTiming {
    * @return ssl
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The duration in millisecond of the TLS handshake.")
   @JsonProperty(JSON_PROPERTY_SSL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getSsl() {
@@ -212,7 +199,6 @@ public class SyntheticsTiming {
    * @return tcp
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time in millisecond to establish the TCP connection.")
   @JsonProperty(JSON_PROPERTY_TCP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTcp() {
@@ -234,7 +220,6 @@ public class SyntheticsTiming {
    * @return total
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The overall time in millisecond the request took to be processed.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTotal() {
@@ -256,7 +241,6 @@ public class SyntheticsTiming {
    * @return wait
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time spent in millisecond waiting for a response.")
   @JsonProperty(JSON_PROPERTY_WAIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getWait() {

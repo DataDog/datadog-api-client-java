@@ -15,15 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The Change graph shows you the change in a value over the time period chosen. */
-@ApiModel(
-    description = "The Change graph shows you the change in a value over the time period chosen.")
 @JsonPropertyOrder({
   ChangeWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   ChangeWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -92,7 +88,6 @@ public class ChangeWidgetDefinition {
    * @return customLinks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -124,14 +119,6 @@ public class ChangeWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(
-      example = "[{\"q\":\"<METRIC_1>{<SCOPE_1>}\"}]",
-      required = true,
-      value =
-          "Array of one request object to display in the widget.  See the dedicated [Request JSON"
-              + " schema"
-              + " documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)"
-              + "  to learn how to build the `REQUEST_SCHEMA`.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<ChangeWidgetRequest> getRequests() {
@@ -154,7 +141,6 @@ public class ChangeWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -176,7 +162,6 @@ public class ChangeWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -199,7 +184,6 @@ public class ChangeWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -224,7 +208,6 @@ public class ChangeWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -246,7 +229,6 @@ public class ChangeWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ChangeWidgetDefinitionType getType() {

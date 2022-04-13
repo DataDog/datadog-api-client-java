@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Define request widget style. */
-@ApiModel(description = "Define request widget style.")
 @JsonPropertyOrder({
   WidgetRequestStyle.JSON_PROPERTY_LINE_TYPE,
   WidgetRequestStyle.JSON_PROPERTY_LINE_WIDTH,
@@ -49,7 +46,6 @@ public class WidgetRequestStyle {
    * @return lineType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetLineType getLineType() {
@@ -75,7 +71,6 @@ public class WidgetRequestStyle {
    * @return lineWidth
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINE_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetLineWidth getLineWidth() {
@@ -100,7 +95,6 @@ public class WidgetRequestStyle {
    * @return palette
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Color palette to apply to the widget.")
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPalette() {

@@ -14,15 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Custom links help you connect a data value to a URL, like a Datadog page or your AWS console. */
-@ApiModel(
-    description =
-        "Custom links help you connect a data value to a URL, like a Datadog page or your AWS"
-            + " console.")
 @JsonPropertyOrder({
   WidgetCustomLink.JSON_PROPERTY_IS_HIDDEN,
   WidgetCustomLink.JSON_PROPERTY_LABEL,
@@ -55,7 +49,6 @@ public class WidgetCustomLink {
    * @return isHidden
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The flag for toggling context menu link visibility.")
   @JsonProperty(JSON_PROPERTY_IS_HIDDEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsHidden() {
@@ -78,11 +71,6 @@ public class WidgetCustomLink {
    * @return label
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Search logs for {{host}}",
-      value =
-          "The label for the custom link URL. Keep the label short and descriptive. Use metrics"
-              + " and tags as variables.")
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLabel() {
@@ -105,11 +93,6 @@ public class WidgetCustomLink {
    * @return link
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "https://app.datadoghq.com/logs?query={{host}}",
-      value =
-          "The URL of the custom link. URL must include `http` or `https`. A relative URL must"
-              + " start with `/`.")
   @JsonProperty(JSON_PROPERTY_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLink() {
@@ -133,11 +116,6 @@ public class WidgetCustomLink {
    * @return overrideLabel
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "logs",
-      value =
-          "The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`,"
-              + " `profiles`, `processes`, `containers`, or `rum`.")
   @JsonProperty(JSON_PROPERTY_OVERRIDE_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOverrideLabel() {

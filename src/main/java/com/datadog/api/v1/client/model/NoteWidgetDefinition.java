@@ -15,18 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * The notes and links widget is similar to free text widget, but allows for more formatting
  * options.
  */
-@ApiModel(
-    description =
-        "The notes and links widget is similar to free text widget, but allows for more formatting"
-            + " options.")
 @JsonPropertyOrder({
   NoteWidgetDefinition.JSON_PROPERTY_BACKGROUND_COLOR,
   NoteWidgetDefinition.JSON_PROPERTY_CONTENT,
@@ -94,7 +88,6 @@ public class NoteWidgetDefinition {
    * @return backgroundColor
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Background color of the note.")
   @JsonProperty(JSON_PROPERTY_BACKGROUND_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBackgroundColor() {
@@ -115,7 +108,6 @@ public class NoteWidgetDefinition {
    *
    * @return content
    */
-  @ApiModelProperty(example = "", required = true, value = "Content of the note.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getContent() {
@@ -137,7 +129,6 @@ public class NoteWidgetDefinition {
    * @return fontSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the text.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFontSize() {
@@ -159,7 +150,6 @@ public class NoteWidgetDefinition {
    * @return hasPadding
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to add padding or not.")
   @JsonProperty(JSON_PROPERTY_HAS_PADDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasPadding() {
@@ -181,7 +171,6 @@ public class NoteWidgetDefinition {
    * @return showTick
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show a tick or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_TICK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowTick() {
@@ -204,7 +193,6 @@ public class NoteWidgetDefinition {
    * @return textAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEXT_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTextAlign() {
@@ -230,7 +218,6 @@ public class NoteWidgetDefinition {
    * @return tickEdge
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TICK_EDGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTickEdge getTickEdge() {
@@ -255,7 +242,6 @@ public class NoteWidgetDefinition {
    * @return tickPos
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Where to position the tick on an edge.")
   @JsonProperty(JSON_PROPERTY_TICK_POS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTickPos() {
@@ -277,7 +263,6 @@ public class NoteWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NoteWidgetDefinitionType getType() {
@@ -303,7 +288,6 @@ public class NoteWidgetDefinition {
    * @return verticalAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VERTICAL_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetVerticalAlign getVerticalAlign() {

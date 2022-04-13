@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object for a single metric to be configure tags on. */
-@ApiModel(description = "Object for a single metric to be configure tags on.")
 @JsonPropertyOrder({
   MetricTagConfigurationCreateData.JSON_PROPERTY_ATTRIBUTES,
   MetricTagConfigurationCreateData.JSON_PROPERTY_ID,
@@ -62,7 +59,6 @@ public class MetricTagConfigurationCreateData {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricTagConfigurationCreateAttributes getAttributes() {
@@ -83,10 +79,6 @@ public class MetricTagConfigurationCreateData {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "test.metric.latency",
-      required = true,
-      value = "The metric name for this resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -108,7 +100,6 @@ public class MetricTagConfigurationCreateData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MetricTagConfigurationType getType() {

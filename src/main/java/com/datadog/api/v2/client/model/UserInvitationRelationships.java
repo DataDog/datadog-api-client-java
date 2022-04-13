@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Relationships data for user invitation. */
-@ApiModel(description = "Relationships data for user invitation.")
 @JsonPropertyOrder({UserInvitationRelationships.JSON_PROPERTY_USER})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserInvitationRelationships {
@@ -48,7 +45,6 @@ public class UserInvitationRelationships {
    *
    * @return user
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public RelationshipToUser getUser() {

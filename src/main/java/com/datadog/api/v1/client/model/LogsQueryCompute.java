@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Define computation for a log query. */
-@ApiModel(description = "Define computation for a log query.")
 @JsonPropertyOrder({
   LogsQueryCompute.JSON_PROPERTY_AGGREGATION,
   LogsQueryCompute.JSON_PROPERTY_FACET,
@@ -56,7 +53,6 @@ public class LogsQueryCompute {
    *
    * @return aggregation
    */
-  @ApiModelProperty(example = "avg", required = true, value = "The aggregation method.")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAggregation() {
@@ -78,7 +74,6 @@ public class LogsQueryCompute {
    * @return facet
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "@duration", value = "Facet name.")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFacet() {
@@ -100,7 +95,6 @@ public class LogsQueryCompute {
    * @return interval
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "5000", value = "Define a time interval in seconds.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInterval() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Datadog API key. */
-@ApiModel(description = "Datadog API key.")
 @JsonPropertyOrder({
   ApiKey.JSON_PROPERTY_CREATED,
   ApiKey.JSON_PROPERTY_CREATED_BY,
@@ -47,7 +44,6 @@ public class ApiKey {
    * @return created
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2019-08-02 15:31:07", value = "Date of creation of the API key.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreated() {
@@ -60,9 +56,6 @@ public class ApiKey {
    * @return createdBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "john@example.com",
-      value = "Datadog user handle that created the API key.")
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreatedBy() {
@@ -75,7 +68,6 @@ public class ApiKey {
    * @return key
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1234512345123456abcabc912349abcd", value = "API key.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getKey() {
@@ -93,7 +85,6 @@ public class ApiKey {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "example user", value = "Name of your API key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Dashboard definition. */
-@ApiModel(description = "Dashboard definition.")
 @JsonPropertyOrder({
   DashboardSummaryDefinition.JSON_PROPERTY_AUTHOR_HANDLE,
   DashboardSummaryDefinition.JSON_PROPERTY_CREATED_AT,
@@ -74,7 +71,6 @@ public class DashboardSummaryDefinition {
    * @return authorHandle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the dashboard author.")
   @JsonProperty(JSON_PROPERTY_AUTHOR_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAuthorHandle() {
@@ -96,7 +92,6 @@ public class DashboardSummaryDefinition {
    * @return createdAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation date of the dashboard.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -118,7 +113,6 @@ public class DashboardSummaryDefinition {
    * @return description
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the dashboard.")
   @JsonIgnore
   public String getDescription() {
     return description.orElse(null);
@@ -150,7 +144,6 @@ public class DashboardSummaryDefinition {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Dashboard identifier.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -173,10 +166,6 @@ public class DashboardSummaryDefinition {
    * @return isReadOnly
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Whether this dashboard is read-only. If True, only the author and admins can make"
-              + " changes to it.")
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsReadOnly() {
@@ -199,7 +188,6 @@ public class DashboardSummaryDefinition {
    * @return layoutType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAYOUT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DashboardLayoutType getLayoutType() {
@@ -224,7 +212,6 @@ public class DashboardSummaryDefinition {
    * @return modifiedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Modification date of the dashboard.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModifiedAt() {
@@ -246,7 +233,6 @@ public class DashboardSummaryDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the dashboard.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -268,7 +254,6 @@ public class DashboardSummaryDefinition {
    * @return url
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL of the dashboard.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {

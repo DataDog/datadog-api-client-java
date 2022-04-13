@@ -15,15 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object representing an event. */
-@ApiModel(description = "Object representing an event.")
 @JsonPropertyOrder({
   EventCreateRequest.JSON_PROPERTY_AGGREGATION_KEY,
   EventCreateRequest.JSON_PROPERTY_ALERT_TYPE,
@@ -95,10 +92,6 @@ public class EventCreateRequest {
    * @return aggregationKey
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "An arbitrary string to use for aggregation. Limited to 100 characters. If you specify a"
-              + " key, all events using that key are grouped together in the Event Stream.")
   @JsonProperty(JSON_PROPERTY_AGGREGATION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAggregationKey() {
@@ -121,7 +114,6 @@ public class EventCreateRequest {
    * @return alertType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALERT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public EventAlertType getAlertType() {
@@ -147,10 +139,6 @@ public class EventCreateRequest {
    * @return dateHappened
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "POSIX timestamp of the event. Must be sent as an integer (that is no quotes). Limited"
-              + " to events no older than 7 days.")
   @JsonProperty(JSON_PROPERTY_DATE_HAPPENED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDateHappened() {
@@ -172,7 +160,6 @@ public class EventCreateRequest {
    * @return deviceName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A device name.")
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeviceName() {
@@ -195,10 +182,6 @@ public class EventCreateRequest {
    * @return host
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Host name to associate with the event. Any tags associated with the host are also"
-              + " applied to this event.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -220,7 +203,6 @@ public class EventCreateRequest {
    * @return priority
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonIgnore
   public EventPriority getPriority() {
     return priority.orElse(null);
@@ -255,8 +237,6 @@ public class EventCreateRequest {
    * @return relatedEventId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "ID of the parent event. Must be sent as an integer (that is no quotes).")
   @JsonProperty(JSON_PROPERTY_RELATED_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRelatedEventId() {
@@ -280,12 +260,6 @@ public class EventCreateRequest {
    * @return sourceTypeName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The type of event being posted. Option examples include nagios, hudson, jenkins,"
-              + " my_apps, chef, puppet, git, bitbucket, etc. A complete list of source attribute"
-              + " values [available"
-              + " here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).")
   @JsonProperty(JSON_PROPERTY_SOURCE_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSourceTypeName() {
@@ -315,9 +289,6 @@ public class EventCreateRequest {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"environment:test\"]",
-      value = "A list of tags to apply to the event.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -340,14 +311,6 @@ public class EventCreateRequest {
    *
    * @return text
    */
-  @ApiModelProperty(
-      example = "Oh boy!",
-      required = true,
-      value =
-          "The body of the event. Limited to 4000 characters. The text supports markdown. To use"
-              + " markdown in the event text, start the text block with `%%% \\n"
-              + "` and end the text block with `\\n"
-              + " %%%`. Use `msg_text` with the Datadog Ruby library.")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getText() {
@@ -368,10 +331,6 @@ public class EventCreateRequest {
    *
    * @return title
    */
-  @ApiModelProperty(
-      example = "Did you hear the news today?",
-      required = true,
-      value = "The event title.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTitle() {

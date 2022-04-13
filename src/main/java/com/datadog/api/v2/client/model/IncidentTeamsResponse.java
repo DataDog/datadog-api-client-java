@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response with a list of incident team payloads. */
-@ApiModel(description = "Response with a list of incident team payloads.")
 @JsonPropertyOrder({
   IncidentTeamsResponse.JSON_PROPERTY_DATA,
   IncidentTeamsResponse.JSON_PROPERTY_INCLUDED,
@@ -68,12 +65,6 @@ public class IncidentTeamsResponse {
    *
    * @return data
    */
-  @ApiModelProperty(
-      example =
-          "[{\"attributes\":{\"name\":\"team"
-              + " name\"},\"id\":\"00000000-7ea3-0000-0000-000000000000\",\"type\":\"teams\"}]",
-      required = true,
-      value = "An array of incident teams.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<IncidentTeamResponseData> getData() {
@@ -90,7 +81,6 @@ public class IncidentTeamsResponse {
    * @return included
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Included related resources which the user requested.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<IncidentTeamIncludedItems> getIncluded() {
@@ -109,7 +99,6 @@ public class IncidentTeamsResponse {
    * @return meta
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentResponseMeta getMeta() {

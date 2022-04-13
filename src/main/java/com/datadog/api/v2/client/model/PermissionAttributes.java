@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Attributes of a permission. */
-@ApiModel(description = "Attributes of a permission.")
 @JsonPropertyOrder({
   PermissionAttributes.JSON_PROPERTY_CREATED,
   PermissionAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -65,7 +62,6 @@ public class PermissionAttributes {
    * @return created
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation time of the permission.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -87,7 +83,6 @@ public class PermissionAttributes {
    * @return description
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the permission.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -109,7 +104,6 @@ public class PermissionAttributes {
    * @return displayName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Displayed name for the permission.")
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayName() {
@@ -131,7 +125,6 @@ public class PermissionAttributes {
    * @return displayType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Display type.")
   @JsonProperty(JSON_PROPERTY_DISPLAY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayType() {
@@ -153,7 +146,6 @@ public class PermissionAttributes {
    * @return groupName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the permission group.")
   @JsonProperty(JSON_PROPERTY_GROUP_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGroupName() {
@@ -175,7 +167,6 @@ public class PermissionAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the permission.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -197,7 +188,6 @@ public class PermissionAttributes {
    * @return restricted
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the permission is restricted.")
   @JsonProperty(JSON_PROPERTY_RESTRICTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getRestricted() {

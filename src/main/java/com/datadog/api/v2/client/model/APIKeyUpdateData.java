@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object used to update an API key. */
-@ApiModel(description = "Object used to update an API key.")
 @JsonPropertyOrder({
   APIKeyUpdateData.JSON_PROPERTY_ATTRIBUTES,
   APIKeyUpdateData.JSON_PROPERTY_ID,
@@ -64,7 +61,6 @@ public class APIKeyUpdateData {
    *
    * @return attributes
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public APIKeyUpdateAttributes getAttributes() {
@@ -85,10 +81,6 @@ public class APIKeyUpdateData {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "00112233-4455-6677-8899-aabbccddeeff",
-      required = true,
-      value = "ID of the API key.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -110,7 +102,6 @@ public class APIKeyUpdateData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public APIKeysType getType() {

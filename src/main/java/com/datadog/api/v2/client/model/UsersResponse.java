@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response containing information about multiple users. */
-@ApiModel(description = "Response containing information about multiple users.")
 @JsonPropertyOrder({
   UsersResponse.JSON_PROPERTY_DATA,
   UsersResponse.JSON_PROPERTY_INCLUDED,
@@ -62,7 +59,6 @@ public class UsersResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of returned users.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<User> getData() {
@@ -96,7 +92,6 @@ public class UsersResponse {
    * @return included
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of objects related to the users.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UserResponseIncludedItem> getIncluded() {
@@ -119,7 +114,6 @@ public class UsersResponse {
    * @return meta
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResponseMetaAttributes getMeta() {

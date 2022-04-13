@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object describing the issuer of a SSL certificate. */
-@ApiModel(description = "Object describing the issuer of a SSL certificate.")
 @JsonPropertyOrder({
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_C,
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_C_N,
@@ -60,7 +57,6 @@ public class SyntheticsSSLCertificateIssuer {
    * @return C
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Country Name that issued the certificate.")
   @JsonProperty(JSON_PROPERTY_C)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getC() {
@@ -82,7 +78,6 @@ public class SyntheticsSSLCertificateIssuer {
    * @return CN
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Common Name that issued certificate.")
   @JsonProperty(JSON_PROPERTY_C_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCN() {
@@ -104,7 +99,6 @@ public class SyntheticsSSLCertificateIssuer {
    * @return L
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Locality that issued the certificate.")
   @JsonProperty(JSON_PROPERTY_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getL() {
@@ -126,7 +120,6 @@ public class SyntheticsSSLCertificateIssuer {
    * @return O
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Organization that issued the certificate.")
   @JsonProperty(JSON_PROPERTY_O)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getO() {
@@ -148,7 +141,6 @@ public class SyntheticsSSLCertificateIssuer {
    * @return OU
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Organizational Unit that issued the certificate.")
   @JsonProperty(JSON_PROPERTY_O_U)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOU() {
@@ -170,7 +162,6 @@ public class SyntheticsSSLCertificateIssuer {
    * @return ST
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "State Or Province Name that issued the certificate.")
   @JsonProperty(JSON_PROPERTY_S_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getST() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Core Web Vitals attached to a browser test step. */
-@ApiModel(description = "Core Web Vitals attached to a browser test step.")
 @JsonPropertyOrder({
   SyntheticsCoreWebVitals.JSON_PROPERTY_CLS,
   SyntheticsCoreWebVitals.JSON_PROPERTY_LCP,
@@ -48,7 +45,6 @@ public class SyntheticsCoreWebVitals {
    * @return cls
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Cumulative Layout Shift.")
   @JsonProperty(JSON_PROPERTY_CLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCls() {
@@ -70,7 +66,6 @@ public class SyntheticsCoreWebVitals {
    * @return lcp
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Largest Contentful Paint in milliseconds.")
   @JsonProperty(JSON_PROPERTY_LCP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLcp() {
@@ -92,7 +87,6 @@ public class SyntheticsCoreWebVitals {
    * @return url
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL attached to the metrics.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {

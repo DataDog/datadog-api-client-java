@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** IP ranges. */
-@ApiModel(description = "IP ranges.")
 @JsonPropertyOrder({
   IPRanges.JSON_PROPERTY_AGENTS,
   IPRanges.JSON_PROPERTY_API,
@@ -73,7 +70,6 @@ public class IPRanges {
    * @return agents
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesAgents getAgents() {
@@ -96,7 +92,6 @@ public class IPRanges {
    * @return api
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_API)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesAPI getApi() {
@@ -119,7 +114,6 @@ public class IPRanges {
    * @return apm
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesAPM getApm() {
@@ -142,7 +136,6 @@ public class IPRanges {
    * @return logs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesLogs getLogs() {
@@ -164,9 +157,6 @@ public class IPRanges {
    * @return modified
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2019-10-31-20-00-00",
-      value = "Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getModified() {
@@ -189,7 +179,6 @@ public class IPRanges {
    * @return process
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesProcess getProcess() {
@@ -212,7 +201,6 @@ public class IPRanges {
    * @return synthetics
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SYNTHETICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesSynthetics getSynthetics() {
@@ -234,7 +222,6 @@ public class IPRanges {
    * @return version
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "11", value = "Version of the IP list.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVersion() {
@@ -257,7 +244,6 @@ public class IPRanges {
    * @return webhooks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEBHOOKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesWebhooks getWebhooks() {

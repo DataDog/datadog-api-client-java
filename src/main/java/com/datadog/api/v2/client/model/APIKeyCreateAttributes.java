@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Attributes used to create an API Key. */
-@ApiModel(description = "Attributes used to create an API Key.")
 @JsonPropertyOrder({APIKeyCreateAttributes.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class APIKeyCreateAttributes {
@@ -46,10 +43,6 @@ public class APIKeyCreateAttributes {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "API Key for submitting metrics",
-      required = true,
-      value = "Name of the API key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {

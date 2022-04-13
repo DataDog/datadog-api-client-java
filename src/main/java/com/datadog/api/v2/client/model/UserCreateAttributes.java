@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Attributes of the created user. */
-@ApiModel(description = "Attributes of the created user.")
 @JsonPropertyOrder({
   UserCreateAttributes.JSON_PROPERTY_EMAIL,
   UserCreateAttributes.JSON_PROPERTY_NAME,
@@ -56,10 +53,6 @@ public class UserCreateAttributes {
    *
    * @return email
    */
-  @ApiModelProperty(
-      example = "jane.doe@example.com",
-      required = true,
-      value = "The email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEmail() {
@@ -81,7 +74,6 @@ public class UserCreateAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the user.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -103,7 +95,6 @@ public class UserCreateAttributes {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The title of the user.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {

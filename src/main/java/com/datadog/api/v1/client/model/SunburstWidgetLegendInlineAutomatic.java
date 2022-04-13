@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Configuration of inline or automatic legends. */
-@ApiModel(description = "Configuration of inline or automatic legends.")
 @JsonPropertyOrder({
   SunburstWidgetLegendInlineAutomatic.JSON_PROPERTY_HIDE_PERCENT,
   SunburstWidgetLegendInlineAutomatic.JSON_PROPERTY_HIDE_VALUE,
@@ -59,7 +56,6 @@ public class SunburstWidgetLegendInlineAutomatic {
    * @return hidePercent
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to hide the percentages of the groups.")
   @JsonProperty(JSON_PROPERTY_HIDE_PERCENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHidePercent() {
@@ -81,7 +77,6 @@ public class SunburstWidgetLegendInlineAutomatic {
    * @return hideValue
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to hide the values of the groups.")
   @JsonProperty(JSON_PROPERTY_HIDE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHideValue() {
@@ -103,7 +98,6 @@ public class SunburstWidgetLegendInlineAutomatic {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SunburstWidgetLegendInlineAutomaticType getType() {

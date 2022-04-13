@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object defining a variable that can be used in your test configuration. */
-@ApiModel(description = "Object defining a variable that can be used in your test configuration.")
 @JsonPropertyOrder({
   SyntheticsConfigVariable.JSON_PROPERTY_EXAMPLE,
   SyntheticsConfigVariable.JSON_PROPERTY_ID,
@@ -69,7 +66,6 @@ public class SyntheticsConfigVariable {
    * @return example
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Example for the variable.")
   @JsonProperty(JSON_PROPERTY_EXAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExample() {
@@ -91,7 +87,6 @@ public class SyntheticsConfigVariable {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the variable for global variables.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -112,7 +107,6 @@ public class SyntheticsConfigVariable {
    *
    * @return name
    */
-  @ApiModelProperty(example = "VARIABLE_NAME", required = true, value = "Name of the variable.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -134,7 +128,6 @@ public class SyntheticsConfigVariable {
    * @return pattern
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pattern of the variable.")
   @JsonProperty(JSON_PROPERTY_PATTERN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPattern() {
@@ -156,7 +149,6 @@ public class SyntheticsConfigVariable {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsConfigVariableType getType() {

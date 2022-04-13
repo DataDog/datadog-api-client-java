@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The funnel step. */
-@ApiModel(description = "The funnel step.")
 @JsonPropertyOrder({FunnelStep.JSON_PROPERTY_FACET, FunnelStep.JSON_PROPERTY_VALUE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunnelStep {
@@ -51,7 +48,6 @@ public class FunnelStep {
    *
    * @return facet
    */
-  @ApiModelProperty(example = "@view.name", required = true, value = "The facet of the step.")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getFacet() {
@@ -72,7 +68,6 @@ public class FunnelStep {
    *
    * @return value
    */
-  @ApiModelProperty(example = "/apm/home", required = true, value = "The value of the step.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getValue() {

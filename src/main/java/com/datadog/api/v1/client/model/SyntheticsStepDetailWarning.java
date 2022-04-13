@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object collecting warnings for a given step. */
-@ApiModel(description = "Object collecting warnings for a given step.")
 @JsonPropertyOrder({
   SyntheticsStepDetailWarning.JSON_PROPERTY_MESSAGE,
   SyntheticsStepDetailWarning.JSON_PROPERTY_TYPE
@@ -55,7 +52,6 @@ public class SyntheticsStepDetailWarning {
    *
    * @return message
    */
-  @ApiModelProperty(example = "", required = true, value = "Message for the warning.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
@@ -77,7 +73,6 @@ public class SyntheticsStepDetailWarning {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsWarningType getType() {

@@ -15,13 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Request object that includes the Agent rule with the attributes to update. */
-@ApiModel(
-    description = "Request object that includes the Agent rule with the attributes to update.")
 @JsonPropertyOrder({CloudWorkloadSecurityAgentRuleUpdateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CloudWorkloadSecurityAgentRuleUpdateRequest {
@@ -51,7 +47,6 @@ public class CloudWorkloadSecurityAgentRuleUpdateRequest {
    *
    * @return data
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CloudWorkloadSecurityAgentRuleUpdateData getData() {

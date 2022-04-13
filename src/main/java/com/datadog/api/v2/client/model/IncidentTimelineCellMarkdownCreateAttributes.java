@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Timeline cell data for Markdown timeline cells for a create request. */
-@ApiModel(description = "Timeline cell data for Markdown timeline cells for a create request.")
 @JsonPropertyOrder({
   IncidentTimelineCellMarkdownCreateAttributes.JSON_PROPERTY_CELL_TYPE,
   IncidentTimelineCellMarkdownCreateAttributes.JSON_PROPERTY_CONTENT,
@@ -65,7 +62,6 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
    *
    * @return cellType
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CELL_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public IncidentTimelineCellMarkdownContentType getCellType() {
@@ -91,7 +87,6 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
    *
    * @return content
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public IncidentTimelineCellMarkdownCreateAttributesContent getContent() {
@@ -113,9 +108,6 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
    * @return important
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value = "A flag indicating whether the timeline cell is important and should be highlighted.")
   @JsonProperty(JSON_PROPERTY_IMPORTANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getImportant() {

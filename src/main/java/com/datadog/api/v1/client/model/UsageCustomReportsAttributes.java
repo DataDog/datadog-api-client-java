@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The response containing attributes for custom reports. */
-@ApiModel(description = "The response containing attributes for custom reports.")
 @JsonPropertyOrder({
   UsageCustomReportsAttributes.JSON_PROPERTY_COMPUTED_ON,
   UsageCustomReportsAttributes.JSON_PROPERTY_END_DATE,
@@ -58,7 +55,6 @@ public class UsageCustomReportsAttributes {
    * @return computedOn
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date the specified custom report was computed.")
   @JsonProperty(JSON_PROPERTY_COMPUTED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getComputedOn() {
@@ -80,7 +76,6 @@ public class UsageCustomReportsAttributes {
    * @return endDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ending date of custom report.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEndDate() {
@@ -102,7 +97,6 @@ public class UsageCustomReportsAttributes {
    * @return size
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "size")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSize() {
@@ -124,7 +118,6 @@ public class UsageCustomReportsAttributes {
    * @return startDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The starting date of custom report.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartDate() {
@@ -154,7 +147,6 @@ public class UsageCustomReportsAttributes {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of tags to apply to custom reports.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

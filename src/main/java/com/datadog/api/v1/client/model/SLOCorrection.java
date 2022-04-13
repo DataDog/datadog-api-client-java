@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The response object of a list of SLO corrections. */
-@ApiModel(description = "The response object of a list of SLO corrections.")
 @JsonPropertyOrder({
   SLOCorrection.JSON_PROPERTY_ATTRIBUTES,
   SLOCorrection.JSON_PROPERTY_ID,
@@ -49,7 +46,6 @@ public class SLOCorrection {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOCorrectionResponseAttributes getAttributes() {
@@ -71,7 +67,6 @@ public class SLOCorrection {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the SLO correction.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -94,7 +89,6 @@ public class SLOCorrection {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOCorrectionType getType() {

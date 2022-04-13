@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The security filter&#39;s properties. */
-@ApiModel(description = "The security filter's properties.")
 @JsonPropertyOrder({
   SecurityFilter.JSON_PROPERTY_ATTRIBUTES,
   SecurityFilter.JSON_PROPERTY_ID,
@@ -49,7 +46,6 @@ public class SecurityFilter {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityFilterAttributes getAttributes() {
@@ -71,7 +67,6 @@ public class SecurityFilter {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3dd-0uc-h1s", value = "The ID of the security filter.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -94,7 +89,6 @@ public class SecurityFilter {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityFilterType getType() {

@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** An updated treemap widget. */
-@ApiModel(description = "An updated treemap widget.")
 @JsonPropertyOrder({
   TreeMapWidgetRequest.JSON_PROPERTY_FORMULAS,
   TreeMapWidgetRequest.JSON_PROPERTY_Q,
@@ -66,7 +63,6 @@ public class TreeMapWidgetRequest {
    * @return formulas
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of formulas that operate on queries.")
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetFormula> getFormulas() {
@@ -88,7 +84,6 @@ public class TreeMapWidgetRequest {
    * @return q
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The widget metrics query.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQ() {
@@ -122,7 +117,6 @@ public class TreeMapWidgetRequest {
    * @return queries
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of queries that can be returned directly or used in formulas.")
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<FormulaAndFunctionQueryDefinition> getQueries() {
@@ -145,7 +139,6 @@ public class TreeMapWidgetRequest {
    * @return responseFormat
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionResponseFormat getResponseFormat() {

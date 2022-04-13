@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Widget definition. */
-@ApiModel(description = "Widget definition.")
 @JsonPropertyOrder({
   ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_TABLE,
   ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_X,
@@ -49,7 +46,6 @@ public class ScatterPlotWidgetDefinitionRequests {
    * @return table
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ScatterplotTableRequest getTable() {
@@ -72,7 +68,6 @@ public class ScatterPlotWidgetDefinitionRequests {
    * @return x
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ScatterPlotRequest getX() {
@@ -95,7 +90,6 @@ public class ScatterPlotWidgetDefinitionRequests {
    * @return y
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ScatterPlotRequest getY() {

@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Your Google Cloud Platform Account. */
-@ApiModel(description = "Your Google Cloud Platform Account.")
 @JsonPropertyOrder({
   GCPAccount.JSON_PROPERTY_AUTH_PROVIDER_X509_CERT_URL,
   GCPAccount.JSON_PROPERTY_AUTH_URI,
@@ -91,9 +88,6 @@ public class GCPAccount {
    * @return authProviderX509CertUrl
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "https://www.googleapis.com/oauth2/v1/certs",
-      value = "Should be `https://www.googleapis.com/oauth2/v1/certs`.")
   @JsonProperty(JSON_PROPERTY_AUTH_PROVIDER_X509_CERT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAuthProviderX509CertUrl() {
@@ -115,9 +109,6 @@ public class GCPAccount {
    * @return authUri
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "https://accounts.google.com/o/oauth2/auth",
-      value = "Should be `https://accounts.google.com/o/oauth2/auth`.")
   @JsonProperty(JSON_PROPERTY_AUTH_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAuthUri() {
@@ -139,7 +130,6 @@ public class GCPAccount {
    * @return automute
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Silence monitors for expected GCE instance shutdowns.")
   @JsonProperty(JSON_PROPERTY_AUTOMUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAutomute() {
@@ -161,9 +151,6 @@ public class GCPAccount {
    * @return clientEmail
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "api-dev@datadog-sandbox.iam.gserviceaccount.com",
-      value = "Your email found in your JSON service account key.")
   @JsonProperty(JSON_PROPERTY_CLIENT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientEmail() {
@@ -185,9 +172,6 @@ public class GCPAccount {
    * @return clientId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "123456712345671234567",
-      value = "Your ID found in your JSON service account key.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientId() {
@@ -210,11 +194,6 @@ public class GCPAccount {
    * @return clientX509CertUrl
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL",
-      value =
-          "Should be `https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL` where"
-              + " `$CLIENT_EMAIL` is the email found in your JSON service account key.")
   @JsonProperty(JSON_PROPERTY_CLIENT_X509_CERT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientX509CertUrl() {
@@ -244,7 +223,6 @@ public class GCPAccount {
    * @return errors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"*\"]", value = "An array of errors.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getErrors() {
@@ -267,11 +245,6 @@ public class GCPAccount {
    * @return hostFilters
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "key:value,filter:example",
-      value =
-          "Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that"
-              + " match one of the defined tags are imported into Datadog.")
   @JsonProperty(JSON_PROPERTY_HOST_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHostFilters() {
@@ -293,9 +266,6 @@ public class GCPAccount {
    * @return privateKey
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "private_key",
-      value = "Your private key name found in your JSON service account key.")
   @JsonProperty(JSON_PROPERTY_PRIVATE_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrivateKey() {
@@ -317,9 +287,6 @@ public class GCPAccount {
    * @return privateKeyId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "123456789abcdefghi123456789abcdefghijklm",
-      value = "Your private key ID found in your JSON service account key.")
   @JsonProperty(JSON_PROPERTY_PRIVATE_KEY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrivateKeyId() {
@@ -341,9 +308,6 @@ public class GCPAccount {
    * @return projectId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "datadog-apitest",
-      value = "Your Google Cloud project ID found in your JSON service account key.")
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProjectId() {
@@ -365,9 +329,6 @@ public class GCPAccount {
    * @return tokenUri
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "https://accounts.google.com/o/oauth2/token",
-      value = "Should be `https://accounts.google.com/o/oauth2/token`.")
   @JsonProperty(JSON_PROPERTY_TOKEN_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTokenUri() {
@@ -389,9 +350,6 @@ public class GCPAccount {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "service_account",
-      value = "The value for service_account found in your JSON service account key.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {

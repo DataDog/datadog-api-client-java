@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a
  * custom header, can hold one to many graphs, and is collapsible.
  */
-@ApiModel(
-    description =
-        "The groups widget allows you to keep similar graphs together on your timeboard. Each"
-            + " group has a custom header, can hold one to many graphs, and is collapsible.")
 @JsonPropertyOrder({
   GroupWidgetDefinition.JSON_PROPERTY_BACKGROUND_COLOR,
   GroupWidgetDefinition.JSON_PROPERTY_BANNER_IMG,
@@ -91,7 +85,6 @@ public class GroupWidgetDefinition {
    * @return backgroundColor
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Background color of the group title.")
   @JsonProperty(JSON_PROPERTY_BACKGROUND_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBackgroundColor() {
@@ -113,7 +106,6 @@ public class GroupWidgetDefinition {
    * @return bannerImg
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL of image to display as a banner for the group.")
   @JsonProperty(JSON_PROPERTY_BANNER_IMG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBannerImg() {
@@ -135,7 +127,6 @@ public class GroupWidgetDefinition {
    *
    * @return layoutType
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LAYOUT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public WidgetLayoutType getLayoutType() {
@@ -160,7 +151,6 @@ public class GroupWidgetDefinition {
    * @return showTitle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the title or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowTitle() {
@@ -182,7 +172,6 @@ public class GroupWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -205,7 +194,6 @@ public class GroupWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -230,7 +218,6 @@ public class GroupWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public GroupWidgetDefinitionType getType() {
@@ -263,11 +250,6 @@ public class GroupWidgetDefinition {
    *
    * @return widgets
    */
-  @ApiModelProperty(
-      example =
-          "[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"}}]",
-      required = true,
-      value = "List of widget groups.")
   @JsonProperty(JSON_PROPERTY_WIDGETS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<Widget> getWidgets() {

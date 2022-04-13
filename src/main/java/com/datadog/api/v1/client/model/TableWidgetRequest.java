@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Updated table widget. */
-@ApiModel(description = "Updated table widget.")
 @JsonPropertyOrder({
   TableWidgetRequest.JSON_PROPERTY_AGGREGATOR,
   TableWidgetRequest.JSON_PROPERTY_ALIAS,
@@ -115,7 +112,6 @@ public class TableWidgetRequest {
    * @return aggregator
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetAggregator getAggregator() {
@@ -140,7 +136,6 @@ public class TableWidgetRequest {
    * @return alias
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The column name (defaults to the metric name).")
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAlias() {
@@ -163,7 +158,6 @@ public class TableWidgetRequest {
    * @return apmQuery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getApmQuery() {
@@ -186,7 +180,6 @@ public class TableWidgetRequest {
    * @return apmStatsQuery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APM_STATS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApmStatsQueryDefinition getApmStatsQuery() {
@@ -217,7 +210,6 @@ public class TableWidgetRequest {
    * @return cellDisplayMode
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of display modes for each table cell.")
   @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TableWidgetCellDisplayMode> getCellDisplayMode() {
@@ -252,7 +244,6 @@ public class TableWidgetRequest {
    * @return conditionalFormats
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of conditional formats.")
   @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetConditionalFormat> getConditionalFormats() {
@@ -275,7 +266,6 @@ public class TableWidgetRequest {
    * @return eventQuery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getEventQuery() {
@@ -309,7 +299,6 @@ public class TableWidgetRequest {
    * @return formulas
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of formulas that operate on queries.")
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetFormula> getFormulas() {
@@ -332,10 +321,6 @@ public class TableWidgetRequest {
    * @return limit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "For metric queries, the number of lines to show in the table. Only one request should"
-              + " have this property.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -358,7 +343,6 @@ public class TableWidgetRequest {
    * @return logQuery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOG_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getLogQuery() {
@@ -381,7 +365,6 @@ public class TableWidgetRequest {
    * @return networkQuery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getNetworkQuery() {
@@ -404,7 +387,6 @@ public class TableWidgetRequest {
    * @return order
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetSort getOrder() {
@@ -430,7 +412,6 @@ public class TableWidgetRequest {
    * @return processQuery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ProcessQueryDefinition getProcessQuery() {
@@ -453,7 +434,6 @@ public class TableWidgetRequest {
    * @return profileMetricsQuery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getProfileMetricsQuery() {
@@ -475,7 +455,6 @@ public class TableWidgetRequest {
    * @return q
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query definition.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQ() {
@@ -509,7 +488,6 @@ public class TableWidgetRequest {
    * @return queries
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of queries that can be returned directly or used in formulas.")
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<FormulaAndFunctionQueryDefinition> getQueries() {
@@ -532,7 +510,6 @@ public class TableWidgetRequest {
    * @return responseFormat
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionResponseFormat getResponseFormat() {
@@ -558,7 +535,6 @@ public class TableWidgetRequest {
    * @return rumQuery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RUM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getRumQuery() {
@@ -581,7 +557,6 @@ public class TableWidgetRequest {
    * @return securityQuery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getSecurityQuery() {

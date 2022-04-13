@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The Azure archive destination. */
-@ApiModel(description = "The Azure archive destination.")
 @JsonPropertyOrder({
   LogsArchiveDestinationAzure.JSON_PROPERTY_CONTAINER,
   LogsArchiveDestinationAzure.JSON_PROPERTY_INTEGRATION,
@@ -78,10 +75,6 @@ public class LogsArchiveDestinationAzure {
    *
    * @return container
    */
-  @ApiModelProperty(
-      example = "container-name",
-      required = true,
-      value = "The container where the archive will be stored.")
   @JsonProperty(JSON_PROPERTY_CONTAINER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getContainer() {
@@ -103,7 +96,6 @@ public class LogsArchiveDestinationAzure {
    *
    * @return integration
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INTEGRATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsArchiveIntegrationAzure getIntegration() {
@@ -125,7 +117,6 @@ public class LogsArchiveDestinationAzure {
    * @return path
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The archive path.")
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPath() {
@@ -147,7 +138,6 @@ public class LogsArchiveDestinationAzure {
    * @return region
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The region where the archive will be stored.")
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRegion() {
@@ -168,10 +158,6 @@ public class LogsArchiveDestinationAzure {
    *
    * @return storageAccount
    */
-  @ApiModelProperty(
-      example = "account-name",
-      required = true,
-      value = "The associated storage account.")
   @JsonProperty(JSON_PROPERTY_STORAGE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getStorageAccount() {
@@ -193,7 +179,6 @@ public class LogsArchiveDestinationAzure {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsArchiveDestinationAzureType getType() {

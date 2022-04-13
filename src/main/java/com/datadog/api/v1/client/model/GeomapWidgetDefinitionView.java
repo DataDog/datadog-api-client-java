@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The view of the world that the map should render. */
-@ApiModel(description = "The view of the world that the map should render.")
 @JsonPropertyOrder({GeomapWidgetDefinitionView.JSON_PROPERTY_FOCUS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GeomapWidgetDefinitionView {
@@ -46,10 +43,6 @@ public class GeomapWidgetDefinitionView {
    *
    * @return focus
    */
-  @ApiModelProperty(
-      example = "WORLD",
-      required = true,
-      value = "The 2-letter ISO code of a country to focus the map on. Or `WORLD`.")
   @JsonProperty(JSON_PROPERTY_FOCUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getFocus() {
