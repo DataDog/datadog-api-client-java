@@ -27,14 +27,14 @@ import java.util.Objects;
   UsageBillableSummaryKeys.JSON_PROPERTY_INFRA_HOST_TOP99P,
   UsageBillableSummaryKeys.JSON_PROPERTY_IOT_TOP99P,
   UsageBillableSummaryKeys.JSON_PROPERTY_LAMBDA_FUNCTION_AVERAGE,
-  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_15DAY_SUM,
-  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_180DAY_SUM,
-  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_30DAY_SUM,
-  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_3DAY_SUM,
-  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_45DAY_SUM,
-  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_60DAY_SUM,
-  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_7DAY_SUM,
-  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_90DAY_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED15DAY_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED180DAY_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED30DAY_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED3DAY_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED45DAY_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED60DAY_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED7DAY_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED90DAY_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_CUSTOM_RETENTION_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INGESTED_SUM,
@@ -81,28 +81,28 @@ public class UsageBillableSummaryKeys {
   public static final String JSON_PROPERTY_LAMBDA_FUNCTION_AVERAGE = "lambda_function_average";
   private UsageBillableSummaryBody lambdaFunctionAverage;
 
-  public static final String JSON_PROPERTY_LOGS_INDEXED_15DAY_SUM = "logs_indexed_15day_sum";
+  public static final String JSON_PROPERTY_LOGS_INDEXED15DAY_SUM = "logs_indexed_15day_sum";
   private UsageBillableSummaryBody logsIndexed15daySum;
 
-  public static final String JSON_PROPERTY_LOGS_INDEXED_180DAY_SUM = "logs_indexed_180day_sum";
+  public static final String JSON_PROPERTY_LOGS_INDEXED180DAY_SUM = "logs_indexed_180day_sum";
   private UsageBillableSummaryBody logsIndexed180daySum;
 
-  public static final String JSON_PROPERTY_LOGS_INDEXED_30DAY_SUM = "logs_indexed_30day_sum";
+  public static final String JSON_PROPERTY_LOGS_INDEXED30DAY_SUM = "logs_indexed_30day_sum";
   private UsageBillableSummaryBody logsIndexed30daySum;
 
-  public static final String JSON_PROPERTY_LOGS_INDEXED_3DAY_SUM = "logs_indexed_3day_sum";
+  public static final String JSON_PROPERTY_LOGS_INDEXED3DAY_SUM = "logs_indexed_3day_sum";
   private UsageBillableSummaryBody logsIndexed3daySum;
 
-  public static final String JSON_PROPERTY_LOGS_INDEXED_45DAY_SUM = "logs_indexed_45day_sum";
+  public static final String JSON_PROPERTY_LOGS_INDEXED45DAY_SUM = "logs_indexed_45day_sum";
   private UsageBillableSummaryBody logsIndexed45daySum;
 
-  public static final String JSON_PROPERTY_LOGS_INDEXED_60DAY_SUM = "logs_indexed_60day_sum";
+  public static final String JSON_PROPERTY_LOGS_INDEXED60DAY_SUM = "logs_indexed_60day_sum";
   private UsageBillableSummaryBody logsIndexed60daySum;
 
-  public static final String JSON_PROPERTY_LOGS_INDEXED_7DAY_SUM = "logs_indexed_7day_sum";
+  public static final String JSON_PROPERTY_LOGS_INDEXED7DAY_SUM = "logs_indexed_7day_sum";
   private UsageBillableSummaryBody logsIndexed7daySum;
 
-  public static final String JSON_PROPERTY_LOGS_INDEXED_90DAY_SUM = "logs_indexed_90day_sum";
+  public static final String JSON_PROPERTY_LOGS_INDEXED90DAY_SUM = "logs_indexed_90day_sum";
   private UsageBillableSummaryBody logsIndexed90daySum;
 
   public static final String JSON_PROPERTY_LOGS_INDEXED_CUSTOM_RETENTION_SUM =
@@ -365,7 +365,7 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed15daySum
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_15DAY_SUM)
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED15DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed15daySum() {
     return logsIndexed15daySum;
@@ -388,7 +388,7 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed180daySum
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_180DAY_SUM)
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED180DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed180daySum() {
     return logsIndexed180daySum;
@@ -411,7 +411,7 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed30daySum
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_30DAY_SUM)
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED30DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed30daySum() {
     return logsIndexed30daySum;
@@ -433,7 +433,7 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed3daySum
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_3DAY_SUM)
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED3DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed3daySum() {
     return logsIndexed3daySum;
@@ -456,7 +456,7 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed45daySum
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_45DAY_SUM)
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED45DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed45daySum() {
     return logsIndexed45daySum;
@@ -479,7 +479,7 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed60daySum
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_60DAY_SUM)
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED60DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed60daySum() {
     return logsIndexed60daySum;
@@ -501,7 +501,7 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed7daySum
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_7DAY_SUM)
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED7DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed7daySum() {
     return logsIndexed7daySum;
@@ -524,7 +524,7 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed90daySum
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_90DAY_SUM)
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED90DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed90daySum() {
     return logsIndexed90daySum;

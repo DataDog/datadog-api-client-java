@@ -19,161 +19,161 @@ import java.util.Objects;
 /** Object describing the SSL certificate used for the test. */
 @JsonPropertyOrder({
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_C,
-  SyntheticsSSLCertificateSubject.JSON_PROPERTY_CN,
+  SyntheticsSSLCertificateSubject.JSON_PROPERTY_C_N,
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_L,
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_O,
-  SyntheticsSSLCertificateSubject.JSON_PROPERTY_OU,
-  SyntheticsSSLCertificateSubject.JSON_PROPERTY_ST,
+  SyntheticsSSLCertificateSubject.JSON_PROPERTY_O_U,
+  SyntheticsSSLCertificateSubject.JSON_PROPERTY_S_T,
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_ALT_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsSSLCertificateSubject {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_C = "C";
-  private String c;
+  private String C;
 
-  public static final String JSON_PROPERTY_CN = "CN";
-  private String cn;
+  public static final String JSON_PROPERTY_C_N = "CN";
+  private String CN;
 
   public static final String JSON_PROPERTY_L = "L";
-  private String l;
+  private String L;
 
   public static final String JSON_PROPERTY_O = "O";
-  private String o;
+  private String O;
 
-  public static final String JSON_PROPERTY_OU = "OU";
-  private String ou;
+  public static final String JSON_PROPERTY_O_U = "OU";
+  private String OU;
 
-  public static final String JSON_PROPERTY_ST = "ST";
-  private String st;
+  public static final String JSON_PROPERTY_S_T = "ST";
+  private String ST;
 
   public static final String JSON_PROPERTY_ALT_NAME = "altName";
   private String altName;
 
-  public SyntheticsSSLCertificateSubject c(String c) {
-    this.c = c;
+  public SyntheticsSSLCertificateSubject C(String C) {
+    this.C = C;
     return this;
   }
 
   /**
    * Country Name associated with the certificate.
    *
-   * @return c
+   * @return C
    */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_C)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getC() {
-    return c;
+    return C;
   }
 
-  public void setC(String c) {
-    this.c = c;
+  public void setC(String C) {
+    this.C = C;
   }
 
-  public SyntheticsSSLCertificateSubject cn(String cn) {
-    this.cn = cn;
+  public SyntheticsSSLCertificateSubject CN(String CN) {
+    this.CN = CN;
     return this;
   }
 
   /**
    * Common Name that associated with the certificate.
    *
-   * @return cn
+   * @return CN
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CN)
+  @JsonProperty(JSON_PROPERTY_C_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCn() {
-    return cn;
+  public String getCN() {
+    return CN;
   }
 
-  public void setCn(String cn) {
-    this.cn = cn;
+  public void setCN(String CN) {
+    this.CN = CN;
   }
 
-  public SyntheticsSSLCertificateSubject l(String l) {
-    this.l = l;
+  public SyntheticsSSLCertificateSubject L(String L) {
+    this.L = L;
     return this;
   }
 
   /**
    * Locality associated with the certificate.
    *
-   * @return l
+   * @return L
    */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getL() {
-    return l;
+    return L;
   }
 
-  public void setL(String l) {
-    this.l = l;
+  public void setL(String L) {
+    this.L = L;
   }
 
-  public SyntheticsSSLCertificateSubject o(String o) {
-    this.o = o;
+  public SyntheticsSSLCertificateSubject O(String O) {
+    this.O = O;
     return this;
   }
 
   /**
    * Organization associated with the certificate.
    *
-   * @return o
+   * @return O
    */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_O)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getO() {
-    return o;
+    return O;
   }
 
-  public void setO(String o) {
-    this.o = o;
+  public void setO(String O) {
+    this.O = O;
   }
 
-  public SyntheticsSSLCertificateSubject ou(String ou) {
-    this.ou = ou;
+  public SyntheticsSSLCertificateSubject OU(String OU) {
+    this.OU = OU;
     return this;
   }
 
   /**
    * Organizational Unit associated with the certificate.
    *
-   * @return ou
+   * @return OU
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OU)
+  @JsonProperty(JSON_PROPERTY_O_U)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getOu() {
-    return ou;
+  public String getOU() {
+    return OU;
   }
 
-  public void setOu(String ou) {
-    this.ou = ou;
+  public void setOU(String OU) {
+    this.OU = OU;
   }
 
-  public SyntheticsSSLCertificateSubject st(String st) {
-    this.st = st;
+  public SyntheticsSSLCertificateSubject ST(String ST) {
+    this.ST = ST;
     return this;
   }
 
   /**
    * State Or Province Name associated with the certificate.
    *
-   * @return st
+   * @return ST
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ST)
+  @JsonProperty(JSON_PROPERTY_S_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSt() {
-    return st;
+  public String getST() {
+    return ST;
   }
 
-  public void setSt(String st) {
-    this.st = st;
+  public void setST(String ST) {
+    this.ST = ST;
   }
 
   public SyntheticsSSLCertificateSubject altName(String altName) {
@@ -208,30 +208,30 @@ public class SyntheticsSSLCertificateSubject {
     }
     SyntheticsSSLCertificateSubject syntheticsSslCertificateSubject =
         (SyntheticsSSLCertificateSubject) o;
-    return Objects.equals(this.c, syntheticsSslCertificateSubject.c)
-        && Objects.equals(this.cn, syntheticsSslCertificateSubject.cn)
-        && Objects.equals(this.l, syntheticsSslCertificateSubject.l)
-        && Objects.equals(this.o, syntheticsSslCertificateSubject.o)
-        && Objects.equals(this.ou, syntheticsSslCertificateSubject.ou)
-        && Objects.equals(this.st, syntheticsSslCertificateSubject.st)
+    return Objects.equals(this.C, syntheticsSslCertificateSubject.C)
+        && Objects.equals(this.CN, syntheticsSslCertificateSubject.CN)
+        && Objects.equals(this.L, syntheticsSslCertificateSubject.L)
+        && Objects.equals(this.O, syntheticsSslCertificateSubject.O)
+        && Objects.equals(this.OU, syntheticsSslCertificateSubject.OU)
+        && Objects.equals(this.ST, syntheticsSslCertificateSubject.ST)
         && Objects.equals(this.altName, syntheticsSslCertificateSubject.altName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(c, cn, l, o, ou, st, altName);
+    return Objects.hash(C, CN, L, O, OU, ST, altName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsSSLCertificateSubject {\n");
-    sb.append("    c: ").append(toIndentedString(c)).append("\n");
-    sb.append("    cn: ").append(toIndentedString(cn)).append("\n");
-    sb.append("    l: ").append(toIndentedString(l)).append("\n");
-    sb.append("    o: ").append(toIndentedString(o)).append("\n");
-    sb.append("    ou: ").append(toIndentedString(ou)).append("\n");
-    sb.append("    st: ").append(toIndentedString(st)).append("\n");
+    sb.append("    C: ").append(toIndentedString(C)).append("\n");
+    sb.append("    CN: ").append(toIndentedString(CN)).append("\n");
+    sb.append("    L: ").append(toIndentedString(L)).append("\n");
+    sb.append("    O: ").append(toIndentedString(O)).append("\n");
+    sb.append("    OU: ").append(toIndentedString(OU)).append("\n");
+    sb.append("    ST: ").append(toIndentedString(ST)).append("\n");
     sb.append("    altName: ").append(toIndentedString(altName)).append("\n");
     sb.append("}");
     return sb.toString();
