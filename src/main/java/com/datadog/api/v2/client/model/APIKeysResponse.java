@@ -104,9 +104,9 @@ public class APIKeysResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeysResponse apIKeysResponse = (APIKeysResponse) o;
-    return Objects.equals(this.data, apIKeysResponse.data)
-        && Objects.equals(this.included, apIKeysResponse.included);
+    APIKeysResponse apiKeysResponse = (APIKeysResponse) o;
+    return Objects.equals(this.data, apiKeysResponse.data)
+        && Objects.equals(this.included, apiKeysResponse.included);
   }
 
   @Override

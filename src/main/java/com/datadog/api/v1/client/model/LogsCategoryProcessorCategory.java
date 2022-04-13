@@ -37,7 +37,7 @@ public class LogsCategoryProcessorCategory {
   }
 
   /**
-   * Get filter
+   * Filter for logs.
    *
    * @return filter
    */

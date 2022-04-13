@@ -155,9 +155,6 @@ public class WebhooksIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createWebhooksIntegration");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -300,9 +297,6 @@ public class WebhooksIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createWebhooksIntegrationCustomVariable");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -401,7 +395,7 @@ public class WebhooksIntegrationApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -444,9 +438,6 @@ public class WebhooksIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteWebhooksIntegration");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -456,7 +447,7 @@ public class WebhooksIntegrationApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -548,7 +539,7 @@ public class WebhooksIntegrationApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -592,9 +583,6 @@ public class WebhooksIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteWebhooksIntegrationCustomVariable");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -604,7 +592,7 @@ public class WebhooksIntegrationApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -735,9 +723,6 @@ public class WebhooksIntegrationApi {
                 "\\{" + "webhook_name" + "\\}", apiClient.escapeString(webhookName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getWebhooksIntegration");
 
     Invocation.Builder builder;
     try {
@@ -890,9 +875,6 @@ public class WebhooksIntegrationApi {
                 apiClient.escapeString(customVariableName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getWebhooksIntegrationCustomVariable");
 
     Invocation.Builder builder;
     try {
@@ -1059,9 +1041,6 @@ public class WebhooksIntegrationApi {
                 "\\{" + "webhook_name" + "\\}", apiClient.escapeString(webhookName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateWebhooksIntegration");
 
     Invocation.Builder builder;
     try {
@@ -1240,9 +1219,6 @@ public class WebhooksIntegrationApi {
                 apiClient.escapeString(customVariableName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateWebhooksIntegrationCustomVariable");
 
     Invocation.Builder builder;
     try {

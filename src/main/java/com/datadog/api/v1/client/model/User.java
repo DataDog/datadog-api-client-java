@@ -57,7 +57,8 @@ public class User {
   }
 
   /**
-   * Get accessRole
+   * The access role of the user. Options are **st** (standard user), **adm** (admin user), or
+   * **ro** (read-only user).
    *
    * @return accessRole
    */

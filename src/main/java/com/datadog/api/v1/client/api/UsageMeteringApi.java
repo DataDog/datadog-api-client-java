@@ -120,7 +120,8 @@ public class UsageMeteringApi {
     /**
      * Set sortDir
      *
-     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to desc)
+     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to
+     *     "desc")
      * @return GetDailyCustomReportsOptionalParameters
      */
     public GetDailyCustomReportsOptionalParameters sortDir(UsageSortDirection sortDir) {
@@ -132,7 +133,7 @@ public class UsageMeteringApi {
      * Set sort
      *
      * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
-     *     (optional, default to start_date)
+     *     (optional, default to "start_date")
      * @return GetDailyCustomReportsOptionalParameters
      */
     public GetDailyCustomReportsOptionalParameters sort(UsageSort sort) {
@@ -157,7 +158,7 @@ public class UsageMeteringApi {
   /**
    * Get the list of available daily custom reports
    *
-   * <p>See {@link #getDailyCustomReportsWithHttpInfo}.
+   * <p>See {@link #getDailyCustomReportsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
    */
@@ -281,9 +282,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getDailyCustomReports");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -376,7 +374,7 @@ public class UsageMeteringApi {
   /**
    * Get Hourly Usage Attribution
    *
-   * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
+   * <p>See {@link #getHourlyUsageAttributionWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -490,8 +488,8 @@ public class UsageMeteringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "usage_type", usageType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
@@ -565,14 +563,11 @@ public class UsageMeteringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "usage_type", usageType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getHourlyUsageAttribution");
 
     Invocation.Builder builder;
     try {
@@ -638,7 +633,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for incident management
    *
-   * <p>See {@link #getIncidentManagementWithHttpInfo}.
+   * <p>See {@link #getIncidentManagementWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -784,9 +779,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentManagement");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -850,7 +842,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for ingested spans
    *
-   * <p>See {@link #getIngestedSpansWithHttpInfo}.
+   * <p>See {@link #getIngestedSpansWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -992,9 +984,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIngestedSpans");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1056,7 +1045,8 @@ public class UsageMeteringApi {
     /**
      * Set sortDir
      *
-     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to desc)
+     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to
+     *     "desc")
      * @return GetMonthlyCustomReportsOptionalParameters
      */
     public GetMonthlyCustomReportsOptionalParameters sortDir(UsageSortDirection sortDir) {
@@ -1068,7 +1058,7 @@ public class UsageMeteringApi {
      * Set sort
      *
      * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
-     *     (optional, default to start_date)
+     *     (optional, default to "start_date")
      * @return GetMonthlyCustomReportsOptionalParameters
      */
     public GetMonthlyCustomReportsOptionalParameters sort(UsageSort sort) {
@@ -1093,7 +1083,7 @@ public class UsageMeteringApi {
   /**
    * Get the list of available monthly custom reports
    *
-   * <p>See {@link #getMonthlyCustomReportsWithHttpInfo}.
+   * <p>See {@link #getMonthlyCustomReportsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
    */
@@ -1218,9 +1208,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyCustomReports");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1272,7 +1259,7 @@ public class UsageMeteringApi {
      * Set sortDirection
      *
      * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to
-     *     desc)
+     *     "desc")
      * @return GetMonthlyUsageAttributionOptionalParameters
      */
     public GetMonthlyUsageAttributionOptionalParameters sortDirection(
@@ -1342,7 +1329,7 @@ public class UsageMeteringApi {
   /**
    * Get Monthly Usage Attribution
    *
-   * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
+   * <p>See {@link #getMonthlyUsageAttributionWithHttpInfoAsync}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
@@ -1463,8 +1450,8 @@ public class UsageMeteringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_direction", sortDirection));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_name", sortName));
     localVarQueryParams.addAll(
@@ -1544,16 +1531,13 @@ public class UsageMeteringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_direction", sortDirection));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_name", sortName));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyUsageAttribution");
 
     Invocation.Builder builder;
     try {
@@ -1698,9 +1682,6 @@ public class UsageMeteringApi {
             .replaceAll("\\{" + "report_id" + "\\}", apiClient.escapeString(reportId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedDailyCustomReports");
 
     Invocation.Builder builder;
     try {
@@ -1848,9 +1829,6 @@ public class UsageMeteringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedMonthlyCustomReports");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1915,7 +1893,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for analyzed logs
    *
-   * <p>See {@link #getUsageAnalyzedLogsWithHttpInfo}.
+   * <p>See {@link #getUsageAnalyzedLogsWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -2060,9 +2038,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAnalyzedLogs");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2115,7 +2090,7 @@ public class UsageMeteringApi {
      * Set sortDirection
      *
      * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to
-     *     desc)
+     *     "desc")
      * @return GetUsageAttributionOptionalParameters
      */
     public GetUsageAttributionOptionalParameters sortDirection(UsageSortDirection sortDirection) {
@@ -2126,7 +2101,7 @@ public class UsageMeteringApi {
     /**
      * Set sortName
      *
-     * @param sortName The field to sort by. (optional, default to custom_timeseries_usage)
+     * @param sortName The field to sort by. (optional, default to "custom_timeseries_usage")
      * @return GetUsageAttributionOptionalParameters
      */
     public GetUsageAttributionOptionalParameters sortName(UsageAttributionSort sortName) {
@@ -2191,7 +2166,7 @@ public class UsageMeteringApi {
   /**
    * Get Usage Attribution
    *
-   * <p>See {@link #getUsageAttributionWithHttpInfo}.
+   * <p>See {@link #getUsageAttributionWithHttpInfoAsync}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
@@ -2392,9 +2367,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAttribution");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2457,7 +2429,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for audit logs
    *
-   * <p>See {@link #getUsageAuditLogsWithHttpInfo}.
+   * <p>See {@link #getUsageAuditLogsWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -2597,9 +2569,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAuditLogs");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2660,7 +2629,7 @@ public class UsageMeteringApi {
   /**
    * Get billable usage across your account
    *
-   * <p>See {@link #getUsageBillableSummaryWithHttpInfo}.
+   * <p>See {@link #getUsageBillableSummaryWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;UsageBillableSummaryResponse&gt;
    */
@@ -2774,9 +2743,6 @@ public class UsageMeteringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageBillableSummary");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2839,7 +2805,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for CI Visibility
    *
-   * <p>See {@link #getUsageCIAppWithHttpInfo}.
+   * <p>See {@link #getUsageCIAppWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -2979,9 +2945,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCIApp");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -3007,210 +2970,6 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageCIVisibilityResponse>() {});
-  }
-
-  /** Manage optional parameters to getUsageCWS. */
-  public static class GetUsageCWSOptionalParameters {
-    private OffsetDateTime endHr;
-
-    /**
-     * Set endHr
-     *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
-     * @return GetUsageCWSOptionalParameters
-     */
-    public GetUsageCWSOptionalParameters endHr(OffsetDateTime endHr) {
-      this.endHr = endHr;
-      return this;
-    }
-  }
-
-  /**
-   * Get hourly usage for Cloud Workload Security
-   *
-   * <p>See {@link #getUsageCWSWithHttpInfo}.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-   *     for usage beginning at this hour. (required)
-   * @return UsageCWSResponse
-   * @throws ApiException if fails to make API call
-   */
-  public UsageCWSResponse getUsageCWS(OffsetDateTime startHr) throws ApiException {
-    return getUsageCWSWithHttpInfo(startHr, new GetUsageCWSOptionalParameters()).getData();
-  }
-
-  /**
-   * Get hourly usage for Cloud Workload Security
-   *
-   * <p>See {@link #getUsageCWSWithHttpInfo}.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-   *     for usage beginning at this hour. (required)
-   * @return CompletableFuture&lt;UsageCWSResponse&gt;
-   */
-  public CompletableFuture<UsageCWSResponse> getUsageCWSAsync(OffsetDateTime startHr) {
-    return getUsageCWSWithHttpInfoAsync(startHr, new GetUsageCWSOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Get hourly usage for Cloud Workload Security
-   *
-   * <p>See {@link #getUsageCWSWithHttpInfo}.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-   *     for usage beginning at this hour. (required)
-   * @param parameters Optional parameters for the request.
-   * @return UsageCWSResponse
-   * @throws ApiException if fails to make API call
-   */
-  public UsageCWSResponse getUsageCWS(
-      OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) throws ApiException {
-    return getUsageCWSWithHttpInfo(startHr, parameters).getData();
-  }
-
-  /**
-   * Get hourly usage for Cloud Workload Security
-   *
-   * <p>See {@link #getUsageCWSWithHttpInfoAsync}.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-   *     for usage beginning at this hour. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;UsageCWSResponse&gt;
-   */
-  public CompletableFuture<UsageCWSResponse> getUsageCWSAsync(
-      OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) {
-    return getUsageCWSWithHttpInfoAsync(startHr, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Get hourly usage for Cloud Workload Security
-   *
-   * <p>Get hourly usage for Cloud Workload Security.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-   *     for usage beginning at this hour. (required)
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageCWSResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<UsageCWSResponse> getUsageCWSWithHttpInfo(
-      OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) throws ApiException {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'startHr' is set
-    if (startHr == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'startHr' when calling getUsageCWS");
-    }
-    OffsetDateTime endHr = parameters.endHr;
-    // create path and map variables
-    String localVarPath = "/api/v1/usage/cws";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "UsageMeteringApi.getUsageCWS",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<UsageCWSResponse>() {});
-  }
-
-  /**
-   * Get hourly usage for Cloud Workload Security
-   *
-   * <p>See {@link #getUsageCWSWithHttpInfo}.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-   *     for usage beginning at this hour. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;UsageCWSResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<UsageCWSResponse>> getUsageCWSWithHttpInfoAsync(
-      OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'startHr' is set
-    if (startHr == null) {
-      CompletableFuture<ApiResponse<UsageCWSResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'startHr' when calling getUsageCWS"));
-      return result;
-    }
-    OffsetDateTime endHr = parameters.endHr;
-    // create path and map variables
-    String localVarPath = "/api/v1/usage/cws";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCWS");
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "UsageMeteringApi.getUsageCWS",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<UsageCWSResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<UsageCWSResponse>() {});
   }
 
   /** Manage optional parameters to getUsageCloudSecurityPostureManagement. */
@@ -3250,7 +3009,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for CSPM
    *
-   * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
+   * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -3405,9 +3164,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCloudSecurityPostureManagement");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -3434,6 +3190,207 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageCloudSecurityPostureManagementResponse>() {});
+  }
+
+  /** Manage optional parameters to getUsageCWS. */
+  public static class GetUsageCWSOptionalParameters {
+    private OffsetDateTime endHr;
+
+    /**
+     * Set endHr
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageCWSOptionalParameters
+     */
+    public GetUsageCWSOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>See {@link #getUsageCWSWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageCWSResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageCWSResponse getUsageCWS(OffsetDateTime startHr) throws ApiException {
+    return getUsageCWSWithHttpInfo(startHr, new GetUsageCWSOptionalParameters()).getData();
+  }
+
+  /**
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>See {@link #getUsageCWSWithHttpInfoAsync}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return CompletableFuture&lt;UsageCWSResponse&gt;
+   */
+  public CompletableFuture<UsageCWSResponse> getUsageCWSAsync(OffsetDateTime startHr) {
+    return getUsageCWSWithHttpInfoAsync(startHr, new GetUsageCWSOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>See {@link #getUsageCWSWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageCWSResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageCWSResponse getUsageCWS(
+      OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) throws ApiException {
+    return getUsageCWSWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>See {@link #getUsageCWSWithHttpInfoAsync}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;UsageCWSResponse&gt;
+   */
+  public CompletableFuture<UsageCWSResponse> getUsageCWSAsync(
+      OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) {
+    return getUsageCWSWithHttpInfoAsync(startHr, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>Get hourly usage for Cloud Workload Security.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageCWSResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageCWSResponse> getUsageCWSWithHttpInfo(
+      OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'startHr' when calling getUsageCWS");
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/cws";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageCWS",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCWSResponse>() {});
+  }
+
+  /**
+   * Get hourly usage for Cloud Workload Security
+   *
+   * <p>See {@link #getUsageCWSWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageCWSResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageCWSResponse>> getUsageCWSWithHttpInfoAsync(
+      OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      CompletableFuture<ApiResponse<UsageCWSResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'startHr' when calling getUsageCWS"));
+      return result;
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/cws";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageCWS",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageCWSResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCWSResponse>() {});
   }
 
   /** Manage optional parameters to getUsageDBM. */
@@ -3470,7 +3427,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Database Monitoring
    *
-   * <p>See {@link #getUsageDBMWithHttpInfo}.
+   * <p>See {@link #getUsageDBMWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -3610,9 +3567,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageDBM");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -3674,7 +3628,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Fargate
    *
-   * <p>See {@link #getUsageFargateWithHttpInfo}.
+   * <p>See {@link #getUsageFargateWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -3814,9 +3768,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageFargate");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -3878,7 +3829,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for hosts and containers
    *
-   * <p>See {@link #getUsageHostsWithHttpInfo}.
+   * <p>See {@link #getUsageHostsWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4018,9 +3969,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageHosts");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -4084,7 +4032,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for indexed spans
    *
-   * <p>See {@link #getUsageIndexedSpansWithHttpInfo}.
+   * <p>See {@link #getUsageIndexedSpansWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -4229,9 +4177,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageIndexedSpans");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -4295,7 +4240,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for IoT
    *
-   * <p>See {@link #getUsageInternetOfThingsWithHttpInfo}.
+   * <p>See {@link #getUsageInternetOfThingsWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -4439,9 +4384,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageInternetOfThings");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -4503,7 +4445,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Lambda
    *
-   * <p>See {@link #getUsageLambdaWithHttpInfo}.
+   * <p>See {@link #getUsageLambdaWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4643,9 +4585,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLambda");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -4707,7 +4646,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Logs
    *
-   * <p>See {@link #getUsageLogsWithHttpInfo}.
+   * <p>See {@link #getUsageLogsWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4847,9 +4786,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogs");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -4924,7 +4860,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Logs by Index
    *
-   * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
+   * <p>See {@link #getUsageLogsByIndexWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -5073,9 +5009,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "index_name", indexName));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByIndex");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -5140,7 +5073,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly logs usage by retention
    *
-   * <p>See {@link #getUsageLogsByRetentionWithHttpInfo}.
+   * <p>See {@link #getUsageLogsByRetentionWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -5287,9 +5220,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByRetention");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -5354,7 +5284,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Network Flows
    *
-   * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
+   * <p>See {@link #getUsageNetworkFlowsWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -5499,9 +5429,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkFlows");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -5565,7 +5492,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Network Hosts
    *
-   * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
+   * <p>See {@link #getUsageNetworkHostsWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -5710,9 +5637,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkHosts");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -5776,7 +5700,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Online Archive
    *
-   * <p>See {@link #getUsageOnlineArchiveWithHttpInfo}.
+   * <p>See {@link #getUsageOnlineArchiveWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -5921,9 +5845,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageOnlineArchive");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -5986,7 +5907,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for profiled hosts
    *
-   * <p>See {@link #getUsageProfilingWithHttpInfo}.
+   * <p>See {@link #getUsageProfilingWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -6126,9 +6047,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageProfiling");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -6204,7 +6122,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for RUM Sessions
    *
-   * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
+   * <p>See {@link #getUsageRumSessionsWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -6353,9 +6271,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "type", type));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumSessions");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -6418,7 +6333,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for RUM Units
    *
-   * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
+   * <p>See {@link #getUsageRumUnitsWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -6558,9 +6473,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumUnits");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -6622,7 +6534,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Sensitive Data Scanner
    *
-   * <p>See {@link #getUsageSDSWithHttpInfo}.
+   * <p>See {@link #getUsageSDSWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -6762,9 +6674,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSDS");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -6826,7 +6735,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for SNMP devices
    *
-   * <p>See {@link #getUsageSNMPWithHttpInfo}.
+   * <p>See {@link #getUsageSNMPWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
@@ -6966,9 +6875,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSNMP");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -7043,7 +6949,7 @@ public class UsageMeteringApi {
   /**
    * Get usage across your multi-org account
    *
-   * <p>See {@link #getUsageSummaryWithHttpInfo}.
+   * <p>See {@link #getUsageSummaryWithHttpInfoAsync}.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
@@ -7189,9 +7095,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_org_details", includeOrgDetails));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSummary");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -7256,7 +7159,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Synthetics Checks
    *
-   * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
+   * <p>See {@link #getUsageSyntheticsWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7409,9 +7312,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSynthetics");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -7475,7 +7375,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Synthetics API Checks
    *
-   * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
+   * <p>See {@link #getUsageSyntheticsAPIWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7620,9 +7520,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsAPI");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -7687,7 +7584,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Synthetics Browser Checks
    *
-   * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
+   * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7834,9 +7731,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsBrowser");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -7900,7 +7794,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for custom metrics
    *
-   * <p>See {@link #getUsageTimeseriesWithHttpInfo}.
+   * <p>See {@link #getUsageTimeseriesWithHttpInfoAsync}.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -8043,9 +7937,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTimeseries");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -8158,7 +8049,7 @@ public class UsageMeteringApi {
   /**
    * Get all custom metrics by hourly average
    *
-   * <p>See {@link #getUsageTopAvgMetricsWithHttpInfo}.
+   * <p>See {@link #getUsageTopAvgMetricsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;UsageTopAvgMetricsResponse&gt;
    */
@@ -8289,9 +8180,6 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "names", names));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTopAvgMetrics");
 
     Invocation.Builder builder;
     try {

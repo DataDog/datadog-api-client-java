@@ -41,7 +41,7 @@ public class IncidentTeamCreateRequest {
   }
 
   /**
-   * Get data
+   * Incident Team data for a create request.
    *
    * @return data
    */

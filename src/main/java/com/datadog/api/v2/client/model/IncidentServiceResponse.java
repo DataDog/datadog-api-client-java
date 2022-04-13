@@ -48,7 +48,7 @@ public class IncidentServiceResponse {
   }
 
   /**
-   * Get data
+   * Incident Service data from responses.
    *
    * @return data
    */

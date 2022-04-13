@@ -41,7 +41,7 @@ public class IncidentUpdateRelationships {
   }
 
   /**
-   * Get commanderUser
+   * Relationship to user.
    *
    * @return commanderUser
    */
@@ -64,7 +64,7 @@ public class IncidentUpdateRelationships {
   }
 
   /**
-   * Get integrations
+   * A relationship reference for multiple integration metadata objects.
    *
    * @return integrations
    */
@@ -86,7 +86,7 @@ public class IncidentUpdateRelationships {
   }
 
   /**
-   * Get postmortem
+   * A relationship reference for postmortems.
    *
    * @return postmortem
    */

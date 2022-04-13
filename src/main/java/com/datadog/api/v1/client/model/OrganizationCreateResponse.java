@@ -45,7 +45,7 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * Get apiKey
+   * Datadog API key.
    *
    * @return apiKey
    */
@@ -67,7 +67,7 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * Get applicationKey
+   * An application key with its associated metadata.
    *
    * @return applicationKey
    */
@@ -89,7 +89,7 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * Get org
+   * Create, edit, and manage organizations.
    *
    * @return org
    */
@@ -111,7 +111,7 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * Get user
+   * Create, edit, and disable users.
    *
    * @return user
    */

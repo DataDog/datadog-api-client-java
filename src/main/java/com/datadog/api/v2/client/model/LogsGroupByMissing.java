@@ -111,6 +111,7 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
           // validation, which means the 'match' count may be higher than it should be.
           deserialized = tmp;
           match++;
+
           log.log(Level.FINER, "Input data matches schema 'String'");
         }
       } catch (Exception e) {
@@ -151,6 +152,7 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
           // validation, which means the 'match' count may be higher than it should be.
           deserialized = tmp;
           match++;
+
           log.log(Level.FINER, "Input data matches schema 'Double'");
         }
       } catch (Exception e) {
@@ -187,19 +189,19 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public LogsGroupByMissing(Double o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public LogsGroupByMissing(String o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
+  public LogsGroupByMissing(Double o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
-    schemas.put("Double", new GenericType<Double>() {});
     schemas.put("String", new GenericType<String>() {});
+    schemas.put("Double", new GenericType<Double>() {});
     JSON.registerDescendants(LogsGroupByMissing.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -210,19 +212,18 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: Double, String
+   * against the oneOf child schemas: String, Double
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(Double.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(String.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(String.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(Double.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -231,28 +232,17 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be Double, String");
+    throw new RuntimeException("Invalid instance type. Must be String, Double");
   }
 
   /**
-   * Get the actual instance, which can be the following: Double, String
+   * Get the actual instance, which can be the following: String, Double
    *
-   * @return The actual instance (Double, String)
+   * @return The actual instance (String, Double)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `Double`. If the actual instance is not `Double`, the
-   * ClassCastException will be thrown.
-   *
-   * @return The actual instance of `Double`
-   * @throws ClassCastException if the instance is not `Double`
-   */
-  public Double getDouble() throws ClassCastException {
-    return (Double) super.getActualInstance();
   }
 
   /**
@@ -264,5 +254,16 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
    */
   public String getString() throws ClassCastException {
     return (String) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `Double`. If the actual instance is not `Double`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `Double`
+   * @throws ClassCastException if the instance is not `Double`
+   */
+  public Double getDouble() throws ClassCastException {
+    return (Double) super.getActualInstance();
   }
 }

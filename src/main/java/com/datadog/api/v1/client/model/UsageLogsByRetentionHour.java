@@ -161,7 +161,7 @@ public class UsageLogsByRetentionHour {
   }
 
   /**
-   * The retention period in days or \&quot;custom\&quot; for all custom retention usage.
+   * The retention period in days or &quot;custom&quot; for all custom retention usage.
    *
    * @return retention
    */

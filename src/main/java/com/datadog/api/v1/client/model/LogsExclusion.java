@@ -49,7 +49,7 @@ public class LogsExclusion {
   }
 
   /**
-   * Get filter
+   * Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
    *
    * @return filter
    */

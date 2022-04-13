@@ -95,7 +95,7 @@ public class SecurityFilterAttributes {
   }
 
   /**
-   * Get filteredDataType
+   * The filtered data type.
    *
    * @return filteredDataType
    */

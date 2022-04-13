@@ -76,7 +76,7 @@ public class LogsListResponse {
   }
 
   /**
-   * Get links
+   * Links attributes.
    *
    * @return links
    */
@@ -98,7 +98,7 @@ public class LogsListResponse {
   }
 
   /**
-   * Get meta
+   * The metadata associated with a request
    *
    * @return meta
    */

@@ -51,7 +51,7 @@ public class SecurityFilterUpdateData {
   }
 
   /**
-   * Get attributes
+   * The security filters properties to be updated.
    *
    * @return attributes
    */
@@ -72,7 +72,7 @@ public class SecurityFilterUpdateData {
   }
 
   /**
-   * Get type
+   * The type of the resource. The value should always be &#x60;security_filters&#x60;.
    *
    * @return type
    */

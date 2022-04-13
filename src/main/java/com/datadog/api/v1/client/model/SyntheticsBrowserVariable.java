@@ -148,7 +148,7 @@ public class SyntheticsBrowserVariable {
   }
 
   /**
-   * Get type
+   * Type of browser test variable.
    *
    * @return type
    */

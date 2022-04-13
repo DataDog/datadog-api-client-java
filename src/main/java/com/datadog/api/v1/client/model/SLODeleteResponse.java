@@ -98,9 +98,9 @@ public class SLODeleteResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLODeleteResponse slODeleteResponse = (SLODeleteResponse) o;
-    return Objects.equals(this.data, slODeleteResponse.data)
-        && Objects.equals(this.errors, slODeleteResponse.errors);
+    SLODeleteResponse sloDeleteResponse = (SLODeleteResponse) o;
+    return Objects.equals(this.data, sloDeleteResponse.data)
+        && Objects.equals(this.errors, sloDeleteResponse.errors);
   }
 
   @Override

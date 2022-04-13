@@ -69,7 +69,7 @@ public class RelationshipToUserData {
   }
 
   /**
-   * Get type
+   * Users resource type.
    *
    * @return type
    */

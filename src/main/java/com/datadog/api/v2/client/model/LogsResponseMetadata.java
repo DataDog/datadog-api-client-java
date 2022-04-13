@@ -72,7 +72,7 @@ public class LogsResponseMetadata {
   }
 
   /**
-   * Get page
+   * Paging attributes.
    *
    * @return page
    */
@@ -115,7 +115,7 @@ public class LogsResponseMetadata {
   }
 
   /**
-   * Get status
+   * The status of the response
    *
    * @return status
    */

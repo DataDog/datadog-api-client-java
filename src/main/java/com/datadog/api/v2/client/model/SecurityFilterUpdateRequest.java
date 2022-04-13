@@ -41,7 +41,7 @@ public class SecurityFilterUpdateRequest {
   }
 
   /**
-   * Get data
+   * The new security filter properties.
    *
    * @return data
    */

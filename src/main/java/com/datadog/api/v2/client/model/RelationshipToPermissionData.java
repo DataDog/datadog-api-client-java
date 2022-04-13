@@ -58,7 +58,7 @@ public class RelationshipToPermissionData {
   }
 
   /**
-   * Get type
+   * Permissions resource type.
    *
    * @return type
    */

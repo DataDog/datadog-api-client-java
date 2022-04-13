@@ -45,7 +45,7 @@ public class FullApplicationKey {
   }
 
   /**
-   * Get attributes
+   * Attributes of a full application key.
    *
    * @return attributes
    */
@@ -88,7 +88,7 @@ public class FullApplicationKey {
   }
 
   /**
-   * Get relationships
+   * Resources related to the application key.
    *
    * @return relationships
    */
@@ -110,7 +110,7 @@ public class FullApplicationKey {
   }
 
   /**
-   * Get type
+   * Application Keys resource type.
    *
    * @return type
    */

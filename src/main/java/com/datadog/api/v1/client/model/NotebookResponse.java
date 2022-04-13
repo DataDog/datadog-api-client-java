@@ -31,7 +31,7 @@ public class NotebookResponse {
   }
 
   /**
-   * Get data
+   * The data for a notebook.
    *
    * @return data
    */

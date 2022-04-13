@@ -62,8 +62,8 @@ public class APIKeyUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyUpdateAttributes apIKeyUpdateAttributes = (APIKeyUpdateAttributes) o;
-    return Objects.equals(this.name, apIKeyUpdateAttributes.name);
+    APIKeyUpdateAttributes apiKeyUpdateAttributes = (APIKeyUpdateAttributes) o;
+    return Objects.equals(this.name, apiKeyUpdateAttributes.name);
   }
 
   @Override

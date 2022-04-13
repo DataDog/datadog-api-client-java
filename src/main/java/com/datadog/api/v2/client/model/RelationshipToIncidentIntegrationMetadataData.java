@@ -71,7 +71,7 @@ public class RelationshipToIncidentIntegrationMetadataData {
   }
 
   /**
-   * Get type
+   * Integration metadata resource type.
    *
    * @return type
    */

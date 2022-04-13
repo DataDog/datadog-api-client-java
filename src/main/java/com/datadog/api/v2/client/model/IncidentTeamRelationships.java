@@ -37,7 +37,7 @@ public class IncidentTeamRelationships {
   }
 
   /**
-   * Get createdBy
+   * Relationship to user.
    *
    * @return createdBy
    */
@@ -59,7 +59,7 @@ public class IncidentTeamRelationships {
   }
 
   /**
-   * Get lastModifiedBy
+   * Relationship to user.
    *
    * @return lastModifiedBy
    */

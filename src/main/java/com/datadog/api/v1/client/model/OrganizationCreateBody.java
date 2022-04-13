@@ -50,7 +50,7 @@ public class OrganizationCreateBody {
   }
 
   /**
-   * Get billing
+   * A JSON array of billing type.
    *
    * @return billing
    * @deprecated
@@ -94,7 +94,7 @@ public class OrganizationCreateBody {
   }
 
   /**
-   * Get subscription
+   * Subscription definition.
    *
    * @return subscription
    * @deprecated

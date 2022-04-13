@@ -153,9 +153,6 @@ public class NotebooksApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createNotebook");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -252,7 +249,7 @@ public class NotebooksApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -292,9 +289,6 @@ public class NotebooksApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteNotebook");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -304,7 +298,7 @@ public class NotebooksApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -435,9 +429,6 @@ public class NotebooksApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getNotebook");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -528,7 +519,7 @@ public class NotebooksApi {
      * Set sortField
      *
      * @param sortField Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or
-     *     &#x60;created&#x60;. (optional, default to modified)
+     *     &#x60;created&#x60;. (optional, default to "modified")
      * @return ListNotebooksOptionalParameters
      */
     public ListNotebooksOptionalParameters sortField(String sortField) {
@@ -540,7 +531,7 @@ public class NotebooksApi {
      * Set sortDir
      *
      * @param sortDir Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;. (optional, default to
-     *     desc)
+     *     "desc")
      * @return ListNotebooksOptionalParameters
      */
     public ListNotebooksOptionalParameters sortDir(String sortDir) {
@@ -612,7 +603,7 @@ public class NotebooksApi {
   /**
    * Get all notebooks
    *
-   * <p>See {@link #listNotebooksWithHttpInfo}.
+   * <p>See {@link #listNotebooksWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;NotebooksResponse&gt;
    */
@@ -763,9 +754,6 @@ public class NotebooksApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_cells", includeCells));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "is_template", isTemplate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "type", type));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listNotebooks");
 
     Invocation.Builder builder;
     try {
@@ -928,9 +916,6 @@ public class NotebooksApi {
                 "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateNotebook");
 
     Invocation.Builder builder;
     try {

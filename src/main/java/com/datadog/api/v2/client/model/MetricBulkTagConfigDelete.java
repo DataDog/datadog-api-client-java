@@ -53,7 +53,7 @@ public class MetricBulkTagConfigDelete {
   }
 
   /**
-   * Get attributes
+   * Optional parameters for bulk deleting metric tag configurations.
    *
    * @return attributes
    */
@@ -95,7 +95,7 @@ public class MetricBulkTagConfigDelete {
   }
 
   /**
-   * Get type
+   * The metric bulk configure tags resource.
    *
    * @return type
    */

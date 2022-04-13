@@ -132,11 +132,11 @@ public class UsageSNMPHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSNMPHour usageSNMPHour = (UsageSNMPHour) o;
-    return Objects.equals(this.hour, usageSNMPHour.hour)
-        && Objects.equals(this.orgName, usageSNMPHour.orgName)
-        && Objects.equals(this.publicId, usageSNMPHour.publicId)
-        && Objects.equals(this.snmpDevices, usageSNMPHour.snmpDevices);
+    UsageSNMPHour usageSnmpHour = (UsageSNMPHour) o;
+    return Objects.equals(this.hour, usageSnmpHour.hour)
+        && Objects.equals(this.orgName, usageSnmpHour.orgName)
+        && Objects.equals(this.publicId, usageSnmpHour.publicId)
+        && Objects.equals(this.snmpDevices, usageSnmpHour.snmpDevices);
   }
 
   @Override

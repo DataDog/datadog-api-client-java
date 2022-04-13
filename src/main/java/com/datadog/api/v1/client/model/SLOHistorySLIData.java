@@ -386,19 +386,19 @@ public class SLOHistorySLIData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistorySLIData slOHistorySLIData = (SLOHistorySLIData) o;
-    return Objects.equals(this.errorBudgetRemaining, slOHistorySLIData.errorBudgetRemaining)
-        && Objects.equals(this.errors, slOHistorySLIData.errors)
-        && Objects.equals(this.group, slOHistorySLIData.group)
-        && Objects.equals(this.history, slOHistorySLIData.history)
-        && Objects.equals(this.monitorModified, slOHistorySLIData.monitorModified)
-        && Objects.equals(this.monitorType, slOHistorySLIData.monitorType)
-        && Objects.equals(this.name, slOHistorySLIData.name)
-        && Objects.equals(this.precision, slOHistorySLIData.precision)
-        && Objects.equals(this.preview, slOHistorySLIData.preview)
-        && Objects.equals(this.sliValue, slOHistorySLIData.sliValue)
-        && Objects.equals(this.spanPrecision, slOHistorySLIData.spanPrecision)
-        && Objects.equals(this.uptime, slOHistorySLIData.uptime);
+    SLOHistorySLIData sloHistorySliData = (SLOHistorySLIData) o;
+    return Objects.equals(this.errorBudgetRemaining, sloHistorySliData.errorBudgetRemaining)
+        && Objects.equals(this.errors, sloHistorySliData.errors)
+        && Objects.equals(this.group, sloHistorySliData.group)
+        && Objects.equals(this.history, sloHistorySliData.history)
+        && Objects.equals(this.monitorModified, sloHistorySliData.monitorModified)
+        && Objects.equals(this.monitorType, sloHistorySliData.monitorType)
+        && Objects.equals(this.name, sloHistorySliData.name)
+        && Objects.equals(this.precision, sloHistorySliData.precision)
+        && Objects.equals(this.preview, sloHistorySliData.preview)
+        && Objects.equals(this.sliValue, sloHistorySliData.sliValue)
+        && Objects.equals(this.spanPrecision, sloHistorySliData.spanPrecision)
+        && Objects.equals(this.uptime, sloHistorySliData.uptime);
   }
 
   @Override

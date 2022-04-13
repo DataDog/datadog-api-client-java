@@ -31,7 +31,8 @@ public class MetricBulkTagConfigResponse {
   }
 
   /**
-   * Get data
+   * The status of a request to bulk configure metric tags. It contains the fields from the original
+   * request for reference.
    *
    * @return data
    */

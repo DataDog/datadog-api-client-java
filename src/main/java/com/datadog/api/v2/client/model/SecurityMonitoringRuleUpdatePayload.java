@@ -221,7 +221,7 @@ public class SecurityMonitoringRuleUpdatePayload {
   }
 
   /**
-   * Get options
+   * Options on rules.
    *
    * @return options
    */

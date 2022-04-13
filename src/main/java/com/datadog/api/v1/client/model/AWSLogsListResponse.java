@@ -128,10 +128,10 @@ public class AWSLogsListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSLogsListResponse awSLogsListResponse = (AWSLogsListResponse) o;
-    return Objects.equals(this.accountId, awSLogsListResponse.accountId)
-        && Objects.equals(this.lambdas, awSLogsListResponse.lambdas)
-        && Objects.equals(this.services, awSLogsListResponse.services);
+    AWSLogsListResponse awsLogsListResponse = (AWSLogsListResponse) o;
+    return Objects.equals(this.accountId, awsLogsListResponse.accountId)
+        && Objects.equals(this.lambdas, awsLogsListResponse.lambdas)
+        && Objects.equals(this.services, awsLogsListResponse.services);
   }
 
   @Override

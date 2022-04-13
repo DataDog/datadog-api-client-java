@@ -43,7 +43,7 @@ public class LogsMetricResponseAttributes {
   }
 
   /**
-   * Get compute
+   * The compute rule to compute the log-based metric.
    *
    * @return compute
    */
@@ -65,7 +65,7 @@ public class LogsMetricResponseAttributes {
   }
 
   /**
-   * Get filter
+   * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
    *
    * @return filter
    */

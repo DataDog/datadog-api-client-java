@@ -41,7 +41,7 @@ public class MetricAllTags {
   }
 
   /**
-   * Get attributes
+   * Object containing the definition of a metric&#39;s tags.
    *
    * @return attributes
    */
@@ -84,7 +84,7 @@ public class MetricAllTags {
   }
 
   /**
-   * Get type
+   * The metric resource type.
    *
    * @return type
    */

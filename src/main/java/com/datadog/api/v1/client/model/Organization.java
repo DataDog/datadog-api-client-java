@@ -57,7 +57,7 @@ public class Organization {
   }
 
   /**
-   * Get billing
+   * A JSON array of billing type.
    *
    * @return billing
    * @deprecated
@@ -156,7 +156,7 @@ public class Organization {
   }
 
   /**
-   * Get settings
+   * A JSON array of settings.
    *
    * @return settings
    */
@@ -178,7 +178,7 @@ public class Organization {
   }
 
   /**
-   * Get subscription
+   * Subscription definition.
    *
    * @return subscription
    * @deprecated

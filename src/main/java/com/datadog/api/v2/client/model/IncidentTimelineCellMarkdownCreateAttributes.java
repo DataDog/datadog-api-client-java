@@ -58,7 +58,7 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
   }
 
   /**
-   * Get cellType
+   * Type of the Markdown timeline cell.
    *
    * @return cellType
    */
@@ -83,7 +83,7 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
   }
 
   /**
-   * Get content
+   * The Markdown timeline cell contents.
    *
    * @return content
    */

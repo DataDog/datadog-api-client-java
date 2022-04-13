@@ -53,7 +53,7 @@ public class FormulaAndFunctionEventQueryGroupBySort {
   }
 
   /**
-   * Get aggregation
+   * Aggregation methods for event platform queries.
    *
    * @return aggregation
    */
@@ -98,7 +98,7 @@ public class FormulaAndFunctionEventQueryGroupBySort {
   }
 
   /**
-   * Get order
+   * Direction of sort.
    *
    * @return order
    */

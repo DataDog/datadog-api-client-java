@@ -96,7 +96,7 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Get config
+   * Configuration object for a Synthetic browser test.
    *
    * @return config
    */
@@ -195,7 +195,7 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Get options
+   * Object describing the extra options for a Synthetic test.
    *
    * @return options
    */
@@ -228,7 +228,8 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Get status
+   * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
+   * test.
    *
    * @return status
    */
@@ -315,7 +316,7 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Get type
+   * Type of the Synthetic test, &#x60;browser&#x60;.
    *
    * @return type
    */

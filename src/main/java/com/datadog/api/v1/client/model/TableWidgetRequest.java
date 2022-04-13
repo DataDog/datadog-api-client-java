@@ -107,7 +107,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get aggregator
+   * Aggregator used for the request.
    *
    * @return aggregator
    */
@@ -153,7 +153,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get apmQuery
+   * The log query.
    *
    * @return apmQuery
    */
@@ -175,7 +175,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get apmStatsQuery
+   * The APM stats query for table and distributions widgets.
    *
    * @return apmStatsQuery
    */
@@ -261,7 +261,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get eventQuery
+   * The log query.
    *
    * @return eventQuery
    */
@@ -338,7 +338,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get logQuery
+   * The log query.
    *
    * @return logQuery
    */
@@ -360,7 +360,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get networkQuery
+   * The log query.
    *
    * @return networkQuery
    */
@@ -382,7 +382,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get order
+   * Widget sorting methods.
    *
    * @return order
    */
@@ -407,7 +407,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get processQuery
+   * The process query to use in the widget.
    *
    * @return processQuery
    */
@@ -429,7 +429,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get profileMetricsQuery
+   * The log query.
    *
    * @return profileMetricsQuery
    */
@@ -505,7 +505,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get responseFormat
+   * Timeseries or Scalar response.
    *
    * @return responseFormat
    */
@@ -530,7 +530,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get rumQuery
+   * The log query.
    *
    * @return rumQuery
    */
@@ -552,7 +552,7 @@ public class TableWidgetRequest {
   }
 
   /**
-   * Get securityQuery
+   * The log query.
    *
    * @return securityQuery
    */

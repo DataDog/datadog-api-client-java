@@ -89,14 +89,8 @@ public class MonitorSearchResult {
     return classification;
   }
 
-  public MonitorSearchResult creator(Creator creator) {
-    this.creator = creator;
-    this.unparsed |= creator.unparsed;
-    return this;
-  }
-
   /**
-   * Get creator
+   * Object describing the creator of the shared element.
    *
    * @return creator
    */
@@ -105,10 +99,6 @@ public class MonitorSearchResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
     return creator;
-  }
-
-  public void setCreator(Creator creator) {
-    this.creator = creator;
   }
 
   /**
@@ -250,14 +240,8 @@ public class MonitorSearchResult {
     this.scopes = scopes;
   }
 
-  public MonitorSearchResult status(MonitorOverallStates status) {
-    this.status = status;
-    this.unparsed |= !status.isValid();
-    return this;
-  }
-
   /**
-   * Get status
+   * The different states your monitor can be in.
    *
    * @return status
    */
@@ -266,13 +250,6 @@ public class MonitorSearchResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getStatus() {
     return status;
-  }
-
-  public void setStatus(MonitorOverallStates status) {
-    if (!status.isValid()) {
-      this.unparsed = true;
-    }
-    this.status = status;
   }
 
   /**
@@ -294,7 +271,8 @@ public class MonitorSearchResult {
   }
 
   /**
-   * Get type
+   * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor
+   * options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
    *
    * @return type
    */

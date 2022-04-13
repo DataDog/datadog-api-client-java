@@ -107,14 +107,8 @@ public class ServiceLevelObjective {
     return createdAt;
   }
 
-  public ServiceLevelObjective creator(Creator creator) {
-    this.creator = creator;
-    this.unparsed |= creator.unparsed;
-    return this;
-  }
-
   /**
-   * Get creator
+   * Object describing the creator of the shared element.
    *
    * @return creator
    */
@@ -123,10 +117,6 @@ public class ServiceLevelObjective {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
     return creator;
-  }
-
-  public void setCreator(Creator creator) {
-    this.creator = creator;
   }
 
   public ServiceLevelObjective description(String description) {
@@ -309,7 +299,9 @@ public class ServiceLevelObjective {
   }
 
   /**
-   * Get query
+   * A metric SLI query. **Required if type is &#x60;metric&#x60;**. Note that Datadog only allows
+   * the sum by aggregator to be used because this will sum up all request counts instead of
+   * averaging them, or taking the max or min of all of those requests.
    *
    * @return query
    */
@@ -390,7 +382,7 @@ public class ServiceLevelObjective {
   }
 
   /**
-   * Get type
+   * The type of the service level objective.
    *
    * @return type
    */

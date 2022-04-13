@@ -86,7 +86,7 @@ public class UsageTopAvgMetricsMetadata {
   }
 
   /**
-   * Get pagination
+   * The metadata for the current pagination.
    *
    * @return pagination
    */

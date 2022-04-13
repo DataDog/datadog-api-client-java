@@ -37,7 +37,7 @@ public class SyntheticsTestRequestCertificate {
   }
 
   /**
-   * Get cert
+   * Define a request certificate.
    *
    * @return cert
    */
@@ -59,7 +59,7 @@ public class SyntheticsTestRequestCertificate {
   }
 
   /**
-   * Get key
+   * Define a request certificate.
    *
    * @return key
    */

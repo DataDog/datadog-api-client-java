@@ -31,7 +31,7 @@ public class MetricTagConfigurationResponse {
   }
 
   /**
-   * Get data
+   * Object for a single metric tag configuration.
    *
    * @return data
    */

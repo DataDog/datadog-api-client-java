@@ -39,7 +39,7 @@ public class CheckCanDeleteSLOResponse {
   }
 
   /**
-   * Get data
+   * An array of service level objective objects.
    *
    * @return data
    */
@@ -92,9 +92,9 @@ public class CheckCanDeleteSLOResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckCanDeleteSLOResponse checkCanDeleteSLOResponse = (CheckCanDeleteSLOResponse) o;
-    return Objects.equals(this.data, checkCanDeleteSLOResponse.data)
-        && Objects.equals(this.errors, checkCanDeleteSLOResponse.errors);
+    CheckCanDeleteSLOResponse checkCanDeleteSloResponse = (CheckCanDeleteSLOResponse) o;
+    return Objects.equals(this.data, checkCanDeleteSloResponse.data)
+        && Objects.equals(this.errors, checkCanDeleteSloResponse.errors);
   }
 
   @Override

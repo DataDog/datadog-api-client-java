@@ -45,7 +45,7 @@ public class LogsAggregateSort {
   }
 
   /**
-   * Get aggregation
+   * An aggregation function
    *
    * @return aggregation
    */
@@ -91,7 +91,7 @@ public class LogsAggregateSort {
   }
 
   /**
-   * Get order
+   * The order to use, ascending or descending
    *
    * @return order
    */
@@ -116,7 +116,7 @@ public class LogsAggregateSort {
   }
 
   /**
-   * Get type
+   * The type of sorting algorithm
    *
    * @return type
    */

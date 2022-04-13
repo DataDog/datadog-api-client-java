@@ -128,9 +128,6 @@ public class AuthenticationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "validate");
-
     Invocation.Builder builder;
     try {
       builder =

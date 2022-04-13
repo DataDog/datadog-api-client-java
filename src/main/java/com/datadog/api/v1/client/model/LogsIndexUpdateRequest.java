@@ -140,7 +140,7 @@ public class LogsIndexUpdateRequest {
   }
 
   /**
-   * Get filter
+   * Filter for logs.
    *
    * @return filter
    */

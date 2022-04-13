@@ -155,9 +155,6 @@ public class ServiceLevelObjectiveCorrectionsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSLOCorrection");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -255,7 +252,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -298,9 +295,6 @@ public class ServiceLevelObjectiveCorrectionsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSLOCorrection");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -310,7 +304,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -443,9 +437,6 @@ public class ServiceLevelObjectiveCorrectionsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSLOCorrection");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -558,9 +549,6 @@ public class ServiceLevelObjectiveCorrectionsApi {
     String localVarPath = "/api/v1/slo/correction";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listSLOCorrection");
 
     Invocation.Builder builder;
     try {
@@ -725,9 +713,6 @@ public class ServiceLevelObjectiveCorrectionsApi {
                 apiClient.escapeString(sloCorrectionId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateSLOCorrection");
 
     Invocation.Builder builder;
     try {

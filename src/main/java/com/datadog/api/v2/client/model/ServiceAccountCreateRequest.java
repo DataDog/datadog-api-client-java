@@ -41,7 +41,7 @@ public class ServiceAccountCreateRequest {
   }
 
   /**
-   * Get data
+   * Object to create a service account User.
    *
    * @return data
    */

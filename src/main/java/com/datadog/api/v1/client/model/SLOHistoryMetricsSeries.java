@@ -83,7 +83,7 @@ public class SLOHistoryMetricsSeries {
   }
 
   /**
-   * Get metadata
+   * Query metadata.
    *
    * @return metadata
    */
@@ -152,11 +152,11 @@ public class SLOHistoryMetricsSeries {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryMetricsSeries slOHistoryMetricsSeries = (SLOHistoryMetricsSeries) o;
-    return Objects.equals(this.count, slOHistoryMetricsSeries.count)
-        && Objects.equals(this.metadata, slOHistoryMetricsSeries.metadata)
-        && Objects.equals(this.sum, slOHistoryMetricsSeries.sum)
-        && Objects.equals(this.values, slOHistoryMetricsSeries.values);
+    SLOHistoryMetricsSeries sloHistoryMetricsSeries = (SLOHistoryMetricsSeries) o;
+    return Objects.equals(this.count, sloHistoryMetricsSeries.count)
+        && Objects.equals(this.metadata, sloHistoryMetricsSeries.metadata)
+        && Objects.equals(this.sum, sloHistoryMetricsSeries.sum)
+        && Objects.equals(this.values, sloHistoryMetricsSeries.values);
   }
 
   @Override

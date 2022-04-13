@@ -183,7 +183,7 @@ public class DashboardSummaryDefinition {
   }
 
   /**
-   * Get layoutType
+   * Layout type of the dashboard.
    *
    * @return layoutType
    */

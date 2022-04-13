@@ -51,7 +51,7 @@ public class FunnelWidgetRequest {
   }
 
   /**
-   * Get query
+   * Updated funnel widget.
    *
    * @return query
    */
@@ -72,7 +72,7 @@ public class FunnelWidgetRequest {
   }
 
   /**
-   * Get requestType
+   * Widget request type.
    *
    * @return requestType
    */

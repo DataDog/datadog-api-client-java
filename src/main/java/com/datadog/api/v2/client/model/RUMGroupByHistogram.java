@@ -121,10 +121,10 @@ public class RUMGroupByHistogram {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMGroupByHistogram ruMGroupByHistogram = (RUMGroupByHistogram) o;
-    return Objects.equals(this.interval, ruMGroupByHistogram.interval)
-        && Objects.equals(this.max, ruMGroupByHistogram.max)
-        && Objects.equals(this.min, ruMGroupByHistogram.min);
+    RUMGroupByHistogram rumGroupByHistogram = (RUMGroupByHistogram) o;
+    return Objects.equals(this.interval, rumGroupByHistogram.interval)
+        && Objects.equals(this.max, rumGroupByHistogram.max)
+        && Objects.equals(this.min, rumGroupByHistogram.min);
   }
 
   @Override

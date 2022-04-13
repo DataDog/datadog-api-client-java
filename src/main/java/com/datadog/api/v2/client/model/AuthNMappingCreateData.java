@@ -51,7 +51,7 @@ public class AuthNMappingCreateData {
   }
 
   /**
-   * Get attributes
+   * Key/Value pair of attributes used for create request.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class AuthNMappingCreateData {
   }
 
   /**
-   * Get relationships
+   * Relationship of AuthN Mapping create object to Role.
    *
    * @return relationships
    */
@@ -95,7 +95,7 @@ public class AuthNMappingCreateData {
   }
 
   /**
-   * Get type
+   * AuthN Mappings resource type.
    *
    * @return type
    */

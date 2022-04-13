@@ -39,7 +39,7 @@ public class LogsMetricUpdateAttributes {
   }
 
   /**
-   * Get filter
+   * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
    *
    * @return filter
    */

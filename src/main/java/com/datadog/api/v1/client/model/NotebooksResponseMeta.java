@@ -31,7 +31,7 @@ public class NotebooksResponseMeta {
   }
 
   /**
-   * Get page
+   * Pagination metadata returned by the API.
    *
    * @return page
    */

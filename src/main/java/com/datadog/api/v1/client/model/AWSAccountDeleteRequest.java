@@ -106,10 +106,10 @@ public class AWSAccountDeleteRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSAccountDeleteRequest awSAccountDeleteRequest = (AWSAccountDeleteRequest) o;
-    return Objects.equals(this.accessKeyId, awSAccountDeleteRequest.accessKeyId)
-        && Objects.equals(this.accountId, awSAccountDeleteRequest.accountId)
-        && Objects.equals(this.roleName, awSAccountDeleteRequest.roleName);
+    AWSAccountDeleteRequest awsAccountDeleteRequest = (AWSAccountDeleteRequest) o;
+    return Objects.equals(this.accessKeyId, awsAccountDeleteRequest.accessKeyId)
+        && Objects.equals(this.accountId, awsAccountDeleteRequest.accountId)
+        && Objects.equals(this.roleName, awsAccountDeleteRequest.roleName);
   }
 
   @Override

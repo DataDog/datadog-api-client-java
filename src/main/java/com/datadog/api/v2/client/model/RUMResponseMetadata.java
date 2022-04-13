@@ -72,7 +72,7 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * Get page
+   * Paging attributes.
    *
    * @return page
    */
@@ -115,7 +115,7 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * Get status
+   * The status of the response.
    *
    * @return status
    */
@@ -176,12 +176,12 @@ public class RUMResponseMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMResponseMetadata ruMResponseMetadata = (RUMResponseMetadata) o;
-    return Objects.equals(this.elapsed, ruMResponseMetadata.elapsed)
-        && Objects.equals(this.page, ruMResponseMetadata.page)
-        && Objects.equals(this.requestId, ruMResponseMetadata.requestId)
-        && Objects.equals(this.status, ruMResponseMetadata.status)
-        && Objects.equals(this.warnings, ruMResponseMetadata.warnings);
+    RUMResponseMetadata rumResponseMetadata = (RUMResponseMetadata) o;
+    return Objects.equals(this.elapsed, rumResponseMetadata.elapsed)
+        && Objects.equals(this.page, rumResponseMetadata.page)
+        && Objects.equals(this.requestId, rumResponseMetadata.requestId)
+        && Objects.equals(this.status, rumResponseMetadata.status)
+        && Objects.equals(this.warnings, rumResponseMetadata.warnings);
   }
 
   @Override

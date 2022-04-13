@@ -197,7 +197,7 @@ public class MonthlyUsageAttributionBody {
   }
 
   /**
-   * Get values
+   * Fields in Usage Summary by tag(s).
    *
    * @return values
    */

@@ -53,7 +53,7 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
   }
 
   /**
-   * Get aggregation
+   * Aggregation methods for event platform queries.
    *
    * @return aggregation
    */

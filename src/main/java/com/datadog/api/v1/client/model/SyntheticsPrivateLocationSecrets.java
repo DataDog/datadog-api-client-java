@@ -41,7 +41,7 @@ public class SyntheticsPrivateLocationSecrets {
   }
 
   /**
-   * Get authentication
+   * Authentication part of the secrets.
    *
    * @return authentication
    */
@@ -64,7 +64,7 @@ public class SyntheticsPrivateLocationSecrets {
   }
 
   /**
-   * Get configDecryption
+   * Private key for the private location.
    *
    * @return configDecryption
    */

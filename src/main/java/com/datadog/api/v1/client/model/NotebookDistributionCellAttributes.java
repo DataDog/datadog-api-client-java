@@ -57,7 +57,9 @@ public class NotebookDistributionCellAttributes {
   }
 
   /**
-   * Get definition
+   * The Distribution visualization is another way of showing metrics aggregated across one or
+   * several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity
+   * rather than time.
    *
    * @return definition
    */
@@ -78,7 +80,7 @@ public class NotebookDistributionCellAttributes {
   }
 
   /**
-   * Get graphSize
+   * The size of the graph.
    *
    * @return graphSize
    */
@@ -103,7 +105,7 @@ public class NotebookDistributionCellAttributes {
   }
 
   /**
-   * Get splitBy
+   * Object describing how to split the graph to display multiple visualizations per request.
    *
    * @return splitBy
    */
@@ -124,7 +126,7 @@ public class NotebookDistributionCellAttributes {
   }
 
   /**
-   * Get time
+   * Timeframe for the notebook cell. When &#39;null&#39;, the notebook global time is used.
    *
    * @return time
    */

@@ -41,7 +41,7 @@ public class ProcessSummary {
   }
 
   /**
-   * Get attributes
+   * Attributes for a process summary.
    *
    * @return attributes
    */
@@ -84,7 +84,7 @@ public class ProcessSummary {
   }
 
   /**
-   * Get type
+   * Type of process summary.
    *
    * @return type
    */

@@ -62,7 +62,7 @@ public class AWSTagFilterCreateRequest {
   }
 
   /**
-   * Get namespace
+   * The namespace associated with the tag filter entry.
    *
    * @return namespace
    */
@@ -110,10 +110,10 @@ public class AWSTagFilterCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSTagFilterCreateRequest awSTagFilterCreateRequest = (AWSTagFilterCreateRequest) o;
-    return Objects.equals(this.accountId, awSTagFilterCreateRequest.accountId)
-        && Objects.equals(this.namespace, awSTagFilterCreateRequest.namespace)
-        && Objects.equals(this.tagFilterStr, awSTagFilterCreateRequest.tagFilterStr);
+    AWSTagFilterCreateRequest awsTagFilterCreateRequest = (AWSTagFilterCreateRequest) o;
+    return Objects.equals(this.accountId, awsTagFilterCreateRequest.accountId)
+        && Objects.equals(this.namespace, awsTagFilterCreateRequest.namespace)
+        && Objects.equals(this.tagFilterStr, awsTagFilterCreateRequest.tagFilterStr);
   }
 
   @Override

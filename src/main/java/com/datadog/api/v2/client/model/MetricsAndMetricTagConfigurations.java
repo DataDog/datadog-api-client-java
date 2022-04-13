@@ -236,7 +236,6 @@ public class MetricsAndMetricTagConfigurations extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(MetricTagConfiguration.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;

@@ -106,10 +106,10 @@ public class HTTPLogError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HTTPLogError htTPLogError = (HTTPLogError) o;
-    return Objects.equals(this.detail, htTPLogError.detail)
-        && Objects.equals(this.status, htTPLogError.status)
-        && Objects.equals(this.title, htTPLogError.title);
+    HTTPLogError httpLogError = (HTTPLogError) o;
+    return Objects.equals(this.detail, httpLogError.detail)
+        && Objects.equals(this.status, httpLogError.status)
+        && Objects.equals(this.title, httpLogError.title);
   }
 
   @Override

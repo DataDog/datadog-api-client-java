@@ -84,7 +84,7 @@ public class LogsAggregateRequest {
   }
 
   /**
-   * Get filter
+   * The search and filter query settings
    *
    * @return filter
    */
@@ -139,7 +139,8 @@ public class LogsAggregateRequest {
   }
 
   /**
-   * Get options
+   * Global query options that are used during the query. Note: You should only supply timezone or
+   * time offset but not both otherwise the query will fail.
    *
    * @return options
    */
@@ -161,7 +162,7 @@ public class LogsAggregateRequest {
   }
 
   /**
-   * Get page
+   * Paging settings
    *
    * @return page
    */

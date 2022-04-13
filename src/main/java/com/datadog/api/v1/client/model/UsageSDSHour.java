@@ -159,12 +159,12 @@ public class UsageSDSHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSDSHour usageSDSHour = (UsageSDSHour) o;
-    return Objects.equals(this.hour, usageSDSHour.hour)
-        && Objects.equals(this.logsScannedBytes, usageSDSHour.logsScannedBytes)
-        && Objects.equals(this.orgName, usageSDSHour.orgName)
-        && Objects.equals(this.publicId, usageSDSHour.publicId)
-        && Objects.equals(this.totalScannedBytes, usageSDSHour.totalScannedBytes);
+    UsageSDSHour usageSdsHour = (UsageSDSHour) o;
+    return Objects.equals(this.hour, usageSdsHour.hour)
+        && Objects.equals(this.logsScannedBytes, usageSdsHour.logsScannedBytes)
+        && Objects.equals(this.orgName, usageSdsHour.orgName)
+        && Objects.equals(this.publicId, usageSdsHour.publicId)
+        && Objects.equals(this.totalScannedBytes, usageSdsHour.totalScannedBytes);
   }
 
   @Override

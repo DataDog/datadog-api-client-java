@@ -87,14 +87,8 @@ public class IncidentTeamsResponse {
     return included;
   }
 
-  public IncidentTeamsResponse meta(IncidentResponseMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
   /**
-   * Get meta
+   * The metadata object containing pagination metadata.
    *
    * @return meta
    */
@@ -103,10 +97,6 @@ public class IncidentTeamsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentResponseMeta getMeta() {
     return meta;
-  }
-
-  public void setMeta(IncidentResponseMeta meta) {
-    this.meta = meta;
   }
 
   /** Return true if this IncidentTeamsResponse object is equal to o. */

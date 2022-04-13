@@ -42,7 +42,7 @@ public class RelationshipToIncidentPostmortem {
   }
 
   /**
-   * Get data
+   * The postmortem relationship data.
    *
    * @return data
    */

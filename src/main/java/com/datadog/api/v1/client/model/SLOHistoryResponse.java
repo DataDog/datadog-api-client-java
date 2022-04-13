@@ -36,7 +36,7 @@ public class SLOHistoryResponse {
   }
 
   /**
-   * Get data
+   * An array of service level objective objects.
    *
    * @return data
    */
@@ -93,9 +93,9 @@ public class SLOHistoryResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryResponse slOHistoryResponse = (SLOHistoryResponse) o;
-    return Objects.equals(this.data, slOHistoryResponse.data)
-        && Objects.equals(this.errors, slOHistoryResponse.errors);
+    SLOHistoryResponse sloHistoryResponse = (SLOHistoryResponse) o;
+    return Objects.equals(this.data, sloHistoryResponse.data)
+        && Objects.equals(this.errors, sloHistoryResponse.errors);
   }
 
   @Override

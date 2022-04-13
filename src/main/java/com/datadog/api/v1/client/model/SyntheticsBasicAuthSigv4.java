@@ -171,7 +171,7 @@ public class SyntheticsBasicAuthSigv4 {
   }
 
   /**
-   * Get type
+   * The type of authentication to use when performing the test.
    *
    * @return type
    */

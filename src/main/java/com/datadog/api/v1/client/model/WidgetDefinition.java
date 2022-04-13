@@ -1452,11 +1452,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public WidgetDefinition(FunnelWidgetDefinition o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public WidgetDefinition(GeomapWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1487,11 +1482,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public WidgetDefinition(ListStreamWidgetDefinition o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public WidgetDefinition(LogStreamWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1512,12 +1502,12 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public WidgetDefinition(SLOWidgetDefinition o) {
+  public WidgetDefinition(ScatterPlotWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
-  public WidgetDefinition(ScatterPlotWidgetDefinition o) {
+  public WidgetDefinition(SLOWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -1557,6 +1547,16 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(ListStreamWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public WidgetDefinition(FunnelWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("AlertGraphWidgetDefinition", new GenericType<AlertGraphWidgetDefinition>() {});
     schemas.put("AlertValueWidgetDefinition", new GenericType<AlertValueWidgetDefinition>() {});
@@ -1567,21 +1567,19 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     schemas.put(
         "EventTimelineWidgetDefinition", new GenericType<EventTimelineWidgetDefinition>() {});
     schemas.put("FreeTextWidgetDefinition", new GenericType<FreeTextWidgetDefinition>() {});
-    schemas.put("FunnelWidgetDefinition", new GenericType<FunnelWidgetDefinition>() {});
     schemas.put("GeomapWidgetDefinition", new GenericType<GeomapWidgetDefinition>() {});
     schemas.put("GroupWidgetDefinition", new GenericType<GroupWidgetDefinition>() {});
     schemas.put("HeatMapWidgetDefinition", new GenericType<HeatMapWidgetDefinition>() {});
     schemas.put("HostMapWidgetDefinition", new GenericType<HostMapWidgetDefinition>() {});
     schemas.put("IFrameWidgetDefinition", new GenericType<IFrameWidgetDefinition>() {});
     schemas.put("ImageWidgetDefinition", new GenericType<ImageWidgetDefinition>() {});
-    schemas.put("ListStreamWidgetDefinition", new GenericType<ListStreamWidgetDefinition>() {});
     schemas.put("LogStreamWidgetDefinition", new GenericType<LogStreamWidgetDefinition>() {});
     schemas.put(
         "MonitorSummaryWidgetDefinition", new GenericType<MonitorSummaryWidgetDefinition>() {});
     schemas.put("NoteWidgetDefinition", new GenericType<NoteWidgetDefinition>() {});
     schemas.put("QueryValueWidgetDefinition", new GenericType<QueryValueWidgetDefinition>() {});
-    schemas.put("SLOWidgetDefinition", new GenericType<SLOWidgetDefinition>() {});
     schemas.put("ScatterPlotWidgetDefinition", new GenericType<ScatterPlotWidgetDefinition>() {});
+    schemas.put("SLOWidgetDefinition", new GenericType<SLOWidgetDefinition>() {});
     schemas.put("ServiceMapWidgetDefinition", new GenericType<ServiceMapWidgetDefinition>() {});
     schemas.put(
         "ServiceSummaryWidgetDefinition", new GenericType<ServiceSummaryWidgetDefinition>() {});
@@ -1590,6 +1588,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     schemas.put("TimeseriesWidgetDefinition", new GenericType<TimeseriesWidgetDefinition>() {});
     schemas.put("ToplistWidgetDefinition", new GenericType<ToplistWidgetDefinition>() {});
     schemas.put("TreeMapWidgetDefinition", new GenericType<TreeMapWidgetDefinition>() {});
+    schemas.put("ListStreamWidgetDefinition", new GenericType<ListStreamWidgetDefinition>() {});
+    schemas.put("FunnelWidgetDefinition", new GenericType<FunnelWidgetDefinition>() {});
     JSON.registerDescendants(WidgetDefinition.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -1603,13 +1603,13 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * against the oneOf child schemas: AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    * ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,
    * EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
-   * FunnelWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
+   * GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
    * HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
-   * ListStreamWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
-   * NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition,
-   * ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
-   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
-   * ToplistWidgetDefinition, TreeMapWidgetDefinition
+   * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
+   * QueryValueWidgetDefinition, ScatterPlotWidgetDefinition, SLOWidgetDefinition,
+   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SunburstWidgetDefinition,
+   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
+   * TreeMapWidgetDefinition, ListStreamWidgetDefinition, FunnelWidgetDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1620,145 +1620,117 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(AlertValueWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(ChangeWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(CheckStatusWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(DistributionWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(EventStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(EventTimelineWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(FreeTextWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(FunnelWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
     if (JSON.isInstanceOf(GeomapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(GroupWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(HeatMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(HostMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(IFrameWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(ImageWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(ListStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
     if (JSON.isInstanceOf(LogStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(
         MonitorSummaryWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(NoteWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(QueryValueWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(SLOWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
     if (JSON.isInstanceOf(ScatterPlotWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
+    if (JSON.isInstanceOf(SLOWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(ServiceMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(
         ServiceSummaryWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(SunburstWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(TableWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(TimeseriesWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(ToplistWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(TreeMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(ListStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(FunnelWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1771,39 +1743,39 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         "Invalid instance type. Must be AlertGraphWidgetDefinition, AlertValueWidgetDefinition,"
             + " ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,"
             + " EventStreamWidgetDefinition, EventTimelineWidgetDefinition,"
-            + " FreeTextWidgetDefinition, FunnelWidgetDefinition, GeomapWidgetDefinition,"
-            + " GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,"
-            + " IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,"
-            + " LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,"
-            + " QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,"
-            + " ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,"
+            + " FreeTextWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,"
+            + " HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,"
+            + " ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,"
+            + " NoteWidgetDefinition, QueryValueWidgetDefinition, ScatterPlotWidgetDefinition,"
+            + " SLOWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,"
             + " SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,"
-            + " ToplistWidgetDefinition, TreeMapWidgetDefinition");
+            + " ToplistWidgetDefinition, TreeMapWidgetDefinition, ListStreamWidgetDefinition,"
+            + " FunnelWidgetDefinition");
   }
 
   /**
    * Get the actual instance, which can be the following: AlertGraphWidgetDefinition,
    * AlertValueWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition,
    * DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition,
-   * FreeTextWidgetDefinition, FunnelWidgetDefinition, GeomapWidgetDefinition,
-   * GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,
-   * IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
-   * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   * QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
-   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SunburstWidgetDefinition,
-   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
-   * TreeMapWidgetDefinition
+   * FreeTextWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,
+   * HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
+   * ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
+   * NoteWidgetDefinition, QueryValueWidgetDefinition, ScatterPlotWidgetDefinition,
+   * SLOWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
+   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   * ToplistWidgetDefinition, TreeMapWidgetDefinition, ListStreamWidgetDefinition,
+   * FunnelWidgetDefinition
    *
    * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    *     ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,
    *     EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
-   *     FunnelWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,
-   *     HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
-   *     ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,
-   *     MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition,
-   *     SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition,
-   *     ServiceSummaryWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
-   *     TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition)
+   *     GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
+   *     HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
+   *     LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
+   *     QueryValueWidgetDefinition, ScatterPlotWidgetDefinition, SLOWidgetDefinition,
+   *     ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SunburstWidgetDefinition,
+   *     TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
+   *     TreeMapWidgetDefinition, ListStreamWidgetDefinition, FunnelWidgetDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -1900,17 +1872,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `FunnelWidgetDefinition`. If the actual instance is not
-   * `FunnelWidgetDefinition`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `FunnelWidgetDefinition`
-   * @throws ClassCastException if the instance is not `FunnelWidgetDefinition`
-   */
-  public FunnelWidgetDefinition getFunnelWidgetDefinition() throws ClassCastException {
-    return (FunnelWidgetDefinition) super.getActualInstance();
-  }
-
-  /**
    * Get the actual instance of `GeomapWidgetDefinition`. If the actual instance is not
    * `GeomapWidgetDefinition`, the ClassCastException will be thrown.
    *
@@ -1977,17 +1938,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `ListStreamWidgetDefinition`. If the actual instance is not
-   * `ListStreamWidgetDefinition`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `ListStreamWidgetDefinition`
-   * @throws ClassCastException if the instance is not `ListStreamWidgetDefinition`
-   */
-  public ListStreamWidgetDefinition getListStreamWidgetDefinition() throws ClassCastException {
-    return (ListStreamWidgetDefinition) super.getActualInstance();
-  }
-
-  /**
    * Get the actual instance of `LogStreamWidgetDefinition`. If the actual instance is not
    * `LogStreamWidgetDefinition`, the ClassCastException will be thrown.
    *
@@ -2033,17 +1983,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `SLOWidgetDefinition`. If the actual instance is not
-   * `SLOWidgetDefinition`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `SLOWidgetDefinition`
-   * @throws ClassCastException if the instance is not `SLOWidgetDefinition`
-   */
-  public SLOWidgetDefinition getSLOWidgetDefinition() throws ClassCastException {
-    return (SLOWidgetDefinition) super.getActualInstance();
-  }
-
-  /**
    * Get the actual instance of `ScatterPlotWidgetDefinition`. If the actual instance is not
    * `ScatterPlotWidgetDefinition`, the ClassCastException will be thrown.
    *
@@ -2052,6 +1991,17 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public ScatterPlotWidgetDefinition getScatterPlotWidgetDefinition() throws ClassCastException {
     return (ScatterPlotWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SLOWidgetDefinition`. If the actual instance is not
+   * `SLOWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SLOWidgetDefinition`
+   * @throws ClassCastException if the instance is not `SLOWidgetDefinition`
+   */
+  public SLOWidgetDefinition getSLOWidgetDefinition() throws ClassCastException {
+    return (SLOWidgetDefinition) super.getActualInstance();
   }
 
   /**
@@ -2130,5 +2080,27 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public TreeMapWidgetDefinition getTreeMapWidgetDefinition() throws ClassCastException {
     return (TreeMapWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ListStreamWidgetDefinition`. If the actual instance is not
+   * `ListStreamWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ListStreamWidgetDefinition`
+   * @throws ClassCastException if the instance is not `ListStreamWidgetDefinition`
+   */
+  public ListStreamWidgetDefinition getListStreamWidgetDefinition() throws ClassCastException {
+    return (ListStreamWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `FunnelWidgetDefinition`. If the actual instance is not
+   * `FunnelWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `FunnelWidgetDefinition`
+   * @throws ClassCastException if the instance is not `FunnelWidgetDefinition`
+   */
+  public FunnelWidgetDefinition getFunnelWidgetDefinition() throws ClassCastException {
+    return (FunnelWidgetDefinition) super.getActualInstance();
   }
 }

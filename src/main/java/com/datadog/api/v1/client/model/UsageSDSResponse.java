@@ -68,8 +68,8 @@ public class UsageSDSResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSDSResponse usageSDSResponse = (UsageSDSResponse) o;
-    return Objects.equals(this.usage, usageSDSResponse.usage);
+    UsageSDSResponse usageSdsResponse = (UsageSDSResponse) o;
+    return Objects.equals(this.usage, usageSdsResponse.usage);
   }
 
   @Override

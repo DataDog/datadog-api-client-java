@@ -223,7 +223,7 @@ public class HourlyUsageAttributionBody {
   }
 
   /**
-   * Get usageType
+   * Supported products for hourly usage attribution requests.
    *
    * @return usageType
    */

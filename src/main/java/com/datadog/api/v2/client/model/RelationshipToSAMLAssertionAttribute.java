@@ -42,7 +42,7 @@ public class RelationshipToSAMLAssertionAttribute {
   }
 
   /**
-   * Get data
+   * Data of AuthN Mapping relationship to SAML Assertion Attribute.
    *
    * @return data
    */
@@ -65,9 +65,9 @@ public class RelationshipToSAMLAssertionAttribute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToSAMLAssertionAttribute relationshipToSAMLAssertionAttribute =
+    RelationshipToSAMLAssertionAttribute relationshipToSamlAssertionAttribute =
         (RelationshipToSAMLAssertionAttribute) o;
-    return Objects.equals(this.data, relationshipToSAMLAssertionAttribute.data);
+    return Objects.equals(this.data, relationshipToSamlAssertionAttribute.data);
   }
 
   @Override

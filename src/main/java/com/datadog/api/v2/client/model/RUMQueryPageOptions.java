@@ -81,9 +81,9 @@ public class RUMQueryPageOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMQueryPageOptions ruMQueryPageOptions = (RUMQueryPageOptions) o;
-    return Objects.equals(this.cursor, ruMQueryPageOptions.cursor)
-        && Objects.equals(this.limit, ruMQueryPageOptions.limit);
+    RUMQueryPageOptions rumQueryPageOptions = (RUMQueryPageOptions) o;
+    return Objects.equals(this.cursor, rumQueryPageOptions.cursor)
+        && Objects.equals(this.limit, rumQueryPageOptions.limit);
   }
 
   @Override

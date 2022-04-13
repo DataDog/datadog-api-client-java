@@ -42,7 +42,7 @@ public class MetricTagConfigurationUpdateRequest {
   }
 
   /**
-   * Get data
+   * Object for a single tag configuration to be edited.
    *
    * @return data
    */

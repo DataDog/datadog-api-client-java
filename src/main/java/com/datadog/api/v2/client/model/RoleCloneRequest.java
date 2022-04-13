@@ -41,7 +41,7 @@ public class RoleCloneRequest {
   }
 
   /**
-   * Get data
+   * Data for the clone role request.
    *
    * @return data
    */

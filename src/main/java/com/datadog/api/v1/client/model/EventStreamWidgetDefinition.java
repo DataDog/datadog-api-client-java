@@ -77,7 +77,7 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * Get eventSize
+   * Size to use to display an event.
    *
    * @return eventSize
    */
@@ -143,7 +143,7 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -186,7 +186,7 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -232,7 +232,7 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the event stream widget.
    *
    * @return type
    */

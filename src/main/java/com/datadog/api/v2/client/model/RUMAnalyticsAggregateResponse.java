@@ -41,7 +41,7 @@ public class RUMAnalyticsAggregateResponse {
   }
 
   /**
-   * Get data
+   * The query results.
    *
    * @return data
    */
@@ -63,7 +63,7 @@ public class RUMAnalyticsAggregateResponse {
   }
 
   /**
-   * Get links
+   * Links attributes.
    *
    * @return links
    */
@@ -85,7 +85,7 @@ public class RUMAnalyticsAggregateResponse {
   }
 
   /**
-   * Get meta
+   * The metadata associated with a request.
    *
    * @return meta
    */
@@ -109,10 +109,10 @@ public class RUMAnalyticsAggregateResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMAnalyticsAggregateResponse ruMAnalyticsAggregateResponse = (RUMAnalyticsAggregateResponse) o;
-    return Objects.equals(this.data, ruMAnalyticsAggregateResponse.data)
-        && Objects.equals(this.links, ruMAnalyticsAggregateResponse.links)
-        && Objects.equals(this.meta, ruMAnalyticsAggregateResponse.meta);
+    RUMAnalyticsAggregateResponse rumAnalyticsAggregateResponse = (RUMAnalyticsAggregateResponse) o;
+    return Objects.equals(this.data, rumAnalyticsAggregateResponse.data)
+        && Objects.equals(this.links, rumAnalyticsAggregateResponse.links)
+        && Objects.equals(this.meta, rumAnalyticsAggregateResponse.meta);
   }
 
   @Override

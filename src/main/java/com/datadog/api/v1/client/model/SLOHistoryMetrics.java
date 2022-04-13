@@ -91,7 +91,8 @@ public class SLOHistoryMetrics {
   }
 
   /**
-   * Get denominator
+   * A representation of &#x60;metric&#x60; based SLO time series for the provided queries. This is
+   * the same response type from &#x60;batch_query&#x60; endpoint.
    *
    * @return denominator
    */
@@ -154,7 +155,8 @@ public class SLOHistoryMetrics {
   }
 
   /**
-   * Get numerator
+   * A representation of &#x60;metric&#x60; based SLO time series for the provided queries. This is
+   * the same response type from &#x60;batch_query&#x60; endpoint.
    *
    * @return numerator
    */
@@ -262,15 +264,15 @@ public class SLOHistoryMetrics {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryMetrics slOHistoryMetrics = (SLOHistoryMetrics) o;
-    return Objects.equals(this.denominator, slOHistoryMetrics.denominator)
-        && Objects.equals(this.interval, slOHistoryMetrics.interval)
-        && Objects.equals(this.message, slOHistoryMetrics.message)
-        && Objects.equals(this.numerator, slOHistoryMetrics.numerator)
-        && Objects.equals(this.query, slOHistoryMetrics.query)
-        && Objects.equals(this.resType, slOHistoryMetrics.resType)
-        && Objects.equals(this.respVersion, slOHistoryMetrics.respVersion)
-        && Objects.equals(this.times, slOHistoryMetrics.times);
+    SLOHistoryMetrics sloHistoryMetrics = (SLOHistoryMetrics) o;
+    return Objects.equals(this.denominator, sloHistoryMetrics.denominator)
+        && Objects.equals(this.interval, sloHistoryMetrics.interval)
+        && Objects.equals(this.message, sloHistoryMetrics.message)
+        && Objects.equals(this.numerator, sloHistoryMetrics.numerator)
+        && Objects.equals(this.query, sloHistoryMetrics.query)
+        && Objects.equals(this.resType, sloHistoryMetrics.resType)
+        && Objects.equals(this.respVersion, sloHistoryMetrics.respVersion)
+        && Objects.equals(this.times, sloHistoryMetrics.times);
   }
 
   @Override

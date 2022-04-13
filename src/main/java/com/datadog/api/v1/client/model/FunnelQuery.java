@@ -57,7 +57,7 @@ public class FunnelQuery {
   }
 
   /**
-   * Get dataSource
+   * Source from which to query items to display in the funnel.
    *
    * @return dataSource
    */

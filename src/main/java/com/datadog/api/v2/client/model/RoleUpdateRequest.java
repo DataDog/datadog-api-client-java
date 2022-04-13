@@ -41,7 +41,7 @@ public class RoleUpdateRequest {
   }
 
   /**
-   * Get data
+   * Data related to the update of a role.
    *
    * @return data
    */

@@ -152,9 +152,6 @@ public class LogsIndexesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createLogsIndex");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -289,9 +286,6 @@ public class LogsIndexesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsIndex");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -402,9 +396,6 @@ public class LogsIndexesApi {
     String localVarPath = "/api/v1/logs/config/index-order";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsIndexOrder");
 
     Invocation.Builder builder;
     try {
@@ -517,9 +508,6 @@ public class LogsIndexesApi {
     String localVarPath = "/api/v1/logs/config/indexes";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLogIndexes");
 
     Invocation.Builder builder;
     try {
@@ -681,9 +669,6 @@ public class LogsIndexesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsIndex");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -817,9 +802,6 @@ public class LogsIndexesApi {
     String localVarPath = "/api/v1/logs/config/index-order";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsIndexOrder");
 
     Invocation.Builder builder;
     try {

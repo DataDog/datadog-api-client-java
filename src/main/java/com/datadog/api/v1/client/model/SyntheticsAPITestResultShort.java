@@ -91,7 +91,7 @@ public class SyntheticsAPITestResultShort {
   }
 
   /**
-   * Get result
+   * Result of the last API test run.
    *
    * @return result
    */
@@ -134,7 +134,8 @@ public class SyntheticsAPITestResultShort {
   }
 
   /**
-   * Get status
+   * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for
+   * triggered * &#x60;2&#x60; for no data
    *
    * @return status
    */
@@ -161,12 +162,12 @@ public class SyntheticsAPITestResultShort {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITestResultShort syntheticsAPITestResultShort = (SyntheticsAPITestResultShort) o;
-    return Objects.equals(this.checkTime, syntheticsAPITestResultShort.checkTime)
-        && Objects.equals(this.probeDc, syntheticsAPITestResultShort.probeDc)
-        && Objects.equals(this.result, syntheticsAPITestResultShort.result)
-        && Objects.equals(this.resultId, syntheticsAPITestResultShort.resultId)
-        && Objects.equals(this.status, syntheticsAPITestResultShort.status);
+    SyntheticsAPITestResultShort syntheticsApiTestResultShort = (SyntheticsAPITestResultShort) o;
+    return Objects.equals(this.checkTime, syntheticsApiTestResultShort.checkTime)
+        && Objects.equals(this.probeDc, syntheticsApiTestResultShort.probeDc)
+        && Objects.equals(this.result, syntheticsApiTestResultShort.result)
+        && Objects.equals(this.resultId, syntheticsApiTestResultShort.resultId)
+        && Objects.equals(this.status, syntheticsApiTestResultShort.status);
   }
 
   @Override

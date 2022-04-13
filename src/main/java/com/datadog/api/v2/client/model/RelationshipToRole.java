@@ -31,7 +31,7 @@ public class RelationshipToRole {
   }
 
   /**
-   * Get data
+   * Relationship to role object.
    *
    * @return data
    */

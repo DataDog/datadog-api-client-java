@@ -48,7 +48,7 @@ public class IncidentTeamResponse {
   }
 
   /**
-   * Get data
+   * Incident Team data from a response.
    *
    * @return data
    */

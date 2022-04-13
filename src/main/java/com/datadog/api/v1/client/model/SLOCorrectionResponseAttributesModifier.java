@@ -106,11 +106,11 @@ public class SLOCorrectionResponseAttributesModifier {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionResponseAttributesModifier slOCorrectionResponseAttributesModifier =
+    SLOCorrectionResponseAttributesModifier sloCorrectionResponseAttributesModifier =
         (SLOCorrectionResponseAttributesModifier) o;
-    return Objects.equals(this.email, slOCorrectionResponseAttributesModifier.email)
-        && Objects.equals(this.handle, slOCorrectionResponseAttributesModifier.handle)
-        && Objects.equals(this.name, slOCorrectionResponseAttributesModifier.name);
+    return Objects.equals(this.email, sloCorrectionResponseAttributesModifier.email)
+        && Objects.equals(this.handle, sloCorrectionResponseAttributesModifier.handle)
+        && Objects.equals(this.name, sloCorrectionResponseAttributesModifier.name);
   }
 
   @Override

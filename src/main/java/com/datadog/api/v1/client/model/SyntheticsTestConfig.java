@@ -113,7 +113,7 @@ public class SyntheticsTestConfig {
   }
 
   /**
-   * Get request
+   * Object describing the Synthetic test request.
    *
    * @return request
    */

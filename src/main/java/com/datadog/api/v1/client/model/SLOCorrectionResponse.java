@@ -31,7 +31,7 @@ public class SLOCorrectionResponse {
   }
 
   /**
-   * Get data
+   * The response object of a list of SLO corrections.
    *
    * @return data
    */
@@ -55,8 +55,8 @@ public class SLOCorrectionResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionResponse slOCorrectionResponse = (SLOCorrectionResponse) o;
-    return Objects.equals(this.data, slOCorrectionResponse.data);
+    SLOCorrectionResponse sloCorrectionResponse = (SLOCorrectionResponse) o;
+    return Objects.equals(this.data, sloCorrectionResponse.data);
   }
 
   @Override

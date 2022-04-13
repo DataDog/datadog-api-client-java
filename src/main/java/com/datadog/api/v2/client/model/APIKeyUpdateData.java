@@ -57,7 +57,7 @@ public class APIKeyUpdateData {
   }
 
   /**
-   * Get attributes
+   * Attributes used to update an API Key.
    *
    * @return attributes
    */
@@ -98,7 +98,7 @@ public class APIKeyUpdateData {
   }
 
   /**
-   * Get type
+   * API Keys resource type.
    *
    * @return type
    */
@@ -124,10 +124,10 @@ public class APIKeyUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyUpdateData apIKeyUpdateData = (APIKeyUpdateData) o;
-    return Objects.equals(this.attributes, apIKeyUpdateData.attributes)
-        && Objects.equals(this.id, apIKeyUpdateData.id)
-        && Objects.equals(this.type, apIKeyUpdateData.type);
+    APIKeyUpdateData apiKeyUpdateData = (APIKeyUpdateData) o;
+    return Objects.equals(this.attributes, apiKeyUpdateData.attributes)
+        && Objects.equals(this.id, apiKeyUpdateData.id)
+        && Objects.equals(this.type, apiKeyUpdateData.type);
   }
 
   @Override

@@ -145,7 +145,7 @@ public class SyntheticsConfigVariable {
   }
 
   /**
-   * Get type
+   * Type of the configuration variable.
    *
    * @return type
    */

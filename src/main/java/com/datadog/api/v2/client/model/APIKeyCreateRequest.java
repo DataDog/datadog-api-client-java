@@ -41,7 +41,7 @@ public class APIKeyCreateRequest {
   }
 
   /**
-   * Get data
+   * Object used to create an API key.
    *
    * @return data
    */
@@ -64,8 +64,8 @@ public class APIKeyCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyCreateRequest apIKeyCreateRequest = (APIKeyCreateRequest) o;
-    return Objects.equals(this.data, apIKeyCreateRequest.data);
+    APIKeyCreateRequest apiKeyCreateRequest = (APIKeyCreateRequest) o;
+    return Objects.equals(this.data, apiKeyCreateRequest.data);
   }
 
   @Override

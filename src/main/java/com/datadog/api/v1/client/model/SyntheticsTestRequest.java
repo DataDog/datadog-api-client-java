@@ -132,7 +132,7 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * Get basicAuth
+   * Object to handle basic authentication when performing the test.
    *
    * @return basicAuth
    */
@@ -175,7 +175,7 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * Get certificate
+   * Client certificate to use when performing the test request.
    *
    * @return certificate
    */
@@ -331,7 +331,7 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * Get method
+   * The HTTP method.
    *
    * @return method
    */
@@ -419,7 +419,7 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * Get proxy
+   * The proxy to perform the test.
    *
    * @return proxy
    */

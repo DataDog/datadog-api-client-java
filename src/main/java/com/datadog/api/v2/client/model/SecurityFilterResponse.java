@@ -37,7 +37,7 @@ public class SecurityFilterResponse {
   }
 
   /**
-   * Get data
+   * The security filter&#39;s properties.
    *
    * @return data
    */
@@ -59,7 +59,7 @@ public class SecurityFilterResponse {
   }
 
   /**
-   * Get meta
+   * Optional metadata associated to the response.
    *
    * @return meta
    */

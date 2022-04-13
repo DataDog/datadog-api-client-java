@@ -38,7 +38,7 @@ public class SecurityMonitoringRuleNewValueOptions {
   }
 
   /**
-   * Get forgetAfter
+   * The duration in days after which a learned value is forgotten.
    *
    * @return forgetAfter
    */
@@ -64,7 +64,9 @@ public class SecurityMonitoringRuleNewValueOptions {
   }
 
   /**
-   * Get learningDuration
+   * The duration in days during which values are learned, and after which signals will be generated
+   * for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values
+   * after the first value is learned.
    *
    * @return learningDuration
    */

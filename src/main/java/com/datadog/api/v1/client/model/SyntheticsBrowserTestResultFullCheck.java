@@ -41,7 +41,7 @@ public class SyntheticsBrowserTestResultFullCheck {
   }
 
   /**
-   * Get config
+   * Configuration object for a Synthetic test.
    *
    * @return config
    */

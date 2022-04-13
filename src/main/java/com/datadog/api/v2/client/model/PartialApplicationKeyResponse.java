@@ -39,7 +39,7 @@ public class PartialApplicationKeyResponse {
   }
 
   /**
-   * Get data
+   * Partial Datadog application key.
    *
    * @return data
    */

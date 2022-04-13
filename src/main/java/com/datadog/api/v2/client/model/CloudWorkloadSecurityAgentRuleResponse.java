@@ -31,7 +31,7 @@ public class CloudWorkloadSecurityAgentRuleResponse {
   }
 
   /**
-   * Get data
+   * Object for a single Agent rule.
    *
    * @return data
    */

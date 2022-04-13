@@ -60,7 +60,7 @@ public class LogsQueryOptions {
   }
 
   /**
-   * The timezone can be specified both as an offset, for example: \&quot;UTC+03:00\&quot;.
+   * The timezone can be specified both as an offset, for example: &quot;UTC+03:00&quot;.
    *
    * @return timezone
    */

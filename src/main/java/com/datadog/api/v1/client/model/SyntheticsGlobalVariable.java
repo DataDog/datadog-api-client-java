@@ -80,7 +80,7 @@ public class SyntheticsGlobalVariable {
   }
 
   /**
-   * Get attributes
+   * Attributes of the global variable.
    *
    * @return attributes
    */
@@ -155,7 +155,8 @@ public class SyntheticsGlobalVariable {
   }
 
   /**
-   * Get parseTestOptions
+   * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used
+   * in conjunction with &#x60;parse_test_public_id&#x60;.
    *
    * @return parseTestOptions
    */
@@ -223,7 +224,7 @@ public class SyntheticsGlobalVariable {
   }
 
   /**
-   * Get value
+   * Value of the global variable.
    *
    * @return value
    */

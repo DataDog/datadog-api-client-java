@@ -41,7 +41,7 @@ public class AuditLogsEvent {
   }
 
   /**
-   * Get attributes
+   * JSON object containing all event attributes and their associated values.
    *
    * @return attributes
    */
@@ -84,7 +84,7 @@ public class AuditLogsEvent {
   }
 
   /**
-   * Get type
+   * Type of the event.
    *
    * @return type
    */

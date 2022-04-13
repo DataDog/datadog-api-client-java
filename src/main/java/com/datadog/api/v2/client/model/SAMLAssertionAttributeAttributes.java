@@ -81,10 +81,10 @@ public class SAMLAssertionAttributeAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SAMLAssertionAttributeAttributes saMLAssertionAttributeAttributes =
+    SAMLAssertionAttributeAttributes samlAssertionAttributeAttributes =
         (SAMLAssertionAttributeAttributes) o;
-    return Objects.equals(this.attributeKey, saMLAssertionAttributeAttributes.attributeKey)
-        && Objects.equals(this.attributeValue, saMLAssertionAttributeAttributes.attributeValue);
+    return Objects.equals(this.attributeKey, samlAssertionAttributeAttributes.attributeKey)
+        && Objects.equals(this.attributeValue, samlAssertionAttributeAttributes.attributeValue);
   }
 
   @Override

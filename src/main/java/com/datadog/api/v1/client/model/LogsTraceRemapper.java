@@ -134,7 +134,7 @@ public class LogsTraceRemapper {
   }
 
   /**
-   * Get type
+   * Type of logs trace remapper.
    *
    * @return type
    */

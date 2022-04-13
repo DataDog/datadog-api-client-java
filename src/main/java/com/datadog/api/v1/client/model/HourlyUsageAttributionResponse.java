@@ -39,7 +39,7 @@ public class HourlyUsageAttributionResponse {
   }
 
   /**
-   * Get metadata
+   * The object containing document metadata.
    *
    * @return metadata
    */

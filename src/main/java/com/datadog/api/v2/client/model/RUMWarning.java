@@ -106,10 +106,10 @@ public class RUMWarning {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMWarning ruMWarning = (RUMWarning) o;
-    return Objects.equals(this.code, ruMWarning.code)
-        && Objects.equals(this.detail, ruMWarning.detail)
-        && Objects.equals(this.title, ruMWarning.title);
+    RUMWarning rumWarning = (RUMWarning) o;
+    return Objects.equals(this.code, rumWarning.code)
+        && Objects.equals(this.detail, rumWarning.detail)
+        && Objects.equals(this.title, rumWarning.title);
   }
 
   @Override

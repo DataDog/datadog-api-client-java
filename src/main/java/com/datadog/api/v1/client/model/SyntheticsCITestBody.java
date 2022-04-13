@@ -68,8 +68,8 @@ public class SyntheticsCITestBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCITestBody syntheticsCITestBody = (SyntheticsCITestBody) o;
-    return Objects.equals(this.tests, syntheticsCITestBody.tests);
+    SyntheticsCITestBody syntheticsCiTestBody = (SyntheticsCITestBody) o;
+    return Objects.equals(this.tests, syntheticsCiTestBody.tests);
   }
 
   @Override

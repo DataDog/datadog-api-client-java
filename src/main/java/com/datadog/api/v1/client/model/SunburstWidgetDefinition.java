@@ -135,7 +135,7 @@ public class SunburstWidgetDefinition {
   }
 
   /**
-   * Get legend
+   * Configuration of the legend.
    *
    * @return legend
    */
@@ -186,7 +186,7 @@ public class SunburstWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -229,7 +229,7 @@ public class SunburstWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -275,7 +275,7 @@ public class SunburstWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the Sunburst widget.
    *
    * @return type
    */

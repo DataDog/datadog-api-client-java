@@ -90,7 +90,7 @@ public class DashboardListItem {
   }
 
   /**
-   * Get author
+   * Creator of the object.
    *
    * @return author
    */
@@ -228,7 +228,7 @@ public class DashboardListItem {
   }
 
   /**
-   * Get type
+   * The type of the dashboard.
    *
    * @return type
    */

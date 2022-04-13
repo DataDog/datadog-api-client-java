@@ -78,9 +78,9 @@ public class AWSLogsAsyncError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSLogsAsyncError awSLogsAsyncError = (AWSLogsAsyncError) o;
-    return Objects.equals(this.code, awSLogsAsyncError.code)
-        && Objects.equals(this.message, awSLogsAsyncError.message);
+    AWSLogsAsyncError awsLogsAsyncError = (AWSLogsAsyncError) o;
+    return Objects.equals(this.code, awsLogsAsyncError.code)
+        && Objects.equals(this.message, awsLogsAsyncError.message);
   }
 
   @Override

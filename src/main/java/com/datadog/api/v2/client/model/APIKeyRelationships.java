@@ -37,7 +37,7 @@ public class APIKeyRelationships {
   }
 
   /**
-   * Get createdBy
+   * Relationship to user.
    *
    * @return createdBy
    */
@@ -59,7 +59,7 @@ public class APIKeyRelationships {
   }
 
   /**
-   * Get modifiedBy
+   * Relationship to user.
    *
    * @return modifiedBy
    */
@@ -83,9 +83,9 @@ public class APIKeyRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyRelationships apIKeyRelationships = (APIKeyRelationships) o;
-    return Objects.equals(this.createdBy, apIKeyRelationships.createdBy)
-        && Objects.equals(this.modifiedBy, apIKeyRelationships.modifiedBy);
+    APIKeyRelationships apiKeyRelationships = (APIKeyRelationships) o;
+    return Objects.equals(this.createdBy, apiKeyRelationships.createdBy)
+        && Objects.equals(this.modifiedBy, apiKeyRelationships.modifiedBy);
   }
 
   @Override

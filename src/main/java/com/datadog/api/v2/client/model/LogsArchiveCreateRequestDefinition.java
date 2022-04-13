@@ -47,7 +47,7 @@ public class LogsArchiveCreateRequestDefinition {
   }
 
   /**
-   * Get attributes
+   * The attributes associated with the archive.
    *
    * @return attributes
    */

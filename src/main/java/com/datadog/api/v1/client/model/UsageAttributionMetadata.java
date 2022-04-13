@@ -72,7 +72,7 @@ public class UsageAttributionMetadata {
   }
 
   /**
-   * Get pagination
+   * The metadata for the current pagination.
    *
    * @return pagination
    */

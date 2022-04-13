@@ -81,9 +81,9 @@ public class SyntheticsCIBatchMetadataGit {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCIBatchMetadataGit syntheticsCIBatchMetadataGit = (SyntheticsCIBatchMetadataGit) o;
-    return Objects.equals(this.branch, syntheticsCIBatchMetadataGit.branch)
-        && Objects.equals(this.commitSha, syntheticsCIBatchMetadataGit.commitSha);
+    SyntheticsCIBatchMetadataGit syntheticsCiBatchMetadataGit = (SyntheticsCIBatchMetadataGit) o;
+    return Objects.equals(this.branch, syntheticsCiBatchMetadataGit.branch)
+        && Objects.equals(this.commitSha, syntheticsCiBatchMetadataGit.commitSha);
   }
 
   @Override

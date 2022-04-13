@@ -72,7 +72,7 @@ public class UsageCustomReportsResponse {
   }
 
   /**
-   * Get meta
+   * The object containing document metadata.
    *
    * @return meta
    */

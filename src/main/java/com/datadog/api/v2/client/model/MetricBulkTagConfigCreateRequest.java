@@ -41,7 +41,7 @@ public class MetricBulkTagConfigCreateRequest {
   }
 
   /**
-   * Get data
+   * Request object to bulk configure tags for metrics matching the given prefix.
    *
    * @return data
    */

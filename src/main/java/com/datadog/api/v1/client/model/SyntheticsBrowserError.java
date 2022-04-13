@@ -120,7 +120,7 @@ public class SyntheticsBrowserError {
   }
 
   /**
-   * Get type
+   * Error type returned by a browser test.
    *
    * @return type
    */

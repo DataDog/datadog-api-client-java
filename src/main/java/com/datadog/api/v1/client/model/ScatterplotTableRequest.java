@@ -109,7 +109,7 @@ public class ScatterplotTableRequest {
   }
 
   /**
-   * Get responseFormat
+   * Timeseries or Scalar response.
    *
    * @return responseFormat
    */

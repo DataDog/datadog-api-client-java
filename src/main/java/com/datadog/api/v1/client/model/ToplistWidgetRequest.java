@@ -91,7 +91,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get apmQuery
+   * The log query.
    *
    * @return apmQuery
    */
@@ -113,7 +113,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get auditQuery
+   * The log query.
    *
    * @return auditQuery
    */
@@ -169,7 +169,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get eventQuery
+   * The log query.
    *
    * @return eventQuery
    */
@@ -224,7 +224,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get logQuery
+   * The log query.
    *
    * @return logQuery
    */
@@ -246,7 +246,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get networkQuery
+   * The log query.
    *
    * @return networkQuery
    */
@@ -268,7 +268,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get processQuery
+   * The process query to use in the widget.
    *
    * @return processQuery
    */
@@ -290,7 +290,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get profileMetricsQuery
+   * The log query.
    *
    * @return profileMetricsQuery
    */
@@ -366,7 +366,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get responseFormat
+   * Timeseries or Scalar response.
    *
    * @return responseFormat
    */
@@ -391,7 +391,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get rumQuery
+   * The log query.
    *
    * @return rumQuery
    */
@@ -413,7 +413,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get securityQuery
+   * The log query.
    *
    * @return securityQuery
    */
@@ -435,7 +435,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get style
+   * Define request widget style.
    *
    * @return style
    */

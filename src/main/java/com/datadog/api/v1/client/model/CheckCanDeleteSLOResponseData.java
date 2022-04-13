@@ -64,8 +64,8 @@ public class CheckCanDeleteSLOResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckCanDeleteSLOResponseData checkCanDeleteSLOResponseData = (CheckCanDeleteSLOResponseData) o;
-    return Objects.equals(this.ok, checkCanDeleteSLOResponseData.ok);
+    CheckCanDeleteSLOResponseData checkCanDeleteSloResponseData = (CheckCanDeleteSLOResponseData) o;
+    return Objects.equals(this.ok, checkCanDeleteSloResponseData.ok);
   }
 
   @Override

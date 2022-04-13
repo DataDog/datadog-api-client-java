@@ -90,9 +90,9 @@ public class AWSAccountAndLambdaRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSAccountAndLambdaRequest awSAccountAndLambdaRequest = (AWSAccountAndLambdaRequest) o;
-    return Objects.equals(this.accountId, awSAccountAndLambdaRequest.accountId)
-        && Objects.equals(this.lambdaArn, awSAccountAndLambdaRequest.lambdaArn);
+    AWSAccountAndLambdaRequest awsAccountAndLambdaRequest = (AWSAccountAndLambdaRequest) o;
+    return Objects.equals(this.accountId, awsAccountAndLambdaRequest.accountId)
+        && Objects.equals(this.lambdaArn, awsAccountAndLambdaRequest.lambdaArn);
   }
 
   @Override

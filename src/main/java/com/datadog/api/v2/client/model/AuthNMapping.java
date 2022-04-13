@@ -63,7 +63,7 @@ public class AuthNMapping {
   }
 
   /**
-   * Get attributes
+   * Attributes of AuthN Mapping.
    *
    * @return attributes
    */
@@ -138,7 +138,7 @@ public class AuthNMapping {
   }
 
   /**
-   * Get relationships
+   * All relationships associated with AuthN Mapping.
    *
    * @return relationships
    */
@@ -160,7 +160,7 @@ public class AuthNMapping {
   }
 
   /**
-   * Get type
+   * AuthN Mappings resource type.
    *
    * @return type
    */

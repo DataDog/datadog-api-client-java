@@ -68,8 +68,8 @@ public class HTTPLogErrors {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HTTPLogErrors htTPLogErrors = (HTTPLogErrors) o;
-    return Objects.equals(this.errors, htTPLogErrors.errors);
+    HTTPLogErrors httpLogErrors = (HTTPLogErrors) o;
+    return Objects.equals(this.errors, httpLogErrors.errors);
   }
 
   @Override

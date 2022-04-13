@@ -31,7 +31,7 @@ public class AuthNMappingResponse {
   }
 
   /**
-   * Get data
+   * The AuthN Mapping object returned by API.
    *
    * @return data
    */

@@ -166,9 +166,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSecurityFilter");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -306,9 +303,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSecurityMonitoringRule");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -408,7 +402,7 @@ public class SecurityMonitoringApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -452,9 +446,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSecurityFilter");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -464,7 +455,7 @@ public class SecurityMonitoringApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -550,7 +541,7 @@ public class SecurityMonitoringApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -591,9 +582,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSecurityMonitoringRule");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -603,7 +591,7 @@ public class SecurityMonitoringApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -737,9 +725,6 @@ public class SecurityMonitoringApi {
                 apiClient.escapeString(securityFilterId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSecurityFilter");
 
     Invocation.Builder builder;
     try {
@@ -881,9 +866,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSecurityMonitoringRule");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -998,9 +980,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listSecurityFilters");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1073,7 +1052,7 @@ public class SecurityMonitoringApi {
   /**
    * List rules
    *
-   * <p>See {@link #listSecurityMonitoringRulesWithHttpInfo}.
+   * <p>See {@link #listSecurityMonitoringRulesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;SecurityMonitoringListRulesResponse&gt;
    */
@@ -1190,9 +1169,6 @@ public class SecurityMonitoringApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listSecurityMonitoringRules");
 
     Invocation.Builder builder;
     try {
@@ -1318,7 +1294,7 @@ public class SecurityMonitoringApi {
   /**
    * Get a quick list of security signals
    *
-   * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfo}.
+   * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;SecurityMonitoringSignalsListResponse&gt;
    */
@@ -1457,9 +1433,6 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listSecurityMonitoringSignals");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1523,7 +1496,7 @@ public class SecurityMonitoringApi {
   /**
    * Get a list of security signals
    *
-   * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfo}.
+   * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;SecurityMonitoringSignalsListResponse&gt;
    */
@@ -1633,9 +1606,6 @@ public class SecurityMonitoringApi {
     String localVarPath = "/api/v2/security_monitoring/signals/search";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "searchSecurityMonitoringSignals");
 
     Invocation.Builder builder;
     try {
@@ -1807,9 +1777,6 @@ public class SecurityMonitoringApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateSecurityFilter");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1977,9 +1944,6 @@ public class SecurityMonitoringApi {
             .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateSecurityMonitoringRule");
 
     Invocation.Builder builder;
     try {

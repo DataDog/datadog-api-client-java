@@ -53,7 +53,7 @@ public class SAMLAssertionAttribute {
   }
 
   /**
-   * Get attributes
+   * Key/Value pair of attributes used in SAML assertion attributes.
    *
    * @return attributes
    */
@@ -95,7 +95,7 @@ public class SAMLAssertionAttribute {
   }
 
   /**
-   * Get type
+   * SAML assertion attributes resource type.
    *
    * @return type
    */
@@ -121,10 +121,10 @@ public class SAMLAssertionAttribute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SAMLAssertionAttribute saMLAssertionAttribute = (SAMLAssertionAttribute) o;
-    return Objects.equals(this.attributes, saMLAssertionAttribute.attributes)
-        && Objects.equals(this.id, saMLAssertionAttribute.id)
-        && Objects.equals(this.type, saMLAssertionAttribute.type);
+    SAMLAssertionAttribute samlAssertionAttribute = (SAMLAssertionAttribute) o;
+    return Objects.equals(this.attributes, samlAssertionAttribute.attributes)
+        && Objects.equals(this.id, samlAssertionAttribute.id)
+        && Objects.equals(this.type, samlAssertionAttribute.type);
   }
 
   @Override

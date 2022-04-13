@@ -31,7 +31,7 @@ public class SyntheticsBatchDetails {
   }
 
   /**
-   * Get data
+   * Wrapper object that contains the details of a batch.
    *
    * @return data
    */

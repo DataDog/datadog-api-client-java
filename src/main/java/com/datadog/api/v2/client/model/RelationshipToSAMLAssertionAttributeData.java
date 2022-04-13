@@ -69,7 +69,7 @@ public class RelationshipToSAMLAssertionAttributeData {
   }
 
   /**
-   * Get type
+   * SAML assertion attributes resource type.
    *
    * @return type
    */
@@ -95,10 +95,10 @@ public class RelationshipToSAMLAssertionAttributeData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToSAMLAssertionAttributeData relationshipToSAMLAssertionAttributeData =
+    RelationshipToSAMLAssertionAttributeData relationshipToSamlAssertionAttributeData =
         (RelationshipToSAMLAssertionAttributeData) o;
-    return Objects.equals(this.id, relationshipToSAMLAssertionAttributeData.id)
-        && Objects.equals(this.type, relationshipToSAMLAssertionAttributeData.type);
+    return Objects.equals(this.id, relationshipToSamlAssertionAttributeData.id)
+        && Objects.equals(this.type, relationshipToSamlAssertionAttributeData.type);
   }
 
   @Override

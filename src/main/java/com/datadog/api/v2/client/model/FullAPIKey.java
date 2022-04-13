@@ -45,7 +45,7 @@ public class FullAPIKey {
   }
 
   /**
-   * Get attributes
+   * Attributes of a full API key.
    *
    * @return attributes
    */
@@ -88,7 +88,7 @@ public class FullAPIKey {
   }
 
   /**
-   * Get relationships
+   * Resources related to the API key.
    *
    * @return relationships
    */
@@ -110,7 +110,7 @@ public class FullAPIKey {
   }
 
   /**
-   * Get type
+   * API Keys resource type.
    *
    * @return type
    */
@@ -137,11 +137,11 @@ public class FullAPIKey {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FullAPIKey fullAPIKey = (FullAPIKey) o;
-    return Objects.equals(this.attributes, fullAPIKey.attributes)
-        && Objects.equals(this.id, fullAPIKey.id)
-        && Objects.equals(this.relationships, fullAPIKey.relationships)
-        && Objects.equals(this.type, fullAPIKey.type);
+    FullAPIKey fullApiKey = (FullAPIKey) o;
+    return Objects.equals(this.attributes, fullApiKey.attributes)
+        && Objects.equals(this.id, fullApiKey.id)
+        && Objects.equals(this.relationships, fullApiKey.relationships)
+        && Objects.equals(this.type, fullApiKey.type);
   }
 
   @Override

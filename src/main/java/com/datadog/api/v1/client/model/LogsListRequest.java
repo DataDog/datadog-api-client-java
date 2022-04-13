@@ -127,7 +127,7 @@ public class LogsListRequest {
   }
 
   /**
-   * Get sort
+   * Time-ascending &#x60;asc&#x60; or time-descending &#x60;desc&#x60;results.
    *
    * @return sort
    */
@@ -175,7 +175,7 @@ public class LogsListRequest {
   }
 
   /**
-   * Get time
+   * Timeframe to retrieve the log from.
    *
    * @return time
    */

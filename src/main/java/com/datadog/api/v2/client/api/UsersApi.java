@@ -160,9 +160,6 @@ public class UsersApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createServiceAccount");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -294,9 +291,6 @@ public class UsersApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createUser");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -391,7 +385,7 @@ public class UsersApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -430,9 +424,6 @@ public class UsersApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "disableUser");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -442,7 +433,7 @@ public class UsersApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -574,9 +565,6 @@ public class UsersApi {
                 apiClient.escapeString(userInvitationUuid.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getInvitation");
 
     Invocation.Builder builder;
     try {
@@ -710,9 +698,6 @@ public class UsersApi {
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUser");
 
     Invocation.Builder builder;
     try {
@@ -852,9 +837,6 @@ public class UsersApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listUserOrganizations");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -993,9 +975,6 @@ public class UsersApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listUserPermissions");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1060,7 +1039,7 @@ public class UsersApi {
      * @param sort User attribute to order results by. Sort order is ascending by default. Sort
      *     order is descending if the field is prefixed by a negative sign, for example
      *     &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;,
-     *     &#x60;user_count&#x60;. (optional, default to name)
+     *     &#x60;user_count&#x60;. (optional, default to "name")
      * @return ListUsersOptionalParameters
      */
     public ListUsersOptionalParameters sort(String sort) {
@@ -1072,7 +1051,7 @@ public class UsersApi {
      * Set sortDir
      *
      * @param sortDir Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional,
-     *     default to desc)
+     *     default to "desc")
      * @return ListUsersOptionalParameters
      */
     public ListUsersOptionalParameters sortDir(QuerySortOrder sortDir) {
@@ -1120,7 +1099,7 @@ public class UsersApi {
   /**
    * List all users
    *
-   * <p>See {@link #listUsersWithHttpInfo}.
+   * <p>See {@link #listUsersWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;UsersResponse&gt;
    */
@@ -1251,9 +1230,6 @@ public class UsersApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listUsers");
 
     Invocation.Builder builder;
     try {
@@ -1388,9 +1364,6 @@ public class UsersApi {
     String localVarPath = "/api/v2/user_invitations";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "sendInvitations");
 
     Invocation.Builder builder;
     try {
@@ -1546,9 +1519,6 @@ public class UsersApi {
             .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateUser");
 
     Invocation.Builder builder;
     try {

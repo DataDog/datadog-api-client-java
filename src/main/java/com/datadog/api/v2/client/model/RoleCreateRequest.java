@@ -41,7 +41,7 @@ public class RoleCreateRequest {
   }
 
   /**
-   * Get data
+   * Data related to the creation of a role.
    *
    * @return data
    */

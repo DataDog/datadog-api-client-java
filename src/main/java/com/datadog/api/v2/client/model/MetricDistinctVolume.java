@@ -41,7 +41,7 @@ public class MetricDistinctVolume {
   }
 
   /**
-   * Get attributes
+   * Object containing the definition of a metric&#39;s distinct volume.
    *
    * @return attributes
    */
@@ -84,7 +84,7 @@ public class MetricDistinctVolume {
   }
 
   /**
-   * Get type
+   * The metric distinct volume type.
    *
    * @return type
    */

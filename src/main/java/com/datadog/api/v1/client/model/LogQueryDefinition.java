@@ -51,7 +51,7 @@ public class LogQueryDefinition {
   }
 
   /**
-   * Get compute
+   * Define computation for a log query.
    *
    * @return compute
    */
@@ -105,7 +105,7 @@ public class LogQueryDefinition {
   }
 
   /**
-   * A coma separated-list of index names. Use \&quot;*\&quot; query all indexes at once. [Multiple
+   * A coma separated-list of index names. Use &quot;*&quot; query all indexes at once. [Multiple
    * Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
    *
    * @return index
@@ -161,7 +161,7 @@ public class LogQueryDefinition {
   }
 
   /**
-   * Get search
+   * The query being made on the logs.
    *
    * @return search
    */

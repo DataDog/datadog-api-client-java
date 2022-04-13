@@ -37,7 +37,7 @@ public class AuthNMappingRelationships {
   }
 
   /**
-   * Get role
+   * Relationship to role.
    *
    * @return role
    */
@@ -60,7 +60,7 @@ public class AuthNMappingRelationships {
   }
 
   /**
-   * Get samlAssertionAttribute
+   * AuthN Mapping relationship to SAML Assertion Attribute.
    *
    * @return samlAssertionAttribute
    */

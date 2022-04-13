@@ -186,16 +186,16 @@ public class UsageCIVisibilityHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageCIVisibilityHour usageCIVisibilityHour = (UsageCIVisibilityHour) o;
-    return Objects.equals(this.ciPipelineIndexedSpans, usageCIVisibilityHour.ciPipelineIndexedSpans)
-        && Objects.equals(this.ciTestIndexedSpans, usageCIVisibilityHour.ciTestIndexedSpans)
+    UsageCIVisibilityHour usageCiVisibilityHour = (UsageCIVisibilityHour) o;
+    return Objects.equals(this.ciPipelineIndexedSpans, usageCiVisibilityHour.ciPipelineIndexedSpans)
+        && Objects.equals(this.ciTestIndexedSpans, usageCiVisibilityHour.ciTestIndexedSpans)
         && Objects.equals(
             this.ciVisibilityPipelineCommitters,
-            usageCIVisibilityHour.ciVisibilityPipelineCommitters)
+            usageCiVisibilityHour.ciVisibilityPipelineCommitters)
         && Objects.equals(
-            this.ciVisibilityTestCommitters, usageCIVisibilityHour.ciVisibilityTestCommitters)
-        && Objects.equals(this.orgName, usageCIVisibilityHour.orgName)
-        && Objects.equals(this.publicId, usageCIVisibilityHour.publicId);
+            this.ciVisibilityTestCommitters, usageCiVisibilityHour.ciVisibilityTestCommitters)
+        && Objects.equals(this.orgName, usageCiVisibilityHour.orgName)
+        && Objects.equals(this.publicId, usageCiVisibilityHour.publicId);
   }
 
   @Override

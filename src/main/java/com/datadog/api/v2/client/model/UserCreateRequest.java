@@ -41,7 +41,7 @@ public class UserCreateRequest {
   }
 
   /**
-   * Get data
+   * Object to create a user.
    *
    * @return data
    */

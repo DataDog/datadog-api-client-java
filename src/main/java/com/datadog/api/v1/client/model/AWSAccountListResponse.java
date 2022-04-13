@@ -68,8 +68,8 @@ public class AWSAccountListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSAccountListResponse awSAccountListResponse = (AWSAccountListResponse) o;
-    return Objects.equals(this.accounts, awSAccountListResponse.accounts);
+    AWSAccountListResponse awsAccountListResponse = (AWSAccountListResponse) o;
+    return Objects.equals(this.accounts, awsAccountListResponse.accounts);
   }
 
   @Override

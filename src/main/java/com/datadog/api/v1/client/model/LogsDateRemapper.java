@@ -136,7 +136,7 @@ public class LogsDateRemapper {
   }
 
   /**
-   * Get type
+   * Type of logs date remapper.
    *
    * @return type
    */

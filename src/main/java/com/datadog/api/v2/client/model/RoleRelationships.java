@@ -37,7 +37,7 @@ public class RoleRelationships {
   }
 
   /**
-   * Get permissions
+   * Relationship to multiple permissions objects.
    *
    * @return permissions
    */
@@ -59,7 +59,7 @@ public class RoleRelationships {
   }
 
   /**
-   * Get users
+   * Relationship to users.
    *
    * @return users
    */

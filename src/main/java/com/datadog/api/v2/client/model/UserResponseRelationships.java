@@ -45,7 +45,7 @@ public class UserResponseRelationships {
   }
 
   /**
-   * Get org
+   * Relationship to an organization.
    *
    * @return org
    */
@@ -67,7 +67,7 @@ public class UserResponseRelationships {
   }
 
   /**
-   * Get otherOrgs
+   * Relationship to organizations.
    *
    * @return otherOrgs
    */
@@ -89,7 +89,7 @@ public class UserResponseRelationships {
   }
 
   /**
-   * Get otherUsers
+   * Relationship to users.
    *
    * @return otherUsers
    */
@@ -111,7 +111,7 @@ public class UserResponseRelationships {
   }
 
   /**
-   * Get roles
+   * Relationship to roles.
    *
    * @return roles
    */

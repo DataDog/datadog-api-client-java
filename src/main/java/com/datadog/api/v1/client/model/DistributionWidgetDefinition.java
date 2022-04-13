@@ -203,7 +203,7 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -246,7 +246,7 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -292,7 +292,7 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the distribution widget.
    *
    * @return type
    */
@@ -316,7 +316,7 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Get xaxis
+   * X Axis controls for the distribution widget.
    *
    * @return xaxis
    */
@@ -338,7 +338,7 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Get yaxis
+   * Y Axis controls for the distribution widget.
    *
    * @return yaxis
    */

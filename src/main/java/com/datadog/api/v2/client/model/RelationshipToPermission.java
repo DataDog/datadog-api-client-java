@@ -31,7 +31,7 @@ public class RelationshipToPermission {
   }
 
   /**
-   * Get data
+   * Relationship to permission object.
    *
    * @return data
    */

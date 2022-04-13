@@ -156,9 +156,6 @@ public class IncidentsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createIncident");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -256,7 +253,7 @@ public class IncidentsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -296,9 +293,6 @@ public class IncidentsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteIncident");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -308,7 +302,7 @@ public class IncidentsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -359,7 +353,7 @@ public class IncidentsApi {
   /**
    * Get the details of an incident
    *
-   * <p>See {@link #getIncidentWithHttpInfo}.
+   * <p>See {@link #getIncidentWithHttpInfoAsync}.
    *
    * @param incidentId The UUID of the incident. (required)
    * @return CompletableFuture&lt;IncidentResponse&gt;
@@ -500,9 +494,6 @@ public class IncidentsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIncident");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -587,7 +578,7 @@ public class IncidentsApi {
   /**
    * Get a list of incidents
    *
-   * <p>See {@link #listIncidentsWithHttpInfo}.
+   * <p>See {@link #listIncidentsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;IncidentsResponse&gt;
    */
@@ -710,9 +701,6 @@ public class IncidentsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listIncidents");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -776,7 +764,7 @@ public class IncidentsApi {
   /**
    * Update an existing incident
    *
-   * <p>See {@link #updateIncidentWithHttpInfo}.
+   * <p>See {@link #updateIncidentWithHttpInfoAsync}.
    *
    * @param incidentId The UUID of the incident. (required)
    * @param body Incident Payload. (required)
@@ -940,9 +928,6 @@ public class IncidentsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateIncident");
 
     Invocation.Builder builder;
     try {

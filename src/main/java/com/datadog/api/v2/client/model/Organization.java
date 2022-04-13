@@ -51,7 +51,7 @@ public class Organization {
   }
 
   /**
-   * Get attributes
+   * Attributes of the organization.
    *
    * @return attributes
    */
@@ -94,7 +94,7 @@ public class Organization {
   }
 
   /**
-   * Get type
+   * Organizations resource type.
    *
    * @return type
    */

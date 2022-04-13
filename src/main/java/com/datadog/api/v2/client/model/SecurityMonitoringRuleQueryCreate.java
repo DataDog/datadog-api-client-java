@@ -65,7 +65,7 @@ public class SecurityMonitoringRuleQueryCreate {
   }
 
   /**
-   * Get aggregation
+   * The aggregation type.
    *
    * @return aggregation
    */

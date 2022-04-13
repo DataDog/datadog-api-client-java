@@ -92,7 +92,7 @@ public class LogsArchiveDestinationAzure {
   }
 
   /**
-   * Get integration
+   * The Azure archive&#39;s integration destination.
    *
    * @return integration
    */
@@ -175,7 +175,7 @@ public class LogsArchiveDestinationAzure {
   }
 
   /**
-   * Get type
+   * Type of the Azure archive destination.
    *
    * @return type
    */

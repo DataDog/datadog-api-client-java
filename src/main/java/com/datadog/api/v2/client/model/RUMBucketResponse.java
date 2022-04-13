@@ -96,9 +96,9 @@ public class RUMBucketResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMBucketResponse ruMBucketResponse = (RUMBucketResponse) o;
-    return Objects.equals(this.by, ruMBucketResponse.by)
-        && Objects.equals(this.computes, ruMBucketResponse.computes);
+    RUMBucketResponse rumBucketResponse = (RUMBucketResponse) o;
+    return Objects.equals(this.by, rumBucketResponse.by)
+        && Objects.equals(this.computes, rumBucketResponse.computes);
   }
 
   @Override

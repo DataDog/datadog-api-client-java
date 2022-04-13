@@ -92,7 +92,7 @@ public class MonitorFormulaAndFunctionEventQueryGroupBy {
   }
 
   /**
-   * Get sort
+   * Options for sorting group by results.
    *
    * @return sort
    */

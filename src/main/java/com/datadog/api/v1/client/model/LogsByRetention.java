@@ -43,7 +43,7 @@ public class LogsByRetention {
   }
 
   /**
-   * Get orgs
+   * Indexed logs usage summary for each organization for each retention period with usage.
    *
    * @return orgs
    */
@@ -98,7 +98,7 @@ public class LogsByRetention {
   }
 
   /**
-   * Get usageByMonth
+   * Object containing a summary of indexed logs usage by retention period for a single month.
    *
    * @return usageByMonth
    */

@@ -109,7 +109,9 @@ public class EventCreateRequest {
   }
 
   /**
-   * Get alertType
+   * If an alert event is enabled, set its type. For example, &#x60;error&#x60;,
+   * &#x60;warning&#x60;, &#x60;info&#x60;, &#x60;success&#x60;, &#x60;user_update&#x60;,
+   * &#x60;recommendation&#x60;, and &#x60;snapshot&#x60;.
    *
    * @return alertType
    */
@@ -198,7 +200,7 @@ public class EventCreateRequest {
   }
 
   /**
-   * Get priority
+   * The priority of the event. For example, &#x60;normal&#x60; or &#x60;low&#x60;.
    *
    * @return priority
    */
@@ -306,8 +308,8 @@ public class EventCreateRequest {
 
   /**
    * The body of the event. Limited to 4000 characters. The text supports markdown. To use markdown
-   * in the event text, start the text block with &#x60;%%% \\n&#x60; and end the text block with
-   * &#x60;\\n %%%&#x60;. Use &#x60;msg_text&#x60; with the Datadog Ruby library.
+   * in the event text, start the text block with &#x60;%%% \n&#x60; and end the text block with
+   * &#x60;\n %%%&#x60;. Use &#x60;msg_text&#x60; with the Datadog Ruby library.
    *
    * @return text
    */

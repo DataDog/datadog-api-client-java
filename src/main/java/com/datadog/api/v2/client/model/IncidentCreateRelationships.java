@@ -42,7 +42,7 @@ public class IncidentCreateRelationships {
   }
 
   /**
-   * Get commanderUser
+   * Relationship to user.
    *
    * @return commanderUser
    */

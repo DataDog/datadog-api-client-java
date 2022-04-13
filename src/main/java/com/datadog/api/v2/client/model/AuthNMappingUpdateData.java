@@ -57,7 +57,7 @@ public class AuthNMappingUpdateData {
   }
 
   /**
-   * Get attributes
+   * Key/Value pair of attributes used for update request.
    *
    * @return attributes
    */
@@ -99,7 +99,7 @@ public class AuthNMappingUpdateData {
   }
 
   /**
-   * Get relationships
+   * Relationship of AuthN Mapping update object to Role.
    *
    * @return relationships
    */
@@ -121,7 +121,7 @@ public class AuthNMappingUpdateData {
   }
 
   /**
-   * Get type
+   * AuthN Mappings resource type.
    *
    * @return type
    */

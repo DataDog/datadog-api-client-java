@@ -41,7 +41,7 @@ public class NotebookRelativeTime {
   }
 
   /**
-   * Get liveSpan
+   * The available timeframes depend on the widget you are using.
    *
    * @return liveSpan
    */

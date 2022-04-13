@@ -79,7 +79,7 @@ public class SecurityMonitoringSignalsListResponse {
   }
 
   /**
-   * Get links
+   * Links attributes.
    *
    * @return links
    */
@@ -102,7 +102,7 @@ public class SecurityMonitoringSignalsListResponse {
   }
 
   /**
-   * Get meta
+   * Meta attributes.
    *
    * @return meta
    */

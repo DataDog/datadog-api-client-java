@@ -191,7 +191,7 @@ public class ApmStatsQueryDefinition {
   }
 
   /**
-   * Get rowType
+   * The level of detail for the request.
    *
    * @return rowType
    */

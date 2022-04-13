@@ -94,7 +94,7 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * Get metadata
+   * Metadata associated with the notebook.
    *
    * @return metadata
    */
@@ -136,7 +136,7 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * Get status
+   * Publication status of the notebook. For now, always &quot;published&quot;.
    *
    * @return status
    */
@@ -161,7 +161,7 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * Get time
+   * Notebook global timeframe.
    *
    * @return time
    */

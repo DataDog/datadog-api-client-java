@@ -55,7 +55,7 @@ public class ListStreamQuery {
   }
 
   /**
-   * Get dataSource
+   * Source from which to query items to display in the stream.
    *
    * @return dataSource
    */

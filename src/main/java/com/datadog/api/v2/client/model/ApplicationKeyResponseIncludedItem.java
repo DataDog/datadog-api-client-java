@@ -197,19 +197,19 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public ApplicationKeyResponseIncludedItem(Role o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public ApplicationKeyResponseIncludedItem(User o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
+  public ApplicationKeyResponseIncludedItem(Role o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
-    schemas.put("Role", new GenericType<Role>() {});
     schemas.put("User", new GenericType<User>() {});
+    schemas.put("Role", new GenericType<Role>() {});
     JSON.registerDescendants(
         ApplicationKeyResponseIncludedItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -221,19 +221,18 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: Role, User
+   * against the oneOf child schemas: User, Role
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(Role.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(User.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(User.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(Role.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -242,28 +241,17 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be Role, User");
+    throw new RuntimeException("Invalid instance type. Must be User, Role");
   }
 
   /**
-   * Get the actual instance, which can be the following: Role, User
+   * Get the actual instance, which can be the following: User, Role
    *
-   * @return The actual instance (Role, User)
+   * @return The actual instance (User, Role)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `Role`. If the actual instance is not `Role`, the ClassCastException
-   * will be thrown.
-   *
-   * @return The actual instance of `Role`
-   * @throws ClassCastException if the instance is not `Role`
-   */
-  public Role getRole() throws ClassCastException {
-    return (Role) super.getActualInstance();
   }
 
   /**
@@ -275,5 +263,16 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
    */
   public User getUser() throws ClassCastException {
     return (User) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `Role`. If the actual instance is not `Role`, the ClassCastException
+   * will be thrown.
+   *
+   * @return The actual instance of `Role`
+   * @throws ClassCastException if the instance is not `Role`
+   */
+  public Role getRole() throws ClassCastException {
+    return (Role) super.getActualInstance();
   }
 }

@@ -54,7 +54,7 @@ public class MetricTagConfigurationCreateData {
   }
 
   /**
-   * Get attributes
+   * Object containing the definition of a metric tag configuration to be created.
    *
    * @return attributes
    */
@@ -96,7 +96,7 @@ public class MetricTagConfigurationCreateData {
   }
 
   /**
-   * Get type
+   * The metric tag configuration resource type.
    *
    * @return type
    */

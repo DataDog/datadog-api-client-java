@@ -31,7 +31,7 @@ public class MetricVolumesResponse {
   }
 
   /**
-   * Get data
+   * Possible response objects for a metric&#39;s volume.
    *
    * @return data
    */

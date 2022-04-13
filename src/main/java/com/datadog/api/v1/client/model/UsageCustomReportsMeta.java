@@ -31,7 +31,7 @@ public class UsageCustomReportsMeta {
   }
 
   /**
-   * Get page
+   * The object containing page total count.
    *
    * @return page
    */

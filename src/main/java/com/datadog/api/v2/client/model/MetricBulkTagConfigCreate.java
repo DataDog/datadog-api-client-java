@@ -53,7 +53,7 @@ public class MetricBulkTagConfigCreate {
   }
 
   /**
-   * Get attributes
+   * Optional parameters for bulk creating metric tag configurations.
    *
    * @return attributes
    */
@@ -95,7 +95,7 @@ public class MetricBulkTagConfigCreate {
   }
 
   /**
-   * Get type
+   * The metric bulk configure tags resource.
    *
    * @return type
    */

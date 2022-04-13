@@ -45,7 +45,7 @@ public class RUMSearchEventsRequest {
   }
 
   /**
-   * Get filter
+   * The search and filter query settings.
    *
    * @return filter
    */
@@ -67,7 +67,8 @@ public class RUMSearchEventsRequest {
   }
 
   /**
-   * Get options
+   * Global query options that are used during the query. Note: Only supply timezone or time offset,
+   * not both. Otherwise, the query fails.
    *
    * @return options
    */
@@ -89,7 +90,7 @@ public class RUMSearchEventsRequest {
   }
 
   /**
-   * Get page
+   * Paging attributes for listing events.
    *
    * @return page
    */
@@ -111,7 +112,7 @@ public class RUMSearchEventsRequest {
   }
 
   /**
-   * Get sort
+   * Sort parameters when querying events.
    *
    * @return sort
    */
@@ -138,11 +139,11 @@ public class RUMSearchEventsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMSearchEventsRequest ruMSearchEventsRequest = (RUMSearchEventsRequest) o;
-    return Objects.equals(this.filter, ruMSearchEventsRequest.filter)
-        && Objects.equals(this.options, ruMSearchEventsRequest.options)
-        && Objects.equals(this.page, ruMSearchEventsRequest.page)
-        && Objects.equals(this.sort, ruMSearchEventsRequest.sort);
+    RUMSearchEventsRequest rumSearchEventsRequest = (RUMSearchEventsRequest) o;
+    return Objects.equals(this.filter, rumSearchEventsRequest.filter)
+        && Objects.equals(this.options, rumSearchEventsRequest.options)
+        && Objects.equals(this.page, rumSearchEventsRequest.page)
+        && Objects.equals(this.sort, rumSearchEventsRequest.sort);
   }
 
   @Override

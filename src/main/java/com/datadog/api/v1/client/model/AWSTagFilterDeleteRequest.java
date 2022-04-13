@@ -58,7 +58,7 @@ public class AWSTagFilterDeleteRequest {
   }
 
   /**
-   * Get namespace
+   * The namespace associated with the tag filter entry.
    *
    * @return namespace
    */
@@ -85,9 +85,9 @@ public class AWSTagFilterDeleteRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSTagFilterDeleteRequest awSTagFilterDeleteRequest = (AWSTagFilterDeleteRequest) o;
-    return Objects.equals(this.accountId, awSTagFilterDeleteRequest.accountId)
-        && Objects.equals(this.namespace, awSTagFilterDeleteRequest.namespace);
+    AWSTagFilterDeleteRequest awsTagFilterDeleteRequest = (AWSTagFilterDeleteRequest) o;
+    return Objects.equals(this.accountId, awsTagFilterDeleteRequest.accountId)
+        && Objects.equals(this.namespace, awsTagFilterDeleteRequest.namespace);
   }
 
   @Override

@@ -37,7 +37,7 @@ public class SyntheticsCIBatchMetadataCI {
   }
 
   /**
-   * Get pipeline
+   * Description of the CI pipeline.
    *
    * @return pipeline
    */
@@ -59,7 +59,7 @@ public class SyntheticsCIBatchMetadataCI {
   }
 
   /**
-   * Get provider
+   * Description of the CI provider.
    *
    * @return provider
    */
@@ -83,9 +83,9 @@ public class SyntheticsCIBatchMetadataCI {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCIBatchMetadataCI syntheticsCIBatchMetadataCI = (SyntheticsCIBatchMetadataCI) o;
-    return Objects.equals(this.pipeline, syntheticsCIBatchMetadataCI.pipeline)
-        && Objects.equals(this.provider, syntheticsCIBatchMetadataCI.provider);
+    SyntheticsCIBatchMetadataCI syntheticsCiBatchMetadataCi = (SyntheticsCIBatchMetadataCI) o;
+    return Objects.equals(this.pipeline, syntheticsCiBatchMetadataCi.pipeline)
+        && Objects.equals(this.provider, syntheticsCiBatchMetadataCi.provider);
   }
 
   @Override

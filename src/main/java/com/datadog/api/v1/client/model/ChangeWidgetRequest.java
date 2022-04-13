@@ -103,7 +103,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get apmQuery
+   * The log query.
    *
    * @return apmQuery
    */
@@ -125,7 +125,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get changeType
+   * Show the absolute or the relative change.
    *
    * @return changeType
    */
@@ -150,7 +150,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get compareTo
+   * Timeframe used for the change comparison.
    *
    * @return compareTo
    */
@@ -175,7 +175,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get eventQuery
+   * The log query.
    *
    * @return eventQuery
    */
@@ -251,7 +251,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get logQuery
+   * The log query.
    *
    * @return logQuery
    */
@@ -273,7 +273,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get networkQuery
+   * The log query.
    *
    * @return networkQuery
    */
@@ -295,7 +295,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get orderBy
+   * What to order by.
    *
    * @return orderBy
    */
@@ -320,7 +320,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get orderDir
+   * Widget sorting methods.
    *
    * @return orderDir
    */
@@ -345,7 +345,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get processQuery
+   * The process query to use in the widget.
    *
    * @return processQuery
    */
@@ -367,7 +367,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get profileMetricsQuery
+   * The log query.
    *
    * @return profileMetricsQuery
    */
@@ -443,7 +443,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get responseFormat
+   * Timeseries or Scalar response.
    *
    * @return responseFormat
    */
@@ -468,7 +468,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get rumQuery
+   * The log query.
    *
    * @return rumQuery
    */
@@ -490,7 +490,7 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Get securityQuery
+   * The log query.
    *
    * @return securityQuery
    */

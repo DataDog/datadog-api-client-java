@@ -176,7 +176,7 @@ public class ServiceMapWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -222,7 +222,7 @@ public class ServiceMapWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the service map widget.
    *
    * @return type
    */

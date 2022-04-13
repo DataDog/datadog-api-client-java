@@ -132,7 +132,7 @@ public class LogsMessageRemapper {
   }
 
   /**
-   * Get type
+   * Type of logs message remapper.
    *
    * @return type
    */

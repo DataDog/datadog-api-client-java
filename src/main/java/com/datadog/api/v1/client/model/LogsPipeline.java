@@ -71,7 +71,7 @@ public class LogsPipeline {
   }
 
   /**
-   * Get filter
+   * Filter for logs.
    *
    * @return filter
    */

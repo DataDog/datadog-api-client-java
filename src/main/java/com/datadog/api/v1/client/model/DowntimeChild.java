@@ -346,7 +346,7 @@ public class DowntimeChild {
   }
 
   /**
-   * Get recurrence
+   * An object defining the recurrence of the downtime.
    *
    * @return recurrence
    */

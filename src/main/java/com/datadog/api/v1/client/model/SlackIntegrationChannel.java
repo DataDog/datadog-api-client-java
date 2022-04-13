@@ -37,7 +37,7 @@ public class SlackIntegrationChannel {
   }
 
   /**
-   * Get display
+   * Configuration options for what is shown in an alert event message.
    *
    * @return display
    */

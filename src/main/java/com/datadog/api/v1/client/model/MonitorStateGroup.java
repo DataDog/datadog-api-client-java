@@ -151,14 +151,8 @@ public class MonitorStateGroup {
     this.name = name;
   }
 
-  public MonitorStateGroup status(MonitorOverallStates status) {
-    this.status = status;
-    this.unparsed |= !status.isValid();
-    return this;
-  }
-
   /**
-   * Get status
+   * The different states your monitor can be in.
    *
    * @return status
    */
@@ -167,13 +161,6 @@ public class MonitorStateGroup {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getStatus() {
     return status;
-  }
-
-  public void setStatus(MonitorOverallStates status) {
-    if (!status.isValid()) {
-      this.unparsed = true;
-    }
-    this.status = status;
   }
 
   /** Return true if this MonitorStateGroup object is equal to o. */

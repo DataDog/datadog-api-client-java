@@ -56,7 +56,7 @@ public class MetricBulkTagConfigStatus {
   }
 
   /**
-   * Get attributes
+   * Optional attributes for the status of a bulk tag configuration request.
    *
    * @return attributes
    */
@@ -98,7 +98,7 @@ public class MetricBulkTagConfigStatus {
   }
 
   /**
-   * Get type
+   * The metric bulk configure tags resource.
    *
    * @return type
    */

@@ -157,7 +157,7 @@ public class CheckStatusWidgetDefinition {
   }
 
   /**
-   * Get grouping
+   * The kind of grouping to use.
    *
    * @return grouping
    */
@@ -210,7 +210,7 @@ public class CheckStatusWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -253,7 +253,7 @@ public class CheckStatusWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -299,7 +299,7 @@ public class CheckStatusWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the check status widget.
    *
    * @return type
    */

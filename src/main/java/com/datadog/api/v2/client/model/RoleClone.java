@@ -48,7 +48,7 @@ public class RoleClone {
   }
 
   /**
-   * Get attributes
+   * Attributes required to create a new role by cloning an existing one.
    *
    * @return attributes
    */
@@ -69,7 +69,7 @@ public class RoleClone {
   }
 
   /**
-   * Get type
+   * Roles type.
    *
    * @return type
    */

@@ -42,7 +42,7 @@ public class SecurityMonitoringSignalListRequest {
   }
 
   /**
-   * Get filter
+   * Search filters for listing security signals.
    *
    * @return filter
    */
@@ -64,7 +64,7 @@ public class SecurityMonitoringSignalListRequest {
   }
 
   /**
-   * Get page
+   * The paging attributes for listing security signals.
    *
    * @return page
    */
@@ -86,7 +86,7 @@ public class SecurityMonitoringSignalListRequest {
   }
 
   /**
-   * Get sort
+   * The sort parameters used for querying security signals.
    *
    * @return sort
    */

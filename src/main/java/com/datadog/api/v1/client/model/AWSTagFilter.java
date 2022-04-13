@@ -37,7 +37,7 @@ public class AWSTagFilter {
   }
 
   /**
-   * Get namespace
+   * The namespace associated with the tag filter entry.
    *
    * @return namespace
    */
@@ -85,9 +85,9 @@ public class AWSTagFilter {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSTagFilter awSTagFilter = (AWSTagFilter) o;
-    return Objects.equals(this.namespace, awSTagFilter.namespace)
-        && Objects.equals(this.tagFilterStr, awSTagFilter.tagFilterStr);
+    AWSTagFilter awsTagFilter = (AWSTagFilter) o;
+    return Objects.equals(this.namespace, awsTagFilter.namespace)
+        && Objects.equals(this.tagFilterStr, awsTagFilter.tagFilterStr);
   }
 
   @Override

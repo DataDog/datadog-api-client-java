@@ -179,13 +179,13 @@ public class SyntheticsTriggerCITestsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTriggerCITestsResponse syntheticsTriggerCITestsResponse =
+    SyntheticsTriggerCITestsResponse syntheticsTriggerCiTestsResponse =
         (SyntheticsTriggerCITestsResponse) o;
-    return Objects.equals(this.batchId, syntheticsTriggerCITestsResponse.batchId)
-        && Objects.equals(this.locations, syntheticsTriggerCITestsResponse.locations)
-        && Objects.equals(this.results, syntheticsTriggerCITestsResponse.results)
+    return Objects.equals(this.batchId, syntheticsTriggerCiTestsResponse.batchId)
+        && Objects.equals(this.locations, syntheticsTriggerCiTestsResponse.locations)
+        && Objects.equals(this.results, syntheticsTriggerCiTestsResponse.results)
         && Objects.equals(
-            this.triggeredCheckIds, syntheticsTriggerCITestsResponse.triggeredCheckIds);
+            this.triggeredCheckIds, syntheticsTriggerCiTestsResponse.triggeredCheckIds);
   }
 
   @Override

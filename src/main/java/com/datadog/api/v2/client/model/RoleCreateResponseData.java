@@ -55,7 +55,7 @@ public class RoleCreateResponseData {
   }
 
   /**
-   * Get attributes
+   * Attributes of the created role.
    *
    * @return attributes
    */
@@ -98,7 +98,7 @@ public class RoleCreateResponseData {
   }
 
   /**
-   * Get relationships
+   * Relationships of the role object returned by the API.
    *
    * @return relationships
    */
@@ -120,7 +120,7 @@ public class RoleCreateResponseData {
   }
 
   /**
-   * Get type
+   * Roles type.
    *
    * @return type
    */

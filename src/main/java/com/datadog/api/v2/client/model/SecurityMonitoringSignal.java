@@ -41,7 +41,7 @@ public class SecurityMonitoringSignal {
   }
 
   /**
-   * Get attributes
+   * The object containing all signal attributes and their associated values.
    *
    * @return attributes
    */
@@ -84,7 +84,7 @@ public class SecurityMonitoringSignal {
   }
 
   /**
-   * Get type
+   * The type of event.
    *
    * @return type
    */

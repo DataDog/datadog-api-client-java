@@ -54,7 +54,7 @@ public class MetricTagConfigurationUpdateData {
   }
 
   /**
-   * Get attributes
+   * Object containing the definition of a metric tag configuration to be updated.
    *
    * @return attributes
    */
@@ -96,7 +96,7 @@ public class MetricTagConfigurationUpdateData {
   }
 
   /**
-   * Get type
+   * The metric tag configuration resource type.
    *
    * @return type
    */

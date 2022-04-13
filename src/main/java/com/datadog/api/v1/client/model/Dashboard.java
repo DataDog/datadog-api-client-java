@@ -234,7 +234,7 @@ public class Dashboard {
   }
 
   /**
-   * Get layoutType
+   * Layout type of the dashboard.
    *
    * @return layoutType
    */
@@ -313,7 +313,9 @@ public class Dashboard {
   }
 
   /**
-   * Get reflowType
+   * Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is
+   * &#39;ordered&#39;. If set to &#39;fixed&#39;, the dashboard expects all widgets to have a
+   * layout, and if it&#39;s set to &#39;auto&#39;, widgets should not have layouts.
    *
    * @return reflowType
    */

@@ -41,7 +41,7 @@ public class UserUpdateRequest {
   }
 
   /**
-   * Get data
+   * Object to update a user.
    *
    * @return data
    */

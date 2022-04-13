@@ -151,7 +151,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get requests
+   * Widget definition.
    *
    * @return requests
    */
@@ -172,7 +172,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -215,7 +215,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -261,7 +261,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the scatter plot widget.
    *
    * @return type
    */
@@ -285,7 +285,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get xaxis
+   * Axis controls for the widget.
    *
    * @return xaxis
    */
@@ -307,7 +307,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get yaxis
+   * Axis controls for the widget.
    *
    * @return yaxis
    */

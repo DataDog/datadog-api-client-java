@@ -42,7 +42,7 @@ public class UsageSpecifiedCustomReportsData {
   }
 
   /**
-   * Get attributes
+   * The response containing attributes for specified custom reports.
    *
    * @return attributes
    */
@@ -85,7 +85,7 @@ public class UsageSpecifiedCustomReportsData {
   }
 
   /**
-   * Get type
+   * The type of reports.
    *
    * @return type
    */

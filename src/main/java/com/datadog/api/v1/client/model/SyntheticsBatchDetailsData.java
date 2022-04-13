@@ -43,7 +43,7 @@ public class SyntheticsBatchDetailsData {
   }
 
   /**
-   * Get metadata
+   * Metadata for the Synthetics tests run.
    *
    * @return metadata
    */
@@ -98,7 +98,7 @@ public class SyntheticsBatchDetailsData {
   }
 
   /**
-   * Get status
+   * Determines whether or not the batch has passed, failed, or is in progress.
    *
    * @return status
    */

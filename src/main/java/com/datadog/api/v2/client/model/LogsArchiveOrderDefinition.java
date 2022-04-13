@@ -52,7 +52,7 @@ public class LogsArchiveOrderDefinition {
   }
 
   /**
-   * Get attributes
+   * The attributes associated with the archive order.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class LogsArchiveOrderDefinition {
   }
 
   /**
-   * Get type
+   * Type of the archive order definition.
    *
    * @return type
    */

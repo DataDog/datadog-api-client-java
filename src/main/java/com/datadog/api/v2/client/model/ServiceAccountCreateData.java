@@ -55,7 +55,7 @@ public class ServiceAccountCreateData {
   }
 
   /**
-   * Get attributes
+   * Attributes of the created user.
    *
    * @return attributes
    */
@@ -76,7 +76,7 @@ public class ServiceAccountCreateData {
   }
 
   /**
-   * Get relationships
+   * Relationships of the user object.
    *
    * @return relationships
    */
@@ -98,7 +98,7 @@ public class ServiceAccountCreateData {
   }
 
   /**
-   * Get type
+   * Users resource type.
    *
    * @return type
    */

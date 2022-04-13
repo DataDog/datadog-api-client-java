@@ -69,7 +69,7 @@ public class DashboardBulkActionData {
   }
 
   /**
-   * Get type
+   * Dashboard resource type.
    *
    * @return type
    */

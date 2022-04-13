@@ -54,8 +54,8 @@ public class AWSAccountCreateResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSAccountCreateResponse awSAccountCreateResponse = (AWSAccountCreateResponse) o;
-    return Objects.equals(this.externalId, awSAccountCreateResponse.externalId);
+    AWSAccountCreateResponse awsAccountCreateResponse = (AWSAccountCreateResponse) o;
+    return Objects.equals(this.externalId, awsAccountCreateResponse.externalId);
   }
 
   @Override

@@ -72,7 +72,7 @@ public class SecurityFiltersResponse {
   }
 
   /**
-   * Get meta
+   * Optional metadata associated to the response.
    *
    * @return meta
    */

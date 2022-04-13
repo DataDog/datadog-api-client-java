@@ -114,7 +114,7 @@ public class EventTimelineWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -157,7 +157,7 @@ public class EventTimelineWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -203,7 +203,7 @@ public class EventTimelineWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the event timeline widget.
    *
    * @return type
    */

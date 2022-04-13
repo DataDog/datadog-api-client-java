@@ -100,7 +100,7 @@ public class FunnelWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -143,7 +143,7 @@ public class FunnelWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -189,7 +189,7 @@ public class FunnelWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of funnel widget.
    *
    * @return type
    */

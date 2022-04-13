@@ -69,7 +69,7 @@ public class RelationshipToIncidentPostmortemData {
   }
 
   /**
-   * Get type
+   * Incident postmortem resource type.
    *
    * @return type
    */

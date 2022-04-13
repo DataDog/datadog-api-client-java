@@ -45,7 +45,7 @@ public class AuditLogsSearchEventsRequest {
   }
 
   /**
-   * Get filter
+   * Search and filter query settings.
    *
    * @return filter
    */
@@ -67,7 +67,8 @@ public class AuditLogsSearchEventsRequest {
   }
 
   /**
-   * Get options
+   * Global query options that are used during the query. Note: Specify either timezone or time
+   * offset, not both. Otherwise, the query fails.
    *
    * @return options
    */
@@ -89,7 +90,7 @@ public class AuditLogsSearchEventsRequest {
   }
 
   /**
-   * Get page
+   * Paging attributes for listing events.
    *
    * @return page
    */
@@ -111,7 +112,7 @@ public class AuditLogsSearchEventsRequest {
   }
 
   /**
-   * Get sort
+   * Sort parameters when querying events.
    *
    * @return sort
    */

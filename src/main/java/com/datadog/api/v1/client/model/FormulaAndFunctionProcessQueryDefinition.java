@@ -83,7 +83,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   /**
-   * Get aggregator
+   * The aggregation methods available for metrics queries.
    *
    * @return aggregator
    */
@@ -109,7 +109,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   /**
-   * Get dataSource
+   * Data sources that rely on the process backend.
    *
    * @return dataSource
    */
@@ -215,7 +215,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   /**
-   * Get sort
+   * Direction of sort.
    *
    * @return sort
    */

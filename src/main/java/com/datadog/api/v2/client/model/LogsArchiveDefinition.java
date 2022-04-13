@@ -50,7 +50,7 @@ public class LogsArchiveDefinition {
   }
 
   /**
-   * Get attributes
+   * The attributes associated with the archive.
    *
    * @return attributes
    */

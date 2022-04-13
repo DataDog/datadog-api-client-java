@@ -41,7 +41,7 @@ public class ApplicationKeyUpdateRequest {
   }
 
   /**
-   * Get data
+   * Object used to update an application key.
    *
    * @return data
    */

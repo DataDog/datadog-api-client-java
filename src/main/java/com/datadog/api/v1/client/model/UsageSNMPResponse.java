@@ -68,8 +68,8 @@ public class UsageSNMPResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSNMPResponse usageSNMPResponse = (UsageSNMPResponse) o;
-    return Objects.equals(this.usage, usageSNMPResponse.usage);
+    UsageSNMPResponse usageSnmpResponse = (UsageSNMPResponse) o;
+    return Objects.equals(this.usage, usageSnmpResponse.usage);
   }
 
   @Override

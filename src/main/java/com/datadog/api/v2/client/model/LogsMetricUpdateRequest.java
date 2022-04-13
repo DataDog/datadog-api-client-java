@@ -41,7 +41,7 @@ public class LogsMetricUpdateRequest {
   }
 
   /**
-   * Get data
+   * The new log-based metric properties.
    *
    * @return data
    */

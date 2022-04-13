@@ -80,7 +80,7 @@ public class WidgetConditionalFormat {
   }
 
   /**
-   * Get comparator
+   * Comparator to apply.
    *
    * @return comparator
    */
@@ -209,7 +209,7 @@ public class WidgetConditionalFormat {
   }
 
   /**
-   * Get palette
+   * Color palette to apply.
    *
    * @return palette
    */

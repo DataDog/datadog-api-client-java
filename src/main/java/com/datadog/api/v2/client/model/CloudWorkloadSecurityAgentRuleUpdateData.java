@@ -53,7 +53,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateData {
   }
 
   /**
-   * Get attributes
+   * Update an existing Cloud Workload Security Agent rule.
    *
    * @return attributes
    */
@@ -74,7 +74,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateData {
   }
 
   /**
-   * Get type
+   * The type of the resource. The value should always be &#x60;agent_rule&#x60;.
    *
    * @return type
    */

@@ -57,7 +57,7 @@ public class IncidentUpdateData {
   }
 
   /**
-   * Get attributes
+   * The incident&#39;s attributes for an update request.
    *
    * @return attributes
    */
@@ -99,7 +99,7 @@ public class IncidentUpdateData {
   }
 
   /**
-   * Get relationships
+   * The incident&#39;s relationships for an update request.
    *
    * @return relationships
    */
@@ -121,7 +121,7 @@ public class IncidentUpdateData {
   }
 
   /**
-   * Get type
+   * Incident resource type.
    *
    * @return type
    */

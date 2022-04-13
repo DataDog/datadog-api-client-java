@@ -159,9 +159,6 @@ public class AwsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAWSAccount");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -307,9 +304,6 @@ public class AwsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAWSTagFilter");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -451,9 +445,6 @@ public class AwsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createNewAWSExternalID");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -588,9 +579,6 @@ public class AwsIntegrationApi {
     String localVarPath = "/api/v1/integration/aws";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAWSAccount");
 
     Invocation.Builder builder;
     try {
@@ -729,9 +717,6 @@ public class AwsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAWSTagFilter");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -757,6 +742,119 @@ public class AwsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Object>() {});
+  }
+
+  /**
+   * List namespace rules
+   *
+   * <p>See {@link #listAvailableAWSNamespacesWithHttpInfo}.
+   *
+   * @return List&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<String> listAvailableAWSNamespaces() throws ApiException {
+    return listAvailableAWSNamespacesWithHttpInfo().getData();
+  }
+
+  /**
+   * List namespace rules
+   *
+   * <p>See {@link #listAvailableAWSNamespacesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;List&lt;String&gt;&gt;
+   */
+  public CompletableFuture<List<String>> listAvailableAWSNamespacesAsync() {
+    return listAvailableAWSNamespacesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List namespace rules
+   *
+   * <p>List all namespace rules for a given Datadog-AWS integration. This endpoint takes no
+   * arguments.
+   *
+   * @return ApiResponse&lt;List&lt;String&gt;&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/available_namespace_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "AwsIntegrationApi.listAvailableAWSNamespaces",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<String>>() {});
+  }
+
+  /**
+   * List namespace rules
+   *
+   * <p>See {@link #listAvailableAWSNamespacesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;String&gt;&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<List<String>>>
+      listAvailableAWSNamespacesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/available_namespace_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "AwsIntegrationApi.listAvailableAWSNamespaces",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<List<String>>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<String>>() {});
   }
 
   /** Manage optional parameters to listAWSAccounts. */
@@ -816,7 +914,7 @@ public class AwsIntegrationApi {
   /**
    * List all AWS integrations
    *
-   * <p>See {@link #listAWSAccountsWithHttpInfo}.
+   * <p>See {@link #listAWSAccountsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;AWSAccountListResponse&gt;
    */
@@ -936,9 +1034,6 @@ public class AwsIntegrationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "role_name", roleName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_key_id", accessKeyId));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSAccounts");
 
     Invocation.Builder builder;
     try {
@@ -1079,9 +1174,6 @@ public class AwsIntegrationApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSTagFilters");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1107,122 +1199,6 @@ public class AwsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AWSTagFilterListResponse>() {});
-  }
-
-  /**
-   * List namespace rules
-   *
-   * <p>See {@link #listAvailableAWSNamespacesWithHttpInfo}.
-   *
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> listAvailableAWSNamespaces() throws ApiException {
-    return listAvailableAWSNamespacesWithHttpInfo().getData();
-  }
-
-  /**
-   * List namespace rules
-   *
-   * <p>See {@link #listAvailableAWSNamespacesWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;List&lt;String&gt;&gt;
-   */
-  public CompletableFuture<List<String>> listAvailableAWSNamespacesAsync() {
-    return listAvailableAWSNamespacesWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * List namespace rules
-   *
-   * <p>List all namespace rules for a given Datadog-AWS integration. This endpoint takes no
-   * arguments.
-   *
-   * @return ApiResponse&lt;List&lt;String&gt;&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    // create path and map variables
-    String localVarPath = "/api/v1/integration/aws/available_namespace_rules";
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "AwsIntegrationApi.listAvailableAWSNamespaces",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<List<String>>() {});
-  }
-
-  /**
-   * List namespace rules
-   *
-   * <p>See {@link #listAvailableAWSNamespacesWithHttpInfo}.
-   *
-   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;String&gt;&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<List<String>>>
-      listAvailableAWSNamespacesWithHttpInfoAsync() {
-    Object localVarPostBody = null;
-    // create path and map variables
-    String localVarPath = "/api/v1/integration/aws/available_namespace_rules";
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAvailableAWSNamespaces");
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "AwsIntegrationApi.listAvailableAWSNamespaces",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<List<String>>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<List<String>>() {});
   }
 
   /** Manage optional parameters to updateAWSAccount. */
@@ -1284,7 +1260,7 @@ public class AwsIntegrationApi {
   /**
    * Update an AWS integration
    *
-   * <p>See {@link #updateAWSAccountWithHttpInfo}.
+   * <p>See {@link #updateAWSAccountWithHttpInfoAsync}.
    *
    * @param body AWS request object (required)
    * @return CompletableFuture&lt;Object&gt;
@@ -1425,9 +1401,6 @@ public class AwsIntegrationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "role_name", roleName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_key_id", accessKeyId));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateAWSAccount");
 
     Invocation.Builder builder;
     try {

@@ -73,7 +73,7 @@ public class DistributionWidgetRequest {
   }
 
   /**
-   * Get apmQuery
+   * The log query.
    *
    * @return apmQuery
    */
@@ -95,7 +95,7 @@ public class DistributionWidgetRequest {
   }
 
   /**
-   * Get apmStatsQuery
+   * The APM stats query for table and distributions widgets.
    *
    * @return apmStatsQuery
    */
@@ -117,7 +117,7 @@ public class DistributionWidgetRequest {
   }
 
   /**
-   * Get eventQuery
+   * The log query.
    *
    * @return eventQuery
    */
@@ -139,7 +139,7 @@ public class DistributionWidgetRequest {
   }
 
   /**
-   * Get logQuery
+   * The log query.
    *
    * @return logQuery
    */
@@ -161,7 +161,7 @@ public class DistributionWidgetRequest {
   }
 
   /**
-   * Get networkQuery
+   * The log query.
    *
    * @return networkQuery
    */
@@ -183,7 +183,7 @@ public class DistributionWidgetRequest {
   }
 
   /**
-   * Get processQuery
+   * The process query to use in the widget.
    *
    * @return processQuery
    */
@@ -205,7 +205,7 @@ public class DistributionWidgetRequest {
   }
 
   /**
-   * Get profileMetricsQuery
+   * The log query.
    *
    * @return profileMetricsQuery
    */
@@ -248,7 +248,7 @@ public class DistributionWidgetRequest {
   }
 
   /**
-   * Get rumQuery
+   * The log query.
    *
    * @return rumQuery
    */
@@ -270,7 +270,7 @@ public class DistributionWidgetRequest {
   }
 
   /**
-   * Get securityQuery
+   * The log query.
    *
    * @return securityQuery
    */
@@ -292,7 +292,7 @@ public class DistributionWidgetRequest {
   }
 
   /**
-   * Get style
+   * Widget style definition.
    *
    * @return style
    */

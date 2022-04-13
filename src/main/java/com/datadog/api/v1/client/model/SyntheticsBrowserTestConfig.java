@@ -128,7 +128,7 @@ public class SyntheticsBrowserTestConfig {
   }
 
   /**
-   * Get request
+   * Object describing the Synthetic test request.
    *
    * @return request
    */

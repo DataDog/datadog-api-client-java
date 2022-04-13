@@ -182,7 +182,7 @@ public class LogsStringBuilderProcessor {
   }
 
   /**
-   * Get type
+   * Type of logs string builder processor.
    *
    * @return type
    */

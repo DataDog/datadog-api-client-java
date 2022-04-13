@@ -68,8 +68,8 @@ public class UsageCIVisibilityResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageCIVisibilityResponse usageCIVisibilityResponse = (UsageCIVisibilityResponse) o;
-    return Objects.equals(this.usage, usageCIVisibilityResponse.usage);
+    UsageCIVisibilityResponse usageCiVisibilityResponse = (UsageCIVisibilityResponse) o;
+    return Objects.equals(this.usage, usageCiVisibilityResponse.usage);
   }
 
   @Override

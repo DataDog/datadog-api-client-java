@@ -88,7 +88,7 @@ public class ListStreamWidgetRequest {
   }
 
   /**
-   * Get query
+   * Updated list stream widget.
    *
    * @return query
    */
@@ -109,7 +109,7 @@ public class ListStreamWidgetRequest {
   }
 
   /**
-   * Get responseFormat
+   * Widget response format.
    *
    * @return responseFormat
    */

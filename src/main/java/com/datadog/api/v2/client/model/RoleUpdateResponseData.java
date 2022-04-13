@@ -55,7 +55,7 @@ public class RoleUpdateResponseData {
   }
 
   /**
-   * Get attributes
+   * Attributes of the role.
    *
    * @return attributes
    */
@@ -98,7 +98,7 @@ public class RoleUpdateResponseData {
   }
 
   /**
-   * Get relationships
+   * Relationships of the role object returned by the API.
    *
    * @return relationships
    */
@@ -120,7 +120,7 @@ public class RoleUpdateResponseData {
   }
 
   /**
-   * Get type
+   * Roles type.
    *
    * @return type
    */

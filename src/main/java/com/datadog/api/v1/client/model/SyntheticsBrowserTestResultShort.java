@@ -91,7 +91,7 @@ public class SyntheticsBrowserTestResultShort {
   }
 
   /**
-   * Get result
+   * Object with the result of the last browser test run.
    *
    * @return result
    */
@@ -134,7 +134,8 @@ public class SyntheticsBrowserTestResultShort {
   }
 
   /**
-   * Get status
+   * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for
+   * triggered * &#x60;2&#x60; for no data
    *
    * @return status
    */

@@ -55,8 +55,8 @@ public class RUMResponsePage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMResponsePage ruMResponsePage = (RUMResponsePage) o;
-    return Objects.equals(this.after, ruMResponsePage.after);
+    RUMResponsePage rumResponsePage = (RUMResponsePage) o;
+    return Objects.equals(this.after, rumResponsePage.after);
   }
 
   @Override

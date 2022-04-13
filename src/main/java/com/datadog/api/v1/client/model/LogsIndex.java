@@ -123,7 +123,7 @@ public class LogsIndex {
   }
 
   /**
-   * Get filter
+   * Filter for logs.
    *
    * @return filter
    */

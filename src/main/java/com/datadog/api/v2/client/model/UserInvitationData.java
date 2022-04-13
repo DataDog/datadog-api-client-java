@@ -51,7 +51,7 @@ public class UserInvitationData {
   }
 
   /**
-   * Get relationships
+   * Relationships data for user invitation.
    *
    * @return relationships
    */
@@ -72,7 +72,7 @@ public class UserInvitationData {
   }
 
   /**
-   * Get type
+   * User invitations type.
    *
    * @return type
    */

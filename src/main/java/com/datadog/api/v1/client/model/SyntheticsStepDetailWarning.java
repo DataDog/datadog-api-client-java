@@ -69,7 +69,7 @@ public class SyntheticsStepDetailWarning {
   }
 
   /**
-   * Get type
+   * User locator used.
    *
    * @return type
    */

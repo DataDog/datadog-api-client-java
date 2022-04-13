@@ -69,8 +69,8 @@ public class APIErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIErrorResponse apIErrorResponse = (APIErrorResponse) o;
-    return Objects.equals(this.errors, apIErrorResponse.errors);
+    APIErrorResponse apiErrorResponse = (APIErrorResponse) o;
+    return Objects.equals(this.errors, apiErrorResponse.errors);
   }
 
   @Override

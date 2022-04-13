@@ -95,9 +95,9 @@ public class AWSLogsAsyncResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSLogsAsyncResponse awSLogsAsyncResponse = (AWSLogsAsyncResponse) o;
-    return Objects.equals(this.errors, awSLogsAsyncResponse.errors)
-        && Objects.equals(this.status, awSLogsAsyncResponse.status);
+    AWSLogsAsyncResponse awsLogsAsyncResponse = (AWSLogsAsyncResponse) o;
+    return Objects.equals(this.errors, awsLogsAsyncResponse.errors)
+        && Objects.equals(this.status, awsLogsAsyncResponse.status);
   }
 
   @Override

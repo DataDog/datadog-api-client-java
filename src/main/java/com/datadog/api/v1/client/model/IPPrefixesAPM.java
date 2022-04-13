@@ -99,9 +99,9 @@ public class IPPrefixesAPM {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IPPrefixesAPM ipPrefixesAPM = (IPPrefixesAPM) o;
-    return Objects.equals(this.prefixesIpv4, ipPrefixesAPM.prefixesIpv4)
-        && Objects.equals(this.prefixesIpv6, ipPrefixesAPM.prefixesIpv6);
+    IPPrefixesAPM ipPrefixesApm = (IPPrefixesAPM) o;
+    return Objects.equals(this.prefixesIpv4, ipPrefixesApm.prefixesIpv4)
+        && Objects.equals(this.prefixesIpv6, ipPrefixesApm.prefixesIpv6);
   }
 
   @Override

@@ -128,8 +128,8 @@ public class LogsLookupProcessor {
 
   /**
    * Mapping table of values for the source attribute and their associated target attribute values,
-   * formatted as &#x60;[\&quot;source_key1,target_value1\&quot;,
-   * \&quot;source_key2,target_value2\&quot;]&#x60;
+   * formatted as &#x60;[&quot;source_key1,target_value1&quot;,
+   * &quot;source_key2,target_value2&quot;]&#x60;
    *
    * @return lookupTable
    */
@@ -212,7 +212,7 @@ public class LogsLookupProcessor {
   }
 
   /**
-   * Get type
+   * Type of logs lookup processor.
    *
    * @return type
    */

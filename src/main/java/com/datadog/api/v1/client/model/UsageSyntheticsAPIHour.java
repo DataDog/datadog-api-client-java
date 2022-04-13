@@ -132,11 +132,11 @@ public class UsageSyntheticsAPIHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSyntheticsAPIHour usageSyntheticsAPIHour = (UsageSyntheticsAPIHour) o;
-    return Objects.equals(this.checkCallsCount, usageSyntheticsAPIHour.checkCallsCount)
-        && Objects.equals(this.hour, usageSyntheticsAPIHour.hour)
-        && Objects.equals(this.orgName, usageSyntheticsAPIHour.orgName)
-        && Objects.equals(this.publicId, usageSyntheticsAPIHour.publicId);
+    UsageSyntheticsAPIHour usageSyntheticsApiHour = (UsageSyntheticsAPIHour) o;
+    return Objects.equals(this.checkCallsCount, usageSyntheticsApiHour.checkCallsCount)
+        && Objects.equals(this.hour, usageSyntheticsApiHour.hour)
+        && Objects.equals(this.orgName, usageSyntheticsApiHour.orgName)
+        && Objects.equals(this.publicId, usageSyntheticsApiHour.publicId);
   }
 
   @Override

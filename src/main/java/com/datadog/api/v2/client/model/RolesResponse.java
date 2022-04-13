@@ -69,7 +69,7 @@ public class RolesResponse {
   }
 
   /**
-   * Get meta
+   * Object describing meta attributes of response.
    *
    * @return meta
    */

@@ -127,7 +127,7 @@ public class LogsArchivesApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
@@ -177,9 +177,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "addReadRoleToArchive");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -189,7 +186,7 @@ public class LogsArchivesApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -313,9 +310,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createLogsArchive");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -411,7 +405,7 @@ public class LogsArchivesApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -450,9 +444,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteLogsArchive");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -462,7 +453,7 @@ public class LogsArchivesApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -590,9 +581,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsArchive");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -703,9 +691,6 @@ public class LogsArchivesApi {
     String localVarPath = "/api/v2/logs/config/archive-order";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsArchiveOrder");
 
     Invocation.Builder builder;
     try {
@@ -845,9 +830,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listArchiveReadRoles");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -959,9 +941,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLogsArchives");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1068,7 +1047,7 @@ public class LogsArchivesApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -1119,9 +1098,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "removeRoleFromArchive");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1131,7 +1107,7 @@ public class LogsArchivesApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -1283,9 +1259,6 @@ public class LogsArchivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsArchive");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1422,9 +1395,6 @@ public class LogsArchivesApi {
     String localVarPath = "/api/v2/logs/config/archive-order";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsArchiveOrder");
 
     Invocation.Builder builder;
     try {

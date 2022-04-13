@@ -354,7 +354,7 @@ public class SecurityMonitoringRuleResponse {
   }
 
   /**
-   * Get options
+   * Options on rules.
    *
    * @return options
    */
@@ -438,7 +438,7 @@ public class SecurityMonitoringRuleResponse {
   }
 
   /**
-   * Get type
+   * The rule type.
    *
    * @return type
    */

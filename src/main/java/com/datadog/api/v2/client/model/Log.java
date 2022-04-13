@@ -37,7 +37,7 @@ public class Log {
   }
 
   /**
-   * Get attributes
+   * JSON object containing all log attributes and their associated values.
    *
    * @return attributes
    */
@@ -80,7 +80,7 @@ public class Log {
   }
 
   /**
-   * Get type
+   * Type of the event.
    *
    * @return type
    */

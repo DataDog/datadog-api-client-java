@@ -31,7 +31,7 @@ public class MetricAllTagsResponse {
   }
 
   /**
-   * Get data
+   * Object for a single metric&#39;s indexed tags.
    *
    * @return data
    */

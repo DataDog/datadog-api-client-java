@@ -45,7 +45,7 @@ public class PartialApplicationKey {
   }
 
   /**
-   * Get attributes
+   * Attributes of a partial application key.
    *
    * @return attributes
    */
@@ -88,7 +88,7 @@ public class PartialApplicationKey {
   }
 
   /**
-   * Get relationships
+   * Resources related to the application key.
    *
    * @return relationships
    */
@@ -110,7 +110,7 @@ public class PartialApplicationKey {
   }
 
   /**
-   * Get type
+   * Application Keys resource type.
    *
    * @return type
    */

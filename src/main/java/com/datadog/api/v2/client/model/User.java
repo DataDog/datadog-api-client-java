@@ -45,7 +45,7 @@ public class User {
   }
 
   /**
-   * Get attributes
+   * Attributes of user object returned by the API.
    *
    * @return attributes
    */
@@ -88,7 +88,7 @@ public class User {
   }
 
   /**
-   * Get relationships
+   * Relationships of the user object returned by the API.
    *
    * @return relationships
    */
@@ -110,7 +110,7 @@ public class User {
   }
 
   /**
-   * Get type
+   * Users resource type.
    *
    * @return type
    */

@@ -94,7 +94,7 @@ public class LogQueryDefinitionGroupBySort {
   }
 
   /**
-   * Get order
+   * Widget sorting methods.
    *
    * @return order
    */

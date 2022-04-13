@@ -121,7 +121,7 @@ public class SyntheticsBrowserTestResultData {
   }
 
   /**
-   * Get device
+   * Object describing the device used to perform the Synthetic test.
    *
    * @return device
    */
@@ -185,7 +185,7 @@ public class SyntheticsBrowserTestResultData {
   }
 
   /**
-   * Get failure
+   * The browser test failure details.
    *
    * @return failure
    */

@@ -209,7 +209,7 @@ public class UsageBillableSummaryHour {
   }
 
   /**
-   * Get usage
+   * Response with aggregated usage types.
    *
    * @return usage
    */

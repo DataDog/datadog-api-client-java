@@ -41,7 +41,7 @@ public class MetricBulkTagConfigDeleteRequest {
   }
 
   /**
-   * Get data
+   * Request object to bulk delete all tag configurations for metrics matching the given prefix.
    *
    * @return data
    */

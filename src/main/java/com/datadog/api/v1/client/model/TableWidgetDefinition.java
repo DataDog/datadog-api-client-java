@@ -112,7 +112,7 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * Get hasSearchBar
+   * Controls the display of the search bar.
    *
    * @return hasSearchBar
    */
@@ -166,7 +166,7 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -209,7 +209,7 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -255,7 +255,7 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the table widget.
    *
    * @return type
    */

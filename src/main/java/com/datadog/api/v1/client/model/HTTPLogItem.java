@@ -172,12 +172,12 @@ public class HTTPLogItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HTTPLogItem htTPLogItem = (HTTPLogItem) o;
-    return Objects.equals(this.ddsource, htTPLogItem.ddsource)
-        && Objects.equals(this.ddtags, htTPLogItem.ddtags)
-        && Objects.equals(this.hostname, htTPLogItem.hostname)
-        && Objects.equals(this.message, htTPLogItem.message)
-        && Objects.equals(this.service, htTPLogItem.service);
+    HTTPLogItem httpLogItem = (HTTPLogItem) o;
+    return Objects.equals(this.ddsource, httpLogItem.ddsource)
+        && Objects.equals(this.ddtags, httpLogItem.ddtags)
+        && Objects.equals(this.hostname, httpLogItem.hostname)
+        && Objects.equals(this.message, httpLogItem.message)
+        && Objects.equals(this.service, httpLogItem.service);
   }
 
   @Override

@@ -31,7 +31,7 @@ public class UserRelationships {
   }
 
   /**
-   * Get roles
+   * Relationship to roles.
    *
    * @return roles
    */

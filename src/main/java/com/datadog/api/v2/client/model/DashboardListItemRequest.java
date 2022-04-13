@@ -69,7 +69,7 @@ public class DashboardListItemRequest {
   }
 
   /**
-   * Get type
+   * The type of the dashboard.
    *
    * @return type
    */

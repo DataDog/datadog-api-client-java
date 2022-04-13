@@ -56,7 +56,7 @@ public class LogsCompute {
   }
 
   /**
-   * Get aggregation
+   * An aggregation function
    *
    * @return aggregation
    */
@@ -123,7 +123,7 @@ public class LogsCompute {
   }
 
   /**
-   * Get type
+   * The type of compute
    *
    * @return type
    */

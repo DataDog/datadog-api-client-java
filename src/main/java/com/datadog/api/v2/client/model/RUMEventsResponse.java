@@ -76,7 +76,7 @@ public class RUMEventsResponse {
   }
 
   /**
-   * Get links
+   * Links attributes.
    *
    * @return links
    */
@@ -98,7 +98,7 @@ public class RUMEventsResponse {
   }
 
   /**
-   * Get meta
+   * The metadata associated with a request.
    *
    * @return meta
    */
@@ -122,10 +122,10 @@ public class RUMEventsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMEventsResponse ruMEventsResponse = (RUMEventsResponse) o;
-    return Objects.equals(this.data, ruMEventsResponse.data)
-        && Objects.equals(this.links, ruMEventsResponse.links)
-        && Objects.equals(this.meta, ruMEventsResponse.meta);
+    RUMEventsResponse rumEventsResponse = (RUMEventsResponse) o;
+    return Objects.equals(this.data, rumEventsResponse.data)
+        && Objects.equals(this.links, rumEventsResponse.links)
+        && Objects.equals(this.meta, rumEventsResponse.meta);
   }
 
   @Override

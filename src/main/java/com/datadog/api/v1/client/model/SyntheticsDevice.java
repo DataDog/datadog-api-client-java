@@ -85,7 +85,7 @@ public class SyntheticsDevice {
   }
 
   /**
-   * Get id
+   * The device ID.
    *
    * @return id
    */

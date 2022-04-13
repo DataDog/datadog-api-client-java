@@ -37,7 +37,7 @@ public class SyntheticsCIBatchMetadata {
   }
 
   /**
-   * Get ci
+   * Description of the CI provider.
    *
    * @return ci
    */
@@ -59,7 +59,7 @@ public class SyntheticsCIBatchMetadata {
   }
 
   /**
-   * Get git
+   * Git information.
    *
    * @return git
    */
@@ -83,9 +83,9 @@ public class SyntheticsCIBatchMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCIBatchMetadata syntheticsCIBatchMetadata = (SyntheticsCIBatchMetadata) o;
-    return Objects.equals(this.ci, syntheticsCIBatchMetadata.ci)
-        && Objects.equals(this.git, syntheticsCIBatchMetadata.git);
+    SyntheticsCIBatchMetadata syntheticsCiBatchMetadata = (SyntheticsCIBatchMetadata) o;
+    return Objects.equals(this.ci, syntheticsCiBatchMetadata.ci)
+        && Objects.equals(this.git, syntheticsCiBatchMetadata.git);
   }
 
   @Override

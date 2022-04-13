@@ -31,7 +31,7 @@ public class OrganizationResponse {
   }
 
   /**
-   * Get org
+   * Create, edit, and manage organizations.
    *
    * @return org
    */

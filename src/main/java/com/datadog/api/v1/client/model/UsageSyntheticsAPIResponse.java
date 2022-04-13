@@ -71,8 +71,8 @@ public class UsageSyntheticsAPIResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSyntheticsAPIResponse usageSyntheticsAPIResponse = (UsageSyntheticsAPIResponse) o;
-    return Objects.equals(this.usage, usageSyntheticsAPIResponse.usage);
+    UsageSyntheticsAPIResponse usageSyntheticsApiResponse = (UsageSyntheticsAPIResponse) o;
+    return Objects.equals(this.usage, usageSyntheticsApiResponse.usage);
   }
 
   @Override

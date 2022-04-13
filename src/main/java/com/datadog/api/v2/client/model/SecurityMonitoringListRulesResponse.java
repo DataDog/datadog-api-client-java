@@ -72,7 +72,7 @@ public class SecurityMonitoringListRulesResponse {
   }
 
   /**
-   * Get meta
+   * Object describing meta attributes of response.
    *
    * @return meta
    */

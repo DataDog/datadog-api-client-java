@@ -87,7 +87,7 @@ public class SyntheticsParsingOptions {
   }
 
   /**
-   * Get parser
+   * Details of the parser to use for the global variable.
    *
    * @return parser
    */
@@ -109,7 +109,7 @@ public class SyntheticsParsingOptions {
   }
 
   /**
-   * Get type
+   * Property of the Synthetics Test Response to use for a Synthetics global variable.
    *
    * @return type
    */

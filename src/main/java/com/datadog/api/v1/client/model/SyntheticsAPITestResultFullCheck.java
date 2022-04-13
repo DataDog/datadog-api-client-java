@@ -41,7 +41,7 @@ public class SyntheticsAPITestResultFullCheck {
   }
 
   /**
-   * Get config
+   * Configuration object for a Synthetic test.
    *
    * @return config
    */
@@ -64,9 +64,9 @@ public class SyntheticsAPITestResultFullCheck {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITestResultFullCheck syntheticsAPITestResultFullCheck =
+    SyntheticsAPITestResultFullCheck syntheticsApiTestResultFullCheck =
         (SyntheticsAPITestResultFullCheck) o;
-    return Objects.equals(this.config, syntheticsAPITestResultFullCheck.config);
+    return Objects.equals(this.config, syntheticsApiTestResultFullCheck.config);
   }
 
   @Override

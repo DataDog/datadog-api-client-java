@@ -72,8 +72,8 @@ public class LogsListRequestTime {
   }
 
   /**
-   * Timezone can be specified both as an offset (for example \&quot;UTC+03:00\&quot;) or a regional
-   * zone (for example \&quot;Europe/Paris\&quot;).
+   * Timezone can be specified both as an offset (for example &quot;UTC+03:00&quot;) or a regional
+   * zone (for example &quot;Europe/Paris&quot;).
    *
    * @return timezone
    */

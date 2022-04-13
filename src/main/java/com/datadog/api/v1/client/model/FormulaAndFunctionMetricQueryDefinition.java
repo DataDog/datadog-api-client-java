@@ -61,7 +61,7 @@ public class FormulaAndFunctionMetricQueryDefinition {
   }
 
   /**
-   * Get aggregator
+   * The aggregation methods available for metrics queries.
    *
    * @return aggregator
    */
@@ -87,7 +87,7 @@ public class FormulaAndFunctionMetricQueryDefinition {
   }
 
   /**
-   * Get dataSource
+   * Data source for metrics queries.
    *
    * @return dataSource
    */

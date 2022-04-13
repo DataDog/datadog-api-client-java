@@ -81,7 +81,7 @@ public class WidgetFormula {
   }
 
   /**
-   * Get cellDisplayMode
+   * Define a display mode for the table cell.
    *
    * @return cellDisplayMode
    */
@@ -159,7 +159,7 @@ public class WidgetFormula {
   }
 
   /**
-   * Get limit
+   * Options for limiting results returned.
    *
    * @return limit
    */

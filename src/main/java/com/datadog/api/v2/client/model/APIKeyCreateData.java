@@ -48,7 +48,7 @@ public class APIKeyCreateData {
   }
 
   /**
-   * Get attributes
+   * Attributes used to create an API Key.
    *
    * @return attributes
    */
@@ -69,7 +69,7 @@ public class APIKeyCreateData {
   }
 
   /**
-   * Get type
+   * API Keys resource type.
    *
    * @return type
    */
@@ -95,9 +95,9 @@ public class APIKeyCreateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyCreateData apIKeyCreateData = (APIKeyCreateData) o;
-    return Objects.equals(this.attributes, apIKeyCreateData.attributes)
-        && Objects.equals(this.type, apIKeyCreateData.type);
+    APIKeyCreateData apiKeyCreateData = (APIKeyCreateData) o;
+    return Objects.equals(this.attributes, apiKeyCreateData.attributes)
+        && Objects.equals(this.type, apiKeyCreateData.type);
   }
 
   @Override

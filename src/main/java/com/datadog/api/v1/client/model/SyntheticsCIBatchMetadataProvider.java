@@ -54,9 +54,9 @@ public class SyntheticsCIBatchMetadataProvider {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCIBatchMetadataProvider syntheticsCIBatchMetadataProvider =
+    SyntheticsCIBatchMetadataProvider syntheticsCiBatchMetadataProvider =
         (SyntheticsCIBatchMetadataProvider) o;
-    return Objects.equals(this.name, syntheticsCIBatchMetadataProvider.name);
+    return Objects.equals(this.name, syntheticsCiBatchMetadataProvider.name);
   }
 
   @Override

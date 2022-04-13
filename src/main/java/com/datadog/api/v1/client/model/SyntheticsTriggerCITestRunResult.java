@@ -45,7 +45,7 @@ public class SyntheticsTriggerCITestRunResult {
   }
 
   /**
-   * Get device
+   * The device ID.
    *
    * @return device
    */
@@ -135,12 +135,12 @@ public class SyntheticsTriggerCITestRunResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTriggerCITestRunResult syntheticsTriggerCITestRunResult =
+    SyntheticsTriggerCITestRunResult syntheticsTriggerCiTestRunResult =
         (SyntheticsTriggerCITestRunResult) o;
-    return Objects.equals(this.device, syntheticsTriggerCITestRunResult.device)
-        && Objects.equals(this.location, syntheticsTriggerCITestRunResult.location)
-        && Objects.equals(this.publicId, syntheticsTriggerCITestRunResult.publicId)
-        && Objects.equals(this.resultId, syntheticsTriggerCITestRunResult.resultId);
+    return Objects.equals(this.device, syntheticsTriggerCiTestRunResult.device)
+        && Objects.equals(this.location, syntheticsTriggerCiTestRunResult.location)
+        && Objects.equals(this.publicId, syntheticsTriggerCiTestRunResult.publicId)
+        && Objects.equals(this.resultId, syntheticsTriggerCiTestRunResult.resultId);
   }
 
   @Override

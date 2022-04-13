@@ -83,9 +83,9 @@ public class SLOListResponseMetadataPage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOListResponseMetadataPage slOListResponseMetadataPage = (SLOListResponseMetadataPage) o;
-    return Objects.equals(this.totalCount, slOListResponseMetadataPage.totalCount)
-        && Objects.equals(this.totalFilteredCount, slOListResponseMetadataPage.totalFilteredCount);
+    SLOListResponseMetadataPage sloListResponseMetadataPage = (SLOListResponseMetadataPage) o;
+    return Objects.equals(this.totalCount, sloListResponseMetadataPage.totalCount)
+        && Objects.equals(this.totalFilteredCount, sloListResponseMetadataPage.totalFilteredCount);
   }
 
   @Override

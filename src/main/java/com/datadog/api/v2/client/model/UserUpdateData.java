@@ -57,7 +57,7 @@ public class UserUpdateData {
   }
 
   /**
-   * Get attributes
+   * Attributes of the edited user.
    *
    * @return attributes
    */
@@ -98,7 +98,7 @@ public class UserUpdateData {
   }
 
   /**
-   * Get type
+   * Users resource type.
    *
    * @return type
    */

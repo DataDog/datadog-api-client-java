@@ -31,7 +31,7 @@ public class ProcessSummariesMeta {
   }
 
   /**
-   * Get page
+   * Paging attributes.
    *
    * @return page
    */

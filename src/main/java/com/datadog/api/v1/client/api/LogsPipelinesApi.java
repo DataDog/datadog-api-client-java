@@ -151,9 +151,6 @@ public class LogsPipelinesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createLogsPipeline");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -249,7 +246,7 @@ public class LogsPipelinesApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -290,9 +287,6 @@ public class LogsPipelinesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteLogsPipeline");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -302,7 +296,7 @@ public class LogsPipelinesApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -432,9 +426,6 @@ public class LogsPipelinesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsPipeline");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -547,9 +538,6 @@ public class LogsPipelinesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsPipelineOrder");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -660,9 +648,6 @@ public class LogsPipelinesApi {
     String localVarPath = "/api/v1/logs/config/pipelines";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLogsPipelines");
 
     Invocation.Builder builder;
     try {
@@ -825,9 +810,6 @@ public class LogsPipelinesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsPipeline");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -965,9 +947,6 @@ public class LogsPipelinesApi {
     String localVarPath = "/api/v1/logs/config/pipeline-order";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsPipelineOrder");
 
     Invocation.Builder builder;
     try {

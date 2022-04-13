@@ -31,7 +31,7 @@ public class RoleResponseRelationships {
   }
 
   /**
-   * Get permissions
+   * Relationship to multiple permissions objects.
    *
    * @return permissions
    */

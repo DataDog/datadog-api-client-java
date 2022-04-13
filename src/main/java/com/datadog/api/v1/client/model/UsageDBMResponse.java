@@ -68,8 +68,8 @@ public class UsageDBMResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageDBMResponse usageDBMResponse = (UsageDBMResponse) o;
-    return Objects.equals(this.usage, usageDBMResponse.usage);
+    UsageDBMResponse usageDbmResponse = (UsageDBMResponse) o;
+    return Objects.equals(this.usage, usageDbmResponse.usage);
   }
 
   @Override

@@ -52,7 +52,7 @@ public class IFrameWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the iframe widget.
    *
    * @return type
    */
@@ -98,9 +98,9 @@ public class IFrameWidgetDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IFrameWidgetDefinition iframeWidgetDefinition = (IFrameWidgetDefinition) o;
-    return Objects.equals(this.type, iframeWidgetDefinition.type)
-        && Objects.equals(this.url, iframeWidgetDefinition.url);
+    IFrameWidgetDefinition iFrameWidgetDefinition = (IFrameWidgetDefinition) o;
+    return Objects.equals(this.type, iFrameWidgetDefinition.type)
+        && Objects.equals(this.url, iFrameWidgetDefinition.url);
   }
 
   @Override

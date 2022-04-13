@@ -57,7 +57,7 @@ public class ApplicationKeyUpdateData {
   }
 
   /**
-   * Get attributes
+   * Attributes used to update an application Key.
    *
    * @return attributes
    */
@@ -98,7 +98,7 @@ public class ApplicationKeyUpdateData {
   }
 
   /**
-   * Get type
+   * Application Keys resource type.
    *
    * @return type
    */

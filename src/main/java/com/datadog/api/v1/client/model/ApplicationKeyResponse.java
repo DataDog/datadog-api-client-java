@@ -31,7 +31,7 @@ public class ApplicationKeyResponse {
   }
 
   /**
-   * Get applicationKey
+   * An application key with its associated metadata.
    *
    * @return applicationKey
    */

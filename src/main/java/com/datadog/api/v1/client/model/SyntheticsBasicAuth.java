@@ -243,7 +243,7 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public SyntheticsBasicAuth(SyntheticsBasicAuthNTLM o) {
+  public SyntheticsBasicAuth(SyntheticsBasicAuthWeb o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -253,15 +253,15 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public SyntheticsBasicAuth(SyntheticsBasicAuthWeb o) {
+  public SyntheticsBasicAuth(SyntheticsBasicAuthNTLM o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
   static {
-    schemas.put("SyntheticsBasicAuthNTLM", new GenericType<SyntheticsBasicAuthNTLM>() {});
-    schemas.put("SyntheticsBasicAuthSigv4", new GenericType<SyntheticsBasicAuthSigv4>() {});
     schemas.put("SyntheticsBasicAuthWeb", new GenericType<SyntheticsBasicAuthWeb>() {});
+    schemas.put("SyntheticsBasicAuthSigv4", new GenericType<SyntheticsBasicAuthSigv4>() {});
+    schemas.put("SyntheticsBasicAuthNTLM", new GenericType<SyntheticsBasicAuthNTLM>() {});
     JSON.registerDescendants(SyntheticsBasicAuth.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -272,25 +272,23 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: SyntheticsBasicAuthNTLM, SyntheticsBasicAuthSigv4,
-   * SyntheticsBasicAuthWeb
+   * against the oneOf child schemas: SyntheticsBasicAuthWeb, SyntheticsBasicAuthSigv4,
+   * SyntheticsBasicAuthNTLM
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(SyntheticsBasicAuthNTLM.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(SyntheticsBasicAuthWeb.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(SyntheticsBasicAuthSigv4.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(SyntheticsBasicAuthWeb.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(SyntheticsBasicAuthNTLM.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -300,16 +298,16 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be SyntheticsBasicAuthNTLM, SyntheticsBasicAuthSigv4,"
-            + " SyntheticsBasicAuthWeb");
+        "Invalid instance type. Must be SyntheticsBasicAuthWeb, SyntheticsBasicAuthSigv4,"
+            + " SyntheticsBasicAuthNTLM");
   }
 
   /**
-   * Get the actual instance, which can be the following: SyntheticsBasicAuthNTLM,
-   * SyntheticsBasicAuthSigv4, SyntheticsBasicAuthWeb
+   * Get the actual instance, which can be the following: SyntheticsBasicAuthWeb,
+   * SyntheticsBasicAuthSigv4, SyntheticsBasicAuthNTLM
    *
-   * @return The actual instance (SyntheticsBasicAuthNTLM, SyntheticsBasicAuthSigv4,
-   *     SyntheticsBasicAuthWeb)
+   * @return The actual instance (SyntheticsBasicAuthWeb, SyntheticsBasicAuthSigv4,
+   *     SyntheticsBasicAuthNTLM)
    */
   @Override
   public Object getActualInstance() {
@@ -317,14 +315,14 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `SyntheticsBasicAuthNTLM`. If the actual instance is not
-   * `SyntheticsBasicAuthNTLM`, the ClassCastException will be thrown.
+   * Get the actual instance of `SyntheticsBasicAuthWeb`. If the actual instance is not
+   * `SyntheticsBasicAuthWeb`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `SyntheticsBasicAuthNTLM`
-   * @throws ClassCastException if the instance is not `SyntheticsBasicAuthNTLM`
+   * @return The actual instance of `SyntheticsBasicAuthWeb`
+   * @throws ClassCastException if the instance is not `SyntheticsBasicAuthWeb`
    */
-  public SyntheticsBasicAuthNTLM getSyntheticsBasicAuthNTLM() throws ClassCastException {
-    return (SyntheticsBasicAuthNTLM) super.getActualInstance();
+  public SyntheticsBasicAuthWeb getSyntheticsBasicAuthWeb() throws ClassCastException {
+    return (SyntheticsBasicAuthWeb) super.getActualInstance();
   }
 
   /**
@@ -339,13 +337,13 @@ public class SyntheticsBasicAuth extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `SyntheticsBasicAuthWeb`. If the actual instance is not
-   * `SyntheticsBasicAuthWeb`, the ClassCastException will be thrown.
+   * Get the actual instance of `SyntheticsBasicAuthNTLM`. If the actual instance is not
+   * `SyntheticsBasicAuthNTLM`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `SyntheticsBasicAuthWeb`
-   * @throws ClassCastException if the instance is not `SyntheticsBasicAuthWeb`
+   * @return The actual instance of `SyntheticsBasicAuthNTLM`
+   * @throws ClassCastException if the instance is not `SyntheticsBasicAuthNTLM`
    */
-  public SyntheticsBasicAuthWeb getSyntheticsBasicAuthWeb() throws ClassCastException {
-    return (SyntheticsBasicAuthWeb) super.getActualInstance();
+  public SyntheticsBasicAuthNTLM getSyntheticsBasicAuthNTLM() throws ClassCastException {
+    return (SyntheticsBasicAuthNTLM) super.getActualInstance();
   }
 }

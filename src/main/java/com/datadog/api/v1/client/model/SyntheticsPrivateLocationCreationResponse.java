@@ -67,7 +67,7 @@ public class SyntheticsPrivateLocationCreationResponse {
   }
 
   /**
-   * Get privateLocation
+   * Object containing information about the private location to create.
    *
    * @return privateLocation
    */
@@ -90,7 +90,7 @@ public class SyntheticsPrivateLocationCreationResponse {
   }
 
   /**
-   * Get resultEncryption
+   * Public key for the result encryption.
    *
    * @return resultEncryption
    */

@@ -96,7 +96,7 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -139,7 +139,7 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -185,7 +185,7 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the alert graph widget.
    *
    * @return type
    */
@@ -209,7 +209,7 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * Get vizType
+   * Whether to display the Alert Graph as a timeseries or a top list.
    *
    * @return vizType
    */

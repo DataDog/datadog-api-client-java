@@ -57,7 +57,8 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * Get definition
+   * The timeseries visualization allows you to display the evolution of one or more metrics, log
+   * events, or Indexed Spans over time.
    *
    * @return definition
    */
@@ -78,7 +79,7 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * Get graphSize
+   * The size of the graph.
    *
    * @return graphSize
    */
@@ -103,7 +104,7 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * Get splitBy
+   * Object describing how to split the graph to display multiple visualizations per request.
    *
    * @return splitBy
    */
@@ -124,7 +125,7 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * Get time
+   * Timeframe for the notebook cell. When &#39;null&#39;, the notebook global time is used.
    *
    * @return time
    */

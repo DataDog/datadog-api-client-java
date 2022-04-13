@@ -41,7 +41,7 @@ public class IncidentTeamUpdateRequest {
   }
 
   /**
-   * Get data
+   * Incident Team data for an update request.
    *
    * @return data
    */

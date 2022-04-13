@@ -39,7 +39,7 @@ public class ApplicationKeyResponse {
   }
 
   /**
-   * Get data
+   * Datadog application key.
    *
    * @return data
    */

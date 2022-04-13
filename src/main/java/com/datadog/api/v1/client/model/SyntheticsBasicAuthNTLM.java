@@ -101,7 +101,7 @@ public class SyntheticsBasicAuthNTLM {
   }
 
   /**
-   * Get type
+   * The type of authentication to use when performing the test.
    *
    * @return type
    */
@@ -169,12 +169,12 @@ public class SyntheticsBasicAuthNTLM {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsBasicAuthNTLM syntheticsBasicAuthNTLM = (SyntheticsBasicAuthNTLM) o;
-    return Objects.equals(this.domain, syntheticsBasicAuthNTLM.domain)
-        && Objects.equals(this.password, syntheticsBasicAuthNTLM.password)
-        && Objects.equals(this.type, syntheticsBasicAuthNTLM.type)
-        && Objects.equals(this.username, syntheticsBasicAuthNTLM.username)
-        && Objects.equals(this.workstation, syntheticsBasicAuthNTLM.workstation);
+    SyntheticsBasicAuthNTLM syntheticsBasicAuthNtlm = (SyntheticsBasicAuthNTLM) o;
+    return Objects.equals(this.domain, syntheticsBasicAuthNtlm.domain)
+        && Objects.equals(this.password, syntheticsBasicAuthNtlm.password)
+        && Objects.equals(this.type, syntheticsBasicAuthNtlm.type)
+        && Objects.equals(this.username, syntheticsBasicAuthNtlm.username)
+        && Objects.equals(this.workstation, syntheticsBasicAuthNtlm.workstation);
   }
 
   @Override

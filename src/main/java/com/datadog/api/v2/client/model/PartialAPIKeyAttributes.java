@@ -104,11 +104,11 @@ public class PartialAPIKeyAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PartialAPIKeyAttributes partialAPIKeyAttributes = (PartialAPIKeyAttributes) o;
-    return Objects.equals(this.createdAt, partialAPIKeyAttributes.createdAt)
-        && Objects.equals(this.last4, partialAPIKeyAttributes.last4)
-        && Objects.equals(this.modifiedAt, partialAPIKeyAttributes.modifiedAt)
-        && Objects.equals(this.name, partialAPIKeyAttributes.name);
+    PartialAPIKeyAttributes partialApiKeyAttributes = (PartialAPIKeyAttributes) o;
+    return Objects.equals(this.createdAt, partialApiKeyAttributes.createdAt)
+        && Objects.equals(this.last4, partialApiKeyAttributes.last4)
+        && Objects.equals(this.modifiedAt, partialApiKeyAttributes.modifiedAt)
+        && Objects.equals(this.name, partialApiKeyAttributes.name);
   }
 
   @Override

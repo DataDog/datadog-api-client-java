@@ -63,7 +63,7 @@ public class RUMEventAttributes {
    */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Object> getAttributes() {
     return attributes;
   }
@@ -153,11 +153,11 @@ public class RUMEventAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMEventAttributes ruMEventAttributes = (RUMEventAttributes) o;
-    return Objects.equals(this.attributes, ruMEventAttributes.attributes)
-        && Objects.equals(this.service, ruMEventAttributes.service)
-        && Objects.equals(this.tags, ruMEventAttributes.tags)
-        && Objects.equals(this.timestamp, ruMEventAttributes.timestamp);
+    RUMEventAttributes rumEventAttributes = (RUMEventAttributes) o;
+    return Objects.equals(this.attributes, rumEventAttributes.attributes)
+        && Objects.equals(this.service, rumEventAttributes.service)
+        && Objects.equals(this.tags, rumEventAttributes.tags)
+        && Objects.equals(this.timestamp, rumEventAttributes.timestamp);
   }
 
   @Override

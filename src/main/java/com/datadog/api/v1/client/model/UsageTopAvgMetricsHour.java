@@ -87,7 +87,7 @@ public class UsageTopAvgMetricsHour {
   }
 
   /**
-   * Get metricCategory
+   * Contains the metric category.
    *
    * @return metricCategory
    */

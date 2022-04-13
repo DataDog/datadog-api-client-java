@@ -123,7 +123,7 @@ public class GroupWidgetDefinition {
   }
 
   /**
-   * Get layoutType
+   * Layout type of the group.
    *
    * @return layoutType
    */
@@ -189,7 +189,7 @@ public class GroupWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -214,7 +214,7 @@ public class GroupWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the group widget.
    *
    * @return type
    */

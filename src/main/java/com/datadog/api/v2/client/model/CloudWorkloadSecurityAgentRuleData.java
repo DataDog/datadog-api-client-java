@@ -42,7 +42,7 @@ public class CloudWorkloadSecurityAgentRuleData {
   }
 
   /**
-   * Get attributes
+   * A Cloud Workload Security Agent rule returned by the API.
    *
    * @return attributes
    */
@@ -85,7 +85,7 @@ public class CloudWorkloadSecurityAgentRuleData {
   }
 
   /**
-   * Get type
+   * The type of the resource. The value should always be &#x60;agent_rule&#x60;.
    *
    * @return type
    */

@@ -43,7 +43,7 @@ public class CloudWorkloadSecurityAgentRuleCreateRequest {
   }
 
   /**
-   * Get data
+   * Object for a single Agent rule.
    *
    * @return data
    */

@@ -93,7 +93,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   }
 
   /**
-   * Get dataSource
+   * Data source for APM resource stats queries.
    *
    * @return dataSource
    */
@@ -294,7 +294,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   }
 
   /**
-   * Get stat
+   * APM resource stat name.
    *
    * @return stat
    */

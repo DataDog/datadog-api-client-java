@@ -152,9 +152,6 @@ public class EventsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createEvent");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -216,7 +213,7 @@ public class EventsApi {
    *
    * <p>This endpoint allows you to query for event details. **Note**: If the event you’re querying
    * contains markdown formatting of any kind, you may see characters such as
-   * &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.
+   * &#x60;%&#x60;,&#x60;\&#x60;,&#x60;n&#x60; in your output.
    *
    * @param eventId The ID of the event. (required)
    * @return ApiResponse&lt;EventResponse&gt;
@@ -289,9 +286,6 @@ public class EventsApi {
             .replaceAll("\\{" + "event_id" + "\\}", apiClient.escapeString(eventId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getEvent");
 
     Invocation.Builder builder;
     try {
@@ -425,7 +419,7 @@ public class EventsApi {
   /**
    * Query the event stream
    *
-   * <p>See {@link #listEventsWithHttpInfo}.
+   * <p>See {@link #listEventsWithHttpInfoAsync}.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
@@ -479,7 +473,7 @@ public class EventsApi {
    *
    * <p>The event stream can be queried and filtered by time, priority, sources and tags. **Notes**:
    * - If the event you’re querying contains markdown formatting of any kind, you may see characters
-   * such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. - This endpoint returns a
+   * such as &#x60;%&#x60;,&#x60;\&#x60;,&#x60;n&#x60; in your output. - This endpoint returns a
    * maximum of &#x60;1000&#x60; most recent results. To return additional results, identify the
    * last timestamp of the last result and set that as the &#x60;end&#x60; query time to paginate
    * the results. You can also use the page parameter to specify which set of &#x60;1000&#x60;
@@ -605,9 +599,6 @@ public class EventsApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "exclude_aggregate", excludeAggregate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listEvents");
 
     Invocation.Builder builder;
     try {

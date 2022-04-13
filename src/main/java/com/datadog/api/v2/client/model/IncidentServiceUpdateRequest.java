@@ -41,7 +41,7 @@ public class IncidentServiceUpdateRequest {
   }
 
   /**
-   * Get data
+   * Incident Service payload for update requests.
    *
    * @return data
    */

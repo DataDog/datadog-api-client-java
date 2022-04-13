@@ -139,7 +139,7 @@ public class AuditApi {
   /**
    * Get a list of Audit Logs events
    *
-   * <p>See {@link #listAuditLogsWithHttpInfo}.
+   * <p>See {@link #listAuditLogsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;AuditLogsEventsResponse&gt;
    */
@@ -274,9 +274,6 @@ public class AuditApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAuditLogs");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -335,7 +332,7 @@ public class AuditApi {
   /**
    * Search Audit Logs events
    *
-   * <p>See {@link #searchAuditLogsWithHttpInfo}.
+   * <p>See {@link #searchAuditLogsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;AuditLogsEventsResponse&gt;
    */
@@ -441,9 +438,6 @@ public class AuditApi {
     String localVarPath = "/api/v2/audit/events/search";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "searchAuditLogs");
 
     Invocation.Builder builder;
     try {

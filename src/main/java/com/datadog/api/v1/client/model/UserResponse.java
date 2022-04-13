@@ -31,7 +31,7 @@ public class UserResponse {
   }
 
   /**
-   * Get user
+   * Create, edit, and disable users.
    *
    * @return user
    */

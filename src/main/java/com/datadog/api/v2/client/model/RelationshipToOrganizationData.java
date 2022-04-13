@@ -69,7 +69,7 @@ public class RelationshipToOrganizationData {
   }
 
   /**
-   * Get type
+   * Organizations resource type.
    *
    * @return type
    */

@@ -35,14 +35,8 @@ public class MonitorSearchResponse {
   public static final String JSON_PROPERTY_MONITORS = "monitors";
   private List<MonitorSearchResult> monitors = null;
 
-  public MonitorSearchResponse counts(MonitorSearchResponseCounts counts) {
-    this.counts = counts;
-    this.unparsed |= counts.unparsed;
-    return this;
-  }
-
   /**
-   * Get counts
+   * The counts of monitors per different criteria.
    *
    * @return counts
    */
@@ -53,10 +47,6 @@ public class MonitorSearchResponse {
     return counts;
   }
 
-  public void setCounts(MonitorSearchResponseCounts counts) {
-    this.counts = counts;
-  }
-
   public MonitorSearchResponse metadata(MonitorSearchResponseMetadata metadata) {
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
@@ -64,7 +54,7 @@ public class MonitorSearchResponse {
   }
 
   /**
-   * Get metadata
+   * Metadata about the response.
    *
    * @return metadata
    */

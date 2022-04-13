@@ -73,7 +73,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
   }
 
   /**
-   * Get compute
+   * Compute options.
    *
    * @return compute
    */
@@ -95,7 +95,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
   }
 
   /**
-   * Get dataSource
+   * Data source for event platform-based queries.
    *
    * @return dataSource
    */
@@ -205,7 +205,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
   }
 
   /**
-   * Get search
+   * Search options.
    *
    * @return search
    */

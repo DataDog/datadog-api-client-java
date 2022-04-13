@@ -49,7 +49,7 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Get commanderUser
+   * Relationship to user.
    *
    * @return commanderUser
    */
@@ -71,7 +71,7 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Get createdByUser
+   * Relationship to user.
    *
    * @return createdByUser
    */
@@ -94,7 +94,7 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Get integrations
+   * A relationship reference for multiple integration metadata objects.
    *
    * @return integrations
    */
@@ -116,7 +116,7 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Get lastModifiedByUser
+   * Relationship to user.
    *
    * @return lastModifiedByUser
    */
@@ -138,7 +138,7 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Get postmortem
+   * A relationship reference for postmortems.
    *
    * @return postmortem
    */

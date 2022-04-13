@@ -156,7 +156,7 @@ public class LogsGeoIPParser {
   }
 
   /**
-   * Get type
+   * Type of GeoIP parser.
    *
    * @return type
    */
@@ -182,12 +182,12 @@ public class LogsGeoIPParser {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsGeoIPParser logsGeoIPParser = (LogsGeoIPParser) o;
-    return Objects.equals(this.isEnabled, logsGeoIPParser.isEnabled)
-        && Objects.equals(this.name, logsGeoIPParser.name)
-        && Objects.equals(this.sources, logsGeoIPParser.sources)
-        && Objects.equals(this.target, logsGeoIPParser.target)
-        && Objects.equals(this.type, logsGeoIPParser.type);
+    LogsGeoIPParser logsGeoIpParser = (LogsGeoIPParser) o;
+    return Objects.equals(this.isEnabled, logsGeoIpParser.isEnabled)
+        && Objects.equals(this.name, logsGeoIpParser.name)
+        && Objects.equals(this.sources, logsGeoIpParser.sources)
+        && Objects.equals(this.target, logsGeoIpParser.target)
+        && Objects.equals(this.type, logsGeoIpParser.type);
   }
 
   @Override

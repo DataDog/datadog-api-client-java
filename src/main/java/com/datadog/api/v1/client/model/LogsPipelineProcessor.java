@@ -67,7 +67,7 @@ public class LogsPipelineProcessor {
   }
 
   /**
-   * Get filter
+   * Filter for logs.
    *
    * @return filter
    */
@@ -164,7 +164,7 @@ public class LogsPipelineProcessor {
   }
 
   /**
-   * Get type
+   * Type of logs pipeline processor.
    *
    * @return type
    */

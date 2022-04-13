@@ -191,9 +191,6 @@ public class DashboardListsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createDashboardListItems");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -364,9 +361,6 @@ public class DashboardListsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteDashboardListItems");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -511,9 +505,6 @@ public class DashboardListsApi {
                 apiClient.escapeString(dashboardListId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getDashboardListItems");
 
     Invocation.Builder builder;
     try {
@@ -683,9 +674,6 @@ public class DashboardListsApi {
                 apiClient.escapeString(dashboardListId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateDashboardListItems");
 
     Invocation.Builder builder;
     try {

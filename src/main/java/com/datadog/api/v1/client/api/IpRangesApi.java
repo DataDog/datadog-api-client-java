@@ -126,9 +126,6 @@ public class IpRangesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIPRanges");
-
     Invocation.Builder builder;
     try {
       builder =

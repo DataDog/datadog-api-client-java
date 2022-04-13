@@ -139,7 +139,7 @@ public class MetricTagConfigurationAttributes {
   }
 
   /**
-   * Get metricType
+   * The metric&#39;s type.
    *
    * @return metricType
    */

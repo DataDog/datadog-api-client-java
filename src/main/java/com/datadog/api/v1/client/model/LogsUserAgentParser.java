@@ -181,7 +181,7 @@ public class LogsUserAgentParser {
   }
 
   /**
-   * Get type
+   * Type of logs User-Agent parser.
    *
    * @return type
    */

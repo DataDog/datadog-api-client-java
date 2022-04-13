@@ -68,8 +68,8 @@ public class UsageCWSResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageCWSResponse usageCWSResponse = (UsageCWSResponse) o;
-    return Objects.equals(this.usage, usageCWSResponse.usage);
+    UsageCWSResponse usageCwsResponse = (UsageCWSResponse) o;
+    return Objects.equals(this.usage, usageCwsResponse.usage);
   }
 
   @Override

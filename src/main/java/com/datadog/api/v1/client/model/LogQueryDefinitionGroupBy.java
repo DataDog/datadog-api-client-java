@@ -91,7 +91,7 @@ public class LogQueryDefinitionGroupBy {
   }
 
   /**
-   * Get sort
+   * Define a sorting method.
    *
    * @return sort
    */

@@ -159,7 +159,7 @@ public class SyntheticsStep {
   }
 
   /**
-   * Get type
+   * Step type used in your Synthetic test.
    *
    * @return type
    */

@@ -103,7 +103,7 @@ public class SecurityFilterCreateAttributes {
   }
 
   /**
-   * Get filteredDataType
+   * The filtered data type.
    *
    * @return filteredDataType
    */

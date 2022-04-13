@@ -138,14 +138,8 @@ public class MonitorGroupSearchResult {
     return monitorName;
   }
 
-  public MonitorGroupSearchResult status(MonitorOverallStates status) {
-    this.status = status;
-    this.unparsed |= !status.isValid();
-    return this;
-  }
-
   /**
-   * Get status
+   * The different states your monitor can be in.
    *
    * @return status
    */
@@ -154,13 +148,6 @@ public class MonitorGroupSearchResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getStatus() {
     return status;
-  }
-
-  public void setStatus(MonitorOverallStates status) {
-    if (!status.isValid()) {
-      this.unparsed = true;
-    }
-    this.status = status;
   }
 
   /** Return true if this MonitorGroupSearchResult object is equal to o. */

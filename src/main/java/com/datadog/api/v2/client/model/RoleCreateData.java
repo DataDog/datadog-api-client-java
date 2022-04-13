@@ -52,7 +52,7 @@ public class RoleCreateData {
   }
 
   /**
-   * Get attributes
+   * Attributes of the created role.
    *
    * @return attributes
    */
@@ -73,7 +73,7 @@ public class RoleCreateData {
   }
 
   /**
-   * Get relationships
+   * Relationships of the role object.
    *
    * @return relationships
    */
@@ -95,7 +95,7 @@ public class RoleCreateData {
   }
 
   /**
-   * Get type
+   * Roles type.
    *
    * @return type
    */

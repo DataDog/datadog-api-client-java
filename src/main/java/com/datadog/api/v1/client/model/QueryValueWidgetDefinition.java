@@ -218,7 +218,7 @@ public class QueryValueWidgetDefinition {
   }
 
   /**
-   * Get textAlign
+   * How to align the text on the widget.
    *
    * @return textAlign
    */
@@ -243,7 +243,7 @@ public class QueryValueWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -266,7 +266,7 @@ public class QueryValueWidgetDefinition {
   }
 
   /**
-   * Get timeseriesBackground
+   * Set a timeseries on the widget background.
    *
    * @return timeseriesBackground
    */
@@ -309,7 +309,7 @@ public class QueryValueWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -355,7 +355,7 @@ public class QueryValueWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the query value widget.
    *
    * @return type
    */

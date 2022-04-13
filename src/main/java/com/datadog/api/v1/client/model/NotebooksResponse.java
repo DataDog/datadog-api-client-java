@@ -69,7 +69,7 @@ public class NotebooksResponse {
   }
 
   /**
-   * Get meta
+   * Searches metadata returned by the API.
    *
    * @return meta
    */

@@ -59,7 +59,6 @@ public class LogsArchiveAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
     this.destination = destination;
     if (destination != null) {
-
       this.unparsed |= destination.unparsed;
     }
     this.name = name;
@@ -75,7 +74,7 @@ public class LogsArchiveAttributes {
   }
 
   /**
-   * Get destination
+   * An archive&#39;s destination.
    *
    * @return destination
    */
@@ -96,8 +95,8 @@ public class LogsArchiveAttributes {
   }
 
   /**
-   * To store the tags in the archive, set the value \&quot;true\&quot;. If it is set to
-   * \&quot;false\&quot;, the tags will be deleted when the logs are sent to the archive.
+   * To store the tags in the archive, set the value &quot;true&quot;. If it is set to
+   * &quot;false&quot;, the tags will be deleted when the logs are sent to the archive.
    *
    * @return includeTags
    */
@@ -188,7 +187,7 @@ public class LogsArchiveAttributes {
   }
 
   /**
-   * Get state
+   * The state of the archive.
    *
    * @return state
    */

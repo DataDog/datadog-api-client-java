@@ -45,7 +45,7 @@ public class IncidentTeamResponseData {
   }
 
   /**
-   * Get attributes
+   * The incident team&#39;s attributes from a response.
    *
    * @return attributes
    */
@@ -81,14 +81,8 @@ public class IncidentTeamResponseData {
     this.id = id;
   }
 
-  public IncidentTeamResponseData relationships(IncidentTeamRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
   /**
-   * Get relationships
+   * The incident team&#39;s relationships.
    *
    * @return relationships
    */
@@ -99,10 +93,6 @@ public class IncidentTeamResponseData {
     return relationships;
   }
 
-  public void setRelationships(IncidentTeamRelationships relationships) {
-    this.relationships = relationships;
-  }
-
   public IncidentTeamResponseData type(IncidentTeamType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -110,7 +100,7 @@ public class IncidentTeamResponseData {
   }
 
   /**
-   * Get type
+   * Incident Team resource type.
    *
    * @return type
    */

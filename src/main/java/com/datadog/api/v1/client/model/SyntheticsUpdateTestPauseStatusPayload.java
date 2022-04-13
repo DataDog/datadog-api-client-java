@@ -31,7 +31,8 @@ public class SyntheticsUpdateTestPauseStatusPayload {
   }
 
   /**
-   * Get newStatus
+   * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
+   * test.
    *
    * @return newStatus
    */

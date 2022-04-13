@@ -31,7 +31,7 @@ public class HourlyUsageAttributionMetadata {
   }
 
   /**
-   * Get pagination
+   * The metadata for the current pagination.
    *
    * @return pagination
    */

@@ -101,9 +101,9 @@ public class SLOBulkDeleteResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOBulkDeleteResponseData slOBulkDeleteResponseData = (SLOBulkDeleteResponseData) o;
-    return Objects.equals(this.deleted, slOBulkDeleteResponseData.deleted)
-        && Objects.equals(this.updated, slOBulkDeleteResponseData.updated);
+    SLOBulkDeleteResponseData sloBulkDeleteResponseData = (SLOBulkDeleteResponseData) o;
+    return Objects.equals(this.deleted, sloBulkDeleteResponseData.deleted)
+        && Objects.equals(this.updated, sloBulkDeleteResponseData.updated);
   }
 
   @Override

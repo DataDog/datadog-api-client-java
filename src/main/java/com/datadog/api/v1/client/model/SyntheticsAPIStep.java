@@ -207,7 +207,7 @@ public class SyntheticsAPIStep {
   }
 
   /**
-   * Get request
+   * Object describing the Synthetic test request.
    *
    * @return request
    */
@@ -228,7 +228,7 @@ public class SyntheticsAPIStep {
   }
 
   /**
-   * Get retry
+   * Object describing the retry strategy to apply to a Synthetic test.
    *
    * @return retry
    */
@@ -250,7 +250,8 @@ public class SyntheticsAPIStep {
   }
 
   /**
-   * Get subtype
+   * The subtype of the Synthetic multistep API test step, currently only supporting
+   * &#x60;http&#x60;.
    *
    * @return subtype
    */
@@ -276,15 +277,15 @@ public class SyntheticsAPIStep {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPIStep syntheticsAPIStep = (SyntheticsAPIStep) o;
-    return Objects.equals(this.allowFailure, syntheticsAPIStep.allowFailure)
-        && Objects.equals(this.assertions, syntheticsAPIStep.assertions)
-        && Objects.equals(this.extractedValues, syntheticsAPIStep.extractedValues)
-        && Objects.equals(this.isCritical, syntheticsAPIStep.isCritical)
-        && Objects.equals(this.name, syntheticsAPIStep.name)
-        && Objects.equals(this.request, syntheticsAPIStep.request)
-        && Objects.equals(this.retry, syntheticsAPIStep.retry)
-        && Objects.equals(this.subtype, syntheticsAPIStep.subtype);
+    SyntheticsAPIStep syntheticsApiStep = (SyntheticsAPIStep) o;
+    return Objects.equals(this.allowFailure, syntheticsApiStep.allowFailure)
+        && Objects.equals(this.assertions, syntheticsApiStep.assertions)
+        && Objects.equals(this.extractedValues, syntheticsApiStep.extractedValues)
+        && Objects.equals(this.isCritical, syntheticsApiStep.isCritical)
+        && Objects.equals(this.name, syntheticsApiStep.name)
+        && Objects.equals(this.request, syntheticsApiStep.request)
+        && Objects.equals(this.retry, syntheticsApiStep.retry)
+        && Objects.equals(this.subtype, syntheticsApiStep.subtype);
   }
 
   @Override

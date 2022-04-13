@@ -202,21 +202,21 @@ public class SunburstWidgetLegend extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public SunburstWidgetLegend(SunburstWidgetLegendInlineAutomatic o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public SunburstWidgetLegend(SunburstWidgetLegendTable o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
+  public SunburstWidgetLegend(SunburstWidgetLegendInlineAutomatic o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
+    schemas.put("SunburstWidgetLegendTable", new GenericType<SunburstWidgetLegendTable>() {});
     schemas.put(
         "SunburstWidgetLegendInlineAutomatic",
         new GenericType<SunburstWidgetLegendInlineAutomatic>() {});
-    schemas.put("SunburstWidgetLegendTable", new GenericType<SunburstWidgetLegendTable>() {});
     JSON.registerDescendants(SunburstWidgetLegend.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -227,20 +227,19 @@ public class SunburstWidgetLegend extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: SunburstWidgetLegendInlineAutomatic, SunburstWidgetLegendTable
+   * against the oneOf child schemas: SunburstWidgetLegendTable, SunburstWidgetLegendInlineAutomatic
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(
-        SunburstWidgetLegendInlineAutomatic.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(SunburstWidgetLegendTable.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(SunburstWidgetLegendTable.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(
+        SunburstWidgetLegendInlineAutomatic.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -250,19 +249,30 @@ public class SunburstWidgetLegend extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be SunburstWidgetLegendInlineAutomatic,"
-            + " SunburstWidgetLegendTable");
+        "Invalid instance type. Must be SunburstWidgetLegendTable,"
+            + " SunburstWidgetLegendInlineAutomatic");
   }
 
   /**
-   * Get the actual instance, which can be the following: SunburstWidgetLegendInlineAutomatic,
-   * SunburstWidgetLegendTable
+   * Get the actual instance, which can be the following: SunburstWidgetLegendTable,
+   * SunburstWidgetLegendInlineAutomatic
    *
-   * @return The actual instance (SunburstWidgetLegendInlineAutomatic, SunburstWidgetLegendTable)
+   * @return The actual instance (SunburstWidgetLegendTable, SunburstWidgetLegendInlineAutomatic)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SunburstWidgetLegendTable`. If the actual instance is not
+   * `SunburstWidgetLegendTable`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SunburstWidgetLegendTable`
+   * @throws ClassCastException if the instance is not `SunburstWidgetLegendTable`
+   */
+  public SunburstWidgetLegendTable getSunburstWidgetLegendTable() throws ClassCastException {
+    return (SunburstWidgetLegendTable) super.getActualInstance();
   }
 
   /**
@@ -275,16 +285,5 @@ public class SunburstWidgetLegend extends AbstractOpenApiSchema {
   public SunburstWidgetLegendInlineAutomatic getSunburstWidgetLegendInlineAutomatic()
       throws ClassCastException {
     return (SunburstWidgetLegendInlineAutomatic) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `SunburstWidgetLegendTable`. If the actual instance is not
-   * `SunburstWidgetLegendTable`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `SunburstWidgetLegendTable`
-   * @throws ClassCastException if the instance is not `SunburstWidgetLegendTable`
-   */
-  public SunburstWidgetLegendTable getSunburstWidgetLegendTable() throws ClassCastException {
-    return (SunburstWidgetLegendTable) super.getActualInstance();
   }
 }

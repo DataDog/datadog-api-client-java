@@ -31,7 +31,7 @@ public class RoleUpdateResponse {
   }
 
   /**
-   * Get data
+   * Role object returned by the API.
    *
    * @return data
    */

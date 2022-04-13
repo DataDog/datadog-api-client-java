@@ -369,20 +369,20 @@ public class GCPAccount {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GCPAccount gcPAccount = (GCPAccount) o;
-    return Objects.equals(this.authProviderX509CertUrl, gcPAccount.authProviderX509CertUrl)
-        && Objects.equals(this.authUri, gcPAccount.authUri)
-        && Objects.equals(this.automute, gcPAccount.automute)
-        && Objects.equals(this.clientEmail, gcPAccount.clientEmail)
-        && Objects.equals(this.clientId, gcPAccount.clientId)
-        && Objects.equals(this.clientX509CertUrl, gcPAccount.clientX509CertUrl)
-        && Objects.equals(this.errors, gcPAccount.errors)
-        && Objects.equals(this.hostFilters, gcPAccount.hostFilters)
-        && Objects.equals(this.privateKey, gcPAccount.privateKey)
-        && Objects.equals(this.privateKeyId, gcPAccount.privateKeyId)
-        && Objects.equals(this.projectId, gcPAccount.projectId)
-        && Objects.equals(this.tokenUri, gcPAccount.tokenUri)
-        && Objects.equals(this.type, gcPAccount.type);
+    GCPAccount gcpAccount = (GCPAccount) o;
+    return Objects.equals(this.authProviderX509CertUrl, gcpAccount.authProviderX509CertUrl)
+        && Objects.equals(this.authUri, gcpAccount.authUri)
+        && Objects.equals(this.automute, gcpAccount.automute)
+        && Objects.equals(this.clientEmail, gcpAccount.clientEmail)
+        && Objects.equals(this.clientId, gcpAccount.clientId)
+        && Objects.equals(this.clientX509CertUrl, gcpAccount.clientX509CertUrl)
+        && Objects.equals(this.errors, gcpAccount.errors)
+        && Objects.equals(this.hostFilters, gcpAccount.hostFilters)
+        && Objects.equals(this.privateKey, gcpAccount.privateKey)
+        && Objects.equals(this.privateKeyId, gcpAccount.privateKeyId)
+        && Objects.equals(this.projectId, gcpAccount.projectId)
+        && Objects.equals(this.tokenUri, gcpAccount.tokenUri)
+        && Objects.equals(this.type, gcpAccount.type);
   }
 
   @Override

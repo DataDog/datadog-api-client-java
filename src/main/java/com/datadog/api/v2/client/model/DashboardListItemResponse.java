@@ -60,7 +60,7 @@ public class DashboardListItemResponse {
   }
 
   /**
-   * Get type
+   * The type of the dashboard.
    *
    * @return type
    */

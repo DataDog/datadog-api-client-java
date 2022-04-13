@@ -81,10 +81,10 @@ public class SyntheticsTriggerCITestLocation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTriggerCITestLocation syntheticsTriggerCITestLocation =
+    SyntheticsTriggerCITestLocation syntheticsTriggerCiTestLocation =
         (SyntheticsTriggerCITestLocation) o;
-    return Objects.equals(this.id, syntheticsTriggerCITestLocation.id)
-        && Objects.equals(this.name, syntheticsTriggerCITestLocation.name);
+    return Objects.equals(this.id, syntheticsTriggerCiTestLocation.id)
+        && Objects.equals(this.name, syntheticsTriggerCiTestLocation.name);
   }
 
   @Override

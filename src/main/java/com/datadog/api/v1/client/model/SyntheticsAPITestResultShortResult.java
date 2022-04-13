@@ -58,7 +58,9 @@ public class SyntheticsAPITestResultShortResult {
   }
 
   /**
-   * Get timings
+   * Object containing all metrics and their values collected for a Synthetic API test. Learn more
+   * about those metrics in [Synthetics
+   * documentation](https://docs.datadoghq.com/synthetics/#metrics).
    *
    * @return timings
    */
@@ -82,10 +84,10 @@ public class SyntheticsAPITestResultShortResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITestResultShortResult syntheticsAPITestResultShortResult =
+    SyntheticsAPITestResultShortResult syntheticsApiTestResultShortResult =
         (SyntheticsAPITestResultShortResult) o;
-    return Objects.equals(this.passed, syntheticsAPITestResultShortResult.passed)
-        && Objects.equals(this.timings, syntheticsAPITestResultShortResult.timings);
+    return Objects.equals(this.passed, syntheticsApiTestResultShortResult.passed)
+        && Objects.equals(this.timings, syntheticsApiTestResultShortResult.timings);
   }
 
   @Override

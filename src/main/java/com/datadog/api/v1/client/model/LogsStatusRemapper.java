@@ -141,7 +141,7 @@ public class LogsStatusRemapper {
   }
 
   /**
-   * Get type
+   * Type of logs status remapper.
    *
    * @return type
    */

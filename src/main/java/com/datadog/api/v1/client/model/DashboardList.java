@@ -63,14 +63,8 @@ public class DashboardList {
     this.name = name;
   }
 
-  public DashboardList author(Creator author) {
-    this.author = author;
-    this.unparsed |= author.unparsed;
-    return this;
-  }
-
   /**
-   * Get author
+   * Object describing the creator of the shared element.
    *
    * @return author
    */
@@ -79,10 +73,6 @@ public class DashboardList {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getAuthor() {
     return author;
-  }
-
-  public void setAuthor(Creator author) {
-    this.author = author;
   }
 
   /**

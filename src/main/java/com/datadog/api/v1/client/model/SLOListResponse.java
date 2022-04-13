@@ -105,7 +105,7 @@ public class SLOListResponse {
   }
 
   /**
-   * Get metadata
+   * The metadata object containing additional information about the list of SLOs.
    *
    * @return metadata
    */
@@ -129,10 +129,10 @@ public class SLOListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOListResponse slOListResponse = (SLOListResponse) o;
-    return Objects.equals(this.data, slOListResponse.data)
-        && Objects.equals(this.errors, slOListResponse.errors)
-        && Objects.equals(this.metadata, slOListResponse.metadata);
+    SLOListResponse sloListResponse = (SLOListResponse) o;
+    return Objects.equals(this.data, sloListResponse.data)
+        && Objects.equals(this.errors, sloListResponse.errors)
+        && Objects.equals(this.metadata, sloListResponse.metadata);
   }
 
   @Override

@@ -31,7 +31,7 @@ public class LogsAPIErrorResponse {
   }
 
   /**
-   * Get error
+   * Error returned by the Logs API
    *
    * @return error
    */
@@ -55,8 +55,8 @@ public class LogsAPIErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsAPIErrorResponse logsAPIErrorResponse = (LogsAPIErrorResponse) o;
-    return Objects.equals(this.error, logsAPIErrorResponse.error);
+    LogsAPIErrorResponse logsApiErrorResponse = (LogsAPIErrorResponse) o;
+    return Objects.equals(this.error, logsApiErrorResponse.error);
   }
 
   @Override

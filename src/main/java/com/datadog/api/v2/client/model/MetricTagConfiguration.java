@@ -41,7 +41,7 @@ public class MetricTagConfiguration {
   }
 
   /**
-   * Get attributes
+   * Object containing the definition of a metric tag configuration attributes.
    *
    * @return attributes
    */
@@ -84,7 +84,7 @@ public class MetricTagConfiguration {
   }
 
   /**
-   * Get type
+   * The metric tag configuration resource type.
    *
    * @return type
    */

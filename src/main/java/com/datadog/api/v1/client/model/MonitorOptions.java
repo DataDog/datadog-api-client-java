@@ -128,14 +128,8 @@ public class MonitorOptions {
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private List<MonitorFormulaAndFunctionQueryDefinition> variables = null;
 
-  public MonitorOptions aggregation(MonitorOptionsAggregation aggregation) {
-    this.aggregation = aggregation;
-    this.unparsed |= aggregation.unparsed;
-    return this;
-  }
-
   /**
-   * Get aggregation
+   * Type of aggregation performed in the monitor query.
    *
    * @return aggregation
    */
@@ -144,10 +138,6 @@ public class MonitorOptions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOptionsAggregation getAggregation() {
     return aggregation;
-  }
-
-  public void setAggregation(MonitorOptionsAggregation aggregation) {
-    this.aggregation = aggregation;
   }
 
   /**
@@ -722,7 +712,7 @@ public class MonitorOptions {
   }
 
   /**
-   * Get thresholdWindows
+   * Alerting time window options.
    *
    * @return thresholdWindows
    */
@@ -744,7 +734,7 @@ public class MonitorOptions {
   }
 
   /**
-   * Get thresholds
+   * List of the different monitor threshold available.
    *
    * @return thresholds
    */

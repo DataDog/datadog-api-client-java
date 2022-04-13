@@ -57,7 +57,7 @@ public class IncidentServiceResponseData {
   }
 
   /**
-   * Get attributes
+   * The incident service&#39;s attributes from a response.
    *
    * @return attributes
    */
@@ -92,14 +92,8 @@ public class IncidentServiceResponseData {
     this.id = id;
   }
 
-  public IncidentServiceResponseData relationships(IncidentServiceRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
   /**
-   * Get relationships
+   * The incident service&#39;s relationships.
    *
    * @return relationships
    */
@@ -110,10 +104,6 @@ public class IncidentServiceResponseData {
     return relationships;
   }
 
-  public void setRelationships(IncidentServiceRelationships relationships) {
-    this.relationships = relationships;
-  }
-
   public IncidentServiceResponseData type(IncidentServiceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -121,7 +111,7 @@ public class IncidentServiceResponseData {
   }
 
   /**
-   * Get type
+   * Incident service resource type.
    *
    * @return type
    */

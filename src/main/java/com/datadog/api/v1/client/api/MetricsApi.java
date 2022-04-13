@@ -162,9 +162,6 @@ public class MetricsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getMetricMetadata");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -238,7 +235,7 @@ public class MetricsApi {
   /**
    * Get active metrics list
    *
-   * <p>See {@link #listActiveMetricsWithHttpInfo}.
+   * <p>See {@link #listActiveMetricsWithHttpInfoAsync}.
    *
    * @param from Seconds since the Unix epoch. (required)
    * @return CompletableFuture&lt;MetricsListResponse&gt;
@@ -376,9 +373,6 @@ public class MetricsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "host", host));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tag_filter", tagFilter));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listActiveMetrics");
 
     Invocation.Builder builder;
     try {
@@ -519,9 +513,6 @@ public class MetricsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "q", q));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listMetrics");
 
     Invocation.Builder builder;
     try {
@@ -702,9 +693,6 @@ public class MetricsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "queryMetrics");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -764,7 +752,7 @@ public class MetricsApi {
   /**
    * Submit metrics
    *
-   * <p>See {@link #submitMetricsWithHttpInfo}.
+   * <p>See {@link #submitMetricsWithHttpInfoAsync}.
    *
    * @param body (required)
    * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
@@ -901,9 +889,6 @@ public class MetricsApi {
     String localVarPath = "/api/v1/series";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "submitMetrics");
 
     if (contentEncoding != null)
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
@@ -1070,9 +1055,6 @@ public class MetricsApi {
                 "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateMetricMetadata");
 
     Invocation.Builder builder;
     try {

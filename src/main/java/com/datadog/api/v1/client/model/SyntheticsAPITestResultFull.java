@@ -57,7 +57,7 @@ public class SyntheticsAPITestResultFull {
   }
 
   /**
-   * Get check
+   * Object describing the API test configuration.
    *
    * @return check
    */
@@ -142,7 +142,7 @@ public class SyntheticsAPITestResultFull {
   }
 
   /**
-   * Get result
+   * Object containing results for your Synthetic API test.
    *
    * @return result
    */
@@ -185,7 +185,8 @@ public class SyntheticsAPITestResultFull {
   }
 
   /**
-   * Get status
+   * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for
+   * triggered * &#x60;2&#x60; for no data
    *
    * @return status
    */
@@ -212,14 +213,14 @@ public class SyntheticsAPITestResultFull {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITestResultFull syntheticsAPITestResultFull = (SyntheticsAPITestResultFull) o;
-    return Objects.equals(this.check, syntheticsAPITestResultFull.check)
-        && Objects.equals(this.checkTime, syntheticsAPITestResultFull.checkTime)
-        && Objects.equals(this.checkVersion, syntheticsAPITestResultFull.checkVersion)
-        && Objects.equals(this.probeDc, syntheticsAPITestResultFull.probeDc)
-        && Objects.equals(this.result, syntheticsAPITestResultFull.result)
-        && Objects.equals(this.resultId, syntheticsAPITestResultFull.resultId)
-        && Objects.equals(this.status, syntheticsAPITestResultFull.status);
+    SyntheticsAPITestResultFull syntheticsApiTestResultFull = (SyntheticsAPITestResultFull) o;
+    return Objects.equals(this.check, syntheticsApiTestResultFull.check)
+        && Objects.equals(this.checkTime, syntheticsApiTestResultFull.checkTime)
+        && Objects.equals(this.checkVersion, syntheticsApiTestResultFull.checkVersion)
+        && Objects.equals(this.probeDc, syntheticsApiTestResultFull.probeDc)
+        && Objects.equals(this.result, syntheticsApiTestResultFull.result)
+        && Objects.equals(this.resultId, syntheticsApiTestResultFull.resultId)
+        && Objects.equals(this.status, syntheticsApiTestResultFull.status);
   }
 
   @Override

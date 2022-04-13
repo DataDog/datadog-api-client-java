@@ -57,7 +57,9 @@ public class NotebookToplistCellAttributes {
   }
 
   /**
-   * Get definition
+   * The top list visualization enables you to display a list of Tag value like hostname or service
+   * with the most or least of any metric value, such as highest consumers of CPU, hosts with the
+   * least disk space, etc.
    *
    * @return definition
    */
@@ -78,7 +80,7 @@ public class NotebookToplistCellAttributes {
   }
 
   /**
-   * Get graphSize
+   * The size of the graph.
    *
    * @return graphSize
    */
@@ -103,7 +105,7 @@ public class NotebookToplistCellAttributes {
   }
 
   /**
-   * Get splitBy
+   * Object describing how to split the graph to display multiple visualizations per request.
    *
    * @return splitBy
    */
@@ -124,7 +126,7 @@ public class NotebookToplistCellAttributes {
   }
 
   /**
-   * Get time
+   * Timeframe for the notebook cell. When &#39;null&#39;, the notebook global time is used.
    *
    * @return time
    */

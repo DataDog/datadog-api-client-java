@@ -41,7 +41,7 @@ public class ScatterPlotWidgetDefinitionRequests {
   }
 
   /**
-   * Get table
+   * Scatterplot request containing formulas and functions.
    *
    * @return table
    */
@@ -63,7 +63,7 @@ public class ScatterPlotWidgetDefinitionRequests {
   }
 
   /**
-   * Get x
+   * Updated scatter plot.
    *
    * @return x
    */
@@ -85,7 +85,7 @@ public class ScatterPlotWidgetDefinitionRequests {
   }
 
   /**
-   * Get y
+   * Updated scatter plot.
    *
    * @return y
    */

@@ -36,7 +36,8 @@ public class SLOResponse {
   }
 
   /**
-   * Get data
+   * A service level objective object includes a service level indicator, thresholds for one or more
+   * timeframes, and metadata (&#x60;name&#x60;, &#x60;description&#x60;, &#x60;tags&#x60;, etc.).
    *
    * @return data
    */
@@ -89,9 +90,9 @@ public class SLOResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOResponse slOResponse = (SLOResponse) o;
-    return Objects.equals(this.data, slOResponse.data)
-        && Objects.equals(this.errors, slOResponse.errors);
+    SLOResponse sloResponse = (SLOResponse) o;
+    return Objects.equals(this.data, sloResponse.data)
+        && Objects.equals(this.errors, sloResponse.errors);
   }
 
   @Override

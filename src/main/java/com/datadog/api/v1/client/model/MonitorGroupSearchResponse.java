@@ -35,14 +35,8 @@ public class MonitorGroupSearchResponse {
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private MonitorSearchResponseMetadata metadata;
 
-  public MonitorGroupSearchResponse counts(MonitorGroupSearchResponseCounts counts) {
-    this.counts = counts;
-    this.unparsed |= counts.unparsed;
-    return this;
-  }
-
   /**
-   * Get counts
+   * The counts of monitor groups per different criteria.
    *
    * @return counts
    */
@@ -51,10 +45,6 @@ public class MonitorGroupSearchResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorGroupSearchResponseCounts getCounts() {
     return counts;
-  }
-
-  public void setCounts(MonitorGroupSearchResponseCounts counts) {
-    this.counts = counts;
   }
 
   /**
@@ -76,7 +66,7 @@ public class MonitorGroupSearchResponse {
   }
 
   /**
-   * Get metadata
+   * Metadata about the response.
    *
    * @return metadata
    */

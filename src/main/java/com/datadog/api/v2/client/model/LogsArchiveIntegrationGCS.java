@@ -90,9 +90,9 @@ public class LogsArchiveIntegrationGCS {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsArchiveIntegrationGCS logsArchiveIntegrationGCS = (LogsArchiveIntegrationGCS) o;
-    return Objects.equals(this.clientEmail, logsArchiveIntegrationGCS.clientEmail)
-        && Objects.equals(this.projectId, logsArchiveIntegrationGCS.projectId);
+    LogsArchiveIntegrationGCS logsArchiveIntegrationGcs = (LogsArchiveIntegrationGCS) o;
+    return Objects.equals(this.clientEmail, logsArchiveIntegrationGcs.clientEmail)
+        && Objects.equals(this.projectId, logsArchiveIntegrationGcs.projectId);
   }
 
   @Override

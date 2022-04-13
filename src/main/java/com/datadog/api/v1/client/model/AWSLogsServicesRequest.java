@@ -98,9 +98,9 @@ public class AWSLogsServicesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSLogsServicesRequest awSLogsServicesRequest = (AWSLogsServicesRequest) o;
-    return Objects.equals(this.accountId, awSLogsServicesRequest.accountId)
-        && Objects.equals(this.services, awSLogsServicesRequest.services);
+    AWSLogsServicesRequest awsLogsServicesRequest = (AWSLogsServicesRequest) o;
+    return Objects.equals(this.accountId, awsLogsServicesRequest.accountId)
+        && Objects.equals(this.services, awsLogsServicesRequest.services);
   }
 
   @Override

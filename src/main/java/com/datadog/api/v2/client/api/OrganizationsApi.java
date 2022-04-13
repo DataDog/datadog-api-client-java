@@ -72,7 +72,7 @@ public class OrganizationsApi {
   /**
    * Upload IdP metadata
    *
-   * <p>See {@link #uploadIdPMetadataWithHttpInfo}.
+   * <p>See {@link #uploadIdPMetadataWithHttpInfoAsync}.
    */
   public CompletableFuture<Void> uploadIdPMetadataAsync() {
     return uploadIdPMetadataWithHttpInfoAsync(new UploadIdPMetadataOptionalParameters())
@@ -149,7 +149,7 @@ public class OrganizationsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
@@ -180,9 +180,6 @@ public class OrganizationsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "uploadIdPMetadata");
-
     if (idpFile != null) localVarFormParams.put("idp_file", idpFile);
 
     Invocation.Builder builder;
@@ -194,7 +191,7 @@ public class OrganizationsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();

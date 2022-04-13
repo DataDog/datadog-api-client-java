@@ -118,7 +118,7 @@ public class AlertValueWidgetDefinition {
   }
 
   /**
-   * Get textAlign
+   * How to align the text on the widget.
    *
    * @return textAlign
    */
@@ -164,7 +164,7 @@ public class AlertValueWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -210,7 +210,7 @@ public class AlertValueWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the alert value widget.
    *
    * @return type
    */

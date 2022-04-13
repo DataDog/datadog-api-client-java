@@ -60,7 +60,7 @@ public class RUMQueryOptions {
   }
 
   /**
-   * The timezone can be specified both as an offset, for example: \&quot;UTC+03:00\&quot;.
+   * The timezone can be specified both as an offset, for example: &quot;UTC+03:00&quot;.
    *
    * @return timezone
    */
@@ -84,9 +84,9 @@ public class RUMQueryOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMQueryOptions ruMQueryOptions = (RUMQueryOptions) o;
-    return Objects.equals(this.timeOffset, ruMQueryOptions.timeOffset)
-        && Objects.equals(this.timezone, ruMQueryOptions.timezone);
+    RUMQueryOptions rumQueryOptions = (RUMQueryOptions) o;
+    return Objects.equals(this.timeOffset, rumQueryOptions.timeOffset)
+        && Objects.equals(this.timezone, rumQueryOptions.timezone);
   }
 
   @Override

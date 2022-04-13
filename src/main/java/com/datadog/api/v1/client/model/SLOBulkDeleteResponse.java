@@ -21,7 +21,7 @@ import java.util.Objects;
 /**
  * The bulk partial delete service level objective object endpoint response. This endpoint operates
  * on multiple service level objective objects, so it may be partially successful. In such cases,
- * the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions
+ * the &quot;data&quot; and &quot;error&quot; fields in this response indicate which deletions
  * succeeded and failed.
  */
 @JsonPropertyOrder({
@@ -44,7 +44,7 @@ public class SLOBulkDeleteResponse {
   }
 
   /**
-   * Get data
+   * An array of service level objective objects.
    *
    * @return data
    */
@@ -101,9 +101,9 @@ public class SLOBulkDeleteResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOBulkDeleteResponse slOBulkDeleteResponse = (SLOBulkDeleteResponse) o;
-    return Objects.equals(this.data, slOBulkDeleteResponse.data)
-        && Objects.equals(this.errors, slOBulkDeleteResponse.errors);
+    SLOBulkDeleteResponse sloBulkDeleteResponse = (SLOBulkDeleteResponse) o;
+    return Objects.equals(this.data, sloBulkDeleteResponse.data)
+        && Objects.equals(this.errors, sloBulkDeleteResponse.errors);
   }
 
   @Override

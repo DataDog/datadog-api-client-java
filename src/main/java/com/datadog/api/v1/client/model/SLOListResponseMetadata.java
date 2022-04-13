@@ -31,7 +31,7 @@ public class SLOListResponseMetadata {
   }
 
   /**
-   * Get page
+   * The object containing information about the pages of the list of SLOs.
    *
    * @return page
    */
@@ -55,8 +55,8 @@ public class SLOListResponseMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOListResponseMetadata slOListResponseMetadata = (SLOListResponseMetadata) o;
-    return Objects.equals(this.page, slOListResponseMetadata.page);
+    SLOListResponseMetadata sloListResponseMetadata = (SLOListResponseMetadata) o;
+    return Objects.equals(this.page, sloListResponseMetadata.page);
   }
 
   @Override

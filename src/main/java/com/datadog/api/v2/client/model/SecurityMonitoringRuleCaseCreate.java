@@ -131,7 +131,7 @@ public class SecurityMonitoringRuleCaseCreate {
   }
 
   /**
-   * Get status
+   * Severity of the Security Signal.
    *
    * @return status
    */

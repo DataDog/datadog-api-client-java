@@ -67,7 +67,7 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * Get cert
+   * Object describing the SSL certificate used for a Synthetic test.
    *
    * @return cert
    */
@@ -89,7 +89,7 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * Get eventType
+   * Status of a Synthetic test.
    *
    * @return eventType
    */
@@ -114,7 +114,7 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * Get failure
+   * The API test failure details.
    *
    * @return failure
    */
@@ -258,7 +258,9 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * Get timings
+   * Object containing all metrics and their values collected for a Synthetic API test. Learn more
+   * about those metrics in [Synthetics
+   * documentation](https://docs.datadoghq.com/synthetics/#metrics).
    *
    * @return timings
    */
@@ -282,16 +284,16 @@ public class SyntheticsAPITestResultData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITestResultData syntheticsAPITestResultData = (SyntheticsAPITestResultData) o;
-    return Objects.equals(this.cert, syntheticsAPITestResultData.cert)
-        && Objects.equals(this.eventType, syntheticsAPITestResultData.eventType)
-        && Objects.equals(this.failure, syntheticsAPITestResultData.failure)
-        && Objects.equals(this.httpStatusCode, syntheticsAPITestResultData.httpStatusCode)
-        && Objects.equals(this.requestHeaders, syntheticsAPITestResultData.requestHeaders)
-        && Objects.equals(this.responseBody, syntheticsAPITestResultData.responseBody)
-        && Objects.equals(this.responseHeaders, syntheticsAPITestResultData.responseHeaders)
-        && Objects.equals(this.responseSize, syntheticsAPITestResultData.responseSize)
-        && Objects.equals(this.timings, syntheticsAPITestResultData.timings);
+    SyntheticsAPITestResultData syntheticsApiTestResultData = (SyntheticsAPITestResultData) o;
+    return Objects.equals(this.cert, syntheticsApiTestResultData.cert)
+        && Objects.equals(this.eventType, syntheticsApiTestResultData.eventType)
+        && Objects.equals(this.failure, syntheticsApiTestResultData.failure)
+        && Objects.equals(this.httpStatusCode, syntheticsApiTestResultData.httpStatusCode)
+        && Objects.equals(this.requestHeaders, syntheticsApiTestResultData.requestHeaders)
+        && Objects.equals(this.responseBody, syntheticsApiTestResultData.responseBody)
+        && Objects.equals(this.responseHeaders, syntheticsApiTestResultData.responseHeaders)
+        && Objects.equals(this.responseSize, syntheticsApiTestResultData.responseSize)
+        && Objects.equals(this.timings, syntheticsApiTestResultData.timings);
   }
 
   @Override

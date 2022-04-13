@@ -37,7 +37,7 @@ public class SyntheticsBrowserTestResultFailure {
   }
 
   /**
-   * Get code
+   * Error code that can be returned by a Synthetic test.
    *
    * @return code
    */

@@ -41,7 +41,7 @@ public class LogsMetricResponseData {
   }
 
   /**
-   * Get attributes
+   * The object describing a Datadog log-based metric.
    *
    * @return attributes
    */
@@ -84,7 +84,7 @@ public class LogsMetricResponseData {
   }
 
   /**
-   * Get type
+   * The type of the resource. The value should always be logs_metrics.
    *
    * @return type
    */

@@ -72,7 +72,7 @@ public class SLOCorrectionListResponse {
   }
 
   /**
-   * Get meta
+   * Object describing meta attributes of response.
    *
    * @return meta
    */
@@ -96,9 +96,9 @@ public class SLOCorrectionListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionListResponse slOCorrectionListResponse = (SLOCorrectionListResponse) o;
-    return Objects.equals(this.data, slOCorrectionListResponse.data)
-        && Objects.equals(this.meta, slOCorrectionListResponse.meta);
+    SLOCorrectionListResponse sloCorrectionListResponse = (SLOCorrectionListResponse) o;
+    return Objects.equals(this.data, sloCorrectionListResponse.data)
+        && Objects.equals(this.meta, sloCorrectionListResponse.meta);
   }
 
   @Override

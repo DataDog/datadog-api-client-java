@@ -41,7 +41,7 @@ public class NotebookCreateRequest {
   }
 
   /**
-   * Get data
+   * The data for a notebook create request.
    *
    * @return data
    */

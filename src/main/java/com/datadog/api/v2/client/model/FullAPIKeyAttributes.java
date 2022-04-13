@@ -120,12 +120,12 @@ public class FullAPIKeyAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FullAPIKeyAttributes fullAPIKeyAttributes = (FullAPIKeyAttributes) o;
-    return Objects.equals(this.createdAt, fullAPIKeyAttributes.createdAt)
-        && Objects.equals(this.key, fullAPIKeyAttributes.key)
-        && Objects.equals(this.last4, fullAPIKeyAttributes.last4)
-        && Objects.equals(this.modifiedAt, fullAPIKeyAttributes.modifiedAt)
-        && Objects.equals(this.name, fullAPIKeyAttributes.name);
+    FullAPIKeyAttributes fullApiKeyAttributes = (FullAPIKeyAttributes) o;
+    return Objects.equals(this.createdAt, fullApiKeyAttributes.createdAt)
+        && Objects.equals(this.key, fullApiKeyAttributes.key)
+        && Objects.equals(this.last4, fullApiKeyAttributes.last4)
+        && Objects.equals(this.modifiedAt, fullApiKeyAttributes.modifiedAt)
+        && Objects.equals(this.name, fullApiKeyAttributes.name);
   }
 
   @Override

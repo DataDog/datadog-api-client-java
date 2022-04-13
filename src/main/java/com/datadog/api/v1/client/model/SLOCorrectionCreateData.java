@@ -47,7 +47,7 @@ public class SLOCorrectionCreateData {
   }
 
   /**
-   * Get attributes
+   * The attribute object associated with the SLO correction to be created.
    *
    * @return attributes
    */
@@ -69,7 +69,7 @@ public class SLOCorrectionCreateData {
   }
 
   /**
-   * Get type
+   * SLO correction resource type.
    *
    * @return type
    */
@@ -95,9 +95,9 @@ public class SLOCorrectionCreateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionCreateData slOCorrectionCreateData = (SLOCorrectionCreateData) o;
-    return Objects.equals(this.attributes, slOCorrectionCreateData.attributes)
-        && Objects.equals(this.type, slOCorrectionCreateData.type);
+    SLOCorrectionCreateData sloCorrectionCreateData = (SLOCorrectionCreateData) o;
+    return Objects.equals(this.attributes, sloCorrectionCreateData.attributes)
+        && Objects.equals(this.type, sloCorrectionCreateData.type);
   }
 
   @Override

@@ -235,9 +235,9 @@ public class MetricsQueryMetadata {
   }
 
   /**
-   * Detailed information about the metric unit. First element describes the \&quot;primary
-   * unit\&quot; (for example, &#x60;bytes&#x60; in &#x60;bytes per second&#x60;), second describes
-   * the \&quot;per unit\&quot; (for example, &#x60;second&#x60; in &#x60;bytes per second&#x60;).
+   * Detailed information about the metric unit. First element describes the &quot;primary
+   * unit&quot; (for example, &#x60;bytes&#x60; in &#x60;bytes per second&#x60;), second describes
+   * the &quot;per unit&quot; (for example, &#x60;second&#x60; in &#x60;bytes per second&#x60;).
    *
    * @return unit
    */

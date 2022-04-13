@@ -68,8 +68,8 @@ public class AWSTagFilterListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSTagFilterListResponse awSTagFilterListResponse = (AWSTagFilterListResponse) o;
-    return Objects.equals(this.filters, awSTagFilterListResponse.filters);
+    AWSTagFilterListResponse awsTagFilterListResponse = (AWSTagFilterListResponse) o;
+    return Objects.equals(this.filters, awsTagFilterListResponse.filters);
   }
 
   @Override

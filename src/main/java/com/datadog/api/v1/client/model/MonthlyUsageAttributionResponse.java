@@ -39,7 +39,7 @@ public class MonthlyUsageAttributionResponse {
   }
 
   /**
-   * Get metadata
+   * The object containing document metadata.
    *
    * @return metadata
    */

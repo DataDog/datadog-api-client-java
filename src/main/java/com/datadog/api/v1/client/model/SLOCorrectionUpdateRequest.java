@@ -31,7 +31,7 @@ public class SLOCorrectionUpdateRequest {
   }
 
   /**
-   * Get data
+   * The data object associated with the SLO correction to be updated.
    *
    * @return data
    */
@@ -55,8 +55,8 @@ public class SLOCorrectionUpdateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionUpdateRequest slOCorrectionUpdateRequest = (SLOCorrectionUpdateRequest) o;
-    return Objects.equals(this.data, slOCorrectionUpdateRequest.data);
+    SLOCorrectionUpdateRequest sloCorrectionUpdateRequest = (SLOCorrectionUpdateRequest) o;
+    return Objects.equals(this.data, sloCorrectionUpdateRequest.data);
   }
 
   @Override

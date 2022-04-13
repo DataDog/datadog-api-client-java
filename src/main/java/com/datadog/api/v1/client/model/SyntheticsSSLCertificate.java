@@ -193,7 +193,7 @@ public class SyntheticsSSLCertificate {
   }
 
   /**
-   * Get issuer
+   * Object describing the issuer of a SSL certificate.
    *
    * @return issuer
    */
@@ -278,7 +278,7 @@ public class SyntheticsSSLCertificate {
   }
 
   /**
-   * Get subject
+   * Object describing the SSL certificate used for the test.
    *
    * @return subject
    */
@@ -344,19 +344,19 @@ public class SyntheticsSSLCertificate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsSSLCertificate syntheticsSSLCertificate = (SyntheticsSSLCertificate) o;
-    return Objects.equals(this.cipher, syntheticsSSLCertificate.cipher)
-        && Objects.equals(this.exponent, syntheticsSSLCertificate.exponent)
-        && Objects.equals(this.extKeyUsage, syntheticsSSLCertificate.extKeyUsage)
-        && Objects.equals(this.fingerprint, syntheticsSSLCertificate.fingerprint)
-        && Objects.equals(this.fingerprint256, syntheticsSSLCertificate.fingerprint256)
-        && Objects.equals(this.issuer, syntheticsSSLCertificate.issuer)
-        && Objects.equals(this.modulus, syntheticsSSLCertificate.modulus)
-        && Objects.equals(this.protocol, syntheticsSSLCertificate.protocol)
-        && Objects.equals(this.serialNumber, syntheticsSSLCertificate.serialNumber)
-        && Objects.equals(this.subject, syntheticsSSLCertificate.subject)
-        && Objects.equals(this.validFrom, syntheticsSSLCertificate.validFrom)
-        && Objects.equals(this.validTo, syntheticsSSLCertificate.validTo);
+    SyntheticsSSLCertificate syntheticsSslCertificate = (SyntheticsSSLCertificate) o;
+    return Objects.equals(this.cipher, syntheticsSslCertificate.cipher)
+        && Objects.equals(this.exponent, syntheticsSslCertificate.exponent)
+        && Objects.equals(this.extKeyUsage, syntheticsSslCertificate.extKeyUsage)
+        && Objects.equals(this.fingerprint, syntheticsSslCertificate.fingerprint)
+        && Objects.equals(this.fingerprint256, syntheticsSslCertificate.fingerprint256)
+        && Objects.equals(this.issuer, syntheticsSslCertificate.issuer)
+        && Objects.equals(this.modulus, syntheticsSslCertificate.modulus)
+        && Objects.equals(this.protocol, syntheticsSslCertificate.protocol)
+        && Objects.equals(this.serialNumber, syntheticsSslCertificate.serialNumber)
+        && Objects.equals(this.subject, syntheticsSslCertificate.subject)
+        && Objects.equals(this.validFrom, syntheticsSslCertificate.validFrom)
+        && Objects.equals(this.validTo, syntheticsSslCertificate.validTo);
   }
 
   @Override

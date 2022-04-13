@@ -75,7 +75,7 @@ public class SLOCorrectionCreateRequestAttributes {
   }
 
   /**
-   * Get category
+   * Category the SLO correction belongs to.
    *
    * @return category
    */
@@ -224,7 +224,7 @@ public class SLOCorrectionCreateRequestAttributes {
   }
 
   /**
-   * The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;).
+   * The timezone to display in the UI for the correction times (defaults to &quot;UTC&quot;).
    *
    * @return timezone
    */
@@ -248,16 +248,16 @@ public class SLOCorrectionCreateRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionCreateRequestAttributes slOCorrectionCreateRequestAttributes =
+    SLOCorrectionCreateRequestAttributes sloCorrectionCreateRequestAttributes =
         (SLOCorrectionCreateRequestAttributes) o;
-    return Objects.equals(this.category, slOCorrectionCreateRequestAttributes.category)
-        && Objects.equals(this.description, slOCorrectionCreateRequestAttributes.description)
-        && Objects.equals(this.duration, slOCorrectionCreateRequestAttributes.duration)
-        && Objects.equals(this.end, slOCorrectionCreateRequestAttributes.end)
-        && Objects.equals(this.rrule, slOCorrectionCreateRequestAttributes.rrule)
-        && Objects.equals(this.sloId, slOCorrectionCreateRequestAttributes.sloId)
-        && Objects.equals(this.start, slOCorrectionCreateRequestAttributes.start)
-        && Objects.equals(this.timezone, slOCorrectionCreateRequestAttributes.timezone);
+    return Objects.equals(this.category, sloCorrectionCreateRequestAttributes.category)
+        && Objects.equals(this.description, sloCorrectionCreateRequestAttributes.description)
+        && Objects.equals(this.duration, sloCorrectionCreateRequestAttributes.duration)
+        && Objects.equals(this.end, sloCorrectionCreateRequestAttributes.end)
+        && Objects.equals(this.rrule, sloCorrectionCreateRequestAttributes.rrule)
+        && Objects.equals(this.sloId, sloCorrectionCreateRequestAttributes.sloId)
+        && Objects.equals(this.start, sloCorrectionCreateRequestAttributes.start)
+        && Objects.equals(this.timezone, sloCorrectionCreateRequestAttributes.timezone);
   }
 
   @Override

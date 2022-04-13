@@ -34,7 +34,7 @@ public class EventResponse {
   }
 
   /**
-   * Get event
+   * Object representing an event.
    *
    * @return event
    */

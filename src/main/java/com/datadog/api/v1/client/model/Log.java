@@ -34,7 +34,7 @@ public class Log {
   }
 
   /**
-   * Get content
+   * JSON object containing all log attributes and their associated values.
    *
    * @return content
    */

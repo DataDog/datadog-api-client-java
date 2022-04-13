@@ -69,7 +69,7 @@ public class NullableRelationshipToUserData {
   }
 
   /**
-   * Get type
+   * Users resource type.
    *
    * @return type
    */

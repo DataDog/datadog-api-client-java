@@ -99,9 +99,9 @@ public class IPPrefixesAPI {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IPPrefixesAPI ipPrefixesAPI = (IPPrefixesAPI) o;
-    return Objects.equals(this.prefixesIpv4, ipPrefixesAPI.prefixesIpv4)
-        && Objects.equals(this.prefixesIpv6, ipPrefixesAPI.prefixesIpv6);
+    IPPrefixesAPI ipPrefixesApi = (IPPrefixesAPI) o;
+    return Objects.equals(this.prefixesIpv4, ipPrefixesApi.prefixesIpv4)
+        && Objects.equals(this.prefixesIpv6, ipPrefixesApi.prefixesIpv6);
   }
 
   @Override

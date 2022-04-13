@@ -55,8 +55,8 @@ public class RUMResponseLinks {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMResponseLinks ruMResponseLinks = (RUMResponseLinks) o;
-    return Objects.equals(this.next, ruMResponseLinks.next);
+    RUMResponseLinks rumResponseLinks = (RUMResponseLinks) o;
+    return Objects.equals(this.next, rumResponseLinks.next);
   }
 
   @Override

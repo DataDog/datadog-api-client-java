@@ -142,7 +142,7 @@ public class ProcessesApi {
   /**
    * Get all processes
    *
-   * <p>See {@link #listProcessesWithHttpInfo}.
+   * <p>See {@link #listProcessesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;ProcessSummariesResponse&gt;
    */
@@ -274,9 +274,6 @@ public class ProcessesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listProcesses");
 
     Invocation.Builder builder;
     try {

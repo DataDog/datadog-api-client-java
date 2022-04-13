@@ -58,7 +58,7 @@ public class RelationshipToRoleData {
   }
 
   /**
-   * Get type
+   * Roles type.
    *
    * @return type
    */

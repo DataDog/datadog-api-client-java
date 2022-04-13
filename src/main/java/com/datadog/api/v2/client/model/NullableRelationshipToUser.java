@@ -33,7 +33,6 @@ public class NullableRelationshipToUser {
           NullableRelationshipToUserData data) {
     this.data = data;
     if (data != null) {
-
       this.unparsed |= data.unparsed;
     }
   }
@@ -47,7 +46,7 @@ public class NullableRelationshipToUser {
   }
 
   /**
-   * Get data
+   * Relationship to user object.
    *
    * @return data
    */

@@ -1331,7 +1331,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Get logsByRetention
+   * Object containing logs usage data broken down by retention period.
    *
    * @return logsByRetention
    */

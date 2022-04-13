@@ -188,7 +188,7 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * Get textAlign
+   * How to align the text on the widget.
    *
    * @return textAlign
    */
@@ -213,7 +213,7 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * Get tickEdge
+   * Define how you want to align the text on the widget.
    *
    * @return tickEdge
    */
@@ -259,7 +259,7 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the note widget.
    *
    * @return type
    */
@@ -283,7 +283,7 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * Get verticalAlign
+   * Vertical alignment.
    *
    * @return verticalAlign
    */

@@ -36,7 +36,7 @@ public class APIKeyResponse {
   }
 
   /**
-   * Get data
+   * Datadog API key.
    *
    * @return data
    */
@@ -93,9 +93,9 @@ public class APIKeyResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyResponse apIKeyResponse = (APIKeyResponse) o;
-    return Objects.equals(this.data, apIKeyResponse.data)
-        && Objects.equals(this.included, apIKeyResponse.included);
+    APIKeyResponse apiKeyResponse = (APIKeyResponse) o;
+    return Objects.equals(this.data, apiKeyResponse.data)
+        && Objects.equals(this.included, apiKeyResponse.included);
   }
 
   @Override

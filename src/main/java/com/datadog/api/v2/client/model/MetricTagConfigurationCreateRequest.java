@@ -42,7 +42,7 @@ public class MetricTagConfigurationCreateRequest {
   }
 
   /**
-   * Get data
+   * Object for a single metric to be configure tags on.
    *
    * @return data
    */

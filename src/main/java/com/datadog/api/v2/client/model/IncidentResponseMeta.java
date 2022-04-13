@@ -31,7 +31,7 @@ public class IncidentResponseMeta {
   }
 
   /**
-   * Get pagination
+   * Pagination properties.
    *
    * @return pagination
    */

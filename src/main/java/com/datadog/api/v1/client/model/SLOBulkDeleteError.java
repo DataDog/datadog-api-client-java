@@ -95,7 +95,8 @@ public class SLOBulkDeleteError {
   }
 
   /**
-   * Get timeframe
+   * The timeframe of the threshold associated with this error or &quot;all&quot; if all thresholds
+   * are affected.
    *
    * @return timeframe
    */
@@ -121,10 +122,10 @@ public class SLOBulkDeleteError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOBulkDeleteError slOBulkDeleteError = (SLOBulkDeleteError) o;
-    return Objects.equals(this.id, slOBulkDeleteError.id)
-        && Objects.equals(this.message, slOBulkDeleteError.message)
-        && Objects.equals(this.timeframe, slOBulkDeleteError.timeframe);
+    SLOBulkDeleteError sloBulkDeleteError = (SLOBulkDeleteError) o;
+    return Objects.equals(this.id, sloBulkDeleteError.id)
+        && Objects.equals(this.message, sloBulkDeleteError.message)
+        && Objects.equals(this.timeframe, sloBulkDeleteError.timeframe);
   }
 
   @Override

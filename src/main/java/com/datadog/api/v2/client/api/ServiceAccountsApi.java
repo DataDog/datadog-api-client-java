@@ -192,9 +192,6 @@ public class ServiceAccountsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createServiceAccountApplicationKey");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -308,7 +305,7 @@ public class ServiceAccountsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -365,9 +362,6 @@ public class ServiceAccountsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteServiceAccountApplicationKey");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -377,7 +371,7 @@ public class ServiceAccountsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -541,9 +535,6 @@ public class ServiceAccountsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getServiceAccountApplicationKey");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -608,7 +599,7 @@ public class ServiceAccountsApi {
      *
      * @param sort Application key attribute used to sort results. Sort order is ascending by
      *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
-     *     (optional, default to name)
+     *     (optional, default to "name")
      * @return ListServiceAccountApplicationKeysOptionalParameters
      */
     public ListServiceAccountApplicationKeysOptionalParameters sort(ApplicationKeysSort sort) {
@@ -673,7 +664,7 @@ public class ServiceAccountsApi {
   /**
    * List application keys for this service account
    *
-   * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfo}.
+   * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfoAsync}.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
@@ -848,9 +839,6 @@ public class ServiceAccountsApi {
         apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listServiceAccountApplicationKeys");
 
     Invocation.Builder builder;
     try {
@@ -1054,9 +1042,6 @@ public class ServiceAccountsApi {
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateServiceAccountApplicationKey");
 
     Invocation.Builder builder;
     try {

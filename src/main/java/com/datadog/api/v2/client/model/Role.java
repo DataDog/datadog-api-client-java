@@ -54,7 +54,7 @@ public class Role {
   }
 
   /**
-   * Get attributes
+   * Attributes of the role.
    *
    * @return attributes
    */
@@ -97,7 +97,7 @@ public class Role {
   }
 
   /**
-   * Get relationships
+   * Relationships of the role object returned by the API.
    *
    * @return relationships
    */
@@ -119,7 +119,7 @@ public class Role {
   }
 
   /**
-   * Get type
+   * Roles type.
    *
    * @return type
    */

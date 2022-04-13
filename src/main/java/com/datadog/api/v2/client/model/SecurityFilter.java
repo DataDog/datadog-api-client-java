@@ -41,7 +41,7 @@ public class SecurityFilter {
   }
 
   /**
-   * Get attributes
+   * The object describing a security filter.
    *
    * @return attributes
    */
@@ -84,7 +84,7 @@ public class SecurityFilter {
   }
 
   /**
-   * Get type
+   * The type of the resource. The value should always be &#x60;security_filters&#x60;.
    *
    * @return type
    */

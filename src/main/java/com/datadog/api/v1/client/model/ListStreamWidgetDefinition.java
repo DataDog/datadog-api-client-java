@@ -79,8 +79,8 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;,
-   * \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
+   * Available legend sizes for a widget. Should be one of &quot;0&quot;, &quot;2&quot;,
+   * &quot;4&quot;, &quot;8&quot;, &quot;16&quot;, or &quot;auto&quot;.
    *
    * @return legendSize
    */
@@ -152,7 +152,7 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -195,7 +195,7 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -241,7 +241,7 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the list stream widget.
    *
    * @return type
    */

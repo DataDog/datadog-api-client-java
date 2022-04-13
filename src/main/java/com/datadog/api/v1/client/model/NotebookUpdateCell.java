@@ -231,7 +231,6 @@ public class NotebookUpdateCell extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(NotebookCellUpdateRequest.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;

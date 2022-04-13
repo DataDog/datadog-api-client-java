@@ -54,8 +54,8 @@ public class SLOHistoryResponseError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryResponseError slOHistoryResponseError = (SLOHistoryResponseError) o;
-    return Objects.equals(this.error, slOHistoryResponseError.error);
+    SLOHistoryResponseError sloHistoryResponseError = (SLOHistoryResponseError) o;
+    return Objects.equals(this.error, sloHistoryResponseError.error);
   }
 
   @Override

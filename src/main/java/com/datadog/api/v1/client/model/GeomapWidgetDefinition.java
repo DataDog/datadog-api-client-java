@@ -151,7 +151,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Get style
+   * The style to apply to the widget.
    *
    * @return style
    */
@@ -172,7 +172,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -215,7 +215,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -261,7 +261,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the geomap widget.
    *
    * @return type
    */
@@ -285,7 +285,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Get view
+   * The view of the world that the map should render.
    *
    * @return view
    */

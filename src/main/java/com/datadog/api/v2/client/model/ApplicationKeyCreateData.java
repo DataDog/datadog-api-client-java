@@ -51,7 +51,7 @@ public class ApplicationKeyCreateData {
   }
 
   /**
-   * Get attributes
+   * Attributes used to create an application Key.
    *
    * @return attributes
    */
@@ -72,7 +72,7 @@ public class ApplicationKeyCreateData {
   }
 
   /**
-   * Get type
+   * Application Keys resource type.
    *
    * @return type
    */

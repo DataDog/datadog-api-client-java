@@ -78,7 +78,7 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * Get author
+   * Attributes of user object returned by the API.
    *
    * @return author
    */
@@ -141,7 +141,7 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * Get metadata
+   * Metadata associated with the notebook.
    *
    * @return metadata
    */
@@ -195,7 +195,7 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * Get status
+   * Publication status of the notebook. For now, always &quot;published&quot;.
    *
    * @return status
    */
@@ -220,7 +220,7 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * Get time
+   * Notebook global timeframe.
    *
    * @return time
    */

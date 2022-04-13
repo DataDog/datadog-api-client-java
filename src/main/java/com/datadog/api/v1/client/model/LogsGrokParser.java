@@ -75,7 +75,7 @@ public class LogsGrokParser {
   }
 
   /**
-   * Get grok
+   * Set of rules for the grok parser.
    *
    * @return grok
    */
@@ -187,7 +187,7 @@ public class LogsGrokParser {
   }
 
   /**
-   * Get type
+   * Type of logs grok parser.
    *
    * @return type
    */

@@ -81,9 +81,9 @@ public class AWSLogsListServicesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSLogsListServicesResponse awSLogsListServicesResponse = (AWSLogsListServicesResponse) o;
-    return Objects.equals(this.id, awSLogsListServicesResponse.id)
-        && Objects.equals(this.label, awSLogsListServicesResponse.label);
+    AWSLogsListServicesResponse awsLogsListServicesResponse = (AWSLogsListServicesResponse) o;
+    return Objects.equals(this.id, awsLogsListServicesResponse.id)
+        && Objects.equals(this.label, awsLogsListServicesResponse.label);
   }
 
   @Override

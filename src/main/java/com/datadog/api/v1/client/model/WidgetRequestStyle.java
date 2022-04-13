@@ -41,7 +41,7 @@ public class WidgetRequestStyle {
   }
 
   /**
-   * Get lineType
+   * Type of lines displayed.
    *
    * @return lineType
    */
@@ -66,7 +66,7 @@ public class WidgetRequestStyle {
   }
 
   /**
-   * Get lineWidth
+   * Width of line displayed.
    *
    * @return lineWidth
    */

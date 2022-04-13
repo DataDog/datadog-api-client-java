@@ -120,10 +120,10 @@ public class LogsAPIError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsAPIError logsAPIError = (LogsAPIError) o;
-    return Objects.equals(this.code, logsAPIError.code)
-        && Objects.equals(this.details, logsAPIError.details)
-        && Objects.equals(this.message, logsAPIError.message);
+    LogsAPIError logsApiError = (LogsAPIError) o;
+    return Objects.equals(this.code, logsApiError.code)
+        && Objects.equals(this.details, logsApiError.details)
+        && Objects.equals(this.message, logsApiError.message);
   }
 
   @Override

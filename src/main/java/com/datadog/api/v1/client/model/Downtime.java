@@ -110,19 +110,19 @@ public class Downtime {
     return active;
   }
 
-  public Downtime activeChild(DowntimeChild activeChild) {
-    this.activeChild = JsonNullable.<DowntimeChild>of(activeChild);
-    return this;
-  }
-
   /**
-   * Get activeChild
+   * The downtime object definition of the active child for the original parent recurring downtime.
+   * This field will only exist on recurring downtimes.
    *
    * @return activeChild
    */
   @javax.annotation.Nullable
   @JsonIgnore
   public DowntimeChild getActiveChild() {
+
+    if (activeChild == null) {
+      activeChild = JsonNullable.<DowntimeChild>undefined();
+    }
     return activeChild.orElse(null);
   }
 
@@ -133,12 +133,8 @@ public class Downtime {
   }
 
   @JsonProperty(JSON_PROPERTY_ACTIVE_CHILD)
-  public void setActiveChild_JsonNullable(JsonNullable<DowntimeChild> activeChild) {
+  private void setActiveChild_JsonNullable(JsonNullable<DowntimeChild> activeChild) {
     this.activeChild = activeChild;
-  }
-
-  public void setActiveChild(DowntimeChild activeChild) {
-    this.activeChild = JsonNullable.<DowntimeChild>of(activeChild);
   }
 
   /**
@@ -382,7 +378,7 @@ public class Downtime {
   }
 
   /**
-   * Get recurrence
+   * An object defining the recurrence of the downtime.
    *
    * @return recurrence
    */

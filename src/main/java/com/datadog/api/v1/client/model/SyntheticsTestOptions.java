@@ -291,7 +291,7 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Get monitorOptions
+   * Object containing the options for a Synthetic test as a monitor (for example, renotification).
    *
    * @return monitorOptions
    */
@@ -385,7 +385,7 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Get retry
+   * Object describing the retry strategy to apply to a Synthetic test.
    *
    * @return retry
    */

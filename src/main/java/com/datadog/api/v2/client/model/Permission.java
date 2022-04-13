@@ -51,7 +51,7 @@ public class Permission {
   }
 
   /**
-   * Get attributes
+   * Attributes of a permission.
    *
    * @return attributes
    */
@@ -94,7 +94,7 @@ public class Permission {
   }
 
   /**
-   * Get type
+   * Permissions resource type.
    *
    * @return type
    */

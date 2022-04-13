@@ -132,7 +132,7 @@ public class ServiceCheck {
   }
 
   /**
-   * Get status
+   * The status of a service check.
    *
    * @return status
    */

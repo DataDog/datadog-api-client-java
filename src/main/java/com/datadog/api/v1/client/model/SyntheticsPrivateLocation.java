@@ -100,7 +100,7 @@ public class SyntheticsPrivateLocation {
   }
 
   /**
-   * Get metadata
+   * Object containing metadata about the private location.
    *
    * @return metadata
    */
@@ -135,14 +135,9 @@ public class SyntheticsPrivateLocation {
     this.name = name;
   }
 
-  public SyntheticsPrivateLocation secrets(SyntheticsPrivateLocationSecrets secrets) {
-    this.secrets = secrets;
-    this.unparsed |= secrets.unparsed;
-    return this;
-  }
-
   /**
-   * Get secrets
+   * Secrets for the private location. Only present in the response when creating the private
+   * location.
    *
    * @return secrets
    */
@@ -151,10 +146,6 @@ public class SyntheticsPrivateLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsPrivateLocationSecrets getSecrets() {
     return secrets;
-  }
-
-  public void setSecrets(SyntheticsPrivateLocationSecrets secrets) {
-    this.secrets = secrets;
   }
 
   public SyntheticsPrivateLocation tags(List<String> tags) {

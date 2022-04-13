@@ -212,7 +212,7 @@ public class HostMeta {
   }
 
   /**
-   * Get installMethod
+   * Agent install method.
    *
    * @return installMethod
    */

@@ -41,7 +41,7 @@ public class AuthNMappingCreateRequest {
   }
 
   /**
-   * Get data
+   * Data for creating an AuthN Mapping.
    *
    * @return data
    */

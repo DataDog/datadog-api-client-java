@@ -72,7 +72,7 @@ public class WebhooksIntegrationUpdateRequest {
   }
 
   /**
-   * Get encodeAs
+   * Encoding type. Can be given either &#x60;json&#x60; or &#x60;form&#x60;.
    *
    * @return encodeAs
    */

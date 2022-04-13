@@ -62,8 +62,8 @@ public class APIKeyCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyCreateAttributes apIKeyCreateAttributes = (APIKeyCreateAttributes) o;
-    return Objects.equals(this.name, apIKeyCreateAttributes.name);
+    APIKeyCreateAttributes apiKeyCreateAttributes = (APIKeyCreateAttributes) o;
+    return Objects.equals(this.name, apiKeyCreateAttributes.name);
   }
 
   @Override

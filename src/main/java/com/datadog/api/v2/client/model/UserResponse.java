@@ -36,7 +36,7 @@ public class UserResponse {
   }
 
   /**
-   * Get data
+   * User object returned by the API.
    *
    * @return data
    */

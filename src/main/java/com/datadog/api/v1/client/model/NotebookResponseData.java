@@ -57,7 +57,7 @@ public class NotebookResponseData {
   }
 
   /**
-   * Get attributes
+   * The attributes of a notebook.
    *
    * @return attributes
    */
@@ -89,7 +89,7 @@ public class NotebookResponseData {
   }
 
   /**
-   * Get type
+   * Type of the Notebook resource.
    *
    * @return type
    */

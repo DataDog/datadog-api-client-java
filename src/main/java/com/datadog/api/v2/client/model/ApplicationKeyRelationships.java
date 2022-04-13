@@ -31,7 +31,7 @@ public class ApplicationKeyRelationships {
   }
 
   /**
-   * Get ownedBy
+   * Relationship to user.
    *
    * @return ownedBy
    */

@@ -159,12 +159,12 @@ public class UsageDBMHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageDBMHour usageDBMHour = (UsageDBMHour) o;
-    return Objects.equals(this.dbmHostCount, usageDBMHour.dbmHostCount)
-        && Objects.equals(this.dbmQueriesCount, usageDBMHour.dbmQueriesCount)
-        && Objects.equals(this.hour, usageDBMHour.hour)
-        && Objects.equals(this.orgName, usageDBMHour.orgName)
-        && Objects.equals(this.publicId, usageDBMHour.publicId);
+    UsageDBMHour usageDbmHour = (UsageDBMHour) o;
+    return Objects.equals(this.dbmHostCount, usageDbmHour.dbmHostCount)
+        && Objects.equals(this.dbmQueriesCount, usageDbmHour.dbmQueriesCount)
+        && Objects.equals(this.hour, usageDbmHour.hour)
+        && Objects.equals(this.orgName, usageDbmHour.orgName)
+        && Objects.equals(this.publicId, usageDbmHour.publicId);
   }
 
   @Override

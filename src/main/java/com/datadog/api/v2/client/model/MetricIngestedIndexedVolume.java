@@ -41,7 +41,7 @@ public class MetricIngestedIndexedVolume {
   }
 
   /**
-   * Get attributes
+   * Object containing the definition of a metric&#39;s ingested and indexed volume.
    *
    * @return attributes
    */
@@ -84,7 +84,7 @@ public class MetricIngestedIndexedVolume {
   }
 
   /**
-   * Get type
+   * The metric ingested and indexed volume type.
    *
    * @return type
    */

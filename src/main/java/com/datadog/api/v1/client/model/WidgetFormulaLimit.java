@@ -55,7 +55,7 @@ public class WidgetFormulaLimit {
   }
 
   /**
-   * Get order
+   * Direction of sort.
    *
    * @return order
    */

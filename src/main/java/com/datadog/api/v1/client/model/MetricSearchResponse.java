@@ -31,7 +31,7 @@ public class MetricSearchResponse {
   }
 
   /**
-   * Get results
+   * Search result.
    *
    * @return results
    */

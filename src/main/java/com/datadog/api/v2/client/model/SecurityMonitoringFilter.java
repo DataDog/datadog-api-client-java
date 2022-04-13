@@ -37,7 +37,7 @@ public class SecurityMonitoringFilter {
   }
 
   /**
-   * Get action
+   * The type of filtering action.
    *
    * @return action
    */

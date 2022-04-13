@@ -136,7 +136,7 @@ public class ChangeWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -179,7 +179,7 @@ public class ChangeWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -225,7 +225,7 @@ public class ChangeWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the change widget.
    *
    * @return type
    */

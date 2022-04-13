@@ -238,7 +238,7 @@ public class SecurityMonitoringRuleCreatePayload {
   }
 
   /**
-   * Get options
+   * Options on rules.
    *
    * @return options
    */
@@ -319,7 +319,7 @@ public class SecurityMonitoringRuleCreatePayload {
   }
 
   /**
-   * Get type
+   * The rule type.
    *
    * @return type
    */

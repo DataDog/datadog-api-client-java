@@ -45,7 +45,7 @@ public class RUMAggregateSort {
   }
 
   /**
-   * Get aggregation
+   * An aggregation function.
    *
    * @return aggregation
    */
@@ -91,7 +91,7 @@ public class RUMAggregateSort {
   }
 
   /**
-   * Get order
+   * The order to use, ascending or descending.
    *
    * @return order
    */
@@ -116,7 +116,7 @@ public class RUMAggregateSort {
   }
 
   /**
-   * Get type
+   * The type of sorting algorithm.
    *
    * @return type
    */
@@ -143,11 +143,11 @@ public class RUMAggregateSort {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMAggregateSort ruMAggregateSort = (RUMAggregateSort) o;
-    return Objects.equals(this.aggregation, ruMAggregateSort.aggregation)
-        && Objects.equals(this.metric, ruMAggregateSort.metric)
-        && Objects.equals(this.order, ruMAggregateSort.order)
-        && Objects.equals(this.type, ruMAggregateSort.type);
+    RUMAggregateSort rumAggregateSort = (RUMAggregateSort) o;
+    return Objects.equals(this.aggregation, rumAggregateSort.aggregation)
+        && Objects.equals(this.metric, rumAggregateSort.metric)
+        && Objects.equals(this.order, rumAggregateSort.order)
+        && Objects.equals(this.type, rumAggregateSort.type);
   }
 
   @Override

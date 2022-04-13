@@ -32,7 +32,7 @@ public class SecurityMonitoringSignalsListResponseMeta {
   }
 
   /**
-   * Get page
+   * Paging attributes.
    *
    * @return page
    */

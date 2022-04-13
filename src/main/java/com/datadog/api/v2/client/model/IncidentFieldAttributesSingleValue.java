@@ -39,7 +39,7 @@ public class IncidentFieldAttributesSingleValue {
   }
 
   /**
-   * Get type
+   * Type of the single value field definitions.
    *
    * @return type
    */

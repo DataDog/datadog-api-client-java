@@ -42,7 +42,7 @@ public class RelationshipToOrganization {
   }
 
   /**
-   * Get data
+   * Relationship to organization object.
    *
    * @return data
    */

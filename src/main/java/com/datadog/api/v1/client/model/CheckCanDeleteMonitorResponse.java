@@ -51,7 +51,7 @@ public class CheckCanDeleteMonitorResponse {
   }
 
   /**
-   * Get data
+   * Wrapper object with the list of monitor IDs.
    *
    * @return data
    */

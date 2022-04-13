@@ -41,7 +41,7 @@ public class APIKeyUpdateRequest {
   }
 
   /**
-   * Get data
+   * Object used to update an API key.
    *
    * @return data
    */
@@ -64,8 +64,8 @@ public class APIKeyUpdateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyUpdateRequest apIKeyUpdateRequest = (APIKeyUpdateRequest) o;
-    return Objects.equals(this.data, apIKeyUpdateRequest.data);
+    APIKeyUpdateRequest apiKeyUpdateRequest = (APIKeyUpdateRequest) o;
+    return Objects.equals(this.data, apiKeyUpdateRequest.data);
   }
 
   @Override

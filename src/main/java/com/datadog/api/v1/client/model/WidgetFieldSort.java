@@ -66,7 +66,7 @@ public class WidgetFieldSort {
   }
 
   /**
-   * Get order
+   * Widget sorting methods.
    *
    * @return order
    */

@@ -47,7 +47,7 @@ public class TimeseriesBackground {
   }
 
   /**
-   * Get type
+   * Timeseries is made using an area or bars.
    *
    * @return type
    */
@@ -71,7 +71,7 @@ public class TimeseriesBackground {
   }
 
   /**
-   * Get yaxis
+   * Axis controls for the widget.
    *
    * @return yaxis
    */

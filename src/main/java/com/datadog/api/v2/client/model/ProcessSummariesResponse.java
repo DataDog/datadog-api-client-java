@@ -72,7 +72,7 @@ public class ProcessSummariesResponse {
   }
 
   /**
-   * Get meta
+   * Response metadata object.
    *
    * @return meta
    */

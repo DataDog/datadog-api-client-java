@@ -291,12 +291,10 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(LogsArchiveDestinationGCS.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(LogsArchiveDestinationS3.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;

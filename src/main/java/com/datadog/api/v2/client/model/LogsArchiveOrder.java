@@ -31,7 +31,7 @@ public class LogsArchiveOrder {
   }
 
   /**
-   * Get data
+   * The definition of an archive order.
    *
    * @return data
    */

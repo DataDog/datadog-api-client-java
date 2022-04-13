@@ -252,7 +252,7 @@ public class Host {
   }
 
   /**
-   * Get meta
+   * Metadata associated with your host.
    *
    * @return meta
    */
@@ -274,7 +274,7 @@ public class Host {
   }
 
   /**
-   * Get metrics
+   * Host Metrics collected.
    *
    * @return metrics
    */

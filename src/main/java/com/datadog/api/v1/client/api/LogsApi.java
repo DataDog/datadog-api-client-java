@@ -154,9 +154,6 @@ public class LogsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLogs");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -231,7 +228,7 @@ public class LogsApi {
   /**
    * Send logs
    *
-   * <p>See {@link #submitLogWithHttpInfo}.
+   * <p>See {@link #submitLogWithHttpInfoAsync}.
    *
    * @param body Log to send (JSON format). (required)
    * @return CompletableFuture&lt;Object&gt;
@@ -331,7 +328,6 @@ public class LogsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ddtags", ddtags));
-
     if (contentEncoding != null)
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
 
@@ -388,10 +384,6 @@ public class LogsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ddtags", ddtags));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "submitLog");
-
     if (contentEncoding != null)
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
 

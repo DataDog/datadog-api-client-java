@@ -75,7 +75,7 @@ public class ScatterplotWidgetFormula {
   }
 
   /**
-   * Get dimension
+   * Dimension of the Scatterplot.
    *
    * @return dimension
    */

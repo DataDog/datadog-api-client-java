@@ -41,7 +41,7 @@ public class SecurityFilterCreateRequest {
   }
 
   /**
-   * Get data
+   * Object for a single security filter.
    *
    * @return data
    */

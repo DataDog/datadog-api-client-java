@@ -186,7 +186,7 @@ public class LogsArithmeticProcessor {
   }
 
   /**
-   * Get type
+   * Type of logs arithmetic processor.
    *
    * @return type
    */

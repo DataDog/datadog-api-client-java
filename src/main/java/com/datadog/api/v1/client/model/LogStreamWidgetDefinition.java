@@ -178,7 +178,7 @@ public class LogStreamWidgetDefinition {
   }
 
   /**
-   * Get messageDisplay
+   * Amount of log lines to display
    *
    * @return messageDisplay
    */
@@ -266,7 +266,7 @@ public class LogStreamWidgetDefinition {
   }
 
   /**
-   * Get sort
+   * Which column and order to sort by
    *
    * @return sort
    */
@@ -288,7 +288,7 @@ public class LogStreamWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -331,7 +331,7 @@ public class LogStreamWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -377,7 +377,7 @@ public class LogStreamWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the log stream widget.
    *
    * @return type
    */

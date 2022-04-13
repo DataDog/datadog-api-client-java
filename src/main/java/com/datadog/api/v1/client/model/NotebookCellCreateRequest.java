@@ -51,7 +51,10 @@ public class NotebookCellCreateRequest {
   }
 
   /**
-   * Get attributes
+   * The attributes of a notebook cell in create cell request. Valid cell types are
+   * &#x60;markdown&#x60;, &#x60;timeseries&#x60;, &#x60;toplist&#x60;, &#x60;heatmap&#x60;,
+   * &#x60;distribution&#x60;, &#x60;log_stream&#x60;. [More information on each graph visualization
+   * type.](https://docs.datadoghq.com/dashboards/widgets/)
    *
    * @return attributes
    */
@@ -72,7 +75,7 @@ public class NotebookCellCreateRequest {
   }
 
   /**
-   * Get type
+   * Type of the Notebook Cell resource.
    *
    * @return type
    */

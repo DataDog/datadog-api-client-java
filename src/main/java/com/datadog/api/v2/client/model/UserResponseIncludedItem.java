@@ -275,12 +275,10 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(Permission.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(Role.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;

@@ -46,7 +46,7 @@ public class SyntheticsTriggerTest {
   }
 
   /**
-   * Get metadata
+   * Metadata for the Synthetics tests run.
    *
    * @return metadata
    */

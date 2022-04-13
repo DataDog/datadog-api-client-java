@@ -108,10 +108,10 @@ public class RUMQueryFilter {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMQueryFilter ruMQueryFilter = (RUMQueryFilter) o;
-    return Objects.equals(this.from, ruMQueryFilter.from)
-        && Objects.equals(this.query, ruMQueryFilter.query)
-        && Objects.equals(this.to, ruMQueryFilter.to);
+    RUMQueryFilter rumQueryFilter = (RUMQueryFilter) o;
+    return Objects.equals(this.from, rumQueryFilter.from)
+        && Objects.equals(this.query, rumQueryFilter.query)
+        && Objects.equals(this.to, rumQueryFilter.to);
   }
 
   @Override

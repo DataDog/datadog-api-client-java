@@ -198,19 +198,19 @@ public class NotebookGlobalTime extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public NotebookGlobalTime(NotebookAbsoluteTime o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public NotebookGlobalTime(NotebookRelativeTime o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
+  public NotebookGlobalTime(NotebookAbsoluteTime o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
-    schemas.put("NotebookAbsoluteTime", new GenericType<NotebookAbsoluteTime>() {});
     schemas.put("NotebookRelativeTime", new GenericType<NotebookRelativeTime>() {});
+    schemas.put("NotebookAbsoluteTime", new GenericType<NotebookAbsoluteTime>() {});
     JSON.registerDescendants(NotebookGlobalTime.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -221,19 +221,18 @@ public class NotebookGlobalTime extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: NotebookAbsoluteTime, NotebookRelativeTime
+   * against the oneOf child schemas: NotebookRelativeTime, NotebookAbsoluteTime
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(NotebookAbsoluteTime.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(NotebookRelativeTime.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(NotebookRelativeTime.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(NotebookAbsoluteTime.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -243,28 +242,17 @@ public class NotebookGlobalTime extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be NotebookAbsoluteTime, NotebookRelativeTime");
+        "Invalid instance type. Must be NotebookRelativeTime, NotebookAbsoluteTime");
   }
 
   /**
-   * Get the actual instance, which can be the following: NotebookAbsoluteTime, NotebookRelativeTime
+   * Get the actual instance, which can be the following: NotebookRelativeTime, NotebookAbsoluteTime
    *
-   * @return The actual instance (NotebookAbsoluteTime, NotebookRelativeTime)
+   * @return The actual instance (NotebookRelativeTime, NotebookAbsoluteTime)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `NotebookAbsoluteTime`. If the actual instance is not
-   * `NotebookAbsoluteTime`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `NotebookAbsoluteTime`
-   * @throws ClassCastException if the instance is not `NotebookAbsoluteTime`
-   */
-  public NotebookAbsoluteTime getNotebookAbsoluteTime() throws ClassCastException {
-    return (NotebookAbsoluteTime) super.getActualInstance();
   }
 
   /**
@@ -276,5 +264,16 @@ public class NotebookGlobalTime extends AbstractOpenApiSchema {
    */
   public NotebookRelativeTime getNotebookRelativeTime() throws ClassCastException {
     return (NotebookRelativeTime) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `NotebookAbsoluteTime`. If the actual instance is not
+   * `NotebookAbsoluteTime`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `NotebookAbsoluteTime`
+   * @throws ClassCastException if the instance is not `NotebookAbsoluteTime`
+   */
+  public NotebookAbsoluteTime getNotebookAbsoluteTime() throws ClassCastException {
+    return (NotebookAbsoluteTime) super.getActualInstance();
   }
 }

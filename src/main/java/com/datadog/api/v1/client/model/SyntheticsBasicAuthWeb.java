@@ -72,7 +72,7 @@ public class SyntheticsBasicAuthWeb {
   }
 
   /**
-   * Get type
+   * The type of basic authentication to use when performing the test.
    *
    * @return type
    */

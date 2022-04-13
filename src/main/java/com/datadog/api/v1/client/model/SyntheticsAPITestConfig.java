@@ -114,7 +114,7 @@ public class SyntheticsAPITestConfig {
   }
 
   /**
-   * Get request
+   * Object describing the Synthetic test request.
    *
    * @return request
    */
@@ -171,11 +171,11 @@ public class SyntheticsAPITestConfig {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITestConfig syntheticsAPITestConfig = (SyntheticsAPITestConfig) o;
-    return Objects.equals(this.assertions, syntheticsAPITestConfig.assertions)
-        && Objects.equals(this.configVariables, syntheticsAPITestConfig.configVariables)
-        && Objects.equals(this.request, syntheticsAPITestConfig.request)
-        && Objects.equals(this.steps, syntheticsAPITestConfig.steps);
+    SyntheticsAPITestConfig syntheticsApiTestConfig = (SyntheticsAPITestConfig) o;
+    return Objects.equals(this.assertions, syntheticsApiTestConfig.assertions)
+        && Objects.equals(this.configVariables, syntheticsApiTestConfig.configVariables)
+        && Objects.equals(this.request, syntheticsApiTestConfig.request)
+        && Objects.equals(this.steps, syntheticsApiTestConfig.steps);
   }
 
   @Override

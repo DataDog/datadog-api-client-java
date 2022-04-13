@@ -73,7 +73,7 @@ public class NotebookMarkdownCellDefinition {
   }
 
   /**
-   * Get type
+   * Type of the markdown cell.
    *
    * @return type
    */

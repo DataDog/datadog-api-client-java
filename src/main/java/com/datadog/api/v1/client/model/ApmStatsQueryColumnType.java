@@ -75,7 +75,7 @@ public class ApmStatsQueryColumnType {
   }
 
   /**
-   * Get cellDisplayMode
+   * Define a display mode for the table cell.
    *
    * @return cellDisplayMode
    */
@@ -120,7 +120,7 @@ public class ApmStatsQueryColumnType {
   }
 
   /**
-   * Get order
+   * Widget sorting methods.
    *
    * @return order
    */

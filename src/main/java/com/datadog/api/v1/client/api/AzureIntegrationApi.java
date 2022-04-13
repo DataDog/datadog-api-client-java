@@ -157,9 +157,6 @@ public class AzureIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAzureIntegration");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -293,9 +290,6 @@ public class AzureIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAzureIntegration");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -408,9 +402,6 @@ public class AzureIntegrationApi {
     String localVarPath = "/api/v1/integration/azure";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAzureIntegration");
 
     Invocation.Builder builder;
     try {
@@ -544,9 +535,6 @@ public class AzureIntegrationApi {
     String localVarPath = "/api/v1/integration/azure/host_filters";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateAzureHostFilters");
 
     Invocation.Builder builder;
     try {
@@ -683,9 +671,6 @@ public class AzureIntegrationApi {
     String localVarPath = "/api/v1/integration/azure";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateAzureIntegration");
 
     Invocation.Builder builder;
     try {

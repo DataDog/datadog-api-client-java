@@ -41,7 +41,7 @@ public class UserInvitationResponseData {
   }
 
   /**
-   * Get attributes
+   * Attributes of a user invitation.
    *
    * @return attributes
    */
@@ -84,7 +84,7 @@ public class UserInvitationResponseData {
   }
 
   /**
-   * Get type
+   * User invitations type.
    *
    * @return type
    */

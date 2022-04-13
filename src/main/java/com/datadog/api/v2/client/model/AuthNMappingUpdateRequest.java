@@ -41,7 +41,7 @@ public class AuthNMappingUpdateRequest {
   }
 
   /**
-   * Get data
+   * Data for updating an AuthN Mapping.
    *
    * @return data
    */

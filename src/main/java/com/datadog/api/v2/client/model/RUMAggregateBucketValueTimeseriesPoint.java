@@ -82,10 +82,10 @@ public class RUMAggregateBucketValueTimeseriesPoint {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMAggregateBucketValueTimeseriesPoint ruMAggregateBucketValueTimeseriesPoint =
+    RUMAggregateBucketValueTimeseriesPoint rumAggregateBucketValueTimeseriesPoint =
         (RUMAggregateBucketValueTimeseriesPoint) o;
-    return Objects.equals(this.time, ruMAggregateBucketValueTimeseriesPoint.time)
-        && Objects.equals(this.value, ruMAggregateBucketValueTimeseriesPoint.value);
+    return Objects.equals(this.time, rumAggregateBucketValueTimeseriesPoint.time)
+        && Objects.equals(this.value, rumAggregateBucketValueTimeseriesPoint.value);
   }
 
   @Override

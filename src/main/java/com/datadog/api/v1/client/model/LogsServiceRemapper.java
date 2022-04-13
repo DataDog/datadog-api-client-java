@@ -130,7 +130,7 @@ public class LogsServiceRemapper {
   }
 
   /**
-   * Get type
+   * Type of logs service remapper.
    *
    * @return type
    */

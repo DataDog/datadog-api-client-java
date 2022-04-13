@@ -102,14 +102,8 @@ public class MonitorUpdateRequest {
     return created;
   }
 
-  public MonitorUpdateRequest creator(Creator creator) {
-    this.creator = creator;
-    this.unparsed |= creator.unparsed;
-    return this;
-  }
-
   /**
-   * Get creator
+   * Object describing the creator of the shared element.
    *
    * @return creator
    */
@@ -118,10 +112,6 @@ public class MonitorUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
     return creator;
-  }
-
-  public void setCreator(Creator creator) {
-    this.creator = creator;
   }
 
   /**
@@ -235,7 +225,7 @@ public class MonitorUpdateRequest {
   }
 
   /**
-   * Get options
+   * List of options associated with your monitor.
    *
    * @return options
    */
@@ -250,14 +240,8 @@ public class MonitorUpdateRequest {
     this.options = options;
   }
 
-  public MonitorUpdateRequest overallState(MonitorOverallStates overallState) {
-    this.overallState = overallState;
-    this.unparsed |= !overallState.isValid();
-    return this;
-  }
-
   /**
-   * Get overallState
+   * The different states your monitor can be in.
    *
    * @return overallState
    */
@@ -266,13 +250,6 @@ public class MonitorUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getOverallState() {
     return overallState;
-  }
-
-  public void setOverallState(MonitorOverallStates overallState) {
-    if (!overallState.isValid()) {
-      this.unparsed = true;
-    }
-    this.overallState = overallState;
   }
 
   public MonitorUpdateRequest priority(Long priority) {
@@ -353,14 +330,8 @@ public class MonitorUpdateRequest {
     this.restrictedRoles = restrictedRoles;
   }
 
-  public MonitorUpdateRequest state(MonitorState state) {
-    this.state = state;
-    this.unparsed |= state.unparsed;
-    return this;
-  }
-
   /**
-   * Get state
+   * Wrapper object with the different monitor states.
    *
    * @return state
    */
@@ -369,10 +340,6 @@ public class MonitorUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorState getState() {
     return state;
-  }
-
-  public void setState(MonitorState state) {
-    this.state = state;
   }
 
   public MonitorUpdateRequest tags(List<String> tags) {
@@ -411,7 +378,8 @@ public class MonitorUpdateRequest {
   }
 
   /**
-   * Get type
+   * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor
+   * options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
    *
    * @return type
    */

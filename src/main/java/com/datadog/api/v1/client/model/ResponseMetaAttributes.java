@@ -31,7 +31,7 @@ public class ResponseMetaAttributes {
   }
 
   /**
-   * Get page
+   * Pagination object.
    *
    * @return page
    */

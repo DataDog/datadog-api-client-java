@@ -31,7 +31,7 @@ public class LogsMetricResponse {
   }
 
   /**
-   * Get data
+   * The log-based metric properties.
    *
    * @return data
    */

@@ -53,7 +53,7 @@ public class MonitorFormulaAndFunctionEventQueryGroupBySort {
   }
 
   /**
-   * Get aggregation
+   * Aggregation methods for event platform queries.
    *
    * @return aggregation
    */
@@ -98,7 +98,7 @@ public class MonitorFormulaAndFunctionEventQueryGroupBySort {
   }
 
   /**
-   * Get order
+   * Direction of sort.
    *
    * @return order
    */

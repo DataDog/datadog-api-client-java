@@ -93,7 +93,8 @@ public class OrganizationSettings {
   }
 
   /**
-   * Get saml
+   * Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML
+   * documentation for more information about all SAML settings.
    *
    * @return saml
    */
@@ -115,7 +116,8 @@ public class OrganizationSettings {
   }
 
   /**
-   * Get samlAutocreateAccessRole
+   * The access role of the user. Options are **st** (standard user), **adm** (admin user), or
+   * **ro** (read-only user).
    *
    * @return samlAutocreateAccessRole
    */
@@ -141,7 +143,8 @@ public class OrganizationSettings {
   }
 
   /**
-   * Get samlAutocreateUsersDomains
+   * Has two properties, &#x60;enabled&#x60; (boolean) and &#x60;domains&#x60;, which is a list of
+   * domains without the @ symbol.
    *
    * @return samlAutocreateUsersDomains
    */
@@ -207,7 +210,7 @@ public class OrganizationSettings {
   }
 
   /**
-   * Get samlIdpInitiatedLogin
+   * Has one property enabled (boolean).
    *
    * @return samlIdpInitiatedLogin
    */
@@ -272,7 +275,7 @@ public class OrganizationSettings {
   }
 
   /**
-   * Get samlStrictMode
+   * Has one property enabled (boolean).
    *
    * @return samlStrictMode
    */

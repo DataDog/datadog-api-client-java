@@ -45,7 +45,7 @@ public class PartialAPIKey {
   }
 
   /**
-   * Get attributes
+   * Attributes of a partial API key.
    *
    * @return attributes
    */
@@ -88,7 +88,7 @@ public class PartialAPIKey {
   }
 
   /**
-   * Get relationships
+   * Resources related to the API key.
    *
    * @return relationships
    */
@@ -110,7 +110,7 @@ public class PartialAPIKey {
   }
 
   /**
-   * Get type
+   * API Keys resource type.
    *
    * @return type
    */
@@ -137,11 +137,11 @@ public class PartialAPIKey {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PartialAPIKey partialAPIKey = (PartialAPIKey) o;
-    return Objects.equals(this.attributes, partialAPIKey.attributes)
-        && Objects.equals(this.id, partialAPIKey.id)
-        && Objects.equals(this.relationships, partialAPIKey.relationships)
-        && Objects.equals(this.type, partialAPIKey.type);
+    PartialAPIKey partialApiKey = (PartialAPIKey) o;
+    return Objects.equals(this.attributes, partialApiKey.attributes)
+        && Objects.equals(this.id, partialApiKey.id)
+        && Objects.equals(this.relationships, partialApiKey.relationships)
+        && Objects.equals(this.type, partialApiKey.type);
   }
 
   @Override

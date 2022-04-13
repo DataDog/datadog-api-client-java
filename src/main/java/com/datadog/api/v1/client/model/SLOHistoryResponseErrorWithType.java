@@ -90,10 +90,10 @@ public class SLOHistoryResponseErrorWithType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryResponseErrorWithType slOHistoryResponseErrorWithType =
+    SLOHistoryResponseErrorWithType sloHistoryResponseErrorWithType =
         (SLOHistoryResponseErrorWithType) o;
-    return Objects.equals(this.errorMessage, slOHistoryResponseErrorWithType.errorMessage)
-        && Objects.equals(this.errorType, slOHistoryResponseErrorWithType.errorType);
+    return Objects.equals(this.errorMessage, sloHistoryResponseErrorWithType.errorMessage)
+        && Objects.equals(this.errorType, sloHistoryResponseErrorWithType.errorType);
   }
 
   @Override

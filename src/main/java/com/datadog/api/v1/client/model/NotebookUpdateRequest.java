@@ -41,7 +41,7 @@ public class NotebookUpdateRequest {
   }
 
   /**
-   * Get data
+   * The data for a notebook update request.
    *
    * @return data
    */

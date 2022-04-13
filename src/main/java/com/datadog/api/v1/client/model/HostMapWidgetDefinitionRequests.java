@@ -37,7 +37,7 @@ public class HostMapWidgetDefinitionRequests {
   }
 
   /**
-   * Get fill
+   * Updated host map.
    *
    * @return fill
    */
@@ -59,7 +59,7 @@ public class HostMapWidgetDefinitionRequests {
   }
 
   /**
-   * Get size
+   * Updated host map.
    *
    * @return size
    */

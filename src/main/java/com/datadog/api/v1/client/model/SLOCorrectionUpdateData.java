@@ -37,7 +37,7 @@ public class SLOCorrectionUpdateData {
   }
 
   /**
-   * Get attributes
+   * The attribute object associated with the SLO correction to be updated.
    *
    * @return attributes
    */
@@ -59,7 +59,7 @@ public class SLOCorrectionUpdateData {
   }
 
   /**
-   * Get type
+   * SLO correction resource type.
    *
    * @return type
    */
@@ -86,9 +86,9 @@ public class SLOCorrectionUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionUpdateData slOCorrectionUpdateData = (SLOCorrectionUpdateData) o;
-    return Objects.equals(this.attributes, slOCorrectionUpdateData.attributes)
-        && Objects.equals(this.type, slOCorrectionUpdateData.type);
+    SLOCorrectionUpdateData sloCorrectionUpdateData = (SLOCorrectionUpdateData) o;
+    return Objects.equals(this.attributes, sloCorrectionUpdateData.attributes)
+        && Objects.equals(this.type, sloCorrectionUpdateData.type);
   }
 
   @Override

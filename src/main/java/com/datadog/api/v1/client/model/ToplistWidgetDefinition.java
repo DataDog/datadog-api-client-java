@@ -138,7 +138,7 @@ public class ToplistWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -181,7 +181,7 @@ public class ToplistWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -227,7 +227,7 @@ public class ToplistWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the top list widget.
    *
    * @return type
    */

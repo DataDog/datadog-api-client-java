@@ -51,7 +51,7 @@ public class SecurityFilterCreateData {
   }
 
   /**
-   * Get attributes
+   * Object containing the attributes of the security filter to be created.
    *
    * @return attributes
    */
@@ -72,7 +72,7 @@ public class SecurityFilterCreateData {
   }
 
   /**
-   * Get type
+   * The type of the resource. The value should always be &#x60;security_filters&#x60;.
    *
    * @return type
    */

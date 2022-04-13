@@ -230,7 +230,6 @@ public class MetricVolumes extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(MetricIngestedIndexedVolume.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;

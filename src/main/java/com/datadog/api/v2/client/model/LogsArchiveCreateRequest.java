@@ -31,7 +31,7 @@ public class LogsArchiveCreateRequest {
   }
 
   /**
-   * Get data
+   * The definition of an archive.
    *
    * @return data
    */

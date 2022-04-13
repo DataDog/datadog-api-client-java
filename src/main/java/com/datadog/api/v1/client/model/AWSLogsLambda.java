@@ -54,8 +54,8 @@ public class AWSLogsLambda {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSLogsLambda awSLogsLambda = (AWSLogsLambda) o;
-    return Objects.equals(this.arn, awSLogsLambda.arn);
+    AWSLogsLambda awsLogsLambda = (AWSLogsLambda) o;
+    return Objects.equals(this.arn, awsLogsLambda.arn);
   }
 
   @Override

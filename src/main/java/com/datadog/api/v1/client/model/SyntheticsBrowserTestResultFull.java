@@ -57,7 +57,7 @@ public class SyntheticsBrowserTestResultFull {
   }
 
   /**
-   * Get check
+   * Object describing the browser test configuration.
    *
    * @return check
    */
@@ -142,7 +142,7 @@ public class SyntheticsBrowserTestResultFull {
   }
 
   /**
-   * Get result
+   * Object containing results for your Synthetic browser test.
    *
    * @return result
    */
@@ -185,7 +185,8 @@ public class SyntheticsBrowserTestResultFull {
   }
 
   /**
-   * Get status
+   * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for
+   * triggered * &#x60;2&#x60; for no data
    *
    * @return status
    */

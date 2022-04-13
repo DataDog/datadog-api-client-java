@@ -41,7 +41,7 @@ public class ApplicationKeyCreateRequest {
   }
 
   /**
-   * Get data
+   * Object used to create an application key.
    *
    * @return data
    */

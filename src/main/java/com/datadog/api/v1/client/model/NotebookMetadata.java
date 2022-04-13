@@ -84,7 +84,7 @@ public class NotebookMetadata {
   }
 
   /**
-   * Get type
+   * Metadata type of the notebook.
    *
    * @return type
    */

@@ -83,7 +83,7 @@ public class SyntheticsTestDetails {
   }
 
   /**
-   * Get config
+   * Configuration object for a Synthetic test.
    *
    * @return config
    */
@@ -98,14 +98,8 @@ public class SyntheticsTestDetails {
     this.config = config;
   }
 
-  public SyntheticsTestDetails creator(Creator creator) {
-    this.creator = creator;
-    this.unparsed |= creator.unparsed;
-    return this;
-  }
-
   /**
-   * Get creator
+   * Object describing the creator of the shared element.
    *
    * @return creator
    */
@@ -114,10 +108,6 @@ public class SyntheticsTestDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
     return creator;
-  }
-
-  public void setCreator(Creator creator) {
-    this.creator = creator;
   }
 
   public SyntheticsTestDetails locations(List<String> locations) {
@@ -210,7 +200,7 @@ public class SyntheticsTestDetails {
   }
 
   /**
-   * Get options
+   * Object describing the extra options for a Synthetic test.
    *
    * @return options
    */
@@ -244,7 +234,8 @@ public class SyntheticsTestDetails {
   }
 
   /**
-   * Get status
+   * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
+   * test.
    *
    * @return status
    */
@@ -302,7 +293,8 @@ public class SyntheticsTestDetails {
   }
 
   /**
-   * Get subtype
+   * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;,
+   * &#x60;dns&#x60;, &#x60;icmp&#x60;, &#x60;udp&#x60;, &#x60;websocket&#x60; or &#x60;multi&#x60;.
    *
    * @return subtype
    */
@@ -356,7 +348,7 @@ public class SyntheticsTestDetails {
   }
 
   /**
-   * Get type
+   * Type of the Synthetic test, either &#x60;api&#x60; or &#x60;browser&#x60;.
    *
    * @return type
    */

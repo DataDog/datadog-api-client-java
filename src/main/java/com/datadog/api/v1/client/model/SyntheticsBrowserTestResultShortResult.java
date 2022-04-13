@@ -49,7 +49,7 @@ public class SyntheticsBrowserTestResultShortResult {
   }
 
   /**
-   * Get device
+   * Object describing the device used to perform the Synthetic test.
    *
    * @return device
    */

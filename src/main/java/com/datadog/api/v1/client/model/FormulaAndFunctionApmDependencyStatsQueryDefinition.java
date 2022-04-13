@@ -95,7 +95,7 @@ public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   }
 
   /**
-   * Get dataSource
+   * Data source for APM dependency stats queries.
    *
    * @return dataSource
    */
@@ -286,7 +286,7 @@ public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   }
 
   /**
-   * Get stat
+   * APM statistic.
    *
    * @return stat
    */

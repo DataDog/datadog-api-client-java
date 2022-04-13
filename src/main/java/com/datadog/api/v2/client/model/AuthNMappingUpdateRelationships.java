@@ -31,7 +31,7 @@ public class AuthNMappingUpdateRelationships {
   }
 
   /**
-   * Get role
+   * Relationship to role.
    *
    * @return role
    */

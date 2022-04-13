@@ -65,7 +65,7 @@ public class IPRanges {
   }
 
   /**
-   * Get agents
+   * Available prefix information for the Agent endpoints.
    *
    * @return agents
    */
@@ -87,7 +87,7 @@ public class IPRanges {
   }
 
   /**
-   * Get api
+   * Available prefix information for the API endpoints.
    *
    * @return api
    */
@@ -109,7 +109,7 @@ public class IPRanges {
   }
 
   /**
-   * Get apm
+   * Available prefix information for the APM endpoints.
    *
    * @return apm
    */
@@ -131,7 +131,7 @@ public class IPRanges {
   }
 
   /**
-   * Get logs
+   * Available prefix information for the Logs endpoints.
    *
    * @return logs
    */
@@ -174,7 +174,7 @@ public class IPRanges {
   }
 
   /**
-   * Get process
+   * Available prefix information for the Process endpoints.
    *
    * @return process
    */
@@ -196,7 +196,7 @@ public class IPRanges {
   }
 
   /**
-   * Get synthetics
+   * Available prefix information for the Synthetics endpoints.
    *
    * @return synthetics
    */
@@ -239,7 +239,7 @@ public class IPRanges {
   }
 
   /**
-   * Get webhooks
+   * Available prefix information for the Webhook endpoints.
    *
    * @return webhooks
    */

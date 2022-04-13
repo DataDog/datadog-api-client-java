@@ -51,7 +51,7 @@ public class NotebookUpdateData {
   }
 
   /**
-   * Get attributes
+   * The data attributes of a notebook.
    *
    * @return attributes
    */
@@ -72,7 +72,7 @@ public class NotebookUpdateData {
   }
 
   /**
-   * Get type
+   * Type of the Notebook resource.
    *
    * @return type
    */

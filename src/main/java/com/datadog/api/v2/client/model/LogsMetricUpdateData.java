@@ -51,7 +51,7 @@ public class LogsMetricUpdateData {
   }
 
   /**
-   * Get attributes
+   * The log-based metric properties that will be updated.
    *
    * @return attributes
    */
@@ -72,7 +72,7 @@ public class LogsMetricUpdateData {
   }
 
   /**
-   * Get type
+   * The type of the resource. The value should always be logs_metrics.
    *
    * @return type
    */

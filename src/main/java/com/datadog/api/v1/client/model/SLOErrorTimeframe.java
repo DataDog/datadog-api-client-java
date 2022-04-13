@@ -24,7 +24,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * The timeframe of the threshold associated with this error or \&quot;all\&quot; if all thresholds
+ * The timeframe of the threshold associated with this error or &quot;all&quot; if all thresholds
  * are affected.
  */
 @JsonSerialize(using = SLOErrorTimeframe.SLOErrorTimeframeSerializer.class)

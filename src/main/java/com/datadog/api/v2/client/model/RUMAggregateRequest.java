@@ -87,7 +87,7 @@ public class RUMAggregateRequest {
   }
 
   /**
-   * Get filter
+   * The search and filter query settings.
    *
    * @return filter
    */
@@ -142,7 +142,8 @@ public class RUMAggregateRequest {
   }
 
   /**
-   * Get options
+   * Global query options that are used during the query. Note: Only supply timezone or time offset,
+   * not both. Otherwise, the query fails.
    *
    * @return options
    */
@@ -164,7 +165,7 @@ public class RUMAggregateRequest {
   }
 
   /**
-   * Get page
+   * Paging attributes for listing events.
    *
    * @return page
    */
@@ -188,12 +189,12 @@ public class RUMAggregateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMAggregateRequest ruMAggregateRequest = (RUMAggregateRequest) o;
-    return Objects.equals(this.compute, ruMAggregateRequest.compute)
-        && Objects.equals(this.filter, ruMAggregateRequest.filter)
-        && Objects.equals(this.groupBy, ruMAggregateRequest.groupBy)
-        && Objects.equals(this.options, ruMAggregateRequest.options)
-        && Objects.equals(this.page, ruMAggregateRequest.page);
+    RUMAggregateRequest rumAggregateRequest = (RUMAggregateRequest) o;
+    return Objects.equals(this.compute, rumAggregateRequest.compute)
+        && Objects.equals(this.filter, rumAggregateRequest.filter)
+        && Objects.equals(this.groupBy, rumAggregateRequest.groupBy)
+        && Objects.equals(this.options, rumAggregateRequest.options)
+        && Objects.equals(this.page, rumAggregateRequest.page);
   }
 
   @Override

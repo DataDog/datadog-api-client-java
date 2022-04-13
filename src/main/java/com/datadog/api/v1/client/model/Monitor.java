@@ -114,14 +114,8 @@ public class Monitor {
     return created;
   }
 
-  public Monitor creator(Creator creator) {
-    this.creator = creator;
-    this.unparsed |= creator.unparsed;
-    return this;
-  }
-
   /**
-   * Get creator
+   * Object describing the creator of the shared element.
    *
    * @return creator
    */
@@ -130,10 +124,6 @@ public class Monitor {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
     return creator;
-  }
-
-  public void setCreator(Creator creator) {
-    this.creator = creator;
   }
 
   /**
@@ -247,7 +237,7 @@ public class Monitor {
   }
 
   /**
-   * Get options
+   * List of options associated with your monitor.
    *
    * @return options
    */
@@ -262,14 +252,8 @@ public class Monitor {
     this.options = options;
   }
 
-  public Monitor overallState(MonitorOverallStates overallState) {
-    this.overallState = overallState;
-    this.unparsed |= !overallState.isValid();
-    return this;
-  }
-
   /**
-   * Get overallState
+   * The different states your monitor can be in.
    *
    * @return overallState
    */
@@ -278,13 +262,6 @@ public class Monitor {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getOverallState() {
     return overallState;
-  }
-
-  public void setOverallState(MonitorOverallStates overallState) {
-    if (!overallState.isValid()) {
-      this.unparsed = true;
-    }
-    this.overallState = overallState;
   }
 
   public Monitor priority(Long priority) {
@@ -388,14 +365,8 @@ public class Monitor {
     this.restrictedRoles = JsonNullable.<List<String>>of(restrictedRoles);
   }
 
-  public Monitor state(MonitorState state) {
-    this.state = state;
-    this.unparsed |= state.unparsed;
-    return this;
-  }
-
   /**
-   * Get state
+   * Wrapper object with the different monitor states.
    *
    * @return state
    */
@@ -404,10 +375,6 @@ public class Monitor {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorState getState() {
     return state;
-  }
-
-  public void setState(MonitorState state) {
-    this.state = state;
   }
 
   public Monitor tags(List<String> tags) {
@@ -446,7 +413,8 @@ public class Monitor {
   }
 
   /**
-   * Get type
+   * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor
+   * options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
    *
    * @return type
    */

@@ -31,7 +31,7 @@ public class ApiKeyResponse {
   }
 
   /**
-   * Get apiKey
+   * Datadog API key.
    *
    * @return apiKey
    */

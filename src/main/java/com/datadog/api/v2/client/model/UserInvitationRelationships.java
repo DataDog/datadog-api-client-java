@@ -41,7 +41,7 @@ public class UserInvitationRelationships {
   }
 
   /**
-   * Get user
+   * Relationship to user.
    *
    * @return user
    */

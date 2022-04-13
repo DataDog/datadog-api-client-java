@@ -40,7 +40,7 @@ public class IncidentFieldAttributesMultipleValue {
   }
 
   /**
-   * Get type
+   * Type of the multiple value field definitions.
    *
    * @return type
    */

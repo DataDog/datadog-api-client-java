@@ -159,12 +159,12 @@ public class UsageCWSHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageCWSHour usageCWSHour = (UsageCWSHour) o;
-    return Objects.equals(this.cwsContainerCount, usageCWSHour.cwsContainerCount)
-        && Objects.equals(this.cwsHostCount, usageCWSHour.cwsHostCount)
-        && Objects.equals(this.hour, usageCWSHour.hour)
-        && Objects.equals(this.orgName, usageCWSHour.orgName)
-        && Objects.equals(this.publicId, usageCWSHour.publicId);
+    UsageCWSHour usageCwsHour = (UsageCWSHour) o;
+    return Objects.equals(this.cwsContainerCount, usageCwsHour.cwsContainerCount)
+        && Objects.equals(this.cwsHostCount, usageCwsHour.cwsHostCount)
+        && Objects.equals(this.hour, usageCwsHour.hour)
+        && Objects.equals(this.orgName, usageCwsHour.orgName)
+        && Objects.equals(this.publicId, usageCwsHour.publicId);
   }
 
   @Override

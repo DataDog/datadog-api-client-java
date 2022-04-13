@@ -42,7 +42,7 @@ public class SunburstWidgetLegendTable {
   }
 
   /**
-   * Get type
+   * Whether or not to show a table legend.
    *
    * @return type
    */

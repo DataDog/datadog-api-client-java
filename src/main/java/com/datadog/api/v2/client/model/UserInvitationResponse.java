@@ -31,7 +31,7 @@ public class UserInvitationResponse {
   }
 
   /**
-   * Get data
+   * Object of a user invitation returned by the API.
    *
    * @return data
    */

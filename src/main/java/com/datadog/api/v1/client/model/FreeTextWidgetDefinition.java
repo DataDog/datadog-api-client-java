@@ -127,7 +127,7 @@ public class FreeTextWidgetDefinition {
   }
 
   /**
-   * Get textAlign
+   * How to align the text on the widget.
    *
    * @return textAlign
    */
@@ -152,7 +152,7 @@ public class FreeTextWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the free text widget.
    *
    * @return type
    */

@@ -41,7 +41,7 @@ public class RelationshipToUser {
   }
 
   /**
-   * Get data
+   * Relationship to user object.
    *
    * @return data
    */

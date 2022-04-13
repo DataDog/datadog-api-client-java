@@ -168,7 +168,7 @@ public class LogsCategoryProcessor {
   }
 
   /**
-   * Get type
+   * Type of logs category processor.
    *
    * @return type
    */

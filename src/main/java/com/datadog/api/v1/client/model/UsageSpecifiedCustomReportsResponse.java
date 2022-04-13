@@ -37,7 +37,7 @@ public class UsageSpecifiedCustomReportsResponse {
   }
 
   /**
-   * Get data
+   * Response containing date and type for specified custom reports.
    *
    * @return data
    */
@@ -59,7 +59,7 @@ public class UsageSpecifiedCustomReportsResponse {
   }
 
   /**
-   * Get meta
+   * The object containing document metadata.
    *
    * @return meta
    */

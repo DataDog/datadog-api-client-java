@@ -94,7 +94,7 @@ public class SunburstWidgetLegendInlineAutomatic {
   }
 
   /**
-   * Get type
+   * Whether to show the legend inline or let it be automatically generated.
    *
    * @return type
    */

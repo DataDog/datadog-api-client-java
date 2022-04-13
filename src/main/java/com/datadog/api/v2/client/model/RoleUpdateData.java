@@ -57,7 +57,7 @@ public class RoleUpdateData {
   }
 
   /**
-   * Get attributes
+   * Attributes of the role.
    *
    * @return attributes
    */
@@ -98,7 +98,7 @@ public class RoleUpdateData {
   }
 
   /**
-   * Get type
+   * Roles type.
    *
    * @return type
    */

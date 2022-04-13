@@ -42,7 +42,8 @@ public class NotebookMarkdownCellAttributes {
   }
 
   /**
-   * Get definition
+   * Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/),
+   * which enables the use of headings, subheadings, links, images, lists, and code blocks.
    *
    * @return definition
    */

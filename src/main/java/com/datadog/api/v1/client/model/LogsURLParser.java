@@ -189,7 +189,7 @@ public class LogsURLParser {
   }
 
   /**
-   * Get type
+   * Type of logs URL parser.
    *
    * @return type
    */
@@ -215,13 +215,13 @@ public class LogsURLParser {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsURLParser logsURLParser = (LogsURLParser) o;
-    return Objects.equals(this.isEnabled, logsURLParser.isEnabled)
-        && Objects.equals(this.name, logsURLParser.name)
-        && Objects.equals(this.normalizeEndingSlashes, logsURLParser.normalizeEndingSlashes)
-        && Objects.equals(this.sources, logsURLParser.sources)
-        && Objects.equals(this.target, logsURLParser.target)
-        && Objects.equals(this.type, logsURLParser.type);
+    LogsURLParser logsUrlParser = (LogsURLParser) o;
+    return Objects.equals(this.isEnabled, logsUrlParser.isEnabled)
+        && Objects.equals(this.name, logsUrlParser.name)
+        && Objects.equals(this.normalizeEndingSlashes, logsUrlParser.normalizeEndingSlashes)
+        && Objects.equals(this.sources, logsUrlParser.sources)
+        && Objects.equals(this.target, logsUrlParser.target)
+        && Objects.equals(this.type, logsUrlParser.type);
   }
 
   @Override

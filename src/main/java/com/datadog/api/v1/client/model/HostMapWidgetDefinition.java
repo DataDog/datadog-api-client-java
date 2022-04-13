@@ -204,7 +204,7 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * Get nodeType
+   * Which type of node to use in the map.
    *
    * @return nodeType
    */
@@ -250,7 +250,7 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * Get requests
+   * List of definitions.
    *
    * @return requests
    */
@@ -300,7 +300,7 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * Get style
+   * The style to apply to the widget.
    *
    * @return style
    */
@@ -343,7 +343,7 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -389,7 +389,7 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the host map widget.
    *
    * @return type
    */

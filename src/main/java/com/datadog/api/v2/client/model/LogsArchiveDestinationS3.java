@@ -82,7 +82,7 @@ public class LogsArchiveDestinationS3 {
   }
 
   /**
-   * Get integration
+   * The S3 Archive&#39;s integration destination.
    *
    * @return integration
    */
@@ -124,7 +124,7 @@ public class LogsArchiveDestinationS3 {
   }
 
   /**
-   * Get type
+   * Type of the S3 archive destination.
    *
    * @return type
    */

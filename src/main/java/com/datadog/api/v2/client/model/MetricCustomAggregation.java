@@ -51,7 +51,7 @@ public class MetricCustomAggregation {
   }
 
   /**
-   * Get space
+   * A space aggregation for use in query.
    *
    * @return space
    */
@@ -75,7 +75,7 @@ public class MetricCustomAggregation {
   }
 
   /**
-   * Get time
+   * A time aggregation for use in query.
    *
    * @return time
    */

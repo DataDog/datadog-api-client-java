@@ -37,7 +37,7 @@ public class LogsAggregateResponse {
   }
 
   /**
-   * Get data
+   * The query results
    *
    * @return data
    */
@@ -59,7 +59,7 @@ public class LogsAggregateResponse {
   }
 
   /**
-   * Get meta
+   * The metadata associated with a request
    *
    * @return meta
    */

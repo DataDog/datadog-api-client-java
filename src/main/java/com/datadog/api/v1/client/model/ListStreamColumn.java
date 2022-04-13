@@ -66,7 +66,7 @@ public class ListStreamColumn {
   }
 
   /**
-   * Get width
+   * Widget column width.
    *
    * @return width
    */

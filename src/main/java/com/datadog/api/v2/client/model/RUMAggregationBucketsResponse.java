@@ -68,8 +68,8 @@ public class RUMAggregationBucketsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMAggregationBucketsResponse ruMAggregationBucketsResponse = (RUMAggregationBucketsResponse) o;
-    return Objects.equals(this.buckets, ruMAggregationBucketsResponse.buckets);
+    RUMAggregationBucketsResponse rumAggregationBucketsResponse = (RUMAggregationBucketsResponse) o;
+    return Objects.equals(this.buckets, rumAggregationBucketsResponse.buckets);
   }
 
   @Override

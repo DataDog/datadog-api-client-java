@@ -87,9 +87,9 @@ public class HTTPLogError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HTTPLogError htTPLogError = (HTTPLogError) o;
-    return Objects.equals(this.code, htTPLogError.code)
-        && Objects.equals(this.message, htTPLogError.message);
+    HTTPLogError httpLogError = (HTTPLogError) o;
+    return Objects.equals(this.code, httpLogError.code)
+        && Objects.equals(this.message, httpLogError.message);
   }
 
   @Override

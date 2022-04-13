@@ -55,7 +55,7 @@ public class Metric {
   }
 
   /**
-   * Get type
+   * The metric resource type.
    *
    * @return type
    */

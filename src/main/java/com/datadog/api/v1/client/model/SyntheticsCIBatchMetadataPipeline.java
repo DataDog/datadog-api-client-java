@@ -54,9 +54,9 @@ public class SyntheticsCIBatchMetadataPipeline {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCIBatchMetadataPipeline syntheticsCIBatchMetadataPipeline =
+    SyntheticsCIBatchMetadataPipeline syntheticsCiBatchMetadataPipeline =
         (SyntheticsCIBatchMetadataPipeline) o;
-    return Objects.equals(this.url, syntheticsCIBatchMetadataPipeline.url);
+    return Objects.equals(this.url, syntheticsCiBatchMetadataPipeline.url);
   }
 
   @Override

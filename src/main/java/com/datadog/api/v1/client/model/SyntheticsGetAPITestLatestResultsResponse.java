@@ -97,12 +97,12 @@ public class SyntheticsGetAPITestLatestResultsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsGetAPITestLatestResultsResponse syntheticsGetAPITestLatestResultsResponse =
+    SyntheticsGetAPITestLatestResultsResponse syntheticsGetApiTestLatestResultsResponse =
         (SyntheticsGetAPITestLatestResultsResponse) o;
     return Objects.equals(
             this.lastTimestampFetched,
-            syntheticsGetAPITestLatestResultsResponse.lastTimestampFetched)
-        && Objects.equals(this.results, syntheticsGetAPITestLatestResultsResponse.results);
+            syntheticsGetApiTestLatestResultsResponse.lastTimestampFetched)
+        && Objects.equals(this.results, syntheticsGetApiTestLatestResultsResponse.results);
   }
 
   @Override
