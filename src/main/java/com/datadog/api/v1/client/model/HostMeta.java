@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Metadata associated with your host. */
-@ApiModel(description = "Metadata associated with your host.")
 @JsonPropertyOrder({
   HostMeta.JSON_PROPERTY_AGENT_CHECKS,
   HostMeta.JSON_PROPERTY_AGENT_VERSION,
@@ -106,7 +103,6 @@ public class HostMeta {
    * @return agentChecks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of Agent checks running on the host.")
   @JsonProperty(JSON_PROPERTY_AGENT_CHECKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<List<Object>> getAgentChecks() {
@@ -128,7 +124,6 @@ public class HostMeta {
    * @return agentVersion
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "7.32.3", value = "The Datadog Agent version.")
   @JsonProperty(JSON_PROPERTY_AGENT_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAgentVersion() {
@@ -150,7 +145,6 @@ public class HostMeta {
    * @return cpuCores
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "The number of cores.")
   @JsonProperty(JSON_PROPERTY_CPU_CORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCpuCores() {
@@ -180,7 +174,6 @@ public class HostMeta {
    * @return fbsdV
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of Mac versions.")
   @JsonProperty(JSON_PROPERTY_FBSD_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getFbsdV() {
@@ -202,15 +195,6 @@ public class HostMeta {
    * @return gohai
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "{\"cpu\":{\"cache_size\":\"8192"
-              + " KB\",\"cpu_cores\":\"1\",\"cpu_logical_processors\":\"1\",\"family\":\"6\",\"mhz\":\"2712.000\",\"model\":\"142\",\"model_name\":\"Intel(R)"
-              + " Core(TM) i7-8559U CPU @"
-              + " 2.70GHz\",\"stepping\":\"10\",\"vendor_id\":\"GenuineIntel\"},\"filesystem\":[{\"kb_size\":\"3966896\",\"mounted_on\":\"/dev\",\"name\":\"udev\"},{\"kb_size\":\"797396\",\"mounted_on\":\"/run\",\"name\":\"tmpfs\"},{\"kb_size\":\"64800356\",\"mounted_on\":\"/\",\"name\":\"/dev/mapper/vagrant--vg-root\"},{\"kb_size\":\"3986972\",\"mounted_on\":\"/dev/shm\",\"name\":\"tmpfs\"},{\"kb_size\":\"5120\",\"mounted_on\":\"/run/lock\",\"name\":\"tmpfs\"},{\"kb_size\":\"3986972\",\"mounted_on\":\"/sys/fs/cgroup\",\"name\":\"tmpfs\"},{\"kb_size\":\"488245288\",\"mounted_on\":\"/vagrant\",\"name\":\"vagrant\"},{\"kb_size\":\"797392\",\"mounted_on\":\"/run/user/1000\",\"name\":\"tmpfs\"}],\"memory\":{\"swap_total\":\"1003516kB\",\"total\":\"7973944kB\"},\"network\":{\"interfaces\":[{\"ipv4\":\"10.0.2.15\",\"ipv4-network\":\"10.0.2.0/24\",\"ipv6\":\"fe80::a00:27ff:fec2:be11\",\"ipv6-network\":\"fe80::/64\",\"macaddress\":\"08:00:27:c2:be:11\",\"name\":\"eth0\"},{\"ipv4\":\"192.168.122.1\",\"ipv4-network\":\"192.168.122.0/24\",\"macaddress\":\"52:54:00:6f:1c:bf\",\"name\":\"virbr0\"}],\"ipaddress\":\"10.0.2.15\",\"ipaddressv6\":\"fe80::a00:27ff:fec2:be11\",\"macaddress\":\"08:00:27:c2:be:11\"},\"platform\":{\"GOOARCH\":\"amd64\",\"GOOS\":\"linux\",\"goV\":\"1.16.7\",\"hardware_platform\":\"x86_64\",\"hostname\":\"vagrant\",\"kernel_name\":\"Linux\",\"kernel_release\":\"4.15.0-29-generic\",\"kernel_version\":\"#31-Ubuntu"
-              + " SMP Tue Jul 17 15:39:52 UTC"
-              + " 2018\",\"machine\":\"x86_64\",\"os\":\"GNU/Linux\",\"processor\":\"x86_64\",\"pythonV\":\"2.7.15rc1\"}}",
-      value = "JSON string containing system information.")
   @JsonProperty(JSON_PROPERTY_GOHAI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGohai() {
@@ -233,7 +217,6 @@ public class HostMeta {
    * @return installMethod
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INSTALL_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMetaInstallMethod getInstallMethod() {
@@ -263,7 +246,6 @@ public class HostMeta {
    * @return macV
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of Mac versions.")
   @JsonProperty(JSON_PROPERTY_MAC_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getMacV() {
@@ -285,7 +267,6 @@ public class HostMeta {
    * @return machine
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "amd64", value = "The machine architecture.")
   @JsonProperty(JSON_PROPERTY_MACHINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMachine() {
@@ -315,7 +296,6 @@ public class HostMeta {
    * @return nixV
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of Unix versions.")
   @JsonProperty(JSON_PROPERTY_NIX_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getNixV() {
@@ -337,7 +317,6 @@ public class HostMeta {
    * @return platform
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "linux", value = "The OS platform.")
   @JsonProperty(JSON_PROPERTY_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPlatform() {
@@ -359,7 +338,6 @@ public class HostMeta {
    * @return processor
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Intel(R) Core(TM) i7-8559U CPU @ 2.70GHz", value = "The processor.")
   @JsonProperty(JSON_PROPERTY_PROCESSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProcessor() {
@@ -381,7 +359,6 @@ public class HostMeta {
    * @return pythonV
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3.8.11", value = "The Python version.")
   @JsonProperty(JSON_PROPERTY_PYTHON_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPythonV() {
@@ -403,7 +380,6 @@ public class HostMeta {
    * @return socketFqdn
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "vagrant.vm.", value = "The socket fqdn.")
   @JsonProperty(JSON_PROPERTY_SOCKET_FQDN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSocketFqdn() {
@@ -425,7 +401,6 @@ public class HostMeta {
    * @return socketHostname
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "vagrant", value = "The socket hostname.")
   @JsonProperty(JSON_PROPERTY_SOCKET_HOSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSocketHostname() {
@@ -455,7 +430,6 @@ public class HostMeta {
    * @return winV
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of Windows versions.")
   @JsonProperty(JSON_PROPERTY_WIN_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getWinV() {

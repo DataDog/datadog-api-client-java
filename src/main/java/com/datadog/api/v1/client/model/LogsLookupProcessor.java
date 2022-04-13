@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -28,14 +26,6 @@ import java.util.Objects;
  * check if the MAC address that just attempted to connect to the production environment belongs to
  * your list of stolen machines.
  */
-@ApiModel(
-    description =
-        "Use the Lookup Processor to define a mapping between a log attribute and a human readable"
-            + " value saved in the processors mapping table. For example, you can use the Lookup"
-            + " Processor to map an internal service ID into a human readable service name."
-            + " Alternatively, you could also use it to check if the MAC address that just"
-            + " attempted to connect to the production environment belongs to your list of stolen"
-            + " machines.")
 @JsonPropertyOrder({
   LogsLookupProcessor.JSON_PROPERTY_DEFAULT_LOOKUP,
   LogsLookupProcessor.JSON_PROPERTY_IS_ENABLED,
@@ -95,8 +85,6 @@ public class LogsLookupProcessor {
    * @return defaultLookup
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Value to set the target attribute if the source value is not found in the list.")
   @JsonProperty(JSON_PROPERTY_DEFAULT_LOOKUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDefaultLookup() {
@@ -118,7 +106,6 @@ public class LogsLookupProcessor {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -146,13 +133,6 @@ public class LogsLookupProcessor {
    *
    * @return lookupTable
    */
-  @ApiModelProperty(
-      example = "[]",
-      required = true,
-      value =
-          "Mapping table of values for the source attribute and their associated target attribute"
-              + " values, formatted as `[\"source_key1,target_value1\","
-              + " \"source_key2,target_value2\"]`")
   @JsonProperty(JSON_PROPERTY_LOOKUP_TABLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getLookupTable() {
@@ -174,7 +154,6 @@ public class LogsLookupProcessor {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -195,10 +174,6 @@ public class LogsLookupProcessor {
    *
    * @return source
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "Source attribute used to perform the lookup.")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSource() {
@@ -220,12 +195,6 @@ public class LogsLookupProcessor {
    *
    * @return target
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value =
-          "Name of the attribute that contains the corresponding value in the mapping list or the"
-              + " `default_lookup` if not found in the mapping list.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTarget() {
@@ -247,7 +216,6 @@ public class LogsLookupProcessor {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsLookupProcessorType getType() {

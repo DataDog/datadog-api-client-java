@@ -14,18 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Object that contains the new private location, the public key for result encryption, and the
  * configuration skeleton.
  */
-@ApiModel(
-    description =
-        "Object that contains the new private location, the public key for result encryption, and"
-            + " the configuration skeleton.")
 @JsonPropertyOrder({
   SyntheticsPrivateLocationCreationResponse.JSON_PROPERTY_CONFIG,
   SyntheticsPrivateLocationCreationResponse.JSON_PROPERTY_PRIVATE_LOCATION,
@@ -55,10 +49,6 @@ public class SyntheticsPrivateLocationCreationResponse {
    * @return config
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Configuration skeleton for the private location. See installation instructions of the"
-              + " private location on how to use this configuration.")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Object getConfig() {
@@ -82,7 +72,6 @@ public class SyntheticsPrivateLocationCreationResponse {
    * @return privateLocation
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIVATE_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsPrivateLocation getPrivateLocation() {
@@ -106,7 +95,6 @@ public class SyntheticsPrivateLocationCreationResponse {
    * @return resultEncryption
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESULT_ENCRYPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsPrivateLocationCreationResponseResultEncryption getResultEncryption() {

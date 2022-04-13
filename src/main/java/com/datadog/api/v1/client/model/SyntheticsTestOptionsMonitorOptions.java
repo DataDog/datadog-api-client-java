@@ -14,17 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Object containing the options for a Synthetic test as a monitor (for example, renotification).
  */
-@ApiModel(
-    description =
-        "Object containing the options for a Synthetic test as a monitor (for example,"
-            + " renotification).")
 @JsonPropertyOrder({SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestOptionsMonitorOptions {
@@ -44,8 +38,6 @@ public class SyntheticsTestOptionsMonitorOptions {
    * @return renotifyInterval
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Time interval before renotifying if the test is still failing (in minutes).")
   @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRenotifyInterval() {

@@ -15,19 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Free text is a widget that allows you to add headings to your screenboard. Commonly used to state
  * the overall purpose of the dashboard. Only available on FREE layout dashboards.
  */
-@ApiModel(
-    description =
-        "Free text is a widget that allows you to add headings to your screenboard. Commonly used"
-            + " to state the overall purpose of the dashboard. Only available on FREE layout"
-            + " dashboards.")
 @JsonPropertyOrder({
   FreeTextWidgetDefinition.JSON_PROPERTY_COLOR,
   FreeTextWidgetDefinition.JSON_PROPERTY_FONT_SIZE,
@@ -76,7 +69,6 @@ public class FreeTextWidgetDefinition {
    * @return color
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Color of the text.")
   @JsonProperty(JSON_PROPERTY_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getColor() {
@@ -98,7 +90,6 @@ public class FreeTextWidgetDefinition {
    * @return fontSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the text.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFontSize() {
@@ -119,7 +110,6 @@ public class FreeTextWidgetDefinition {
    *
    * @return text
    */
-  @ApiModelProperty(example = "", required = true, value = "Text to display.")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getText() {
@@ -142,7 +132,6 @@ public class FreeTextWidgetDefinition {
    * @return textAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEXT_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTextAlign() {
@@ -167,7 +156,6 @@ public class FreeTextWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FreeTextWidgetDefinitionType getType() {

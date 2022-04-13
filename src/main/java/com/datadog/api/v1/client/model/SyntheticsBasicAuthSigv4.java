@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object to handle &#x60;SIGV4&#x60; authentication when performing the test. */
-@ApiModel(description = "Object to handle `SIGV4` authentication when performing the test.")
 @JsonPropertyOrder({
   SyntheticsBasicAuthSigv4.JSON_PROPERTY_ACCESS_KEY,
   SyntheticsBasicAuthSigv4.JSON_PROPERTY_REGION,
@@ -74,10 +71,6 @@ public class SyntheticsBasicAuthSigv4 {
    *
    * @return accessKey
    */
-  @ApiModelProperty(
-      example = "AKIAIOSFODNN7EXAMPLE",
-      required = true,
-      value = "Access key for the `SIGV4` authentication.")
   @JsonProperty(JSON_PROPERTY_ACCESS_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAccessKey() {
@@ -99,7 +92,6 @@ public class SyntheticsBasicAuthSigv4 {
    * @return region
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "us-east-1", value = "Region for the `SIGV4` authentication.")
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRegion() {
@@ -120,10 +112,6 @@ public class SyntheticsBasicAuthSigv4 {
    *
    * @return secretKey
    */
-  @ApiModelProperty(
-      example = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
-      required = true,
-      value = "Secret key for the `SIGV4` authentication.")
   @JsonProperty(JSON_PROPERTY_SECRET_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSecretKey() {
@@ -145,7 +133,6 @@ public class SyntheticsBasicAuthSigv4 {
    * @return serviceName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "execute-api", value = "Service name for the `SIGV4` authentication.")
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getServiceName() {
@@ -167,13 +154,6 @@ public class SyntheticsBasicAuthSigv4 {
    * @return sessionToken
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "AQoEXAMPLEH4aoAH0gNCAPyJxz4BlCFFxWNE1OPTgk5TthT+FvwqnKwRcOIfrRh3c/L"
-              + " To6UDdyJwOOvEVPvLXCrrrUtdnniCEXAMPLE/IvU1dYUg2RVAJBanLiHb4IgRmpRV3z"
-              + " rkuWJOgQs8IZZaIv2BXIa2R4OlgkBN9bkUDNCJiBeb/AXlzBBko7b15fjrBs2+cTQtp"
-              + " Z3CYWFXG8C5zqx37wnOE49mRl/+OtkIKGO7fAE ",
-      value = "Session token for the `SIGV4` authentication.")
   @JsonProperty(JSON_PROPERTY_SESSION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSessionToken() {
@@ -195,7 +175,6 @@ public class SyntheticsBasicAuthSigv4 {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBasicAuthSigv4Type getType() {

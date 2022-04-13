@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response object for deleting Synthetic tests. */
-@ApiModel(description = "Response object for deleting Synthetic tests.")
 @JsonPropertyOrder({SyntheticsDeleteTestsResponse.JSON_PROPERTY_DELETED_TESTS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsDeleteTestsResponse {
@@ -52,10 +49,6 @@ public class SyntheticsDeleteTestsResponse {
    * @return deletedTests
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Array of objects containing a deleted Synthetic test ID with the associated deletion"
-              + " timestamp.")
   @JsonProperty(JSON_PROPERTY_DELETED_TESTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsDeletedTest> getDeletedTests() {

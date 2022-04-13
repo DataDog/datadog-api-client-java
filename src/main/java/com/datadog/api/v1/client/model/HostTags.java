@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Set of tags to associate with your host. */
-@ApiModel(description = "Set of tags to associate with your host.")
 @JsonPropertyOrder({HostTags.JSON_PROPERTY_HOST, HostTags.JSON_PROPERTY_TAGS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostTags {
@@ -43,7 +40,6 @@ public class HostTags {
    * @return host
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "test.host", value = "Your host name.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -73,7 +69,6 @@ public class HostTags {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of tags to apply to the host.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

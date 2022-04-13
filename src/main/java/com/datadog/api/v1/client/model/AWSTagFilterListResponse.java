@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** An array of tag filter rules by &#x60;namespace&#x60; and tag filter string. */
-@ApiModel(description = "An array of tag filter rules by `namespace` and tag filter string.")
 @JsonPropertyOrder({AWSTagFilterListResponse.JSON_PROPERTY_FILTERS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSTagFilterListResponse {
@@ -52,7 +49,6 @@ public class AWSTagFilterListResponse {
    * @return filters
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of tag filters.")
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AWSTagFilter> getFilters() {

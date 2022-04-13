@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +21,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Returns the AWS account associated with this integration. */
-@ApiModel(description = "Returns the AWS account associated with this integration.")
 @JsonPropertyOrder({
   AWSAccount.JSON_PROPERTY_ACCESS_KEY_ID,
   AWSAccount.JSON_PROPERTY_ACCOUNT_ID,
@@ -88,10 +85,6 @@ public class AWSAccount {
    * @return accessKeyId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Your AWS access key ID. Only required if your AWS account is a GovCloud or China"
-              + " account.")
   @JsonProperty(JSON_PROPERTY_ACCESS_KEY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccessKeyId() {
@@ -113,7 +106,6 @@ public class AWSAccount {
    * @return accountId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1234567", value = "Your AWS Account ID without dashes.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountId() {
@@ -147,12 +139,6 @@ public class AWSAccount {
    * @return accountSpecificNamespaceRules
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "{\"auto_scaling\":false,\"opswork\":false}",
-      value =
-          "An object, (in the form `{\"namespace1\":true/false, \"namespace2\":true/false}`), that"
-              + " enables or disables metric collection for specific AWS namespaces for this AWS"
-              + " account only.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_SPECIFIC_NAMESPACE_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Boolean> getAccountSpecificNamespaceRules() {
@@ -176,12 +162,6 @@ public class AWSAccount {
    * @return cspmResourceCollectionEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "true",
-      value =
-          "Whether Datadog collects cloud security posture management resources from your AWS"
-              + " account. This includes additional resources not covered under the general"
-              + " `resource_collection`.")
   @JsonProperty(JSON_PROPERTY_CSPM_RESOURCE_COLLECTION_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getCspmResourceCollectionEnabled() {
@@ -211,9 +191,6 @@ public class AWSAccount {
    * @return excludedRegions
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"us-east-1\",\"us-west-2\"]",
-      value = "An array of AWS regions to exclude from metrics collection.")
   @JsonProperty(JSON_PROPERTY_EXCLUDED_REGIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getExcludedRegions() {
@@ -248,15 +225,6 @@ public class AWSAccount {
    * @return filterTags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"$KEY:$VALUE\"]",
-      value =
-          "The array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when"
-              + " collecting metrics from EC2. Wildcards, such as `?` (for single characters) and"
-              + " `*` (for multiple characters) can also be used. Only hosts that match one of the"
-              + " defined tags will be imported into Datadog. The rest will be ignored. Host"
-              + " matching a given tag can also be excluded by adding `!` before the tag. For"
-              + " example, `env:production,instance-type:c1.*,!region:us-east-1`")
   @JsonProperty(JSON_PROPERTY_FILTER_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getFilterTags() {
@@ -287,11 +255,6 @@ public class AWSAccount {
    * @return hostTags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"$KEY:$VALUE\"]",
-      value =
-          "Array of tags (in the form `key:value`) to add to all hosts and metrics reporting"
-              + " through this integration.")
   @JsonProperty(JSON_PROPERTY_HOST_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getHostTags() {
@@ -313,9 +276,6 @@ public class AWSAccount {
    * @return metricsCollectionEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value = "Whether Datadog collects metrics for this AWS account.")
   @JsonProperty(JSON_PROPERTY_METRICS_COLLECTION_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getMetricsCollectionEnabled() {
@@ -337,9 +297,6 @@ public class AWSAccount {
    * @return resourceCollectionEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "true",
-      value = "Whether Datadog collects a standard set of resources from your AWS account.")
   @JsonProperty(JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getResourceCollectionEnabled() {
@@ -361,9 +318,6 @@ public class AWSAccount {
    * @return roleName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "DatadogAWSIntegrationRole",
-      value = "Your Datadog role delegation name.")
   @JsonProperty(JSON_PROPERTY_ROLE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRoleName() {
@@ -385,10 +339,6 @@ public class AWSAccount {
    * @return secretAccessKey
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Your AWS secret access key. Only required if your AWS account is a GovCloud or China"
-              + " account.")
   @JsonProperty(JSON_PROPERTY_SECRET_ACCESS_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSecretAccessKey() {

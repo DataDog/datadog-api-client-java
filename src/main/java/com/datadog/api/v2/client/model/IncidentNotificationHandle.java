@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A notification handle that will be notified at incident creation. */
-@ApiModel(description = "A notification handle that will be notified at incident creation.")
 @JsonPropertyOrder({
   IncidentNotificationHandle.JSON_PROPERTY_DISPLAY_NAME,
   IncidentNotificationHandle.JSON_PROPERTY_HANDLE
@@ -44,7 +41,6 @@ public class IncidentNotificationHandle {
    * @return displayName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Jane Doe", value = "The name of the notified handle.")
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayName() {
@@ -66,9 +62,6 @@ public class IncidentNotificationHandle {
    * @return handle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "@test.user@test.com",
-      value = "The email address used for the notification.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHandle() {

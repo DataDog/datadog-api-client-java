@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object describing the synthetics tests to trigger. */
-@ApiModel(description = "Object describing the synthetics tests to trigger.")
 @JsonPropertyOrder({SyntheticsCITestBody.JSON_PROPERTY_TESTS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsCITestBody {
@@ -52,7 +49,6 @@ public class SyntheticsCITestBody {
    * @return tests
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Individual synthetics test.")
   @JsonProperty(JSON_PROPERTY_TESTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsCITest> getTests() {

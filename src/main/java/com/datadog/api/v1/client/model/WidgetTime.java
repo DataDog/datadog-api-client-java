@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Time setting for the widget. */
-@ApiModel(description = "Time setting for the widget.")
 @JsonPropertyOrder({WidgetTime.JSON_PROPERTY_LIVE_SPAN})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetTime {
@@ -39,7 +36,6 @@ public class WidgetTime {
    * @return liveSpan
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIVE_SPAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetLiveSpan getLiveSpan() {

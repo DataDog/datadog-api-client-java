@@ -15,15 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Template variable. */
-@ApiModel(description = "Template variable.")
 @JsonPropertyOrder({
   DashboardTemplateVariable.JSON_PROPERTY_AVAILABLE_VALUES,
   DashboardTemplateVariable.JSON_PROPERTY_DEFAULT,
@@ -76,9 +73,6 @@ public class DashboardTemplateVariable {
    * @return availableValues
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"my-host\",\"host1\",\"host2\"]",
-      value = "The list of values that the template variable drop-down is limited to.")
   @JsonIgnore
   public List<String> getAvailableValues() {
     return availableValues.orElse(null);
@@ -110,9 +104,6 @@ public class DashboardTemplateVariable {
    * @return _default
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "my-host",
-      value = "The default value for the template variable on dashboard load.")
   @JsonIgnore
   public String getDefault() {
     return _default.orElse(null);
@@ -143,7 +134,6 @@ public class DashboardTemplateVariable {
    *
    * @return name
    */
-  @ApiModelProperty(example = "host1", required = true, value = "The name of the variable.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -166,11 +156,6 @@ public class DashboardTemplateVariable {
    * @return prefix
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "host",
-      value =
-          "The tag prefix associated with the variable. Only tags with this prefix appear in the"
-              + " variable drop-down.")
   @JsonIgnore
   public String getPrefix() {
     return prefix.orElse(null);

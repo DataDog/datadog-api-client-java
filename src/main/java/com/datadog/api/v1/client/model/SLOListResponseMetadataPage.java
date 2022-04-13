@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The object containing information about the pages of the list of SLOs. */
-@ApiModel(description = "The object containing information about the pages of the list of SLOs.")
 @JsonPropertyOrder({
   SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_COUNT,
   SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
@@ -45,10 +42,6 @@ public class SLOListResponseMetadataPage {
    * @return totalCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The total number of resources that could be retrieved ignoring the parameters and"
-              + " filters in the request.")
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalCount() {
@@ -71,10 +64,6 @@ public class SLOListResponseMetadataPage {
    * @return totalFilteredCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The total number of resources that match the parameters and filters in the request."
-              + " This attribute can be used by a client to determine the total number of pages.")
   @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalFilteredCount() {

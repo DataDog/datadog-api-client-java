@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Formula to be used in a widget query. */
-@ApiModel(description = "Formula to be used in a widget query.")
 @JsonPropertyOrder({
   WidgetFormula.JSON_PROPERTY_ALIAS,
   WidgetFormula.JSON_PROPERTY_CELL_DISPLAY_MODE,
@@ -67,7 +64,6 @@ public class WidgetFormula {
    * @return alias
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Expression alias.")
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAlias() {
@@ -90,7 +86,6 @@ public class WidgetFormula {
    * @return cellDisplayMode
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TableWidgetCellDisplayMode getCellDisplayMode() {
@@ -127,7 +122,6 @@ public class WidgetFormula {
    * @return conditionalFormats
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of conditional formats.")
   @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetConditionalFormat> getConditionalFormats() {
@@ -148,10 +142,6 @@ public class WidgetFormula {
    *
    * @return formula
    */
-  @ApiModelProperty(
-      example = "func(a) + b",
-      required = true,
-      value = "String expression built from queries, formulas, and functions.")
   @JsonProperty(JSON_PROPERTY_FORMULA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getFormula() {
@@ -174,7 +164,6 @@ public class WidgetFormula {
    * @return limit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetFormulaLimit getLimit() {

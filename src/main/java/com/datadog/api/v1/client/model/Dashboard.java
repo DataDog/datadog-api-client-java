@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +25,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance
  * metrics, which enable you to monitor the health of your infrastructure.
  */
-@ApiModel(
-    description =
-        "A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key"
-            + " performance metrics, which enable you to monitor the health of your"
-            + " infrastructure.")
 @JsonPropertyOrder({
   Dashboard.JSON_PROPERTY_AUTHOR_HANDLE,
   Dashboard.JSON_PROPERTY_AUTHOR_NAME,
@@ -123,7 +116,6 @@ public class Dashboard {
    * @return authorHandle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "test@datadoghq.com", value = "Identifier of the dashboard author.")
   @JsonProperty(JSON_PROPERTY_AUTHOR_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAuthorHandle() {
@@ -136,7 +128,6 @@ public class Dashboard {
    * @return authorName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "John Doe", value = "Name of the dashboard author.")
   @JsonIgnore
   public String getAuthorName() {
 
@@ -163,7 +154,6 @@ public class Dashboard {
    * @return createdAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation date of the dashboard.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -181,7 +171,6 @@ public class Dashboard {
    * @return description
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the dashboard.")
   @JsonIgnore
   public String getDescription() {
     return description.orElse(null);
@@ -208,7 +197,6 @@ public class Dashboard {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123-abc-456", value = "ID of the dashboard.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -229,11 +217,6 @@ public class Dashboard {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value =
-          "Whether this dashboard is read-only. If True, only the author and admins can make"
-              + " changes to it. Prefer using `restricted_roles` to manage write authorization.")
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsReadOnly() {
@@ -255,7 +238,6 @@ public class Dashboard {
    *
    * @return layoutType
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LAYOUT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public DashboardLayoutType getLayoutType() {
@@ -275,7 +257,6 @@ public class Dashboard {
    * @return modifiedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Modification date of the dashboard.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModifiedAt() {
@@ -305,8 +286,6 @@ public class Dashboard {
    * @return notifyList
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "List of handles of users to notify when changes are made to this dashboard.")
   @JsonIgnore
   public List<String> getNotifyList() {
     return notifyList.orElse(null);
@@ -339,7 +318,6 @@ public class Dashboard {
    * @return reflowType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REFLOW_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DashboardReflowType getReflowType() {
@@ -373,10 +351,6 @@ public class Dashboard {
    * @return restrictedRoles
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A list of role identifiers. Only the author and users associated with at least one of"
-              + " these roles can edit this dashboard.")
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRestrictedRoles() {
@@ -414,7 +388,6 @@ public class Dashboard {
    * @return templateVariablePresets
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of template variables saved views.")
   @JsonIgnore
   public List<DashboardTemplateVariablePreset> getTemplateVariablePresets() {
     return templateVariablePresets.orElse(null);
@@ -462,7 +435,6 @@ public class Dashboard {
    * @return templateVariables
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of template variables for this dashboard.")
   @JsonIgnore
   public List<DashboardTemplateVariable> getTemplateVariables() {
     return templateVariables.orElse(null);
@@ -494,7 +466,6 @@ public class Dashboard {
    *
    * @return title
    */
-  @ApiModelProperty(example = "", required = true, value = "Title of the dashboard.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTitle() {
@@ -511,9 +482,6 @@ public class Dashboard {
    * @return url
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "/dashboard/123-abc-456/example-dashboard-title",
-      value = "The URL of the dashboard.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
@@ -539,11 +507,6 @@ public class Dashboard {
    *
    * @return widgets
    */
-  @ApiModelProperty(
-      example =
-          "[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"}}]",
-      required = true,
-      value = "List of widgets to display on the dashboard.")
   @JsonProperty(JSON_PROPERTY_WIDGETS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<Widget> getWidgets() {

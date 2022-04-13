@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +23,6 @@ import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The incident&#39;s attributes for an update request. */
-@ApiModel(description = "The incident's attributes for an update request.")
 @JsonPropertyOrder({
   IncidentUpdateAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_END,
   IncidentUpdateAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE,
@@ -79,7 +76,6 @@ public class IncidentUpdateAttributes {
    * @return customerImpactEnd
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when customers were no longer impacted by the incident.")
   @JsonIgnore
   public OffsetDateTime getCustomerImpactEnd() {
     return customerImpactEnd.orElse(null);
@@ -111,9 +107,6 @@ public class IncidentUpdateAttributes {
    * @return customerImpactScope
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Example customer impact scope",
-      value = "A summary of the impact customers experienced during the incident.")
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomerImpactScope() {
@@ -135,7 +128,6 @@ public class IncidentUpdateAttributes {
    * @return customerImpactStart
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when customers began being impacted by the incident.")
   @JsonIgnore
   public OffsetDateTime getCustomerImpactStart() {
     return customerImpactStart.orElse(null);
@@ -168,9 +160,6 @@ public class IncidentUpdateAttributes {
    * @return customerImpacted
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value = "A flag indicating whether the incident caused customer impact.")
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getCustomerImpacted() {
@@ -192,7 +181,6 @@ public class IncidentUpdateAttributes {
    * @return detected
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when the incident was detected.")
   @JsonIgnore
   public OffsetDateTime getDetected() {
     return detected.orElse(null);
@@ -232,9 +220,6 @@ public class IncidentUpdateAttributes {
    * @return fields
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "{\"severity\":{\"type\":\"dropdown\",\"value\":\"SEV-5\"}}",
-      value = "A condensed view of the user-defined fields for which to update selections.")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, IncidentFieldAttributes> getFields() {
@@ -270,8 +255,6 @@ public class IncidentUpdateAttributes {
    * @return notificationHandles
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Notification handles that will be notified of the incident during update.")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<IncidentNotificationHandle> getNotificationHandles() {
@@ -293,7 +276,6 @@ public class IncidentUpdateAttributes {
    * @return resolved
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when the incident's state was set to resolved.")
   @JsonIgnore
   public OffsetDateTime getResolved() {
     return resolved.orElse(null);
@@ -325,9 +307,6 @@ public class IncidentUpdateAttributes {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "A test incident title",
-      value = "The title of the incident, which summarizes what happened.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {

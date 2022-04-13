@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing results for your Synthetic browser test. */
-@ApiModel(description = "Object containing results for your Synthetic browser test.")
 @JsonPropertyOrder({
   SyntheticsBrowserTestResultData.JSON_PROPERTY_BROWSER_TYPE,
   SyntheticsBrowserTestResultData.JSON_PROPERTY_BROWSER_VERSION,
@@ -86,7 +83,6 @@ public class SyntheticsBrowserTestResultData {
    * @return browserType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of browser device used for the browser test.")
   @JsonProperty(JSON_PROPERTY_BROWSER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrowserType() {
@@ -108,7 +104,6 @@ public class SyntheticsBrowserTestResultData {
    * @return browserVersion
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Browser version used for the browser test.")
   @JsonProperty(JSON_PROPERTY_BROWSER_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrowserVersion() {
@@ -131,7 +126,6 @@ public class SyntheticsBrowserTestResultData {
    * @return device
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsDevice getDevice() {
@@ -153,7 +147,6 @@ public class SyntheticsBrowserTestResultData {
    * @return duration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Global duration in second of the browser test.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDuration() {
@@ -175,7 +168,6 @@ public class SyntheticsBrowserTestResultData {
    * @return error
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Error returned for the browser test.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getError() {
@@ -198,7 +190,6 @@ public class SyntheticsBrowserTestResultData {
    * @return failure
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FAILURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBrowserTestResultFailure getFailure() {
@@ -220,7 +211,6 @@ public class SyntheticsBrowserTestResultData {
    * @return passed
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the browser test was conducted.")
   @JsonProperty(JSON_PROPERTY_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPassed() {
@@ -242,7 +232,6 @@ public class SyntheticsBrowserTestResultData {
    * @return receivedEmailCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The amount of email received during the browser test.")
   @JsonProperty(JSON_PROPERTY_RECEIVED_EMAIL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getReceivedEmailCount() {
@@ -264,7 +253,6 @@ public class SyntheticsBrowserTestResultData {
    * @return startUrl
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Starting URL for the browser test.")
   @JsonProperty(JSON_PROPERTY_START_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartUrl() {
@@ -298,7 +286,6 @@ public class SyntheticsBrowserTestResultData {
    * @return stepDetails
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array containing the different browser test steps.")
   @JsonProperty(JSON_PROPERTY_STEP_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsStepDetail> getStepDetails() {
@@ -320,7 +307,6 @@ public class SyntheticsBrowserTestResultData {
    * @return thumbnailsBucketKey
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not a thumbnail is associated with the browser test.")
   @JsonProperty(JSON_PROPERTY_THUMBNAILS_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getThumbnailsBucketKey() {
@@ -342,8 +328,6 @@ public class SyntheticsBrowserTestResultData {
    * @return timeToInteractive
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Time in second to wait before the browser test starts after reaching the start URL.")
   @JsonProperty(JSON_PROPERTY_TIME_TO_INTERACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTimeToInteractive() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A sort rule. */
-@ApiModel(description = "A sort rule.")
 @JsonPropertyOrder({
   RUMAggregateSort.JSON_PROPERTY_AGGREGATION,
   RUMAggregateSort.JSON_PROPERTY_METRIC,
@@ -53,7 +50,6 @@ public class RUMAggregateSort {
    * @return aggregation
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMAggregationFunction getAggregation() {
@@ -78,9 +74,6 @@ public class RUMAggregateSort {
    * @return metric
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "@duration",
-      value = "The metric to sort by (only used for `type=measure`).")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -103,7 +96,6 @@ public class RUMAggregateSort {
    * @return order
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMSortOrder getOrder() {
@@ -129,7 +121,6 @@ public class RUMAggregateSort {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMAggregateSortType getType() {

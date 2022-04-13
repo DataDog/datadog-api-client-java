@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
@@ -35,24 +33,6 @@ import java.util.Objects;
  * &#x60;0.123456789&#x60;. - If you need to scale a unit of measure, see [Scale
  * Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab&#x3D;filter#matcher-and-filter).
  */
-@ApiModel(
-    description =
-        "Use the Arithmetic Processor to add a new attribute (without spaces or special characters"
-            + " in the new attribute name) to a log with the result of the provided formula. This"
-            + " enables you to remap different time attributes with different units into a single"
-            + " attribute, or to compute operations on attributes within the same log.  The"
-            + " formula can use parentheses and the basic arithmetic operators `-`, `+`, `*`, `/`."
-            + "  By default, the calculation is skipped if an attribute is missing. Select"
-            + " “Replace missing attribute by 0” to automatically populate missing attribute"
-            + " values with 0 to ensure that the calculation is done. An attribute is missing if"
-            + " it is not found in the log attributes, or if it cannot be converted to a number. "
-            + " *Notes*:  - The operator `-` needs to be space split in the formula as it can also"
-            + " be contained in attribute names. - If the target attribute already exists, it is"
-            + " overwritten by the result of the formula. - Results are rounded up to the 9th"
-            + " decimal. For example, if the result of the formula is `0.1234567891`,   the actual"
-            + " value stored for the attribute is `0.123456789`. - If you need to scale a unit of"
-            + " measure,   see [Scale"
-            + " Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab=filter#matcher-and-filter).")
 @JsonPropertyOrder({
   LogsArithmeticProcessor.JSON_PROPERTY_EXPRESSION,
   LogsArithmeticProcessor.JSON_PROPERTY_IS_ENABLED,
@@ -105,10 +85,6 @@ public class LogsArithmeticProcessor {
    *
    * @return expression
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "Arithmetic operation between one or more log attributes.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getExpression() {
@@ -130,7 +106,6 @@ public class LogsArithmeticProcessor {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -153,10 +128,6 @@ public class LogsArithmeticProcessor {
    * @return isReplaceMissing
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "If `true`, it replaces all missing attributes of expression by `0`, `false` skip the"
-              + " operation if an attribute is missing.")
   @JsonProperty(JSON_PROPERTY_IS_REPLACE_MISSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsReplaceMissing() {
@@ -178,7 +149,6 @@ public class LogsArithmeticProcessor {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -199,10 +169,6 @@ public class LogsArithmeticProcessor {
    *
    * @return target
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "Name of the attribute that contains the result of the arithmetic operation.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTarget() {
@@ -224,7 +190,6 @@ public class LogsArithmeticProcessor {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsArithmeticProcessorType getType() {

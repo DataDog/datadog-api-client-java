@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Configuration object for a Synthetic API test. */
-@ApiModel(description = "Configuration object for a Synthetic API test.")
 @JsonPropertyOrder({
   SyntheticsAPITestConfig.JSON_PROPERTY_ASSERTIONS,
   SyntheticsAPITestConfig.JSON_PROPERTY_CONFIG_VARIABLES,
@@ -66,9 +63,6 @@ public class SyntheticsAPITestConfig {
    * @return assertions
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[{\"operator\":\"lessThan\",\"target\":1000,\"type\":\"responseTime\"}]",
-      value = "Array of assertions used for the test. Required for single API tests.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsAssertion> getAssertions() {
@@ -103,7 +97,6 @@ public class SyntheticsAPITestConfig {
    * @return configVariables
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of variables used for the test.")
   @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsConfigVariable> getConfigVariables() {
@@ -126,7 +119,6 @@ public class SyntheticsAPITestConfig {
    * @return request
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequest getRequest() {
@@ -160,7 +152,6 @@ public class SyntheticsAPITestConfig {
    * @return steps
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When the test subtype is `multi`, the steps of the test.")
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsAPIStep> getSteps() {

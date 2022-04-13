@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object for updating a Datadog Log index. */
-@ApiModel(description = "Object for updating a Datadog Log index.")
 @JsonPropertyOrder({
   LogsIndexUpdateRequest.JSON_PROPERTY_DAILY_LIMIT,
   LogsIndexUpdateRequest.JSON_PROPERTY_DISABLE_DAILY_LIMIT,
@@ -68,10 +65,6 @@ public class LogsIndexUpdateRequest {
    * @return dailyLimit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The number of log events you can send in this index per day before you are"
-              + " rate-limited.")
   @JsonProperty(JSON_PROPERTY_DAILY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDailyLimit() {
@@ -95,11 +88,6 @@ public class LogsIndexUpdateRequest {
    * @return disableDailyLimit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "If true, sets the `daily_limit` value to null and the index is not limited on a daily"
-              + " basis (any specified `daily_limit` value in the request is ignored). If false or"
-              + " omitted, the index's current `daily_limit` is maintained.")
   @JsonProperty(JSON_PROPERTY_DISABLE_DAILY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisableDailyLimit() {
@@ -135,11 +123,6 @@ public class LogsIndexUpdateRequest {
    * @return exclusionFilters
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "An array of exclusion objects. The logs are tested against the query of each filter,"
-              + " following the order of the array. Only the first matching active exclusion"
-              + " matters, others (if any) are ignored.")
   @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsExclusion> getExclusionFilters() {
@@ -161,7 +144,6 @@ public class LogsIndexUpdateRequest {
    *
    * @return filter
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsFilter getFilter() {
@@ -186,12 +168,6 @@ public class LogsIndexUpdateRequest {
    * @return numRetentionDays
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The number of days before logs are deleted from this index. Available values depend on"
-              + " retention plans specified in your organization's contract/subscriptions. "
-              + " **Note:** Changing the retention for an index adjusts the length of retention"
-              + " for all logs already in this index. It may also affect billing.")
   @JsonProperty(JSON_PROPERTY_NUM_RETENTION_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNumRetentionDays() {

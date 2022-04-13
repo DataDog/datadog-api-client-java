@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Test configuration for Synthetics */
-@ApiModel(description = "Test configuration for Synthetics")
 @JsonPropertyOrder({
   SyntheticsTriggerTest.JSON_PROPERTY_METADATA,
   SyntheticsTriggerTest.JSON_PROPERTY_PUBLIC_ID
@@ -54,7 +51,6 @@ public class SyntheticsTriggerTest {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadata getMetadata() {
@@ -75,10 +71,6 @@ public class SyntheticsTriggerTest {
    *
    * @return publicId
    */
-  @ApiModelProperty(
-      example = "aaa-aaa-aaa",
-      required = true,
-      value = "The public ID of the Synthetics test to trigger.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPublicId() {

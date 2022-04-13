@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing details about a Synthetic API test. */
-@ApiModel(description = "Object containing details about a Synthetic API test.")
 @JsonPropertyOrder({
   SyntheticsAPITest.JSON_PROPERTY_CONFIG,
   SyntheticsAPITest.JSON_PROPERTY_LOCATIONS,
@@ -102,7 +99,6 @@ public class SyntheticsAPITest {
    *
    * @return config
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsAPITestConfig getConfig() {
@@ -128,10 +124,6 @@ public class SyntheticsAPITest {
    *
    * @return locations
    */
-  @ApiModelProperty(
-      example = "[\"aws:eu-west-3\"]",
-      required = true,
-      value = "Array of locations used to run the test.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getLocations() {
@@ -153,9 +145,6 @@ public class SyntheticsAPITest {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Notification message",
-      value = "Notification message associated with the test.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -172,7 +161,6 @@ public class SyntheticsAPITest {
    * @return monitorId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "12345678", value = "The associated monitor ID.")
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorId() {
@@ -189,7 +177,6 @@ public class SyntheticsAPITest {
    *
    * @return name
    */
-  @ApiModelProperty(example = "Example test name", required = true, value = "Name of the test.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -211,7 +198,6 @@ public class SyntheticsAPITest {
    *
    * @return options
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsTestOptions getOptions() {
@@ -228,7 +214,6 @@ public class SyntheticsAPITest {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123-abc-456", value = "The public ID for the test.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -247,7 +232,6 @@ public class SyntheticsAPITest {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestPauseStatus getStatus() {
@@ -273,7 +257,6 @@ public class SyntheticsAPITest {
    * @return subtype
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestDetailsSubType getSubtype() {
@@ -306,7 +289,6 @@ public class SyntheticsAPITest {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"env:production\"]", value = "Array of tags attached to the test.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -328,7 +310,6 @@ public class SyntheticsAPITest {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsAPITestType getType() {

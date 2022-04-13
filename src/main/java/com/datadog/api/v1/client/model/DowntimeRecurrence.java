@@ -14,15 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** An object defining the recurrence of the downtime. */
-@ApiModel(description = "An object defining the recurrence of the downtime.")
 @JsonPropertyOrder({
   DowntimeRecurrence.JSON_PROPERTY_PERIOD,
   DowntimeRecurrence.JSON_PROPERTY_RRULE,
@@ -64,11 +61,6 @@ public class DowntimeRecurrence {
    * @return period
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1",
-      value =
-          "How often to repeat as an integer. For example, to repeat every 3 days, select a type"
-              + " of `days` and a period of `3`.")
   @JsonProperty(JSON_PROPERTY_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getPeriod() {
@@ -98,17 +90,6 @@ public class DowntimeRecurrence {
    * @return rrule
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "FREQ=MONTHLY;BYSETPOS=3;BYDAY=WE;INTERVAL=1",
-      value =
-          "The `RRULE` standard for defining recurring events (**requires to set \"type\" to"
-              + " rrule**) For example, to have a recurring event on the first day of each month,"
-              + " set the type to `rrule` and set the `FREQ` to `MONTHLY` and `BYMONTHDAY` to `1`."
-              + " Most common `rrule` options from the [iCalendar"
-              + " Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes"
-              + " specifying the duration in `RRULE` are not supported (for example, `DTSTART`,"
-              + " `DTEND`, `DURATION`). More examples available in this [downtime"
-              + " guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api)")
   @JsonProperty(JSON_PROPERTY_RRULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRrule() {
@@ -131,9 +112,6 @@ public class DowntimeRecurrence {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "weeks",
-      value = "The type of recurrence. Choose from `days`, `weeks`, `months`, `years`, `rrule`.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -156,11 +134,6 @@ public class DowntimeRecurrence {
    * @return untilDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1447786293",
-      value =
-          "The date at which the recurrence should end as a POSIX timestamp. `until_occurences`"
-              + " and `until_date` are mutually exclusive.")
   @JsonIgnore
   public Long getUntilDate() {
     return untilDate.orElse(null);
@@ -193,11 +166,6 @@ public class DowntimeRecurrence {
    * @return untilOccurrences
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2",
-      value =
-          "How many times the downtime is rescheduled. `until_occurences` and `until_date` are"
-              + " mutually exclusive.")
   @JsonIgnore
   public Integer getUntilOccurrences() {
     return untilOccurrences.orElse(null);
@@ -243,11 +211,6 @@ public class DowntimeRecurrence {
    * @return weekDays
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"Mon\",\"Tue\"]",
-      value =
-          "A list of week days to repeat on. Choose from `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`"
-              + " or `Sun`. Only applicable when type is weeks. First letter must be capitalized.")
   @JsonIgnore
   public List<String> getWeekDays() {
     return weekDays.orElse(null);

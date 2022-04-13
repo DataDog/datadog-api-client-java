@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Options on new value rules. */
-@ApiModel(description = "Options on new value rules.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_FORGET_AFTER,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_DURATION
@@ -46,7 +43,6 @@ public class SecurityMonitoringRuleNewValueOptions {
    * @return forgetAfter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FORGET_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleNewValueOptionsForgetAfter getForgetAfter() {
@@ -73,7 +69,6 @@ public class SecurityMonitoringRuleNewValueOptions {
    * @return learningDuration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEARNING_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleNewValueOptionsLearningDuration getLearningDuration() {

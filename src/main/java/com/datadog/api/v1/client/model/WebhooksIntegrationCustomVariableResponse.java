@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Custom variable for Webhook integration. */
-@ApiModel(description = "Custom variable for Webhook integration.")
 @JsonPropertyOrder({
   WebhooksIntegrationCustomVariableResponse.JSON_PROPERTY_IS_SECRET,
   WebhooksIntegrationCustomVariableResponse.JSON_PROPERTY_NAME,
@@ -59,12 +56,6 @@ public class WebhooksIntegrationCustomVariableResponse {
    *
    * @return isSecret
    */
-  @ApiModelProperty(
-      example = "true",
-      required = true,
-      value =
-          "Make custom variable is secret or not. If the custom variable is secret, the value is"
-              + " not returned in the response payload.")
   @JsonProperty(JSON_PROPERTY_IS_SECRET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getIsSecret() {
@@ -86,12 +77,6 @@ public class WebhooksIntegrationCustomVariableResponse {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "CUSTOM_VARIABLE_NAME",
-      required = true,
-      value =
-          "The name of the variable. It corresponds with `<CUSTOM_VARIABLE_NAME>`. It must only"
-              + " contains upper-case characters, integers or underscores.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -113,9 +98,6 @@ public class WebhooksIntegrationCustomVariableResponse {
    * @return value
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "CUSTOM_VARIABLE_VALUE",
-      value = "Value of the custom variable. It won't be returned if the variable is secret.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {

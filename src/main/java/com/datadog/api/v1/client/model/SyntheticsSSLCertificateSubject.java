@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object describing the SSL certificate used for the test. */
-@ApiModel(description = "Object describing the SSL certificate used for the test.")
 @JsonPropertyOrder({
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_C,
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_C_N,
@@ -64,7 +61,6 @@ public class SyntheticsSSLCertificateSubject {
    * @return C
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Country Name associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_C)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getC() {
@@ -86,7 +82,6 @@ public class SyntheticsSSLCertificateSubject {
    * @return CN
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Common Name that associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_C_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCN() {
@@ -108,7 +103,6 @@ public class SyntheticsSSLCertificateSubject {
    * @return L
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Locality associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getL() {
@@ -130,7 +124,6 @@ public class SyntheticsSSLCertificateSubject {
    * @return O
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Organization associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_O)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getO() {
@@ -152,7 +145,6 @@ public class SyntheticsSSLCertificateSubject {
    * @return OU
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Organizational Unit associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_O_U)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOU() {
@@ -174,7 +166,6 @@ public class SyntheticsSSLCertificateSubject {
    * @return ST
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "State Or Province Name associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_S_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getST() {
@@ -196,7 +187,6 @@ public class SyntheticsSSLCertificateSubject {
    * @return altName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Subject Alternative Name associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_ALT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAltName() {

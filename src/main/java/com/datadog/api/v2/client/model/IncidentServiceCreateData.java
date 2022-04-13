@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Incident Service payload for create requests. */
-@ApiModel(description = "Incident Service payload for create requests.")
 @JsonPropertyOrder({
   IncidentServiceCreateData.JSON_PROPERTY_ATTRIBUTES,
   IncidentServiceCreateData.JSON_PROPERTY_RELATIONSHIPS,
@@ -59,7 +56,6 @@ public class IncidentServiceCreateData {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentServiceCreateAttributes getAttributes() {
@@ -82,7 +78,6 @@ public class IncidentServiceCreateData {
    * @return relationships
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentServiceRelationships getRelationships() {
@@ -104,7 +99,6 @@ public class IncidentServiceCreateData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public IncidentServiceType getType() {

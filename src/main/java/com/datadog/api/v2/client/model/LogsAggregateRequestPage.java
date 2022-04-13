@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Paging settings */
-@ApiModel(description = "Paging settings")
 @JsonPropertyOrder({LogsAggregateRequestPage.JSON_PROPERTY_CURSOR})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateRequestPage {
@@ -38,10 +35,6 @@ public class LogsAggregateRequestPage {
    * @return cursor
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
-      value = "The returned paging point to use to get the next results")
   @JsonProperty(JSON_PROPERTY_CURSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCursor() {

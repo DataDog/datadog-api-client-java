@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** The hourly usage of timeseries. */
-@ApiModel(description = "The hourly usage of timeseries.")
 @JsonPropertyOrder({
   UsageTimeseriesHour.JSON_PROPERTY_HOUR,
   UsageTimeseriesHour.JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES,
@@ -63,7 +60,6 @@ public class UsageTimeseriesHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -86,10 +82,6 @@ public class UsageTimeseriesHour {
    * @return numCustomInputTimeseries
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the number of custom metrics that are inputs for aggregations (metric"
-              + " configured is custom).")
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNumCustomInputTimeseries() {
@@ -112,10 +104,6 @@ public class UsageTimeseriesHour {
    * @return numCustomOutputTimeseries
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the number of custom metrics that are outputs for aggregations (metric"
-              + " configured is custom).")
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNumCustomOutputTimeseries() {
@@ -138,10 +126,6 @@ public class UsageTimeseriesHour {
    * @return numCustomTimeseries
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains sum of non-aggregation custom metrics and custom metrics that are outputs for"
-              + " aggregations.")
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNumCustomTimeseries() {
@@ -163,7 +147,6 @@ public class UsageTimeseriesHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -185,7 +168,6 @@ public class UsageTimeseriesHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

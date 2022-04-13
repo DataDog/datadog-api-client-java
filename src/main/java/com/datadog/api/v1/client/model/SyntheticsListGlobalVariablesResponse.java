@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing an array of Synthetic global variables. */
-@ApiModel(description = "Object containing an array of Synthetic global variables.")
 @JsonPropertyOrder({SyntheticsListGlobalVariablesResponse.JSON_PROPERTY_VARIABLES})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsListGlobalVariablesResponse {
@@ -53,7 +50,6 @@ public class SyntheticsListGlobalVariablesResponse {
    * @return variables
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of Synthetic global variables.")
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsGlobalVariable> getVariables() {

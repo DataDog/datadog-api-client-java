@@ -14,18 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Secrets for the private location. Only present in the response when creating the private
  * location.
  */
-@ApiModel(
-    description =
-        "Secrets for the private location. Only present in the response when creating the private"
-            + " location.")
 @JsonPropertyOrder({
   SyntheticsPrivateLocationSecrets.JSON_PROPERTY_AUTHENTICATION,
   SyntheticsPrivateLocationSecrets.JSON_PROPERTY_CONFIG_DECRYPTION
@@ -52,7 +46,6 @@ public class SyntheticsPrivateLocationSecrets {
    * @return authentication
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsPrivateLocationSecretsAuthentication getAuthentication() {
@@ -76,7 +69,6 @@ public class SyntheticsPrivateLocationSecrets {
    * @return configDecryption
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONFIG_DECRYPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsPrivateLocationSecretsConfigDecryption getConfigDecryption() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Data of AuthN Mapping relationship to SAML Assertion Attribute. */
-@ApiModel(description = "Data of AuthN Mapping relationship to SAML Assertion Attribute.")
 @JsonPropertyOrder({
   RelationshipToSAMLAssertionAttributeData.JSON_PROPERTY_ID,
   RelationshipToSAMLAssertionAttributeData.JSON_PROPERTY_TYPE
@@ -55,10 +52,6 @@ public class RelationshipToSAMLAssertionAttributeData {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "0",
-      required = true,
-      value = "The ID of the SAML assertion attribute.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getId() {
@@ -80,7 +73,6 @@ public class RelationshipToSAMLAssertionAttributeData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SAMLAssertionAttributesType getType() {

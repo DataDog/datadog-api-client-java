@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Attributes of the edited user. */
-@ApiModel(description = "Attributes of the edited user.")
 @JsonPropertyOrder({
   UserUpdateAttributes.JSON_PROPERTY_DISABLED,
   UserUpdateAttributes.JSON_PROPERTY_EMAIL,
@@ -48,7 +45,6 @@ public class UserUpdateAttributes {
    * @return disabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If the user is enabled or disabled.")
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisabled() {
@@ -70,7 +66,6 @@ public class UserUpdateAttributes {
    * @return email
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -92,7 +87,6 @@ public class UserUpdateAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the user.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

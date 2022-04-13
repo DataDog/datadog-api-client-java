@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Response object for an organization creation. */
-@ApiModel(description = "Response object for an organization creation.")
 @JsonPropertyOrder({
   OrganizationCreateResponse.JSON_PROPERTY_API_KEY,
   OrganizationCreateResponse.JSON_PROPERTY_APPLICATION_KEY,
@@ -53,7 +50,6 @@ public class OrganizationCreateResponse {
    * @return apiKey
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApiKey getApiKey() {
@@ -76,7 +72,6 @@ public class OrganizationCreateResponse {
    * @return applicationKey
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APPLICATION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApplicationKey getApplicationKey() {
@@ -99,7 +94,6 @@ public class OrganizationCreateResponse {
    * @return org
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Organization getOrg() {
@@ -122,7 +116,6 @@ public class OrganizationCreateResponse {
    * @return user
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public User getUser() {

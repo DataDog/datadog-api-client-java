@@ -15,16 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Sunbursts are spot on to highlight how groups contribute to the total of a query. */
-@ApiModel(
-    description =
-        "Sunbursts are spot on to highlight how groups contribute to the total of a query.")
 @JsonPropertyOrder({
   SunburstWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   SunburstWidgetDefinition.JSON_PROPERTY_HIDE_TOTAL,
@@ -102,7 +97,6 @@ public class SunburstWidgetDefinition {
    * @return customLinks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -124,7 +118,6 @@ public class SunburstWidgetDefinition {
    * @return hideTotal
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Show the total value in this widget.")
   @JsonProperty(JSON_PROPERTY_HIDE_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHideTotal() {
@@ -147,7 +140,6 @@ public class SunburstWidgetDefinition {
    * @return legend
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SunburstWidgetLegend getLegend() {
@@ -177,10 +169,6 @@ public class SunburstWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(
-      example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]",
-      required = true,
-      value = "List of sunburst widget requests.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<SunburstWidgetRequest> getRequests() {
@@ -203,7 +191,6 @@ public class SunburstWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -225,7 +212,6 @@ public class SunburstWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -248,7 +234,6 @@ public class SunburstWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -273,7 +258,6 @@ public class SunburstWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -295,7 +279,6 @@ public class SunburstWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SunburstWidgetDefinitionType getType() {

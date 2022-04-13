@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Hour usage for logs. */
-@ApiModel(description = "Hour usage for logs.")
 @JsonPropertyOrder({
   UsageLogsHour.JSON_PROPERTY_BILLABLE_INGESTED_BYTES,
   UsageLogsHour.JSON_PROPERTY_HOUR,
@@ -79,7 +76,6 @@ public class UsageLogsHour {
    * @return billableIngestedBytes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of billable log bytes ingested.")
   @JsonProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBillableIngestedBytes() {
@@ -101,7 +97,6 @@ public class UsageLogsHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -123,7 +118,6 @@ public class UsageLogsHour {
    * @return indexedEventsCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of log events indexed.")
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIndexedEventsCount() {
@@ -145,7 +139,6 @@ public class UsageLogsHour {
    * @return ingestedEventsBytes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of log bytes ingested.")
   @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIngestedEventsBytes() {
@@ -167,9 +160,6 @@ public class UsageLogsHour {
    * @return logsLiveIndexedCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the number of live log events indexed (data available as of December 1, 2020).")
   @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsLiveIndexedCount() {
@@ -191,9 +181,6 @@ public class UsageLogsHour {
    * @return logsLiveIngestedBytes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the number of live log bytes ingested (data available as of December 1, 2020).")
   @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INGESTED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsLiveIngestedBytes() {
@@ -215,10 +202,6 @@ public class UsageLogsHour {
    * @return logsRehydratedIndexedCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the number of rehydrated log events indexed (data available as of December 1,"
-              + " 2020).")
   @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsRehydratedIndexedCount() {
@@ -240,10 +223,6 @@ public class UsageLogsHour {
    * @return logsRehydratedIngestedBytes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Contains the number of rehydrated log bytes ingested (data available as of December 1,"
-              + " 2020).")
   @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INGESTED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsRehydratedIngestedBytes() {
@@ -265,7 +244,6 @@ public class UsageLogsHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -287,7 +265,6 @@ public class UsageLogsHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

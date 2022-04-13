@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** The number of profiled hosts for each hour for a given organization. */
-@ApiModel(description = "The number of profiled hosts for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageProfilingHour.JSON_PROPERTY_AVG_CONTAINER_AGENT_COUNT,
   UsageProfilingHour.JSON_PROPERTY_HOST_COUNT,
@@ -57,7 +54,6 @@ public class UsageProfilingHour {
    * @return avgContainerAgentCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Get average number of container agents for that hour.")
   @JsonProperty(JSON_PROPERTY_AVG_CONTAINER_AGENT_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAvgContainerAgentCount() {
@@ -79,8 +75,6 @@ public class UsageProfilingHour {
    * @return hostCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Contains the total number of profiled hosts reporting during a given hour.")
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getHostCount() {
@@ -102,7 +96,6 @@ public class UsageProfilingHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -124,7 +117,6 @@ public class UsageProfilingHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -146,7 +138,6 @@ public class UsageProfilingHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

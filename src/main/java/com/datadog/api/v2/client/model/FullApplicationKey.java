@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Datadog application key. */
-@ApiModel(description = "Datadog application key.")
 @JsonPropertyOrder({
   FullApplicationKey.JSON_PROPERTY_ATTRIBUTES,
   FullApplicationKey.JSON_PROPERTY_ID,
@@ -53,7 +50,6 @@ public class FullApplicationKey {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FullApplicationKeyAttributes getAttributes() {
@@ -75,7 +71,6 @@ public class FullApplicationKey {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the application key.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -98,7 +93,6 @@ public class FullApplicationKey {
    * @return relationships
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApplicationKeyRelationships getRelationships() {
@@ -121,7 +115,6 @@ public class FullApplicationKey {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApplicationKeysType getType() {

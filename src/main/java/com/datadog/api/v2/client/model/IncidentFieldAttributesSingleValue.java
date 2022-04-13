@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A field with a single value selected. */
-@ApiModel(description = "A field with a single value selected.")
 @JsonPropertyOrder({
   IncidentFieldAttributesSingleValue.JSON_PROPERTY_TYPE,
   IncidentFieldAttributesSingleValue.JSON_PROPERTY_VALUE
@@ -47,7 +44,6 @@ public class IncidentFieldAttributesSingleValue {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentFieldAttributesSingleValueType getType() {
@@ -72,7 +68,6 @@ public class IncidentFieldAttributesSingleValue {
    * @return value
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SEV-1", value = "The single value selected for this field.")
   @JsonIgnore
   public String getValue() {
     return value.orElse(null);

@@ -14,16 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response object with all events matching the request and pagination information. */
-@ApiModel(
-    description =
-        "Response object with all events matching the request and pagination information.")
 @JsonPropertyOrder({
   RUMEventsResponse.JSON_PROPERTY_DATA,
   RUMEventsResponse.JSON_PROPERTY_LINKS,
@@ -64,7 +59,6 @@ public class RUMEventsResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of events matching the request.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RUMEvent> getData() {
@@ -87,7 +81,6 @@ public class RUMEventsResponse {
    * @return links
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMResponseLinks getLinks() {
@@ -110,7 +103,6 @@ public class RUMEventsResponse {
    * @return meta
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMResponseMetadata getMeta() {

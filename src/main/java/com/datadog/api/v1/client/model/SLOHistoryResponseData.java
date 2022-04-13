@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +21,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** An array of service level objective objects. */
-@ApiModel(description = "An array of service level objective objects.")
 @JsonPropertyOrder({
   SLOHistoryResponseData.JSON_PROPERTY_FROM_TS,
   SLOHistoryResponseData.JSON_PROPERTY_GROUP_BY,
@@ -80,7 +77,6 @@ public class SLOHistoryResponseData {
    * @return fromTs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1615323990", value = "The `from` timestamp in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_FROM_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFromTs() {
@@ -112,11 +108,6 @@ public class SLOHistoryResponseData {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "For `metric` based SLOs where the query includes a group-by clause, this represents the"
-              + " list of grouping parameters.  This is not included in responses for `monitor`"
-              + " based SLOs.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupBy() {
@@ -151,10 +142,6 @@ public class SLOHistoryResponseData {
    * @return groups
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "For grouped SLOs, this represents SLI data for specific groups.  This is not included"
-              + " in the responses for `metric` based SLOs.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SLOHistoryMonitor> getGroups() {
@@ -189,10 +176,6 @@ public class SLOHistoryResponseData {
    * @return monitors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "For multi-monitor SLOs, this represents SLI data for specific monitors.  This is not"
-              + " included in the responses for `metric` based SLOs.")
   @JsonProperty(JSON_PROPERTY_MONITORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SLOHistoryMonitor> getMonitors() {
@@ -215,7 +198,6 @@ public class SLOHistoryResponseData {
    * @return overall
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OVERALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOHistorySLIData getOverall() {
@@ -238,7 +220,6 @@ public class SLOHistoryResponseData {
    * @return series
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOHistoryMetrics getSeries() {
@@ -268,9 +249,6 @@ public class SLOHistoryResponseData {
    * @return thresholds
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "{\"my_service\":{\"target\":95,\"timeframe\":\"7d\"}}",
-      value = "mapping of string timeframe to the SLO threshold.")
   @JsonProperty(JSON_PROPERTY_THRESHOLDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, SLOThreshold> getThresholds() {
@@ -292,7 +270,6 @@ public class SLOHistoryResponseData {
    * @return toTs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1615928790", value = "The `to` timestamp in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_TO_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getToTs() {
@@ -315,7 +292,6 @@ public class SLOHistoryResponseData {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOType getType() {
@@ -341,7 +317,6 @@ public class SLOHistoryResponseData {
    * @return typeId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOTypeNumeric getTypeId() {

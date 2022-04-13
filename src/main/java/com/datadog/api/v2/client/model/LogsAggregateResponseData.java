@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The query results */
-@ApiModel(description = "The query results")
 @JsonPropertyOrder({LogsAggregateResponseData.JSON_PROPERTY_BUCKETS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateResponseData {
@@ -52,7 +49,6 @@ public class LogsAggregateResponseData {
    * @return buckets
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list of matching buckets, one item per bucket")
   @JsonProperty(JSON_PROPERTY_BUCKETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsAggregateBucket> getBuckets() {

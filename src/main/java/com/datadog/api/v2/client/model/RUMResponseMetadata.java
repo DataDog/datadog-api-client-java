@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The metadata associated with a request. */
-@ApiModel(description = "The metadata associated with a request.")
 @JsonPropertyOrder({
   RUMResponseMetadata.JSON_PROPERTY_ELAPSED,
   RUMResponseMetadata.JSON_PROPERTY_PAGE,
@@ -58,7 +55,6 @@ public class RUMResponseMetadata {
    * @return elapsed
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "132", value = "The time elapsed in milliseconds.")
   @JsonProperty(JSON_PROPERTY_ELAPSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getElapsed() {
@@ -81,7 +77,6 @@ public class RUMResponseMetadata {
    * @return page
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMResponsePage getPage() {
@@ -103,9 +98,6 @@ public class RUMResponseMetadata {
    * @return requestId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "MWlFUjVaWGZTTTZPYzM0VXp1OXU2d3xLSVpEMjZKQ0VKUTI0dEYtM3RSOFVR",
-      value = "The identifier of the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRequestId() {
@@ -128,7 +120,6 @@ public class RUMResponseMetadata {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMResponseStatus getStatus() {
@@ -166,10 +157,6 @@ public class RUMResponseMetadata {
    * @return warnings
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A list of warnings (non-fatal errors) encountered. Partial results may return if"
-              + " warnings are present in the response.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RUMWarning> getWarnings() {

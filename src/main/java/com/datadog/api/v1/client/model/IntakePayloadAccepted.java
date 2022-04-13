@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The payload accepted for intake. */
-@ApiModel(description = "The payload accepted for intake.")
 @JsonPropertyOrder({IntakePayloadAccepted.JSON_PROPERTY_STATUS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IntakePayloadAccepted {
@@ -38,7 +35,6 @@ public class IntakePayloadAccepted {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ok", value = "The status of the intake payload.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {

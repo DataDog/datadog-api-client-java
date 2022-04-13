@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The objects used to delete an AWS tag filter entry. */
-@ApiModel(description = "The objects used to delete an AWS tag filter entry.")
 @JsonPropertyOrder({
   AWSTagFilterDeleteRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSTagFilterDeleteRequest.JSON_PROPERTY_NAMESPACE
@@ -44,9 +41,6 @@ public class AWSTagFilterDeleteRequest {
    * @return accountId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "FAKEAC0FAKEAC2FAKEAC",
-      value = "The unique identifier of your AWS account.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountId() {
@@ -69,7 +63,6 @@ public class AWSTagFilterDeleteRequest {
    * @return namespace
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AWSNamespace getNamespace() {

@@ -14,14 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The list of current AWS services for which Datadog offers automatic log collection. */
-@ApiModel(
-    description =
-        "The list of current AWS services for which Datadog offers automatic log collection.")
 @JsonPropertyOrder({
   AWSLogsListServicesResponse.JSON_PROPERTY_ID,
   AWSLogsListServicesResponse.JSON_PROPERTY_LABEL
@@ -46,7 +41,6 @@ public class AWSLogsListServicesResponse {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "s3", value = "Key value in returned object.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -68,9 +62,6 @@ public class AWSLogsListServicesResponse {
    * @return label
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "S3 Access Logs",
-      value = "Name of service available for configuration with Datadog logs.")
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLabel() {

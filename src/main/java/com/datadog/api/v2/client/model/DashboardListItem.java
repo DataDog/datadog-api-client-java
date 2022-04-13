@@ -15,13 +15,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** A dashboard within a list. */
-@ApiModel(description = "A dashboard within a list.")
 @JsonPropertyOrder({
   DashboardListItem.JSON_PROPERTY_AUTHOR,
   DashboardListItem.JSON_PROPERTY_CREATED,
@@ -98,7 +95,6 @@ public class DashboardListItem {
    * @return author
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getAuthor() {
@@ -115,7 +111,6 @@ public class DashboardListItem {
    * @return created
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date of creation of the dashboard.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -128,7 +123,6 @@ public class DashboardListItem {
    * @return icon
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL to the icon of the dashboard.")
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIcon() {
@@ -145,7 +139,6 @@ public class DashboardListItem {
    *
    * @return id
    */
-  @ApiModelProperty(example = "q5j-nti-fv6", required = true, value = "ID of the dashboard.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -162,7 +155,6 @@ public class DashboardListItem {
    * @return isFavorite
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the dashboard is in the favorites.")
   @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsFavorite() {
@@ -175,7 +167,6 @@ public class DashboardListItem {
    * @return isReadOnly
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the dashboard is read only.")
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsReadOnly() {
@@ -188,7 +179,6 @@ public class DashboardListItem {
    * @return isShared
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the dashboard is publicly shared or not.")
   @JsonProperty(JSON_PROPERTY_IS_SHARED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsShared() {
@@ -201,7 +191,6 @@ public class DashboardListItem {
    * @return modified
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date of last edition of the dashboard.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -214,7 +203,6 @@ public class DashboardListItem {
    * @return popularity
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Popularity of the dashboard.")
   @JsonProperty(JSON_PROPERTY_POPULARITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getPopularity() {
@@ -227,7 +215,6 @@ public class DashboardListItem {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the dashboard.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -245,7 +232,6 @@ public class DashboardListItem {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public DashboardType getType() {
@@ -265,7 +251,6 @@ public class DashboardListItem {
    * @return url
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL path to the dashboard.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {

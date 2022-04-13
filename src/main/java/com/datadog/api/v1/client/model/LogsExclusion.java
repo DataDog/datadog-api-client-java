@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Represents the index exclusion filter object from configuration API. */
-@ApiModel(description = "Represents the index exclusion filter object from configuration API.")
 @JsonPropertyOrder({
   LogsExclusion.JSON_PROPERTY_FILTER,
   LogsExclusion.JSON_PROPERTY_IS_ENABLED,
@@ -57,7 +54,6 @@ public class LogsExclusion {
    * @return filter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsExclusionFilter getFilter() {
@@ -79,7 +75,6 @@ public class LogsExclusion {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the exclusion filter is active.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -100,10 +95,6 @@ public class LogsExclusion {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "payment",
-      required = true,
-      value = "Name of the index exclusion filter.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {

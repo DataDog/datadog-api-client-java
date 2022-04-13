@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Available prefix information for the Agent endpoints. */
-@ApiModel(description = "Available prefix information for the Agent endpoints.")
 @JsonPropertyOrder({
   IPPrefixesAgents.JSON_PROPERTY_PREFIXES_IPV4,
   IPPrefixesAgents.JSON_PROPERTY_PREFIXES_IPV6
@@ -54,7 +51,6 @@ public class IPPrefixesAgents {
    * @return prefixesIpv4
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of IPv4 prefixes.")
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV4)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPrefixesIpv4() {
@@ -84,7 +80,6 @@ public class IPPrefixesAgents {
    * @return prefixesIpv6
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of IPv6 prefixes.")
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV6)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPrefixesIpv6() {

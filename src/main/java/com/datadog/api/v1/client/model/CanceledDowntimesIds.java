@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing array of IDs of canceled downtimes. */
-@ApiModel(description = "Object containing array of IDs of canceled downtimes.")
 @JsonPropertyOrder({CanceledDowntimesIds.JSON_PROPERTY_CANCELLED_IDS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CanceledDowntimesIds {
@@ -48,9 +45,6 @@ public class CanceledDowntimesIds {
    * @return cancelledIds
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[123456789,123456790]",
-      value = "ID of downtimes that were canceled.")
   @JsonProperty(JSON_PROPERTY_CANCELLED_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Long> getCancelledIds() {

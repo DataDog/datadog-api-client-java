@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Array of user disabled for a given organization. */
-@ApiModel(description = "Array of user disabled for a given organization.")
 @JsonPropertyOrder({UserDisableResponse.JSON_PROPERTY_MESSAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserDisableResponse {
@@ -38,7 +35,6 @@ public class UserDisableResponse {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Information pertaining to a user disabled for a given organization.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {

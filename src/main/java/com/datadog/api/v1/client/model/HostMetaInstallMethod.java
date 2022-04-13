@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Agent install method. */
-@ApiModel(description = "Agent install method.")
 @JsonPropertyOrder({
   HostMetaInstallMethod.JSON_PROPERTY_INSTALLER_VERSION,
   HostMetaInstallMethod.JSON_PROPERTY_TOOL,
@@ -48,7 +45,6 @@ public class HostMetaInstallMethod {
    * @return installerVersion
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "install_script-1.7.1", value = "The installer version.")
   @JsonProperty(JSON_PROPERTY_INSTALLER_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInstallerVersion() {
@@ -70,7 +66,6 @@ public class HostMetaInstallMethod {
    * @return tool
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "install_script", value = "Tool used to install the agent.")
   @JsonProperty(JSON_PROPERTY_TOOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTool() {
@@ -92,7 +87,6 @@ public class HostMetaInstallMethod {
    * @return toolVersion
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "install_script", value = "The tool version.")
   @JsonProperty(JSON_PROPERTY_TOOL_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getToolVersion() {

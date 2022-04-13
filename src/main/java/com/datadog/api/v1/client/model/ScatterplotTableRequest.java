@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Scatterplot request containing formulas and functions. */
-@ApiModel(description = "Scatterplot request containing formulas and functions.")
 @JsonPropertyOrder({
   ScatterplotTableRequest.JSON_PROPERTY_FORMULAS,
   ScatterplotTableRequest.JSON_PROPERTY_QUERIES,
@@ -62,7 +59,6 @@ public class ScatterplotTableRequest {
    * @return formulas
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of Scatterplot formulas that operate on queries.")
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ScatterplotWidgetFormula> getFormulas() {
@@ -96,7 +92,6 @@ public class ScatterplotTableRequest {
    * @return queries
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of queries that can be returned directly or used in formulas.")
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<FormulaAndFunctionQueryDefinition> getQueries() {
@@ -119,7 +114,6 @@ public class ScatterplotTableRequest {
    * @return responseFormat
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionResponseFormat getResponseFormat() {

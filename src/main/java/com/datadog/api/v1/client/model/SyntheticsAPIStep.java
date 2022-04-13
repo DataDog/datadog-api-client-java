@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The steps used in a Synthetics multistep API test. */
-@ApiModel(description = "The steps used in a Synthetics multistep API test.")
 @JsonPropertyOrder({
   SyntheticsAPIStep.JSON_PROPERTY_ALLOW_FAILURE,
   SyntheticsAPIStep.JSON_PROPERTY_ASSERTIONS,
@@ -89,7 +86,6 @@ public class SyntheticsAPIStep {
    * @return allowFailure
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Determines whether or not to continue with test if this step fails.")
   @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowFailure() {
@@ -119,10 +115,6 @@ public class SyntheticsAPIStep {
    *
    * @return assertions
    */
-  @ApiModelProperty(
-      example = "[{\"operator\":\"lessThan\",\"target\":1000,\"type\":\"responseTime\"}]",
-      required = true,
-      value = "Array of assertions used for the test.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<SyntheticsAssertion> getAssertions() {
@@ -156,7 +148,6 @@ public class SyntheticsAPIStep {
    * @return extractedValues
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of values to parse and save as variables from the response.")
   @JsonProperty(JSON_PROPERTY_EXTRACTED_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsParsingOptions> getExtractedValues() {
@@ -179,10 +170,6 @@ public class SyntheticsAPIStep {
    * @return isCritical
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Determines whether or not to consider the entire test as failed if this step fails. Can"
-              + " be used only if `allowFailure` is `true`.")
   @JsonProperty(JSON_PROPERTY_IS_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsCritical() {
@@ -203,7 +190,6 @@ public class SyntheticsAPIStep {
    *
    * @return name
    */
-  @ApiModelProperty(example = "Example step name", required = true, value = "The name of the step.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -225,7 +211,6 @@ public class SyntheticsAPIStep {
    *
    * @return request
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsTestRequest getRequest() {
@@ -248,7 +233,6 @@ public class SyntheticsAPIStep {
    * @return retry
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestOptionsRetry getRetry() {
@@ -270,7 +254,6 @@ public class SyntheticsAPIStep {
    *
    * @return subtype
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsAPIStepSubtype getSubtype() {

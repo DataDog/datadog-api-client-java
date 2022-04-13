@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Defined items in the group. */
-@ApiModel(description = "Defined items in the group.")
 @JsonPropertyOrder({
   LogQueryDefinitionGroupBy.JSON_PROPERTY_FACET,
   LogQueryDefinitionGroupBy.JSON_PROPERTY_LIMIT,
@@ -56,7 +53,6 @@ public class LogQueryDefinitionGroupBy {
    *
    * @return facet
    */
-  @ApiModelProperty(example = "resource_name", required = true, value = "Facet name.")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getFacet() {
@@ -78,7 +74,6 @@ public class LogQueryDefinitionGroupBy {
    * @return limit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "50", value = "Maximum number of items in the group.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -101,7 +96,6 @@ public class LogQueryDefinitionGroupBy {
    * @return sort
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinitionGroupBySort getSort() {

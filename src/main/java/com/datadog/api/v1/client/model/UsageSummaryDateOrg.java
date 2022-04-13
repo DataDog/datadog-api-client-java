@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Global hourly report of all data billed by Datadog for a given organization. */
-@ApiModel(
-    description = "Global hourly report of all data billed by Datadog for a given organization.")
 @JsonPropertyOrder({
   UsageSummaryDateOrg.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
@@ -315,10 +311,6 @@ public class UsageSummaryDateOrg {
    * @return agentHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all agent hosts over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_AGENT_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAgentHostTop99p() {
@@ -341,10 +333,6 @@ public class UsageSummaryDateOrg {
    * @return apmAzureAppServiceHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all Azure app services using APM over all hours in the"
-              + " current date for the given org.")
   @JsonProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getApmAzureAppServiceHostTop99p() {
@@ -367,10 +355,6 @@ public class UsageSummaryDateOrg {
    * @return apmHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all distinct APM hosts over all hours in the current date"
-              + " for the given org.")
   @JsonProperty(JSON_PROPERTY_APM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getApmHostTop99p() {
@@ -393,10 +377,6 @@ public class UsageSummaryDateOrg {
    * @return auditLogsLinesIndexedSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all audit logs lines indexed over all hours in the current date for"
-              + " the given org.")
   @JsonProperty(JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAuditLogsLinesIndexedSum() {
@@ -418,7 +398,6 @@ public class UsageSummaryDateOrg {
    * @return avgProfiledFargateTasks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The average profiled task count for Fargate Profiling.")
   @JsonProperty(JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAvgProfiledFargateTasks() {
@@ -441,10 +420,6 @@ public class UsageSummaryDateOrg {
    * @return awsHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all AWS hosts over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_AWS_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAwsHostTop99p() {
@@ -467,10 +442,6 @@ public class UsageSummaryDateOrg {
    * @return awsLambdaFuncCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all AWS Lambda invocations over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAwsLambdaFuncCount() {
@@ -493,10 +464,6 @@ public class UsageSummaryDateOrg {
    * @return awsLambdaInvocationsSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all AWS Lambda invocations over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAwsLambdaInvocationsSum() {
@@ -519,10 +486,6 @@ public class UsageSummaryDateOrg {
    * @return azureAppServiceTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all Azure app services over all hours in the current date"
-              + " for the given org.")
   @JsonProperty(JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAzureAppServiceTop99p() {
@@ -544,10 +507,6 @@ public class UsageSummaryDateOrg {
    * @return billableIngestedBytesSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all log bytes ingested over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBillableIngestedBytesSum() {
@@ -570,10 +529,6 @@ public class UsageSummaryDateOrg {
    * @return browserRumLiteSessionCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all browser lite sessions over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBrowserRumLiteSessionCountSum() {
@@ -596,10 +551,6 @@ public class UsageSummaryDateOrg {
    * @return browserRumReplaySessionCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all browser replay sessions over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBrowserRumReplaySessionCountSum() {
@@ -621,10 +572,6 @@ public class UsageSummaryDateOrg {
    * @return browserRumUnitsSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all browser RUM units over all hours in the current date for the given"
-              + " org.")
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBrowserRumUnitsSum() {
@@ -647,10 +594,6 @@ public class UsageSummaryDateOrg {
    * @return ciPipelineIndexedSpansSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all CI pipeline indexed spans over all hours in the current date for"
-              + " the given org.")
   @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCiPipelineIndexedSpansSum() {
@@ -673,10 +616,6 @@ public class UsageSummaryDateOrg {
    * @return ciTestIndexedSpansSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all CI test indexed spans over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCiTestIndexedSpansSum() {
@@ -700,10 +639,6 @@ public class UsageSummaryDateOrg {
    * @return ciVisibilityPipelineCommittersHwm
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the high-water mark of all CI visibility pipeline committers over all hours in"
-              + " the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCiVisibilityPipelineCommittersHwm() {
@@ -726,10 +661,6 @@ public class UsageSummaryDateOrg {
    * @return ciVisibilityTestCommittersHwm
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the high-water mark of all CI visibility test committers over all hours in the"
-              + " current date for the given org.")
   @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCiVisibilityTestCommittersHwm() {
@@ -752,10 +683,6 @@ public class UsageSummaryDateOrg {
    * @return containerAvg
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the average of all distinct containers over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getContainerAvg() {
@@ -778,10 +705,6 @@ public class UsageSummaryDateOrg {
    * @return containerHwm
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the high-water mark of all distinct containers over all hours in the current date"
-              + " for the given org.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getContainerHwm() {
@@ -804,10 +727,6 @@ public class UsageSummaryDateOrg {
    * @return cspmAasHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all Cloud Security Posture Management Azure app services"
-              + " hosts over all hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_CSPM_AAS_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCspmAasHostTop99p() {
@@ -830,10 +749,6 @@ public class UsageSummaryDateOrg {
    * @return cspmAzureHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all"
-              + " hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCspmAzureHostTop99p() {
@@ -856,10 +771,6 @@ public class UsageSummaryDateOrg {
    * @return cspmContainerAvg
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the average number of Cloud Security Posture Management containers over all hours"
-              + " in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCspmContainerAvg() {
@@ -882,10 +793,6 @@ public class UsageSummaryDateOrg {
    * @return cspmContainerHwm
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the high-water mark of Cloud Security Posture Management containers over all"
-              + " hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCspmContainerHwm() {
@@ -908,10 +815,6 @@ public class UsageSummaryDateOrg {
    * @return cspmHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours"
-              + " in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_CSPM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCspmHostTop99p() {
@@ -934,10 +837,6 @@ public class UsageSummaryDateOrg {
    * @return customTsAvg
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the average number of distinct custom metrics over all hours in the current date"
-              + " for the given org.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_TS_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCustomTsAvg() {
@@ -960,10 +859,6 @@ public class UsageSummaryDateOrg {
    * @return cwsContainerCountAvg
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the average of all distinct Cloud Workload Security containers over all hours in"
-              + " the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCwsContainerCountAvg() {
@@ -986,10 +881,6 @@ public class UsageSummaryDateOrg {
    * @return cwsHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the"
-              + " current date for the given org.")
   @JsonProperty(JSON_PROPERTY_CWS_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCwsHostTop99p() {
@@ -1012,10 +903,6 @@ public class UsageSummaryDateOrg {
    * @return dbmHostTop99pSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all Database Monitoring hosts over all hours in the"
-              + " current month for the given org.")
   @JsonProperty(JSON_PROPERTY_DBM_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDbmHostTop99pSum() {
@@ -1038,10 +925,6 @@ public class UsageSummaryDateOrg {
    * @return dbmQueriesAvgSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the average of all distinct Database Monitoring normalized queries over all hours"
-              + " in the current month for the given org.")
   @JsonProperty(JSON_PROPERTY_DBM_QUERIES_AVG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDbmQueriesAvgSum() {
@@ -1063,7 +946,6 @@ public class UsageSummaryDateOrg {
    * @return fargateTasksCountAvg
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The average task count for Fargate.")
   @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFargateTasksCountAvg() {
@@ -1086,10 +968,6 @@ public class UsageSummaryDateOrg {
    * @return fargateTasksCountHwm
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the high-water mark of all Fargate tasks over all hours in the current date for"
-              + " the given org.")
   @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFargateTasksCountHwm() {
@@ -1112,10 +990,6 @@ public class UsageSummaryDateOrg {
    * @return gcpHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all GCP hosts over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_GCP_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getGcpHostTop99p() {
@@ -1138,10 +1012,6 @@ public class UsageSummaryDateOrg {
    * @return herokuHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all Heroku dynos over all hours in the current date for"
-              + " the given org.")
   @JsonProperty(JSON_PROPERTY_HEROKU_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getHerokuHostTop99p() {
@@ -1163,7 +1033,6 @@ public class UsageSummaryDateOrg {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization id.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -1187,10 +1056,6 @@ public class UsageSummaryDateOrg {
    * @return incidentManagementMonthlyActiveUsersHwm
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the high-water mark of incident management monthly active users over all hours in"
-              + " the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIncidentManagementMonthlyActiveUsersHwm() {
@@ -1213,10 +1078,6 @@ public class UsageSummaryDateOrg {
    * @return indexedEventsCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all log events indexed over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIndexedEventsCountSum() {
@@ -1239,10 +1100,6 @@ public class UsageSummaryDateOrg {
    * @return infraHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all distinct infrastructure hosts over all hours in the"
-              + " current date for the given org.")
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInfraHostTop99p() {
@@ -1264,10 +1121,6 @@ public class UsageSummaryDateOrg {
    * @return ingestedEventsBytesSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all log bytes ingested over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIngestedEventsBytesSum() {
@@ -1289,9 +1142,6 @@ public class UsageSummaryDateOrg {
    * @return iotDeviceAggSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all IoT devices over all hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_IOT_DEVICE_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIotDeviceAggSum() {
@@ -1314,10 +1164,6 @@ public class UsageSummaryDateOrg {
    * @return iotDeviceTop99pSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all IoT devices over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIotDeviceTop99pSum() {
@@ -1339,10 +1185,6 @@ public class UsageSummaryDateOrg {
    * @return mobileRumLiteSessionCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all mobile lite sessions over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumLiteSessionCountSum() {
@@ -1365,10 +1207,6 @@ public class UsageSummaryDateOrg {
    * @return mobileRumSessionCountAndroidSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all mobile RUM Sessions on Android over all hours in the current date"
-              + " for the given org.")
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumSessionCountAndroidSum() {
@@ -1391,10 +1229,6 @@ public class UsageSummaryDateOrg {
    * @return mobileRumSessionCountIosSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for"
-              + " the given org.")
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumSessionCountIosSum() {
@@ -1416,10 +1250,6 @@ public class UsageSummaryDateOrg {
    * @return mobileRumSessionCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all mobile RUM Sessions over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumSessionCountSum() {
@@ -1441,10 +1271,6 @@ public class UsageSummaryDateOrg {
    * @return mobileRumUnitsSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all mobile RUM units over all hours in the current date for the given"
-              + " org.")
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumUnitsSum() {
@@ -1466,7 +1292,6 @@ public class UsageSummaryDateOrg {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -1489,10 +1314,6 @@ public class UsageSummaryDateOrg {
    * @return netflowIndexedEventsCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all Network flows indexed over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNetflowIndexedEventsCountSum() {
@@ -1515,10 +1336,6 @@ public class UsageSummaryDateOrg {
    * @return npmHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all distinct Networks hosts over all hours in the current"
-              + " date for the given org.")
   @JsonProperty(JSON_PROPERTY_NPM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNpmHostTop99p() {
@@ -1540,9 +1357,6 @@ public class UsageSummaryDateOrg {
    * @return onlineArchiveEventsCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Sum of all online archived events over all hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOnlineArchiveEventsCountSum() {
@@ -1565,10 +1379,6 @@ public class UsageSummaryDateOrg {
    * @return opentelemetryHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all hosts reported by the Datadog exporter for the"
-              + " OpenTelemetry Collector over all hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOpentelemetryHostTop99p() {
@@ -1591,10 +1401,6 @@ public class UsageSummaryDateOrg {
    * @return profilingHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all profiled hosts over all hours in the current date for"
-              + " the given org.")
   @JsonProperty(JSON_PROPERTY_PROFILING_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getProfilingHostTop99p() {
@@ -1616,7 +1422,6 @@ public class UsageSummaryDateOrg {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public id.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -1639,10 +1444,6 @@ public class UsageSummaryDateOrg {
    * @return rumBrowserAndMobileSessionCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all mobile sessions and all browser lite and legacy sessions over all"
-              + " hours in the current date for the given org.")
   @JsonProperty(JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRumBrowserAndMobileSessionCount() {
@@ -1665,10 +1466,6 @@ public class UsageSummaryDateOrg {
    * @return rumSessionCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all browser RUM Lite Sessions over all hours in the current date for"
-              + " the given org.")
   @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRumSessionCountSum() {
@@ -1691,10 +1488,6 @@ public class UsageSummaryDateOrg {
    * @return rumTotalSessionCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date"
-              + " for the given org.")
   @JsonProperty(JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRumTotalSessionCountSum() {
@@ -1717,10 +1510,6 @@ public class UsageSummaryDateOrg {
    * @return rumUnitsSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all browser and mobile RUM units over all hours in the current date"
-              + " for the given org.")
   @JsonProperty(JSON_PROPERTY_RUM_UNITS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRumUnitsSum() {
@@ -1743,10 +1532,6 @@ public class UsageSummaryDateOrg {
    * @return sdsLogsScannedBytesSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all"
-              + " hours in the current month for the given org.")
   @JsonProperty(JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSdsLogsScannedBytesSum() {
@@ -1769,10 +1554,6 @@ public class UsageSummaryDateOrg {
    * @return sdsTotalScannedBytesSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner"
-              + " over all hours in the current month for the given org.")
   @JsonProperty(JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSdsTotalScannedBytesSum() {
@@ -1796,10 +1577,6 @@ public class UsageSummaryDateOrg {
    * @return syntheticsBrowserCheckCallsCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all Synthetic browser tests over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSyntheticsBrowserCheckCallsCountSum() {
@@ -1821,10 +1598,6 @@ public class UsageSummaryDateOrg {
    * @return syntheticsCheckCallsCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all Synthetic API tests over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSyntheticsCheckCallsCountSum() {
@@ -1848,10 +1621,6 @@ public class UsageSummaryDateOrg {
    * @return traceSearchIndexedEventsCountSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all Indexed Spans indexed over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTraceSearchIndexedEventsCountSum() {
@@ -1874,10 +1643,6 @@ public class UsageSummaryDateOrg {
    * @return twolIngestedEventsBytesSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all ingested APM span bytes over all hours in the current date for the"
-              + " given org.")
   @JsonProperty(JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTwolIngestedEventsBytesSum() {
@@ -1900,10 +1665,6 @@ public class UsageSummaryDateOrg {
    * @return vsphereHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the 99th percentile of all vSphere hosts over all hours in the current date for"
-              + " the given org.")
   @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVsphereHostTop99p() {

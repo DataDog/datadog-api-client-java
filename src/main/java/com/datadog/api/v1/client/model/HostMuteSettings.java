@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Combination of settings to mute a host. */
-@ApiModel(description = "Combination of settings to mute a host.")
 @JsonPropertyOrder({
   HostMuteSettings.JSON_PROPERTY_END,
   HostMuteSettings.JSON_PROPERTY_MESSAGE,
@@ -49,11 +46,6 @@ public class HostMuteSettings {
    * @return end
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1579098130",
-      value =
-          "POSIX timestamp in seconds when the host is unmuted. If omitted, the host remains muted"
-              + " until explicitly unmuted.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
@@ -75,9 +67,6 @@ public class HostMuteSettings {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Muting this host for a test!",
-      value = "Message to associate with the muting of this host.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -99,9 +88,6 @@ public class HostMuteSettings {
    * @return override
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value = "If true and the host is already muted, replaces existing host mute settings.")
   @JsonProperty(JSON_PROPERTY_OVERRIDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getOverride() {

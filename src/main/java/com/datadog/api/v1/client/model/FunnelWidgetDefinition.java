@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * The funnel visualization displays a funnel of user sessions that maps a sequence of view
  * navigation and user interaction in your application.
  */
-@ApiModel(
-    description =
-        "The funnel visualization displays a funnel of user sessions that maps a sequence of view"
-            + " navigation and user interaction in your application. ")
 @JsonPropertyOrder({
   FunnelWidgetDefinition.JSON_PROPERTY_REQUESTS,
   FunnelWidgetDefinition.JSON_PROPERTY_TIME,
@@ -89,11 +83,6 @@ public class FunnelWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(
-      example =
-          "[{\"query\":{\"data_source\":\"rum\",\"query_string\":\"@browser.name:Chrome\",\"steps\":[{\"facet\":\"@view.name\",\"value\":\"/logs\"},{\"facet\":\"@view.name\",\"value\":\"/apm/home\"}]},\"request_type\":\"funnel\"}]",
-      required = true,
-      value = "Request payload used to query items.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<FunnelWidgetRequest> getRequests() {
@@ -116,7 +105,6 @@ public class FunnelWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -138,7 +126,6 @@ public class FunnelWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -161,7 +148,6 @@ public class FunnelWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -186,7 +172,6 @@ public class FunnelWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -208,7 +193,6 @@ public class FunnelWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FunnelWidgetDefinitionType getType() {

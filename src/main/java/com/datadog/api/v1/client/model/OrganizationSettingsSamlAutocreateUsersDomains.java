@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -24,10 +22,6 @@ import java.util.Objects;
  * Has two properties, &#x60;enabled&#x60; (boolean) and &#x60;domains&#x60;, which is a list of
  * domains without the @ symbol.
  */
-@ApiModel(
-    description =
-        "Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without"
-            + " the @ symbol.")
 @JsonPropertyOrder({
   OrganizationSettingsSamlAutocreateUsersDomains.JSON_PROPERTY_DOMAINS,
   OrganizationSettingsSamlAutocreateUsersDomains.JSON_PROPERTY_ENABLED
@@ -60,7 +54,6 @@ public class OrganizationSettingsSamlAutocreateUsersDomains {
    * @return domains
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of domains where the SAML automated user creation is enabled.")
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getDomains() {
@@ -82,9 +75,6 @@ public class OrganizationSettingsSamlAutocreateUsersDomains {
    * @return enabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value = "Whether or not the automated user creation based on SAML domain is enabled.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {

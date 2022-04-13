@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response containing a list of deleted dashboards. */
-@ApiModel(description = "Response containing a list of deleted dashboards.")
 @JsonPropertyOrder({DashboardListDeleteItemsResponse.JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListDeleteItemsResponse {
@@ -55,7 +52,6 @@ public class DashboardListDeleteItemsResponse {
    * @return deletedDashboardsFromList
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of dashboards deleted from the dashboard list.")
   @JsonProperty(JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DashboardListItemResponse> getDeletedDashboardsFromList() {

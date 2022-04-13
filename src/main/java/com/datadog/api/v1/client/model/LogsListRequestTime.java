@@ -15,13 +15,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Timeframe to retrieve the log from. */
-@ApiModel(description = "Timeframe to retrieve the log from.")
 @JsonPropertyOrder({
   LogsListRequestTime.JSON_PROPERTY_FROM,
   LogsListRequestTime.JSON_PROPERTY_TIMEZONE,
@@ -59,10 +56,6 @@ public class LogsListRequestTime {
    *
    * @return from
    */
-  @ApiModelProperty(
-      example = "2020-02-02T02:02:02.202Z",
-      required = true,
-      value = "Minimum timestamp for requested logs.")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getFrom() {
@@ -85,10 +78,6 @@ public class LogsListRequestTime {
    * @return timezone
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Timezone can be specified both as an offset (for example \"UTC+03:00\") or a regional"
-              + " zone (for example \"Europe/Paris\").")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {
@@ -109,10 +98,6 @@ public class LogsListRequestTime {
    *
    * @return to
    */
-  @ApiModelProperty(
-      example = "2020-02-20T02:02:02.202Z",
-      required = true,
-      value = "Maximum timestamp for requested logs.")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getTo() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The log-based metric properties. */
-@ApiModel(description = "The log-based metric properties.")
 @JsonPropertyOrder({
   LogsMetricResponseData.JSON_PROPERTY_ATTRIBUTES,
   LogsMetricResponseData.JSON_PROPERTY_ID,
@@ -49,7 +46,6 @@ public class LogsMetricResponseData {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsMetricResponseAttributes getAttributes() {
@@ -71,7 +67,6 @@ public class LogsMetricResponseData {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "logs.page.load.count", value = "The name of the log-based metric.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -94,7 +89,6 @@ public class LogsMetricResponseData {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsMetricType getType() {

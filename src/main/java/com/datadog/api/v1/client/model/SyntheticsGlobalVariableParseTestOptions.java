@@ -15,18 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in
  * conjunction with &#x60;parse_test_public_id&#x60;.
  */
-@ApiModel(
-    description =
-        "Parser options to use for retrieving a Synthetics global variable from a Synthetics Test."
-            + " Used in conjunction with `parse_test_public_id`.")
 @JsonPropertyOrder({
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_FIELD,
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_PARSER,
@@ -68,9 +62,6 @@ public class SyntheticsGlobalVariableParseTestOptions {
    * @return field
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "content-type",
-      value = "When type is `http_header`, name of the header to use to extract the value.")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getField() {
@@ -92,7 +83,6 @@ public class SyntheticsGlobalVariableParseTestOptions {
    *
    * @return parser
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PARSER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsVariableParser getParser() {
@@ -115,7 +105,6 @@ public class SyntheticsGlobalVariableParseTestOptions {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsGlobalVariableParseTestOptionsType getType() {

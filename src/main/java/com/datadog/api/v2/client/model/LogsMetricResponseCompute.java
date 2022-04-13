@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The compute rule to compute the log-based metric. */
-@ApiModel(description = "The compute rule to compute the log-based metric.")
 @JsonPropertyOrder({
   LogsMetricResponseCompute.JSON_PROPERTY_AGGREGATION_TYPE,
   LogsMetricResponseCompute.JSON_PROPERTY_PATH
@@ -46,7 +43,6 @@ public class LogsMetricResponseCompute {
    * @return aggregationType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsMetricResponseComputeAggregationType getAggregationType() {
@@ -72,11 +68,6 @@ public class LogsMetricResponseCompute {
    * @return path
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "@duration",
-      value =
-          "The path to the value the log-based metric will aggregate on (only used if the"
-              + " aggregation type is a \"distribution\").")
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPath() {

@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** A relationship reference for multiple integration metadata objects. */
-@ApiModel(description = "A relationship reference for multiple integration metadata objects.")
 @JsonPropertyOrder({RelationshipToIncidentIntegrationMetadatas.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RelationshipToIncidentIntegrationMetadatas {
@@ -60,11 +57,6 @@ public class RelationshipToIncidentIntegrationMetadatas {
    *
    * @return data
    */
-  @ApiModelProperty(
-      example =
-          "[{\"id\":\"00000000-abcd-0003-0000-000000000000\",\"type\":\"incident_integrations\"},{\"id\":\"00000000-abcd-0004-0000-000000000000\",\"type\":\"incident_integrations\"}]",
-      required = true,
-      value = "The integration metadata relationship array")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<RelationshipToIncidentIntegrationMetadataData> getData() {

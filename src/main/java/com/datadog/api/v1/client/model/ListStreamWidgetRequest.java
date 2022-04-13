@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Updated list stream widget. */
-@ApiModel(description = "Updated list stream widget.")
 @JsonPropertyOrder({
   ListStreamWidgetRequest.JSON_PROPERTY_COLUMNS,
   ListStreamWidgetRequest.JSON_PROPERTY_QUERY,
@@ -74,11 +71,6 @@ public class ListStreamWidgetRequest {
    *
    * @return columns
    */
-  @ApiModelProperty(
-      example =
-          "[{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"content\",\"width\":\"full\"}]",
-      required = true,
-      value = "Widget columns.")
   @JsonProperty(JSON_PROPERTY_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<ListStreamColumn> getColumns() {
@@ -100,7 +92,6 @@ public class ListStreamWidgetRequest {
    *
    * @return query
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ListStreamQuery getQuery() {
@@ -122,7 +113,6 @@ public class ListStreamWidgetRequest {
    *
    * @return responseFormat
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ListStreamResponseFormat getResponseFormat() {

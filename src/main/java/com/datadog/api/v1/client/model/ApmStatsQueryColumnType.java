@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Column properties. */
-@ApiModel(description = "Column properties.")
 @JsonPropertyOrder({
   ApmStatsQueryColumnType.JSON_PROPERTY_ALIAS,
   ApmStatsQueryColumnType.JSON_PROPERTY_CELL_DISPLAY_MODE,
@@ -61,7 +58,6 @@ public class ApmStatsQueryColumnType {
    * @return alias
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Requests", value = "A user-assigned alias for the column.")
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAlias() {
@@ -84,7 +80,6 @@ public class ApmStatsQueryColumnType {
    * @return cellDisplayMode
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TableWidgetCellDisplayMode getCellDisplayMode() {
@@ -108,7 +103,6 @@ public class ApmStatsQueryColumnType {
    *
    * @return name
    */
-  @ApiModelProperty(example = "Reqs", required = true, value = "Column name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -131,7 +125,6 @@ public class ApmStatsQueryColumnType {
    * @return order
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetSort getOrder() {

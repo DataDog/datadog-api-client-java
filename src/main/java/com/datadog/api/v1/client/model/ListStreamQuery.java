@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Updated list stream widget. */
-@ApiModel(description = "Updated list stream widget.")
 @JsonPropertyOrder({
   ListStreamQuery.JSON_PROPERTY_DATA_SOURCE,
   ListStreamQuery.JSON_PROPERTY_INDEXES,
@@ -62,7 +59,6 @@ public class ListStreamQuery {
    *
    * @return dataSource
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ListStreamSource getDataSource() {
@@ -95,7 +91,6 @@ public class ListStreamQuery {
    * @return indexes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of indexes.")
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getIndexes() {
@@ -116,7 +111,6 @@ public class ListStreamQuery {
    *
    * @return queryString
    */
-  @ApiModelProperty(example = "@service:app", required = true, value = "Widget query.")
   @JsonProperty(JSON_PROPERTY_QUERY_STRING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQueryString() {

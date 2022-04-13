@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The event query. */
-@ApiModel(description = "The event query.")
 @JsonPropertyOrder({
   EventQueryDefinition.JSON_PROPERTY_SEARCH,
   EventQueryDefinition.JSON_PROPERTY_TAGS_EXECUTION
@@ -54,7 +51,6 @@ public class EventQueryDefinition {
    *
    * @return search
    */
-  @ApiModelProperty(example = "", required = true, value = "The query being made on the event.")
   @JsonProperty(JSON_PROPERTY_SEARCH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSearch() {
@@ -75,10 +71,6 @@ public class EventQueryDefinition {
    *
    * @return tagsExecution
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "The execution method for multi-value filters. Can be either and or or.")
   @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTagsExecution() {

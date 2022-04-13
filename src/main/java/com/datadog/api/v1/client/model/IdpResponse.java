@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The IdP response object. */
-@ApiModel(description = "The IdP response object.")
 @JsonPropertyOrder({IdpResponse.JSON_PROPERTY_MESSAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IdpResponse {
@@ -45,10 +42,6 @@ public class IdpResponse {
    *
    * @return message
    */
-  @ApiModelProperty(
-      example = "IdP metadata successfully uploaded for example org",
-      required = true,
-      value = "Identity provider response.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {

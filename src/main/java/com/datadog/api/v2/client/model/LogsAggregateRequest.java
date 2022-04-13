@@ -14,16 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The object sent with the request to retrieve a list of logs from your organization. */
-@ApiModel(
-    description =
-        "The object sent with the request to retrieve a list of logs from your organization.")
 @JsonPropertyOrder({
   LogsAggregateRequest.JSON_PROPERTY_COMPUTE,
   LogsAggregateRequest.JSON_PROPERTY_FILTER,
@@ -72,8 +67,6 @@ public class LogsAggregateRequest {
    * @return compute
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The list of metrics or timeseries to compute for the retrieved buckets.")
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsCompute> getCompute() {
@@ -96,7 +89,6 @@ public class LogsAggregateRequest {
    * @return filter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsQueryFilter getFilter() {
@@ -130,7 +122,6 @@ public class LogsAggregateRequest {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The rules for the group by")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsGroupBy> getGroupBy() {
@@ -153,7 +144,6 @@ public class LogsAggregateRequest {
    * @return options
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsQueryOptions getOptions() {
@@ -176,7 +166,6 @@ public class LogsAggregateRequest {
    * @return page
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsAggregateRequestPage getPage() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Authentication part of the secrets. */
-@ApiModel(description = "Authentication part of the secrets.")
 @JsonPropertyOrder({
   SyntheticsPrivateLocationSecretsAuthentication.JSON_PROPERTY_ID,
   SyntheticsPrivateLocationSecretsAuthentication.JSON_PROPERTY_KEY
@@ -39,7 +36,6 @@ public class SyntheticsPrivateLocationSecretsAuthentication {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Access key for the private location.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -52,7 +48,6 @@ public class SyntheticsPrivateLocationSecretsAuthentication {
    * @return key
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Secret access key for the private location.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getKey() {

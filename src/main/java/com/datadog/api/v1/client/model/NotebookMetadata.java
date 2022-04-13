@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Metadata associated with the notebook. */
-@ApiModel(description = "Metadata associated with the notebook.")
 @JsonPropertyOrder({
   NotebookMetadata.JSON_PROPERTY_IS_TEMPLATE,
   NotebookMetadata.JSON_PROPERTY_TAKE_SNAPSHOTS,
@@ -49,7 +46,6 @@ public class NotebookMetadata {
    * @return isTemplate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "Whether or not the notebook is a template.")
   @JsonProperty(JSON_PROPERTY_IS_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsTemplate() {
@@ -72,11 +68,6 @@ public class NotebookMetadata {
    * @return takeSnapshots
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value =
-          "Whether or not the notebook takes snapshot image backups of the notebook's fixed-time"
-              + " graphs.")
   @JsonProperty(JSON_PROPERTY_TAKE_SNAPSHOTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getTakeSnapshots() {
@@ -98,7 +89,6 @@ public class NotebookMetadata {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonIgnore
   public NotebookMetadataType getType() {
     return type.orElse(null);

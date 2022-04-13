@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Configuration object for a Synthetic test. */
-@ApiModel(description = "Configuration object for a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestConfig.JSON_PROPERTY_ASSERTIONS,
   SyntheticsTestConfig.JSON_PROPERTY_CONFIG_VARIABLES,
@@ -66,9 +63,6 @@ public class SyntheticsTestConfig {
    * @return assertions
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[]",
-      value = "Array of assertions used for the test. Required for single API tests.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsAssertion> getAssertions() {
@@ -102,7 +96,6 @@ public class SyntheticsTestConfig {
    * @return configVariables
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of variables used for the test.")
   @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsConfigVariable> getConfigVariables() {
@@ -125,7 +118,6 @@ public class SyntheticsTestConfig {
    * @return request
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequest getRequest() {
@@ -159,7 +151,6 @@ public class SyntheticsTestConfig {
    * @return variables
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Browser tests only - array of variables used for the test steps.")
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsBrowserVariable> getVariables() {

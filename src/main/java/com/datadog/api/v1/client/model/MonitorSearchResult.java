@@ -14,15 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Holds search results. */
-@ApiModel(description = "Holds search results.")
 @JsonPropertyOrder({
   MonitorSearchResult.JSON_PROPERTY_CLASSIFICATION,
   MonitorSearchResult.JSON_PROPERTY_CREATOR,
@@ -86,7 +83,6 @@ public class MonitorSearchResult {
    * @return classification
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Classification of the monitor.")
   @JsonProperty(JSON_PROPERTY_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClassification() {
@@ -105,7 +101,6 @@ public class MonitorSearchResult {
    * @return creator
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
@@ -122,7 +117,6 @@ public class MonitorSearchResult {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the monitor.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -135,7 +129,6 @@ public class MonitorSearchResult {
    * @return lastTriggeredTs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Latest timestamp the monitor triggered.")
   @JsonIgnore
   public Long getLastTriggeredTs() {
 
@@ -162,7 +155,6 @@ public class MonitorSearchResult {
    * @return metrics
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metrics used by the monitor.")
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getMetrics() {
@@ -175,7 +167,6 @@ public class MonitorSearchResult {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -188,7 +179,6 @@ public class MonitorSearchResult {
    * @return notifications
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The notification triggered by the monitor.")
   @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorSearchResultNotification> getNotifications() {
@@ -201,7 +191,6 @@ public class MonitorSearchResult {
    * @return orgId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the organization.")
   @JsonProperty(JSON_PROPERTY_ORG_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOrgId() {
@@ -219,9 +208,6 @@ public class MonitorSearchResult {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100",
-      value = "The monitor query.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -254,13 +240,6 @@ public class MonitorSearchResult {
    * @return scopes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"host:app2\",\"env:dev,env:prod\"]",
-      value =
-          "The scope(s) to which the downtime applies, for example `host:app2`. Provide multiple"
-              + " scopes as a comma-separated list, for example `env:dev,env:prod`. The resulting"
-              + " downtime applies to sources that matches ALL provided scopes (that is `env:dev"
-              + " AND env:prod`), NOT any of them.")
   @JsonProperty(JSON_PROPERTY_SCOPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getScopes() {
@@ -283,7 +262,6 @@ public class MonitorSearchResult {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getStatus() {
@@ -303,7 +281,6 @@ public class MonitorSearchResult {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tags associated with the monitor.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -322,7 +299,6 @@ public class MonitorSearchResult {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorType getType() {

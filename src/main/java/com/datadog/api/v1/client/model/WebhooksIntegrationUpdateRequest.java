@@ -14,15 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Update request of a Webhooks integration object. *All properties are optional.* */
-@ApiModel(
-    description =
-        "Update request of a Webhooks integration object.  *All properties are optional.*")
 @JsonPropertyOrder({
   WebhooksIntegrationUpdateRequest.JSON_PROPERTY_CUSTOM_HEADERS,
   WebhooksIntegrationUpdateRequest.JSON_PROPERTY_ENCODE_AS,
@@ -60,10 +55,6 @@ public class WebhooksIntegrationUpdateRequest {
    * @return customHeaders
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "If `null`, uses no header. If given a JSON payload, these will be headers attached to"
-              + " your webhook.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomHeaders() {
@@ -86,7 +77,6 @@ public class WebhooksIntegrationUpdateRequest {
    * @return encodeAs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENCODE_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WebhooksIntegrationEncoding getEncodeAs() {
@@ -112,11 +102,6 @@ public class WebhooksIntegrationUpdateRequest {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "WEBHOOK_NAME",
-      value =
-          "The name of the webhook. It corresponds with `<WEBHOOK_NAME>`. Learn more on how to use"
-              + " it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -140,11 +125,6 @@ public class WebhooksIntegrationUpdateRequest {
    * @return payload
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "If `null`, uses the default payload. If given a JSON payload, the webhook returns the"
-              + " payload specified by the given payload. [Webhooks variable"
-              + " usage](https://docs.datadoghq.com/integrations/webhooks/#usage).")
   @JsonIgnore
   public String getPayload() {
     return payload.orElse(null);
@@ -176,7 +156,6 @@ public class WebhooksIntegrationUpdateRequest {
    * @return url
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://example.com/webhook", value = "URL of the webhook.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {

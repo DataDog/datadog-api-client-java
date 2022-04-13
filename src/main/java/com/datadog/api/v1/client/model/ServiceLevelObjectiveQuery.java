@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
@@ -24,11 +22,6 @@ import java.util.Objects;
  * sum by aggregator to be used because this will sum up all request counts instead of averaging
  * them, or taking the max or min of all of those requests.
  */
-@ApiModel(
-    description =
-        "A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the"
-            + " sum by aggregator to be used because this will sum up all request counts instead"
-            + " of averaging them, or taking the max or min of all of those requests.")
 @JsonPropertyOrder({
   ServiceLevelObjectiveQuery.JSON_PROPERTY_DENOMINATOR,
   ServiceLevelObjectiveQuery.JSON_PROPERTY_NUMERATOR
@@ -62,10 +55,6 @@ public class ServiceLevelObjectiveQuery {
    *
    * @return denominator
    */
-  @ApiModelProperty(
-      example = "sum:my.custom.metric{*}.as_count()",
-      required = true,
-      value = "A Datadog metric query for total (valid) events.")
   @JsonProperty(JSON_PROPERTY_DENOMINATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDenominator() {
@@ -86,10 +75,6 @@ public class ServiceLevelObjectiveQuery {
    *
    * @return numerator
    */
-  @ApiModelProperty(
-      example = "sum:my.custom.metric{type:good}.as_count()",
-      required = true,
-      value = "A Datadog metric query for good events.")
   @JsonProperty(JSON_PROPERTY_NUMERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getNumerator() {

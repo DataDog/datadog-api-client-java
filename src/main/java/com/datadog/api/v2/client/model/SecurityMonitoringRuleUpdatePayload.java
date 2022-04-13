@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Update an existing rule. */
-@ApiModel(description = "Update an existing rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_CASES,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_FILTERS,
@@ -90,7 +87,6 @@ public class SecurityMonitoringRuleUpdatePayload {
    * @return cases
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Cases for generating signals.")
   @JsonProperty(JSON_PROPERTY_CASES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringRuleCase> getCases() {
@@ -124,8 +120,6 @@ public class SecurityMonitoringRuleUpdatePayload {
    * @return filters
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Additional queries to filter matched events before they are processed.")
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringFilter> getFilters() {
@@ -147,9 +141,6 @@ public class SecurityMonitoringRuleUpdatePayload {
    * @return hasExtendedTitle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "true",
-      value = "Whether the notifications include the triggering group-by values in their title.")
   @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasExtendedTitle() {
@@ -171,7 +162,6 @@ public class SecurityMonitoringRuleUpdatePayload {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the rule is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -193,7 +183,6 @@ public class SecurityMonitoringRuleUpdatePayload {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Message for generated signals.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -215,7 +204,6 @@ public class SecurityMonitoringRuleUpdatePayload {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the rule.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -238,7 +226,6 @@ public class SecurityMonitoringRuleUpdatePayload {
    * @return options
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleOptions getOptions() {
@@ -273,7 +260,6 @@ public class SecurityMonitoringRuleUpdatePayload {
    * @return queries
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Queries for selecting logs which are part of the rule.")
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringRuleQuery> getQueries() {
@@ -303,7 +289,6 @@ public class SecurityMonitoringRuleUpdatePayload {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tags for generated signals.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -325,7 +310,6 @@ public class SecurityMonitoringRuleUpdatePayload {
    * @return version
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "The version of the rule being updated.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getVersion() {

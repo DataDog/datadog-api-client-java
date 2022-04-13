@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Host Metrics collected. */
-@ApiModel(description = "Host Metrics collected.")
 @JsonPropertyOrder({
   HostMetrics.JSON_PROPERTY_CPU,
   HostMetrics.JSON_PROPERTY_IOWAIT,
@@ -48,7 +45,6 @@ public class HostMetrics {
    * @return cpu
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "99.0", value = "The percent of CPU used (everything but idle).")
   @JsonProperty(JSON_PROPERTY_CPU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCpu() {
@@ -70,9 +66,6 @@ public class HostMetrics {
    * @return iowait
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "3.2",
-      value = "The percent of CPU spent waiting on the IO (not reported for all platforms).")
   @JsonProperty(JSON_PROPERTY_IOWAIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getIowait() {
@@ -94,7 +87,6 @@ public class HostMetrics {
    * @return load
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.5", value = "The system load over the last 15 minutes.")
   @JsonProperty(JSON_PROPERTY_LOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLoad() {

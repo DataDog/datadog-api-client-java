@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A group by rule. */
-@ApiModel(description = "A group by rule.")
 @JsonPropertyOrder({
   LogsMetricResponseGroupBy.JSON_PROPERTY_PATH,
   LogsMetricResponseGroupBy.JSON_PROPERTY_TAG_NAME
@@ -44,9 +41,6 @@ public class LogsMetricResponseGroupBy {
    * @return path
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "@http.status_code",
-      value = "The path to the value the log-based metric will be aggregated over.")
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPath() {
@@ -69,11 +63,6 @@ public class LogsMetricResponseGroupBy {
    * @return tagName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "status_code",
-      value =
-          "Eventual name of the tag that gets created. By default, the path attribute is used as"
-              + " the tag name.")
   @JsonProperty(JSON_PROPERTY_TAG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagName() {

@@ -15,15 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes used to create an application Key. */
-@ApiModel(description = "Attributes used to create an application Key.")
 @JsonPropertyOrder({
   ApplicationKeyCreateAttributes.JSON_PROPERTY_NAME,
   ApplicationKeyCreateAttributes.JSON_PROPERTY_SCOPES
@@ -55,10 +52,6 @@ public class ApplicationKeyCreateAttributes {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "Application Key for managing dashboards",
-      required = true,
-      value = "Name of the application key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -93,11 +86,6 @@ public class ApplicationKeyCreateAttributes {
    * @return scopes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"dashboards_read\",\"dashboards_write\",\"dashboards_public_share\"]",
-      value =
-          "Array of scopes to grant the application key. This feature is in private beta, please"
-              + " contact Datadog support to enable scopes for your application keys.")
   @JsonIgnore
   public List<String> getScopes() {
     return scopes.orElse(null);

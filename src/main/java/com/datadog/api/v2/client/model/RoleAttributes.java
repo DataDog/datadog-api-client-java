@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Attributes of the role. */
-@ApiModel(description = "Attributes of the role.")
 @JsonPropertyOrder({
   RoleAttributes.JSON_PROPERTY_CREATED_AT,
   RoleAttributes.JSON_PROPERTY_MODIFIED_AT,
@@ -48,7 +45,6 @@ public class RoleAttributes {
    * @return createdAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation time of the role.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -61,7 +57,6 @@ public class RoleAttributes {
    * @return modifiedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time of last role modification.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModifiedAt() {
@@ -79,9 +74,6 @@ public class RoleAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The name of the role. The name is neither unique nor a stable identifier of the role.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -98,7 +90,6 @@ public class RoleAttributes {
    * @return userCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of users with that role.")
   @JsonProperty(JSON_PROPERTY_USER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getUserCount() {

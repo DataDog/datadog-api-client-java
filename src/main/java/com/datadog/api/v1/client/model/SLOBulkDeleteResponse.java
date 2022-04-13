@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -26,12 +24,6 @@ import java.util.Objects;
  * the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions
  * succeeded and failed.
  */
-@ApiModel(
-    description =
-        "The bulk partial delete service level objective object endpoint response.  This endpoint"
-            + " operates on multiple service level objective objects, so it may be partially"
-            + " successful. In such cases, the \"data\" and \"error\" fields in this response"
-            + " indicate which deletions succeeded and failed.")
 @JsonPropertyOrder({
   SLOBulkDeleteResponse.JSON_PROPERTY_DATA,
   SLOBulkDeleteResponse.JSON_PROPERTY_ERRORS
@@ -57,7 +49,6 @@ public class SLOBulkDeleteResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOBulkDeleteResponseData getData() {
@@ -91,7 +82,6 @@ public class SLOBulkDeleteResponse {
    * @return errors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of errors object returned.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SLOBulkDeleteError> getErrors() {

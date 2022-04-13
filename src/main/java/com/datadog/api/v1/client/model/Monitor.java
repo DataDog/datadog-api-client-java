@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +22,6 @@ import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object describing a monitor. */
-@ApiModel(description = "Object describing a monitor.")
 @JsonPropertyOrder({
   Monitor.JSON_PROPERTY_CREATED,
   Monitor.JSON_PROPERTY_CREATOR,
@@ -111,7 +108,6 @@ public class Monitor {
    * @return created
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of the monitor creation.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -130,7 +126,6 @@ public class Monitor {
    * @return creator
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
@@ -147,7 +142,6 @@ public class Monitor {
    * @return deleted
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the monitor is deleted. (Always `null`)")
   @JsonIgnore
   public OffsetDateTime getDeleted() {
 
@@ -174,7 +168,6 @@ public class Monitor {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of this monitor.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -192,7 +185,6 @@ public class Monitor {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A message to include with notifications for this monitor.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -209,7 +201,6 @@ public class Monitor {
    * @return modified
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Last timestamp when the monitor was edited.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -222,7 +213,6 @@ public class Monitor {
    * @return multi
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the monitor is broken down on different groups.")
   @JsonProperty(JSON_PROPERTY_MULTI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getMulti() {
@@ -240,7 +230,6 @@ public class Monitor {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "My monitor", value = "The monitor name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -263,7 +252,6 @@ public class Monitor {
    * @return options
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOptions getOptions() {
@@ -286,7 +274,6 @@ public class Monitor {
    * @return overallState
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OVERALL_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getOverallState() {
@@ -311,7 +298,6 @@ public class Monitor {
    * @return priority
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Integer from 1 (high) to 5 (low) indicating alert severity.")
   @JsonIgnore
   public Long getPriority() {
     return priority.orElse(null);
@@ -342,10 +328,6 @@ public class Monitor {
    *
    * @return query
    */
-  @ApiModelProperty(
-      example = "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100",
-      required = true,
-      value = "The monitor query.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {
@@ -386,16 +368,6 @@ public class Monitor {
    * @return restrictedRoles
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A list of unique role identifiers to define which roles are allowed to edit the"
-              + " monitor. The unique identifiers for all roles can be pulled from the [Roles"
-              + " API](https://docs.datadoghq.com/api/latest/roles/#list-roles) and are located in"
-              + " the `data.id` field. Editing a monitor includes any updates to the monitor"
-              + " configuration, monitor deletion, and muting of the monitor for any amount of"
-              + " time. `restricted_roles` is the successor of `locked`. For more information"
-              + " about `locked` and `restricted_roles`, see the [monitor options"
-              + " docs](https://docs.datadoghq.com/monitors/guide/monitor_api_options/#permissions-options).")
   @JsonIgnore
   public List<String> getRestrictedRoles() {
     return restrictedRoles.orElse(null);
@@ -428,7 +400,6 @@ public class Monitor {
    * @return state
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorState getState() {
@@ -458,7 +429,6 @@ public class Monitor {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tags associated to your monitor.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -480,7 +450,6 @@ public class Monitor {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MonitorType getType() {

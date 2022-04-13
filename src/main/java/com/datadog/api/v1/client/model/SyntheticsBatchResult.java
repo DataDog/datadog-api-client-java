@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object with the results of a Synthetics batch. */
-@ApiModel(description = "Object with the results of a Synthetics batch.")
 @JsonPropertyOrder({
   SyntheticsBatchResult.JSON_PROPERTY_DEVICE,
   SyntheticsBatchResult.JSON_PROPERTY_DURATION,
@@ -77,7 +74,6 @@ public class SyntheticsBatchResult {
    * @return device
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsDeviceID getDevice() {
@@ -102,7 +98,6 @@ public class SyntheticsBatchResult {
    * @return duration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total duration in millisecond of the test.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDuration() {
@@ -125,7 +120,6 @@ public class SyntheticsBatchResult {
    * @return executionRule
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXECUTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestExecutionRule getExecutionRule() {
@@ -150,7 +144,6 @@ public class SyntheticsBatchResult {
    * @return location
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the location.")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLocation() {
@@ -172,7 +165,6 @@ public class SyntheticsBatchResult {
    * @return resultId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the result to get.")
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultId() {
@@ -194,7 +186,6 @@ public class SyntheticsBatchResult {
    * @return retries
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total duration in millisecond of the test.")
   @JsonProperty(JSON_PROPERTY_RETRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getRetries() {
@@ -217,7 +208,6 @@ public class SyntheticsBatchResult {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsStatus getStatus() {
@@ -242,7 +232,6 @@ public class SyntheticsBatchResult {
    * @return testName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the test.")
   @JsonProperty(JSON_PROPERTY_TEST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTestName() {
@@ -264,7 +253,6 @@ public class SyntheticsBatchResult {
    * @return testPublicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The public ID of the Synthetic test.")
   @JsonProperty(JSON_PROPERTY_TEST_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTestPublicId() {
@@ -287,7 +275,6 @@ public class SyntheticsBatchResult {
    * @return testType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestDetailsType getTestType() {

@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing information about the private location to create. */
-@ApiModel(description = "Object containing information about the private location to create.")
 @JsonPropertyOrder({
   SyntheticsPrivateLocation.JSON_PROPERTY_DESCRIPTION,
   SyntheticsPrivateLocation.JSON_PROPERTY_ID,
@@ -74,10 +71,6 @@ public class SyntheticsPrivateLocation {
    *
    * @return description
    */
-  @ApiModelProperty(
-      example = "Description of private location",
-      required = true,
-      value = "Description of the private location.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDescription() {
@@ -94,7 +87,6 @@ public class SyntheticsPrivateLocation {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique identifier of the private location.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -113,7 +105,6 @@ public class SyntheticsPrivateLocation {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsPrivateLocationMetadata getMetadata() {
@@ -134,10 +125,6 @@ public class SyntheticsPrivateLocation {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "New private location",
-      required = true,
-      value = "Name of the private location.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -160,7 +147,6 @@ public class SyntheticsPrivateLocation {
    * @return secrets
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECRETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsPrivateLocationSecrets getSecrets() {
@@ -186,10 +172,6 @@ public class SyntheticsPrivateLocation {
    *
    * @return tags
    */
-  @ApiModelProperty(
-      example = "[\"team:front\"]",
-      required = true,
-      value = "Array of tags attached to the private location.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getTags() {

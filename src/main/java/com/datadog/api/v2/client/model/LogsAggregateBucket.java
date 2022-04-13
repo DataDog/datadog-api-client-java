@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 /** A bucket values */
-@ApiModel(description = "A bucket values")
 @JsonPropertyOrder({
   LogsAggregateBucket.JSON_PROPERTY_BY,
   LogsAggregateBucket.JSON_PROPERTY_COMPUTES
@@ -54,9 +51,6 @@ public class LogsAggregateBucket {
    * @return by
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "{\"@state\":\"success\",\"@version\":\"abc\"}",
-      value = "The key, value pairs for each group by")
   @JsonProperty(JSON_PROPERTY_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getBy() {
@@ -86,10 +80,6 @@ public class LogsAggregateBucket {
    * @return computes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A map of the metric name -> value for regular compute or list of values for a"
-              + " timeseries")
   @JsonProperty(JSON_PROPERTY_COMPUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, LogsAggregateBucketValue> getComputes() {

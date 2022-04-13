@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Key/Value pair of attributes used for create request. */
-@ApiModel(description = "Key/Value pair of attributes used for create request.")
 @JsonPropertyOrder({
   AuthNMappingCreateAttributes.JSON_PROPERTY_ATTRIBUTE_KEY,
   AuthNMappingCreateAttributes.JSON_PROPERTY_ATTRIBUTE_VALUE
@@ -44,9 +41,6 @@ public class AuthNMappingCreateAttributes {
    * @return attributeKey
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "member-of",
-      value = "Key portion of a key/value pair of the attribute sent from the Identity Provider.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTE_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAttributeKey() {
@@ -68,9 +62,6 @@ public class AuthNMappingCreateAttributes {
    * @return attributeValue
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Development",
-      value = "Value portion of a key/value pair of the attribute sent from the Identity Provider.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAttributeValue() {

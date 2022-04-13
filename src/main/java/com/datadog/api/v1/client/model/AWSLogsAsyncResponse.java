@@ -14,16 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** A list of all Datadog-AWS logs integrations available in your Datadog organization. */
-@ApiModel(
-    description =
-        "A list of all Datadog-AWS logs integrations available in your Datadog organization.")
 @JsonPropertyOrder({
   AWSLogsAsyncResponse.JSON_PROPERTY_ERRORS,
   AWSLogsAsyncResponse.JSON_PROPERTY_STATUS
@@ -60,7 +55,6 @@ public class AWSLogsAsyncResponse {
    * @return errors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of errors.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AWSLogsAsyncError> getErrors() {
@@ -82,7 +76,6 @@ public class AWSLogsAsyncResponse {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "created", value = "Status of the properties.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {

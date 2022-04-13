@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -26,12 +24,6 @@ import java.util.Objects;
  * attributes for easier querying. **Note**: These endpoints are only available for admin users.
  * Make sure to use an application key created by an admin.
  */
-@ApiModel(
-    description =
-        "Pipelines and processors operate on incoming logs, parsing and transforming them into"
-            + " structured attributes for easier querying.  **Note**: These endpoints are only"
-            + " available for admin users. Make sure to use an application key created by an"
-            + " admin.")
 @JsonPropertyOrder({
   LogsPipeline.JSON_PROPERTY_FILTER,
   LogsPipeline.JSON_PROPERTY_ID,
@@ -84,7 +76,6 @@ public class LogsPipeline {
    * @return filter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsFilter getFilter() {
@@ -101,7 +92,6 @@ public class LogsPipeline {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the pipeline.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -119,7 +109,6 @@ public class LogsPipeline {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the pipeline is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -136,7 +125,6 @@ public class LogsPipeline {
    * @return isReadOnly
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the pipeline can be edited.")
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsReadOnly() {
@@ -153,7 +141,6 @@ public class LogsPipeline {
    *
    * @return name
    */
-  @ApiModelProperty(example = "", required = true, value = "Name of the pipeline.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -187,7 +174,6 @@ public class LogsPipeline {
    * @return processors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Ordered list of processors in this pipeline.")
   @JsonProperty(JSON_PROPERTY_PROCESSORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsProcessor> getProcessors() {
@@ -204,7 +190,6 @@ public class LogsPipeline {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "pipeline", value = "Type of pipeline.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {

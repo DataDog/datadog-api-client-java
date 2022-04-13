@@ -15,13 +15,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Absolute timeframe. */
-@ApiModel(description = "Absolute timeframe.")
 @JsonPropertyOrder({
   NotebookAbsoluteTime.JSON_PROPERTY_END,
   NotebookAbsoluteTime.JSON_PROPERTY_LIVE,
@@ -59,7 +56,6 @@ public class NotebookAbsoluteTime {
    *
    * @return end
    */
-  @ApiModelProperty(example = "2021-02-24T20:18:28Z", required = true, value = "The end time.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getEnd() {
@@ -81,8 +77,6 @@ public class NotebookAbsoluteTime {
    * @return live
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Indicates whether the timeframe should be shifted to end at the current time.")
   @JsonProperty(JSON_PROPERTY_LIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getLive() {
@@ -103,7 +97,6 @@ public class NotebookAbsoluteTime {
    *
    * @return start
    */
-  @ApiModelProperty(example = "2021-02-24T19:18:28Z", required = true, value = "The start time.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getStart() {

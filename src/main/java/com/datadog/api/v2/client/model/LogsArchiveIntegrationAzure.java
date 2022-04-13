@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The Azure archive&#39;s integration destination. */
-@ApiModel(description = "The Azure archive's integration destination.")
 @JsonPropertyOrder({
   LogsArchiveIntegrationAzure.JSON_PROPERTY_CLIENT_ID,
   LogsArchiveIntegrationAzure.JSON_PROPERTY_TENANT_ID
@@ -54,10 +51,6 @@ public class LogsArchiveIntegrationAzure {
    *
    * @return clientId
    */
-  @ApiModelProperty(
-      example = "aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa",
-      required = true,
-      value = "A client ID.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getClientId() {
@@ -78,10 +71,6 @@ public class LogsArchiveIntegrationAzure {
    *
    * @return tenantId
    */
-  @ApiModelProperty(
-      example = "aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa",
-      required = true,
-      value = "A tenant ID.")
   @JsonProperty(JSON_PROPERTY_TENANT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTenantId() {

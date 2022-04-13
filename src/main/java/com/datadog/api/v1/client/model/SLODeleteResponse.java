@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +21,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** A response list of all service level objective deleted. */
-@ApiModel(description = "A response list of all service level objective deleted.")
 @JsonPropertyOrder({SLODeleteResponse.JSON_PROPERTY_DATA, SLODeleteResponse.JSON_PROPERTY_ERRORS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLODeleteResponse {
@@ -53,8 +50,6 @@ public class SLODeleteResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "An array containing the ID of the deleted service level objective object.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getData() {
@@ -84,8 +79,6 @@ public class SLODeleteResponse {
    * @return errors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "An dictionary containing the ID of the SLO as key and a deletion error as value.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getErrors() {

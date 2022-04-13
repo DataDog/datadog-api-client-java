@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object for a single Agent rule. */
-@ApiModel(description = "Object for a single Agent rule.")
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleCreateData.JSON_PROPERTY_ATTRIBUTES,
   CloudWorkloadSecurityAgentRuleCreateData.JSON_PROPERTY_TYPE
@@ -60,7 +57,6 @@ public class CloudWorkloadSecurityAgentRuleCreateData {
    *
    * @return attributes
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CloudWorkloadSecurityAgentRuleCreateAttributes getAttributes() {
@@ -82,7 +78,6 @@ public class CloudWorkloadSecurityAgentRuleCreateData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CloudWorkloadSecurityAgentRuleType getType() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Data for updating an AuthN Mapping. */
-@ApiModel(description = "Data for updating an AuthN Mapping.")
 @JsonPropertyOrder({
   AuthNMappingUpdateData.JSON_PROPERTY_ATTRIBUTES,
   AuthNMappingUpdateData.JSON_PROPERTY_ID,
@@ -65,7 +62,6 @@ public class AuthNMappingUpdateData {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthNMappingUpdateAttributes getAttributes() {
@@ -86,10 +82,6 @@ public class AuthNMappingUpdateData {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "3653d3c6-0c75-11ea-ad28-fb5701eabc7d",
-      required = true,
-      value = "ID of the AuthN Mapping.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -112,7 +104,6 @@ public class AuthNMappingUpdateData {
    * @return relationships
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthNMappingUpdateRelationships getRelationships() {
@@ -134,7 +125,6 @@ public class AuthNMappingUpdateData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public AuthNMappingsType getType() {

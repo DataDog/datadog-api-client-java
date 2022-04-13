@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The style to apply to the widget. */
-@ApiModel(description = "The style to apply to the widget.")
 @JsonPropertyOrder({
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_FILL_MAX,
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_FILL_MIN,
@@ -52,7 +49,6 @@ public class HostMapWidgetDefinitionStyle {
    * @return fillMax
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Max value to use to color the map.")
   @JsonProperty(JSON_PROPERTY_FILL_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFillMax() {
@@ -74,7 +70,6 @@ public class HostMapWidgetDefinitionStyle {
    * @return fillMin
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Min value to use to color the map.")
   @JsonProperty(JSON_PROPERTY_FILL_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFillMin() {
@@ -96,7 +91,6 @@ public class HostMapWidgetDefinitionStyle {
    * @return palette
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Color palette to apply to the widget.")
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPalette() {
@@ -118,7 +112,6 @@ public class HostMapWidgetDefinitionStyle {
    * @return paletteFlip
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to flip the palette tones.")
   @JsonProperty(JSON_PROPERTY_PALETTE_FLIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPaletteFlip() {

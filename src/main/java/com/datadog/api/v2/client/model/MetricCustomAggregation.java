@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A time and space aggregation combination for use in query. */
-@ApiModel(description = "A time and space aggregation combination for use in query.")
 @JsonPropertyOrder({
   MetricCustomAggregation.JSON_PROPERTY_SPACE,
   MetricCustomAggregation.JSON_PROPERTY_TIME
@@ -58,7 +55,6 @@ public class MetricCustomAggregation {
    *
    * @return space
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SPACE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MetricCustomSpaceAggregation getSpace() {
@@ -83,7 +79,6 @@ public class MetricCustomAggregation {
    *
    * @return time
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MetricCustomTimeAggregation getTime() {

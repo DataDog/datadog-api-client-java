@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The AuthN Mapping object returned by API. */
-@ApiModel(description = "The AuthN Mapping object returned by API.")
 @JsonPropertyOrder({
   AuthNMapping.JSON_PROPERTY_ATTRIBUTES,
   AuthNMapping.JSON_PROPERTY_ID,
@@ -71,7 +68,6 @@ public class AuthNMapping {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthNMappingAttributes getAttributes() {
@@ -92,10 +88,6 @@ public class AuthNMapping {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "3653d3c6-0c75-11ea-ad28-fb5701eabc7d",
-      required = true,
-      value = "ID of the AuthN Mapping.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -129,7 +121,6 @@ public class AuthNMapping {
    * @return included
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Included data in the AuthN Mapping response.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AuthNMappingIncluded> getIncluded() {
@@ -152,7 +143,6 @@ public class AuthNMapping {
    * @return relationships
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthNMappingRelationships getRelationships() {
@@ -174,7 +164,6 @@ public class AuthNMapping {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public AuthNMappingsType getType() {

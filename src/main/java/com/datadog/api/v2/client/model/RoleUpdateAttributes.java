@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Attributes of the role. */
-@ApiModel(description = "Attributes of the role.")
 @JsonPropertyOrder({
   RoleUpdateAttributes.JSON_PROPERTY_CREATED_AT,
   RoleUpdateAttributes.JSON_PROPERTY_MODIFIED_AT,
@@ -44,7 +41,6 @@ public class RoleUpdateAttributes {
    * @return createdAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation time of the role.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -57,7 +53,6 @@ public class RoleUpdateAttributes {
    * @return modifiedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time of last role modification.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModifiedAt() {
@@ -75,7 +70,6 @@ public class RoleUpdateAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the role.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

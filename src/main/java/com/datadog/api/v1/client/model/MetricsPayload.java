@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The metrics&#39; payload. */
-@ApiModel(description = "The metrics' payload.")
 @JsonPropertyOrder({MetricsPayload.JSON_PROPERTY_SERIES})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MetricsPayload {
@@ -57,10 +54,6 @@ public class MetricsPayload {
    *
    * @return series
    */
-  @ApiModelProperty(
-      example = "[{\"metric\":\"system.load.1\",\"points\":[[1.475317847E9,0.7]]}]",
-      required = true,
-      value = "A list of time series to submit to Datadog.")
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<Series> getSeries() {

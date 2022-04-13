@@ -15,18 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * The event timeline is a widget version of the timeline that appears at the top of the Event
  * Stream view. Only available on FREE layout dashboards.
  */
-@ApiModel(
-    description =
-        "The event timeline is a widget version of the timeline that appears at the top of the"
-            + " Event Stream view. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   EventTimelineWidgetDefinition.JSON_PROPERTY_QUERY,
   EventTimelineWidgetDefinition.JSON_PROPERTY_TAGS_EXECUTION,
@@ -82,10 +76,6 @@ public class EventTimelineWidgetDefinition {
    *
    * @return query
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "Query to filter the event timeline with.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {
@@ -107,8 +97,6 @@ public class EventTimelineWidgetDefinition {
    * @return tagsExecution
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The execution method for multi-value filters. Can be either and or or.")
   @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagsExecution() {
@@ -131,7 +119,6 @@ public class EventTimelineWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -153,7 +140,6 @@ public class EventTimelineWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -176,7 +162,6 @@ public class EventTimelineWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -201,7 +186,6 @@ public class EventTimelineWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -223,7 +207,6 @@ public class EventTimelineWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public EventTimelineWidgetDefinitionType getType() {

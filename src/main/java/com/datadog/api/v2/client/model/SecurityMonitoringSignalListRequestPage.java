@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The paging attributes for listing security signals. */
-@ApiModel(description = "The paging attributes for listing security signals.")
 @JsonPropertyOrder({
   SecurityMonitoringSignalListRequestPage.JSON_PROPERTY_CURSOR,
   SecurityMonitoringSignalListRequestPage.JSON_PROPERTY_LIMIT
@@ -44,10 +41,6 @@ public class SecurityMonitoringSignalListRequestPage {
    * @return cursor
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
-      value = "A list of results using the cursor provided in the previous query.")
   @JsonProperty(JSON_PROPERTY_CURSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCursor() {
@@ -69,9 +62,6 @@ public class SecurityMonitoringSignalListRequestPage {
    * @return limit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "25",
-      value = "The maximum number of security signals in the response.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getLimit() {

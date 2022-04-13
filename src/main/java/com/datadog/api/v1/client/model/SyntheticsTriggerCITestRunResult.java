@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Information about a single test run. */
-@ApiModel(description = "Information about a single test run.")
 @JsonPropertyOrder({
   SyntheticsTriggerCITestRunResult.JSON_PROPERTY_DEVICE,
   SyntheticsTriggerCITestRunResult.JSON_PROPERTY_LOCATION,
@@ -53,7 +50,6 @@ public class SyntheticsTriggerCITestRunResult {
    * @return device
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsDeviceID getDevice() {
@@ -78,7 +74,6 @@ public class SyntheticsTriggerCITestRunResult {
    * @return location
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The location ID of the test run.")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLocation() {
@@ -100,7 +95,6 @@ public class SyntheticsTriggerCITestRunResult {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The public ID of the Synthetics test.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -122,7 +116,6 @@ public class SyntheticsTriggerCITestRunResult {
    * @return resultId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the result.")
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultId() {

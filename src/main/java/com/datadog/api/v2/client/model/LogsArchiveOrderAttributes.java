@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The attributes associated with the archive order. */
-@ApiModel(description = "The attributes associated with the archive order.")
 @JsonPropertyOrder({LogsArchiveOrderAttributes.JSON_PROPERTY_ARCHIVE_IDS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveOrderAttributes {
@@ -54,13 +51,6 @@ public class LogsArchiveOrderAttributes {
    *
    * @return archiveIds
    */
-  @ApiModelProperty(
-      example =
-          "[\"a2zcMylnM4OCHpYusxIi1g\",\"a2zcMylnM4OCHpYusxIi2g\",\"a2zcMylnM4OCHpYusxIi3g\"]",
-      required = true,
-      value =
-          "An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array"
-              + " define the overall archives order for Datadog.")
   @JsonProperty(JSON_PROPERTY_ARCHIVE_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getArchiveIds() {

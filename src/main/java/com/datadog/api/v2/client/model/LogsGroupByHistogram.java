@@ -15,18 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets are
  * allowed, the number of buckets is (max - min)/interval.
  */
-@ApiModel(
-    description =
-        "Used to perform a histogram computation (only for measure facets). Note: At most 100"
-            + " buckets are allowed, the number of buckets is (max - min)/interval.")
 @JsonPropertyOrder({
   LogsGroupByHistogram.JSON_PROPERTY_INTERVAL,
   LogsGroupByHistogram.JSON_PROPERTY_MAX,
@@ -66,10 +60,6 @@ public class LogsGroupByHistogram {
    *
    * @return interval
    */
-  @ApiModelProperty(
-      example = "10",
-      required = true,
-      value = "The bin size of the histogram buckets")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getInterval() {
@@ -91,12 +81,6 @@ public class LogsGroupByHistogram {
    *
    * @return max
    */
-  @ApiModelProperty(
-      example = "100",
-      required = true,
-      value =
-          "The maximum value for the measure used in the histogram (values greater than this one"
-              + " are filtered out)")
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getMax() {
@@ -118,12 +102,6 @@ public class LogsGroupByHistogram {
    *
    * @return min
    */
-  @ApiModelProperty(
-      example = "50",
-      required = true,
-      value =
-          "The minimum value for the measure used in the histogram (values smaller than this one"
-              + " are filtered out)")
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getMin() {

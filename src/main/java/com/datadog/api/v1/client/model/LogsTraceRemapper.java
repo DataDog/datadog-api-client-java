@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -28,13 +26,6 @@ import java.util.Objects;
  * take care of all the rest of the setup. 2. Use the Trace remapper processor to define a log
  * attribute as its associated trace ID.
  */
-@ApiModel(
-    description =
-        "There are two ways to improve correlation between application traces and logs.    1."
-            + " Follow the documentation on [how to inject a trace ID in the application"
-            + " logs](https://docs.datadoghq.com/tracing/connect_logs_and_traces)   and by default"
-            + " log integrations take care of all the rest of the setup.    2. Use the Trace"
-            + " remapper processor to define a log attribute as its associated trace ID.")
 @JsonPropertyOrder({
   LogsTraceRemapper.JSON_PROPERTY_IS_ENABLED,
   LogsTraceRemapper.JSON_PROPERTY_NAME,
@@ -76,7 +67,6 @@ public class LogsTraceRemapper {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -98,7 +88,6 @@ public class LogsTraceRemapper {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -128,7 +117,6 @@ public class LogsTraceRemapper {
    * @return sources
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getSources() {
@@ -150,7 +138,6 @@ public class LogsTraceRemapper {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsTraceRemapperType getType() {

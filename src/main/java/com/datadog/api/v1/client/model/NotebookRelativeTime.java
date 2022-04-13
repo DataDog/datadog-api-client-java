@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Relative timeframe. */
-@ApiModel(description = "Relative timeframe.")
 @JsonPropertyOrder({NotebookRelativeTime.JSON_PROPERTY_LIVE_SPAN})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookRelativeTime {
@@ -48,7 +45,6 @@ public class NotebookRelativeTime {
    *
    * @return liveSpan
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LIVE_SPAN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public WidgetLiveSpan getLiveSpan() {

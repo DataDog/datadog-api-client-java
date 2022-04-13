@@ -15,13 +15,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.File;
 import java.util.Objects;
 
 /** Object describing the IdP configuration. */
-@ApiModel(description = "Object describing the IdP configuration.")
 @JsonPropertyOrder({IdpFormData.JSON_PROPERTY_IDP_FILE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IdpFormData {
@@ -46,9 +43,6 @@ public class IdpFormData {
    *
    * @return idpFile
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The path to the XML metadata file you wish to upload.")
   @JsonProperty(JSON_PROPERTY_IDP_FILE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public File getIdpFile() {

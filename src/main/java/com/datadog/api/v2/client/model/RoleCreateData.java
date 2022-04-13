@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Data related to the creation of a role. */
-@ApiModel(description = "Data related to the creation of a role.")
 @JsonPropertyOrder({
   RoleCreateData.JSON_PROPERTY_ATTRIBUTES,
   RoleCreateData.JSON_PROPERTY_RELATIONSHIPS,
@@ -59,7 +56,6 @@ public class RoleCreateData {
    *
    * @return attributes
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public RoleCreateAttributes getAttributes() {
@@ -82,7 +78,6 @@ public class RoleCreateData {
    * @return relationships
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RoleRelationships getRelationships() {
@@ -105,7 +100,6 @@ public class RoleCreateData {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RolesType getType() {

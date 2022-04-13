@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Options on rules. */
-@ApiModel(description = "Options on rules.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleOptions.JSON_PROPERTY_DETECTION_METHOD,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_EVALUATION_WINDOW,
@@ -62,7 +59,6 @@ public class SecurityMonitoringRuleOptions {
    * @return detectionMethod
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DETECTION_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleDetectionMethod getDetectionMethod() {
@@ -89,7 +85,6 @@ public class SecurityMonitoringRuleOptions {
    * @return evaluationWindow
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVALUATION_WINDOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleEvaluationWindow getEvaluationWindow() {
@@ -116,7 +111,6 @@ public class SecurityMonitoringRuleOptions {
    * @return impossibleTravelOptions
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleImpossibleTravelOptions getImpossibleTravelOptions() {
@@ -140,7 +134,6 @@ public class SecurityMonitoringRuleOptions {
    * @return keepAlive
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_KEEP_ALIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleKeepAlive getKeepAlive() {
@@ -167,7 +160,6 @@ public class SecurityMonitoringRuleOptions {
    * @return maxSignalDuration
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX_SIGNAL_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleMaxSignalDuration getMaxSignalDuration() {
@@ -194,7 +186,6 @@ public class SecurityMonitoringRuleOptions {
    * @return newValueOptions
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NEW_VALUE_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleNewValueOptions getNewValueOptions() {

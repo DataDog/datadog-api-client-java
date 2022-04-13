@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +22,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** The incident&#39;s attributes for a create request. */
-@ApiModel(description = "The incident's attributes for a create request.")
 @JsonPropertyOrder({
   IncidentCreateAttributes.JSON_PROPERTY_CUSTOMER_IMPACTED,
   IncidentCreateAttributes.JSON_PROPERTY_FIELDS,
@@ -71,10 +68,6 @@ public class IncidentCreateAttributes {
    *
    * @return customerImpacted
    */
-  @ApiModelProperty(
-      example = "false",
-      required = true,
-      value = "A flag indicating whether the incident caused customer impact.")
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACTED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getCustomerImpacted() {
@@ -104,9 +97,6 @@ public class IncidentCreateAttributes {
    * @return fields
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "{\"severity\":{\"type\":\"dropdown\",\"value\":\"SEV-5\"}}",
-      value = "A condensed view of the user-defined fields for which to create initial selections.")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, IncidentFieldAttributes> getFields() {
@@ -142,10 +132,6 @@ public class IncidentCreateAttributes {
    * @return initialCells
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "An array of initial timeline cells to be placed at the beginning of the incident"
-              + " timeline.")
   @JsonProperty(JSON_PROPERTY_INITIAL_CELLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<IncidentTimelineCellCreateAttributes> getInitialCells() {
@@ -181,8 +167,6 @@ public class IncidentCreateAttributes {
    * @return notificationHandles
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Notification handles that will be notified of the incident at creation.")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<IncidentNotificationHandle> getNotificationHandles() {
@@ -203,10 +187,6 @@ public class IncidentCreateAttributes {
    *
    * @return title
    */
-  @ApiModelProperty(
-      example = "A test incident title",
-      required = true,
-      value = "The title of the incident, which summarizes what happened.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTitle() {

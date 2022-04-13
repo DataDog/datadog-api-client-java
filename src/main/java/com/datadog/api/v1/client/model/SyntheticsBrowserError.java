@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Error response object for a browser test. */
-@ApiModel(description = "Error response object for a browser test.")
 @JsonPropertyOrder({
   SyntheticsBrowserError.JSON_PROPERTY_DESCRIPTION,
   SyntheticsBrowserError.JSON_PROPERTY_NAME,
@@ -65,10 +62,6 @@ public class SyntheticsBrowserError {
    *
    * @return description
    */
-  @ApiModelProperty(
-      example = "Example error message",
-      required = true,
-      value = "Description of the error.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDescription() {
@@ -89,7 +82,6 @@ public class SyntheticsBrowserError {
    *
    * @return name
    */
-  @ApiModelProperty(example = "Failed test", required = true, value = "Name of the error.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -111,7 +103,6 @@ public class SyntheticsBrowserError {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "500", value = "Status Code of the error.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStatus() {
@@ -133,7 +124,6 @@ public class SyntheticsBrowserError {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBrowserErrorType getType() {

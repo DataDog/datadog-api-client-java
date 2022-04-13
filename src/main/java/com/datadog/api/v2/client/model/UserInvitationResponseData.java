@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object of a user invitation returned by the API. */
-@ApiModel(description = "Object of a user invitation returned by the API.")
 @JsonPropertyOrder({
   UserInvitationResponseData.JSON_PROPERTY_ATTRIBUTES,
   UserInvitationResponseData.JSON_PROPERTY_ID,
@@ -49,7 +46,6 @@ public class UserInvitationResponseData {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UserInvitationDataAttributes getAttributes() {
@@ -71,7 +67,6 @@ public class UserInvitationResponseData {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the user invitation.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -94,7 +89,6 @@ public class UserInvitationResponseData {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UserInvitationsType getType() {

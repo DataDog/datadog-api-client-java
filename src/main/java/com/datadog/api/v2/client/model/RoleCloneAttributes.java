@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Attributes required to create a new role by cloning an existing one. */
-@ApiModel(description = "Attributes required to create a new role by cloning an existing one.")
 @JsonPropertyOrder({RoleCloneAttributes.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleCloneAttributes {
@@ -46,10 +43,6 @@ public class RoleCloneAttributes {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "cloned-role",
-      required = true,
-      value = "Name of the new role that is cloned.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The data for a notebook. */
-@ApiModel(description = "The data for a notebook.")
 @JsonPropertyOrder({
   NotebookResponseData.JSON_PROPERTY_ATTRIBUTES,
   NotebookResponseData.JSON_PROPERTY_ID,
@@ -64,7 +61,6 @@ public class NotebookResponseData {
    *
    * @return attributes
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NotebookResponseDataAttributes getAttributes() {
@@ -80,10 +76,6 @@ public class NotebookResponseData {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "123456",
-      required = true,
-      value = "Unique notebook ID, assigned when you create the notebook.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getId() {
@@ -101,7 +93,6 @@ public class NotebookResponseData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NotebookResourceType getType() {

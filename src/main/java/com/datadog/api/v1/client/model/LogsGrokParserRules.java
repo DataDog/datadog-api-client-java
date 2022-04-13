@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Set of rules for the grok parser. */
-@ApiModel(description = "Set of rules for the grok parser.")
 @JsonPropertyOrder({
   LogsGrokParserRules.JSON_PROPERTY_MATCH_RULES,
   LogsGrokParserRules.JSON_PROPERTY_SUPPORT_RULES
@@ -52,10 +49,6 @@ public class LogsGrokParserRules {
    *
    * @return matchRules
    */
-  @ApiModelProperty(
-      example = "rule_name_1 foo rule_name_2 bar ",
-      required = true,
-      value = "List of match rules for the grok parser, separated by a new line.")
   @JsonProperty(JSON_PROPERTY_MATCH_RULES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMatchRules() {
@@ -77,9 +70,6 @@ public class LogsGrokParserRules {
    * @return supportRules
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "rule_name_1 foo rule_name_2 bar ",
-      value = "List of support rules for the grok parser, separated by a new line.")
   @JsonProperty(JSON_PROPERTY_SUPPORT_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSupportRules() {

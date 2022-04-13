@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Options for sorting group by results. */
-@ApiModel(description = "Options for sorting group by results.")
 @JsonPropertyOrder({
   MonitorFormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_AGGREGATION,
   MonitorFormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_METRIC,
@@ -60,7 +57,6 @@ public class MonitorFormulaAndFunctionEventQueryGroupBySort {
    *
    * @return aggregation
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MonitorFormulaAndFunctionEventAggregation getAggregation() {
@@ -85,7 +81,6 @@ public class MonitorFormulaAndFunctionEventQueryGroupBySort {
    * @return metric
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metric used for sorting group by results.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -108,7 +103,6 @@ public class MonitorFormulaAndFunctionEventQueryGroupBySort {
    * @return order
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public QuerySortOrder getOrder() {

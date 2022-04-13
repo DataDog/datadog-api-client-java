@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Configuration options for what is shown in an alert event message. */
-@ApiModel(description = "Configuration options for what is shown in an alert event message.")
 @JsonPropertyOrder({
   SlackIntegrationChannelDisplay.JSON_PROPERTY_MESSAGE,
   SlackIntegrationChannelDisplay.JSON_PROPERTY_NOTIFIED,
@@ -52,7 +49,6 @@ public class SlackIntegrationChannelDisplay {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Show the main body of the alert event.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getMessage() {
@@ -74,7 +70,6 @@ public class SlackIntegrationChannelDisplay {
    * @return notified
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Show the list of @-handles in the alert event.")
   @JsonProperty(JSON_PROPERTY_NOTIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNotified() {
@@ -96,7 +91,6 @@ public class SlackIntegrationChannelDisplay {
    * @return snapshot
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Show the alert event's snapshot image.")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSnapshot() {
@@ -118,7 +112,6 @@ public class SlackIntegrationChannelDisplay {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Show the scopes on which the monitor alerted.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getTags() {

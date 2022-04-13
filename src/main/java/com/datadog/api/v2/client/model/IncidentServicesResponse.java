@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response with a list of incident service payloads. */
-@ApiModel(description = "Response with a list of incident service payloads.")
 @JsonPropertyOrder({
   IncidentServicesResponse.JSON_PROPERTY_DATA,
   IncidentServicesResponse.JSON_PROPERTY_INCLUDED,
@@ -68,10 +65,6 @@ public class IncidentServicesResponse {
    *
    * @return data
    */
-  @ApiModelProperty(
-      example = "[{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"services\"}]",
-      required = true,
-      value = "An array of incident services.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<IncidentServiceResponseData> getData() {
@@ -88,7 +81,6 @@ public class IncidentServicesResponse {
    * @return included
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Included related resources which the user requested.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<IncidentServiceIncludedItems> getIncluded() {
@@ -107,7 +99,6 @@ public class IncidentServicesResponse {
    * @return meta
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentResponseMeta getMeta() {

@@ -15,18 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Alert graphs are timeseries graphs showing the current status of any monitor defined on your
  * system.
  */
-@ApiModel(
-    description =
-        "Alert graphs are timeseries graphs showing the current status of any monitor defined on"
-            + " your system.")
 @JsonPropertyOrder({
   AlertGraphWidgetDefinition.JSON_PROPERTY_ALERT_ID,
   AlertGraphWidgetDefinition.JSON_PROPERTY_TIME,
@@ -85,7 +79,6 @@ public class AlertGraphWidgetDefinition {
    *
    * @return alertId
    */
-  @ApiModelProperty(example = "", required = true, value = "ID of the alert to use in the widget.")
   @JsonProperty(JSON_PROPERTY_ALERT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAlertId() {
@@ -108,7 +101,6 @@ public class AlertGraphWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -130,7 +122,6 @@ public class AlertGraphWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -153,7 +144,6 @@ public class AlertGraphWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -178,7 +168,6 @@ public class AlertGraphWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -200,7 +189,6 @@ public class AlertGraphWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public AlertGraphWidgetDefinitionType getType() {
@@ -225,7 +213,6 @@ public class AlertGraphWidgetDefinition {
    *
    * @return vizType
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_VIZ_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public WidgetVizType getVizType() {

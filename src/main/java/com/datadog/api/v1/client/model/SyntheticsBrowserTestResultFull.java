@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object returned describing a browser test result. */
-@ApiModel(description = "Object returned describing a browser test result.")
 @JsonPropertyOrder({
   SyntheticsBrowserTestResultFull.JSON_PROPERTY_CHECK,
   SyntheticsBrowserTestResultFull.JSON_PROPERTY_CHECK_TIME,
@@ -65,7 +62,6 @@ public class SyntheticsBrowserTestResultFull {
    * @return check
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CHECK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBrowserTestResultFullCheck getCheck() {
@@ -87,7 +83,6 @@ public class SyntheticsBrowserTestResultFull {
    * @return checkTime
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When the browser test was conducted.")
   @JsonProperty(JSON_PROPERTY_CHECK_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCheckTime() {
@@ -109,7 +104,6 @@ public class SyntheticsBrowserTestResultFull {
    * @return checkVersion
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Version of the browser test used.")
   @JsonProperty(JSON_PROPERTY_CHECK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCheckVersion() {
@@ -131,7 +125,6 @@ public class SyntheticsBrowserTestResultFull {
    * @return probeDc
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Location from which the browser test was performed.")
   @JsonProperty(JSON_PROPERTY_PROBE_DC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProbeDc() {
@@ -154,7 +147,6 @@ public class SyntheticsBrowserTestResultFull {
    * @return result
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBrowserTestResultData getResult() {
@@ -176,7 +168,6 @@ public class SyntheticsBrowserTestResultFull {
    * @return resultId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the browser test result.")
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultId() {
@@ -199,7 +190,6 @@ public class SyntheticsBrowserTestResultFull {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestMonitorStatus getStatus() {

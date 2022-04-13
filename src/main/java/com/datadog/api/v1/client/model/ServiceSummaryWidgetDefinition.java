@@ -15,18 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * The service summary displays the graphs of a chosen service in your screenboard. Only available
  * on FREE layout dashboards.
  */
-@ApiModel(
-    description =
-        "The service summary displays the graphs of a chosen service in your screenboard. Only"
-            + " available on FREE layout dashboards.")
 @JsonPropertyOrder({
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_DISPLAY_FORMAT,
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_ENV,
@@ -126,7 +120,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return displayFormat
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISPLAY_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetServiceSummaryDisplayFormat getDisplayFormat() {
@@ -150,7 +143,6 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return env
    */
-  @ApiModelProperty(example = "", required = true, value = "APM environment.")
   @JsonProperty(JSON_PROPERTY_ENV)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEnv() {
@@ -171,7 +163,6 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return service
    */
-  @ApiModelProperty(example = "", required = true, value = "APM service.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getService() {
@@ -193,7 +184,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return showBreakdown
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the latency breakdown or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_BREAKDOWN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowBreakdown() {
@@ -215,7 +205,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return showDistribution
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the latency distribution or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_DISTRIBUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowDistribution() {
@@ -237,7 +226,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return showErrors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the error metrics or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowErrors() {
@@ -259,7 +247,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return showHits
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the hits metrics or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_HITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowHits() {
@@ -281,7 +268,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return showLatency
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the latency metrics or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_LATENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowLatency() {
@@ -303,7 +289,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return showResourceList
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the resource list or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_RESOURCE_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowResourceList() {
@@ -326,7 +311,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return sizeFormat
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIZE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetSizeFormat getSizeFormat() {
@@ -350,7 +334,6 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return spanName
    */
-  @ApiModelProperty(example = "", required = true, value = "APM span name.")
   @JsonProperty(JSON_PROPERTY_SPAN_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSpanName() {
@@ -373,7 +356,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -395,7 +377,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -418,7 +399,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -443,7 +423,6 @@ public class ServiceSummaryWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -465,7 +444,6 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ServiceSummaryWidgetDefinitionType getType() {

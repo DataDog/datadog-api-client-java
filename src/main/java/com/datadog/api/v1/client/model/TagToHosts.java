@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * In this object, the key is the tag, the value is a list of host names that are reporting that
  * tag.
  */
-@ApiModel(
-    description =
-        "In this object, the key is the tag, the value is a list of host names that are reporting"
-            + " that tag.")
 @JsonPropertyOrder({TagToHosts.JSON_PROPERTY_TAGS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TagToHosts {
@@ -55,7 +49,6 @@ public class TagToHosts {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of tags to apply to the host.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getTags() {

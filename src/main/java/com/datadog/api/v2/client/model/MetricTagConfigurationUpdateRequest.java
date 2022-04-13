@@ -15,15 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Request object that includes the metric that you would like to edit the tag configuration on. */
-@ApiModel(
-    description =
-        "Request object that includes the metric that you would like to edit the tag configuration"
-            + " on.")
 @JsonPropertyOrder({MetricTagConfigurationUpdateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MetricTagConfigurationUpdateRequest {
@@ -52,7 +46,6 @@ public class MetricTagConfigurationUpdateRequest {
    *
    * @return data
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MetricTagConfigurationUpdateData getData() {

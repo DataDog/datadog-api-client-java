@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The object containing the aggregates. */
-@ApiModel(description = "The object containing the aggregates.")
 @JsonPropertyOrder({
   UsageAttributionAggregatesBody.JSON_PROPERTY_AGG_TYPE,
   UsageAttributionAggregatesBody.JSON_PROPERTY_FIELD,
@@ -48,7 +45,6 @@ public class UsageAttributionAggregatesBody {
    * @return aggType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "sum", value = "The aggregate type.")
   @JsonProperty(JSON_PROPERTY_AGG_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAggType() {
@@ -70,7 +66,6 @@ public class UsageAttributionAggregatesBody {
    * @return field
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "custom_timeseries_usage", value = "The field.")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getField() {
@@ -92,7 +87,6 @@ public class UsageAttributionAggregatesBody {
    * @return value
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The value for a given field.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getValue() {

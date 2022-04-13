@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Rule. */
-@ApiModel(description = "Rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CASES,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CREATED_AT,
@@ -118,7 +115,6 @@ public class SecurityMonitoringRuleResponse {
    * @return cases
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Cases for generating signals.")
   @JsonProperty(JSON_PROPERTY_CASES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringRuleCase> getCases() {
@@ -140,7 +136,6 @@ public class SecurityMonitoringRuleResponse {
    * @return createdAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When the rule was created, timestamp in milliseconds.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCreatedAt() {
@@ -162,7 +157,6 @@ public class SecurityMonitoringRuleResponse {
    * @return creationAuthorId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "User ID of the user who created the rule.")
   @JsonProperty(JSON_PROPERTY_CREATION_AUTHOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCreationAuthorId() {
@@ -196,8 +190,6 @@ public class SecurityMonitoringRuleResponse {
    * @return filters
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Additional queries to filter matched events before they are processed.")
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringFilter> getFilters() {
@@ -219,8 +211,6 @@ public class SecurityMonitoringRuleResponse {
    * @return hasExtendedTitle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Whether the notifications include the triggering group-by values in their title.")
   @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasExtendedTitle() {
@@ -242,7 +232,6 @@ public class SecurityMonitoringRuleResponse {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the rule.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -264,7 +253,6 @@ public class SecurityMonitoringRuleResponse {
    * @return isDefault
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the rule is included by default.")
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsDefault() {
@@ -286,7 +274,6 @@ public class SecurityMonitoringRuleResponse {
    * @return isDeleted
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the rule has been deleted.")
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsDeleted() {
@@ -308,7 +295,6 @@ public class SecurityMonitoringRuleResponse {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the rule is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -330,7 +316,6 @@ public class SecurityMonitoringRuleResponse {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Message for generated signals.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -352,7 +337,6 @@ public class SecurityMonitoringRuleResponse {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the rule.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -375,7 +359,6 @@ public class SecurityMonitoringRuleResponse {
    * @return options
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleOptions getOptions() {
@@ -409,7 +392,6 @@ public class SecurityMonitoringRuleResponse {
    * @return queries
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Queries for selecting logs which are part of the rule.")
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringRuleQuery> getQueries() {
@@ -439,7 +421,6 @@ public class SecurityMonitoringRuleResponse {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tags for generated signals.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -462,7 +443,6 @@ public class SecurityMonitoringRuleResponse {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleTypeRead getType() {
@@ -487,7 +467,6 @@ public class SecurityMonitoringRuleResponse {
    * @return updateAuthorId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "User ID of the user who updated the rule.")
   @JsonProperty(JSON_PROPERTY_UPDATE_AUTHOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getUpdateAuthorId() {
@@ -509,7 +488,6 @@ public class SecurityMonitoringRuleResponse {
    * @return version
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The version of the rule.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVersion() {

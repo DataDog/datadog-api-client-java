@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -28,13 +26,6 @@ import java.util.Objects;
  * be applied to a given log, only the first one (according to the pipeline order) is taken into
  * account.
  */
-@ApiModel(
-    description =
-        "The message is a key attribute in Datadog. It is displayed in the message column of the"
-            + " Log Explorer and you can do full string search on it. Use this Processor to define"
-            + " one or more attributes as the official log message.  **Note:** If multiple log"
-            + " message remapper processors can be applied to a given log, only the first one"
-            + " (according to the pipeline order) is taken into account.")
 @JsonPropertyOrder({
   LogsMessageRemapper.JSON_PROPERTY_IS_ENABLED,
   LogsMessageRemapper.JSON_PROPERTY_NAME,
@@ -78,7 +69,6 @@ public class LogsMessageRemapper {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -100,7 +90,6 @@ public class LogsMessageRemapper {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -126,7 +115,6 @@ public class LogsMessageRemapper {
    *
    * @return sources
    */
-  @ApiModelProperty(example = "[\"msg\"]", required = true, value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getSources() {
@@ -148,7 +136,6 @@ public class LogsMessageRemapper {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsMessageRemapperType getType() {

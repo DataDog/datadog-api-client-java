@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Monitor state for a single group. */
-@ApiModel(description = "Monitor state for a single group.")
 @JsonPropertyOrder({
   MonitorStateGroup.JSON_PROPERTY_LAST_NODATA_TS,
   MonitorStateGroup.JSON_PROPERTY_LAST_NOTIFIED_TS,
@@ -60,7 +57,6 @@ public class MonitorStateGroup {
    * @return lastNodataTs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Latest timestamp the monitor was in NO_DATA state.")
   @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastNodataTs() {
@@ -82,7 +78,6 @@ public class MonitorStateGroup {
    * @return lastNotifiedTs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Latest timestamp of the notification sent for this monitor group.")
   @JsonProperty(JSON_PROPERTY_LAST_NOTIFIED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastNotifiedTs() {
@@ -104,7 +99,6 @@ public class MonitorStateGroup {
    * @return lastResolvedTs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Latest timestamp the monitor group was resolved.")
   @JsonProperty(JSON_PROPERTY_LAST_RESOLVED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastResolvedTs() {
@@ -126,7 +120,6 @@ public class MonitorStateGroup {
    * @return lastTriggeredTs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Latest timestamp the monitor group triggered.")
   @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastTriggeredTs() {
@@ -148,7 +141,6 @@ public class MonitorStateGroup {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the monitor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -171,7 +163,6 @@ public class MonitorStateGroup {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getStatus() {

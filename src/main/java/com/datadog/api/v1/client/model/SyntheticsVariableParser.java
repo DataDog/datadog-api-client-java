@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Details of the parser to use for the global variable. */
-@ApiModel(description = "Details of the parser to use for the global variable.")
 @JsonPropertyOrder({
   SyntheticsVariableParser.JSON_PROPERTY_TYPE,
   SyntheticsVariableParser.JSON_PROPERTY_VALUE
@@ -55,7 +52,6 @@ public class SyntheticsVariableParser {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsGlobalVariableParserType getType() {
@@ -80,7 +76,6 @@ public class SyntheticsVariableParser {
    * @return value
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Regex or JSON path used for the parser. Not used with type `raw`.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {

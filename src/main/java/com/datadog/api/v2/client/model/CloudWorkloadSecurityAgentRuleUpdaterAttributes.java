@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The attributes of the user who last updated the Agent rule. */
-@ApiModel(description = "The attributes of the user who last updated the Agent rule.")
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleUpdaterAttributes.JSON_PROPERTY_HANDLE,
   CloudWorkloadSecurityAgentRuleUpdaterAttributes.JSON_PROPERTY_NAME
@@ -44,7 +41,6 @@ public class CloudWorkloadSecurityAgentRuleUpdaterAttributes {
    * @return handle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "datadog.user@example.com", value = "The handle of the user.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHandle() {
@@ -66,7 +62,6 @@ public class CloudWorkloadSecurityAgentRuleUpdaterAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Datadog User", value = "The name of the user.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

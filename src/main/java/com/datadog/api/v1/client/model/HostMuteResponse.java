@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Response with the list of muted host for your organization. */
-@ApiModel(description = "Response with the list of muted host for your organization.")
 @JsonPropertyOrder({
   HostMuteResponse.JSON_PROPERTY_ACTION,
   HostMuteResponse.JSON_PROPERTY_END,
@@ -52,7 +49,6 @@ public class HostMuteResponse {
    * @return action
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Muted", value = "Action applied to the hosts.")
   @JsonProperty(JSON_PROPERTY_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAction() {
@@ -74,9 +70,6 @@ public class HostMuteResponse {
    * @return end
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1579098130",
-      value = "POSIX timestamp in seconds when the host is unmuted.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
@@ -98,7 +91,6 @@ public class HostMuteResponse {
    * @return hostname
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "test.host", value = "The host name.")
   @JsonProperty(JSON_PROPERTY_HOSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHostname() {
@@ -120,9 +112,6 @@ public class HostMuteResponse {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Muting this host for a test!",
-      value = "Message associated with the mute.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {

@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * A &#x60;metric&#x60; based SLO history response. This is not included in responses for
  * &#x60;monitor&#x60; based SLOs.
  */
-@ApiModel(
-    description =
-        "A `metric` based SLO history response.  This is not included in responses for `monitor`"
-            + " based SLOs.")
 @JsonPropertyOrder({
   SLOHistoryMetrics.JSON_PROPERTY_DENOMINATOR,
   SLOHistoryMetrics.JSON_PROPERTY_INTERVAL,
@@ -101,7 +95,6 @@ public class SLOHistoryMetrics {
    *
    * @return denominator
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DENOMINATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SLOHistoryMetricsSeries getDenominator() {
@@ -123,12 +116,6 @@ public class SLOHistoryMetrics {
    *
    * @return interval
    */
-  @ApiModelProperty(
-      example = "0",
-      required = true,
-      value =
-          "The aggregated query interval for the series data. It's implicit based on the query"
-              + " time window.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getInterval() {
@@ -150,9 +137,6 @@ public class SLOHistoryMetrics {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "",
-      value = "Optional message if there are specific query issues/warnings.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -174,7 +158,6 @@ public class SLOHistoryMetrics {
    *
    * @return numerator
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NUMERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SLOHistoryMetricsSeries getNumerator() {
@@ -195,10 +178,6 @@ public class SLOHistoryMetrics {
    *
    * @return query
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "The combined numerator and denominator query CSV.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {
@@ -219,10 +198,6 @@ public class SLOHistoryMetrics {
    *
    * @return resType
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "The series result type. This mimics `batch_query` response type.")
   @JsonProperty(JSON_PROPERTY_RES_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getResType() {
@@ -243,10 +218,6 @@ public class SLOHistoryMetrics {
    *
    * @return respVersion
    */
-  @ApiModelProperty(
-      example = "0",
-      required = true,
-      value = "The series response version type. This mimics `batch_query` response type.")
   @JsonProperty(JSON_PROPERTY_RESP_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getRespVersion() {
@@ -272,10 +243,6 @@ public class SLOHistoryMetrics {
    *
    * @return times
    */
-  @ApiModelProperty(
-      example = "[]",
-      required = true,
-      value = "An array of query timestamps in EPOCH milliseconds")
   @JsonProperty(JSON_PROPERTY_TIMES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<Double> getTimes() {

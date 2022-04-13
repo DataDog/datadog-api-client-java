@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object to invite users to join the organization. */
-@ApiModel(description = "Object to invite users to join the organization.")
 @JsonPropertyOrder({UserInvitationsRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserInvitationsRequest {
@@ -57,7 +54,6 @@ public class UserInvitationsRequest {
    *
    * @return data
    */
-  @ApiModelProperty(example = "[]", required = true, value = "List of user invitations.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<UserInvitationData> getData() {

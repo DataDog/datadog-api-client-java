@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** An array of service level objective objects. */
-@ApiModel(description = "An array of service level objective objects.")
 @JsonPropertyOrder({
   SLOBulkDeleteResponseData.JSON_PROPERTY_DELETED,
   SLOBulkDeleteResponseData.JSON_PROPERTY_UPDATED
@@ -55,10 +52,6 @@ public class SLOBulkDeleteResponseData {
    * @return deleted
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "An array of service level objective object IDs that indicates which objects that were"
-              + " completely deleted.")
   @JsonProperty(JSON_PROPERTY_DELETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getDeleted() {
@@ -89,11 +82,6 @@ public class SLOBulkDeleteResponseData {
    * @return updated
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "An array of service level objective object IDs that indicates which objects that were"
-              + " modified (objects for which at least one threshold was deleted, but that were"
-              + " not completely deleted).")
   @JsonProperty(JSON_PROPERTY_UPDATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getUpdated() {

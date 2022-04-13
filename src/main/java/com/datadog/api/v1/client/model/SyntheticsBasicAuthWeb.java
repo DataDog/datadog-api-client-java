@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object to handle basic authentication when performing the test. */
-@ApiModel(description = "Object to handle basic authentication when performing the test.")
 @JsonPropertyOrder({
   SyntheticsBasicAuthWeb.JSON_PROPERTY_PASSWORD,
   SyntheticsBasicAuthWeb.JSON_PROPERTY_TYPE,
@@ -58,10 +55,6 @@ public class SyntheticsBasicAuthWeb {
    *
    * @return password
    */
-  @ApiModelProperty(
-      example = "PaSSw0RD!",
-      required = true,
-      value = "Password to use for the basic authentication.")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPassword() {
@@ -84,7 +77,6 @@ public class SyntheticsBasicAuthWeb {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBasicAuthWebType getType() {
@@ -108,10 +100,6 @@ public class SyntheticsBasicAuthWeb {
    *
    * @return username
    */
-  @ApiModelProperty(
-      example = "my_username",
-      required = true,
-      value = "Username to use for the basic authentication.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getUsername() {

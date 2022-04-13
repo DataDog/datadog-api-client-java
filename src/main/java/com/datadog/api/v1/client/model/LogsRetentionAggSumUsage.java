@@ -14,18 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Object containing indexed logs usage aggregated across organizations and months for a retention
  * period.
  */
-@ApiModel(
-    description =
-        "Object containing indexed logs usage aggregated across organizations and months for a"
-            + " retention period.")
 @JsonPropertyOrder({
   LogsRetentionAggSumUsage.JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_AGG_SUM,
   LogsRetentionAggSumUsage.JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_AGG_SUM,
@@ -61,7 +55,6 @@ public class LogsRetentionAggSumUsage {
    * @return logsIndexedLogsUsageAggSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total indexed logs for this retention period.")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsIndexedLogsUsageAggSum() {
@@ -84,7 +77,6 @@ public class LogsRetentionAggSumUsage {
    * @return logsLiveIndexedLogsUsageAggSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Live indexed logs for this retention period.")
   @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsLiveIndexedLogsUsageAggSum() {
@@ -107,7 +99,6 @@ public class LogsRetentionAggSumUsage {
    * @return logsRehydratedIndexedLogsUsageAggSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Rehydrated indexed logs for this retention period.")
   @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsRehydratedIndexedLogsUsageAggSum() {
@@ -129,8 +120,6 @@ public class LogsRetentionAggSumUsage {
    * @return retention
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The retention period in days or \"custom\" for all custom retention periods.")
   @JsonProperty(JSON_PROPERTY_RETENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRetention() {

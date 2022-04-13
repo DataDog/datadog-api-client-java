@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object to update a user. */
-@ApiModel(description = "Object to update a user.")
 @JsonPropertyOrder({
   UserUpdateData.JSON_PROPERTY_ATTRIBUTES,
   UserUpdateData.JSON_PROPERTY_ID,
@@ -64,7 +61,6 @@ public class UserUpdateData {
    *
    * @return attributes
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public UserUpdateAttributes getAttributes() {
@@ -85,10 +81,6 @@ public class UserUpdateData {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "00000000-0000-feed-0000-000000000000",
-      required = true,
-      value = "ID of the user.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -110,7 +102,6 @@ public class UserUpdateData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public UsersType getType() {

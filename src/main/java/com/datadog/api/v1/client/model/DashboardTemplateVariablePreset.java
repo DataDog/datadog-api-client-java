@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Template variables saved views. */
-@ApiModel(description = "Template variables saved views.")
 @JsonPropertyOrder({
   DashboardTemplateVariablePreset.JSON_PROPERTY_NAME,
   DashboardTemplateVariablePreset.JSON_PROPERTY_TEMPLATE_VARIABLES
@@ -46,7 +43,6 @@ public class DashboardTemplateVariablePreset {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the variable.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -82,7 +78,6 @@ public class DashboardTemplateVariablePreset {
    * @return templateVariables
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of variables.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DashboardTemplateVariablePresetValue> getTemplateVariables() {

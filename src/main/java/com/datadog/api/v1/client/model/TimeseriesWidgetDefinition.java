@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * The timeseries visualization allows you to display the evolution of one or more metrics, log
  * events, or Indexed Spans over time.
  */
-@ApiModel(
-    description =
-        "The timeseries visualization allows you to display the evolution of one or more metrics,"
-            + " log events, or Indexed Spans over time.")
 @JsonPropertyOrder({
   TimeseriesWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   TimeseriesWidgetDefinition.JSON_PROPERTY_EVENTS,
@@ -130,7 +124,6 @@ public class TimeseriesWidgetDefinition {
    * @return customLinks
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -164,7 +157,6 @@ public class TimeseriesWidgetDefinition {
    * @return events
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of widget events.")
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetEvent> getEvents() {
@@ -197,7 +189,6 @@ public class TimeseriesWidgetDefinition {
    * @return legendColumns
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Columns displayed in the legend.")
   @JsonProperty(JSON_PROPERTY_LEGEND_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TimeseriesWidgetLegendColumn> getLegendColumns() {
@@ -220,7 +211,6 @@ public class TimeseriesWidgetDefinition {
    * @return legendLayout
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEGEND_LAYOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TimeseriesWidgetLegendLayout getLegendLayout() {
@@ -246,10 +236,6 @@ public class TimeseriesWidgetDefinition {
    * @return legendSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\","
-              + " \"16\", or \"auto\".")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegendSize() {
@@ -283,7 +269,6 @@ public class TimeseriesWidgetDefinition {
    * @return markers
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of markers.")
   @JsonProperty(JSON_PROPERTY_MARKERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetMarker> getMarkers() {
@@ -313,10 +298,6 @@ public class TimeseriesWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(
-      example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]",
-      required = true,
-      value = "List of timeseries widget requests.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<TimeseriesWidgetRequest> getRequests() {
@@ -339,7 +320,6 @@ public class TimeseriesWidgetDefinition {
    * @return rightYaxis
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RIGHT_YAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetAxis getRightYaxis() {
@@ -361,7 +341,6 @@ public class TimeseriesWidgetDefinition {
    * @return showLegend
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "(screenboard only) Show the legend for this widget.")
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowLegend() {
@@ -384,7 +363,6 @@ public class TimeseriesWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -406,7 +384,6 @@ public class TimeseriesWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -429,7 +406,6 @@ public class TimeseriesWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -454,7 +430,6 @@ public class TimeseriesWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -476,7 +451,6 @@ public class TimeseriesWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TimeseriesWidgetDefinitionType getType() {
@@ -502,7 +476,6 @@ public class TimeseriesWidgetDefinition {
    * @return yaxis
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetAxis getYaxis() {

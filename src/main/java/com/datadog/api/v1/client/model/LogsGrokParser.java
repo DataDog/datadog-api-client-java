@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -27,12 +25,6 @@ import java.util.Objects;
  * information, see the [parsing
  * section](https://docs.datadoghq.com/logs/log_configuration/parsing).
  */
-@ApiModel(
-    description =
-        "Create custom grok rules to parse the full message or [a specific attribute of your raw"
-            + " event](https://docs.datadoghq.com/logs/log_configuration/parsing/#advanced-settings)."
-            + " For more information, see the [parsing"
-            + " section](https://docs.datadoghq.com/logs/log_configuration/parsing).")
 @JsonPropertyOrder({
   LogsGrokParser.JSON_PROPERTY_GROK,
   LogsGrokParser.JSON_PROPERTY_IS_ENABLED,
@@ -87,7 +79,6 @@ public class LogsGrokParser {
    *
    * @return grok
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_GROK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsGrokParserRules getGrok() {
@@ -109,7 +100,6 @@ public class LogsGrokParser {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -131,7 +121,6 @@ public class LogsGrokParser {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -161,7 +150,6 @@ public class LogsGrokParser {
    * @return samples
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of sample logs to test this grok parser.")
   @JsonProperty(JSON_PROPERTY_SAMPLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getSamples() {
@@ -182,10 +170,6 @@ public class LogsGrokParser {
    *
    * @return source
    */
-  @ApiModelProperty(
-      example = "message",
-      required = true,
-      value = "Name of the log attribute to parse.")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSource() {
@@ -207,7 +191,6 @@ public class LogsGrokParser {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsGrokParserType getType() {

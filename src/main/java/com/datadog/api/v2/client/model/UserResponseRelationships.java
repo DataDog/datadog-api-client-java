@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Relationships of the user object returned by the API. */
-@ApiModel(description = "Relationships of the user object returned by the API.")
 @JsonPropertyOrder({
   UserResponseRelationships.JSON_PROPERTY_ORG,
   UserResponseRelationships.JSON_PROPERTY_OTHER_ORGS,
@@ -53,7 +50,6 @@ public class UserResponseRelationships {
    * @return org
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToOrganization getOrg() {
@@ -76,7 +72,6 @@ public class UserResponseRelationships {
    * @return otherOrgs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OTHER_ORGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToOrganizations getOtherOrgs() {
@@ -99,7 +94,6 @@ public class UserResponseRelationships {
    * @return otherUsers
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OTHER_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUsers getOtherUsers() {
@@ -122,7 +116,6 @@ public class UserResponseRelationships {
    * @return roles
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToRoles getRoles() {

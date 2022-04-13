@@ -14,15 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Object containing a deleted Synthetic test ID with the associated deletion timestamp. */
-@ApiModel(
-    description =
-        "Object containing a deleted Synthetic test ID with the associated deletion timestamp.")
 @JsonPropertyOrder({
   SyntheticsDeletedTest.JSON_PROPERTY_DELETED_AT,
   SyntheticsDeletedTest.JSON_PROPERTY_PUBLIC_ID
@@ -47,7 +42,6 @@ public class SyntheticsDeletedTest {
    * @return deletedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deletion timestamp of the Synthetic test ID.")
   @JsonProperty(JSON_PROPERTY_DELETED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getDeletedAt() {
@@ -69,7 +63,6 @@ public class SyntheticsDeletedTest {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Synthetic test ID deleted.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

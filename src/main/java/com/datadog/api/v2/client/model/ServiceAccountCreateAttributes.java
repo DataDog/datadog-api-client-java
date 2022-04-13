@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Attributes of the created user. */
-@ApiModel(description = "Attributes of the created user.")
 @JsonPropertyOrder({
   ServiceAccountCreateAttributes.JSON_PROPERTY_EMAIL,
   ServiceAccountCreateAttributes.JSON_PROPERTY_NAME,
@@ -63,10 +60,6 @@ public class ServiceAccountCreateAttributes {
    *
    * @return email
    */
-  @ApiModelProperty(
-      example = "jane.doe@example.com",
-      required = true,
-      value = "The email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEmail() {
@@ -88,7 +81,6 @@ public class ServiceAccountCreateAttributes {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the user.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -109,10 +101,6 @@ public class ServiceAccountCreateAttributes {
    *
    * @return serviceAccount
    */
-  @ApiModelProperty(
-      example = "true",
-      required = true,
-      value = "Whether the user is a service account. Must be true.")
   @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getServiceAccount() {
@@ -134,7 +122,6 @@ public class ServiceAccountCreateAttributes {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The title of the user.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {

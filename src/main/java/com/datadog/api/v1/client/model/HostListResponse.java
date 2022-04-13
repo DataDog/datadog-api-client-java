@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response with Host information from Datadog. */
-@ApiModel(description = "Response with Host information from Datadog.")
 @JsonPropertyOrder({
   HostListResponse.JSON_PROPERTY_HOST_LIST,
   HostListResponse.JSON_PROPERTY_TOTAL_MATCHING,
@@ -62,7 +59,6 @@ public class HostListResponse {
    * @return hostList
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of hosts.")
   @JsonProperty(JSON_PROPERTY_HOST_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Host> getHostList() {
@@ -84,7 +80,6 @@ public class HostListResponse {
    * @return totalMatching
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "Number of host matching the query.")
   @JsonProperty(JSON_PROPERTY_TOTAL_MATCHING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalMatching() {
@@ -106,7 +101,6 @@ public class HostListResponse {
    * @return totalReturned
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "Number of host returned.")
   @JsonProperty(JSON_PROPERTY_TOTAL_RETURNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalReturned() {

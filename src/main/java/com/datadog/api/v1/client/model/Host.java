@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +21,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Object representing a host. */
-@ApiModel(description = "Object representing a host.")
 @JsonPropertyOrder({
   Host.JSON_PROPERTY_ALIASES,
   Host.JSON_PROPERTY_APPS,
@@ -104,7 +101,6 @@ public class Host {
    * @return aliases
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Host aliases collected by Datadog.")
   @JsonProperty(JSON_PROPERTY_ALIASES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAliases() {
@@ -134,7 +130,6 @@ public class Host {
    * @return apps
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Datadog integrations reporting metrics for the host.")
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getApps() {
@@ -156,7 +151,6 @@ public class Host {
    * @return awsName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "mycoolhost-1", value = "AWS name of your host.")
   @JsonProperty(JSON_PROPERTY_AWS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAwsName() {
@@ -178,7 +172,6 @@ public class Host {
    * @return hostName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "i-deadbeef", value = "The host name.")
   @JsonProperty(JSON_PROPERTY_HOST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHostName() {
@@ -200,7 +193,6 @@ public class Host {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123456", value = "The host ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -222,7 +214,6 @@ public class Host {
    * @return isMuted
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "If a host is muted or unmuted.")
   @JsonProperty(JSON_PROPERTY_IS_MUTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsMuted() {
@@ -244,9 +235,6 @@ public class Host {
    * @return lastReportedTime
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1565000000",
-      value = "Last time the host reported a metric data point.")
   @JsonProperty(JSON_PROPERTY_LAST_REPORTED_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastReportedTime() {
@@ -269,7 +257,6 @@ public class Host {
    * @return meta
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMeta getMeta() {
@@ -292,7 +279,6 @@ public class Host {
    * @return metrics
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMetrics getMetrics() {
@@ -314,7 +300,6 @@ public class Host {
    * @return muteTimeout
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timeout of the mute applied to your host.")
   @JsonProperty(JSON_PROPERTY_MUTE_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMuteTimeout() {
@@ -336,7 +321,6 @@ public class Host {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "i-hostname", value = "The host name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -366,7 +350,6 @@ public class Host {
    * @return sources
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Source or cloud provider associated with your host.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getSources() {
@@ -396,7 +379,6 @@ public class Host {
    * @return tagsBySource
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of tags for each source (AWS, Datadog Agent, Chef..).")
   @JsonProperty(JSON_PROPERTY_TAGS_BY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getTagsBySource() {
@@ -419,11 +401,6 @@ public class Host {
    * @return up
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "true",
-      value =
-          "Displays UP when the expected metrics are received and displays `???` if no metrics are"
-              + " received.")
   @JsonProperty(JSON_PROPERTY_UP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getUp() {

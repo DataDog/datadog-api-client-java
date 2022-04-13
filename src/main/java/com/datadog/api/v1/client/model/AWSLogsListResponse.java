@@ -14,16 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** A list of all Datadog-AWS logs integrations available in your Datadog organization. */
-@ApiModel(
-    description =
-        "A list of all Datadog-AWS logs integrations available in your Datadog organization.")
 @JsonPropertyOrder({
   AWSLogsListResponse.JSON_PROPERTY_ACCOUNT_ID,
   AWSLogsListResponse.JSON_PROPERTY_LAMBDAS,
@@ -52,7 +47,6 @@ public class AWSLogsListResponse {
    * @return accountId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1234567", value = "Your AWS Account ID without dashes.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountId() {
@@ -86,9 +80,6 @@ public class AWSLogsListResponse {
    * @return lambdas
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[{\"arn\":\"arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest\"}]",
-      value = "List of ARNs configured in your Datadog account.")
   @JsonProperty(JSON_PROPERTY_LAMBDAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AWSLogsLambda> getLambdas() {
@@ -118,9 +109,6 @@ public class AWSLogsListResponse {
    * @return services
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]",
-      value = "Array of services IDs.")
   @JsonProperty(JSON_PROPERTY_SERVICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getServices() {

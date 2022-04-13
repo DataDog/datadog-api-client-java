@@ -12,12 +12,10 @@ package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
 import java.util.ArrayList;
 import java.util.Objects;
 
 /** A timeseries array */
-@ApiModel(description = "A timeseries array")
 @JsonPropertyOrder({})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateBucketValueTimeseries

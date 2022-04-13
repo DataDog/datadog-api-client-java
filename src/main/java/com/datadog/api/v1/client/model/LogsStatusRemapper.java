@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -37,23 +35,6 @@ import java.util.Objects;
  * **Note:** If multiple log status remapper processors can be applied to a given log, only the
  * first one (according to the pipelines order) is taken into account.
  */
-@ApiModel(
-    description =
-        "Use this Processor if you want to assign some attributes as the official status.  Each"
-            + " incoming status value is mapped as follows.    - Integers from 0 to 7 map to the"
-            + " Syslog severity standards   - Strings beginning with `emerg` or f"
-            + " (case-insensitive) map to `emerg` (0)   - Strings beginning with `a`"
-            + " (case-insensitive) map to `alert` (1)   - Strings beginning with `c`"
-            + " (case-insensitive) map to `critical` (2)   - Strings beginning with `err`"
-            + " (case-insensitive) map to `error` (3)   - Strings beginning with `w`"
-            + " (case-insensitive) map to `warning` (4)   - Strings beginning with `n`"
-            + " (case-insensitive) map to `notice` (5)   - Strings beginning with `i`"
-            + " (case-insensitive) map to `info` (6)   - Strings beginning with `d`, `trace` or"
-            + " `verbose` (case-insensitive) map to `debug` (7)   - Strings beginning with `o` or"
-            + " matching `OK` or `Success` (case-insensitive) map to OK   - All others map to"
-            + " `info` (6)    **Note:** If multiple log status remapper processors can be applied"
-            + " to a given log,   only the first one (according to the pipelines order) is taken"
-            + " into account.")
 @JsonPropertyOrder({
   LogsStatusRemapper.JSON_PROPERTY_IS_ENABLED,
   LogsStatusRemapper.JSON_PROPERTY_NAME,
@@ -97,7 +78,6 @@ public class LogsStatusRemapper {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -119,7 +99,6 @@ public class LogsStatusRemapper {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -145,7 +124,6 @@ public class LogsStatusRemapper {
    *
    * @return sources
    */
-  @ApiModelProperty(example = "[]", required = true, value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getSources() {
@@ -167,7 +145,6 @@ public class LogsStatusRemapper {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsStatusRemapperType getType() {

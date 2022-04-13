@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Response with properties for each aggregated usage type. */
-@ApiModel(description = "Response with properties for each aggregated usage type.")
 @JsonPropertyOrder({
   UsageBillableSummaryBody.JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE,
   UsageBillableSummaryBody.JSON_PROPERTY_ELAPSED_USAGE_HOURS,
@@ -65,7 +62,6 @@ public class UsageBillableSummaryBody {
    * @return accountBillableUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total account usage.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAccountBillableUsage() {
@@ -87,7 +83,6 @@ public class UsageBillableSummaryBody {
    * @return elapsedUsageHours
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Elapsed usage hours for some billable product.")
   @JsonProperty(JSON_PROPERTY_ELAPSED_USAGE_HOURS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getElapsedUsageHours() {
@@ -109,7 +104,6 @@ public class UsageBillableSummaryBody {
    * @return firstBillableUsageHour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The first billable hour for the org.")
   @JsonProperty(JSON_PROPERTY_FIRST_BILLABLE_USAGE_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getFirstBillableUsageHour() {
@@ -131,7 +125,6 @@ public class UsageBillableSummaryBody {
    * @return lastBillableUsageHour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The last billable hour for the org.")
   @JsonProperty(JSON_PROPERTY_LAST_BILLABLE_USAGE_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getLastBillableUsageHour() {
@@ -153,7 +146,6 @@ public class UsageBillableSummaryBody {
    * @return orgBillableUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of units used within the billable timeframe.")
   @JsonProperty(JSON_PROPERTY_ORG_BILLABLE_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOrgBillableUsage() {
@@ -175,7 +167,6 @@ public class UsageBillableSummaryBody {
    * @return percentageInAccount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The percentage of account usage the org represents.")
   @JsonProperty(JSON_PROPERTY_PERCENTAGE_IN_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getPercentageInAccount() {
@@ -197,7 +188,6 @@ public class UsageBillableSummaryBody {
    * @return usageUnit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Units pertaining to the usage.")
   @JsonProperty(JSON_PROPERTY_USAGE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUsageUnit() {

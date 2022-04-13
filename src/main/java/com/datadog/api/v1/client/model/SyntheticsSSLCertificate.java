@@ -14,15 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object describing the SSL certificate used for a Synthetic test. */
-@ApiModel(description = "Object describing the SSL certificate used for a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsSSLCertificate.JSON_PROPERTY_CIPHER,
   SyntheticsSSLCertificate.JSON_PROPERTY_EXPONENT,
@@ -87,7 +84,6 @@ public class SyntheticsSSLCertificate {
    * @return cipher
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Cipher used for the connection.")
   @JsonProperty(JSON_PROPERTY_CIPHER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCipher() {
@@ -109,7 +105,6 @@ public class SyntheticsSSLCertificate {
    * @return exponent
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Exponent associated to the certificate.")
   @JsonProperty(JSON_PROPERTY_EXPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getExponent() {
@@ -139,7 +134,6 @@ public class SyntheticsSSLCertificate {
    * @return extKeyUsage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of extensions and details used for the certificate.")
   @JsonProperty(JSON_PROPERTY_EXT_KEY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getExtKeyUsage() {
@@ -161,7 +155,6 @@ public class SyntheticsSSLCertificate {
    * @return fingerprint
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "MD5 digest of the DER-encoded Certificate information.")
   @JsonProperty(JSON_PROPERTY_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFingerprint() {
@@ -183,7 +176,6 @@ public class SyntheticsSSLCertificate {
    * @return fingerprint256
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "SHA-1 digest of the DER-encoded Certificate information.")
   @JsonProperty(JSON_PROPERTY_FINGERPRINT256)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFingerprint256() {
@@ -206,7 +198,6 @@ public class SyntheticsSSLCertificate {
    * @return issuer
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsSSLCertificateIssuer getIssuer() {
@@ -228,7 +219,6 @@ public class SyntheticsSSLCertificate {
    * @return modulus
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Modulus associated to the SSL certificate private key.")
   @JsonProperty(JSON_PROPERTY_MODULUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getModulus() {
@@ -250,7 +240,6 @@ public class SyntheticsSSLCertificate {
    * @return protocol
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TLS protocol used for the test.")
   @JsonProperty(JSON_PROPERTY_PROTOCOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProtocol() {
@@ -272,7 +261,6 @@ public class SyntheticsSSLCertificate {
    * @return serialNumber
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Serial Number assigned by Symantec to the SSL certificate.")
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSerialNumber() {
@@ -295,7 +283,6 @@ public class SyntheticsSSLCertificate {
    * @return subject
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsSSLCertificateSubject getSubject() {
@@ -317,7 +304,6 @@ public class SyntheticsSSLCertificate {
    * @return validFrom
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date from which the SSL certificate is valid.")
   @JsonProperty(JSON_PROPERTY_VALID_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getValidFrom() {
@@ -339,7 +325,6 @@ public class SyntheticsSSLCertificate {
    * @return validTo
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date until which the SSL certificate is valid.")
   @JsonProperty(JSON_PROPERTY_VALID_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getValidTo() {

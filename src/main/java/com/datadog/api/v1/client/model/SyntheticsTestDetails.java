@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing details about your Synthetic test. */
-@ApiModel(description = "Object containing details about your Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestDetails.JSON_PROPERTY_CONFIG,
   SyntheticsTestDetails.JSON_PROPERTY_CREATOR,
@@ -91,7 +88,6 @@ public class SyntheticsTestDetails {
    * @return config
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestConfig getConfig() {
@@ -114,7 +110,6 @@ public class SyntheticsTestDetails {
    * @return creator
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
@@ -144,9 +139,6 @@ public class SyntheticsTestDetails {
    * @return locations
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"aws:eu-west-3\"]",
-      value = "Array of locations used to run the test.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getLocations() {
@@ -168,7 +160,6 @@ public class SyntheticsTestDetails {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Notification message associated with the test.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -185,7 +176,6 @@ public class SyntheticsTestDetails {
    * @return monitorId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The associated monitor ID.")
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorId() {
@@ -203,7 +193,6 @@ public class SyntheticsTestDetails {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the test.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -226,7 +215,6 @@ public class SyntheticsTestDetails {
    * @return options
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestOptions getOptions() {
@@ -243,7 +231,6 @@ public class SyntheticsTestDetails {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The test public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -262,7 +249,6 @@ public class SyntheticsTestDetails {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestPauseStatus getStatus() {
@@ -299,7 +285,6 @@ public class SyntheticsTestDetails {
    * @return steps
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For browser test, the steps of the test.")
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsStep> getSteps() {
@@ -322,7 +307,6 @@ public class SyntheticsTestDetails {
    * @return subtype
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestDetailsSubType getSubtype() {
@@ -355,7 +339,6 @@ public class SyntheticsTestDetails {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of tags attached to the test.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -378,7 +361,6 @@ public class SyntheticsTestDetails {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestDetailsType getType() {

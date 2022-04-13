@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Synthetics global variable. */
-@ApiModel(description = "Synthetics global variable.")
 @JsonPropertyOrder({
   SyntheticsGlobalVariable.JSON_PROPERTY_ATTRIBUTES,
   SyntheticsGlobalVariable.JSON_PROPERTY_DESCRIPTION,
@@ -88,7 +85,6 @@ public class SyntheticsGlobalVariable {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsGlobalVariableAttributes getAttributes() {
@@ -109,10 +105,6 @@ public class SyntheticsGlobalVariable {
    *
    * @return description
    */
-  @ApiModelProperty(
-      example = "Example description",
-      required = true,
-      value = "Description of the global variable.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDescription() {
@@ -129,7 +121,6 @@ public class SyntheticsGlobalVariable {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique identifier of the global variable.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -146,10 +137,6 @@ public class SyntheticsGlobalVariable {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "MY_VARIABLE",
-      required = true,
-      value = "Name of the global variable. Unique across Synthetics global variables.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -173,7 +160,6 @@ public class SyntheticsGlobalVariable {
    * @return parseTestOptions
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARSE_TEST_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsGlobalVariableParseTestOptions getParseTestOptions() {
@@ -195,9 +181,6 @@ public class SyntheticsGlobalVariable {
    * @return parseTestPublicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "abc-def-123",
-      value = "A Synthetic test ID to use as a test to generate the variable value.")
   @JsonProperty(JSON_PROPERTY_PARSE_TEST_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getParseTestPublicId() {
@@ -223,10 +206,6 @@ public class SyntheticsGlobalVariable {
    *
    * @return tags
    */
-  @ApiModelProperty(
-      example = "[\"team:front\",\"test:workflow-1\"]",
-      required = true,
-      value = "Tags of the global variable.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getTags() {
@@ -248,7 +227,6 @@ public class SyntheticsGlobalVariable {
    *
    * @return value
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsGlobalVariableValue getValue() {

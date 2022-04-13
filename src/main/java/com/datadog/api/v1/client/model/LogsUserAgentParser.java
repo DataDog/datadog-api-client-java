@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,11 +23,6 @@ import java.util.Objects;
  * The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and
  * other user data. It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
  */
-@ApiModel(
-    description =
-        "The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device,"
-            + " and other user data. It recognizes major bots like the Google Bot, Yahoo Slurp,"
-            + " and Bing.")
 @JsonPropertyOrder({
   LogsUserAgentParser.JSON_PROPERTY_IS_ENABLED,
   LogsUserAgentParser.JSON_PROPERTY_IS_ENCODED,
@@ -83,7 +76,6 @@ public class LogsUserAgentParser {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -105,7 +97,6 @@ public class LogsUserAgentParser {
    * @return isEncoded
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Define if the source attribute is URL encoded or not.")
   @JsonProperty(JSON_PROPERTY_IS_ENCODED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEncoded() {
@@ -127,7 +118,6 @@ public class LogsUserAgentParser {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -153,10 +143,6 @@ public class LogsUserAgentParser {
    *
    * @return sources
    */
-  @ApiModelProperty(
-      example = "[\"http.useragent\"]",
-      required = true,
-      value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getSources() {
@@ -178,12 +164,6 @@ public class LogsUserAgentParser {
    *
    * @return target
    */
-  @ApiModelProperty(
-      example = "http.useragent_details",
-      required = true,
-      value =
-          "Name of the parent attribute that contains all the extracted details from the"
-              + " `sources`.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTarget() {
@@ -205,7 +185,6 @@ public class LogsUserAgentParser {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsUserAgentParserType getType() {

@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Attributes of AuthN Mapping. */
-@ApiModel(description = "Attributes of AuthN Mapping.")
 @JsonPropertyOrder({
   AuthNMappingAttributes.JSON_PROPERTY_ATTRIBUTE_KEY,
   AuthNMappingAttributes.JSON_PROPERTY_ATTRIBUTE_VALUE,
@@ -58,9 +55,6 @@ public class AuthNMappingAttributes {
    * @return attributeKey
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "member-of",
-      value = "Key portion of a key/value pair of the attribute sent from the Identity Provider.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTE_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAttributeKey() {
@@ -82,9 +76,6 @@ public class AuthNMappingAttributes {
    * @return attributeValue
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Development",
-      value = "Value portion of a key/value pair of the attribute sent from the Identity Provider.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAttributeValue() {
@@ -101,7 +92,6 @@ public class AuthNMappingAttributes {
    * @return createdAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Creation time of the AuthN Mapping.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -114,7 +104,6 @@ public class AuthNMappingAttributes {
    * @return modifiedAt
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time of last AuthN Mapping modification.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModifiedAt() {
@@ -132,7 +121,6 @@ public class AuthNMappingAttributes {
    * @return samlAssertionAttributeId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0", value = "The ID of the SAML assertion attribute.")
   @JsonProperty(JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getSamlAssertionAttributeId() {

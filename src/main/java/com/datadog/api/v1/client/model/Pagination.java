@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Pagination object. */
-@ApiModel(description = "Pagination object.")
 @JsonPropertyOrder({
   Pagination.JSON_PROPERTY_TOTAL_COUNT,
   Pagination.JSON_PROPERTY_TOTAL_FILTERED_COUNT
@@ -44,7 +41,6 @@ public class Pagination {
    * @return totalCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total count.")
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalCount() {
@@ -66,7 +62,6 @@ public class Pagination {
    * @return totalFilteredCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total count of elements matched by the filter.")
   @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalFilteredCount() {

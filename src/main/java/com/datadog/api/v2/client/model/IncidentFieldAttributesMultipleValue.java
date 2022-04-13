@@ -14,15 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A field with potentially multiple values selected. */
-@ApiModel(description = "A field with potentially multiple values selected.")
 @JsonPropertyOrder({
   IncidentFieldAttributesMultipleValue.JSON_PROPERTY_TYPE,
   IncidentFieldAttributesMultipleValue.JSON_PROPERTY_VALUE
@@ -48,7 +45,6 @@ public class IncidentFieldAttributesMultipleValue {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentFieldAttributesValueType getType() {
@@ -85,9 +81,6 @@ public class IncidentFieldAttributesMultipleValue {
    * @return value
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"1.0\",\"1.1\"]",
-      value = "The multiple values selected for this field.")
   @JsonIgnore
   public List<String> getValue() {
     return value.orElse(null);

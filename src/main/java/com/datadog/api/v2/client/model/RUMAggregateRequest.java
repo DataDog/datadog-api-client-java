@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -24,10 +22,6 @@ import java.util.Objects;
  * The object sent with the request to retrieve aggregation buckets of RUM events from your
  * organization.
  */
-@ApiModel(
-    description =
-        "The object sent with the request to retrieve aggregation buckets of RUM events from your"
-            + " organization.")
 @JsonPropertyOrder({
   RUMAggregateRequest.JSON_PROPERTY_COMPUTE,
   RUMAggregateRequest.JSON_PROPERTY_FILTER,
@@ -76,8 +70,6 @@ public class RUMAggregateRequest {
    * @return compute
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The list of metrics or timeseries to compute for the retrieved buckets.")
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RUMCompute> getCompute() {
@@ -100,7 +92,6 @@ public class RUMAggregateRequest {
    * @return filter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMQueryFilter getFilter() {
@@ -134,7 +125,6 @@ public class RUMAggregateRequest {
    * @return groupBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The rules for the group by.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RUMGroupBy> getGroupBy() {
@@ -157,7 +147,6 @@ public class RUMAggregateRequest {
    * @return options
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMQueryOptions getOptions() {
@@ -180,7 +169,6 @@ public class RUMAggregateRequest {
    * @return page
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMQueryPageOptions getPage() {

@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The object containing document metadata. */
-@ApiModel(description = "The object containing document metadata.")
 @JsonPropertyOrder({
   MonthlyUsageAttributionMetadata.JSON_PROPERTY_AGGREGATES,
   MonthlyUsageAttributionMetadata.JSON_PROPERTY_PAGINATION
@@ -60,7 +57,6 @@ public class MonthlyUsageAttributionMetadata {
    * @return aggregates
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of available aggregates.")
   @JsonProperty(JSON_PROPERTY_AGGREGATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageAttributionAggregatesBody> getAggregates() {
@@ -83,7 +79,6 @@ public class MonthlyUsageAttributionMetadata {
    * @return pagination
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonthlyUsageAttributionPagination getPagination() {

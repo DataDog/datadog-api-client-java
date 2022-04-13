@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** The object containing document metadata. */
-@ApiModel(description = "The object containing document metadata.")
 @JsonPropertyOrder({
   UsageTopAvgMetricsMetadata.JSON_PROPERTY_DAY,
   UsageTopAvgMetricsMetadata.JSON_PROPERTY_MONTH,
@@ -50,10 +47,6 @@ public class UsageTopAvgMetricsMetadata {
    * @return day
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The day value from the user request that contains the returned usage data. (If day was"
-              + " used the request)")
   @JsonProperty(JSON_PROPERTY_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getDay() {
@@ -76,10 +69,6 @@ public class UsageTopAvgMetricsMetadata {
    * @return month
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The month value from the user request that contains the returned usage data. (If month"
-              + " was used the request)")
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getMonth() {
@@ -102,7 +91,6 @@ public class UsageTopAvgMetricsMetadata {
    * @return pagination
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageTopAvgMetricsPagination getPagination() {

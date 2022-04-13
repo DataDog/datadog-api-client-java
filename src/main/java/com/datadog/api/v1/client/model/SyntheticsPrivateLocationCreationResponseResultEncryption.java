@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Public key for the result encryption. */
-@ApiModel(description = "Public key for the result encryption.")
 @JsonPropertyOrder({
   SyntheticsPrivateLocationCreationResponseResultEncryption.JSON_PROPERTY_ID,
   SyntheticsPrivateLocationCreationResponseResultEncryption.JSON_PROPERTY_KEY
@@ -44,7 +41,6 @@ public class SyntheticsPrivateLocationCreationResponseResultEncryption {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Fingerprint for the encryption key.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -66,7 +62,6 @@ public class SyntheticsPrivateLocationCreationResponseResultEncryption {
    * @return key
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Public key for result encryption.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getKey() {

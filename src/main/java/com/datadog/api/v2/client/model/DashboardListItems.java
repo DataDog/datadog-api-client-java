@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Dashboards within a list. */
-@ApiModel(description = "Dashboards within a list.")
 @JsonPropertyOrder({
   DashboardListItems.JSON_PROPERTY_DASHBOARDS,
   DashboardListItems.JSON_PROPERTY_TOTAL
@@ -64,10 +61,6 @@ public class DashboardListItems {
    *
    * @return dashboards
    */
-  @ApiModelProperty(
-      example = "[]",
-      required = true,
-      value = "List of dashboards in the dashboard list.")
   @JsonProperty(JSON_PROPERTY_DASHBOARDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<DashboardListItem> getDashboards() {
@@ -84,7 +77,6 @@ public class DashboardListItems {
    * @return total
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of dashboards in the dashboard list.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotal() {

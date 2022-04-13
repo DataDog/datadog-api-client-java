@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object containing an event response. */
-@ApiModel(description = "Object containing an event response.")
 @JsonPropertyOrder({
   EventCreateResponse.JSON_PROPERTY_EVENT,
   EventCreateResponse.JSON_PROPERTY_STATUS
@@ -45,7 +42,6 @@ public class EventCreateResponse {
    * @return event
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Event getEvent() {
@@ -67,7 +63,6 @@ public class EventCreateResponse {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A status.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {

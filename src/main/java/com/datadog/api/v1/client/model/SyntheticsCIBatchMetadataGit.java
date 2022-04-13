@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Git information. */
-@ApiModel(description = "Git information.")
 @JsonPropertyOrder({
   SyntheticsCIBatchMetadataGit.JSON_PROPERTY_BRANCH,
   SyntheticsCIBatchMetadataGit.JSON_PROPERTY_COMMIT_SHA
@@ -44,7 +41,6 @@ public class SyntheticsCIBatchMetadataGit {
    * @return branch
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Branch name.")
   @JsonProperty(JSON_PROPERTY_BRANCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBranch() {
@@ -66,7 +62,6 @@ public class SyntheticsCIBatchMetadataGit {
    * @return commitSha
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The commit SHA.")
   @JsonProperty(JSON_PROPERTY_COMMIT_SHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCommitSha() {

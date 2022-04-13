@@ -15,17 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** This processor extracts query parameters and other important parameters from a URL. */
-@ApiModel(
-    description =
-        "This processor extracts query parameters and other important parameters from a URL.")
 @JsonPropertyOrder({
   LogsURLParser.JSON_PROPERTY_IS_ENABLED,
   LogsURLParser.JSON_PROPERTY_NAME,
@@ -79,7 +74,6 @@ public class LogsURLParser {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -101,7 +95,6 @@ public class LogsURLParser {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -123,7 +116,6 @@ public class LogsURLParser {
    * @return normalizeEndingSlashes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Normalize the ending slashes or not.")
   @JsonIgnore
   public Boolean getNormalizeEndingSlashes() {
     return normalizeEndingSlashes.orElse(null);
@@ -159,10 +151,6 @@ public class LogsURLParser {
    *
    * @return sources
    */
-  @ApiModelProperty(
-      example = "[\"http.url\"]",
-      required = true,
-      value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getSources() {
@@ -184,12 +172,6 @@ public class LogsURLParser {
    *
    * @return target
    */
-  @ApiModelProperty(
-      example = "http.url_details",
-      required = true,
-      value =
-          "Name of the parent attribute that contains all the extracted details from the"
-              + " `sources`.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTarget() {
@@ -211,7 +193,6 @@ public class LogsURLParser {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsURLParserType getType() {

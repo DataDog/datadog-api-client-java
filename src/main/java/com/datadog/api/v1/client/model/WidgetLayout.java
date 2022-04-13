@@ -15,13 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The layout for a widget on a &#x60;free&#x60; or **new dashboard layout** dashboard. */
-@ApiModel(
-    description = "The layout for a widget on a `free` or **new dashboard layout** dashboard.")
 @JsonPropertyOrder({
   WidgetLayout.JSON_PROPERTY_HEIGHT,
   WidgetLayout.JSON_PROPERTY_IS_COLUMN_BREAK,
@@ -71,10 +67,6 @@ public class WidgetLayout {
    *
    * @return height
    */
-  @ApiModelProperty(
-      example = "0",
-      required = true,
-      value = "The height of the widget. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getHeight() {
@@ -98,11 +90,6 @@ public class WidgetLayout {
    * @return isColumnBreak
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Whether the widget should be the first one on the second column in high density or not."
-              + " **Note**: Only for the **new dashboard layout** and only one widget in the"
-              + " dashboard should have this property set to `true`.")
   @JsonProperty(JSON_PROPERTY_IS_COLUMN_BREAK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsColumnBreak() {
@@ -123,10 +110,6 @@ public class WidgetLayout {
    *
    * @return width
    */
-  @ApiModelProperty(
-      example = "0",
-      required = true,
-      value = "The width of the widget. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getWidth() {
@@ -148,12 +131,6 @@ public class WidgetLayout {
    *
    * @return x
    */
-  @ApiModelProperty(
-      example = "0",
-      required = true,
-      value =
-          "The position of the widget on the x (horizontal) axis. Should be a non-negative"
-              + " integer.")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getX() {
@@ -175,11 +152,6 @@ public class WidgetLayout {
    *
    * @return y
    */
-  @ApiModelProperty(
-      example = "0",
-      required = true,
-      value =
-          "The position of the widget on the y (vertical) axis. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getY() {

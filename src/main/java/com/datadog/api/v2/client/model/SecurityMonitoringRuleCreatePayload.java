@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Create a new rule. */
-@ApiModel(description = "Create a new rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_CASES,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_FILTERS,
@@ -110,7 +107,6 @@ public class SecurityMonitoringRuleCreatePayload {
    *
    * @return cases
    */
-  @ApiModelProperty(example = "[]", required = true, value = "Cases for generating signals.")
   @JsonProperty(JSON_PROPERTY_CASES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<SecurityMonitoringRuleCaseCreate> getCases() {
@@ -144,8 +140,6 @@ public class SecurityMonitoringRuleCreatePayload {
    * @return filters
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Additional queries to filter matched events before they are processed.")
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringFilter> getFilters() {
@@ -167,9 +161,6 @@ public class SecurityMonitoringRuleCreatePayload {
    * @return hasExtendedTitle
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "true",
-      value = "Whether the notifications include the triggering group-by values in their title.")
   @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasExtendedTitle() {
@@ -190,7 +181,6 @@ public class SecurityMonitoringRuleCreatePayload {
    *
    * @return isEnabled
    */
-  @ApiModelProperty(example = "true", required = true, value = "Whether the rule is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getIsEnabled() {
@@ -211,7 +201,6 @@ public class SecurityMonitoringRuleCreatePayload {
    *
    * @return message
    */
-  @ApiModelProperty(example = "", required = true, value = "Message for generated signals.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
@@ -232,10 +221,6 @@ public class SecurityMonitoringRuleCreatePayload {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "My security monitoring rule.",
-      required = true,
-      value = "The name of the rule.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -257,7 +242,6 @@ public class SecurityMonitoringRuleCreatePayload {
    *
    * @return options
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SecurityMonitoringRuleOptions getOptions() {
@@ -289,10 +273,6 @@ public class SecurityMonitoringRuleCreatePayload {
    *
    * @return queries
    */
-  @ApiModelProperty(
-      example = "[]",
-      required = true,
-      value = "Queries for selecting logs which are part of the rule.")
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<SecurityMonitoringRuleQueryCreate> getQueries() {
@@ -322,9 +302,6 @@ public class SecurityMonitoringRuleCreatePayload {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"env:prod\",\"team:security\"]",
-      value = "Tags for generated signals.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -347,7 +324,6 @@ public class SecurityMonitoringRuleCreatePayload {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleTypeCreate getType() {

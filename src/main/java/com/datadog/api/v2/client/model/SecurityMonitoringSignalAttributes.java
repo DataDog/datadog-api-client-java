@@ -14,8 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +22,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** The object containing all signal attributes and their associated values. */
-@ApiModel(description = "The object containing all signal attributes and their associated values.")
 @JsonPropertyOrder({
   SecurityMonitoringSignalAttributes.JSON_PROPERTY_ATTRIBUTES,
   SecurityMonitoringSignalAttributes.JSON_PROPERTY_MESSAGE,
@@ -65,11 +62,6 @@ public class SecurityMonitoringSignalAttributes {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "{\"workflow\":{\"first_seen\":\"2020-06-23T14:46:01.000Z\",\"last_seen\":\"2020-06-23T14:46:49.000Z\",\"rule\":{\"id\":\"0f5-e0c-805\",\"name\":\"Brute"
-              + " Force Attack Grouped By User \",\"version\":12}}}",
-      value = "A JSON object of attributes in the security signal.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Object> getAttributes() {
@@ -91,9 +83,6 @@ public class SecurityMonitoringSignalAttributes {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Detect Account Take Over (ATO) through brute force attempts",
-      value = "The message in the security signal defined by the rule that generated the signal.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -123,9 +112,6 @@ public class SecurityMonitoringSignalAttributes {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"security:attack\",\"technique:T1110-brute-force\"]",
-      value = "An array of tags associated with the security signal.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -147,9 +133,6 @@ public class SecurityMonitoringSignalAttributes {
    * @return timestamp
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2019-01-02T09:42:36.320Z",
-      value = "The timestamp of the security signal.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTimestamp() {

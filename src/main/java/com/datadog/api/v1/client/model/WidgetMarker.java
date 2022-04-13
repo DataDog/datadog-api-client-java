@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Markers allow you to add visual conditional formatting for your graphs. */
-@ApiModel(description = "Markers allow you to add visual conditional formatting for your graphs.")
 @JsonPropertyOrder({
   WidgetMarker.JSON_PROPERTY_DISPLAY_TYPE,
   WidgetMarker.JSON_PROPERTY_LABEL,
@@ -61,12 +58,6 @@ public class WidgetMarker {
    * @return displayType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "error dashed",
-      value =
-          "Combination of:   - A severity error, warning, ok, or info   - A line type: dashed,"
-              + " solid, or bold In this case of a Distribution widget, this can be set to be"
-              + " `x_axis_percentile`. ")
   @JsonProperty(JSON_PROPERTY_DISPLAY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayType() {
@@ -88,7 +79,6 @@ public class WidgetMarker {
    * @return label
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Error threshold", value = "Label to display over the marker.")
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLabel() {
@@ -110,7 +100,6 @@ public class WidgetMarker {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp for the widget.")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTime() {
@@ -131,10 +120,6 @@ public class WidgetMarker {
    *
    * @return value
    */
-  @ApiModelProperty(
-      example = "y = 15",
-      required = true,
-      value = "Value to apply. Can be a single value y = 15 or a range of values 0 < y < 10.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getValue() {

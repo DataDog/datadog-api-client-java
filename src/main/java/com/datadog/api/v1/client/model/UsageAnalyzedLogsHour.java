@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** The number of analyzed logs for each hour for a given organization. */
-@ApiModel(description = "The number of analyzed logs for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageAnalyzedLogsHour.JSON_PROPERTY_ANALYZED_LOGS,
   UsageAnalyzedLogsHour.JSON_PROPERTY_HOUR,
@@ -53,7 +50,6 @@ public class UsageAnalyzedLogsHour {
    * @return analyzedLogs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of analyzed logs.")
   @JsonProperty(JSON_PROPERTY_ANALYZED_LOGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAnalyzedLogs() {
@@ -75,7 +71,6 @@ public class UsageAnalyzedLogsHour {
    * @return hour
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -97,7 +92,6 @@ public class UsageAnalyzedLogsHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -119,7 +113,6 @@ public class UsageAnalyzedLogsHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

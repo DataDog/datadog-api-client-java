@@ -14,15 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response object with all logs matching the request and pagination information. */
-@ApiModel(
-    description = "Response object with all logs matching the request and pagination information.")
 @JsonPropertyOrder({
   LogsListResponse.JSON_PROPERTY_LOGS,
   LogsListResponse.JSON_PROPERTY_NEXT_LOG_ID,
@@ -63,7 +59,6 @@ public class LogsListResponse {
    * @return logs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of logs matching the request and the `nextLogId` if sent.")
   @JsonProperty(JSON_PROPERTY_LOGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Log> getLogs() {
@@ -86,10 +81,6 @@ public class LogsListResponse {
    * @return nextLogId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Hash identifier of the next log to return in the list. This parameter is used for the"
-              + " pagination feature.")
   @JsonProperty(JSON_PROPERTY_NEXT_LOG_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNextLogId() {
@@ -111,7 +102,6 @@ public class LogsListResponse {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Status of the response.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {

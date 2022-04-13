@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Datadog-Azure integrations configured for your organization. */
-@ApiModel(description = "Datadog-Azure integrations configured for your organization.")
 @JsonPropertyOrder({
   AzureAccount.JSON_PROPERTY_AUTOMUTE,
   AzureAccount.JSON_PROPERTY_CLIENT_ID,
@@ -70,7 +67,6 @@ public class AzureAccount {
    * @return automute
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "Silence monitors for expected Azure VM shutdowns.")
   @JsonProperty(JSON_PROPERTY_AUTOMUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAutomute() {
@@ -92,9 +88,6 @@ public class AzureAccount {
    * @return clientId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "testc7f6-1234-5678-9101-3fcbf464test",
-      value = "Your Azure web application ID.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientId() {
@@ -116,9 +109,6 @@ public class AzureAccount {
    * @return clientSecret
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "testingx./Sw*g/Y33t..R1cH+hScMDt",
-      value = "Your Azure web application secret key.")
   @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientSecret() {
@@ -148,7 +138,6 @@ public class AzureAccount {
    * @return errors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"*\"]", value = "Errors in your configuration.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getErrors() {
@@ -171,11 +160,6 @@ public class AzureAccount {
    * @return hostFilters
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "key:value,filter:example",
-      value =
-          "Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that"
-              + " match one of the defined tags are imported into Datadog.")
   @JsonProperty(JSON_PROPERTY_HOST_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHostFilters() {
@@ -197,9 +181,6 @@ public class AzureAccount {
    * @return newClientId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "new1c7f6-1234-5678-9101-3fcbf464test",
-      value = "Your New Azure web application ID.")
   @JsonProperty(JSON_PROPERTY_NEW_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNewClientId() {
@@ -221,9 +202,6 @@ public class AzureAccount {
    * @return newTenantName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "new1c44-1234-5678-9101-cc00736ftest",
-      value = "Your New Azure Active Directory ID.")
   @JsonProperty(JSON_PROPERTY_NEW_TENANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNewTenantName() {
@@ -245,9 +223,6 @@ public class AzureAccount {
    * @return tenantName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "testc44-1234-5678-9101-cc00736ftest",
-      value = "Your Azure Active Directory ID.")
   @JsonProperty(JSON_PROPERTY_TENANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTenantName() {

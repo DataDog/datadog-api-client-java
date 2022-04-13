@@ -15,16 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** A list of current AWS services for which Datadog offers automatic log collection. */
-@ApiModel(
-    description =
-        "A list of current AWS services for which Datadog offers automatic log collection.")
 @JsonPropertyOrder({
   AWSLogsServicesRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSLogsServicesRequest.JSON_PROPERTY_SERVICES
@@ -58,10 +53,6 @@ public class AWSLogsServicesRequest {
    *
    * @return accountId
    */
-  @ApiModelProperty(
-      example = "1234567",
-      required = true,
-      value = "Your AWS Account ID without dashes.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAccountId() {
@@ -88,12 +79,6 @@ public class AWSLogsServicesRequest {
    *
    * @return services
    */
-  @ApiModelProperty(
-      example = "[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]",
-      required = true,
-      value =
-          "Array of services IDs set to enable automatic log collection. Discover the list of"
-              + " available services with the get list of AWS log ready services API endpoint.")
   @JsonProperty(JSON_PROPERTY_SERVICES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getServices() {

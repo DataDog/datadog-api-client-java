@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** An object containing service check and status. */
-@ApiModel(description = "An object containing service check and status.")
 @JsonPropertyOrder({
   ServiceCheck.JSON_PROPERTY_CHECK,
   ServiceCheck.JSON_PROPERTY_HOST_NAME,
@@ -77,7 +74,6 @@ public class ServiceCheck {
    *
    * @return check
    */
-  @ApiModelProperty(example = "app.ok", required = true, value = "The check.")
   @JsonProperty(JSON_PROPERTY_CHECK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCheck() {
@@ -98,10 +94,6 @@ public class ServiceCheck {
    *
    * @return hostName
    */
-  @ApiModelProperty(
-      example = "app.host1",
-      required = true,
-      value = "The host name correlated with the check.")
   @JsonProperty(JSON_PROPERTY_HOST_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getHostName() {
@@ -123,7 +115,6 @@ public class ServiceCheck {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "app is running", value = "Message containing check status.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -145,7 +136,6 @@ public class ServiceCheck {
    *
    * @return status
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ServiceCheckStatus getStatus() {
@@ -174,10 +164,6 @@ public class ServiceCheck {
    *
    * @return tags
    */
-  @ApiModelProperty(
-      example = "[\"environment:test\"]",
-      required = true,
-      value = "Tags related to a check.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getTags() {
@@ -199,7 +185,6 @@ public class ServiceCheck {
    * @return timestamp
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time of check.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimestamp() {

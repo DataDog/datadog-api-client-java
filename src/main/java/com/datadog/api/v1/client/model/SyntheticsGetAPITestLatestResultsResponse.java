@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object with the latest Synthetic API test run. */
-@ApiModel(description = "Object with the latest Synthetic API test run.")
 @JsonPropertyOrder({
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_LAST_TIMESTAMP_FETCHED,
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_RESULTS
@@ -46,7 +43,6 @@ public class SyntheticsGetAPITestLatestResultsResponse {
    * @return lastTimestampFetched
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of the latest API test run.")
   @JsonProperty(JSON_PROPERTY_LAST_TIMESTAMP_FETCHED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastTimestampFetched() {
@@ -82,7 +78,6 @@ public class SyntheticsGetAPITestLatestResultsResponse {
    * @return results
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Result of the latest API test run.")
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsAPITestResultShort> getResults() {

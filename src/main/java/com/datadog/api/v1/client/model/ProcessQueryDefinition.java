@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The process query to use in the widget. */
-@ApiModel(description = "The process query to use in the widget.")
 @JsonPropertyOrder({
   ProcessQueryDefinition.JSON_PROPERTY_FILTER_BY,
   ProcessQueryDefinition.JSON_PROPERTY_LIMIT,
@@ -71,7 +68,6 @@ public class ProcessQueryDefinition {
    * @return filterBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of processes.")
   @JsonProperty(JSON_PROPERTY_FILTER_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getFilterBy() {
@@ -93,7 +89,6 @@ public class ProcessQueryDefinition {
    * @return limit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Max number of items in the filter list.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -114,7 +109,6 @@ public class ProcessQueryDefinition {
    *
    * @return metric
    */
-  @ApiModelProperty(example = "system.load.1", required = true, value = "Your chosen metric.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMetric() {
@@ -136,7 +130,6 @@ public class ProcessQueryDefinition {
    * @return searchBy
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Your chosen search term.")
   @JsonProperty(JSON_PROPERTY_SEARCH_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSearchBy() {

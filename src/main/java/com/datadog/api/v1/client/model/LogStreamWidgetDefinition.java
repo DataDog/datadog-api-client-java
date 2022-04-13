@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +23,6 @@ import java.util.Objects;
  * The Log Stream displays a log flow matching the defined query. Only available on FREE layout
  * dashboards.
  */
-@ApiModel(
-    description =
-        "The Log Stream displays a log flow matching the defined query. Only available on FREE"
-            + " layout dashboards.")
 @JsonPropertyOrder({
   LogStreamWidgetDefinition.JSON_PROPERTY_COLUMNS,
   LogStreamWidgetDefinition.JSON_PROPERTY_INDEXES,
@@ -115,7 +109,6 @@ public class LogStreamWidgetDefinition {
    * @return columns
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Which columns to display on the widget.")
   @JsonProperty(JSON_PROPERTY_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getColumns() {
@@ -145,10 +138,6 @@ public class LogStreamWidgetDefinition {
    * @return indexes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"days-3\",\"days-7\"]",
-      value =
-          "An array of index names to query in the stream. Use [] to query all indexes at once.")
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getIndexes() {
@@ -172,7 +161,6 @@ public class LogStreamWidgetDefinition {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the log set to use.")
   @JsonProperty(JSON_PROPERTY_LOGSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLogset() {
@@ -195,7 +183,6 @@ public class LogStreamWidgetDefinition {
    * @return messageDisplay
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MESSAGE_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetMessageDisplay getMessageDisplay() {
@@ -220,7 +207,6 @@ public class LogStreamWidgetDefinition {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query to filter the log stream with.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -242,7 +228,6 @@ public class LogStreamWidgetDefinition {
    * @return showDateColumn
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the date column or not")
   @JsonProperty(JSON_PROPERTY_SHOW_DATE_COLUMN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowDateColumn() {
@@ -264,7 +249,6 @@ public class LogStreamWidgetDefinition {
    * @return showMessageColumn
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the message column or not")
   @JsonProperty(JSON_PROPERTY_SHOW_MESSAGE_COLUMN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowMessageColumn() {
@@ -287,7 +271,6 @@ public class LogStreamWidgetDefinition {
    * @return sort
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetFieldSort getSort() {
@@ -310,7 +293,6 @@ public class LogStreamWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -332,7 +314,6 @@ public class LogStreamWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -355,7 +336,6 @@ public class LogStreamWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -380,7 +360,6 @@ public class LogStreamWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -402,7 +381,6 @@ public class LogStreamWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogStreamWidgetDefinitionType getType() {

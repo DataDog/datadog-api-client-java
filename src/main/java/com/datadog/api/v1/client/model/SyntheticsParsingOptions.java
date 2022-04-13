@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Parsing options for variables to extract. */
-@ApiModel(description = "Parsing options for variables to extract.")
 @JsonPropertyOrder({
   SyntheticsParsingOptions.JSON_PROPERTY_FIELD,
   SyntheticsParsingOptions.JSON_PROPERTY_NAME,
@@ -52,9 +49,6 @@ public class SyntheticsParsingOptions {
    * @return field
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "content-type",
-      value = "When type is `http_header`, name of the header to use to extract the value.")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getField() {
@@ -76,7 +70,6 @@ public class SyntheticsParsingOptions {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the variable to extract.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -99,7 +92,6 @@ public class SyntheticsParsingOptions {
    * @return parser
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARSER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsVariableParser getParser() {
@@ -122,7 +114,6 @@ public class SyntheticsParsingOptions {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsGlobalVariableParseTestOptionsType getType() {

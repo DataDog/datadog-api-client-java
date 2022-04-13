@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -26,11 +24,6 @@ import java.util.Objects;
  * **Note:** If multiple service remapper processors can be applied to a given log, only the first
  * one (according to the pipeline order) is taken into account.
  */
-@ApiModel(
-    description =
-        "Use this processor if you want to assign one or more attributes as the official service. "
-            + " **Note:** If multiple service remapper processors can be applied to a given log,"
-            + " only the first one (according to the pipeline order) is taken into account.")
 @JsonPropertyOrder({
   LogsServiceRemapper.JSON_PROPERTY_IS_ENABLED,
   LogsServiceRemapper.JSON_PROPERTY_NAME,
@@ -74,7 +67,6 @@ public class LogsServiceRemapper {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -96,7 +88,6 @@ public class LogsServiceRemapper {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -122,10 +113,6 @@ public class LogsServiceRemapper {
    *
    * @return sources
    */
-  @ApiModelProperty(
-      example = "[\"web\",\"gateway\"]",
-      required = true,
-      value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getSources() {
@@ -147,7 +134,6 @@ public class LogsServiceRemapper {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsServiceRemapperType getType() {

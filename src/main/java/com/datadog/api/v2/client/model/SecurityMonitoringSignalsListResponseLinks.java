@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Links attributes. */
-@ApiModel(description = "Links attributes.")
 @JsonPropertyOrder({SecurityMonitoringSignalsListResponseLinks.JSON_PROPERTY_NEXT})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringSignalsListResponseLinks {
@@ -39,12 +36,6 @@ public class SecurityMonitoringSignalsListResponseLinks {
    * @return next
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "https://app.datadoghq.com/api/v2/security_monitoring/signals?filter[query]=foo&page[cursor]=eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
-      value =
-          "The link for the next set of results. **Note**: The request can also be made using the"
-              + " POST endpoint.")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNext() {

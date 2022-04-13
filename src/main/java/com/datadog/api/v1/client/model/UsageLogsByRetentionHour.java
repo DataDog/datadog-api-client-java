@@ -14,18 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * The number of indexed logs for each hour for a given organization broken down by retention
  * period.
  */
-@ApiModel(
-    description =
-        "The number of indexed logs for each hour for a given organization broken down by"
-            + " retention period.")
 @JsonPropertyOrder({
   UsageLogsByRetentionHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT,
   UsageLogsByRetentionHour.JSON_PROPERTY_LIVE_INDEXED_EVENTS_COUNT,
@@ -67,7 +61,6 @@ public class UsageLogsByRetentionHour {
    * @return indexedEventsCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total logs indexed with this retention period during a given hour.")
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIndexedEventsCount() {
@@ -89,7 +82,6 @@ public class UsageLogsByRetentionHour {
    * @return liveIndexedEventsCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Live logs indexed with this retention period during a given hour.")
   @JsonProperty(JSON_PROPERTY_LIVE_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLiveIndexedEventsCount() {
@@ -111,7 +103,6 @@ public class UsageLogsByRetentionHour {
    * @return orgName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -133,7 +124,6 @@ public class UsageLogsByRetentionHour {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -155,8 +145,6 @@ public class UsageLogsByRetentionHour {
    * @return rehydratedIndexedEventsCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Rehydrated logs indexed with this retention period during a given hour.")
   @JsonProperty(JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRehydratedIndexedEventsCount() {
@@ -178,8 +166,6 @@ public class UsageLogsByRetentionHour {
    * @return retention
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The retention period in days or \"custom\" for all custom retention usage.")
   @JsonProperty(JSON_PROPERTY_RETENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRetention() {

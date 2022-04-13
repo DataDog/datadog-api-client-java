@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +22,6 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Test configuration for Synthetics CI */
-@ApiModel(description = "Test configuration for Synthetics CI")
 @JsonPropertyOrder({
   SyntheticsCITest.JSON_PROPERTY_ALLOW_INSECURE_CERTIFICATES,
   SyntheticsCITest.JSON_PROPERTY_BASIC_AUTH,
@@ -106,7 +103,6 @@ public class SyntheticsCITest {
    * @return allowInsecureCertificates
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Disable certificate checks in API tests.")
   @JsonProperty(JSON_PROPERTY_ALLOW_INSECURE_CERTIFICATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowInsecureCertificates() {
@@ -129,7 +125,6 @@ public class SyntheticsCITest {
    * @return basicAuth
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BASIC_AUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBasicAuth getBasicAuth() {
@@ -151,7 +146,6 @@ public class SyntheticsCITest {
    * @return body
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Body to include in the test.")
   @JsonProperty(JSON_PROPERTY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBody() {
@@ -173,7 +167,6 @@ public class SyntheticsCITest {
    * @return bodyType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Type of the data sent in a synthetics API test.")
   @JsonProperty(JSON_PROPERTY_BODY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBodyType() {
@@ -195,7 +188,6 @@ public class SyntheticsCITest {
    * @return cookies
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Cookies for the request.")
   @JsonProperty(JSON_PROPERTY_COOKIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCookies() {
@@ -226,8 +218,6 @@ public class SyntheticsCITest {
    * @return deviceIds
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "For browser test, array with the different device IDs used to run the test.")
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsDeviceID> getDeviceIds() {
@@ -249,7 +239,6 @@ public class SyntheticsCITest {
    * @return followRedirects
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For API HTTP test, whether or not the test should follow redirects.")
   @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getFollowRedirects() {
@@ -279,7 +268,6 @@ public class SyntheticsCITest {
    * @return headers
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Headers to include when performing the test.")
   @JsonProperty(JSON_PROPERTY_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getHeaders() {
@@ -309,9 +297,6 @@ public class SyntheticsCITest {
    * @return locations
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"aws:eu-west-3\"]",
-      value = "Array of locations used to run the test.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getLocations() {
@@ -334,7 +319,6 @@ public class SyntheticsCITest {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadata getMetadata() {
@@ -355,10 +339,6 @@ public class SyntheticsCITest {
    *
    * @return publicId
    */
-  @ApiModelProperty(
-      example = "aaa-aaa-aaa",
-      required = true,
-      value = "The public ID of the Synthetics test to trigger.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPublicId() {
@@ -381,7 +361,6 @@ public class SyntheticsCITest {
    * @return retry
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RETRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestOptionsRetry getRetry() {
@@ -403,7 +382,6 @@ public class SyntheticsCITest {
    * @return startUrl
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Starting URL for the browser test.")
   @JsonProperty(JSON_PROPERTY_START_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartUrl() {
@@ -433,7 +411,6 @@ public class SyntheticsCITest {
    * @return variables
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Variables to replace in the test.")
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getVariables() {

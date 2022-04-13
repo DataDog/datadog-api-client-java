@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The request for a security signal list. */
-@ApiModel(description = "The request for a security signal list.")
 @JsonPropertyOrder({
   SecurityMonitoringSignalListRequest.JSON_PROPERTY_FILTER,
   SecurityMonitoringSignalListRequest.JSON_PROPERTY_PAGE,
@@ -50,7 +47,6 @@ public class SecurityMonitoringSignalListRequest {
    * @return filter
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringSignalListRequestFilter getFilter() {
@@ -73,7 +69,6 @@ public class SecurityMonitoringSignalListRequest {
    * @return page
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringSignalListRequestPage getPage() {
@@ -96,7 +91,6 @@ public class SecurityMonitoringSignalListRequest {
    * @return sort
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringSignalsSort getSort() {

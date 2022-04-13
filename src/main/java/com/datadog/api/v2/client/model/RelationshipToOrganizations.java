@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Relationship to organizations. */
-@ApiModel(description = "Relationship to organizations.")
 @JsonPropertyOrder({RelationshipToOrganizations.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RelationshipToOrganizations {
@@ -58,10 +55,6 @@ public class RelationshipToOrganizations {
    *
    * @return data
    */
-  @ApiModelProperty(
-      example = "[]",
-      required = true,
-      value = "Relationships to organization objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<RelationshipToOrganizationData> getData() {

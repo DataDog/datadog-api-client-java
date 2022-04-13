@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object representing a graph snapshot. */
-@ApiModel(description = "Object representing a graph snapshot.")
 @JsonPropertyOrder({
   GraphSnapshot.JSON_PROPERTY_GRAPH_DEF,
   GraphSnapshot.JSON_PROPERTY_METRIC_QUERY,
@@ -51,12 +48,6 @@ public class GraphSnapshot {
    * @return graphDef
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A JSON document defining the graph. `graph_def` can be used instead of `metric_query`."
-              + " The JSON document uses the [grammar defined"
-              + " here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be"
-              + " formatted to a single line then URL encoded.")
   @JsonProperty(JSON_PROPERTY_GRAPH_DEF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGraphDef() {
@@ -78,7 +69,6 @@ public class GraphSnapshot {
    * @return metricQuery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The metric query. One of `metric_query` or `graph_def` is required.")
   @JsonProperty(JSON_PROPERTY_METRIC_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetricQuery() {
@@ -100,10 +90,6 @@ public class GraphSnapshot {
    * @return snapshotUrl
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "https://app.datadoghq.com/s/f12345678/aaa-bbb-ccc",
-      value =
-          "URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot).")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSnapshotUrl() {

@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The response containing attributes for specified custom reports. */
-@ApiModel(description = "The response containing attributes for specified custom reports.")
 @JsonPropertyOrder({
   UsageSpecifiedCustomReportsAttributes.JSON_PROPERTY_COMPUTED_ON,
   UsageSpecifiedCustomReportsAttributes.JSON_PROPERTY_END_DATE,
@@ -62,7 +59,6 @@ public class UsageSpecifiedCustomReportsAttributes {
    * @return computedOn
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date the specified custom report was computed.")
   @JsonProperty(JSON_PROPERTY_COMPUTED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getComputedOn() {
@@ -84,7 +80,6 @@ public class UsageSpecifiedCustomReportsAttributes {
    * @return endDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ending date of specified custom report.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEndDate() {
@@ -106,9 +101,6 @@ public class UsageSpecifiedCustomReportsAttributes {
    * @return location
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "https://an-s3-or-gs-bucket.s3.amazonaws.com",
-      value = "A downloadable file for the specified custom reporting file.")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLocation() {
@@ -130,7 +122,6 @@ public class UsageSpecifiedCustomReportsAttributes {
    * @return size
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "size")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSize() {
@@ -152,7 +143,6 @@ public class UsageSpecifiedCustomReportsAttributes {
    * @return startDate
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The starting date of specified custom report.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartDate() {
@@ -182,7 +172,6 @@ public class UsageSpecifiedCustomReportsAttributes {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of tags to apply to specified custom reports.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

@@ -14,15 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object containing all metric names returned and their associated metadata. */
-@ApiModel(
-    description = "Object containing all metric names returned and their associated metadata.")
 @JsonPropertyOrder({
   MetricsQueryMetadata.JSON_PROPERTY_AGGR,
   MetricsQueryMetadata.JSON_PROPERTY_DISPLAY_NAME,
@@ -86,7 +82,6 @@ public class MetricsQueryMetadata {
    * @return aggr
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "avg", value = "Aggregation type.")
   @JsonIgnore
   public String getAggr() {
 
@@ -113,7 +108,6 @@ public class MetricsQueryMetadata {
    * @return displayName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "system.cpu.idle", value = "Display name of the metric.")
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayName() {
@@ -126,7 +120,6 @@ public class MetricsQueryMetadata {
    * @return end
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "End of the time window, milliseconds since Unix epoch.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
@@ -139,7 +132,6 @@ public class MetricsQueryMetadata {
    * @return expression
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "system.cpu.idle{host:foo,env:test}", value = "Metric expression.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpression() {
@@ -152,7 +144,6 @@ public class MetricsQueryMetadata {
    * @return interval
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of seconds between data samples.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInterval() {
@@ -165,7 +156,6 @@ public class MetricsQueryMetadata {
    * @return length
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of data samples.")
   @JsonProperty(JSON_PROPERTY_LENGTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLength() {
@@ -178,7 +168,6 @@ public class MetricsQueryMetadata {
    * @return metric
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "system.cpu.idle", value = "Metric name.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -191,7 +180,6 @@ public class MetricsQueryMetadata {
    * @return pointlist
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of points of the time series.")
   @JsonProperty(JSON_PROPERTY_POINTLIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<List<Double>> getPointlist() {
@@ -204,7 +192,6 @@ public class MetricsQueryMetadata {
    * @return queryIndex
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The index of the series' query within the request.")
   @JsonProperty(JSON_PROPERTY_QUERY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getQueryIndex() {
@@ -217,9 +204,6 @@ public class MetricsQueryMetadata {
    * @return scope
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "host:foo,env:test",
-      value = "Metric scope, comma separated list of tags.")
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getScope() {
@@ -232,7 +216,6 @@ public class MetricsQueryMetadata {
    * @return start
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Start of the time window, milliseconds since Unix epoch.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStart() {
@@ -245,7 +228,6 @@ public class MetricsQueryMetadata {
    * @return tagSet
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique tags identifying this series.")
   @JsonProperty(JSON_PROPERTY_TAG_SET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTagSet() {
@@ -260,11 +242,6 @@ public class MetricsQueryMetadata {
    * @return unit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Detailed information about the metric unit. First element describes the \"primary"
-              + " unit\" (for example, `bytes` in `bytes per second`), second describes the \"per"
-              + " unit\" (for example, `second` in `bytes per second`).")
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MetricsQueryUnit> getUnit() {

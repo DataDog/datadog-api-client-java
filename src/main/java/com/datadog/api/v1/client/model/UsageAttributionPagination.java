@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The metadata for the current pagination. */
-@ApiModel(description = "The metadata for the current pagination.")
 @JsonPropertyOrder({
   UsageAttributionPagination.JSON_PROPERTY_LIMIT,
   UsageAttributionPagination.JSON_PROPERTY_OFFSET,
@@ -56,7 +53,6 @@ public class UsageAttributionPagination {
    * @return limit
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Maximum amount of records to be returned.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -78,7 +74,6 @@ public class UsageAttributionPagination {
    * @return offset
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Records to be skipped before beginning to return.")
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOffset() {
@@ -100,7 +95,6 @@ public class UsageAttributionPagination {
    * @return sortDirection
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Direction to sort by.")
   @JsonProperty(JSON_PROPERTY_SORT_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSortDirection() {
@@ -122,7 +116,6 @@ public class UsageAttributionPagination {
    * @return sortName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Field to sort by.")
   @JsonProperty(JSON_PROPERTY_SORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSortName() {
@@ -144,7 +137,6 @@ public class UsageAttributionPagination {
    * @return totalNumberOfRecords
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total number of records.")
   @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalNumberOfRecords() {

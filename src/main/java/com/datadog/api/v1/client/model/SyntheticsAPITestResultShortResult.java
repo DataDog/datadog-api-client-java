@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Result of the last API test run. */
-@ApiModel(description = "Result of the last API test run.")
 @JsonPropertyOrder({
   SyntheticsAPITestResultShortResult.JSON_PROPERTY_PASSED,
   SyntheticsAPITestResultShortResult.JSON_PROPERTY_TIMINGS
@@ -44,7 +41,6 @@ public class SyntheticsAPITestResultShortResult {
    * @return passed
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Describes if the test run has passed or failed.")
   @JsonProperty(JSON_PROPERTY_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPassed() {
@@ -67,7 +63,6 @@ public class SyntheticsAPITestResultShortResult {
    * @return timings
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIMINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTiming getTimings() {

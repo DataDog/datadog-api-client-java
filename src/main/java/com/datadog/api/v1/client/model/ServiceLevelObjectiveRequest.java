@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -26,10 +24,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * A service level objective object includes a service level indicator, thresholds for one or more
  * timeframes, and metadata (&#x60;name&#x60;, &#x60;description&#x60;, &#x60;tags&#x60;, etc.).
  */
-@ApiModel(
-    description =
-        "A service level objective object includes a service level indicator, thresholds for one"
-            + " or more timeframes, and metadata (`name`, `description`, `tags`, etc.).")
 @JsonPropertyOrder({
   ServiceLevelObjectiveRequest.JSON_PROPERTY_DESCRIPTION,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_GROUPS,
@@ -93,11 +87,6 @@ public class ServiceLevelObjectiveRequest {
    * @return description
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A user-defined description of the service level objective.  Always included in service"
-              + " level objective responses (but may be `null`). Optional in create/update"
-              + " requests.")
   @JsonIgnore
   public String getDescription() {
     return description.orElse(null);
@@ -140,13 +129,6 @@ public class ServiceLevelObjectiveRequest {
    * @return groups
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"env:prod\",\"role:mysql\"]",
-      value =
-          "A list of (up to 20) monitor groups that narrow the scope of a monitor service level"
-              + " objective.  Included in service level objective responses if it is not empty."
-              + " Optional in create/update requests for monitor service level objectives, but may"
-              + " only be used when then length of the `monitor_ids` field is one.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroups() {
@@ -177,10 +159,6 @@ public class ServiceLevelObjectiveRequest {
    * @return monitorIds
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A list of monitor ids that defines the scope of a monitor service level objective."
-              + " **Required if type is `monitor`**.")
   @JsonProperty(JSON_PROPERTY_MONITOR_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Long> getMonitorIds() {
@@ -201,10 +179,6 @@ public class ServiceLevelObjectiveRequest {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "Custom Metric SLO",
-      required = true,
-      value = "The name of the service level objective object.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -227,7 +201,6 @@ public class ServiceLevelObjectiveRequest {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ServiceLevelObjectiveQuery getQuery() {
@@ -258,12 +231,6 @@ public class ServiceLevelObjectiveRequest {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"env:prod\",\"app:core\"]",
-      value =
-          "A list of tags associated with this service level objective. Always included in service"
-              + " level objective responses (but may be empty). Optional in create/update"
-              + " requests.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -293,13 +260,6 @@ public class ServiceLevelObjectiveRequest {
    *
    * @return thresholds
    */
-  @ApiModelProperty(
-      example =
-          "[{\"target\":95,\"timeframe\":\"7d\"},{\"target\":95,\"timeframe\":\"30d\",\"warning\":97}]",
-      required = true,
-      value =
-          "The thresholds (timeframes and associated targets) for this service level objective"
-              + " object.")
   @JsonProperty(JSON_PROPERTY_THRESHOLDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<SLOThreshold> getThresholds() {
@@ -321,7 +281,6 @@ public class ServiceLevelObjectiveRequest {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SLOType getType() {

@@ -15,14 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing the attributes of the security filter to be created. */
-@ApiModel(description = "Object containing the attributes of the security filter to be created.")
 @JsonPropertyOrder({
   SecurityFilterCreateAttributes.JSON_PROPERTY_EXCLUSION_FILTERS,
   SecurityFilterCreateAttributes.JSON_PROPERTY_FILTERED_DATA_TYPE,
@@ -88,10 +85,6 @@ public class SecurityFilterCreateAttributes {
    *
    * @return exclusionFilters
    */
-  @ApiModelProperty(
-      example = "[{\"name\":\"Exclude staging\",\"query\":\"source:staging\"}]",
-      required = true,
-      value = "Exclusion filters to exclude some logs from the security filter.")
   @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<SecurityFilterExclusionFilter> getExclusionFilters() {
@@ -114,7 +107,6 @@ public class SecurityFilterCreateAttributes {
    *
    * @return filteredDataType
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FILTERED_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SecurityFilterFilteredDataType getFilteredDataType() {
@@ -138,10 +130,6 @@ public class SecurityFilterCreateAttributes {
    *
    * @return isEnabled
    */
-  @ApiModelProperty(
-      example = "true",
-      required = true,
-      value = "Whether the security filter is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getIsEnabled() {
@@ -162,10 +150,6 @@ public class SecurityFilterCreateAttributes {
    *
    * @return name
    */
-  @ApiModelProperty(
-      example = "Custom security filter",
-      required = true,
-      value = "The name of the security filter.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -186,10 +170,6 @@ public class SecurityFilterCreateAttributes {
    *
    * @return query
    */
-  @ApiModelProperty(
-      example = "service:api",
-      required = true,
-      value = "The query of the security filter.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {

@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The API test failure details. */
-@ApiModel(description = "The API test failure details.")
 @JsonPropertyOrder({
   SyntheticsApiTestResultFailure.JSON_PROPERTY_CODE,
   SyntheticsApiTestResultFailure.JSON_PROPERTY_MESSAGE
@@ -45,7 +42,6 @@ public class SyntheticsApiTestResultFailure {
    * @return code
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsApiTestFailureCode getCode() {
@@ -70,9 +66,6 @@ public class SyntheticsApiTestResultFailure {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Error during DNS resolution (ENOTFOUND).",
-      value = "The API test error message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {

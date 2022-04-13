@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Response with aggregated usage types. */
-@ApiModel(description = "Response with aggregated usage types.")
 @JsonPropertyOrder({
   UsageBillableSummaryKeys.JSON_PROPERTY_APM_HOST_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_APM_HOST_TOP99P,
@@ -167,7 +164,6 @@ public class UsageBillableSummaryKeys {
    * @return apmHostSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APM_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getApmHostSum() {
@@ -190,7 +186,6 @@ public class UsageBillableSummaryKeys {
    * @return apmHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getApmHostTop99p() {
@@ -213,7 +208,6 @@ public class UsageBillableSummaryKeys {
    * @return apmTraceSearchSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APM_TRACE_SEARCH_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getApmTraceSearchSum() {
@@ -237,7 +231,6 @@ public class UsageBillableSummaryKeys {
    * @return fargateContainerAverage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getFargateContainerAverage() {
@@ -260,7 +253,6 @@ public class UsageBillableSummaryKeys {
    * @return infraContainerSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INFRA_CONTAINER_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getInfraContainerSum() {
@@ -283,7 +275,6 @@ public class UsageBillableSummaryKeys {
    * @return infraHostSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getInfraHostSum() {
@@ -306,7 +297,6 @@ public class UsageBillableSummaryKeys {
    * @return infraHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getInfraHostTop99p() {
@@ -329,7 +319,6 @@ public class UsageBillableSummaryKeys {
    * @return iotTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IOT_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getIotTop99p() {
@@ -353,7 +342,6 @@ public class UsageBillableSummaryKeys {
    * @return lambdaFunctionAverage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAMBDA_FUNCTION_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLambdaFunctionAverage() {
@@ -377,7 +365,6 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed15daySum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED15DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed15daySum() {
@@ -401,7 +388,6 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed180daySum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED180DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed180daySum() {
@@ -425,7 +411,6 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed30daySum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED30DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed30daySum() {
@@ -448,7 +433,6 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed3daySum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED3DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed3daySum() {
@@ -472,7 +456,6 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed45daySum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED45DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed45daySum() {
@@ -496,7 +479,6 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed60daySum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED60DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed60daySum() {
@@ -519,7 +501,6 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed7daySum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED7DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed7daySum() {
@@ -543,7 +524,6 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexed90daySum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED90DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed90daySum() {
@@ -567,7 +547,6 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexedCustomRetentionSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_CUSTOM_RETENTION_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexedCustomRetentionSum() {
@@ -591,7 +570,6 @@ public class UsageBillableSummaryKeys {
    * @return logsIndexedSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexedSum() {
@@ -614,7 +592,6 @@ public class UsageBillableSummaryKeys {
    * @return logsIngestedSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS_INGESTED_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIngestedSum() {
@@ -638,7 +615,6 @@ public class UsageBillableSummaryKeys {
    * @return networkDeviceTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NETWORK_DEVICE_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getNetworkDeviceTop99p() {
@@ -661,7 +637,6 @@ public class UsageBillableSummaryKeys {
    * @return npmFlowSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NPM_FLOW_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getNpmFlowSum() {
@@ -684,7 +659,6 @@ public class UsageBillableSummaryKeys {
    * @return npmHostSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NPM_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getNpmHostSum() {
@@ -707,7 +681,6 @@ public class UsageBillableSummaryKeys {
    * @return npmHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NPM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getNpmHostTop99p() {
@@ -730,7 +703,6 @@ public class UsageBillableSummaryKeys {
    * @return profContainerSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROF_CONTAINER_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getProfContainerSum() {
@@ -753,7 +725,6 @@ public class UsageBillableSummaryKeys {
    * @return profHostTop99p
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROF_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getProfHostTop99p() {
@@ -776,7 +747,6 @@ public class UsageBillableSummaryKeys {
    * @return rumSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RUM_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getRumSum() {
@@ -800,7 +770,6 @@ public class UsageBillableSummaryKeys {
    * @return serverlessInvocationSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SERVERLESS_INVOCATION_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getServerlessInvocationSum() {
@@ -823,7 +792,6 @@ public class UsageBillableSummaryKeys {
    * @return siemSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIEM_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getSiemSum() {
@@ -847,7 +815,6 @@ public class UsageBillableSummaryKeys {
    * @return syntheticsApiTestsSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_API_TESTS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getSyntheticsApiTestsSum() {
@@ -871,7 +838,6 @@ public class UsageBillableSummaryKeys {
    * @return syntheticsBrowserChecksSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_BROWSER_CHECKS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getSyntheticsBrowserChecksSum() {
@@ -894,7 +860,6 @@ public class UsageBillableSummaryKeys {
    * @return timeseriesAverage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIMESERIES_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getTimeseriesAverage() {

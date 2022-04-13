@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -28,14 +26,6 @@ import java.util.Objects;
  * constraints are applied as &#x60;:&#x60; or &#x60;,&#x60; are not allowed in the target
  * tag/attribute name.
  */
-@ApiModel(
-    description =
-        "The remapper processor remaps any source attribute(s) or tag to another target attribute"
-            + " or tag. Constraints on the tag/attribute name are explained in the [Tag Best"
-            + " Practice"
-            + " documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice)."
-            + " Some additional constraints are applied as `:` or `,` are not allowed in the"
-            + " target tag/attribute name.")
 @JsonPropertyOrder({
   LogsAttributeRemapper.JSON_PROPERTY_IS_ENABLED,
   LogsAttributeRemapper.JSON_PROPERTY_NAME,
@@ -105,7 +95,6 @@ public class LogsAttributeRemapper {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -127,7 +116,6 @@ public class LogsAttributeRemapper {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -149,7 +137,6 @@ public class LogsAttributeRemapper {
    * @return overrideOnConflict
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Override or not the target element if already set,")
   @JsonProperty(JSON_PROPERTY_OVERRIDE_ON_CONFLICT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getOverrideOnConflict() {
@@ -171,7 +158,6 @@ public class LogsAttributeRemapper {
    * @return preserveSource
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Remove or preserve the remapped source element.")
   @JsonProperty(JSON_PROPERTY_PRESERVE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPreserveSource() {
@@ -193,7 +179,6 @@ public class LogsAttributeRemapper {
    * @return sourceType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Defines if the sources are from log `attribute` or `tag`.")
   @JsonProperty(JSON_PROPERTY_SOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSourceType() {
@@ -219,10 +204,6 @@ public class LogsAttributeRemapper {
    *
    * @return sources
    */
-  @ApiModelProperty(
-      example = "[\"web\",\"gateway\"]",
-      required = true,
-      value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getSources() {
@@ -243,10 +224,6 @@ public class LogsAttributeRemapper {
    *
    * @return target
    */
-  @ApiModelProperty(
-      example = "operation_id",
-      required = true,
-      value = "Final attribute or tag name to remap the sources to.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTarget() {
@@ -269,7 +246,6 @@ public class LogsAttributeRemapper {
    * @return targetFormat
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TARGET_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TargetFormatType getTargetFormat() {
@@ -295,8 +271,6 @@ public class LogsAttributeRemapper {
    * @return targetType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Defines if the final attribute or tag name is from log `attribute` or `tag`.")
   @JsonProperty(JSON_PROPERTY_TARGET_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTargetType() {
@@ -318,7 +292,6 @@ public class LogsAttributeRemapper {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsAttributeRemapperType getType() {

@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** PagerDuty service object key. */
-@ApiModel(description = "PagerDuty service object key.")
 @JsonPropertyOrder({PagerDutyServiceKey.JSON_PROPERTY_SERVICE_KEY})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PagerDutyServiceKey {
@@ -46,7 +43,6 @@ public class PagerDutyServiceKey {
    *
    * @return serviceKey
    */
-  @ApiModelProperty(example = "", required = true, value = "Your service key in PagerDuty.")
   @JsonProperty(JSON_PROPERTY_SERVICE_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getServiceKey() {

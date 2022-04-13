@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Invalid query performed. */
-@ApiModel(description = "Invalid query performed.")
 @JsonPropertyOrder({HTTPLogErrors.JSON_PROPERTY_ERRORS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HTTPLogErrors {
@@ -52,7 +49,6 @@ public class HTTPLogErrors {
    * @return errors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Structured errors.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<HTTPLogError> getErrors() {

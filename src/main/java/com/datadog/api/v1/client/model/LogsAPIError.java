@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Error returned by the Logs API */
-@ApiModel(description = "Error returned by the Logs API")
 @JsonPropertyOrder({
   LogsAPIError.JSON_PROPERTY_CODE,
   LogsAPIError.JSON_PROPERTY_DETAILS,
@@ -50,7 +47,6 @@ public class LogsAPIError {
    * @return code
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Code identifying the error")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCode() {
@@ -84,7 +80,6 @@ public class LogsAPIError {
    * @return details
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Additional error details")
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsAPIError> getDetails() {
@@ -106,7 +101,6 @@ public class LogsAPIError {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Error message")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {

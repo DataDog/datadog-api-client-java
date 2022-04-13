@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Set a timeseries on the widget background. */
-@ApiModel(description = "Set a timeseries on the widget background.")
 @JsonPropertyOrder({
   TimeseriesBackground.JSON_PROPERTY_TYPE,
   TimeseriesBackground.JSON_PROPERTY_YAXIS
@@ -54,7 +51,6 @@ public class TimeseriesBackground {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TimeseriesBackgroundType getType() {
@@ -80,7 +76,6 @@ public class TimeseriesBackground {
    * @return yaxis
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetAxis getYaxis() {

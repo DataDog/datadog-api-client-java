@@ -15,19 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * Object defining a variable that can be used in your browser test. Learn more in the [Browser test
  * Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
  */
-@ApiModel(
-    description =
-        "Object defining a variable that can be used in your browser test. Learn more in the"
-            + " [Browser test Actions"
-            + " documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).")
 @JsonPropertyOrder({
   SyntheticsBrowserVariable.JSON_PROPERTY_EXAMPLE,
   SyntheticsBrowserVariable.JSON_PROPERTY_ID,
@@ -76,7 +69,6 @@ public class SyntheticsBrowserVariable {
    * @return example
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Example for the variable.")
   @JsonProperty(JSON_PROPERTY_EXAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExample() {
@@ -98,7 +90,6 @@ public class SyntheticsBrowserVariable {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID for the variable. Global variables require an ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -119,7 +110,6 @@ public class SyntheticsBrowserVariable {
    *
    * @return name
    */
-  @ApiModelProperty(example = "VARIABLE_NAME", required = true, value = "Name of the variable.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -141,7 +131,6 @@ public class SyntheticsBrowserVariable {
    * @return pattern
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pattern of the variable.")
   @JsonProperty(JSON_PROPERTY_PATTERN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPattern() {
@@ -163,7 +152,6 @@ public class SyntheticsBrowserVariable {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBrowserVariableType getType() {

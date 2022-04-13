@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The incident&#39;s relationships for an update request. */
-@ApiModel(description = "The incident's relationships for an update request.")
 @JsonPropertyOrder({
   IncidentUpdateRelationships.JSON_PROPERTY_COMMANDER_USER,
   IncidentUpdateRelationships.JSON_PROPERTY_INTEGRATIONS,
@@ -49,7 +46,6 @@ public class IncidentUpdateRelationships {
    * @return commanderUser
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NullableRelationshipToUser getCommanderUser() {
@@ -73,7 +69,6 @@ public class IncidentUpdateRelationships {
    * @return integrations
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToIncidentIntegrationMetadatas getIntegrations() {
@@ -96,7 +91,6 @@ public class IncidentUpdateRelationships {
    * @return postmortem
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_POSTMORTEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToIncidentPostmortem getPostmortem() {

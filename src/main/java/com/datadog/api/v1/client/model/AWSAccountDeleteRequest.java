@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** List of AWS accounts to delete. */
-@ApiModel(description = "List of AWS accounts to delete.")
 @JsonPropertyOrder({
   AWSAccountDeleteRequest.JSON_PROPERTY_ACCESS_KEY_ID,
   AWSAccountDeleteRequest.JSON_PROPERTY_ACCOUNT_ID,
@@ -48,10 +45,6 @@ public class AWSAccountDeleteRequest {
    * @return accessKeyId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Your AWS access key ID. Only required if your AWS account is a GovCloud or China"
-              + " account.")
   @JsonProperty(JSON_PROPERTY_ACCESS_KEY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccessKeyId() {
@@ -73,7 +66,6 @@ public class AWSAccountDeleteRequest {
    * @return accountId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1234567", value = "Your AWS Account ID without dashes.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountId() {
@@ -95,9 +87,6 @@ public class AWSAccountDeleteRequest {
    * @return roleName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "DatadogAWSIntegrationRole",
-      value = "Your Datadog role delegation name.")
   @JsonProperty(JSON_PROPERTY_ROLE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRoleName() {

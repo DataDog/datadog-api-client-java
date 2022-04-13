@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Define a conditional format for the widget. */
-@ApiModel(description = "Define a conditional format for the widget.")
 @JsonPropertyOrder({
   WidgetConditionalFormat.JSON_PROPERTY_COMPARATOR,
   WidgetConditionalFormat.JSON_PROPERTY_CUSTOM_BG_COLOR,
@@ -87,7 +84,6 @@ public class WidgetConditionalFormat {
    *
    * @return comparator
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COMPARATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public WidgetComparator getComparator() {
@@ -112,8 +108,6 @@ public class WidgetConditionalFormat {
    * @return customBgColor
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Color palette to apply to the background, same values available as palette.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_BG_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomBgColor() {
@@ -135,8 +129,6 @@ public class WidgetConditionalFormat {
    * @return customFgColor
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Color palette to apply to the foreground, same values available as palette.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FG_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomFgColor() {
@@ -158,7 +150,6 @@ public class WidgetConditionalFormat {
    * @return hideValue
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "True hides values.")
   @JsonProperty(JSON_PROPERTY_HIDE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHideValue() {
@@ -180,7 +171,6 @@ public class WidgetConditionalFormat {
    * @return imageUrl
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Displays an image as the background.")
   @JsonProperty(JSON_PROPERTY_IMAGE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getImageUrl() {
@@ -202,7 +192,6 @@ public class WidgetConditionalFormat {
    * @return metric
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metric from the request to correlate this conditional format with.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -224,7 +213,6 @@ public class WidgetConditionalFormat {
    *
    * @return palette
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public WidgetPalette getPalette() {
@@ -249,7 +237,6 @@ public class WidgetConditionalFormat {
    * @return timeframe
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Defines the displayed timeframe.")
   @JsonProperty(JSON_PROPERTY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimeframe() {
@@ -270,7 +257,6 @@ public class WidgetConditionalFormat {
    *
    * @return value
    */
-  @ApiModelProperty(example = "0.0", required = true, value = "Value for the comparator.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Double getValue() {

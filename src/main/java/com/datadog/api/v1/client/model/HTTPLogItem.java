@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Logs that are sent over HTTP. */
-@ApiModel(description = "Logs that are sent over HTTP.")
 @JsonPropertyOrder({
   HTTPLogItem.JSON_PROPERTY_DDSOURCE,
   HTTPLogItem.JSON_PROPERTY_DDTAGS,
@@ -67,13 +64,6 @@ public class HTTPLogItem {
    * @return ddsource
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "nginx",
-      value =
-          "The integration name associated with your log: the technology from which the log"
-              + " originated. When it matches an integration name, Datadog automatically installs"
-              + " the corresponding parsers and facets. See [reserved"
-              + " attributes](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes).")
   @JsonProperty(JSON_PROPERTY_DDSOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDdsource() {
@@ -95,7 +85,6 @@ public class HTTPLogItem {
    * @return ddtags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "env:staging,version:5.1", value = "Tags associated with your logs.")
   @JsonProperty(JSON_PROPERTY_DDTAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDdtags() {
@@ -117,7 +106,6 @@ public class HTTPLogItem {
    * @return hostname
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "i-012345678", value = "The name of the originating host of the log.")
   @JsonProperty(JSON_PROPERTY_HOSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHostname() {
@@ -142,15 +130,6 @@ public class HTTPLogItem {
    *
    * @return message
    */
-  @ApiModelProperty(
-      example = "2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World",
-      required = true,
-      value =
-          "The message [reserved"
-              + " attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes)"
-              + " of your log. By default, Datadog ingests the value of the message attribute as"
-              + " the body of the log entry. That value is then highlighted and displayed in the"
-              + " Logstream, where it is indexed for full text search.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
@@ -174,13 +153,6 @@ public class HTTPLogItem {
    * @return service
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "payment",
-      value =
-          "The name of the application or service generating the log events. It is used to switch"
-              + " from Logs to APM, so make sure you define the same value when you use both"
-              + " products. See [reserved"
-              + " attributes](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes).")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getService() {

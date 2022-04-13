@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -26,11 +24,6 @@ import java.util.Objects;
  * tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is quantity rather than
  * time.
  */
-@ApiModel(
-    description =
-        "The Distribution visualization is another way of showing metrics aggregated across one or"
-            + " several tags, such as hosts. Unlike the heat map, a distribution graph’s x-axis is"
-            + " quantity rather than time.")
 @JsonPropertyOrder({
   DistributionWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   DistributionWidgetDefinition.JSON_PROPERTY_MARKERS,
@@ -106,7 +99,6 @@ public class DistributionWidgetDefinition {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "(Deprecated) The widget legend was replaced by a tooltip and sidebar.")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegendSize() {
@@ -140,7 +132,6 @@ public class DistributionWidgetDefinition {
    * @return markers
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of markers.")
   @JsonProperty(JSON_PROPERTY_MARKERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetMarker> getMarkers() {
@@ -172,14 +163,6 @@ public class DistributionWidgetDefinition {
    *
    * @return requests
    */
-  @ApiModelProperty(
-      example = "[{\"q\":\"host:X tags:Y\"}]",
-      required = true,
-      value =
-          "Array of one request object to display in the widget.  See the dedicated [Request JSON"
-              + " schema"
-              + " documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)"
-              + "  to learn how to build the `REQUEST_SCHEMA`.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<DistributionWidgetRequest> getRequests() {
@@ -203,7 +186,6 @@ public class DistributionWidgetDefinition {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "(Deprecated) The widget legend was replaced by a tooltip and sidebar.")
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowLegend() {
@@ -226,7 +208,6 @@ public class DistributionWidgetDefinition {
    * @return time
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -248,7 +229,6 @@ public class DistributionWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -271,7 +251,6 @@ public class DistributionWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -296,7 +275,6 @@ public class DistributionWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -318,7 +296,6 @@ public class DistributionWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public DistributionWidgetDefinitionType getType() {
@@ -344,7 +321,6 @@ public class DistributionWidgetDefinition {
    * @return xaxis
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_XAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DistributionWidgetXAxis getXaxis() {
@@ -367,7 +343,6 @@ public class DistributionWidgetDefinition {
    * @return yaxis
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DistributionWidgetYAxis getYaxis() {

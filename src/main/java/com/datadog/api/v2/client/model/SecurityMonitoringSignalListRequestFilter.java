@@ -14,13 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** Search filters for listing security signals. */
-@ApiModel(description = "Search filters for listing security signals.")
 @JsonPropertyOrder({
   SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_FROM,
   SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_QUERY,
@@ -49,9 +46,6 @@ public class SecurityMonitoringSignalListRequestFilter {
    * @return from
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2019-01-02T09:42:36.320Z",
-      value = "The minimum timestamp for requested security signals.")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getFrom() {
@@ -73,9 +67,6 @@ public class SecurityMonitoringSignalListRequestFilter {
    * @return query
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "security:attack status:high",
-      value = "Search query for listing security signals.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -97,9 +88,6 @@ public class SecurityMonitoringSignalListRequestFilter {
    * @return to
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2019-01-03T09:42:36.320Z",
-      value = "The maximum timestamp for requested security signals.")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTo() {

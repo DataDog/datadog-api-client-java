@@ -15,18 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
  * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset
  * based on a query. Only available on FREE layout dashboards.
  */
-@ApiModel(
-    description =
-        "The monitor summary widget displays a summary view of all your Datadog monitors, or a"
-            + " subset based on a query. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_COLOR_PREFERENCE,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_COUNT,
@@ -109,7 +103,6 @@ public class MonitorSummaryWidgetDefinition {
    * @return colorPreference
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COLOR_PREFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetColorPreference getColorPreference() {
@@ -136,7 +129,6 @@ public class MonitorSummaryWidgetDefinition {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of monitors to display.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCount() {
@@ -160,7 +152,6 @@ public class MonitorSummaryWidgetDefinition {
    * @return displayFormat
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISPLAY_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetMonitorSummaryDisplayFormat getDisplayFormat() {
@@ -185,7 +176,6 @@ public class MonitorSummaryWidgetDefinition {
    * @return hideZeroCounts
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show counts of 0 or not.")
   @JsonProperty(JSON_PROPERTY_HIDE_ZERO_COUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHideZeroCounts() {
@@ -206,7 +196,6 @@ public class MonitorSummaryWidgetDefinition {
    *
    * @return query
    */
-  @ApiModelProperty(example = "", required = true, value = "Query to filter the monitors with.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {
@@ -228,8 +217,6 @@ public class MonitorSummaryWidgetDefinition {
    * @return showLastTriggered
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Whether to show the time that has elapsed since the monitor/group triggered.")
   @JsonProperty(JSON_PROPERTY_SHOW_LAST_TRIGGERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowLastTriggered() {
@@ -252,7 +239,6 @@ public class MonitorSummaryWidgetDefinition {
    * @return sort
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetMonitorSummarySort getSort() {
@@ -279,7 +265,6 @@ public class MonitorSummaryWidgetDefinition {
    */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The start of the list. Typically 0.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStart() {
@@ -302,7 +287,6 @@ public class MonitorSummaryWidgetDefinition {
    * @return summaryType
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUMMARY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetSummaryType getSummaryType() {
@@ -327,7 +311,6 @@ public class MonitorSummaryWidgetDefinition {
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -350,7 +333,6 @@ public class MonitorSummaryWidgetDefinition {
    * @return titleAlign
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -375,7 +357,6 @@ public class MonitorSummaryWidgetDefinition {
    * @return titleSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -397,7 +378,6 @@ public class MonitorSummaryWidgetDefinition {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MonitorSummaryWidgetDefinitionType getType() {

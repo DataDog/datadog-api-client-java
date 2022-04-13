@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object containing the metric unit family, scale factor, name, and short name. */
-@ApiModel(
-    description = "Object containing the metric unit family, scale factor, name, and short name.")
 @JsonPropertyOrder({
   MetricsQueryUnit.JSON_PROPERTY_FAMILY,
   MetricsQueryUnit.JSON_PROPERTY_NAME,
@@ -52,9 +48,6 @@ public class MetricsQueryUnit {
    * @return family
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "time",
-      value = "Unit family, allows for conversion between units of the same family, for scaling.")
   @JsonProperty(JSON_PROPERTY_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFamily() {
@@ -67,7 +60,6 @@ public class MetricsQueryUnit {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "minute", value = "Unit name")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -80,7 +72,6 @@ public class MetricsQueryUnit {
    * @return plural
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "minutes", value = "Plural form of the unit name.")
   @JsonProperty(JSON_PROPERTY_PLURAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPlural() {
@@ -93,9 +84,6 @@ public class MetricsQueryUnit {
    * @return scaleFactor
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "60.0",
-      value = "Factor for scaling between units of the same family.")
   @JsonProperty(JSON_PROPERTY_SCALE_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getScaleFactor() {
@@ -108,7 +96,6 @@ public class MetricsQueryUnit {
    * @return shortName
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "min", value = "Abbreviation of the unit.")
   @JsonProperty(JSON_PROPERTY_SHORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShortName() {

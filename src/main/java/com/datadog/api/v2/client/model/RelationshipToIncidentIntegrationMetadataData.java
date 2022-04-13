@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** A relationship reference for an integration metadata object. */
-@ApiModel(description = "A relationship reference for an integration metadata object.")
 @JsonPropertyOrder({
   RelationshipToIncidentIntegrationMetadataData.JSON_PROPERTY_ID,
   RelationshipToIncidentIntegrationMetadataData.JSON_PROPERTY_TYPE
@@ -57,10 +54,6 @@ public class RelationshipToIncidentIntegrationMetadataData {
    *
    * @return id
    */
-  @ApiModelProperty(
-      example = "00000000-abcd-0001-0000-000000000000",
-      required = true,
-      value = "A unique identifier that represents the integration metadata.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
@@ -82,7 +75,6 @@ public class RelationshipToIncidentIntegrationMetadataData {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public IncidentIntegrationMetadataType getType() {

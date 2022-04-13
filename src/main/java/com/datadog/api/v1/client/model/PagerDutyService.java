@@ -15,12 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** The PagerDuty service that is available for integration with Datadog. */
-@ApiModel(description = "The PagerDuty service that is available for integration with Datadog.")
 @JsonPropertyOrder({
   PagerDutyService.JSON_PROPERTY_SERVICE_KEY,
   PagerDutyService.JSON_PROPERTY_SERVICE_NAME
@@ -54,7 +51,6 @@ public class PagerDutyService {
    *
    * @return serviceKey
    */
-  @ApiModelProperty(example = "", required = true, value = "Your service key in PagerDuty.")
   @JsonProperty(JSON_PROPERTY_SERVICE_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getServiceKey() {
@@ -75,10 +71,6 @@ public class PagerDutyService {
    *
    * @return serviceName
    */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "Your service name associated with a service key in PagerDuty.")
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getServiceName() {

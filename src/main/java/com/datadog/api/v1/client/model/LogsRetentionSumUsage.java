@@ -14,13 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object containing indexed logs usage grouped by retention period and summed. */
-@ApiModel(
-    description = "Object containing indexed logs usage grouped by retention period and summed.")
 @JsonPropertyOrder({
   LogsRetentionSumUsage.JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_SUM,
   LogsRetentionSumUsage.JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_SUM,
@@ -56,7 +52,6 @@ public class LogsRetentionSumUsage {
    * @return logsIndexedLogsUsageSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total indexed logs for this retention period.")
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsIndexedLogsUsageSum() {
@@ -78,7 +73,6 @@ public class LogsRetentionSumUsage {
    * @return logsLiveIndexedLogsUsageSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Live indexed logs for this retention period.")
   @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsLiveIndexedLogsUsageSum() {
@@ -101,7 +95,6 @@ public class LogsRetentionSumUsage {
    * @return logsRehydratedIndexedLogsUsageSum
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Rehydrated indexed logs for this retention period.")
   @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsRehydratedIndexedLogsUsageSum() {
@@ -123,8 +116,6 @@ public class LogsRetentionSumUsage {
    * @return retention
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The retention period in days or \"custom\" for all custom retention periods.")
   @JsonProperty(JSON_PROPERTY_RETENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRetention() {

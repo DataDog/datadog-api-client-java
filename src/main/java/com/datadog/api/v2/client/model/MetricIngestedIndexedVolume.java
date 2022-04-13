@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object for a single metric&#39;s ingested and indexed volume. */
-@ApiModel(description = "Object for a single metric's ingested and indexed volume.")
 @JsonPropertyOrder({
   MetricIngestedIndexedVolume.JSON_PROPERTY_ATTRIBUTES,
   MetricIngestedIndexedVolume.JSON_PROPERTY_ID,
@@ -49,7 +46,6 @@ public class MetricIngestedIndexedVolume {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricIngestedIndexedVolumeAttributes getAttributes() {
@@ -71,7 +67,6 @@ public class MetricIngestedIndexedVolume {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "test.metric.latency", value = "The metric name for this resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -94,7 +89,6 @@ public class MetricIngestedIndexedVolume {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricIngestedIndexedVolumeType getType() {

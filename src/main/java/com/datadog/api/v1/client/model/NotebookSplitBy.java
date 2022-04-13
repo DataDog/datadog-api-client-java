@@ -15,16 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object describing how to split the graph to display multiple visualizations per request. */
-@ApiModel(
-    description =
-        "Object describing how to split the graph to display multiple visualizations per request.")
 @JsonPropertyOrder({NotebookSplitBy.JSON_PROPERTY_KEYS, NotebookSplitBy.JSON_PROPERTY_TAGS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookSplitBy {
@@ -60,7 +55,6 @@ public class NotebookSplitBy {
    *
    * @return keys
    */
-  @ApiModelProperty(required = true, value = "Keys to split on.")
   @JsonProperty(JSON_PROPERTY_KEYS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getKeys() {
@@ -86,7 +80,6 @@ public class NotebookSplitBy {
    *
    * @return tags
    */
-  @ApiModelProperty(required = true, value = "Tags to split on.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getTags() {

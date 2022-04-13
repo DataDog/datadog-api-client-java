@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -32,18 +30,6 @@ import java.util.Objects;
  * date it received them. If multiple log date remapper processors can be applied to a given log,
  * only the first one (according to the pipelines order) is taken into account.
  */
-@ApiModel(
-    description =
-        "As Datadog receives logs, it timestamps them using the value(s) from any of these default"
-            + " attributes.    - `timestamp`   - `date`   - `_timestamp`   - `Timestamp`   -"
-            + " `eventTime`   - `published_date`    If your logs put their dates in an attribute"
-            + " not in this list,   use the log date Remapper Processor to define their date"
-            + " attribute as the official log timestamp.   The recognized date formats are"
-            + " ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:** If your"
-            + " logs don’t contain any of the default attributes   and you haven’t defined your"
-            + " own date attribute, Datadog timestamps   the logs with the date it received them. "
-            + "   If multiple log date remapper processors can be applied to a given log,   only"
-            + " the first one (according to the pipelines order) is taken into account.")
 @JsonPropertyOrder({
   LogsDateRemapper.JSON_PROPERTY_IS_ENABLED,
   LogsDateRemapper.JSON_PROPERTY_NAME,
@@ -87,7 +73,6 @@ public class LogsDateRemapper {
    * @return isEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -109,7 +94,6 @@ public class LogsDateRemapper {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -135,10 +119,6 @@ public class LogsDateRemapper {
    *
    * @return sources
    */
-  @ApiModelProperty(
-      example = "[\"web\",\"gateway\"]",
-      required = true,
-      value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getSources() {
@@ -160,7 +140,6 @@ public class LogsDateRemapper {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsDateRemapperType getType() {

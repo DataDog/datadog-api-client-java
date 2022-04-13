@@ -14,14 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Wrapper object that contains the details of a batch. */
-@ApiModel(description = "Wrapper object that contains the details of a batch.")
 @JsonPropertyOrder({
   SyntheticsBatchDetailsData.JSON_PROPERTY_METADATA,
   SyntheticsBatchDetailsData.JSON_PROPERTY_RESULTS,
@@ -51,7 +48,6 @@ public class SyntheticsBatchDetailsData {
    * @return metadata
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadata getMetadata() {
@@ -85,7 +81,6 @@ public class SyntheticsBatchDetailsData {
    * @return results
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of results for the batch.")
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsBatchResult> getResults() {
@@ -108,7 +103,6 @@ public class SyntheticsBatchDetailsData {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsStatus getStatus() {

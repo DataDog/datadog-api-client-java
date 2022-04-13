@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Object for a single Agent rule. */
-@ApiModel(description = "Object for a single Agent rule.")
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleData.JSON_PROPERTY_ATTRIBUTES,
   CloudWorkloadSecurityAgentRuleData.JSON_PROPERTY_ID,
@@ -50,7 +47,6 @@ public class CloudWorkloadSecurityAgentRuleData {
    * @return attributes
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CloudWorkloadSecurityAgentRuleAttributes getAttributes() {
@@ -72,7 +68,6 @@ public class CloudWorkloadSecurityAgentRuleData {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3dd-0uc-h1s", value = "The ID of the Agent rule.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -95,7 +90,6 @@ public class CloudWorkloadSecurityAgentRuleData {
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CloudWorkloadSecurityAgentRuleType getType() {

@@ -14,17 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Object containing a summary of indexed logs usage by retention period for a single month. */
-@ApiModel(
-    description =
-        "Object containing a summary of indexed logs usage by retention period for a single month.")
 @JsonPropertyOrder({
   LogsByRetentionMonthlyUsage.JSON_PROPERTY_DATE,
   LogsByRetentionMonthlyUsage.JSON_PROPERTY_USAGE
@@ -49,7 +44,6 @@ public class LogsByRetentionMonthlyUsage {
    * @return date
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The month for the usage.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getDate() {
@@ -83,7 +77,6 @@ public class LogsByRetentionMonthlyUsage {
    * @return usage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indexed logs usage for each active retention for the month.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsRetentionSumUsage> getUsage() {

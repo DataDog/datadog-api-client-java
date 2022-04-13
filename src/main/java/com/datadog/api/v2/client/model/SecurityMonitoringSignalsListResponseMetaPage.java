@@ -14,12 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** Paging attributes. */
-@ApiModel(description = "Paging attributes.")
 @JsonPropertyOrder({SecurityMonitoringSignalsListResponseMetaPage.JSON_PROPERTY_AFTER})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringSignalsListResponseMetaPage {
@@ -39,12 +36,6 @@ public class SecurityMonitoringSignalsListResponseMetaPage {
    * @return after
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
-      value =
-          "The cursor used to get the next results, if any. To make the next request, use the same"
-              + " parameters with the addition of the `page[cursor]`.")
   @JsonProperty(JSON_PROPERTY_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAfter() {
