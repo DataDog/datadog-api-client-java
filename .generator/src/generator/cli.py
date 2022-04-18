@@ -8,16 +8,14 @@ from . import openapi
 from . import formatter
 
 PACKAGE_NAME = "com.datadog.api.{}.client"
-GENERATED_ANNOTATION = "@javax.annotation.Generated(value = \"org.openapitools.codegen.languages.JavaClientCodegen\")"
+GENERATED_ANNOTATION = '@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")'
 
 
 @click.command()
 @click.option(
     "-i",
     "--input",
-    type=click.Path(
-        exists=True, file_okay=True, dir_okay=False, path_type=pathlib.Path
-    ),
+    type=click.Path(exists=True, file_okay=True, dir_okay=False, path_type=pathlib.Path),
 )
 @click.option(
     "-o",
@@ -34,9 +32,7 @@ def cli(input, output):
     with (input.parent.parent.parent / "config" / f"{version}.json").open() as fp:
         config = json.load(fp)
 
-    env = Environment(
-        loader=FileSystemLoader(str(pathlib.Path(__file__).parent / "templates"))
-    )
+    env = Environment(loader=FileSystemLoader(str(pathlib.Path(__file__).parent / "templates")))
 
     env.filters["accept_headers"] = openapi.accept_headers
     env.filters["attribute_name"] = formatter.attribute_name

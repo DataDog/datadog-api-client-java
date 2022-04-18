@@ -142,12 +142,7 @@ def snake_case(value):
 def block_comment(comment, prefix="#", first_line=True):
     lines = comment.split("\n")
     start = "" if first_line else lines[0] + "\n"
-    return (
-            start
-            + "\n".join(
-        f"{prefix} {line}".rstrip() for line in lines[(0 if first_line else 1):]
-    )
-    ).rstrip()
+    return (start + "\n".join(f"{prefix} {line}".rstrip() for line in lines[(0 if first_line else 1) :])).rstrip()
 
 
 def camel_case(value):
@@ -205,7 +200,7 @@ def format_value(value, quotes='"', schema=None, default_value=False, type_=None
             if schema.get("format") == "int64":
                 return f"{value}l"
         if schema.get("type") == "string":
-            return f"\"{value}\""
+            return f'"{value}"'
     if isinstance(value, str):
         return f"{quotes}{value}{quotes}"
     elif isinstance(value, bool):
@@ -262,12 +257,12 @@ def escape_html(text):
 def format_json_string(example, schema=None):
     if schema:
         if schema.get("type") == "boolean":
-            return f"\"{example}\"".lower()
+            return f'"{example}"'.lower()
     if type(example) in [list, dict]:
-        res = json.dumps(example, separators=(',', ':')).replace('\\n', " ").replace('"', '\\"')
-        return f"\"{res}\""
+        res = json.dumps(example, separators=(",", ":")).replace("\\n", " ").replace('"', '\\"')
+        return f'"{res}"'
     if type(example) == str:
         example = re.sub(r"(?<!\\)(\n)", " ", example)
         example = re.sub(r"(?<!\\)(\")", r"\\\1", example)
-        return f"\"{example}\""
-    return f"\"{example}\""
+        return f'"{example}"'
+    return f'"{example}"'

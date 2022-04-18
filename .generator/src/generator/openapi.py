@@ -43,7 +43,7 @@ def get_api_models(operations):
             for content in response.get("content", {}).values():
                 if "schema" in content:
                     name = formatter.schema_name(content["schema"])
-                    if name and name not in seen:
+                    if name and name not in seen and "items" not in content["schema"]:
                         seen.add(name)
                         yield name
                     elif "items" in content["schema"]:
@@ -67,7 +67,11 @@ def get_api_models(operations):
                         yield name
         if "requestBody" in operation:
             for content in operation["requestBody"].get("content", {}).values():
-                if "schema" in content and "items" not in content["schema"]:
+                if (
+                    "schema" in content
+                    and "items" not in content["schema"]
+                    and "additionalProperties" not in content["schema"]
+                ):
                     name = formatter.schema_name(content["schema"])
                     if name and name not in seen:
                         seen.add(name)
@@ -104,10 +108,7 @@ def type_to_java(schema, alternative_name=None):
     if name:
         if "enum" in schema:
             return prefix + name
-        if (
-            not schema.get("additionalProperties")
-            and schema.get("type", "object") == "object"
-        ):
+        if not schema.get("additionalProperties") and schema.get("type", "object") == "object":
             return prefix + name
 
     type_ = schema.get("type")
@@ -118,9 +119,7 @@ def type_to_java(schema, alternative_name=None):
             type_ = "object"
         else:
             type_ = "object"
-            warnings.warn(
-                f"Unknown type for schema: {schema} ({name or alternative_name})"
-            )
+            warnings.warn(f"Unknown type for schema: {schema} ({name or alternative_name})")
 
     if type_ == "array":
         if schema.get("x-generate-alias-as-model", False):
@@ -140,12 +139,7 @@ def type_to_java(schema, alternative_name=None):
         return (
             prefix + alternative_name
             if alternative_name
-            and (
-                "properties" in schema
-                or "oneOf" in schema
-                or "anyOf" in schema
-                or "allOf" in schema
-            )
+            and ("properties" in schema or "oneOf" in schema or "anyOf" in schema or "allOf" in schema)
             else "Object"
         )
 
@@ -155,9 +149,7 @@ def type_to_java(schema, alternative_name=None):
 def get_type_for_attribute(schema, attribute, current_name=None):
     """Return Java type name for the attribute."""
     child_schema = schema.get("properties", {}).get(attribute)
-    alternative_name = (
-        current_name + formatter.camel_case(attribute) if current_name else None
-    )
+    alternative_name = current_name + formatter.camel_case(attribute) if current_name else None
     return type_to_java(child_schema, alternative_name=alternative_name)
 
 
@@ -216,9 +208,7 @@ def child_models(schema, alternative_name=None, seen=None, parent=None):
             parent=schema,
         )
 
-    if (
-        schema.get("type") == "object" or "properties" in schema or has_sub_models
-    ) and (
+    if (schema.get("type") == "object" or "properties" in schema or has_sub_models) and (
         "additionalProperties" not in schema or schema["additionalProperties"] is False
     ):
         if not has_sub_models and name is None:
@@ -314,9 +304,7 @@ def parameters(operation):
 
     if "requestBody" in operation:
         if "multipart/form-data" in operation["requestBody"]["content"]:
-            parent = operation["requestBody"]["content"]["multipart/form-data"][
-                "schema"
-            ]
+            parent = operation["requestBody"]["content"]["multipart/form-data"]["schema"]
             for name, schema in parent["properties"].items():
                 yield name, {
                     "in": "form",
@@ -395,9 +383,7 @@ def format_server(server, server_variables=None, path=""):
     for variable in server["variables"]:
         if server_variables and variable in server_variables:
             continue
-        url = url.replace(
-            "{" + variable + "}", server["variables"][variable]["default"]
-        )
+        url = url.replace("{" + variable + "}", server["variables"][variable]["default"])
     return urlparse(url)
 
 
@@ -411,9 +397,7 @@ def server_url_and_method(spec, operation_id, server_index=0, server_variables=N
                 else:
                     server = spec["servers"][server_index]
                 return (
-                    format_server(
-                        server, server_variables=server_variables, path=path
-                    ).geturl(),
+                    format_server(server, server_variables=server_variables, path=path).geturl(),
                     method,
                 )
 
@@ -423,13 +407,9 @@ def server_url_and_method(spec, operation_id, server_index=0, server_variables=N
 def response_code_and_accept_type(operation, status_code=None):
     for response in operation["responses"]:
         if status_code is None:
-            return int(response), next(
-                iter(operation["responses"][response].get("content", {None: None}))
-            )
+            return int(response), next(iter(operation["responses"][response].get("content", {None: None})))
         if response == str(status_code):
-            return status_code, next(
-                iter(operation["responses"][response].get("content", {None: None}))
-            )
+            return status_code, next(iter(operation["responses"][response].get("content", {None: None})))
     return status_code, None
 
 
@@ -440,7 +420,5 @@ def request_content_type(operation, status_code=None):
 def response(operation, status_code=None):
     for response in operation["responses"]:
         if status_code is None or response == str(status_code):
-            return list(operation["responses"][response]["content"].values())[0][
-                "schema"
-            ]
+            return list(operation["responses"][response]["content"].values())[0]["schema"]
     return None
