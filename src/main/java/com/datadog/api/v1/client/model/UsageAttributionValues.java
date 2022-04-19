@@ -57,7 +57,8 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_SNMP_USAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributionValues {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_PERCENTAGE = "api_percentage";

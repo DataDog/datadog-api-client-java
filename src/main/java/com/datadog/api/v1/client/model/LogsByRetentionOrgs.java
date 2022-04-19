@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Indexed logs usage summary for each organization for each retention period with usage. */
 @JsonPropertyOrder({LogsByRetentionOrgs.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsByRetentionOrgs {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";

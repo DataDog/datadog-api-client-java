@@ -26,7 +26,8 @@ import java.util.Objects;
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_S_T,
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_ALT_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsSSLCertificateSubject {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_C = "C";

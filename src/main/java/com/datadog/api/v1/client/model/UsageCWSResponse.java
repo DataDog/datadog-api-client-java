@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Response containing the Cloud Workload Security usage for each hour for a given organization. */
 @JsonPropertyOrder({UsageCWSResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageCWSResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";

@@ -35,7 +35,8 @@ import java.util.Objects;
   ScatterPlotWidgetDefinition.JSON_PROPERTY_XAXIS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_YAXIS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScatterPlotWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLOR_BY_GROUPS = "color_by_groups";

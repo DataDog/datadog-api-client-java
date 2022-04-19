@@ -22,7 +22,8 @@ import java.util.Objects;
   LogsMetricCompute.JSON_PROPERTY_AGGREGATION_TYPE,
   LogsMetricCompute.JSON_PROPERTY_PATH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricCompute {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION_TYPE = "aggregation_type";

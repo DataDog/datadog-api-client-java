@@ -51,7 +51,8 @@ import java.util.Objects;
   UsageBillableSummaryKeys.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECKS_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_TIMESERIES_AVERAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageBillableSummaryKeys {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_HOST_SUM = "apm_host_sum";

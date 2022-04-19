@@ -23,7 +23,8 @@ import java.util.Objects;
   SunburstWidgetLegendInlineAutomatic.JSON_PROPERTY_HIDE_VALUE,
   SunburstWidgetLegendInlineAutomatic.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SunburstWidgetLegendInlineAutomatic {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HIDE_PERCENT = "hide_percent";

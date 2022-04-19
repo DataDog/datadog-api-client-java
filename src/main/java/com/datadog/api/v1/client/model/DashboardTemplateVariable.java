@@ -27,7 +27,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DashboardTemplateVariable.JSON_PROPERTY_NAME,
   DashboardTemplateVariable.JSON_PROPERTY_PREFIX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardTemplateVariable {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVAILABLE_VALUES = "available_values";

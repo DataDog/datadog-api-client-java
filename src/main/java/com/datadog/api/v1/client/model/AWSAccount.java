@@ -34,7 +34,8 @@ import java.util.Objects;
   AWSAccount.JSON_PROPERTY_ROLE_NAME,
   AWSAccount.JSON_PROPERTY_SECRET_ACCESS_KEY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSAccount {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCESS_KEY_ID = "access_key_id";

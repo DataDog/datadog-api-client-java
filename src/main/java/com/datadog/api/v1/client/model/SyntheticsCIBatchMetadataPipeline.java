@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Description of the CI pipeline. */
 @JsonPropertyOrder({SyntheticsCIBatchMetadataPipeline.JSON_PROPERTY_URL})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCIBatchMetadataPipeline {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_URL = "url";

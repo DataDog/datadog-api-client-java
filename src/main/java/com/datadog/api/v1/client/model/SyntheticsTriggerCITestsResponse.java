@@ -26,7 +26,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_RESULTS,
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_TRIGGERED_CHECK_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTriggerCITestsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BATCH_ID = "batch_id";

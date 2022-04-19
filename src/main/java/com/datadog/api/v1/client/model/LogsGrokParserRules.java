@@ -22,7 +22,8 @@ import java.util.Objects;
   LogsGrokParserRules.JSON_PROPERTY_MATCH_RULES,
   LogsGrokParserRules.JSON_PROPERTY_SUPPORT_RULES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsGrokParserRules {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MATCH_RULES = "match_rules";

@@ -25,7 +25,8 @@ import java.util.Objects;
   UsageDBMHour.JSON_PROPERTY_ORG_NAME,
   UsageDBMHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageDBMHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DBM_HOST_COUNT = "dbm_host_count";

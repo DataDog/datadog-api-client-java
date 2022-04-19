@@ -27,7 +27,8 @@ import java.util.Objects;
   LogsIndexUpdateRequest.JSON_PROPERTY_FILTER,
   LogsIndexUpdateRequest.JSON_PROPERTY_NUM_RETENTION_DAYS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsIndexUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DAILY_LIMIT = "daily_limit";

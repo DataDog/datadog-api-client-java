@@ -25,7 +25,8 @@ import java.util.Objects;
   SLOThreshold.JSON_PROPERTY_WARNING,
   SLOThreshold.JSON_PROPERTY_WARNING_DISPLAY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOThreshold {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TARGET = "target";

@@ -38,7 +38,8 @@ import java.util.Objects;
   SyntheticsStepDetail.JSON_PROPERTY_VITALS_METRICS,
   SyntheticsStepDetail.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsStepDetail {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BROWSER_ERRORS = "browserErrors";

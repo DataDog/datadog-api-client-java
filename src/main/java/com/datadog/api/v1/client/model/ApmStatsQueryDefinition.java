@@ -29,7 +29,8 @@ import java.util.Objects;
   ApmStatsQueryDefinition.JSON_PROPERTY_ROW_TYPE,
   ApmStatsQueryDefinition.JSON_PROPERTY_SERVICE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApmStatsQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";

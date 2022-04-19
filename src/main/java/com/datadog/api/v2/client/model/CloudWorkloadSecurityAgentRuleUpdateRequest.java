@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Request object that includes the Agent rule with the attributes to update. */
 @JsonPropertyOrder({CloudWorkloadSecurityAgentRuleUpdateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";

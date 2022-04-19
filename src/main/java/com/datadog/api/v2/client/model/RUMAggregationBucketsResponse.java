@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** The query results. */
 @JsonPropertyOrder({RUMAggregationBucketsResponse.JSON_PROPERTY_BUCKETS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMAggregationBucketsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUCKETS = "buckets";

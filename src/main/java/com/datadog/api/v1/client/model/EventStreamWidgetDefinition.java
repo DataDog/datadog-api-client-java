@@ -31,7 +31,8 @@ import java.util.Objects;
   EventStreamWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   EventStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventStreamWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";

@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Has one property enabled (boolean). */
 @JsonPropertyOrder({OrganizationSettingsSamlIdpInitiatedLogin.JSON_PROPERTY_ENABLED})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationSettingsSamlIdpInitiatedLogin {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENABLED = "enabled";

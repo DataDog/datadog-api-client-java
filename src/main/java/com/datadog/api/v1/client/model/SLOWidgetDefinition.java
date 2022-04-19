@@ -35,7 +35,8 @@ import java.util.Objects;
   SLOWidgetDefinition.JSON_PROPERTY_VIEW_MODE,
   SLOWidgetDefinition.JSON_PROPERTY_VIEW_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GLOBAL_TIME_TARGET = "global_time_target";

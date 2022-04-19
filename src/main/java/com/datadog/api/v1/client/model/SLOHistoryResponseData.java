@@ -33,7 +33,8 @@ import java.util.Objects;
   SLOHistoryResponseData.JSON_PROPERTY_TYPE,
   SLOHistoryResponseData.JSON_PROPERTY_TYPE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM_TS = "from_ts";

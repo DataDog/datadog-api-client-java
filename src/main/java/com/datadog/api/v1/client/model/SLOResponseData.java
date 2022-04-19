@@ -39,7 +39,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOResponseData.JSON_PROPERTY_THRESHOLDS,
   SLOResponseData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIGURED_ALERT_IDS = "configured_alert_ids";

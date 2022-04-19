@@ -23,7 +23,8 @@ import java.util.Objects;
   UsageTopAvgMetricsMetadata.JSON_PROPERTY_MONTH,
   UsageTopAvgMetricsMetadata.JSON_PROPERTY_PAGINATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageTopAvgMetricsMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DAY = "day";

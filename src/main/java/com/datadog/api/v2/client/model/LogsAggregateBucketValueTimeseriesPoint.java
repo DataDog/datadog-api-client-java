@@ -21,7 +21,8 @@ import java.util.Objects;
   LogsAggregateBucketValueTimeseriesPoint.JSON_PROPERTY_TIME,
   LogsAggregateBucketValueTimeseriesPoint.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateBucketValueTimeseriesPoint {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TIME = "time";

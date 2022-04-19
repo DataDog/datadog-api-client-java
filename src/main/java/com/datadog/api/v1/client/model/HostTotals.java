@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Total number of host currently monitored by Datadog. */
 @JsonPropertyOrder({HostTotals.JSON_PROPERTY_TOTAL_ACTIVE, HostTotals.JSON_PROPERTY_TOTAL_UP})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostTotals {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TOTAL_ACTIVE = "total_active";

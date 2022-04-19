@@ -22,7 +22,8 @@ import java.util.Objects;
   HostMuteSettings.JSON_PROPERTY_MESSAGE,
   HostMuteSettings.JSON_PROPERTY_OVERRIDE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMuteSettings {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_END = "end";

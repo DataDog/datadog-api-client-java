@@ -24,7 +24,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentFieldAttributesMultipleValue.JSON_PROPERTY_TYPE,
   IncidentFieldAttributesMultipleValue.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentFieldAttributesMultipleValue {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";

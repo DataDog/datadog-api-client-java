@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Response containing hourly usage of timeseries. */
 @JsonPropertyOrder({UsageTimeseriesResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageTimeseriesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";

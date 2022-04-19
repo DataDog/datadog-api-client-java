@@ -22,7 +22,8 @@ import java.util.Objects;
   LogsArchiveIntegrationGCS.JSON_PROPERTY_CLIENT_EMAIL,
   LogsArchiveIntegrationGCS.JSON_PROPERTY_PROJECT_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveIntegrationGCS {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CLIENT_EMAIL = "client_email";

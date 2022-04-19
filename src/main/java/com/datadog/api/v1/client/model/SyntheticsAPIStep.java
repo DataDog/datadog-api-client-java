@@ -30,7 +30,8 @@ import java.util.Objects;
   SyntheticsAPIStep.JSON_PROPERTY_RETRY,
   SyntheticsAPIStep.JSON_PROPERTY_SUBTYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPIStep {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";

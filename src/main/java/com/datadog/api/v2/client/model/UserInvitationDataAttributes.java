@@ -24,7 +24,8 @@ import java.util.Objects;
   UserInvitationDataAttributes.JSON_PROPERTY_INVITE_TYPE,
   UserInvitationDataAttributes.JSON_PROPERTY_UUID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserInvitationDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";

@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Object containing the definition of a metric&#39;s distinct volume. */
 @JsonPropertyOrder({MetricDistinctVolumeAttributes.JSON_PROPERTY_DISTINCT_VOLUME})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricDistinctVolumeAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISTINCT_VOLUME = "distinct_volume";

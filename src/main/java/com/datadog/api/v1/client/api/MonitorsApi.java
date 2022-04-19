@@ -19,7 +19,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorsApi {
   private ApiClient apiClient;
 
@@ -250,7 +251,7 @@ public class MonitorsApi {
    * operator #&#x60; with: - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60;
    * avg, sum, max, min [Learn
    * more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions) -
-   * &#x60;time_window&#x60; last\_#m (between 1 and 2880 depending on the monitor type), last\_#h
+   * &#x60;time_window&#x60; last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h
    * (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - &#x60;timeshift&#x60;
    * #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago Use this to create an outlier monitor
    * using the following query:

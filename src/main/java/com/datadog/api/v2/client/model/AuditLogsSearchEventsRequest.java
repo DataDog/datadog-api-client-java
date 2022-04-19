@@ -23,7 +23,8 @@ import java.util.Objects;
   AuditLogsSearchEventsRequest.JSON_PROPERTY_PAGE,
   AuditLogsSearchEventsRequest.JSON_PROPERTY_SORT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditLogsSearchEventsRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";

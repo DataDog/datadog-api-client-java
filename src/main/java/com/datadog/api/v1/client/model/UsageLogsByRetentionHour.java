@@ -28,7 +28,8 @@ import java.util.Objects;
   UsageLogsByRetentionHour.JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT,
   UsageLogsByRetentionHour.JSON_PROPERTY_RETENTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageLogsByRetentionHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT = "indexed_events_count";

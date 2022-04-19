@@ -21,7 +21,8 @@ import java.util.Objects;
   SyntheticsCIBatchMetadataCI.JSON_PROPERTY_PIPELINE,
   SyntheticsCIBatchMetadataCI.JSON_PROPERTY_PROVIDER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCIBatchMetadataCI {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PIPELINE = "pipeline";

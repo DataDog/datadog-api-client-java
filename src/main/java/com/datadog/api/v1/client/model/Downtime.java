@@ -43,7 +43,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Downtime.JSON_PROPERTY_TIMEZONE,
   Downtime.JSON_PROPERTY_UPDATER_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Downtime {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTIVE = "active";

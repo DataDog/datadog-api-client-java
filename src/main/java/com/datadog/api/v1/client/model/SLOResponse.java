@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** A service level objective response containing a single service level objective. */
 @JsonPropertyOrder({SLOResponse.JSON_PROPERTY_DATA, SLOResponse.JSON_PROPERTY_ERRORS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";

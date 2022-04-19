@@ -39,7 +39,8 @@ import java.util.Objects;
   ChangeWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_SHOW_PRESENT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ChangeWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";

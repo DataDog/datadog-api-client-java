@@ -26,7 +26,8 @@ import java.util.Objects;
   ProcessQueryDefinition.JSON_PROPERTY_METRIC,
   ProcessQueryDefinition.JSON_PROPERTY_SEARCH_BY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER_BY = "filter_by";

@@ -36,7 +36,8 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_RETRY,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCEPT_SELF_SIGNED = "accept_self_signed";

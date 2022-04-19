@@ -21,7 +21,8 @@ import java.util.Objects;
   SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_COUNT,
   SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOListResponseMetadataPage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";

@@ -27,7 +27,8 @@ import java.util.Objects;
   PermissionAttributes.JSON_PROPERTY_NAME,
   PermissionAttributes.JSON_PROPERTY_RESTRICTED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PermissionAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED = "created";

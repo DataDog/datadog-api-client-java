@@ -24,7 +24,8 @@ import java.util.Objects;
   WidgetMarker.JSON_PROPERTY_TIME,
   WidgetMarker.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetMarker {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY_TYPE = "display_type";

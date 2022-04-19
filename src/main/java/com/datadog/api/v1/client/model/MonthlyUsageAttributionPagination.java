@@ -19,7 +19,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The metadata for the current pagination. */
 @JsonPropertyOrder({MonthlyUsageAttributionPagination.JSON_PROPERTY_NEXT_RECORD_ID})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonthlyUsageAttributionPagination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NEXT_RECORD_ID = "next_record_id";

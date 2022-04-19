@@ -23,7 +23,8 @@ import java.util.Objects;
   IncidentTimelineCellMarkdownCreateAttributes.JSON_PROPERTY_CONTENT,
   IncidentTimelineCellMarkdownCreateAttributes.JSON_PROPERTY_IMPORTANT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentTimelineCellMarkdownCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CELL_TYPE = "cell_type";

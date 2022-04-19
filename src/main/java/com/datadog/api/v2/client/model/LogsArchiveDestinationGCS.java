@@ -24,7 +24,8 @@ import java.util.Objects;
   LogsArchiveDestinationGCS.JSON_PROPERTY_PATH,
   LogsArchiveDestinationGCS.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveDestinationGCS {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUCKET = "bucket";

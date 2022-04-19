@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Synthetic location that can be used when creating or editing a test. */
 @JsonPropertyOrder({SyntheticsLocation.JSON_PROPERTY_ID, SyntheticsLocation.JSON_PROPERTY_NAME})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsLocation {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";

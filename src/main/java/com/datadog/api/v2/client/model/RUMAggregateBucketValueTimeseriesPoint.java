@@ -22,7 +22,8 @@ import java.util.Objects;
   RUMAggregateBucketValueTimeseriesPoint.JSON_PROPERTY_TIME,
   RUMAggregateBucketValueTimeseriesPoint.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMAggregateBucketValueTimeseriesPoint {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TIME = "time";

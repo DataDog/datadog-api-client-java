@@ -22,7 +22,8 @@ import java.util.Objects;
   SyntheticsCoreWebVitals.JSON_PROPERTY_LCP,
   SyntheticsCoreWebVitals.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCoreWebVitals {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CLS = "cls";

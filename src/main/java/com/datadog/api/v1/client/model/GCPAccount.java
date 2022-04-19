@@ -34,7 +34,8 @@ import java.util.Objects;
   GCPAccount.JSON_PROPERTY_TOKEN_URI,
   GCPAccount.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GCPAccount {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH_PROVIDER_X509_CERT_URL =

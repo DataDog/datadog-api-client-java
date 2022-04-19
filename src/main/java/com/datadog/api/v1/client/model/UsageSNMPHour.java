@@ -24,7 +24,8 @@ import java.util.Objects;
   UsageSNMPHour.JSON_PROPERTY_PUBLIC_ID,
   UsageSNMPHour.JSON_PROPERTY_SNMP_DEVICES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSNMPHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";

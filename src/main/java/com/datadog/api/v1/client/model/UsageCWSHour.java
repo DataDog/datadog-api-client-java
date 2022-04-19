@@ -25,7 +25,8 @@ import java.util.Objects;
   UsageCWSHour.JSON_PROPERTY_ORG_NAME,
   UsageCWSHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageCWSHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CWS_CONTAINER_COUNT = "cws_container_count";

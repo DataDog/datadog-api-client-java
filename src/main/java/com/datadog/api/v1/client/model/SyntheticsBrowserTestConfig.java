@@ -27,7 +27,8 @@ import java.util.Objects;
   SyntheticsBrowserTestConfig.JSON_PROPERTY_SET_COOKIE,
   SyntheticsBrowserTestConfig.JSON_PROPERTY_VARIABLES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestConfig {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";

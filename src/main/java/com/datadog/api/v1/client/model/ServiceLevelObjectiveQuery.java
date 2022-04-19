@@ -26,7 +26,8 @@ import java.util.Objects;
   ServiceLevelObjectiveQuery.JSON_PROPERTY_DENOMINATOR,
   ServiceLevelObjectiveQuery.JSON_PROPERTY_NUMERATOR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceLevelObjectiveQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DENOMINATOR = "denominator";

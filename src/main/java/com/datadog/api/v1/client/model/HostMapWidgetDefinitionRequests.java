@@ -21,7 +21,8 @@ import java.util.Objects;
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_FILL,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_SIZE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMapWidgetDefinitionRequests {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILL = "fill";

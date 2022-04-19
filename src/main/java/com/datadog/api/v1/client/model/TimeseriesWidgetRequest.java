@@ -38,7 +38,8 @@ import java.util.Objects;
   TimeseriesWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_STYLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TimeseriesWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";

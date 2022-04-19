@@ -39,7 +39,8 @@ import java.util.Objects;
   SLOHistoryMonitor.JSON_PROPERTY_SPAN_PRECISION,
   SLOHistoryMonitor.JSON_PROPERTY_UPTIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMonitor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERROR_BUDGET_REMAINING = "error_budget_remaining";

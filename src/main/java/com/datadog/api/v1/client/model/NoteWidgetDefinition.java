@@ -33,7 +33,8 @@ import java.util.Objects;
   NoteWidgetDefinition.JSON_PROPERTY_TYPE,
   NoteWidgetDefinition.JSON_PROPERTY_VERTICAL_ALIGN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NoteWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BACKGROUND_COLOR = "background_color";

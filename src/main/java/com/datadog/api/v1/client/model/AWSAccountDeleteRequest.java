@@ -22,7 +22,8 @@ import java.util.Objects;
   AWSAccountDeleteRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSAccountDeleteRequest.JSON_PROPERTY_ROLE_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSAccountDeleteRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCESS_KEY_ID = "access_key_id";

@@ -26,7 +26,8 @@ import java.util.Objects;
   RUMGroupBy.JSON_PROPERTY_SORT,
   RUMGroupBy.JSON_PROPERTY_TOTAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMGroupBy {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";

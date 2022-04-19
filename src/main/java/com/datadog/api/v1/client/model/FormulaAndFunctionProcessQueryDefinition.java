@@ -31,7 +31,8 @@ import java.util.Objects;
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TAG_FILTERS,
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TEXT_FILTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionProcessQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";

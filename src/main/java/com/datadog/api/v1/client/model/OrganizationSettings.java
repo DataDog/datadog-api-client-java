@@ -29,7 +29,8 @@ import java.util.Objects;
   OrganizationSettings.JSON_PROPERTY_SAML_LOGIN_URL,
   OrganizationSettings.JSON_PROPERTY_SAML_STRICT_MODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationSettings {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PRIVATE_WIDGET_SHARE = "private_widget_share";

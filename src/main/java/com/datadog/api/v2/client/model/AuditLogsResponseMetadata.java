@@ -26,7 +26,8 @@ import java.util.Objects;
   AuditLogsResponseMetadata.JSON_PROPERTY_STATUS,
   AuditLogsResponseMetadata.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditLogsResponseMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ELAPSED = "elapsed";

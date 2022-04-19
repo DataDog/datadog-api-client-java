@@ -32,7 +32,8 @@ import java.util.Objects;
   ImageWidgetDefinition.JSON_PROPERTY_URL_DARK_THEME,
   ImageWidgetDefinition.JSON_PROPERTY_VERTICAL_ALIGN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ImageWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HAS_BACKGROUND = "has_background";

@@ -26,7 +26,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOHistoryMetricsSeriesMetadataUnit.JSON_PROPERTY_SCALE_FACTOR,
   SLOHistoryMetricsSeriesMetadataUnit.JSON_PROPERTY_SHORT_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMetricsSeriesMetadataUnit {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FAMILY = "family";

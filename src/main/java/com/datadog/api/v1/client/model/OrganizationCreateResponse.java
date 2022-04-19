@@ -23,7 +23,8 @@ import java.util.Objects;
   OrganizationCreateResponse.JSON_PROPERTY_ORG,
   OrganizationCreateResponse.JSON_PROPERTY_USER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationCreateResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";

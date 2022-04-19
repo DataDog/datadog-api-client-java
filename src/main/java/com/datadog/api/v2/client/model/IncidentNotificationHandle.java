@@ -21,7 +21,8 @@ import java.util.Objects;
   IncidentNotificationHandle.JSON_PROPERTY_DISPLAY_NAME,
   IncidentNotificationHandle.JSON_PROPERTY_HANDLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentNotificationHandle {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";

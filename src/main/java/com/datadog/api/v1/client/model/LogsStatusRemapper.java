@@ -41,7 +41,8 @@ import java.util.Objects;
   LogsStatusRemapper.JSON_PROPERTY_SOURCES,
   LogsStatusRemapper.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsStatusRemapper {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";

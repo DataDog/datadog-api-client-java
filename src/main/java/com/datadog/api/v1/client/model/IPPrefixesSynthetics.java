@@ -27,7 +27,8 @@ import java.util.Objects;
   IPPrefixesSynthetics.JSON_PROPERTY_PREFIXES_IPV6,
   IPPrefixesSynthetics.JSON_PROPERTY_PREFIXES_IPV6_BY_LOCATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IPPrefixesSynthetics {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PREFIXES_IPV4 = "prefixes_ipv4";

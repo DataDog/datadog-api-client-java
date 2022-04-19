@@ -24,7 +24,8 @@ import java.util.Objects;
   SyntheticsBrowserTestResultShort.JSON_PROPERTY_RESULT_ID,
   SyntheticsBrowserTestResultShort.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestResultShort {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHECK_TIME = "check_time";

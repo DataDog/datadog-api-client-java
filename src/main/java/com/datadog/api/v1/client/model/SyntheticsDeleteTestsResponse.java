@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Response object for deleting Synthetic tests. */
 @JsonPropertyOrder({SyntheticsDeleteTestsResponse.JSON_PROPERTY_DELETED_TESTS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsDeleteTestsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELETED_TESTS = "deleted_tests";

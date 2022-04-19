@@ -31,7 +31,8 @@ import java.util.Objects;
   GeomapWidgetDefinition.JSON_PROPERTY_TYPE,
   GeomapWidgetDefinition.JSON_PROPERTY_VIEW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GeomapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";

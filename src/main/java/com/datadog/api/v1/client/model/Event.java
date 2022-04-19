@@ -35,7 +35,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Event.JSON_PROPERTY_TITLE,
   Event.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Event {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALERT_TYPE = "alert_type";
@@ -299,8 +300,8 @@ public class Event {
 
   /**
    * The body of the event. Limited to 4000 characters. The text supports markdown. To use markdown
-   * in the event text, start the text block with &#x60;%%% \n&#x60; and end the text block with
-   * &#x60;\n %%%&#x60;. Use &#x60;msg_text&#x60; with the Datadog Ruby library.
+   * in the event text, start the text block with &#x60;%%% \\n&#x60; and end the text block with
+   * &#x60;\\n %%%&#x60;. Use &#x60;msg_text&#x60; with the Datadog Ruby library.
    *
    * @return text
    */

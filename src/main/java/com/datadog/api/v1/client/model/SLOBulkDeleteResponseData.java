@@ -23,7 +23,8 @@ import java.util.Objects;
   SLOBulkDeleteResponseData.JSON_PROPERTY_DELETED,
   SLOBulkDeleteResponseData.JSON_PROPERTY_UPDATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOBulkDeleteResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELETED = "deleted";

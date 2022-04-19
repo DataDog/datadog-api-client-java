@@ -23,7 +23,8 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.ext.ContextResolver;
 import org.openapitools.jackson.nullable.JsonNullableModule;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class JSON implements ContextResolver<ObjectMapper> {
   private ObjectMapper mapper;
 

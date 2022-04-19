@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Optional parameters for bulk deleting metric tag configurations. */
 @JsonPropertyOrder({MetricBulkTagConfigDeleteAttributes.JSON_PROPERTY_EMAILS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricBulkTagConfigDeleteAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAILS = "emails";

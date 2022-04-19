@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** A response containing indexed spans usage. */
 @JsonPropertyOrder({UsageIndexedSpansResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageIndexedSpansResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";

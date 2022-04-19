@@ -39,7 +39,8 @@ import java.util.Objects;
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceSummaryWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY_FORMAT = "display_format";

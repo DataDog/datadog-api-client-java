@@ -24,7 +24,8 @@ import java.util.Objects;
   SyntheticsBatchDetailsData.JSON_PROPERTY_RESULTS,
   SyntheticsBatchDetailsData.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBatchDetailsData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_METADATA = "metadata";

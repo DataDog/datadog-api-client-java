@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Private key for the private location. */
 @JsonPropertyOrder({SyntheticsPrivateLocationSecretsConfigDecryption.JSON_PROPERTY_KEY})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsPrivateLocationSecretsConfigDecryption {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_KEY = "key";

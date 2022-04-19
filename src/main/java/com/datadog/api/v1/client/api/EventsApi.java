@@ -18,7 +18,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventsApi {
   private ApiClient apiClient;
 
@@ -213,7 +214,7 @@ public class EventsApi {
    *
    * <p>This endpoint allows you to query for event details. **Note**: If the event you’re querying
    * contains markdown formatting of any kind, you may see characters such as
-   * &#x60;%&#x60;,&#x60;\&#x60;,&#x60;n&#x60; in your output.
+   * &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.
    *
    * @param eventId The ID of the event. (required)
    * @return ApiResponse&lt;EventResponse&gt;
@@ -473,7 +474,7 @@ public class EventsApi {
    *
    * <p>The event stream can be queried and filtered by time, priority, sources and tags. **Notes**:
    * - If the event you’re querying contains markdown formatting of any kind, you may see characters
-   * such as &#x60;%&#x60;,&#x60;\&#x60;,&#x60;n&#x60; in your output. - This endpoint returns a
+   * such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. - This endpoint returns a
    * maximum of &#x60;1000&#x60; most recent results. To return additional results, identify the
    * last timestamp of the last result and set that as the &#x60;end&#x60; query time to paginate
    * the results. You can also use the page parameter to specify which set of &#x60;1000&#x60;

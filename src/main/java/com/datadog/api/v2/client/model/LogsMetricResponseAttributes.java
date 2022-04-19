@@ -24,7 +24,8 @@ import java.util.Objects;
   LogsMetricResponseAttributes.JSON_PROPERTY_FILTER,
   LogsMetricResponseAttributes.JSON_PROPERTY_GROUP_BY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";

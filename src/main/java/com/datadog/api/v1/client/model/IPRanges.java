@@ -28,7 +28,8 @@ import java.util.Objects;
   IPRanges.JSON_PROPERTY_VERSION,
   IPRanges.JSON_PROPERTY_WEBHOOKS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IPRanges {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENTS = "agents";

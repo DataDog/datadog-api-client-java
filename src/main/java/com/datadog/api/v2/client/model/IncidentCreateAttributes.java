@@ -29,7 +29,8 @@ import java.util.Objects;
   IncidentCreateAttributes.JSON_PROPERTY_NOTIFICATION_HANDLES,
   IncidentCreateAttributes.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOMER_IMPACTED = "customer_impacted";

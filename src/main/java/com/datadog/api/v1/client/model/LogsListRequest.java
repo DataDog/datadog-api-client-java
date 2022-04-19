@@ -26,7 +26,8 @@ import java.util.Objects;
   LogsListRequest.JSON_PROPERTY_START_AT,
   LogsListRequest.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INDEX = "index";

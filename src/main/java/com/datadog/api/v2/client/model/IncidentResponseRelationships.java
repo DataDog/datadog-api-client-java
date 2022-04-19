@@ -24,7 +24,8 @@ import java.util.Objects;
   IncidentResponseRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER,
   IncidentResponseRelationships.JSON_PROPERTY_POSTMORTEM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentResponseRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";

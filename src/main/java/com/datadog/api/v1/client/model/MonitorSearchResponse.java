@@ -23,7 +23,8 @@ import java.util.Objects;
   MonitorSearchResponse.JSON_PROPERTY_METADATA,
   MonitorSearchResponse.JSON_PROPERTY_MONITORS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorSearchResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNTS = "counts";

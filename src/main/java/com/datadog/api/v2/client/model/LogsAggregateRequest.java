@@ -26,7 +26,8 @@ import java.util.Objects;
   LogsAggregateRequest.JSON_PROPERTY_OPTIONS,
   LogsAggregateRequest.JSON_PROPERTY_PAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";

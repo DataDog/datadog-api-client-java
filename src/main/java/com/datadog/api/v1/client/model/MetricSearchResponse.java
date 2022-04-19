@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Object containing the list of metrics matching the search query. */
 @JsonPropertyOrder({MetricSearchResponse.JSON_PROPERTY_RESULTS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricSearchResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RESULTS = "results";

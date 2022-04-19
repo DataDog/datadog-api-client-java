@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Response with the list of organizations. */
 @JsonPropertyOrder({OrganizationListResponse.JSON_PROPERTY_ORGS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORGS = "orgs";

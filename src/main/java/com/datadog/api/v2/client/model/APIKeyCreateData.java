@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Object used to create an API key. */
 @JsonPropertyOrder({APIKeyCreateData.JSON_PROPERTY_ATTRIBUTES, APIKeyCreateData.JSON_PROPERTY_TYPE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class APIKeyCreateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";

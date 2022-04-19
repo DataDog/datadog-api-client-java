@@ -26,7 +26,8 @@ import java.util.Objects;
   User.JSON_PROPERTY_NAME,
   User.JSON_PROPERTY_VERIFIED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class User {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCESS_ROLE = "access_role";

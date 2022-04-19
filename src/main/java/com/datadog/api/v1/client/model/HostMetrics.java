@@ -22,7 +22,8 @@ import java.util.Objects;
   HostMetrics.JSON_PROPERTY_IOWAIT,
   HostMetrics.JSON_PROPERTY_LOAD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMetrics {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CPU = "cpu";

@@ -34,7 +34,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ServiceLevelObjectiveRequest.JSON_PROPERTY_THRESHOLDS,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceLevelObjectiveRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";

@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Wrapper object for a single bulk tag deletion request. */
 @JsonPropertyOrder({MetricBulkTagConfigDeleteRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricBulkTagConfigDeleteRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";

@@ -22,7 +22,8 @@ import java.util.Objects;
   GeomapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE,
   GeomapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE_FLIP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GeomapWidgetDefinitionStyle {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PALETTE = "palette";

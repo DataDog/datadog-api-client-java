@@ -24,7 +24,8 @@ import java.util.Objects;
   RoleAttributes.JSON_PROPERTY_NAME,
   RoleAttributes.JSON_PROPERTY_USER_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";

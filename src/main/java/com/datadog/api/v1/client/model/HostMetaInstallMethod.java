@@ -22,7 +22,8 @@ import java.util.Objects;
   HostMetaInstallMethod.JSON_PROPERTY_TOOL,
   HostMetaInstallMethod.JSON_PROPERTY_TOOL_VERSION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMetaInstallMethod {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INSTALLER_VERSION = "installer_version";

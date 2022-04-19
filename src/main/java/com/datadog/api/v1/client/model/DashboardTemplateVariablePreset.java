@@ -23,7 +23,8 @@ import java.util.Objects;
   DashboardTemplateVariablePreset.JSON_PROPERTY_NAME,
   DashboardTemplateVariablePreset.JSON_PROPERTY_TEMPLATE_VARIABLES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardTemplateVariablePreset {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";

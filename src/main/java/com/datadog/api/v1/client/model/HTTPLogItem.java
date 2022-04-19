@@ -25,7 +25,8 @@ import java.util.Objects;
   HTTPLogItem.JSON_PROPERTY_MESSAGE,
   HTTPLogItem.JSON_PROPERTY_SERVICE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HTTPLogItem {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DDSOURCE = "ddsource";

@@ -26,7 +26,8 @@ import java.util.Objects;
   UsageCustomReportsAttributes.JSON_PROPERTY_START_DATE,
   UsageCustomReportsAttributes.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageCustomReportsAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTED_ON = "computed_on";

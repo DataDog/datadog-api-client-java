@@ -25,7 +25,8 @@ import java.util.Objects;
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_USERNAME,
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_WORKSTATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBasicAuthNTLM {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DOMAIN = "domain";

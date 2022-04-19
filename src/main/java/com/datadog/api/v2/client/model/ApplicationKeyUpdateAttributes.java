@@ -24,7 +24,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ApplicationKeyUpdateAttributes.JSON_PROPERTY_NAME,
   ApplicationKeyUpdateAttributes.JSON_PROPERTY_SCOPES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKeyUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";

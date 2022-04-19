@@ -35,7 +35,8 @@ import java.util.Objects;
   LogsLookupProcessor.JSON_PROPERTY_TARGET,
   LogsLookupProcessor.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsLookupProcessor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFAULT_LOOKUP = "default_lookup";

@@ -23,7 +23,8 @@ import java.util.Objects;
   ScatterplotWidgetFormula.JSON_PROPERTY_DIMENSION,
   ScatterplotWidgetFormula.JSON_PROPERTY_FORMULA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScatterplotWidgetFormula {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIAS = "alias";

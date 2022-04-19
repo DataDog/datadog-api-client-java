@@ -31,7 +31,8 @@ import java.util.Objects;
   HourlyUsageAttributionBody.JSON_PROPERTY_UPDATED_AT,
   HourlyUsageAttributionBody.JSON_PROPERTY_USAGE_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HourlyUsageAttributionBody {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";

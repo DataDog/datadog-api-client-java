@@ -25,7 +25,8 @@ import java.util.Objects;
   MonitorStateGroup.JSON_PROPERTY_NAME,
   MonitorStateGroup.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorStateGroup {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LAST_NODATA_TS = "last_nodata_ts";

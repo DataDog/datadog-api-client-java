@@ -24,7 +24,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   NotebookLogStreamCellAttributes.JSON_PROPERTY_GRAPH_SIZE,
   NotebookLogStreamCellAttributes.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookLogStreamCellAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";

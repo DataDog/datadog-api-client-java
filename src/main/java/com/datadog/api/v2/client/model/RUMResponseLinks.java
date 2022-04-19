@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Links attributes. */
 @JsonPropertyOrder({RUMResponseLinks.JSON_PROPERTY_NEXT})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMResponseLinks {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NEXT = "next";

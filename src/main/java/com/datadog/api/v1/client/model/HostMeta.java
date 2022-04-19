@@ -36,7 +36,8 @@ import java.util.Objects;
   HostMeta.JSON_PROPERTY_SOCKET_HOSTNAME,
   HostMeta.JSON_PROPERTY_WIN_V
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMeta {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENT_CHECKS = "agent_checks";

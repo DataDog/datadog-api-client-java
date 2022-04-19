@@ -23,7 +23,8 @@ import java.util.Objects;
   IPPrefixesAPM.JSON_PROPERTY_PREFIXES_IPV4,
   IPPrefixesAPM.JSON_PROPERTY_PREFIXES_IPV6
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IPPrefixesAPM {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PREFIXES_IPV4 = "prefixes_ipv4";

@@ -26,7 +26,8 @@ import java.util.Objects;
   LogsRetentionAggSumUsage.JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_AGG_SUM,
   LogsRetentionAggSumUsage.JSON_PROPERTY_RETENTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsRetentionAggSumUsage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_AGG_SUM =

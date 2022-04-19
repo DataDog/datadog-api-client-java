@@ -20,7 +20,8 @@ import java.util.Objects;
  * Object containing the options for a Synthetic test as a monitor (for example, renotification).
  */
 @JsonPropertyOrder({SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestOptionsMonitorOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RENOTIFY_INTERVAL = "renotify_interval";

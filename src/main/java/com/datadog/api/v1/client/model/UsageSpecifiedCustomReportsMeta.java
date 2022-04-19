@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** The object containing document metadata. */
 @JsonPropertyOrder({UsageSpecifiedCustomReportsMeta.JSON_PROPERTY_PAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSpecifiedCustomReportsMeta {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PAGE = "page";

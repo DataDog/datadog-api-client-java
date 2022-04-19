@@ -28,7 +28,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorGroupSearchResult.JSON_PROPERTY_MONITOR_NAME,
   MonitorGroupSearchResult.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorGroupSearchResult {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GROUP = "group";

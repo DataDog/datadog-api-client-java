@@ -22,7 +22,8 @@ import java.util.Objects;
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_OPERATOR,
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_TARGET_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAssertionJSONPathTargetTarget {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_JSON_PATH = "jsonPath";

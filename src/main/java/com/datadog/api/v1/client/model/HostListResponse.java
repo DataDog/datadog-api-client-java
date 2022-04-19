@@ -24,7 +24,8 @@ import java.util.Objects;
   HostListResponse.JSON_PROPERTY_TOTAL_MATCHING,
   HostListResponse.JSON_PROPERTY_TOTAL_RETURNED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOST_LIST = "host_list";

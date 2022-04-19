@@ -33,7 +33,8 @@ import java.util.Objects;
   SLOHistoryMetrics.JSON_PROPERTY_RESP_VERSION,
   SLOHistoryMetrics.JSON_PROPERTY_TIMES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMetrics {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DENOMINATOR = "denominator";

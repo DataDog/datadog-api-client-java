@@ -21,7 +21,8 @@ import java.util.Objects;
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_FORGET_AFTER,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_DURATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleNewValueOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORGET_AFTER = "forgetAfter";

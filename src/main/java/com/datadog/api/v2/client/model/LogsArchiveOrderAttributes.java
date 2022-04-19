@@ -21,7 +21,8 @@ import java.util.Objects;
 
 /** The attributes associated with the archive order. */
 @JsonPropertyOrder({LogsArchiveOrderAttributes.JSON_PROPERTY_ARCHIVE_IDS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveOrderAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARCHIVE_IDS = "archive_ids";

@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Response for retrieving an API key. */
 @JsonPropertyOrder({APIKeyResponse.JSON_PROPERTY_DATA, APIKeyResponse.JSON_PROPERTY_INCLUDED})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class APIKeyResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";

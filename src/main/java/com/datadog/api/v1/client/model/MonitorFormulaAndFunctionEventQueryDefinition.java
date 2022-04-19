@@ -28,7 +28,8 @@ import java.util.Objects;
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_NAME,
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_SEARCH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionEventQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";

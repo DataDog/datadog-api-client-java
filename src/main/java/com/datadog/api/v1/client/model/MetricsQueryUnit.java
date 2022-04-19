@@ -24,7 +24,8 @@ import java.util.Objects;
   MetricsQueryUnit.JSON_PROPERTY_SCALE_FACTOR,
   MetricsQueryUnit.JSON_PROPERTY_SHORT_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsQueryUnit {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FAMILY = "family";

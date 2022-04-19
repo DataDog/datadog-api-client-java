@@ -23,7 +23,8 @@ import java.util.Objects;
  * learn how to build the &#x60;&lt;EVENTS_SCHEMA&gt;&#x60;.
  */
 @JsonPropertyOrder({WidgetEvent.JSON_PROPERTY_Q, WidgetEvent.JSON_PROPERTY_TAGS_EXECUTION})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetEvent {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_Q = "q";

@@ -25,7 +25,8 @@ import java.util.Objects;
   UsageSDSHour.JSON_PROPERTY_PUBLIC_ID,
   UsageSDSHour.JSON_PROPERTY_TOTAL_SCANNED_BYTES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSDSHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";
