@@ -46,7 +46,7 @@ public class LogContent {
   private String service;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<Object> tags = null;
+  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private OffsetDateTime timestamp;
@@ -148,12 +148,12 @@ public class LogContent {
     this.service = service;
   }
 
-  public LogContent tags(List<Object> tags) {
+  public LogContent tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public LogContent addTagsItem(Object tagsItem) {
+  public LogContent addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -169,11 +169,11 @@ public class LogContent {
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getTags() {
+  public List<String> getTags() {
     return tags;
   }
 
-  public void setTags(List<Object> tags) {
+  public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
