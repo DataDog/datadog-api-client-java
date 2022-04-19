@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_list_stream_widget-1641430236 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"issue_stream\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_list_stream_widget-1650360448 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"apm_issue_stream\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"a55-ncv-i3b\",\"title\":\"Test-Create_a_new_dashboard_with_list_stream_widget-1641430236 with list_stream widget\",\"url\":\"/dashboard/a55-ncv-i3b/test-createanewdashboardwithliststreamwidget-1641430236-with-liststream-widget\",\"created_at\":\"2022-01-06T00:50:36.516935+00:00\",\"modified_at\":\"2022-01-06T00:50:36.516935+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"query_string\":\"\",\"data_source\":\"issue_stream\"},\"response_format\":\"event_list\",\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}]}],\"type\":\"list_stream\"},\"id\":5504795795756241}],\"layout_type\":\"ordered\"}",
+      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"8qi-cen-xbg\",\"title\":\"Test-Create_a_new_dashboard_with_list_stream_widget-1650360448 with list_stream widget\",\"url\":\"/dashboard/8qi-cen-xbg/test-createanewdashboardwithliststreamwidget-1650360448-with-liststream-widget\",\"created_at\":\"2022-04-19T09:27:29.277529+00:00\",\"modified_at\":\"2022-04-19T09:27:29.277529+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"query_string\":\"\",\"data_source\":\"apm_issue_stream\"},\"response_format\":\"event_list\",\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}]}],\"type\":\"list_stream\"},\"id\":8256654551182209}],\"layout_type\":\"ordered\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "44696c77-fc2e-cc93-5b4d-2ffaec0f7f6d"
+    "id": "60b07f9e-b056-d0cf-7f4f-c627b178d0db"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/dashboard/a55-ncv-i3b",
+      "path": "/api/v1/dashboard/8qi-cen-xbg",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"a55-ncv-i3b\"}",
+      "body": "{\"deleted_dashboard_id\":\"8qi-cen-xbg\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -61,6 +61,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9badb51b-1976-22d9-ed6b-9165827d067a"
+    "id": "6d1c3c21-3d76-b00a-03b7-a87380816a84"
   }
 ]

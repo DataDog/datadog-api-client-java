@@ -27,7 +27,6 @@ import java.util.Set;
 @JsonSerialize(using = ListStreamSource.ListStreamSourceSerializer.class)
 public class ListStreamSource {
 
-  public static final ListStreamSource ISSUE_STREAM = new ListStreamSource("issue_stream");
   public static final ListStreamSource LOGS_STREAM = new ListStreamSource("logs_stream");
   public static final ListStreamSource AUDIT_STREAM = new ListStreamSource("audit_stream");
   public static final ListStreamSource RUM_ISSUE_STREAM = new ListStreamSource("rum_issue_stream");
@@ -35,12 +34,7 @@ public class ListStreamSource {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList(
-              "issue_stream",
-              "logs_stream",
-              "audit_stream",
-              "rum_issue_stream",
-              "apm_issue_stream"));
+          Arrays.asList("logs_stream", "audit_stream", "rum_issue_stream", "apm_issue_stream"));
 
   private String value;
 
