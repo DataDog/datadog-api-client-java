@@ -45,7 +45,8 @@ public class Example {
                                                             .field("timestamp")))
                                                 .query(
                                                     new ListStreamQuery()
-                                                        .dataSource(ListStreamSource.ISSUE_STREAM)
+                                                        .dataSource(
+                                                            ListStreamSource.APM_ISSUE_STREAM)
                                                         .queryString(""))
                                                 .responseFormat(
                                                     ListStreamResponseFormat.EVENT_LIST)))))));

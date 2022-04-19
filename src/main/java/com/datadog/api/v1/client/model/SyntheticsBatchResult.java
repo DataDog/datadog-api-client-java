@@ -181,7 +181,7 @@ public class SyntheticsBatchResult {
   }
 
   /**
-   * Total duration in millisecond of the test.
+   * Number of times this result has been retried.
    *
    * @return retries
    */
