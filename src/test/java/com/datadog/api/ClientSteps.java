@@ -175,6 +175,11 @@ public class ClientSteps {
     world.addRequestParameter("body", data);
   }
 
+  @Given("there is a {int} second delay")
+  public void setDelay(Integer sleepTime) throws java.lang.InterruptedException {
+    Thread.sleep(sleepTime * 1000);
+  }
+
   @Then("the response status is {int} {}")
   public void theResponseStatusIs(Integer statusCode, String unused)
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
