@@ -8,7 +8,9 @@ from . import openapi
 from . import formatter
 
 PACKAGE_NAME = "com.datadog.api.{}.client"
-GENERATED_ANNOTATION = '@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")'
+GENERATED_ANNOTATION = (
+    '@javax.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")'
+)
 
 
 @click.command()
@@ -53,7 +55,6 @@ def cli(input, output):
     env.filters["is_primitive"] = openapi.is_primitive
     env.filters["is_model"] = openapi.is_model
     env.filters["get_required_attributes"] = openapi.get_required_attributes
-    env.filters["format_example"] = formatter.format_json_string
     env.filters["escape_html"] = formatter.escape_html
 
     env.globals["config"] = config

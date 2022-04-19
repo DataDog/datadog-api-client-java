@@ -59,37 +59,6 @@ KEYWORDS = {
     "while",
 }
 
-SUFFIXES = {
-    # Test
-    "test",
-    # $GOOS
-    "aix",
-    "android",
-    "darwin",
-    "dragonfly",
-    "freebsd",
-    "illumos",
-    "js",
-    "linux",
-    "netbsd",
-    "openbsd",
-    "plan9",
-    "solaris",
-    "windows",
-    # $GOARCH
-    "386",
-    "amd64",
-    "arm",
-    "arm64",
-    "mips",
-    "mips64",
-    "mips64le",
-    "mipsle",
-    "ppc64",
-    "ppc64le",
-    "s390x",
-    "wasm",
-}
 
 HTML_ESCAPE_CHARACTERS = {
     "&": "&amp;",
@@ -99,6 +68,7 @@ HTML_ESCAPE_CHARACTERS = {
     '"': "&quot;",
     "`": "&#x60;",
     "=": "&#x3D;",
+    "\\": "\\\\",
 }
 
 
@@ -251,18 +221,3 @@ def escape_html(text):
         return ""
     text = " ".join(text.splitlines())
     return "".join(HTML_ESCAPE_CHARACTERS.get(c, c) for c in text)
-
-
-# TODO: clean this up it is messy right now
-def format_json_string(example, schema=None):
-    if schema:
-        if schema.get("type") == "boolean":
-            return f'"{example}"'.lower()
-    if type(example) in [list, dict]:
-        res = json.dumps(example, separators=(",", ":")).replace("\\n", " ").replace('"', '\\"')
-        return f'"{res}"'
-    if type(example) == str:
-        example = re.sub(r"(?<!\\)(\n)", " ", example)
-        example = re.sub(r"(?<!\\)(\")", r"\\\1", example)
-        return f'"{example}"'
-    return f'"{example}"'

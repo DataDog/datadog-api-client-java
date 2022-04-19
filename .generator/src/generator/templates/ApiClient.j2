@@ -131,7 +131,7 @@ public class ApiClient extends JavaTimeFormatter {
   );
   protected Integer serverIndex = 0;
   protected Map<String, String> serverVariables = null;
-  protected Map<String, List<ServerConfiguration>> operationServers = new HashMap<String, List<ServerConfiguration>>() {% raw %}{{{% endraw %}
+  protected Map<String, List<ServerConfiguration>> operationServers = new HashMap<String, List<ServerConfiguration>>() {{ '{{' }}
     {%- for path in openapi.paths.values() %}
     {%- for operation in path.values() %}
     {%- for server in operation.servers %}
@@ -162,7 +162,7 @@ public class ApiClient extends JavaTimeFormatter {
   protected Map<String, String> authenticationLookup;
 
   protected DateFormat dateFormat;
-  protected final Map<String, Boolean> unstableOperations = new HashMap<String, Boolean>() {% raw %}{{{% endraw %}
+  protected final Map<String, Boolean> unstableOperations = new HashMap<String, Boolean>() {{ '{{' }}
     {%- for path in openapi.paths.values() %}
     {%- for operation in path.values()|sort(attribute="operationId") %}
     {%- if "x-unstable" in operation %}
