@@ -27,6 +27,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Event.JSON_PROPERTY_HOST,
   Event.JSON_PROPERTY_ID,
   Event.JSON_PROPERTY_ID_STR,
+  Event.JSON_PROPERTY_MONITOR_ID,
   Event.JSON_PROPERTY_PAYLOAD,
   Event.JSON_PROPERTY_PRIORITY,
   Event.JSON_PROPERTY_SOURCE_TYPE_NAME,
@@ -55,6 +56,9 @@ public class Event {
 
   public static final String JSON_PROPERTY_ID_STR = "id_str";
   private String idStr;
+
+  public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
+  private Long monitorId;
 
   public static final String JSON_PROPERTY_PAYLOAD = "payload";
   private String payload;
@@ -190,6 +194,28 @@ public class Event {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIdStr() {
     return idStr;
+  }
+
+  public Event monitorId(Long monitorId) {
+    this.monitorId = monitorId;
+    return this;
+  }
+
+  /**
+   * Integer ID of the monitor. The &#x60;monitor_id&#x60; is only available if the event has an
+   * associated monitor.
+   *
+   * @return monitorId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONITOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMonitorId() {
+    return monitorId;
+  }
+
+  public void setMonitorId(Long monitorId) {
+    this.monitorId = monitorId;
   }
 
   /**
@@ -362,6 +388,7 @@ public class Event {
         && Objects.equals(this.host, event.host)
         && Objects.equals(this.id, event.id)
         && Objects.equals(this.idStr, event.idStr)
+        && Objects.equals(this.monitorId, event.monitorId)
         && Objects.equals(this.payload, event.payload)
         && Objects.equals(this.priority, event.priority)
         && Objects.equals(this.sourceTypeName, event.sourceTypeName)
@@ -380,6 +407,7 @@ public class Event {
         host,
         id,
         idStr,
+        monitorId,
         payload,
         priority,
         sourceTypeName,
@@ -399,6 +427,7 @@ public class Event {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    idStr: ").append(toIndentedString(idStr)).append("\n");
+    sb.append("    monitorId: ").append(toIndentedString(monitorId)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    sourceTypeName: ").append(toIndentedString(sourceTypeName)).append("\n");
