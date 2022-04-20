@@ -26,7 +26,8 @@ import java.util.Objects;
   MetricMetadata.JSON_PROPERTY_TYPE,
   MetricMetadata.JSON_PROPERTY_UNIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";

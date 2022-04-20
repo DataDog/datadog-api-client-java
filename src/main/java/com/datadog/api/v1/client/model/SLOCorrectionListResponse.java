@@ -23,7 +23,8 @@ import java.util.Objects;
   SLOCorrectionListResponse.JSON_PROPERTY_DATA,
   SLOCorrectionListResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -72,7 +73,7 @@ public class SLOCorrectionListResponse {
   }
 
   /**
-   * Get meta
+   * Object describing meta attributes of response.
    *
    * @return meta
    */
@@ -96,9 +97,9 @@ public class SLOCorrectionListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionListResponse slOCorrectionListResponse = (SLOCorrectionListResponse) o;
-    return Objects.equals(this.data, slOCorrectionListResponse.data)
-        && Objects.equals(this.meta, slOCorrectionListResponse.meta);
+    SLOCorrectionListResponse sloCorrectionListResponse = (SLOCorrectionListResponse) o;
+    return Objects.equals(this.data, sloCorrectionListResponse.data)
+        && Objects.equals(this.meta, sloCorrectionListResponse.meta);
   }
 
   @Override

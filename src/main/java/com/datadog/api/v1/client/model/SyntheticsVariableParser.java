@@ -22,7 +22,8 @@ import java.util.Objects;
   SyntheticsVariableParser.JSON_PROPERTY_TYPE,
   SyntheticsVariableParser.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsVariableParser {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
@@ -48,7 +49,7 @@ public class SyntheticsVariableParser {
   }
 
   /**
-   * Get type
+   * Type of parser for a Synthetics global variable from a synthetics test.
    *
    * @return type
    */

@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Request used to create an application key. */
 @JsonPropertyOrder({ApplicationKeyCreateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKeyCreateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -41,7 +42,7 @@ public class ApplicationKeyCreateRequest {
   }
 
   /**
-   * Get data
+   * Object used to create an application key.
    *
    * @return data
    */

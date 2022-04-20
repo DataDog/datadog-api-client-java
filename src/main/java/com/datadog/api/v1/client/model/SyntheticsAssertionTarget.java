@@ -24,7 +24,8 @@ import java.util.Objects;
   SyntheticsAssertionTarget.JSON_PROPERTY_TARGET,
   SyntheticsAssertionTarget.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAssertionTarget {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_OPERATOR = "operator";
@@ -34,7 +35,7 @@ public class SyntheticsAssertionTarget {
   private String property;
 
   public static final String JSON_PROPERTY_TARGET = "target";
-  private Object target = null;
+  private Object target = new Object();
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsAssertionType type;
@@ -50,8 +51,6 @@ public class SyntheticsAssertionTarget {
     this.operator = operator;
     this.unparsed |= !operator.isValid();
     this.target = target;
-    if (target != null) {}
-
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -63,7 +62,7 @@ public class SyntheticsAssertionTarget {
   }
 
   /**
-   * Get operator
+   * Assertion operator to apply.
    *
    * @return operator
    */
@@ -103,7 +102,6 @@ public class SyntheticsAssertionTarget {
 
   public SyntheticsAssertionTarget target(Object target) {
     this.target = target;
-    if (target != null) {}
     return this;
   }
 
@@ -112,7 +110,6 @@ public class SyntheticsAssertionTarget {
    *
    * @return target
    */
-  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Object getTarget() {
@@ -130,7 +127,7 @@ public class SyntheticsAssertionTarget {
   }
 
   /**
-   * Get type
+   * Type of the assertion.
    *
    * @return type
    */

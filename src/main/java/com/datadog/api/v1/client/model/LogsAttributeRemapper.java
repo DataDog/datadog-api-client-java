@@ -38,7 +38,8 @@ import java.util.Objects;
   LogsAttributeRemapper.JSON_PROPERTY_TARGET_TYPE,
   LogsAttributeRemapper.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAttributeRemapper {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
@@ -241,7 +242,10 @@ public class LogsAttributeRemapper {
   }
 
   /**
-   * Get targetFormat
+   * If the &#x60;target_type&#x60; of the remapper is &#x60;attribute&#x60;, try to cast the value
+   * to a new specific type. If the cast is not possible, the original type is kept.
+   * &#x60;string&#x60;, &#x60;integer&#x60;, or &#x60;double&#x60; are the possible types. If the
+   * &#x60;target_type&#x60; is &#x60;tag&#x60;, this parameter may not be specified.
    *
    * @return targetFormat
    */
@@ -288,7 +292,7 @@ public class LogsAttributeRemapper {
   }
 
   /**
-   * Get type
+   * Type of logs attribute remapper.
    *
    * @return type
    */

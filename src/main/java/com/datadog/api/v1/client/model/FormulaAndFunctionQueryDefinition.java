@@ -36,7 +36,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 @JsonDeserialize(
     using = FormulaAndFunctionQueryDefinition.FormulaAndFunctionQueryDefinitionDeserializer.class)
 @JsonSerialize(
@@ -376,6 +377,21 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
+  public FormulaAndFunctionQueryDefinition(FormulaAndFunctionMetricQueryDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public FormulaAndFunctionQueryDefinition(FormulaAndFunctionEventQueryDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public FormulaAndFunctionQueryDefinition(FormulaAndFunctionProcessQueryDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public FormulaAndFunctionQueryDefinition(FormulaAndFunctionApmDependencyStatsQueryDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -386,37 +402,22 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public FormulaAndFunctionQueryDefinition(FormulaAndFunctionEventQueryDefinition o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public FormulaAndFunctionQueryDefinition(FormulaAndFunctionMetricQueryDefinition o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public FormulaAndFunctionQueryDefinition(FormulaAndFunctionProcessQueryDefinition o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   static {
+    schemas.put(
+        "FormulaAndFunctionMetricQueryDefinition",
+        new GenericType<FormulaAndFunctionMetricQueryDefinition>() {});
+    schemas.put(
+        "FormulaAndFunctionEventQueryDefinition",
+        new GenericType<FormulaAndFunctionEventQueryDefinition>() {});
+    schemas.put(
+        "FormulaAndFunctionProcessQueryDefinition",
+        new GenericType<FormulaAndFunctionProcessQueryDefinition>() {});
     schemas.put(
         "FormulaAndFunctionApmDependencyStatsQueryDefinition",
         new GenericType<FormulaAndFunctionApmDependencyStatsQueryDefinition>() {});
     schemas.put(
         "FormulaAndFunctionApmResourceStatsQueryDefinition",
         new GenericType<FormulaAndFunctionApmResourceStatsQueryDefinition>() {});
-    schemas.put(
-        "FormulaAndFunctionEventQueryDefinition",
-        new GenericType<FormulaAndFunctionEventQueryDefinition>() {});
-    schemas.put(
-        "FormulaAndFunctionMetricQueryDefinition",
-        new GenericType<FormulaAndFunctionMetricQueryDefinition>() {});
-    schemas.put(
-        "FormulaAndFunctionProcessQueryDefinition",
-        new GenericType<FormulaAndFunctionProcessQueryDefinition>() {});
     JSON.registerDescendants(
         FormulaAndFunctionQueryDefinition.class, Collections.unmodifiableMap(schemas));
   }
@@ -428,9 +429,10 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: FormulaAndFunctionApmDependencyStatsQueryDefinition,
-   * FormulaAndFunctionApmResourceStatsQueryDefinition, FormulaAndFunctionEventQueryDefinition,
-   * FormulaAndFunctionMetricQueryDefinition, FormulaAndFunctionProcessQueryDefinition
+   * against the oneOf child schemas: FormulaAndFunctionMetricQueryDefinition,
+   * FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionProcessQueryDefinition,
+   * FormulaAndFunctionApmDependencyStatsQueryDefinition,
+   * FormulaAndFunctionApmResourceStatsQueryDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -438,35 +440,31 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
   @Override
   public void setActualInstance(Object instance) {
     if (JSON.isInstanceOf(
+        FormulaAndFunctionMetricQueryDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        FormulaAndFunctionEventQueryDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        FormulaAndFunctionProcessQueryDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
         FormulaAndFunctionApmDependencyStatsQueryDefinition.class,
         instance,
         new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(
         FormulaAndFunctionApmResourceStatsQueryDefinition.class,
         instance,
         new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(
-        FormulaAndFunctionEventQueryDefinition.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(
-        FormulaAndFunctionMetricQueryDefinition.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(
-        FormulaAndFunctionProcessQueryDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -476,25 +474,62 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be FormulaAndFunctionApmDependencyStatsQueryDefinition,"
-            + " FormulaAndFunctionApmResourceStatsQueryDefinition,"
-            + " FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionMetricQueryDefinition,"
-            + " FormulaAndFunctionProcessQueryDefinition");
+        "Invalid instance type. Must be FormulaAndFunctionMetricQueryDefinition,"
+            + " FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionProcessQueryDefinition,"
+            + " FormulaAndFunctionApmDependencyStatsQueryDefinition,"
+            + " FormulaAndFunctionApmResourceStatsQueryDefinition");
   }
 
   /**
-   * Get the actual instance, which can be the following:
+   * Get the actual instance, which can be the following: FormulaAndFunctionMetricQueryDefinition,
+   * FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionProcessQueryDefinition,
    * FormulaAndFunctionApmDependencyStatsQueryDefinition,
-   * FormulaAndFunctionApmResourceStatsQueryDefinition, FormulaAndFunctionEventQueryDefinition,
-   * FormulaAndFunctionMetricQueryDefinition, FormulaAndFunctionProcessQueryDefinition
+   * FormulaAndFunctionApmResourceStatsQueryDefinition
    *
-   * @return The actual instance (FormulaAndFunctionApmDependencyStatsQueryDefinition,
-   *     FormulaAndFunctionApmResourceStatsQueryDefinition, FormulaAndFunctionEventQueryDefinition,
-   *     FormulaAndFunctionMetricQueryDefinition, FormulaAndFunctionProcessQueryDefinition)
+   * @return The actual instance (FormulaAndFunctionMetricQueryDefinition,
+   *     FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionProcessQueryDefinition,
+   *     FormulaAndFunctionApmDependencyStatsQueryDefinition,
+   *     FormulaAndFunctionApmResourceStatsQueryDefinition)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `FormulaAndFunctionMetricQueryDefinition`. If the actual instance is
+   * not `FormulaAndFunctionMetricQueryDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `FormulaAndFunctionMetricQueryDefinition`
+   * @throws ClassCastException if the instance is not `FormulaAndFunctionMetricQueryDefinition`
+   */
+  public FormulaAndFunctionMetricQueryDefinition getFormulaAndFunctionMetricQueryDefinition()
+      throws ClassCastException {
+    return (FormulaAndFunctionMetricQueryDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `FormulaAndFunctionEventQueryDefinition`. If the actual instance is
+   * not `FormulaAndFunctionEventQueryDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `FormulaAndFunctionEventQueryDefinition`
+   * @throws ClassCastException if the instance is not `FormulaAndFunctionEventQueryDefinition`
+   */
+  public FormulaAndFunctionEventQueryDefinition getFormulaAndFunctionEventQueryDefinition()
+      throws ClassCastException {
+    return (FormulaAndFunctionEventQueryDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `FormulaAndFunctionProcessQueryDefinition`. If the actual instance
+   * is not `FormulaAndFunctionProcessQueryDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `FormulaAndFunctionProcessQueryDefinition`
+   * @throws ClassCastException if the instance is not `FormulaAndFunctionProcessQueryDefinition`
+   */
+  public FormulaAndFunctionProcessQueryDefinition getFormulaAndFunctionProcessQueryDefinition()
+      throws ClassCastException {
+    return (FormulaAndFunctionProcessQueryDefinition) super.getActualInstance();
   }
 
   /**
@@ -523,41 +558,5 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
   public FormulaAndFunctionApmResourceStatsQueryDefinition
       getFormulaAndFunctionApmResourceStatsQueryDefinition() throws ClassCastException {
     return (FormulaAndFunctionApmResourceStatsQueryDefinition) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `FormulaAndFunctionEventQueryDefinition`. If the actual instance is
-   * not `FormulaAndFunctionEventQueryDefinition`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `FormulaAndFunctionEventQueryDefinition`
-   * @throws ClassCastException if the instance is not `FormulaAndFunctionEventQueryDefinition`
-   */
-  public FormulaAndFunctionEventQueryDefinition getFormulaAndFunctionEventQueryDefinition()
-      throws ClassCastException {
-    return (FormulaAndFunctionEventQueryDefinition) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `FormulaAndFunctionMetricQueryDefinition`. If the actual instance is
-   * not `FormulaAndFunctionMetricQueryDefinition`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `FormulaAndFunctionMetricQueryDefinition`
-   * @throws ClassCastException if the instance is not `FormulaAndFunctionMetricQueryDefinition`
-   */
-  public FormulaAndFunctionMetricQueryDefinition getFormulaAndFunctionMetricQueryDefinition()
-      throws ClassCastException {
-    return (FormulaAndFunctionMetricQueryDefinition) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `FormulaAndFunctionProcessQueryDefinition`. If the actual instance
-   * is not `FormulaAndFunctionProcessQueryDefinition`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `FormulaAndFunctionProcessQueryDefinition`
-   * @throws ClassCastException if the instance is not `FormulaAndFunctionProcessQueryDefinition`
-   */
-  public FormulaAndFunctionProcessQueryDefinition getFormulaAndFunctionProcessQueryDefinition()
-      throws ClassCastException {
-    return (FormulaAndFunctionProcessQueryDefinition) super.getActualInstance();
   }
 }

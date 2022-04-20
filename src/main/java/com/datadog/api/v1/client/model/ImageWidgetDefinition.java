@@ -32,7 +32,8 @@ import java.util.Objects;
   ImageWidgetDefinition.JSON_PROPERTY_URL_DARK_THEME,
   ImageWidgetDefinition.JSON_PROPERTY_VERTICAL_ALIGN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ImageWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HAS_BACKGROUND = "has_background";
@@ -122,7 +123,7 @@ public class ImageWidgetDefinition {
   }
 
   /**
-   * Get horizontalAlign
+   * Horizontal alignment.
    *
    * @return horizontalAlign
    */
@@ -147,7 +148,8 @@ public class ImageWidgetDefinition {
   }
 
   /**
-   * Get margin
+   * Size of the margins around the image. **Note**: &#x60;small&#x60; and &#x60;large&#x60; values
+   * are deprecated.
    *
    * @return margin
    */
@@ -172,7 +174,9 @@ public class ImageWidgetDefinition {
   }
 
   /**
-   * Get sizing
+   * How to size the image on the widget. The values are based on the image &#x60;object-fit&#x60;
+   * CSS properties. **Note**: &#x60;zoom&#x60;, &#x60;fit&#x60; and &#x60;center&#x60; values are
+   * deprecated.
    *
    * @return sizing
    */
@@ -197,7 +201,7 @@ public class ImageWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the image widget.
    *
    * @return type
    */
@@ -262,7 +266,7 @@ public class ImageWidgetDefinition {
   }
 
   /**
-   * Get verticalAlign
+   * Vertical alignment.
    *
    * @return verticalAlign
    */

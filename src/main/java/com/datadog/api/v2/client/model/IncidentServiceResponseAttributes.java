@@ -23,7 +23,8 @@ import java.util.Objects;
   IncidentServiceResponseAttributes.JSON_PROPERTY_MODIFIED,
   IncidentServiceResponseAttributes.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentServiceResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED = "created";

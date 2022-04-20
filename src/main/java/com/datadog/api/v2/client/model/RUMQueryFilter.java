@@ -22,7 +22,8 @@ import java.util.Objects;
   RUMQueryFilter.JSON_PROPERTY_QUERY,
   RUMQueryFilter.JSON_PROPERTY_TO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMQueryFilter {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";
@@ -108,10 +109,10 @@ public class RUMQueryFilter {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMQueryFilter ruMQueryFilter = (RUMQueryFilter) o;
-    return Objects.equals(this.from, ruMQueryFilter.from)
-        && Objects.equals(this.query, ruMQueryFilter.query)
-        && Objects.equals(this.to, ruMQueryFilter.to);
+    RUMQueryFilter rumQueryFilter = (RUMQueryFilter) o;
+    return Objects.equals(this.from, rumQueryFilter.from)
+        && Objects.equals(this.query, rumQueryFilter.query)
+        && Objects.equals(this.to, rumQueryFilter.to);
   }
 
   @Override

@@ -23,7 +23,8 @@ import java.util.Objects;
   LogsListRequest.JSON_PROPERTY_PAGE,
   LogsListRequest.JSON_PROPERTY_SORT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
@@ -45,7 +46,7 @@ public class LogsListRequest {
   }
 
   /**
-   * Get filter
+   * The search and filter query settings
    *
    * @return filter
    */
@@ -67,7 +68,8 @@ public class LogsListRequest {
   }
 
   /**
-   * Get options
+   * Global query options that are used during the query. Note: You should only supply timezone or
+   * time offset but not both otherwise the query will fail.
    *
    * @return options
    */
@@ -89,7 +91,7 @@ public class LogsListRequest {
   }
 
   /**
-   * Get page
+   * Paging attributes for listing logs.
    *
    * @return page
    */
@@ -111,7 +113,7 @@ public class LogsListRequest {
   }
 
   /**
-   * Get sort
+   * Sort parameters when querying logs.
    *
    * @return sort
    */

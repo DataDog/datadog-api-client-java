@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Object containing an event response. */
 @JsonPropertyOrder({EventResponse.JSON_PROPERTY_EVENT, EventResponse.JSON_PROPERTY_STATUS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EVENT = "event";
@@ -34,7 +35,7 @@ public class EventResponse {
   }
 
   /**
-   * Get event
+   * Object representing an event.
    *
    * @return event
    */

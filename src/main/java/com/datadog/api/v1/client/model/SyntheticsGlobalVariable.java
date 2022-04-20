@@ -30,7 +30,8 @@ import java.util.Objects;
   SyntheticsGlobalVariable.JSON_PROPERTY_TAGS,
   SyntheticsGlobalVariable.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsGlobalVariable {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -80,7 +81,7 @@ public class SyntheticsGlobalVariable {
   }
 
   /**
-   * Get attributes
+   * Attributes of the global variable.
    *
    * @return attributes
    */
@@ -155,7 +156,8 @@ public class SyntheticsGlobalVariable {
   }
 
   /**
-   * Get parseTestOptions
+   * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used
+   * in conjunction with &#x60;parse_test_public_id&#x60;.
    *
    * @return parseTestOptions
    */
@@ -223,7 +225,7 @@ public class SyntheticsGlobalVariable {
   }
 
   /**
-   * Get value
+   * Value of the global variable.
    *
    * @return value
    */

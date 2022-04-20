@@ -28,7 +28,8 @@ import java.util.Objects;
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_NAME,
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_SEARCH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionEventQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
@@ -73,7 +74,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
   }
 
   /**
-   * Get compute
+   * Compute options.
    *
    * @return compute
    */
@@ -95,7 +96,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
   }
 
   /**
-   * Get dataSource
+   * Data source for event platform-based queries.
    *
    * @return dataSource
    */
@@ -205,7 +206,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
   }
 
   /**
-   * Get search
+   * Search options.
    *
    * @return search
    */

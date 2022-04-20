@@ -21,7 +21,8 @@ import java.util.Objects;
   SecurityFilterResponse.JSON_PROPERTY_DATA,
   SecurityFilterResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityFilterResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -37,7 +38,7 @@ public class SecurityFilterResponse {
   }
 
   /**
-   * Get data
+   * The security filter&#39;s properties.
    *
    * @return data
    */
@@ -59,7 +60,7 @@ public class SecurityFilterResponse {
   }
 
   /**
-   * Get meta
+   * Optional metadata associated to the response.
    *
    * @return meta
    */

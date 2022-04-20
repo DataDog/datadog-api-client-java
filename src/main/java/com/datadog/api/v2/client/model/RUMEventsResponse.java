@@ -24,7 +24,8 @@ import java.util.Objects;
   RUMEventsResponse.JSON_PROPERTY_LINKS,
   RUMEventsResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMEventsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -76,7 +77,7 @@ public class RUMEventsResponse {
   }
 
   /**
-   * Get links
+   * Links attributes.
    *
    * @return links
    */
@@ -98,7 +99,7 @@ public class RUMEventsResponse {
   }
 
   /**
-   * Get meta
+   * The metadata associated with a request.
    *
    * @return meta
    */
@@ -122,10 +123,10 @@ public class RUMEventsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMEventsResponse ruMEventsResponse = (RUMEventsResponse) o;
-    return Objects.equals(this.data, ruMEventsResponse.data)
-        && Objects.equals(this.links, ruMEventsResponse.links)
-        && Objects.equals(this.meta, ruMEventsResponse.meta);
+    RUMEventsResponse rumEventsResponse = (RUMEventsResponse) o;
+    return Objects.equals(this.data, rumEventsResponse.data)
+        && Objects.equals(this.links, rumEventsResponse.links)
+        && Objects.equals(this.meta, rumEventsResponse.meta);
   }
 
   @Override

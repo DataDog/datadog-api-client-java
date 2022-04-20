@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Object containing the definition of a metric&#39;s tags. */
 @JsonPropertyOrder({MetricAllTagsAttributes.JSON_PROPERTY_TAGS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricAllTagsAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TAGS = "tags";

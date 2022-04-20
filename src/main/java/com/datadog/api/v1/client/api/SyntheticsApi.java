@@ -33,7 +33,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsApi {
   private ApiClient apiClient;
 
@@ -171,9 +172,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createGlobalVariable");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -310,9 +308,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createPrivateLocation");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -447,9 +442,6 @@ public class SyntheticsApi {
     String localVarPath = "/api/v1/synthetics/tests/api";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSyntheticsAPITest");
 
     Invocation.Builder builder;
     try {
@@ -588,9 +580,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSyntheticsBrowserTest");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -687,7 +676,7 @@ public class SyntheticsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -729,9 +718,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteGlobalVariable");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -741,7 +727,7 @@ public class SyntheticsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -827,7 +813,7 @@ public class SyntheticsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -869,9 +855,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deletePrivateLocation");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -881,7 +864,7 @@ public class SyntheticsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -1006,9 +989,6 @@ public class SyntheticsApi {
     String localVarPath = "/api/v1/synthetics/tests/delete";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteTests");
 
     Invocation.Builder builder;
     try {
@@ -1171,9 +1151,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "editGlobalVariable");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1311,9 +1288,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getAPITest");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1400,7 +1374,7 @@ public class SyntheticsApi {
   /**
    * Get an API test&#39;s latest results summaries
    *
-   * <p>See {@link #getAPITestLatestResultsWithHttpInfo}.
+   * <p>See {@link #getAPITestLatestResultsWithHttpInfoAsync}.
    *
    * @param publicId The public ID of the test for which to search results for. (required)
    * @return CompletableFuture&lt;SyntheticsGetAPITestLatestResultsResponse&gt;
@@ -1549,9 +1523,6 @@ public class SyntheticsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "probe_dc", probeDc));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getAPITestLatestResults");
 
     Invocation.Builder builder;
     try {
@@ -1716,9 +1687,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getAPITestResult");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1857,9 +1825,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getBrowserTest");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1946,7 +1911,7 @@ public class SyntheticsApi {
   /**
    * Get a browser test&#39;s latest results summaries
    *
-   * <p>See {@link #getBrowserTestLatestResultsWithHttpInfo}.
+   * <p>See {@link #getBrowserTestLatestResultsWithHttpInfoAsync}.
    *
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @return CompletableFuture&lt;SyntheticsGetBrowserTestLatestResultsResponse&gt;
@@ -2102,9 +2067,6 @@ public class SyntheticsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "probe_dc", probeDc));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getBrowserTestLatestResults");
 
     Invocation.Builder builder;
     try {
@@ -2273,9 +2235,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getBrowserTestResult");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2416,9 +2375,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getGlobalVariable");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2557,9 +2513,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getPrivateLocation");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2696,9 +2649,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSyntheticsCIBatch");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2834,9 +2784,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getTest");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2950,9 +2897,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listGlobalVariables");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -3065,9 +3009,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listLocations");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -3179,9 +3120,6 @@ public class SyntheticsApi {
     String localVarPath = "/api/v1/synthetics/tests";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listTests");
 
     Invocation.Builder builder;
     try {
@@ -3319,9 +3257,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "triggerCITests");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -3456,9 +3391,6 @@ public class SyntheticsApi {
     String localVarPath = "/api/v1/synthetics/tests/trigger";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "triggerTests");
 
     Invocation.Builder builder;
     try {
@@ -3620,9 +3552,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateAPITest");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -3781,9 +3710,6 @@ public class SyntheticsApi {
             .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateBrowserTest");
 
     Invocation.Builder builder;
     try {
@@ -3945,9 +3871,6 @@ public class SyntheticsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updatePrivateLocation");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -4106,9 +4029,6 @@ public class SyntheticsApi {
             .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateTestPauseStatus");
 
     Invocation.Builder builder;
     try {

@@ -23,7 +23,8 @@ import java.util.Objects;
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE,
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE_FLIP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMapWidgetDefinitionStyle {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILL_MAX = "fill_max";

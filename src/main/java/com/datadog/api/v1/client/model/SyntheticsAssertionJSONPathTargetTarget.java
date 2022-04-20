@@ -15,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Composed target for &#x60;validatesJSONPath&#x60; operator. */
 @JsonPropertyOrder({
@@ -23,7 +22,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_OPERATOR,
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_TARGET_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAssertionJSONPathTargetTarget {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_JSON_PATH = "jsonPath";
@@ -33,7 +33,7 @@ public class SyntheticsAssertionJSONPathTargetTarget {
   private String operator;
 
   public static final String JSON_PROPERTY_TARGET_VALUE = "targetValue";
-  private JsonNullable<Object> targetValue = JsonNullable.<Object>of(null);
+  private Object targetValue = null;
 
   public SyntheticsAssertionJSONPathTargetTarget jsonPath(String jsonPath) {
     this.jsonPath = jsonPath;
@@ -78,7 +78,7 @@ public class SyntheticsAssertionJSONPathTargetTarget {
   }
 
   public SyntheticsAssertionJSONPathTargetTarget targetValue(Object targetValue) {
-    this.targetValue = JsonNullable.<Object>of(targetValue);
+    this.targetValue = targetValue;
     return this;
   }
 
@@ -88,24 +88,14 @@ public class SyntheticsAssertionJSONPathTargetTarget {
    * @return targetValue
    */
   @javax.annotation.Nullable
-  @JsonIgnore
-  public Object getTargetValue() {
-    return targetValue.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Object> getTargetValue_JsonNullable() {
+  public Object getTargetValue() {
     return targetValue;
   }
 
-  @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
-  public void setTargetValue_JsonNullable(JsonNullable<Object> targetValue) {
-    this.targetValue = targetValue;
-  }
-
   public void setTargetValue(Object targetValue) {
-    this.targetValue = JsonNullable.<Object>of(targetValue);
+    this.targetValue = targetValue;
   }
 
   /** Return true if this SyntheticsAssertionJSONPathTargetTarget object is equal to o. */
@@ -117,11 +107,11 @@ public class SyntheticsAssertionJSONPathTargetTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAssertionJSONPathTargetTarget syntheticsAssertionJSONPathTargetTarget =
+    SyntheticsAssertionJSONPathTargetTarget syntheticsAssertionJsonPathTargetTarget =
         (SyntheticsAssertionJSONPathTargetTarget) o;
-    return Objects.equals(this.jsonPath, syntheticsAssertionJSONPathTargetTarget.jsonPath)
-        && Objects.equals(this.operator, syntheticsAssertionJSONPathTargetTarget.operator)
-        && Objects.equals(this.targetValue, syntheticsAssertionJSONPathTargetTarget.targetValue);
+    return Objects.equals(this.jsonPath, syntheticsAssertionJsonPathTargetTarget.jsonPath)
+        && Objects.equals(this.operator, syntheticsAssertionJsonPathTargetTarget.operator)
+        && Objects.equals(this.targetValue, syntheticsAssertionJsonPathTargetTarget.targetValue);
   }
 
   @Override

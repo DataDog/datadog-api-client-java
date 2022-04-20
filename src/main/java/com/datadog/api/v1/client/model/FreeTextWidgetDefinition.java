@@ -28,7 +28,8 @@ import java.util.Objects;
   FreeTextWidgetDefinition.JSON_PROPERTY_TEXT_ALIGN,
   FreeTextWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FreeTextWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLOR = "color";
@@ -127,7 +128,7 @@ public class FreeTextWidgetDefinition {
   }
 
   /**
-   * Get textAlign
+   * How to align the text on the widget.
    *
    * @return textAlign
    */
@@ -152,7 +153,7 @@ public class FreeTextWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the free text widget.
    *
    * @return type
    */

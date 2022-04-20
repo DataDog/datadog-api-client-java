@@ -24,7 +24,8 @@ import java.util.Objects;
   LogsArchiveDestinationS3.JSON_PROPERTY_PATH,
   LogsArchiveDestinationS3.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveDestinationS3 {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUCKET = "bucket";
@@ -82,7 +83,7 @@ public class LogsArchiveDestinationS3 {
   }
 
   /**
-   * Get integration
+   * The S3 Archive&#39;s integration destination.
    *
    * @return integration
    */
@@ -124,7 +125,7 @@ public class LogsArchiveDestinationS3 {
   }
 
   /**
-   * Get type
+   * Type of the S3 archive destination.
    *
    * @return type
    */

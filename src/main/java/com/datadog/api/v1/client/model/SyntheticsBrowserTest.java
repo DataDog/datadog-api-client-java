@@ -33,7 +33,8 @@ import java.util.Objects;
   SyntheticsBrowserTest.JSON_PROPERTY_TAGS,
   SyntheticsBrowserTest.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
@@ -96,7 +97,7 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Get config
+   * Configuration object for a Synthetic browser test.
    *
    * @return config
    */
@@ -195,7 +196,7 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Get options
+   * Object describing the extra options for a Synthetic test.
    *
    * @return options
    */
@@ -228,7 +229,8 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Get status
+   * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
+   * test.
    *
    * @return status
    */
@@ -315,7 +317,7 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Get type
+   * Type of the Synthetic test, &#x60;browser&#x60;.
    *
    * @return type
    */

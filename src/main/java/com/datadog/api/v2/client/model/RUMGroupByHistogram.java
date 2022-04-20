@@ -26,7 +26,8 @@ import java.util.Objects;
   RUMGroupByHistogram.JSON_PROPERTY_MAX,
   RUMGroupByHistogram.JSON_PROPERTY_MIN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMGroupByHistogram {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INTERVAL = "interval";
@@ -121,10 +122,10 @@ public class RUMGroupByHistogram {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMGroupByHistogram ruMGroupByHistogram = (RUMGroupByHistogram) o;
-    return Objects.equals(this.interval, ruMGroupByHistogram.interval)
-        && Objects.equals(this.max, ruMGroupByHistogram.max)
-        && Objects.equals(this.min, ruMGroupByHistogram.min);
+    RUMGroupByHistogram rumGroupByHistogram = (RUMGroupByHistogram) o;
+    return Objects.equals(this.interval, rumGroupByHistogram.interval)
+        && Objects.equals(this.max, rumGroupByHistogram.max)
+        && Objects.equals(this.min, rumGroupByHistogram.min);
   }
 
   @Override

@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Search options. */
 @JsonPropertyOrder({MonitorFormulaAndFunctionEventQueryDefinitionSearch.JSON_PROPERTY_QUERY})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";

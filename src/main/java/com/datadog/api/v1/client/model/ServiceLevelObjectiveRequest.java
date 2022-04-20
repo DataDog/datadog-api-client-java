@@ -34,7 +34,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ServiceLevelObjectiveRequest.JSON_PROPERTY_THRESHOLDS,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceLevelObjectiveRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -196,7 +197,9 @@ public class ServiceLevelObjectiveRequest {
   }
 
   /**
-   * Get query
+   * A metric SLI query. **Required if type is &#x60;metric&#x60;**. Note that Datadog only allows
+   * the sum by aggregator to be used because this will sum up all request counts instead of
+   * averaging them, or taking the max or min of all of those requests.
    *
    * @return query
    */
@@ -277,7 +280,7 @@ public class ServiceLevelObjectiveRequest {
   }
 
   /**
-   * Get type
+   * The type of the service level objective.
    *
    * @return type
    */

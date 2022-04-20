@@ -1,0 +1,30 @@
+{% include "ApiInfo.j2" %}
+
+package {{ package_name }}.model;
+
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+{% if "enum" in model -%}
+{% include "modelEnum.j2" %}
+{%- elif "oneOf" in model -%}
+{% include "modelOneOf.j2" %}
+{%- else %}
+{% include "modelSimple.j2" %}
+{%- endif %}
+{# keep new line #}

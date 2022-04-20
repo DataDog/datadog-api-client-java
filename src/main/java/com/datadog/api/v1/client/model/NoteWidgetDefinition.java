@@ -33,7 +33,8 @@ import java.util.Objects;
   NoteWidgetDefinition.JSON_PROPERTY_TYPE,
   NoteWidgetDefinition.JSON_PROPERTY_VERTICAL_ALIGN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NoteWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BACKGROUND_COLOR = "background_color";
@@ -188,7 +189,7 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * Get textAlign
+   * How to align the text on the widget.
    *
    * @return textAlign
    */
@@ -213,7 +214,7 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * Get tickEdge
+   * Define how you want to align the text on the widget.
    *
    * @return tickEdge
    */
@@ -259,7 +260,7 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the note widget.
    *
    * @return type
    */
@@ -283,7 +284,7 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * Get verticalAlign
+   * Vertical alignment.
    *
    * @return verticalAlign
    */

@@ -23,7 +23,8 @@ import java.util.Objects;
   RUMAggregateSort.JSON_PROPERTY_ORDER,
   RUMAggregateSort.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMAggregateSort {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
@@ -45,7 +46,7 @@ public class RUMAggregateSort {
   }
 
   /**
-   * Get aggregation
+   * An aggregation function.
    *
    * @return aggregation
    */
@@ -91,7 +92,7 @@ public class RUMAggregateSort {
   }
 
   /**
-   * Get order
+   * The order to use, ascending or descending.
    *
    * @return order
    */
@@ -116,7 +117,7 @@ public class RUMAggregateSort {
   }
 
   /**
-   * Get type
+   * The type of sorting algorithm.
    *
    * @return type
    */
@@ -143,11 +144,11 @@ public class RUMAggregateSort {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMAggregateSort ruMAggregateSort = (RUMAggregateSort) o;
-    return Objects.equals(this.aggregation, ruMAggregateSort.aggregation)
-        && Objects.equals(this.metric, ruMAggregateSort.metric)
-        && Objects.equals(this.order, ruMAggregateSort.order)
-        && Objects.equals(this.type, ruMAggregateSort.type);
+    RUMAggregateSort rumAggregateSort = (RUMAggregateSort) o;
+    return Objects.equals(this.aggregation, rumAggregateSort.aggregation)
+        && Objects.equals(this.metric, rumAggregateSort.metric)
+        && Objects.equals(this.order, rumAggregateSort.order)
+        && Objects.equals(this.type, rumAggregateSort.type);
   }
 
   @Override

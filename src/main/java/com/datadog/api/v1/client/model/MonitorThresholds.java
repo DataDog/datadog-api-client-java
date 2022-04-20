@@ -26,7 +26,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorThresholds.JSON_PROPERTY_WARNING,
   MonitorThresholds.JSON_PROPERTY_WARNING_RECOVERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorThresholds {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CRITICAL = "critical";

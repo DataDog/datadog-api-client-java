@@ -26,7 +26,8 @@ import java.util.Objects;
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_START,
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_TIMEZONE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionUpdateRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CATEGORY = "category";
@@ -57,7 +58,7 @@ public class SLOCorrectionUpdateRequestAttributes {
   }
 
   /**
-   * Get category
+   * Category the SLO correction belongs to.
    *
    * @return category
    */
@@ -188,7 +189,7 @@ public class SLOCorrectionUpdateRequestAttributes {
   }
 
   /**
-   * The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;).
+   * The timezone to display in the UI for the correction times (defaults to &quot;UTC&quot;).
    *
    * @return timezone
    */
@@ -212,15 +213,15 @@ public class SLOCorrectionUpdateRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionUpdateRequestAttributes slOCorrectionUpdateRequestAttributes =
+    SLOCorrectionUpdateRequestAttributes sloCorrectionUpdateRequestAttributes =
         (SLOCorrectionUpdateRequestAttributes) o;
-    return Objects.equals(this.category, slOCorrectionUpdateRequestAttributes.category)
-        && Objects.equals(this.description, slOCorrectionUpdateRequestAttributes.description)
-        && Objects.equals(this.duration, slOCorrectionUpdateRequestAttributes.duration)
-        && Objects.equals(this.end, slOCorrectionUpdateRequestAttributes.end)
-        && Objects.equals(this.rrule, slOCorrectionUpdateRequestAttributes.rrule)
-        && Objects.equals(this.start, slOCorrectionUpdateRequestAttributes.start)
-        && Objects.equals(this.timezone, slOCorrectionUpdateRequestAttributes.timezone);
+    return Objects.equals(this.category, sloCorrectionUpdateRequestAttributes.category)
+        && Objects.equals(this.description, sloCorrectionUpdateRequestAttributes.description)
+        && Objects.equals(this.duration, sloCorrectionUpdateRequestAttributes.duration)
+        && Objects.equals(this.end, sloCorrectionUpdateRequestAttributes.end)
+        && Objects.equals(this.rrule, sloCorrectionUpdateRequestAttributes.rrule)
+        && Objects.equals(this.start, sloCorrectionUpdateRequestAttributes.start)
+        && Objects.equals(this.timezone, sloCorrectionUpdateRequestAttributes.timezone);
   }
 
   @Override

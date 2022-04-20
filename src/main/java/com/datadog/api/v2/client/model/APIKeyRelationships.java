@@ -21,7 +21,8 @@ import java.util.Objects;
   APIKeyRelationships.JSON_PROPERTY_CREATED_BY,
   APIKeyRelationships.JSON_PROPERTY_MODIFIED_BY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class APIKeyRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_BY = "created_by";
@@ -37,7 +38,7 @@ public class APIKeyRelationships {
   }
 
   /**
-   * Get createdBy
+   * Relationship to user.
    *
    * @return createdBy
    */
@@ -59,7 +60,7 @@ public class APIKeyRelationships {
   }
 
   /**
-   * Get modifiedBy
+   * Relationship to user.
    *
    * @return modifiedBy
    */
@@ -83,9 +84,9 @@ public class APIKeyRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyRelationships apIKeyRelationships = (APIKeyRelationships) o;
-    return Objects.equals(this.createdBy, apIKeyRelationships.createdBy)
-        && Objects.equals(this.modifiedBy, apIKeyRelationships.modifiedBy);
+    APIKeyRelationships apiKeyRelationships = (APIKeyRelationships) o;
+    return Objects.equals(this.createdBy, apiKeyRelationships.createdBy)
+        && Objects.equals(this.modifiedBy, apiKeyRelationships.modifiedBy);
   }
 
   @Override

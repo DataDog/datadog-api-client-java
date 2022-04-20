@@ -24,7 +24,8 @@ import java.util.Objects;
   LogsArchiveDestinationGCS.JSON_PROPERTY_PATH,
   LogsArchiveDestinationGCS.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveDestinationGCS {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUCKET = "bucket";
@@ -82,7 +83,7 @@ public class LogsArchiveDestinationGCS {
   }
 
   /**
-   * Get integration
+   * The GCS archive&#39;s integration destination.
    *
    * @return integration
    */
@@ -124,7 +125,7 @@ public class LogsArchiveDestinationGCS {
   }
 
   /**
-   * Get type
+   * Type of the GCS archive destination.
    *
    * @return type
    */
@@ -150,11 +151,11 @@ public class LogsArchiveDestinationGCS {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsArchiveDestinationGCS logsArchiveDestinationGCS = (LogsArchiveDestinationGCS) o;
-    return Objects.equals(this.bucket, logsArchiveDestinationGCS.bucket)
-        && Objects.equals(this.integration, logsArchiveDestinationGCS.integration)
-        && Objects.equals(this.path, logsArchiveDestinationGCS.path)
-        && Objects.equals(this.type, logsArchiveDestinationGCS.type);
+    LogsArchiveDestinationGCS logsArchiveDestinationGcs = (LogsArchiveDestinationGCS) o;
+    return Objects.equals(this.bucket, logsArchiveDestinationGcs.bucket)
+        && Objects.equals(this.integration, logsArchiveDestinationGcs.integration)
+        && Objects.equals(this.path, logsArchiveDestinationGcs.path)
+        && Objects.equals(this.type, logsArchiveDestinationGcs.type);
   }
 
   @Override

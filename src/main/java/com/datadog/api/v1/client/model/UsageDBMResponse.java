@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Response containing the Database Monitoring usage for each hour for a given organization. */
 @JsonPropertyOrder({UsageDBMResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageDBMResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";
@@ -68,8 +69,8 @@ public class UsageDBMResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageDBMResponse usageDBMResponse = (UsageDBMResponse) o;
-    return Objects.equals(this.usage, usageDBMResponse.usage);
+    UsageDBMResponse usageDbmResponse = (UsageDBMResponse) o;
+    return Objects.equals(this.usage, usageDbmResponse.usage);
   }
 
   @Override

@@ -18,7 +18,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventsApi {
   private ApiClient apiClient;
 
@@ -151,9 +152,6 @@ public class EventsApi {
     String localVarPath = "/api/v1/events";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createEvent");
 
     Invocation.Builder builder;
     try {
@@ -290,9 +288,6 @@ public class EventsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getEvent");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -425,7 +420,7 @@ public class EventsApi {
   /**
    * Query the event stream
    *
-   * <p>See {@link #listEventsWithHttpInfo}.
+   * <p>See {@link #listEventsWithHttpInfoAsync}.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
@@ -605,9 +600,6 @@ public class EventsApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "exclude_aggregate", excludeAggregate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listEvents");
 
     Invocation.Builder builder;
     try {

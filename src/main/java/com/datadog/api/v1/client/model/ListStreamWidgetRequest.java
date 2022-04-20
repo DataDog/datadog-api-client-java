@@ -25,7 +25,8 @@ import java.util.Objects;
   ListStreamWidgetRequest.JSON_PROPERTY_QUERY,
   ListStreamWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
@@ -88,7 +89,7 @@ public class ListStreamWidgetRequest {
   }
 
   /**
-   * Get query
+   * Updated list stream widget.
    *
    * @return query
    */
@@ -109,7 +110,7 @@ public class ListStreamWidgetRequest {
   }
 
   /**
-   * Get responseFormat
+   * Widget response format.
    *
    * @return responseFormat
    */

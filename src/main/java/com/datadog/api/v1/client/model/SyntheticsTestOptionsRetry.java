@@ -21,7 +21,8 @@ import java.util.Objects;
   SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
   SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestOptionsRetry {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNT = "count";

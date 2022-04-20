@@ -29,7 +29,8 @@ import java.util.Objects;
   HeatMapWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   HeatMapWidgetRequest.JSON_PROPERTY_STYLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HeatMapWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
@@ -69,7 +70,7 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Get apmQuery
+   * The log query.
    *
    * @return apmQuery
    */
@@ -91,7 +92,7 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Get eventQuery
+   * The event query.
    *
    * @return eventQuery
    */
@@ -113,7 +114,7 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Get logQuery
+   * The log query.
    *
    * @return logQuery
    */
@@ -135,7 +136,7 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Get networkQuery
+   * The log query.
    *
    * @return networkQuery
    */
@@ -157,7 +158,7 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Get processQuery
+   * The process query to use in the widget.
    *
    * @return processQuery
    */
@@ -179,7 +180,7 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Get profileMetricsQuery
+   * The log query.
    *
    * @return profileMetricsQuery
    */
@@ -222,7 +223,7 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Get rumQuery
+   * The log query.
    *
    * @return rumQuery
    */
@@ -244,7 +245,7 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Get securityQuery
+   * The log query.
    *
    * @return securityQuery
    */
@@ -266,7 +267,7 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Get style
+   * Widget style definition.
    *
    * @return style
    */

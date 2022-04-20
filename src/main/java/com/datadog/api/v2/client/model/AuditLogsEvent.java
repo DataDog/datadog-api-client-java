@@ -22,7 +22,8 @@ import java.util.Objects;
   AuditLogsEvent.JSON_PROPERTY_ID,
   AuditLogsEvent.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditLogsEvent {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -41,7 +42,7 @@ public class AuditLogsEvent {
   }
 
   /**
-   * Get attributes
+   * JSON object containing all event attributes and their associated values.
    *
    * @return attributes
    */
@@ -84,7 +85,7 @@ public class AuditLogsEvent {
   }
 
   /**
-   * Get type
+   * Type of the event.
    *
    * @return type
    */

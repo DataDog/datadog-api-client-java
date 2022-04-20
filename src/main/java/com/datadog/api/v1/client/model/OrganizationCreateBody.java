@@ -23,7 +23,8 @@ import java.util.Objects;
   OrganizationCreateBody.JSON_PROPERTY_NAME,
   OrganizationCreateBody.JSON_PROPERTY_SUBSCRIPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationCreateBody {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BILLING = "billing";
@@ -50,7 +51,7 @@ public class OrganizationCreateBody {
   }
 
   /**
-   * Get billing
+   * A JSON array of billing type.
    *
    * @return billing
    * @deprecated
@@ -94,7 +95,7 @@ public class OrganizationCreateBody {
   }
 
   /**
-   * Get subscription
+   * Subscription definition.
    *
    * @return subscription
    * @deprecated

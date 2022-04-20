@@ -33,7 +33,8 @@ import java.util.Objects;
   ListStreamWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ListStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
@@ -79,8 +80,8 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;,
-   * \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
+   * Available legend sizes for a widget. Should be one of &quot;0&quot;, &quot;2&quot;,
+   * &quot;4&quot;, &quot;8&quot;, &quot;16&quot;, or &quot;auto&quot;.
    *
    * @return legendSize
    */
@@ -152,7 +153,7 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -195,7 +196,7 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -241,7 +242,7 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the list stream widget.
    *
    * @return type
    */

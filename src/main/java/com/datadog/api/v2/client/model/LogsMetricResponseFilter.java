@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** The log-based metric filter. Logs matching this filter will be aggregated in this metric. */
 @JsonPropertyOrder({LogsMetricResponseFilter.JSON_PROPERTY_QUERY})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricResponseFilter {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";

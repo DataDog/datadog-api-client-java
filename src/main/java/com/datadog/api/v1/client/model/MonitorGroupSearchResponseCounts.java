@@ -23,25 +23,30 @@ import java.util.Objects;
   MonitorGroupSearchResponseCounts.JSON_PROPERTY_STATUS,
   MonitorGroupSearchResponseCounts.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorGroupSearchResponseCounts {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_STATUS = "status";
-  private List<Object> status = null;
+  private List<MonitorSearchCountItem> status = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private List<Object> type = null;
+  private List<MonitorSearchCountItem> type = null;
 
-  public MonitorGroupSearchResponseCounts status(List<Object> status) {
+  public MonitorGroupSearchResponseCounts status(List<MonitorSearchCountItem> status) {
     this.status = status;
+    for (MonitorSearchCountItem item : status) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public MonitorGroupSearchResponseCounts addStatusItem(Object statusItem) {
+  public MonitorGroupSearchResponseCounts addStatusItem(MonitorSearchCountItem statusItem) {
     if (this.status == null) {
       this.status = new ArrayList<>();
     }
     this.status.add(statusItem);
+    this.unparsed |= statusItem.unparsed;
     return this;
   }
 
@@ -53,24 +58,28 @@ public class MonitorGroupSearchResponseCounts {
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getStatus() {
+  public List<MonitorSearchCountItem> getStatus() {
     return status;
   }
 
-  public void setStatus(List<Object> status) {
+  public void setStatus(List<MonitorSearchCountItem> status) {
     this.status = status;
   }
 
-  public MonitorGroupSearchResponseCounts type(List<Object> type) {
+  public MonitorGroupSearchResponseCounts type(List<MonitorSearchCountItem> type) {
     this.type = type;
+    for (MonitorSearchCountItem item : type) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public MonitorGroupSearchResponseCounts addTypeItem(Object typeItem) {
+  public MonitorGroupSearchResponseCounts addTypeItem(MonitorSearchCountItem typeItem) {
     if (this.type == null) {
       this.type = new ArrayList<>();
     }
     this.type.add(typeItem);
+    this.unparsed |= typeItem.unparsed;
     return this;
   }
 
@@ -82,11 +91,11 @@ public class MonitorGroupSearchResponseCounts {
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getType() {
+  public List<MonitorSearchCountItem> getType() {
     return type;
   }
 
-  public void setType(List<Object> type) {
+  public void setType(List<MonitorSearchCountItem> type) {
     this.type = type;
   }
 

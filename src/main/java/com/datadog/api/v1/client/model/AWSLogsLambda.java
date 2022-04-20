@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Description of the Lambdas. */
 @JsonPropertyOrder({AWSLogsLambda.JSON_PROPERTY_ARN})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSLogsLambda {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARN = "arn";
@@ -54,8 +55,8 @@ public class AWSLogsLambda {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSLogsLambda awSLogsLambda = (AWSLogsLambda) o;
-    return Objects.equals(this.arn, awSLogsLambda.arn);
+    AWSLogsLambda awsLogsLambda = (AWSLogsLambda) o;
+    return Objects.equals(this.arn, awsLogsLambda.arn);
   }
 
   @Override

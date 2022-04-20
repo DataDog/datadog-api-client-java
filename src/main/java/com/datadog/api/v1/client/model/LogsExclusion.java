@@ -23,7 +23,8 @@ import java.util.Objects;
   LogsExclusion.JSON_PROPERTY_IS_ENABLED,
   LogsExclusion.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsExclusion {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
@@ -49,7 +50,7 @@ public class LogsExclusion {
   }
 
   /**
-   * Get filter
+   * Exclusion filter is defined by a query, a sampling rule, and a active/inactive toggle.
    *
    * @return filter
    */

@@ -23,7 +23,8 @@ import java.util.Objects;
   PartialApplicationKey.JSON_PROPERTY_RELATIONSHIPS,
   PartialApplicationKey.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PartialApplicationKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -45,7 +46,7 @@ public class PartialApplicationKey {
   }
 
   /**
-   * Get attributes
+   * Attributes of a partial application key.
    *
    * @return attributes
    */
@@ -88,7 +89,7 @@ public class PartialApplicationKey {
   }
 
   /**
-   * Get relationships
+   * Resources related to the application key.
    *
    * @return relationships
    */
@@ -110,7 +111,7 @@ public class PartialApplicationKey {
   }
 
   /**
-   * Get type
+   * Application Keys resource type.
    *
    * @return type
    */

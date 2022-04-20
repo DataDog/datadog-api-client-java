@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Relationship to user. */
 @JsonPropertyOrder({NullableRelationshipToUser.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NullableRelationshipToUser {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -33,7 +34,6 @@ public class NullableRelationshipToUser {
           NullableRelationshipToUserData data) {
     this.data = data;
     if (data != null) {
-
       this.unparsed |= data.unparsed;
     }
   }
@@ -47,7 +47,7 @@ public class NullableRelationshipToUser {
   }
 
   /**
-   * Get data
+   * Relationship to user object.
    *
    * @return data
    */

@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Data for the clone role request. */
 @JsonPropertyOrder({RoleClone.JSON_PROPERTY_ATTRIBUTES, RoleClone.JSON_PROPERTY_TYPE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleClone {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -48,7 +49,7 @@ public class RoleClone {
   }
 
   /**
-   * Get attributes
+   * Attributes required to create a new role by cloning an existing one.
    *
    * @return attributes
    */
@@ -69,7 +70,7 @@ public class RoleClone {
   }
 
   /**
-   * Get type
+   * Roles type.
    *
    * @return type
    */

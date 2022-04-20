@@ -24,7 +24,8 @@ import java.util.Objects;
   ApmStatsQueryColumnType.JSON_PROPERTY_NAME,
   ApmStatsQueryColumnType.JSON_PROPERTY_ORDER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApmStatsQueryColumnType {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIAS = "alias";
@@ -75,7 +76,7 @@ public class ApmStatsQueryColumnType {
   }
 
   /**
-   * Get cellDisplayMode
+   * Define a display mode for the table cell.
    *
    * @return cellDisplayMode
    */
@@ -120,7 +121,7 @@ public class ApmStatsQueryColumnType {
   }
 
   /**
-   * Get order
+   * Widget sorting methods.
    *
    * @return order
    */

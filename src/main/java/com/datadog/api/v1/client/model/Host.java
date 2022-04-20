@@ -37,7 +37,8 @@ import java.util.Objects;
   Host.JSON_PROPERTY_TAGS_BY_SOURCE,
   Host.JSON_PROPERTY_UP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Host {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIASES = "aliases";
@@ -252,7 +253,7 @@ public class Host {
   }
 
   /**
-   * Get meta
+   * Metadata associated with your host.
    *
    * @return meta
    */
@@ -274,7 +275,7 @@ public class Host {
   }
 
   /**
-   * Get metrics
+   * Host Metrics collected.
    *
    * @return metrics
    */

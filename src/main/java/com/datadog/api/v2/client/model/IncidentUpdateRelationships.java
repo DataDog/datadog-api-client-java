@@ -22,7 +22,8 @@ import java.util.Objects;
   IncidentUpdateRelationships.JSON_PROPERTY_INTEGRATIONS,
   IncidentUpdateRelationships.JSON_PROPERTY_POSTMORTEM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentUpdateRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
@@ -41,7 +42,7 @@ public class IncidentUpdateRelationships {
   }
 
   /**
-   * Get commanderUser
+   * Relationship to user.
    *
    * @return commanderUser
    */
@@ -64,7 +65,7 @@ public class IncidentUpdateRelationships {
   }
 
   /**
-   * Get integrations
+   * A relationship reference for multiple integration metadata objects.
    *
    * @return integrations
    */
@@ -86,7 +87,7 @@ public class IncidentUpdateRelationships {
   }
 
   /**
-   * Get postmortem
+   * A relationship reference for postmortems.
    *
    * @return postmortem
    */

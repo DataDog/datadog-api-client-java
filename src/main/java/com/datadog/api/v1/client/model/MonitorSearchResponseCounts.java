@@ -25,31 +25,36 @@ import java.util.Objects;
   MonitorSearchResponseCounts.JSON_PROPERTY_TAG,
   MonitorSearchResponseCounts.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorSearchResponseCounts {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MUTED = "muted";
-  private List<Object> muted = null;
+  private List<MonitorSearchCountItem> muted = null;
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  private List<Object> status = null;
+  private List<MonitorSearchCountItem> status = null;
 
   public static final String JSON_PROPERTY_TAG = "tag";
-  private List<Object> tag = null;
+  private List<MonitorSearchCountItem> tag = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private List<Object> type = null;
+  private List<MonitorSearchCountItem> type = null;
 
-  public MonitorSearchResponseCounts muted(List<Object> muted) {
+  public MonitorSearchResponseCounts muted(List<MonitorSearchCountItem> muted) {
     this.muted = muted;
+    for (MonitorSearchCountItem item : muted) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public MonitorSearchResponseCounts addMutedItem(Object mutedItem) {
+  public MonitorSearchResponseCounts addMutedItem(MonitorSearchCountItem mutedItem) {
     if (this.muted == null) {
       this.muted = new ArrayList<>();
     }
     this.muted.add(mutedItem);
+    this.unparsed |= mutedItem.unparsed;
     return this;
   }
 
@@ -61,24 +66,28 @@ public class MonitorSearchResponseCounts {
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MUTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getMuted() {
+  public List<MonitorSearchCountItem> getMuted() {
     return muted;
   }
 
-  public void setMuted(List<Object> muted) {
+  public void setMuted(List<MonitorSearchCountItem> muted) {
     this.muted = muted;
   }
 
-  public MonitorSearchResponseCounts status(List<Object> status) {
+  public MonitorSearchResponseCounts status(List<MonitorSearchCountItem> status) {
     this.status = status;
+    for (MonitorSearchCountItem item : status) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public MonitorSearchResponseCounts addStatusItem(Object statusItem) {
+  public MonitorSearchResponseCounts addStatusItem(MonitorSearchCountItem statusItem) {
     if (this.status == null) {
       this.status = new ArrayList<>();
     }
     this.status.add(statusItem);
+    this.unparsed |= statusItem.unparsed;
     return this;
   }
 
@@ -90,24 +99,28 @@ public class MonitorSearchResponseCounts {
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getStatus() {
+  public List<MonitorSearchCountItem> getStatus() {
     return status;
   }
 
-  public void setStatus(List<Object> status) {
+  public void setStatus(List<MonitorSearchCountItem> status) {
     this.status = status;
   }
 
-  public MonitorSearchResponseCounts tag(List<Object> tag) {
+  public MonitorSearchResponseCounts tag(List<MonitorSearchCountItem> tag) {
     this.tag = tag;
+    for (MonitorSearchCountItem item : tag) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public MonitorSearchResponseCounts addTagItem(Object tagItem) {
+  public MonitorSearchResponseCounts addTagItem(MonitorSearchCountItem tagItem) {
     if (this.tag == null) {
       this.tag = new ArrayList<>();
     }
     this.tag.add(tagItem);
+    this.unparsed |= tagItem.unparsed;
     return this;
   }
 
@@ -119,24 +132,28 @@ public class MonitorSearchResponseCounts {
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getTag() {
+  public List<MonitorSearchCountItem> getTag() {
     return tag;
   }
 
-  public void setTag(List<Object> tag) {
+  public void setTag(List<MonitorSearchCountItem> tag) {
     this.tag = tag;
   }
 
-  public MonitorSearchResponseCounts type(List<Object> type) {
+  public MonitorSearchResponseCounts type(List<MonitorSearchCountItem> type) {
     this.type = type;
+    for (MonitorSearchCountItem item : type) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public MonitorSearchResponseCounts addTypeItem(Object typeItem) {
+  public MonitorSearchResponseCounts addTypeItem(MonitorSearchCountItem typeItem) {
     if (this.type == null) {
       this.type = new ArrayList<>();
     }
     this.type.add(typeItem);
+    this.unparsed |= typeItem.unparsed;
     return this;
   }
 
@@ -148,11 +165,11 @@ public class MonitorSearchResponseCounts {
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getType() {
+  public List<MonitorSearchCountItem> getType() {
     return type;
   }
 
-  public void setType(List<Object> type) {
+  public void setType(List<MonitorSearchCountItem> type) {
     this.type = type;
   }
 

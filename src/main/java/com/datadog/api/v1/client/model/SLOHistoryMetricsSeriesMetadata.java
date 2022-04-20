@@ -28,7 +28,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_SCOPE,
   SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_UNIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMetricsSeriesMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGR = "aggr";
@@ -209,14 +210,14 @@ public class SLOHistoryMetricsSeriesMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryMetricsSeriesMetadata slOHistoryMetricsSeriesMetadata =
+    SLOHistoryMetricsSeriesMetadata sloHistoryMetricsSeriesMetadata =
         (SLOHistoryMetricsSeriesMetadata) o;
-    return Objects.equals(this.aggr, slOHistoryMetricsSeriesMetadata.aggr)
-        && Objects.equals(this.expression, slOHistoryMetricsSeriesMetadata.expression)
-        && Objects.equals(this.metric, slOHistoryMetricsSeriesMetadata.metric)
-        && Objects.equals(this.queryIndex, slOHistoryMetricsSeriesMetadata.queryIndex)
-        && Objects.equals(this.scope, slOHistoryMetricsSeriesMetadata.scope)
-        && Objects.equals(this.unit, slOHistoryMetricsSeriesMetadata.unit);
+    return Objects.equals(this.aggr, sloHistoryMetricsSeriesMetadata.aggr)
+        && Objects.equals(this.expression, sloHistoryMetricsSeriesMetadata.expression)
+        && Objects.equals(this.metric, sloHistoryMetricsSeriesMetadata.metric)
+        && Objects.equals(this.queryIndex, sloHistoryMetricsSeriesMetadata.queryIndex)
+        && Objects.equals(this.scope, sloHistoryMetricsSeriesMetadata.scope)
+        && Objects.equals(this.unit, sloHistoryMetricsSeriesMetadata.unit);
   }
 
   @Override

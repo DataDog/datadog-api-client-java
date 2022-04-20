@@ -22,7 +22,8 @@ import java.util.Objects;
   MetricIngestedIndexedVolume.JSON_PROPERTY_ID,
   MetricIngestedIndexedVolume.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricIngestedIndexedVolume {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -41,7 +42,7 @@ public class MetricIngestedIndexedVolume {
   }
 
   /**
-   * Get attributes
+   * Object containing the definition of a metric&#39;s ingested and indexed volume.
    *
    * @return attributes
    */
@@ -84,7 +85,7 @@ public class MetricIngestedIndexedVolume {
   }
 
   /**
-   * Get type
+   * The metric ingested and indexed volume type.
    *
    * @return type
    */

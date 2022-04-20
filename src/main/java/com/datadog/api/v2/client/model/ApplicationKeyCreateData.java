@@ -22,7 +22,8 @@ import java.util.Objects;
   ApplicationKeyCreateData.JSON_PROPERTY_ATTRIBUTES,
   ApplicationKeyCreateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKeyCreateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -51,7 +52,7 @@ public class ApplicationKeyCreateData {
   }
 
   /**
-   * Get attributes
+   * Attributes used to create an application Key.
    *
    * @return attributes
    */
@@ -72,7 +73,7 @@ public class ApplicationKeyCreateData {
   }
 
   /**
-   * Get type
+   * Application Keys resource type.
    *
    * @return type
    */

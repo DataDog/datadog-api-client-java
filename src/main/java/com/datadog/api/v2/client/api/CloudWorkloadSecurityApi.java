@@ -17,7 +17,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityApi {
   private ApiClient apiClient;
 
@@ -163,9 +164,6 @@ public class CloudWorkloadSecurityApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createCloudWorkloadSecurityAgentRule");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -265,7 +263,7 @@ public class CloudWorkloadSecurityApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -308,9 +306,6 @@ public class CloudWorkloadSecurityApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteCloudWorkloadSecurityAgentRule");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -320,7 +315,7 @@ public class CloudWorkloadSecurityApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -423,9 +418,6 @@ public class CloudWorkloadSecurityApi {
     String localVarPath = "/api/v2/security/cloud_workload/policy/download";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "downloadCloudWorkloadPolicyFile");
 
     Invocation.Builder builder;
     try {
@@ -573,9 +565,6 @@ public class CloudWorkloadSecurityApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getCloudWorkloadSecurityAgentRule");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -691,9 +680,6 @@ public class CloudWorkloadSecurityApi {
     String localVarPath = "/api/v2/security_monitoring/cloud_workload_security/agent_rules";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listCloudWorkloadSecurityAgentRules");
 
     Invocation.Builder builder;
     try {
@@ -871,9 +857,6 @@ public class CloudWorkloadSecurityApi {
                 "\\{" + "agent_rule_id" + "\\}", apiClient.escapeString(agentRuleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateCloudWorkloadSecurityAgentRule");
 
     Invocation.Builder builder;
     try {

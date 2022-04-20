@@ -23,7 +23,8 @@ import java.util.Objects;
   UserResponseRelationships.JSON_PROPERTY_OTHER_USERS,
   UserResponseRelationships.JSON_PROPERTY_ROLES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserResponseRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORG = "org";
@@ -45,7 +46,7 @@ public class UserResponseRelationships {
   }
 
   /**
-   * Get org
+   * Relationship to an organization.
    *
    * @return org
    */
@@ -67,7 +68,7 @@ public class UserResponseRelationships {
   }
 
   /**
-   * Get otherOrgs
+   * Relationship to organizations.
    *
    * @return otherOrgs
    */
@@ -89,7 +90,7 @@ public class UserResponseRelationships {
   }
 
   /**
-   * Get otherUsers
+   * Relationship to users.
    *
    * @return otherUsers
    */
@@ -111,7 +112,7 @@ public class UserResponseRelationships {
   }
 
   /**
-   * Get roles
+   * Relationship to roles.
    *
    * @return roles
    */

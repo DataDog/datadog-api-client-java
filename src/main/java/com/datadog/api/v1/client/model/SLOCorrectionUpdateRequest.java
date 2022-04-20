@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** An object that defines a correction to be applied to an SLO. */
 @JsonPropertyOrder({SLOCorrectionUpdateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -31,7 +32,7 @@ public class SLOCorrectionUpdateRequest {
   }
 
   /**
-   * Get data
+   * The data object associated with the SLO correction to be updated.
    *
    * @return data
    */
@@ -55,8 +56,8 @@ public class SLOCorrectionUpdateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionUpdateRequest slOCorrectionUpdateRequest = (SLOCorrectionUpdateRequest) o;
-    return Objects.equals(this.data, slOCorrectionUpdateRequest.data);
+    SLOCorrectionUpdateRequest sloCorrectionUpdateRequest = (SLOCorrectionUpdateRequest) o;
+    return Objects.equals(this.data, sloCorrectionUpdateRequest.data);
   }
 
   @Override

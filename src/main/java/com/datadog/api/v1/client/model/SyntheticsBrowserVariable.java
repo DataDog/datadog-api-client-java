@@ -28,7 +28,8 @@ import java.util.Objects;
   SyntheticsBrowserVariable.JSON_PROPERTY_PATTERN,
   SyntheticsBrowserVariable.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserVariable {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXAMPLE = "example";
@@ -148,7 +149,7 @@ public class SyntheticsBrowserVariable {
   }
 
   /**
-   * Get type
+   * Type of browser test variable.
    *
    * @return type
    */

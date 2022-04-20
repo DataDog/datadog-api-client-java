@@ -37,7 +37,8 @@ import java.util.Objects;
   DistributionWidgetDefinition.JSON_PROPERTY_XAXIS,
   DistributionWidgetDefinition.JSON_PROPERTY_YAXIS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DistributionWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
@@ -203,7 +204,7 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -246,7 +247,7 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -292,7 +293,7 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the distribution widget.
    *
    * @return type
    */
@@ -316,7 +317,7 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Get xaxis
+   * X Axis controls for the distribution widget.
    *
    * @return xaxis
    */
@@ -338,7 +339,7 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Get yaxis
+   * Y Axis controls for the distribution widget.
    *
    * @return yaxis
    */

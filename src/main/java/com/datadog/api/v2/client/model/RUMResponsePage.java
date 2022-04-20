@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Paging attributes. */
 @JsonPropertyOrder({RUMResponsePage.JSON_PROPERTY_AFTER})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMResponsePage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AFTER = "after";
@@ -55,8 +56,8 @@ public class RUMResponsePage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMResponsePage ruMResponsePage = (RUMResponsePage) o;
-    return Objects.equals(this.after, ruMResponsePage.after);
+    RUMResponsePage rumResponsePage = (RUMResponsePage) o;
+    return Objects.equals(this.after, rumResponsePage.after);
   }
 
   @Override

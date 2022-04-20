@@ -35,7 +35,8 @@ import java.util.Objects;
   LogsStringBuilderProcessor.JSON_PROPERTY_TEMPLATE,
   LogsStringBuilderProcessor.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsStringBuilderProcessor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
@@ -182,7 +183,7 @@ public class LogsStringBuilderProcessor {
   }
 
   /**
-   * Get type
+   * Type of logs string builder processor.
    *
    * @return type
    */

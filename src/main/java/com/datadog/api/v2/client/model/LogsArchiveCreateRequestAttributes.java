@@ -27,7 +27,8 @@ import java.util.Objects;
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_QUERY,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_REHYDRATION_TAGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveCreateRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESTINATION = "destination";
@@ -67,7 +68,7 @@ public class LogsArchiveCreateRequestAttributes {
   }
 
   /**
-   * Get destination
+   * An archive&#39;s destination.
    *
    * @return destination
    */
@@ -87,8 +88,8 @@ public class LogsArchiveCreateRequestAttributes {
   }
 
   /**
-   * To store the tags in the archive, set the value \&quot;true\&quot;. If it is set to
-   * \&quot;false\&quot;, the tags will be deleted when the logs are sent to the archive.
+   * To store the tags in the archive, set the value &quot;true&quot;. If it is set to
+   * &quot;false&quot;, the tags will be deleted when the logs are sent to the archive.
    *
    * @return includeTags
    */

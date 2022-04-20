@@ -25,7 +25,8 @@ import java.util.Objects;
   UsageDBMHour.JSON_PROPERTY_ORG_NAME,
   UsageDBMHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageDBMHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DBM_HOST_COUNT = "dbm_host_count";
@@ -159,12 +160,12 @@ public class UsageDBMHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageDBMHour usageDBMHour = (UsageDBMHour) o;
-    return Objects.equals(this.dbmHostCount, usageDBMHour.dbmHostCount)
-        && Objects.equals(this.dbmQueriesCount, usageDBMHour.dbmQueriesCount)
-        && Objects.equals(this.hour, usageDBMHour.hour)
-        && Objects.equals(this.orgName, usageDBMHour.orgName)
-        && Objects.equals(this.publicId, usageDBMHour.publicId);
+    UsageDBMHour usageDbmHour = (UsageDBMHour) o;
+    return Objects.equals(this.dbmHostCount, usageDbmHour.dbmHostCount)
+        && Objects.equals(this.dbmQueriesCount, usageDbmHour.dbmQueriesCount)
+        && Objects.equals(this.hour, usageDbmHour.hour)
+        && Objects.equals(this.orgName, usageDbmHour.orgName)
+        && Objects.equals(this.publicId, usageDbmHour.publicId);
   }
 
   @Override

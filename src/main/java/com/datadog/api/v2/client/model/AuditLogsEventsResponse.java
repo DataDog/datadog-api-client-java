@@ -24,7 +24,8 @@ import java.util.Objects;
   AuditLogsEventsResponse.JSON_PROPERTY_LINKS,
   AuditLogsEventsResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditLogsEventsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -76,7 +77,7 @@ public class AuditLogsEventsResponse {
   }
 
   /**
-   * Get links
+   * Links attributes.
    *
    * @return links
    */
@@ -98,7 +99,7 @@ public class AuditLogsEventsResponse {
   }
 
   /**
-   * Get meta
+   * The metadata associated with a request.
    *
    * @return meta
    */

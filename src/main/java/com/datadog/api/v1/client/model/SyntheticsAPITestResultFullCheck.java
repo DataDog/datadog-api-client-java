@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Object describing the API test configuration. */
 @JsonPropertyOrder({SyntheticsAPITestResultFullCheck.JSON_PROPERTY_CONFIG})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITestResultFullCheck {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
@@ -41,7 +42,7 @@ public class SyntheticsAPITestResultFullCheck {
   }
 
   /**
-   * Get config
+   * Configuration object for a Synthetic test.
    *
    * @return config
    */
@@ -64,9 +65,9 @@ public class SyntheticsAPITestResultFullCheck {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITestResultFullCheck syntheticsAPITestResultFullCheck =
+    SyntheticsAPITestResultFullCheck syntheticsApiTestResultFullCheck =
         (SyntheticsAPITestResultFullCheck) o;
-    return Objects.equals(this.config, syntheticsAPITestResultFullCheck.config);
+    return Objects.equals(this.config, syntheticsApiTestResultFullCheck.config);
   }
 
   @Override

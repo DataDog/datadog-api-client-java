@@ -23,7 +23,8 @@ import java.util.Objects;
   MetricTagConfigurationUpdateData.JSON_PROPERTY_ID,
   MetricTagConfigurationUpdateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricTagConfigurationUpdateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -54,7 +55,7 @@ public class MetricTagConfigurationUpdateData {
   }
 
   /**
-   * Get attributes
+   * Object containing the definition of a metric tag configuration to be updated.
    *
    * @return attributes
    */
@@ -96,7 +97,7 @@ public class MetricTagConfigurationUpdateData {
   }
 
   /**
-   * Get type
+   * The metric tag configuration resource type.
    *
    * @return type
    */

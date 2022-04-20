@@ -29,7 +29,8 @@ import java.util.Objects;
   ChangeWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ChangeWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ChangeWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
@@ -136,7 +137,7 @@ public class ChangeWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -179,7 +180,7 @@ public class ChangeWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -225,7 +226,7 @@ public class ChangeWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the change widget.
    *
    * @return type
    */

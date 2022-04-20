@@ -21,7 +21,8 @@ import java.util.Objects;
   LogsMetricResponseGroupBy.JSON_PROPERTY_PATH,
   LogsMetricResponseGroupBy.JSON_PROPERTY_TAG_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricResponseGroupBy {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PATH = "path";

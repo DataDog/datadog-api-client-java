@@ -96,7 +96,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_USAGE,
   UsageSummaryResponse.JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSummaryResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENT_HOST_TOP99P_SUM = "agent_host_top99p_sum";
@@ -1331,7 +1332,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Get logsByRetention
+   * Object containing logs usage data broken down by retention period.
    *
    * @return logsByRetention
    */

@@ -30,7 +30,8 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATER,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_VERSION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CATEGORY = "category";
@@ -116,7 +117,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * Get creator
+   * The attributes of the user who created the Agent rule.
    *
    * @return creator
    */
@@ -265,7 +266,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * Get updater
+   * The attributes of the user who last updated the Agent rule.
    *
    * @return updater
    */

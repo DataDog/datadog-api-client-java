@@ -26,7 +26,8 @@ import java.util.Objects;
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_NOTIFICATIONS,
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleCaseCreate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONDITION = "condition";
@@ -131,7 +132,7 @@ public class SecurityMonitoringRuleCaseCreate {
   }
 
   /**
-   * Get status
+   * Severity of the Security Signal.
    *
    * @return status
    */

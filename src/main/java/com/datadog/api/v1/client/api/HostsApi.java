@@ -17,7 +17,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostsApi {
   private ApiClient apiClient;
 
@@ -79,7 +80,7 @@ public class HostsApi {
   /**
    * Get the total number of active hosts
    *
-   * <p>See {@link #getHostTotalsWithHttpInfo}.
+   * <p>See {@link #getHostTotalsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;HostTotals&gt;
    */
@@ -192,9 +193,6 @@ public class HostsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getHostTotals");
 
     Invocation.Builder builder;
     try {
@@ -342,7 +340,7 @@ public class HostsApi {
   /**
    * Get all hosts for your organization
    *
-   * <p>See {@link #listHostsWithHttpInfo}.
+   * <p>See {@link #listHostsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;HostListResponse&gt;
    */
@@ -487,9 +485,6 @@ public class HostsApi {
         apiClient.parameterToPairs("", "include_muted_hosts_data", includeMutedHostsData));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_hosts_metadata", includeHostsMetadata));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listHosts");
 
     Invocation.Builder builder;
     try {
@@ -644,9 +639,6 @@ public class HostsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "muteHost");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -782,9 +774,6 @@ public class HostsApi {
             .replaceAll("\\{" + "host_name" + "\\}", apiClient.escapeString(hostName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "unmuteHost");
 
     Invocation.Builder builder;
     try {

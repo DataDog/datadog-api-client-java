@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** A service level objective history response. */
 @JsonPropertyOrder({SLOHistoryResponse.JSON_PROPERTY_DATA, SLOHistoryResponse.JSON_PROPERTY_ERRORS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -36,7 +37,7 @@ public class SLOHistoryResponse {
   }
 
   /**
-   * Get data
+   * An array of service level objective objects.
    *
    * @return data
    */
@@ -93,9 +94,9 @@ public class SLOHistoryResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryResponse slOHistoryResponse = (SLOHistoryResponse) o;
-    return Objects.equals(this.data, slOHistoryResponse.data)
-        && Objects.equals(this.errors, slOHistoryResponse.errors);
+    SLOHistoryResponse sloHistoryResponse = (SLOHistoryResponse) o;
+    return Objects.equals(this.data, sloHistoryResponse.data)
+        && Objects.equals(this.errors, sloHistoryResponse.errors);
   }
 
   @Override

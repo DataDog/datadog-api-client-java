@@ -18,7 +18,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardsApi {
   private ApiClient apiClient;
 
@@ -156,9 +157,6 @@ public class DashboardsApi {
     String localVarPath = "/api/v1/dashboard";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createDashboard");
 
     Invocation.Builder builder;
     try {
@@ -299,9 +297,6 @@ public class DashboardsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteDashboard");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -397,7 +392,7 @@ public class DashboardsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -435,9 +430,6 @@ public class DashboardsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteDashboards");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -447,7 +439,7 @@ public class DashboardsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -576,9 +568,6 @@ public class DashboardsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getDashboard");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -652,7 +641,7 @@ public class DashboardsApi {
   /**
    * Get all dashboards
    *
-   * <p>See {@link #listDashboardsWithHttpInfo}.
+   * <p>See {@link #listDashboardsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;DashboardSummary&gt;
    */
@@ -769,9 +758,6 @@ public class DashboardsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[shared]", filterShared));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[deleted]", filterDeleted));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listDashboards");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -867,7 +853,7 @@ public class DashboardsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "PATCH",
@@ -905,9 +891,6 @@ public class DashboardsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "restoreDashboards");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -917,7 +900,7 @@ public class DashboardsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -1066,9 +1049,6 @@ public class DashboardsApi {
                 "\\{" + "dashboard_id" + "\\}", apiClient.escapeString(dashboardId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateDashboard");
 
     Invocation.Builder builder;
     try {

@@ -22,7 +22,8 @@ import java.util.Objects;
   LogsMetricCompute.JSON_PROPERTY_AGGREGATION_TYPE,
   LogsMetricCompute.JSON_PROPERTY_PATH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricCompute {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION_TYPE = "aggregation_type";
@@ -48,7 +49,7 @@ public class LogsMetricCompute {
   }
 
   /**
-   * Get aggregationType
+   * The type of aggregation to use.
    *
    * @return aggregationType
    */
@@ -72,7 +73,7 @@ public class LogsMetricCompute {
 
   /**
    * The path to the value the log-based metric will aggregate on (only used if the aggregation type
-   * is a \&quot;distribution\&quot;).
+   * is a &quot;distribution&quot;).
    *
    * @return path
    */

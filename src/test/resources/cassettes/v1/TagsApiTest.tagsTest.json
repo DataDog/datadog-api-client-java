@@ -515,7 +515,7 @@
       "source" : [ "datadog" ]
     },
     "headers" : {
-      "Accept" : [ "application/json" ],
+      "Accept" : [ "*/*" ],
       "JAVA-TEST-NAME" : [ "tagsTest" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "close" ],

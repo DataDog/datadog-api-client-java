@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Searches metadata returned by the API. */
 @JsonPropertyOrder({NotebooksResponseMeta.JSON_PROPERTY_PAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebooksResponseMeta {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PAGE = "page";
@@ -31,7 +32,7 @@ public class NotebooksResponseMeta {
   }
 
   /**
-   * Get page
+   * Pagination metadata returned by the API.
    *
    * @return page
    */

@@ -21,7 +21,8 @@ import java.util.Objects;
 
 /** Object to invite users to join the organization. */
 @JsonPropertyOrder({UserInvitationsRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserInvitationsRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";

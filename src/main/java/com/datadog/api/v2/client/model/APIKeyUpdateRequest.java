@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Request used to update an API key. */
 @JsonPropertyOrder({APIKeyUpdateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class APIKeyUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -41,7 +42,7 @@ public class APIKeyUpdateRequest {
   }
 
   /**
-   * Get data
+   * Object used to update an API key.
    *
    * @return data
    */
@@ -64,8 +65,8 @@ public class APIKeyUpdateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyUpdateRequest apIKeyUpdateRequest = (APIKeyUpdateRequest) o;
-    return Objects.equals(this.data, apIKeyUpdateRequest.data);
+    APIKeyUpdateRequest apiKeyUpdateRequest = (APIKeyUpdateRequest) o;
+    return Objects.equals(this.data, apiKeyUpdateRequest.data);
   }
 
   @Override

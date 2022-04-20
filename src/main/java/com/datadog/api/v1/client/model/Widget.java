@@ -29,7 +29,8 @@ import java.util.Objects;
   Widget.JSON_PROPERTY_ID,
   Widget.JSON_PROPERTY_LAYOUT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Widget {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
@@ -58,7 +59,7 @@ public class Widget {
   }
 
   /**
-   * Get definition
+   * [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
    *
    * @return definition
    */
@@ -100,7 +101,7 @@ public class Widget {
   }
 
   /**
-   * Get layout
+   * The layout for a widget on a &#x60;free&#x60; or **new dashboard layout** dashboard.
    *
    * @return layout
    */

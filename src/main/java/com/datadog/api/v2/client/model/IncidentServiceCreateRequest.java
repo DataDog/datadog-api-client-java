@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Create request with an incident service payload. */
 @JsonPropertyOrder({IncidentServiceCreateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentServiceCreateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -41,7 +42,7 @@ public class IncidentServiceCreateRequest {
   }
 
   /**
-   * Get data
+   * Incident Service payload for create requests.
    *
    * @return data
    */

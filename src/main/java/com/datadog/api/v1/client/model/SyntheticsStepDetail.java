@@ -17,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object describing a step for a Synthetic test. */
 @JsonPropertyOrder({
@@ -39,7 +38,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SyntheticsStepDetail.JSON_PROPERTY_VITALS_METRICS,
   SyntheticsStepDetail.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsStepDetail {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BROWSER_ERRORS = "browserErrors";
@@ -85,7 +85,7 @@ public class SyntheticsStepDetail {
   private String url;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private JsonNullable<Object> value = JsonNullable.<Object>of(null);
+  private Object value = null;
 
   public static final String JSON_PROPERTY_VITALS_METRICS = "vitalsMetrics";
   private List<SyntheticsCoreWebVitals> vitalsMetrics = null;
@@ -133,7 +133,7 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * Get checkType
+   * Type of assertion to apply in an API test.
    *
    * @return checkType
    */
@@ -221,7 +221,7 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * Get playingTab
+   * Navigate between different tabs for your browser test.
    *
    * @return playingTab
    */
@@ -386,7 +386,7 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * Get type
+   * Step type used in your Synthetic test.
    *
    * @return type
    */
@@ -426,7 +426,7 @@ public class SyntheticsStepDetail {
   }
 
   public SyntheticsStepDetail value(Object value) {
-    this.value = JsonNullable.<Object>of(value);
+    this.value = value;
     return this;
   }
 
@@ -436,24 +436,14 @@ public class SyntheticsStepDetail {
    * @return value
    */
   @javax.annotation.Nullable
-  @JsonIgnore
-  public Object getValue() {
-    return value.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Object> getValue_JsonNullable() {
+  public Object getValue() {
     return value;
   }
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  public void setValue_JsonNullable(JsonNullable<Object> value) {
-    this.value = value;
-  }
-
   public void setValue(Object value) {
-    this.value = JsonNullable.<Object>of(value);
+    this.value = value;
   }
 
   public SyntheticsStepDetail vitalsMetrics(List<SyntheticsCoreWebVitals> vitalsMetrics) {

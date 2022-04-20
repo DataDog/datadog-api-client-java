@@ -32,7 +32,8 @@ import java.util.Objects;
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_SERVICE,
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_STAT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
@@ -93,7 +94,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   }
 
   /**
-   * Get dataSource
+   * Data source for APM resource stats queries.
    *
    * @return dataSource
    */
@@ -294,7 +295,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   }
 
   /**
-   * Get stat
+   * APM resource stat name.
    *
    * @return stat
    */

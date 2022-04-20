@@ -48,3 +48,5 @@ src/main/AndroidManifest.xml
 
 # Ignored cassettes
 src/test/resources/cassettes/v1/getAllUsersTest.*
+
+__pycache__

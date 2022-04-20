@@ -35,7 +35,8 @@ import java.util.Objects;
   SLOWidgetDefinition.JSON_PROPERTY_VIEW_MODE,
   SLOWidgetDefinition.JSON_PROPERTY_VIEW_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GLOBAL_TIME_TARGET = "global_time_target";
@@ -200,7 +201,7 @@ public class SLOWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -246,7 +247,7 @@ public class SLOWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the SLO widget.
    *
    * @return type
    */
@@ -270,7 +271,7 @@ public class SLOWidgetDefinition {
   }
 
   /**
-   * Get viewMode
+   * Define how you want the SLO to be displayed.
    *
    * @return viewMode
    */
@@ -317,17 +318,17 @@ public class SLOWidgetDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOWidgetDefinition slOWidgetDefinition = (SLOWidgetDefinition) o;
-    return Objects.equals(this.globalTimeTarget, slOWidgetDefinition.globalTimeTarget)
-        && Objects.equals(this.showErrorBudget, slOWidgetDefinition.showErrorBudget)
-        && Objects.equals(this.sloId, slOWidgetDefinition.sloId)
-        && Objects.equals(this.timeWindows, slOWidgetDefinition.timeWindows)
-        && Objects.equals(this.title, slOWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, slOWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, slOWidgetDefinition.titleSize)
-        && Objects.equals(this.type, slOWidgetDefinition.type)
-        && Objects.equals(this.viewMode, slOWidgetDefinition.viewMode)
-        && Objects.equals(this.viewType, slOWidgetDefinition.viewType);
+    SLOWidgetDefinition sloWidgetDefinition = (SLOWidgetDefinition) o;
+    return Objects.equals(this.globalTimeTarget, sloWidgetDefinition.globalTimeTarget)
+        && Objects.equals(this.showErrorBudget, sloWidgetDefinition.showErrorBudget)
+        && Objects.equals(this.sloId, sloWidgetDefinition.sloId)
+        && Objects.equals(this.timeWindows, sloWidgetDefinition.timeWindows)
+        && Objects.equals(this.title, sloWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, sloWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, sloWidgetDefinition.titleSize)
+        && Objects.equals(this.type, sloWidgetDefinition.type)
+        && Objects.equals(this.viewMode, sloWidgetDefinition.viewMode)
+        && Objects.equals(this.viewType, sloWidgetDefinition.viewType);
   }
 
   @Override

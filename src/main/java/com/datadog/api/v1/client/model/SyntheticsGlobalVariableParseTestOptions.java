@@ -26,7 +26,8 @@ import java.util.Objects;
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_PARSER,
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsGlobalVariableParseTestOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELD = "field";
@@ -79,7 +80,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
   }
 
   /**
-   * Get parser
+   * Details of the parser to use for the global variable.
    *
    * @return parser
    */
@@ -101,7 +102,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
   }
 
   /**
-   * Get type
+   * Property of the Synthetics Test Response to use for a Synthetics global variable.
    *
    * @return type
    */

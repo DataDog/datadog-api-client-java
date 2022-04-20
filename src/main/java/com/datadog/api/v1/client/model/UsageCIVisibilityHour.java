@@ -25,7 +25,8 @@ import java.util.Objects;
   UsageCIVisibilityHour.JSON_PROPERTY_ORG_NAME,
   UsageCIVisibilityHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageCIVisibilityHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS = "ci_pipeline_indexed_spans";
@@ -186,16 +187,16 @@ public class UsageCIVisibilityHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageCIVisibilityHour usageCIVisibilityHour = (UsageCIVisibilityHour) o;
-    return Objects.equals(this.ciPipelineIndexedSpans, usageCIVisibilityHour.ciPipelineIndexedSpans)
-        && Objects.equals(this.ciTestIndexedSpans, usageCIVisibilityHour.ciTestIndexedSpans)
+    UsageCIVisibilityHour usageCiVisibilityHour = (UsageCIVisibilityHour) o;
+    return Objects.equals(this.ciPipelineIndexedSpans, usageCiVisibilityHour.ciPipelineIndexedSpans)
+        && Objects.equals(this.ciTestIndexedSpans, usageCiVisibilityHour.ciTestIndexedSpans)
         && Objects.equals(
             this.ciVisibilityPipelineCommitters,
-            usageCIVisibilityHour.ciVisibilityPipelineCommitters)
+            usageCiVisibilityHour.ciVisibilityPipelineCommitters)
         && Objects.equals(
-            this.ciVisibilityTestCommitters, usageCIVisibilityHour.ciVisibilityTestCommitters)
-        && Objects.equals(this.orgName, usageCIVisibilityHour.orgName)
-        && Objects.equals(this.publicId, usageCIVisibilityHour.publicId);
+            this.ciVisibilityTestCommitters, usageCiVisibilityHour.ciVisibilityTestCommitters)
+        && Objects.equals(this.orgName, usageCiVisibilityHour.orgName)
+        && Objects.equals(this.publicId, usageCiVisibilityHour.publicId);
   }
 
   @Override

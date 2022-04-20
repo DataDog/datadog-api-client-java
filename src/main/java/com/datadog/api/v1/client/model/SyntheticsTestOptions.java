@@ -36,7 +36,8 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_RETRY,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCEPT_SELF_SIGNED = "accept_self_signed";
@@ -291,7 +292,7 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Get monitorOptions
+   * Object containing the options for a Synthetic test as a monitor (for example, renotification).
    *
    * @return monitorOptions
    */
@@ -385,7 +386,7 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Get retry
+   * Object describing the retry strategy to apply to a Synthetic test.
    *
    * @return retry
    */

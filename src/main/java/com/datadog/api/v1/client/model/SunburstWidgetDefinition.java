@@ -31,7 +31,8 @@ import java.util.Objects;
   SunburstWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   SunburstWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SunburstWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
@@ -135,7 +136,7 @@ public class SunburstWidgetDefinition {
   }
 
   /**
-   * Get legend
+   * Configuration of the legend.
    *
    * @return legend
    */
@@ -186,7 +187,7 @@ public class SunburstWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -229,7 +230,7 @@ public class SunburstWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -275,7 +276,7 @@ public class SunburstWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the Sunburst widget.
    *
    * @return type
    */

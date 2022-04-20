@@ -28,7 +28,8 @@ import java.util.Objects;
   GeomapWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   GeomapWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GeomapWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORMULAS = "formulas";
@@ -92,7 +93,7 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * Get logQuery
+   * The log query.
    *
    * @return logQuery
    */
@@ -168,7 +169,7 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * Get responseFormat
+   * Timeseries or Scalar response.
    *
    * @return responseFormat
    */
@@ -193,7 +194,7 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * Get rumQuery
+   * The log query.
    *
    * @return rumQuery
    */
@@ -215,7 +216,7 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * Get securityQuery
+   * The log query.
    *
    * @return securityQuery
    */

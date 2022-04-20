@@ -36,7 +36,8 @@ import java.util.Objects;
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorSummaryWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLOR_PREFERENCE = "color_preference";
@@ -98,7 +99,7 @@ public class MonitorSummaryWidgetDefinition {
   }
 
   /**
-   * Get colorPreference
+   * Which color to use on the widget.
    *
    * @return colorPreference
    */
@@ -147,7 +148,7 @@ public class MonitorSummaryWidgetDefinition {
   }
 
   /**
-   * Get displayFormat
+   * What to display on the widget.
    *
    * @return displayFormat
    */
@@ -234,7 +235,7 @@ public class MonitorSummaryWidgetDefinition {
   }
 
   /**
-   * Get sort
+   * Widget sorting methods.
    *
    * @return sort
    */
@@ -282,7 +283,7 @@ public class MonitorSummaryWidgetDefinition {
   }
 
   /**
-   * Get summaryType
+   * Which summary type should be used.
    *
    * @return summaryType
    */
@@ -328,7 +329,7 @@ public class MonitorSummaryWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -374,7 +375,7 @@ public class MonitorSummaryWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the monitor summary widget.
    *
    * @return type
    */

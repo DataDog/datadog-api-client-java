@@ -22,7 +22,8 @@ import java.util.Objects;
 
 /** A response list of all service level objective deleted. */
 @JsonPropertyOrder({SLODeleteResponse.JSON_PROPERTY_DATA, SLODeleteResponse.JSON_PROPERTY_ERRORS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLODeleteResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -98,9 +99,9 @@ public class SLODeleteResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLODeleteResponse slODeleteResponse = (SLODeleteResponse) o;
-    return Objects.equals(this.data, slODeleteResponse.data)
-        && Objects.equals(this.errors, slODeleteResponse.errors);
+    SLODeleteResponse sloDeleteResponse = (SLODeleteResponse) o;
+    return Objects.equals(this.data, sloDeleteResponse.data)
+        && Objects.equals(this.errors, sloDeleteResponse.errors);
   }
 
   @Override

@@ -38,7 +38,8 @@ import java.util.Objects;
   TimeseriesWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_STYLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TimeseriesWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
@@ -99,7 +100,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get apmQuery
+   * The log query.
    *
    * @return apmQuery
    */
@@ -121,7 +122,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get auditQuery
+   * The log query.
    *
    * @return auditQuery
    */
@@ -143,7 +144,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get displayType
+   * Type of display to use for the request.
    *
    * @return displayType
    */
@@ -168,7 +169,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get eventQuery
+   * The log query.
    *
    * @return eventQuery
    */
@@ -223,7 +224,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get logQuery
+   * The log query.
    *
    * @return logQuery
    */
@@ -278,7 +279,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get networkQuery
+   * The log query.
    *
    * @return networkQuery
    */
@@ -321,7 +322,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get processQuery
+   * The process query to use in the widget.
    *
    * @return processQuery
    */
@@ -343,7 +344,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get profileMetricsQuery
+   * The log query.
    *
    * @return profileMetricsQuery
    */
@@ -419,7 +420,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get responseFormat
+   * Timeseries or Scalar response.
    *
    * @return responseFormat
    */
@@ -444,7 +445,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get rumQuery
+   * The log query.
    *
    * @return rumQuery
    */
@@ -466,7 +467,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get securityQuery
+   * The log query.
    *
    * @return securityQuery
    */
@@ -488,7 +489,7 @@ public class TimeseriesWidgetRequest {
   }
 
   /**
-   * Get style
+   * Define request widget style.
    *
    * @return style
    */

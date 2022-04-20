@@ -24,7 +24,8 @@ import java.util.Objects;
   RUMCompute.JSON_PROPERTY_METRIC,
   RUMCompute.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMCompute {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
@@ -56,7 +57,7 @@ public class RUMCompute {
   }
 
   /**
-   * Get aggregation
+   * An aggregation function.
    *
    * @return aggregation
    */
@@ -123,7 +124,7 @@ public class RUMCompute {
   }
 
   /**
-   * Get type
+   * The type of compute.
    *
    * @return type
    */
@@ -150,11 +151,11 @@ public class RUMCompute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMCompute ruMCompute = (RUMCompute) o;
-    return Objects.equals(this.aggregation, ruMCompute.aggregation)
-        && Objects.equals(this.interval, ruMCompute.interval)
-        && Objects.equals(this.metric, ruMCompute.metric)
-        && Objects.equals(this.type, ruMCompute.type);
+    RUMCompute rumCompute = (RUMCompute) o;
+    return Objects.equals(this.aggregation, rumCompute.aggregation)
+        && Objects.equals(this.interval, rumCompute.interval)
+        && Objects.equals(this.metric, rumCompute.metric)
+        && Objects.equals(this.type, rumCompute.type);
   }
 
   @Override

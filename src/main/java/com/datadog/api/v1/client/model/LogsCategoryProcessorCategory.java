@@ -21,7 +21,8 @@ import java.util.Objects;
   LogsCategoryProcessorCategory.JSON_PROPERTY_FILTER,
   LogsCategoryProcessorCategory.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsCategoryProcessorCategory {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
@@ -37,7 +38,7 @@ public class LogsCategoryProcessorCategory {
   }
 
   /**
-   * Get filter
+   * Filter for logs.
    *
    * @return filter
    */

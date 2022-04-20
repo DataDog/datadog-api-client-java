@@ -28,7 +28,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DowntimeRecurrence.JSON_PROPERTY_UNTIL_OCCURRENCES,
   DowntimeRecurrence.JSON_PROPERTY_WEEK_DAYS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DowntimeRecurrence {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PERIOD = "period";
@@ -78,7 +79,7 @@ public class DowntimeRecurrence {
 
   /**
    * The &#x60;RRULE&#x60; standard for defining recurring events (**requires to set
-   * \&quot;type\&quot; to rrule**) For example, to have a recurring event on the first day of each
+   * &quot;type&quot; to rrule**) For example, to have a recurring event on the first day of each
    * month, set the type to &#x60;rrule&#x60; and set the &#x60;FREQ&#x60; to &#x60;MONTHLY&#x60;
    * and &#x60;BYMONTHDAY&#x60; to &#x60;1&#x60;. Most common &#x60;rrule&#x60; options from the
    * [iCalendar Spec](https://tools.ietf.org/html/rfc5545) are supported. **Note**: Attributes

@@ -29,7 +29,8 @@ import java.util.Objects;
   SLOHistoryMetricsSeries.JSON_PROPERTY_SUM,
   SLOHistoryMetricsSeries.JSON_PROPERTY_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMetricsSeries {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNT = "count";
@@ -83,7 +84,7 @@ public class SLOHistoryMetricsSeries {
   }
 
   /**
-   * Get metadata
+   * Query metadata.
    *
    * @return metadata
    */
@@ -152,11 +153,11 @@ public class SLOHistoryMetricsSeries {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryMetricsSeries slOHistoryMetricsSeries = (SLOHistoryMetricsSeries) o;
-    return Objects.equals(this.count, slOHistoryMetricsSeries.count)
-        && Objects.equals(this.metadata, slOHistoryMetricsSeries.metadata)
-        && Objects.equals(this.sum, slOHistoryMetricsSeries.sum)
-        && Objects.equals(this.values, slOHistoryMetricsSeries.values);
+    SLOHistoryMetricsSeries sloHistoryMetricsSeries = (SLOHistoryMetricsSeries) o;
+    return Objects.equals(this.count, sloHistoryMetricsSeries.count)
+        && Objects.equals(this.metadata, sloHistoryMetricsSeries.metadata)
+        && Objects.equals(this.sum, sloHistoryMetricsSeries.sum)
+        && Objects.equals(this.values, sloHistoryMetricsSeries.values);
   }
 
   @Override

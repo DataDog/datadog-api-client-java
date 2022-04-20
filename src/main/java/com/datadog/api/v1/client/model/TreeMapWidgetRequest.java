@@ -25,7 +25,8 @@ import java.util.Objects;
   TreeMapWidgetRequest.JSON_PROPERTY_QUERIES,
   TreeMapWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TreeMapWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORMULAS = "formulas";
@@ -134,7 +135,7 @@ public class TreeMapWidgetRequest {
   }
 
   /**
-   * Get responseFormat
+   * Timeseries or Scalar response.
    *
    * @return responseFormat
    */

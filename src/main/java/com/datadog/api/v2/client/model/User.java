@@ -23,7 +23,8 @@ import java.util.Objects;
   User.JSON_PROPERTY_RELATIONSHIPS,
   User.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class User {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -45,7 +46,7 @@ public class User {
   }
 
   /**
-   * Get attributes
+   * Attributes of user object returned by the API.
    *
    * @return attributes
    */
@@ -88,7 +89,7 @@ public class User {
   }
 
   /**
-   * Get relationships
+   * Relationships of the user object returned by the API.
    *
    * @return relationships
    */
@@ -110,7 +111,7 @@ public class User {
   }
 
   /**
-   * Get type
+   * Users resource type.
    *
    * @return type
    */

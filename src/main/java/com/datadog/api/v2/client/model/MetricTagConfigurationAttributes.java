@@ -28,7 +28,8 @@ import java.util.Objects;
   MetricTagConfigurationAttributes.JSON_PROPERTY_MODIFIED_AT,
   MetricTagConfigurationAttributes.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricTagConfigurationAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATIONS = "aggregations";
@@ -139,7 +140,7 @@ public class MetricTagConfigurationAttributes {
   }
 
   /**
-   * Get metricType
+   * The metric&#39;s type.
    *
    * @return metricType
    */

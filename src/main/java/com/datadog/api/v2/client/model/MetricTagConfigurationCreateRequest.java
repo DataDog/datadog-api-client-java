@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Request object that includes the metric that you would like to configure tags for. */
 @JsonPropertyOrder({MetricTagConfigurationCreateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricTagConfigurationCreateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -42,7 +43,7 @@ public class MetricTagConfigurationCreateRequest {
   }
 
   /**
-   * Get data
+   * Object for a single metric to be configure tags on.
    *
    * @return data
    */

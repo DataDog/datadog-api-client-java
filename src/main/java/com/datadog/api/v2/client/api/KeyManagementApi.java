@@ -23,7 +23,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class KeyManagementApi {
   private ApiClient apiClient;
 
@@ -157,9 +158,6 @@ public class KeyManagementApi {
     String localVarPath = "/api/v2/api_keys";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAPIKey");
 
     Invocation.Builder builder;
     try {
@@ -299,9 +297,6 @@ public class KeyManagementApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createCurrentUserApplicationKey");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -396,7 +391,7 @@ public class KeyManagementApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -435,9 +430,6 @@ public class KeyManagementApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAPIKey");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -447,7 +439,7 @@ public class KeyManagementApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -532,7 +524,7 @@ public class KeyManagementApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -572,9 +564,6 @@ public class KeyManagementApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteApplicationKey");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -584,7 +573,7 @@ public class KeyManagementApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -671,7 +660,7 @@ public class KeyManagementApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -713,9 +702,6 @@ public class KeyManagementApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteCurrentUserApplicationKey");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -725,7 +711,7 @@ public class KeyManagementApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -777,7 +763,7 @@ public class KeyManagementApi {
   /**
    * Get API key
    *
-   * <p>See {@link #getAPIKeyWithHttpInfo}.
+   * <p>See {@link #getAPIKeyWithHttpInfoAsync}.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @return CompletableFuture&lt;APIKeyResponse&gt;
@@ -914,9 +900,6 @@ public class KeyManagementApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getAPIKey");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -978,7 +961,7 @@ public class KeyManagementApi {
   /**
    * Get an application key
    *
-   * <p>See {@link #getApplicationKeyWithHttpInfo}.
+   * <p>See {@link #getApplicationKeyWithHttpInfoAsync}.
    *
    * @param appKeyId The ID of the application key. (required)
    * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
@@ -1115,9 +1098,6 @@ public class KeyManagementApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getApplicationKey");
 
     Invocation.Builder builder;
     try {
@@ -1260,9 +1240,6 @@ public class KeyManagementApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getCurrentUserApplicationKey");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1329,7 +1306,7 @@ public class KeyManagementApi {
      *
      * @param sort API key attribute used to sort results. Sort order is ascending by default. In
      *     order to specify a descending sort, prefix the attribute with a minus sign. (optional,
-     *     default to name)
+     *     default to "name")
      * @return ListAPIKeysOptionalParameters
      */
     public ListAPIKeysOptionalParameters sort(APIKeysSort sort) {
@@ -1425,7 +1402,7 @@ public class KeyManagementApi {
   /**
    * Get all API keys
    *
-   * <p>See {@link #listAPIKeysWithHttpInfo}.
+   * <p>See {@link #listAPIKeysWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;APIKeysResponse&gt;
    */
@@ -1577,9 +1554,6 @@ public class KeyManagementApi {
         apiClient.parameterToPairs("", "filter[modified_at][end]", filterModifiedAtEnd));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAPIKeys");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1643,7 +1617,7 @@ public class KeyManagementApi {
      *
      * @param sort Application key attribute used to sort results. Sort order is ascending by
      *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
-     *     (optional, default to name)
+     *     (optional, default to "name")
      * @return ListApplicationKeysOptionalParameters
      */
     public ListApplicationKeysOptionalParameters sort(ApplicationKeysSort sort) {
@@ -1702,7 +1676,7 @@ public class KeyManagementApi {
   /**
    * Get all application keys
    *
-   * <p>See {@link #listApplicationKeysWithHttpInfo}.
+   * <p>See {@link #listApplicationKeysWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
    */
@@ -1840,9 +1814,6 @@ public class KeyManagementApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listApplicationKeys");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1907,7 +1878,7 @@ public class KeyManagementApi {
      *
      * @param sort Application key attribute used to sort results. Sort order is ascending by
      *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
-     *     (optional, default to name)
+     *     (optional, default to "name")
      * @return ListCurrentUserApplicationKeysOptionalParameters
      */
     public ListCurrentUserApplicationKeysOptionalParameters sort(ApplicationKeysSort sort) {
@@ -1970,7 +1941,7 @@ public class KeyManagementApi {
   /**
    * Get all application keys owned by current user
    *
-   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
+   * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;ListApplicationKeysResponse&gt;
    */
@@ -2109,9 +2080,6 @@ public class KeyManagementApi {
         apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listCurrentUserApplicationKeys");
 
     Invocation.Builder builder;
     try {
@@ -2272,9 +2240,6 @@ public class KeyManagementApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateAPIKey");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2433,9 +2398,6 @@ public class KeyManagementApi {
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateApplicationKey");
 
     Invocation.Builder builder;
     try {
@@ -2602,9 +2564,6 @@ public class KeyManagementApi {
             .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateCurrentUserApplicationKey");
 
     Invocation.Builder builder;
     try {

@@ -22,7 +22,8 @@ import java.util.Objects;
   SLOCorrectionResponseAttributesModifier.JSON_PROPERTY_HANDLE,
   SLOCorrectionResponseAttributesModifier.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionResponseAttributesModifier {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAIL = "email";
@@ -106,11 +107,11 @@ public class SLOCorrectionResponseAttributesModifier {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionResponseAttributesModifier slOCorrectionResponseAttributesModifier =
+    SLOCorrectionResponseAttributesModifier sloCorrectionResponseAttributesModifier =
         (SLOCorrectionResponseAttributesModifier) o;
-    return Objects.equals(this.email, slOCorrectionResponseAttributesModifier.email)
-        && Objects.equals(this.handle, slOCorrectionResponseAttributesModifier.handle)
-        && Objects.equals(this.name, slOCorrectionResponseAttributesModifier.name);
+    return Objects.equals(this.email, sloCorrectionResponseAttributesModifier.email)
+        && Objects.equals(this.handle, sloCorrectionResponseAttributesModifier.handle)
+        && Objects.equals(this.name, sloCorrectionResponseAttributesModifier.name);
   }
 
   @Override

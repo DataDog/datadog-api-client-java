@@ -21,7 +21,8 @@ import java.util.Objects;
   SyntheticsCIBatchMetadataGit.JSON_PROPERTY_BRANCH,
   SyntheticsCIBatchMetadataGit.JSON_PROPERTY_COMMIT_SHA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCIBatchMetadataGit {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BRANCH = "branch";
@@ -81,9 +82,9 @@ public class SyntheticsCIBatchMetadataGit {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCIBatchMetadataGit syntheticsCIBatchMetadataGit = (SyntheticsCIBatchMetadataGit) o;
-    return Objects.equals(this.branch, syntheticsCIBatchMetadataGit.branch)
-        && Objects.equals(this.commitSha, syntheticsCIBatchMetadataGit.commitSha);
+    SyntheticsCIBatchMetadataGit syntheticsCiBatchMetadataGit = (SyntheticsCIBatchMetadataGit) o;
+    return Objects.equals(this.branch, syntheticsCiBatchMetadataGit.branch)
+        && Objects.equals(this.commitSha, syntheticsCiBatchMetadataGit.commitSha);
   }
 
   @Override

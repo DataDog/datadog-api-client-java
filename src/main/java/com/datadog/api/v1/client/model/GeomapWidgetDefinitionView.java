@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** The view of the world that the map should render. */
 @JsonPropertyOrder({GeomapWidgetDefinitionView.JSON_PROPERTY_FOCUS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GeomapWidgetDefinitionView {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FOCUS = "focus";

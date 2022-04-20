@@ -21,7 +21,8 @@ import java.util.Objects;
   SyntheticsApiTestResultFailure.JSON_PROPERTY_CODE,
   SyntheticsApiTestResultFailure.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsApiTestResultFailure {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CODE = "code";
@@ -37,7 +38,7 @@ public class SyntheticsApiTestResultFailure {
   }
 
   /**
-   * Get code
+   * Error code that can be returned by a Synthetic test.
    *
    * @return code
    */

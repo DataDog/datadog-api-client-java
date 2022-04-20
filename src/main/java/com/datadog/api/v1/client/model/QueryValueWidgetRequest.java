@@ -36,7 +36,8 @@ import java.util.Objects;
   QueryValueWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   QueryValueWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class QueryValueWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
@@ -91,7 +92,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Get aggregator
+   * Aggregator used for the request.
    *
    * @return aggregator
    */
@@ -116,7 +117,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Get apmQuery
+   * The log query.
    *
    * @return apmQuery
    */
@@ -138,7 +139,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Get auditQuery
+   * The log query.
    *
    * @return auditQuery
    */
@@ -195,7 +196,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Get eventQuery
+   * The log query.
    *
    * @return eventQuery
    */
@@ -250,7 +251,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Get logQuery
+   * The log query.
    *
    * @return logQuery
    */
@@ -272,7 +273,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Get networkQuery
+   * The log query.
    *
    * @return networkQuery
    */
@@ -294,7 +295,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Get processQuery
+   * The process query to use in the widget.
    *
    * @return processQuery
    */
@@ -316,7 +317,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Get profileMetricsQuery
+   * The log query.
    *
    * @return profileMetricsQuery
    */
@@ -392,7 +393,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Get responseFormat
+   * Timeseries or Scalar response.
    *
    * @return responseFormat
    */
@@ -417,7 +418,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Get rumQuery
+   * The log query.
    *
    * @return rumQuery
    */
@@ -439,7 +440,7 @@ public class QueryValueWidgetRequest {
   }
 
   /**
-   * Get securityQuery
+   * The log query.
    *
    * @return securityQuery
    */

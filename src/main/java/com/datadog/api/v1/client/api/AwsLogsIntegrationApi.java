@@ -18,7 +18,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AwsLogsIntegrationApi {
   private ApiClient apiClient;
 
@@ -162,9 +163,6 @@ public class AwsLogsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "checkAWSLogsLambdaAsync");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -306,9 +304,6 @@ public class AwsLogsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "checkAWSLogsServicesAsync");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -442,9 +437,6 @@ public class AwsLogsIntegrationApi {
     String localVarPath = "/api/v1/integration/aws/logs";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAWSLambdaARN");
 
     Invocation.Builder builder;
     try {
@@ -580,9 +572,6 @@ public class AwsLogsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAWSLambdaARN");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -717,9 +706,6 @@ public class AwsLogsIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "enableAWSLogServices");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -833,9 +819,6 @@ public class AwsLogsIntegrationApi {
     String localVarPath = "/api/v1/integration/aws/logs";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSLogsIntegrations");
 
     Invocation.Builder builder;
     try {
@@ -951,9 +934,6 @@ public class AwsLogsIntegrationApi {
     String localVarPath = "/api/v1/integration/aws/logs/services";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAWSLogsServices");
 
     Invocation.Builder builder;
     try {

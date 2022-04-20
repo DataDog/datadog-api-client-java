@@ -25,7 +25,8 @@ import java.util.Objects;
   FunnelQuery.JSON_PROPERTY_QUERY_STRING,
   FunnelQuery.JSON_PROPERTY_STEPS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FunnelQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
@@ -57,7 +58,7 @@ public class FunnelQuery {
   }
 
   /**
-   * Get dataSource
+   * Source from which to query items to display in the funnel.
    *
    * @return dataSource
    */

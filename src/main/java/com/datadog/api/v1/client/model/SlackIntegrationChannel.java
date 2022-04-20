@@ -21,7 +21,8 @@ import java.util.Objects;
   SlackIntegrationChannel.JSON_PROPERTY_DISPLAY,
   SlackIntegrationChannel.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SlackIntegrationChannel {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY = "display";
@@ -37,7 +38,7 @@ public class SlackIntegrationChannel {
   }
 
   /**
-   * Get display
+   * Configuration options for what is shown in an alert event message.
    *
    * @return display
    */

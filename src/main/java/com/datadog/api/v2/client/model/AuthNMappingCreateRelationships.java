@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Relationship of AuthN Mapping create object to Role. */
 @JsonPropertyOrder({AuthNMappingCreateRelationships.JSON_PROPERTY_ROLE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingCreateRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ROLE = "role";
@@ -31,7 +32,7 @@ public class AuthNMappingCreateRelationships {
   }
 
   /**
-   * Get role
+   * Relationship to role.
    *
    * @return role
    */

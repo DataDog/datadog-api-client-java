@@ -15,7 +15,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PagerDutyIntegrationApi {
   private ApiClient apiClient;
 
@@ -156,9 +157,6 @@ public class PagerDutyIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createPagerDutyIntegrationService");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -257,7 +255,7 @@ public class PagerDutyIntegrationApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -300,9 +298,6 @@ public class PagerDutyIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deletePagerDutyIntegrationService");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -312,7 +307,7 @@ public class PagerDutyIntegrationApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -448,9 +443,6 @@ public class PagerDutyIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getPagerDutyIntegrationService");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -562,7 +554,7 @@ public class PagerDutyIntegrationApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "PUT",
@@ -617,9 +609,6 @@ public class PagerDutyIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updatePagerDutyIntegrationService");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -629,7 +618,7 @@ public class PagerDutyIntegrationApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();

@@ -22,7 +22,8 @@ import java.util.Objects;
   UserUpdateAttributes.JSON_PROPERTY_EMAIL,
   UserUpdateAttributes.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISABLED = "disabled";

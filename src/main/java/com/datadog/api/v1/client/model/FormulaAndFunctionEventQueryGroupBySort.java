@@ -23,7 +23,8 @@ import java.util.Objects;
   FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_METRIC,
   FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_ORDER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionEventQueryGroupBySort {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
@@ -53,7 +54,7 @@ public class FormulaAndFunctionEventQueryGroupBySort {
   }
 
   /**
-   * Get aggregation
+   * Aggregation methods for event platform queries.
    *
    * @return aggregation
    */
@@ -98,7 +99,7 @@ public class FormulaAndFunctionEventQueryGroupBySort {
   }
 
   /**
-   * Get order
+   * Direction of sort.
    *
    * @return order
    */

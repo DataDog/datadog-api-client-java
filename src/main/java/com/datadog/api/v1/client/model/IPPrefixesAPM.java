@@ -23,7 +23,8 @@ import java.util.Objects;
   IPPrefixesAPM.JSON_PROPERTY_PREFIXES_IPV4,
   IPPrefixesAPM.JSON_PROPERTY_PREFIXES_IPV6
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IPPrefixesAPM {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PREFIXES_IPV4 = "prefixes_ipv4";
@@ -99,9 +100,9 @@ public class IPPrefixesAPM {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IPPrefixesAPM ipPrefixesAPM = (IPPrefixesAPM) o;
-    return Objects.equals(this.prefixesIpv4, ipPrefixesAPM.prefixesIpv4)
-        && Objects.equals(this.prefixesIpv6, ipPrefixesAPM.prefixesIpv6);
+    IPPrefixesAPM ipPrefixesApm = (IPPrefixesAPM) o;
+    return Objects.equals(this.prefixesIpv4, ipPrefixesApm.prefixesIpv4)
+        && Objects.equals(this.prefixesIpv6, ipPrefixesApm.prefixesIpv6);
   }
 
   @Override

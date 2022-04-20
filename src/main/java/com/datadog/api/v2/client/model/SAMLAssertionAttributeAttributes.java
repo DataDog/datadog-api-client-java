@@ -21,7 +21,8 @@ import java.util.Objects;
   SAMLAssertionAttributeAttributes.JSON_PROPERTY_ATTRIBUTE_KEY,
   SAMLAssertionAttributeAttributes.JSON_PROPERTY_ATTRIBUTE_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SAMLAssertionAttributeAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTE_KEY = "attribute_key";
@@ -81,10 +82,10 @@ public class SAMLAssertionAttributeAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SAMLAssertionAttributeAttributes saMLAssertionAttributeAttributes =
+    SAMLAssertionAttributeAttributes samlAssertionAttributeAttributes =
         (SAMLAssertionAttributeAttributes) o;
-    return Objects.equals(this.attributeKey, saMLAssertionAttributeAttributes.attributeKey)
-        && Objects.equals(this.attributeValue, saMLAssertionAttributeAttributes.attributeValue);
+    return Objects.equals(this.attributeKey, samlAssertionAttributeAttributes.attributeKey)
+        && Objects.equals(this.attributeValue, samlAssertionAttributeAttributes.attributeValue);
   }
 
   @Override

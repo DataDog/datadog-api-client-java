@@ -12,7 +12,8 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationsApi {
   private ApiClient apiClient;
 
@@ -72,7 +73,7 @@ public class OrganizationsApi {
   /**
    * Upload IdP metadata
    *
-   * <p>See {@link #uploadIdPMetadataWithHttpInfo}.
+   * <p>See {@link #uploadIdPMetadataWithHttpInfoAsync}.
    */
   public CompletableFuture<Void> uploadIdPMetadataAsync() {
     return uploadIdPMetadataWithHttpInfoAsync(new UploadIdPMetadataOptionalParameters())
@@ -149,7 +150,7 @@ public class OrganizationsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
@@ -180,9 +181,6 @@ public class OrganizationsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "uploadIdPMetadata");
-
     if (idpFile != null) localVarFormParams.put("idp_file", idpFile);
 
     Invocation.Builder builder;
@@ -194,7 +192,7 @@ public class OrganizationsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();

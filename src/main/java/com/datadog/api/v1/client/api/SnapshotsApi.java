@@ -14,7 +14,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SnapshotsApi {
   private ApiClient apiClient;
 
@@ -118,7 +119,7 @@ public class SnapshotsApi {
   /**
    * Take graph snapshots
    *
-   * <p>See {@link #getGraphSnapshotWithHttpInfo}.
+   * <p>See {@link #getGraphSnapshotWithHttpInfoAsync}.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)
@@ -213,9 +214,9 @@ public class SnapshotsApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "metric_query", metricQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "metric_query", metricQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "event_query", eventQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "graph_def", graphDef));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "title", title));
@@ -281,15 +282,12 @@ public class SnapshotsApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "metric_query", metricQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "metric_query", metricQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "event_query", eventQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "graph_def", graphDef));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "title", title));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getGraphSnapshot");
 
     Invocation.Builder builder;
     try {

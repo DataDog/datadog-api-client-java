@@ -36,7 +36,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 @JsonDeserialize(
     using =
         LogsArchiveCreateRequestDestination.LogsArchiveCreateRequestDestinationDeserializer.class)
@@ -293,12 +294,10 @@ public class LogsArchiveCreateRequestDestination extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(LogsArchiveDestinationGCS.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(LogsArchiveDestinationS3.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;

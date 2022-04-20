@@ -21,7 +21,8 @@ import java.util.Objects;
   NotebooksResponsePage.JSON_PROPERTY_TOTAL_COUNT,
   NotebooksResponsePage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebooksResponsePage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";

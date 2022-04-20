@@ -18,7 +18,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingsApi {
   private ApiClient apiClient;
 
@@ -157,9 +158,6 @@ public class AuthNMappingsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAuthNMapping");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -257,7 +255,7 @@ public class AuthNMappingsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -300,9 +298,6 @@ public class AuthNMappingsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAuthNMapping");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -312,7 +307,7 @@ public class AuthNMappingsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -444,9 +439,6 @@ public class AuthNMappingsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getAuthNMapping");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -553,7 +545,7 @@ public class AuthNMappingsApi {
   /**
    * List all AuthN Mappings
    *
-   * <p>See {@link #listAuthNMappingsWithHttpInfo}.
+   * <p>See {@link #listAuthNMappingsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;AuthNMappingsResponse&gt;
    */
@@ -680,9 +672,6 @@ public class AuthNMappingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAuthNMappings");
 
     Invocation.Builder builder;
     try {
@@ -849,9 +838,6 @@ public class AuthNMappingsApi {
                 apiClient.escapeString(authnMappingId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateAuthNMapping");
 
     Invocation.Builder builder;
     try {

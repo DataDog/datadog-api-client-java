@@ -26,7 +26,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_RESULTS,
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_TRIGGERED_CHECK_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTriggerCITestsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BATCH_ID = "batch_id";
@@ -179,13 +180,13 @@ public class SyntheticsTriggerCITestsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTriggerCITestsResponse syntheticsTriggerCITestsResponse =
+    SyntheticsTriggerCITestsResponse syntheticsTriggerCiTestsResponse =
         (SyntheticsTriggerCITestsResponse) o;
-    return Objects.equals(this.batchId, syntheticsTriggerCITestsResponse.batchId)
-        && Objects.equals(this.locations, syntheticsTriggerCITestsResponse.locations)
-        && Objects.equals(this.results, syntheticsTriggerCITestsResponse.results)
+    return Objects.equals(this.batchId, syntheticsTriggerCiTestsResponse.batchId)
+        && Objects.equals(this.locations, syntheticsTriggerCiTestsResponse.locations)
+        && Objects.equals(this.results, syntheticsTriggerCiTestsResponse.results)
         && Objects.equals(
-            this.triggeredCheckIds, syntheticsTriggerCITestsResponse.triggeredCheckIds);
+            this.triggeredCheckIds, syntheticsTriggerCiTestsResponse.triggeredCheckIds);
   }
 
   @Override

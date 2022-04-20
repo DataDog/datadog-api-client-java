@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Which column and order to sort by */
 @JsonPropertyOrder({WidgetFieldSort.JSON_PROPERTY_COLUMN, WidgetFieldSort.JSON_PROPERTY_ORDER})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetFieldSort {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMN = "column";
@@ -66,7 +67,7 @@ public class WidgetFieldSort {
   }
 
   /**
-   * Get order
+   * Widget sorting methods.
    *
    * @return order
    */

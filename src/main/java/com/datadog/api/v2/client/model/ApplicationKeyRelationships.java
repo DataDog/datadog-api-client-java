@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Resources related to the application key. */
 @JsonPropertyOrder({ApplicationKeyRelationships.JSON_PROPERTY_OWNED_BY})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKeyRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_OWNED_BY = "owned_by";
@@ -31,7 +32,7 @@ public class ApplicationKeyRelationships {
   }
 
   /**
-   * Get ownedBy
+   * Relationship to user.
    *
    * @return ownedBy
    */

@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Response containing the number of SNMP devices for each hour for a given organization. */
 @JsonPropertyOrder({UsageSNMPResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSNMPResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";
@@ -68,8 +69,8 @@ public class UsageSNMPResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSNMPResponse usageSNMPResponse = (UsageSNMPResponse) o;
-    return Objects.equals(this.usage, usageSNMPResponse.usage);
+    UsageSNMPResponse usageSnmpResponse = (UsageSNMPResponse) o;
+    return Objects.equals(this.usage, usageSnmpResponse.usage);
   }
 
   @Override

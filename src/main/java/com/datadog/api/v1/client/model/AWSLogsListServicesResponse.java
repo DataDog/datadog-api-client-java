@@ -21,7 +21,8 @@ import java.util.Objects;
   AWSLogsListServicesResponse.JSON_PROPERTY_ID,
   AWSLogsListServicesResponse.JSON_PROPERTY_LABEL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSLogsListServicesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
@@ -81,9 +82,9 @@ public class AWSLogsListServicesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSLogsListServicesResponse awSLogsListServicesResponse = (AWSLogsListServicesResponse) o;
-    return Objects.equals(this.id, awSLogsListServicesResponse.id)
-        && Objects.equals(this.label, awSLogsListServicesResponse.label);
+    AWSLogsListServicesResponse awsLogsListServicesResponse = (AWSLogsListServicesResponse) o;
+    return Objects.equals(this.id, awsLogsListServicesResponse.id)
+        && Objects.equals(this.label, awsLogsListServicesResponse.label);
   }
 
   @Override

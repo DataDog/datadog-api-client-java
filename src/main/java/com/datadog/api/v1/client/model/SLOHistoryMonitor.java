@@ -39,7 +39,8 @@ import java.util.Objects;
   SLOHistoryMonitor.JSON_PROPERTY_SPAN_PRECISION,
   SLOHistoryMonitor.JSON_PROPERTY_UPTIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMonitor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERROR_BUDGET_REMAINING = "error_budget_remaining";
@@ -380,19 +381,19 @@ public class SLOHistoryMonitor {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryMonitor slOHistoryMonitor = (SLOHistoryMonitor) o;
-    return Objects.equals(this.errorBudgetRemaining, slOHistoryMonitor.errorBudgetRemaining)
-        && Objects.equals(this.errors, slOHistoryMonitor.errors)
-        && Objects.equals(this.group, slOHistoryMonitor.group)
-        && Objects.equals(this.history, slOHistoryMonitor.history)
-        && Objects.equals(this.monitorModified, slOHistoryMonitor.monitorModified)
-        && Objects.equals(this.monitorType, slOHistoryMonitor.monitorType)
-        && Objects.equals(this.name, slOHistoryMonitor.name)
-        && Objects.equals(this.precision, slOHistoryMonitor.precision)
-        && Objects.equals(this.preview, slOHistoryMonitor.preview)
-        && Objects.equals(this.sliValue, slOHistoryMonitor.sliValue)
-        && Objects.equals(this.spanPrecision, slOHistoryMonitor.spanPrecision)
-        && Objects.equals(this.uptime, slOHistoryMonitor.uptime);
+    SLOHistoryMonitor sloHistoryMonitor = (SLOHistoryMonitor) o;
+    return Objects.equals(this.errorBudgetRemaining, sloHistoryMonitor.errorBudgetRemaining)
+        && Objects.equals(this.errors, sloHistoryMonitor.errors)
+        && Objects.equals(this.group, sloHistoryMonitor.group)
+        && Objects.equals(this.history, sloHistoryMonitor.history)
+        && Objects.equals(this.monitorModified, sloHistoryMonitor.monitorModified)
+        && Objects.equals(this.monitorType, sloHistoryMonitor.monitorType)
+        && Objects.equals(this.name, sloHistoryMonitor.name)
+        && Objects.equals(this.precision, sloHistoryMonitor.precision)
+        && Objects.equals(this.preview, sloHistoryMonitor.preview)
+        && Objects.equals(this.sliValue, sloHistoryMonitor.sliValue)
+        && Objects.equals(this.spanPrecision, sloHistoryMonitor.spanPrecision)
+        && Objects.equals(this.uptime, sloHistoryMonitor.uptime);
   }
 
   @Override

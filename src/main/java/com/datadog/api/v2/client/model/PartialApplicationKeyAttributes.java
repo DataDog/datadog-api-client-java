@@ -26,7 +26,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   PartialApplicationKeyAttributes.JSON_PROPERTY_NAME,
   PartialApplicationKeyAttributes.JSON_PROPERTY_SCOPES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PartialApplicationKeyAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";

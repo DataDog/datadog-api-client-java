@@ -23,7 +23,8 @@ import java.util.Objects;
   ServiceAccountCreateData.JSON_PROPERTY_RELATIONSHIPS,
   ServiceAccountCreateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceAccountCreateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -55,7 +56,7 @@ public class ServiceAccountCreateData {
   }
 
   /**
-   * Get attributes
+   * Attributes of the created user.
    *
    * @return attributes
    */
@@ -76,7 +77,7 @@ public class ServiceAccountCreateData {
   }
 
   /**
-   * Get relationships
+   * Relationships of the user object.
    *
    * @return relationships
    */
@@ -98,7 +99,7 @@ public class ServiceAccountCreateData {
   }
 
   /**
-   * Get type
+   * Users resource type.
    *
    * @return type
    */

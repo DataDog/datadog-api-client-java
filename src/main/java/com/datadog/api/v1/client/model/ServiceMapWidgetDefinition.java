@@ -32,7 +32,8 @@ import java.util.Objects;
   ServiceMapWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ServiceMapWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceMapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
@@ -176,7 +177,7 @@ public class ServiceMapWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -222,7 +223,7 @@ public class ServiceMapWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the service map widget.
    *
    * @return type
    */

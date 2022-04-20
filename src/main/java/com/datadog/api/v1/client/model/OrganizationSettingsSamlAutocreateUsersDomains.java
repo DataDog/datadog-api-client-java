@@ -26,7 +26,8 @@ import java.util.Objects;
   OrganizationSettingsSamlAutocreateUsersDomains.JSON_PROPERTY_DOMAINS,
   OrganizationSettingsSamlAutocreateUsersDomains.JSON_PROPERTY_ENABLED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationSettingsSamlAutocreateUsersDomains {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DOMAINS = "domains";

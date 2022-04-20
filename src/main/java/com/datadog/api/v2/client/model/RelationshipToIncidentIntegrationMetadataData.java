@@ -22,7 +22,8 @@ import java.util.Objects;
   RelationshipToIncidentIntegrationMetadataData.JSON_PROPERTY_ID,
   RelationshipToIncidentIntegrationMetadataData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToIncidentIntegrationMetadataData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
@@ -71,7 +72,7 @@ public class RelationshipToIncidentIntegrationMetadataData {
   }
 
   /**
-   * Get type
+   * Integration metadata resource type.
    *
    * @return type
    */

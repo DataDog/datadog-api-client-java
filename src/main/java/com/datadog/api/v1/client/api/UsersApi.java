@@ -16,7 +16,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsersApi {
   private ApiClient apiClient;
 
@@ -149,9 +150,6 @@ public class UsersApi {
     String localVarPath = "/api/v1/user";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createUser");
 
     Invocation.Builder builder;
     try {
@@ -294,9 +292,6 @@ public class UsersApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "disableUser");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -434,9 +429,6 @@ public class UsersApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUser");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -547,9 +539,6 @@ public class UsersApi {
     String localVarPath = "/api/v1/user";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listUsers");
 
     Invocation.Builder builder;
     try {
@@ -708,9 +697,6 @@ public class UsersApi {
                 "\\{" + "user_handle" + "\\}", apiClient.escapeString(userHandle.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateUser");
 
     Invocation.Builder builder;
     try {

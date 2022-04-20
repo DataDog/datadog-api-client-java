@@ -36,7 +36,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 @JsonDeserialize(using = APIKeyResponseIncludedItem.APIKeyResponseIncludedItemDeserializer.class)
 @JsonSerialize(using = APIKeyResponseIncludedItem.APIKeyResponseIncludedItemSerializer.class)
 public class APIKeyResponseIncludedItem extends AbstractOpenApiSchema {

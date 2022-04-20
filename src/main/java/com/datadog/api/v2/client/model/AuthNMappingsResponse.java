@@ -23,7 +23,8 @@ import java.util.Objects;
   AuthNMappingsResponse.JSON_PROPERTY_DATA,
   AuthNMappingsResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -72,7 +73,7 @@ public class AuthNMappingsResponse {
   }
 
   /**
-   * Get meta
+   * Object describing meta attributes of response.
    *
    * @return meta
    */

@@ -22,7 +22,8 @@ import java.util.Objects;
   MetricCustomAggregation.JSON_PROPERTY_SPACE,
   MetricCustomAggregation.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricCustomAggregation {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_SPACE = "space";
@@ -51,7 +52,7 @@ public class MetricCustomAggregation {
   }
 
   /**
-   * Get space
+   * A space aggregation for use in query.
    *
    * @return space
    */
@@ -75,7 +76,7 @@ public class MetricCustomAggregation {
   }
 
   /**
-   * Get time
+   * A time aggregation for use in query.
    *
    * @return time
    */

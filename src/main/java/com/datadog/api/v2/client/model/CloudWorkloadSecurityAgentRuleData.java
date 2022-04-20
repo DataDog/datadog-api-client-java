@@ -22,7 +22,8 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentRuleData.JSON_PROPERTY_ID,
   CloudWorkloadSecurityAgentRuleData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -42,7 +43,7 @@ public class CloudWorkloadSecurityAgentRuleData {
   }
 
   /**
-   * Get attributes
+   * A Cloud Workload Security Agent rule returned by the API.
    *
    * @return attributes
    */
@@ -85,7 +86,7 @@ public class CloudWorkloadSecurityAgentRuleData {
   }
 
   /**
-   * Get type
+   * The type of the resource. The value should always be &#x60;agent_rule&#x60;.
    *
    * @return type
    */

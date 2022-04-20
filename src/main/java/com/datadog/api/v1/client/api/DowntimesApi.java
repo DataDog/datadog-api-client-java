@@ -16,7 +16,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DowntimesApi {
   private ApiClient apiClient;
 
@@ -114,7 +115,7 @@ public class DowntimesApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -154,9 +155,6 @@ public class DowntimesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "cancelDowntime");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -166,7 +164,7 @@ public class DowntimesApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -292,9 +290,6 @@ public class DowntimesApi {
     String localVarPath = "/api/v1/downtime/cancel/by_scope";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "cancelDowntimesByScope");
 
     Invocation.Builder builder;
     try {
@@ -426,9 +421,6 @@ public class DowntimesApi {
     String localVarPath = "/api/v1/downtime";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createDowntime");
 
     Invocation.Builder builder;
     try {
@@ -567,9 +559,6 @@ public class DowntimesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getDowntime");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -628,7 +617,7 @@ public class DowntimesApi {
   /**
    * Get all downtimes
    *
-   * <p>See {@link #listDowntimesWithHttpInfo}.
+   * <p>See {@link #listDowntimesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;List&lt;Downtime&gt;&gt;
    */
@@ -739,9 +728,6 @@ public class DowntimesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "current_only", currentOnly));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listDowntimes");
 
     Invocation.Builder builder;
     try {
@@ -879,9 +865,6 @@ public class DowntimesApi {
             .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listMonitorDowntimes");
 
     Invocation.Builder builder;
     try {
@@ -1041,9 +1024,6 @@ public class DowntimesApi {
                 "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateDowntime");
 
     Invocation.Builder builder;
     try {

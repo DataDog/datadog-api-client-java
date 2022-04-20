@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** An application key response. */
 @JsonPropertyOrder({ApplicationKeyListResponse.JSON_PROPERTY_APPLICATION_KEYS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKeyListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION_KEYS = "application_keys";

@@ -38,7 +38,8 @@ import java.util.Objects;
   LogStreamWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   LogStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogStreamWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
@@ -178,7 +179,7 @@ public class LogStreamWidgetDefinition {
   }
 
   /**
-   * Get messageDisplay
+   * Amount of log lines to display
    *
    * @return messageDisplay
    */
@@ -266,7 +267,7 @@ public class LogStreamWidgetDefinition {
   }
 
   /**
-   * Get sort
+   * Which column and order to sort by
    *
    * @return sort
    */
@@ -288,7 +289,7 @@ public class LogStreamWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -331,7 +332,7 @@ public class LogStreamWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -377,7 +378,7 @@ public class LogStreamWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the log stream widget.
    *
    * @return type
    */

@@ -23,7 +23,8 @@ import java.util.Objects;
   IncidentServiceCreateData.JSON_PROPERTY_RELATIONSHIPS,
   IncidentServiceCreateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentServiceCreateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -51,7 +52,7 @@ public class IncidentServiceCreateData {
   }
 
   /**
-   * Get attributes
+   * The incident service&#39;s attributes for a create request.
    *
    * @return attributes
    */
@@ -66,14 +67,8 @@ public class IncidentServiceCreateData {
     this.attributes = attributes;
   }
 
-  public IncidentServiceCreateData relationships(IncidentServiceRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
   /**
-   * Get relationships
+   * The incident service&#39;s relationships.
    *
    * @return relationships
    */
@@ -84,10 +79,6 @@ public class IncidentServiceCreateData {
     return relationships;
   }
 
-  public void setRelationships(IncidentServiceRelationships relationships) {
-    this.relationships = relationships;
-  }
-
   public IncidentServiceCreateData type(IncidentServiceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -95,7 +86,7 @@ public class IncidentServiceCreateData {
   }
 
   /**
-   * Get type
+   * Incident service resource type.
    *
    * @return type
    */

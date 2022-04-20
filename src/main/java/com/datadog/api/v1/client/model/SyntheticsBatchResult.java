@@ -29,7 +29,8 @@ import java.util.Objects;
   SyntheticsBatchResult.JSON_PROPERTY_TEST_PUBLIC_ID,
   SyntheticsBatchResult.JSON_PROPERTY_TEST_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBatchResult {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEVICE = "device";
@@ -69,7 +70,7 @@ public class SyntheticsBatchResult {
   }
 
   /**
-   * Get device
+   * The device ID.
    *
    * @return device
    */
@@ -115,7 +116,7 @@ public class SyntheticsBatchResult {
   }
 
   /**
-   * Get executionRule
+   * Execution rule for a Synthetics test.
    *
    * @return executionRule
    */
@@ -203,7 +204,7 @@ public class SyntheticsBatchResult {
   }
 
   /**
-   * Get status
+   * Determines whether or not the batch has passed, failed, or is in progress.
    *
    * @return status
    */
@@ -270,7 +271,7 @@ public class SyntheticsBatchResult {
   }
 
   /**
-   * Get testType
+   * Type of the Synthetic test, either &#x60;api&#x60; or &#x60;browser&#x60;.
    *
    * @return testType
    */

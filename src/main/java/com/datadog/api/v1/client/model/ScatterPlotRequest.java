@@ -29,7 +29,8 @@ import java.util.Objects;
   ScatterPlotRequest.JSON_PROPERTY_RUM_QUERY,
   ScatterPlotRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScatterPlotRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
@@ -69,7 +70,7 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * Get aggregator
+   * Aggregator used for the request.
    *
    * @return aggregator
    */
@@ -94,7 +95,7 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * Get apmQuery
+   * The log query.
    *
    * @return apmQuery
    */
@@ -116,7 +117,7 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * Get eventQuery
+   * The log query.
    *
    * @return eventQuery
    */
@@ -138,7 +139,7 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * Get logQuery
+   * The log query.
    *
    * @return logQuery
    */
@@ -160,7 +161,7 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * Get networkQuery
+   * The log query.
    *
    * @return networkQuery
    */
@@ -182,7 +183,7 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * Get processQuery
+   * The process query to use in the widget.
    *
    * @return processQuery
    */
@@ -204,7 +205,7 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * Get profileMetricsQuery
+   * The log query.
    *
    * @return profileMetricsQuery
    */
@@ -247,7 +248,7 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * Get rumQuery
+   * The log query.
    *
    * @return rumQuery
    */
@@ -269,7 +270,7 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * Get securityQuery
+   * The log query.
    *
    * @return securityQuery
    */

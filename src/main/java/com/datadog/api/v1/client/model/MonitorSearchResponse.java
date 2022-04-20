@@ -23,7 +23,8 @@ import java.util.Objects;
   MonitorSearchResponse.JSON_PROPERTY_METADATA,
   MonitorSearchResponse.JSON_PROPERTY_MONITORS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorSearchResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNTS = "counts";
@@ -35,14 +36,8 @@ public class MonitorSearchResponse {
   public static final String JSON_PROPERTY_MONITORS = "monitors";
   private List<MonitorSearchResult> monitors = null;
 
-  public MonitorSearchResponse counts(MonitorSearchResponseCounts counts) {
-    this.counts = counts;
-    this.unparsed |= counts.unparsed;
-    return this;
-  }
-
   /**
-   * Get counts
+   * The counts of monitors per different criteria.
    *
    * @return counts
    */
@@ -53,10 +48,6 @@ public class MonitorSearchResponse {
     return counts;
   }
 
-  public void setCounts(MonitorSearchResponseCounts counts) {
-    this.counts = counts;
-  }
-
   public MonitorSearchResponse metadata(MonitorSearchResponseMetadata metadata) {
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
@@ -64,7 +55,7 @@ public class MonitorSearchResponse {
   }
 
   /**
-   * Get metadata
+   * Metadata about the response.
    *
    * @return metadata
    */

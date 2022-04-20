@@ -22,7 +22,8 @@ import java.util.Objects;
   RelationshipToSAMLAssertionAttributeData.JSON_PROPERTY_ID,
   RelationshipToSAMLAssertionAttributeData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToSAMLAssertionAttributeData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
@@ -69,7 +70,7 @@ public class RelationshipToSAMLAssertionAttributeData {
   }
 
   /**
-   * Get type
+   * SAML assertion attributes resource type.
    *
    * @return type
    */
@@ -95,10 +96,10 @@ public class RelationshipToSAMLAssertionAttributeData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToSAMLAssertionAttributeData relationshipToSAMLAssertionAttributeData =
+    RelationshipToSAMLAssertionAttributeData relationshipToSamlAssertionAttributeData =
         (RelationshipToSAMLAssertionAttributeData) o;
-    return Objects.equals(this.id, relationshipToSAMLAssertionAttributeData.id)
-        && Objects.equals(this.type, relationshipToSAMLAssertionAttributeData.type);
+    return Objects.equals(this.id, relationshipToSamlAssertionAttributeData.id)
+        && Objects.equals(this.type, relationshipToSamlAssertionAttributeData.type);
   }
 
   @Override

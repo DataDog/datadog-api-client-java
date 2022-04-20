@@ -36,7 +36,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 @JsonDeserialize(
     using =
         NotebookCellUpdateRequestAttributes.NotebookCellUpdateRequestAttributesDeserializer.class)
@@ -392,21 +393,6 @@ public class NotebookCellUpdateRequestAttributes extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public NotebookCellUpdateRequestAttributes(NotebookDistributionCellAttributes o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public NotebookCellUpdateRequestAttributes(NotebookHeatMapCellAttributes o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public NotebookCellUpdateRequestAttributes(NotebookLogStreamCellAttributes o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public NotebookCellUpdateRequestAttributes(NotebookMarkdownCellAttributes o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -422,20 +408,35 @@ public class NotebookCellUpdateRequestAttributes extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public NotebookCellUpdateRequestAttributes(NotebookHeatMapCellAttributes o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public NotebookCellUpdateRequestAttributes(NotebookDistributionCellAttributes o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public NotebookCellUpdateRequestAttributes(NotebookLogStreamCellAttributes o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
-    schemas.put(
-        "NotebookDistributionCellAttributes",
-        new GenericType<NotebookDistributionCellAttributes>() {});
-    schemas.put(
-        "NotebookHeatMapCellAttributes", new GenericType<NotebookHeatMapCellAttributes>() {});
-    schemas.put(
-        "NotebookLogStreamCellAttributes", new GenericType<NotebookLogStreamCellAttributes>() {});
     schemas.put(
         "NotebookMarkdownCellAttributes", new GenericType<NotebookMarkdownCellAttributes>() {});
     schemas.put(
         "NotebookTimeseriesCellAttributes", new GenericType<NotebookTimeseriesCellAttributes>() {});
     schemas.put(
         "NotebookToplistCellAttributes", new GenericType<NotebookToplistCellAttributes>() {});
+    schemas.put(
+        "NotebookHeatMapCellAttributes", new GenericType<NotebookHeatMapCellAttributes>() {});
+    schemas.put(
+        "NotebookDistributionCellAttributes",
+        new GenericType<NotebookDistributionCellAttributes>() {});
+    schemas.put(
+        "NotebookLogStreamCellAttributes", new GenericType<NotebookLogStreamCellAttributes>() {});
     JSON.registerDescendants(
         NotebookCellUpdateRequestAttributes.class, Collections.unmodifiableMap(schemas));
   }
@@ -447,9 +448,9 @@ public class NotebookCellUpdateRequestAttributes extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: NotebookDistributionCellAttributes,
-   * NotebookHeatMapCellAttributes, NotebookLogStreamCellAttributes, NotebookMarkdownCellAttributes,
-   * NotebookTimeseriesCellAttributes, NotebookToplistCellAttributes
+   * against the oneOf child schemas: NotebookMarkdownCellAttributes,
+   * NotebookTimeseriesCellAttributes, NotebookToplistCellAttributes, NotebookHeatMapCellAttributes,
+   * NotebookDistributionCellAttributes, NotebookLogStreamCellAttributes
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -457,35 +458,30 @@ public class NotebookCellUpdateRequestAttributes extends AbstractOpenApiSchema {
   @Override
   public void setActualInstance(Object instance) {
     if (JSON.isInstanceOf(
-        NotebookDistributionCellAttributes.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(NotebookHeatMapCellAttributes.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(
-        NotebookLogStreamCellAttributes.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(
         NotebookMarkdownCellAttributes.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(
         NotebookTimeseriesCellAttributes.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(NotebookToplistCellAttributes.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(NotebookHeatMapCellAttributes.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        NotebookDistributionCellAttributes.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        NotebookLogStreamCellAttributes.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -495,60 +491,24 @@ public class NotebookCellUpdateRequestAttributes extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be NotebookDistributionCellAttributes,"
-            + " NotebookHeatMapCellAttributes, NotebookLogStreamCellAttributes,"
-            + " NotebookMarkdownCellAttributes, NotebookTimeseriesCellAttributes,"
-            + " NotebookToplistCellAttributes");
+        "Invalid instance type. Must be NotebookMarkdownCellAttributes,"
+            + " NotebookTimeseriesCellAttributes, NotebookToplistCellAttributes,"
+            + " NotebookHeatMapCellAttributes, NotebookDistributionCellAttributes,"
+            + " NotebookLogStreamCellAttributes");
   }
 
   /**
-   * Get the actual instance, which can be the following: NotebookDistributionCellAttributes,
-   * NotebookHeatMapCellAttributes, NotebookLogStreamCellAttributes, NotebookMarkdownCellAttributes,
-   * NotebookTimeseriesCellAttributes, NotebookToplistCellAttributes
+   * Get the actual instance, which can be the following: NotebookMarkdownCellAttributes,
+   * NotebookTimeseriesCellAttributes, NotebookToplistCellAttributes, NotebookHeatMapCellAttributes,
+   * NotebookDistributionCellAttributes, NotebookLogStreamCellAttributes
    *
-   * @return The actual instance (NotebookDistributionCellAttributes, NotebookHeatMapCellAttributes,
-   *     NotebookLogStreamCellAttributes, NotebookMarkdownCellAttributes,
-   *     NotebookTimeseriesCellAttributes, NotebookToplistCellAttributes)
+   * @return The actual instance (NotebookMarkdownCellAttributes, NotebookTimeseriesCellAttributes,
+   *     NotebookToplistCellAttributes, NotebookHeatMapCellAttributes,
+   *     NotebookDistributionCellAttributes, NotebookLogStreamCellAttributes)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `NotebookDistributionCellAttributes`. If the actual instance is not
-   * `NotebookDistributionCellAttributes`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `NotebookDistributionCellAttributes`
-   * @throws ClassCastException if the instance is not `NotebookDistributionCellAttributes`
-   */
-  public NotebookDistributionCellAttributes getNotebookDistributionCellAttributes()
-      throws ClassCastException {
-    return (NotebookDistributionCellAttributes) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `NotebookHeatMapCellAttributes`. If the actual instance is not
-   * `NotebookHeatMapCellAttributes`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `NotebookHeatMapCellAttributes`
-   * @throws ClassCastException if the instance is not `NotebookHeatMapCellAttributes`
-   */
-  public NotebookHeatMapCellAttributes getNotebookHeatMapCellAttributes()
-      throws ClassCastException {
-    return (NotebookHeatMapCellAttributes) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `NotebookLogStreamCellAttributes`. If the actual instance is not
-   * `NotebookLogStreamCellAttributes`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `NotebookLogStreamCellAttributes`
-   * @throws ClassCastException if the instance is not `NotebookLogStreamCellAttributes`
-   */
-  public NotebookLogStreamCellAttributes getNotebookLogStreamCellAttributes()
-      throws ClassCastException {
-    return (NotebookLogStreamCellAttributes) super.getActualInstance();
   }
 
   /**
@@ -585,5 +545,41 @@ public class NotebookCellUpdateRequestAttributes extends AbstractOpenApiSchema {
   public NotebookToplistCellAttributes getNotebookToplistCellAttributes()
       throws ClassCastException {
     return (NotebookToplistCellAttributes) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `NotebookHeatMapCellAttributes`. If the actual instance is not
+   * `NotebookHeatMapCellAttributes`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `NotebookHeatMapCellAttributes`
+   * @throws ClassCastException if the instance is not `NotebookHeatMapCellAttributes`
+   */
+  public NotebookHeatMapCellAttributes getNotebookHeatMapCellAttributes()
+      throws ClassCastException {
+    return (NotebookHeatMapCellAttributes) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `NotebookDistributionCellAttributes`. If the actual instance is not
+   * `NotebookDistributionCellAttributes`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `NotebookDistributionCellAttributes`
+   * @throws ClassCastException if the instance is not `NotebookDistributionCellAttributes`
+   */
+  public NotebookDistributionCellAttributes getNotebookDistributionCellAttributes()
+      throws ClassCastException {
+    return (NotebookDistributionCellAttributes) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `NotebookLogStreamCellAttributes`. If the actual instance is not
+   * `NotebookLogStreamCellAttributes`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `NotebookLogStreamCellAttributes`
+   * @throws ClassCastException if the instance is not `NotebookLogStreamCellAttributes`
+   */
+  public NotebookLogStreamCellAttributes getNotebookLogStreamCellAttributes()
+      throws ClassCastException {
+    return (NotebookLogStreamCellAttributes) super.getActualInstance();
   }
 }

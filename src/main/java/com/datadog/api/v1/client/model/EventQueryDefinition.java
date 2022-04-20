@@ -22,7 +22,8 @@ import java.util.Objects;
   EventQueryDefinition.JSON_PROPERTY_SEARCH,
   EventQueryDefinition.JSON_PROPERTY_TAGS_EXECUTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_SEARCH = "search";

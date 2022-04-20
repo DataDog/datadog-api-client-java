@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** CI visibility usage response */
 @JsonPropertyOrder({UsageCIVisibilityResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageCIVisibilityResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";
@@ -68,8 +69,8 @@ public class UsageCIVisibilityResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageCIVisibilityResponse usageCIVisibilityResponse = (UsageCIVisibilityResponse) o;
-    return Objects.equals(this.usage, usageCIVisibilityResponse.usage);
+    UsageCIVisibilityResponse usageCiVisibilityResponse = (UsageCIVisibilityResponse) o;
+    return Objects.equals(this.usage, usageCiVisibilityResponse.usage);
   }
 
   @Override

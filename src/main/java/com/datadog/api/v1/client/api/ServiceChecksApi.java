@@ -15,7 +15,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceChecksApi {
   private ApiClient apiClient;
 
@@ -153,9 +154,6 @@ public class ServiceChecksApi {
     String localVarPath = "/api/v1/check_run";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "submitServiceCheck");
 
     Invocation.Builder builder;
     try {

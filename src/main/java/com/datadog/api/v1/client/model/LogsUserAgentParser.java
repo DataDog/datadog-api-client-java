@@ -31,7 +31,8 @@ import java.util.Objects;
   LogsUserAgentParser.JSON_PROPERTY_TARGET,
   LogsUserAgentParser.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsUserAgentParser {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
@@ -181,7 +182,7 @@ public class LogsUserAgentParser {
   }
 
   /**
-   * Get type
+   * Type of logs User-Agent parser.
    *
    * @return type
    */

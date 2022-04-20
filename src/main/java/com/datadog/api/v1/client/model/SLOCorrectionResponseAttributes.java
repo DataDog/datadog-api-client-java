@@ -32,7 +32,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOCorrectionResponseAttributes.JSON_PROPERTY_START,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_TIMEZONE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CATEGORY = "category";
@@ -79,7 +80,7 @@ public class SLOCorrectionResponseAttributes {
   }
 
   /**
-   * Get category
+   * Category the SLO correction belongs to.
    *
    * @return category
    */
@@ -118,14 +119,8 @@ public class SLOCorrectionResponseAttributes {
     this.createdAt = createdAt;
   }
 
-  public SLOCorrectionResponseAttributes creator(Creator creator) {
-    this.creator = creator;
-    this.unparsed |= creator.unparsed;
-    return this;
-  }
-
   /**
-   * Get creator
+   * Object describing the creator of the shared element.
    *
    * @return creator
    */
@@ -134,10 +129,6 @@ public class SLOCorrectionResponseAttributes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
     return creator;
-  }
-
-  public void setCreator(Creator creator) {
-    this.creator = creator;
   }
 
   public SLOCorrectionResponseAttributes description(String description) {
@@ -241,7 +232,7 @@ public class SLOCorrectionResponseAttributes {
   }
 
   /**
-   * Get modifier
+   * Modifier of the object.
    *
    * @return modifier
    */
@@ -348,7 +339,7 @@ public class SLOCorrectionResponseAttributes {
   }
 
   /**
-   * The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;).
+   * The timezone to display in the UI for the correction times (defaults to &quot;UTC&quot;).
    *
    * @return timezone
    */
@@ -372,20 +363,20 @@ public class SLOCorrectionResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionResponseAttributes slOCorrectionResponseAttributes =
+    SLOCorrectionResponseAttributes sloCorrectionResponseAttributes =
         (SLOCorrectionResponseAttributes) o;
-    return Objects.equals(this.category, slOCorrectionResponseAttributes.category)
-        && Objects.equals(this.createdAt, slOCorrectionResponseAttributes.createdAt)
-        && Objects.equals(this.creator, slOCorrectionResponseAttributes.creator)
-        && Objects.equals(this.description, slOCorrectionResponseAttributes.description)
-        && Objects.equals(this.duration, slOCorrectionResponseAttributes.duration)
-        && Objects.equals(this.end, slOCorrectionResponseAttributes.end)
-        && Objects.equals(this.modifiedAt, slOCorrectionResponseAttributes.modifiedAt)
-        && Objects.equals(this.modifier, slOCorrectionResponseAttributes.modifier)
-        && Objects.equals(this.rrule, slOCorrectionResponseAttributes.rrule)
-        && Objects.equals(this.sloId, slOCorrectionResponseAttributes.sloId)
-        && Objects.equals(this.start, slOCorrectionResponseAttributes.start)
-        && Objects.equals(this.timezone, slOCorrectionResponseAttributes.timezone);
+    return Objects.equals(this.category, sloCorrectionResponseAttributes.category)
+        && Objects.equals(this.createdAt, sloCorrectionResponseAttributes.createdAt)
+        && Objects.equals(this.creator, sloCorrectionResponseAttributes.creator)
+        && Objects.equals(this.description, sloCorrectionResponseAttributes.description)
+        && Objects.equals(this.duration, sloCorrectionResponseAttributes.duration)
+        && Objects.equals(this.end, sloCorrectionResponseAttributes.end)
+        && Objects.equals(this.modifiedAt, sloCorrectionResponseAttributes.modifiedAt)
+        && Objects.equals(this.modifier, sloCorrectionResponseAttributes.modifier)
+        && Objects.equals(this.rrule, sloCorrectionResponseAttributes.rrule)
+        && Objects.equals(this.sloId, sloCorrectionResponseAttributes.sloId)
+        && Objects.equals(this.start, sloCorrectionResponseAttributes.start)
+        && Objects.equals(this.timezone, sloCorrectionResponseAttributes.timezone);
   }
 
   @Override

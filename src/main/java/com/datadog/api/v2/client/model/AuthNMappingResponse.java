@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** AuthN Mapping response from the API. */
 @JsonPropertyOrder({AuthNMappingResponse.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -31,7 +32,7 @@ public class AuthNMappingResponse {
   }
 
   /**
-   * Get data
+   * The AuthN Mapping object returned by API.
    *
    * @return data
    */

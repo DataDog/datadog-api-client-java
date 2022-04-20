@@ -19,7 +19,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorsApi {
   private ApiClient apiClient;
 
@@ -166,9 +167,6 @@ public class MonitorsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "monitor_ids", monitorIds));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "checkCanDeleteMonitor");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -259,21 +257,21 @@ public class MonitorsApi {
    * using the following query:
    * &#x60;avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host},
    * &#39;dbscan&#39;, 7) &gt; 0&#x60; **Service Check Query** Example:
-   * &#x60;\&quot;check\&quot;.over(tags).last(count).by(group).count_by_status()&#x60; -
+   * &#x60;&quot;check&quot;.over(tags).last(count).by(group).count_by_status()&#x60; -
    * **&#x60;check&#x60;** name of the check, for example &#x60;datadog.agent.up&#x60; -
-   * **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or \&quot;*\&quot;. for
-   * example: &#x60;.over(\&quot;env:prod\&quot;, \&quot;role:db\&quot;)&#x60;; **&#x60;over&#x60;**
-   * cannot be blank. - **&#x60;count&#x60;** must be at greater than or equal to your max threshold
-   * (defined in the &#x60;options&#x60;). It is limited to 100. For example, if you&#39;ve
-   * specified to notify on 1 critical, 3 ok, and 2 warn statuses, &#x60;count&#x60; should be at
-   * least 3. - **&#x60;group&#x60;** must be specified for check monitors. Per-check grouping is
-   * already explicitly known for some service checks. For example, Postgres integration monitors
-   * are tagged by &#x60;db&#x60;, &#x60;host&#x60;, and &#x60;port&#x60;, and Network monitors by
+   * **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or &quot;*&quot;. for example:
+   * &#x60;.over(&quot;env:prod&quot;, &quot;role:db&quot;)&#x60;; **&#x60;over&#x60;** cannot be
+   * blank. - **&#x60;count&#x60;** must be at greater than or equal to your max threshold (defined
+   * in the &#x60;options&#x60;). It is limited to 100. For example, if you&#39;ve specified to
+   * notify on 1 critical, 3 ok, and 2 warn statuses, &#x60;count&#x60; should be at least 3. -
+   * **&#x60;group&#x60;** must be specified for check monitors. Per-check grouping is already
+   * explicitly known for some service checks. For example, Postgres integration monitors are tagged
+   * by &#x60;db&#x60;, &#x60;host&#x60;, and &#x60;port&#x60;, and Network monitors by
    * &#x60;host&#x60;, &#x60;instance&#x60;, and &#x60;url&#x60;. See [Service
    * Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation for more
    * information. **Event Alert Query** Example: &#x60;events(&#39;sources:nagios
-   * status:error,warning priority:normal tags: \&quot;string
-   * query\&quot;&#39;).rollup(\&quot;count\&quot;).last(\&quot;1h\&quot;)\&quot;&#x60; -
+   * status:error,warning priority:normal tags: &quot;string
+   * query&quot;&#39;).rollup(&quot;count&quot;).last(&quot;1h&quot;)&quot;&#x60; -
    * **&#x60;event&#x60;**, the event query string: - **&#x60;string_query&#x60;** free text query
    * to match against event title and text. - **&#x60;sources&#x60;** event sources
    * (comma-separated). - **&#x60;status&#x60;** event statuses (comma-separated). Valid options:
@@ -325,7 +323,7 @@ public class MonitorsApi {
    * associate with your monitor. When getting all monitor details via the API, use the
    * &#x60;monitor_tags&#x60; argument to filter results by these tags. It is only available via the
    * API and isn&#39;t visible or editable in the Datadog UI. **SLO Alert Query** Example:
-   * &#x60;error_budget(\&quot;slo_id\&quot;).over(\&quot;time_window\&quot;) operator #&#x60; -
+   * &#x60;error_budget(&quot;slo_id&quot;).over(&quot;time_window&quot;) operator #&#x60; -
    * **&#x60;slo_id&#x60;**: The alphanumeric SLO ID of the SLO you are configuring the alert for. -
    * **&#x60;time_window&#x60;**: The time window of the SLO target you wish to alert on. Valid
    * options: &#x60;7d&#x60;, &#x60;30d&#x60;, &#x60;90d&#x60;. - **&#x60;operator&#x60;**:
@@ -433,9 +431,6 @@ public class MonitorsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createMonitor");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -496,7 +491,7 @@ public class MonitorsApi {
   /**
    * Delete a monitor
    *
-   * <p>See {@link #deleteMonitorWithHttpInfo}.
+   * <p>See {@link #deleteMonitorWithHttpInfoAsync}.
    *
    * @param monitorId The ID of the monitor. (required)
    * @return CompletableFuture&lt;DeletedMonitor&gt;
@@ -635,9 +630,6 @@ public class MonitorsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "force", force));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteMonitor");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -699,7 +691,7 @@ public class MonitorsApi {
   /**
    * Get a monitor&#39;s details
    *
-   * <p>See {@link #getMonitorWithHttpInfo}.
+   * <p>See {@link #getMonitorWithHttpInfoAsync}.
    *
    * @param monitorId The ID of the monitor (required)
    * @return CompletableFuture&lt;Monitor&gt;
@@ -836,9 +828,6 @@ public class MonitorsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", groupStates));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getMonitor");
 
     Invocation.Builder builder;
     try {
@@ -995,7 +984,7 @@ public class MonitorsApi {
   /**
    * Get all monitor details
    *
-   * <p>See {@link #listMonitorsWithHttpInfo}.
+   * <p>See {@link #listMonitorsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;List&lt;Monitor&gt;&gt;
    */
@@ -1135,9 +1124,6 @@ public class MonitorsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listMonitors");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1178,8 +1164,8 @@ public class MonitorsApi {
      * @param query After entering a search query in your [Manage Monitor page][1] use the query
      *     parameter value in the URL of the page as value for this parameter. Consult the dedicated
      *     [manage monitor documentation][2] page to learn more. The query can contain any number of
-     *     space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric
-     *     status:alert\&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]:
+     *     space-separated monitor attributes, for instance &#x60;query&#x3D;&quot;type:metric
+     *     status:alert&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]:
      *     /monitors/manage/#find-the-monitors (optional)
      * @return SearchMonitorGroupsOptionalParameters
      */
@@ -1240,7 +1226,7 @@ public class MonitorsApi {
   /**
    * Monitors group search
    *
-   * <p>See {@link #searchMonitorGroupsWithHttpInfo}.
+   * <p>See {@link #searchMonitorGroupsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;MonitorGroupSearchResponse&gt;
    */
@@ -1365,9 +1351,6 @@ public class MonitorsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "per_page", perPage));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "searchMonitorGroups");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1408,8 +1391,8 @@ public class MonitorsApi {
      * @param query After entering a search query in your [Manage Monitor page][1] use the query
      *     parameter value in the URL of the page as value for this parameter. Consult the dedicated
      *     [manage monitor documentation][2] page to learn more. The query can contain any number of
-     *     space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric
-     *     status:alert\&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]:
+     *     space-separated monitor attributes, for instance &#x60;query&#x3D;&quot;type:metric
+     *     status:alert&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]:
      *     /monitors/manage/#find-the-monitors (optional)
      * @return SearchMonitorsOptionalParameters
      */
@@ -1470,7 +1453,7 @@ public class MonitorsApi {
   /**
    * Monitors search
    *
-   * <p>See {@link #searchMonitorsWithHttpInfo}.
+   * <p>See {@link #searchMonitorsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;MonitorSearchResponse&gt;
    */
@@ -1594,9 +1577,6 @@ public class MonitorsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "per_page", perPage));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "searchMonitors");
 
     Invocation.Builder builder;
     try {
@@ -1756,9 +1736,6 @@ public class MonitorsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateMonitor");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1916,9 +1893,6 @@ public class MonitorsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "validateExistingMonitor");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2049,9 +2023,6 @@ public class MonitorsApi {
     String localVarPath = "/api/v1/monitor/validate";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "validateMonitor");
 
     Invocation.Builder builder;
     try {

@@ -24,7 +24,8 @@ import java.util.Objects;
   UsageSNMPHour.JSON_PROPERTY_PUBLIC_ID,
   UsageSNMPHour.JSON_PROPERTY_SNMP_DEVICES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSNMPHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";
@@ -132,11 +133,11 @@ public class UsageSNMPHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSNMPHour usageSNMPHour = (UsageSNMPHour) o;
-    return Objects.equals(this.hour, usageSNMPHour.hour)
-        && Objects.equals(this.orgName, usageSNMPHour.orgName)
-        && Objects.equals(this.publicId, usageSNMPHour.publicId)
-        && Objects.equals(this.snmpDevices, usageSNMPHour.snmpDevices);
+    UsageSNMPHour usageSnmpHour = (UsageSNMPHour) o;
+    return Objects.equals(this.hour, usageSnmpHour.hour)
+        && Objects.equals(this.orgName, usageSnmpHour.orgName)
+        && Objects.equals(this.publicId, usageSnmpHour.publicId)
+        && Objects.equals(this.snmpDevices, usageSnmpHour.snmpDevices);
   }
 
   @Override

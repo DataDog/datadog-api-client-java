@@ -23,7 +23,8 @@ import java.util.Objects;
   CheckCanDeleteSLOResponse.JSON_PROPERTY_DATA,
   CheckCanDeleteSLOResponse.JSON_PROPERTY_ERRORS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CheckCanDeleteSLOResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -39,7 +40,7 @@ public class CheckCanDeleteSLOResponse {
   }
 
   /**
-   * Get data
+   * An array of service level objective objects.
    *
    * @return data
    */
@@ -92,9 +93,9 @@ public class CheckCanDeleteSLOResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckCanDeleteSLOResponse checkCanDeleteSLOResponse = (CheckCanDeleteSLOResponse) o;
-    return Objects.equals(this.data, checkCanDeleteSLOResponse.data)
-        && Objects.equals(this.errors, checkCanDeleteSLOResponse.errors);
+    CheckCanDeleteSLOResponse checkCanDeleteSloResponse = (CheckCanDeleteSLOResponse) o;
+    return Objects.equals(this.data, checkCanDeleteSloResponse.data)
+        && Objects.equals(this.errors, checkCanDeleteSloResponse.errors);
   }
 
   @Override

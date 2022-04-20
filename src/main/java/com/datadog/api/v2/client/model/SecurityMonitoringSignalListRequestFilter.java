@@ -23,7 +23,8 @@ import java.util.Objects;
   SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_QUERY,
   SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_TO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalListRequestFilter {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";

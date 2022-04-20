@@ -17,7 +17,8 @@ import java.util.Objects;
 
 /** A timeseries array */
 @JsonPropertyOrder({})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateBucketValueTimeseries
     extends ArrayList<LogsAggregateBucketValueTimeseriesPoint> {
   @JsonIgnore public boolean unparsed = false;

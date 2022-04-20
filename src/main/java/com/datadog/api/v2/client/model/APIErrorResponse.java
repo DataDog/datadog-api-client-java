@@ -21,7 +21,8 @@ import java.util.Objects;
 
 /** API error response. */
 @JsonPropertyOrder({APIErrorResponse.JSON_PROPERTY_ERRORS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class APIErrorResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERRORS = "errors";
@@ -69,8 +70,8 @@ public class APIErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIErrorResponse apIErrorResponse = (APIErrorResponse) o;
-    return Objects.equals(this.errors, apIErrorResponse.errors);
+    APIErrorResponse apiErrorResponse = (APIErrorResponse) o;
+    return Objects.equals(this.errors, apiErrorResponse.errors);
   }
 
   @Override

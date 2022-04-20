@@ -18,7 +18,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentServicesApi {
   private ApiClient apiClient;
 
@@ -158,9 +159,6 @@ public class IncidentServicesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createIncidentService");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -257,7 +255,7 @@ public class IncidentServicesApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -298,9 +296,6 @@ public class IncidentServicesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteIncidentService");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -310,7 +305,7 @@ public class IncidentServicesApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -362,7 +357,7 @@ public class IncidentServicesApi {
   /**
    * Get details of an incident service
    *
-   * <p>See {@link #getIncidentServiceWithHttpInfo}.
+   * <p>See {@link #getIncidentServiceWithHttpInfoAsync}.
    *
    * @param serviceId The ID of the incident service. (required)
    * @return CompletableFuture&lt;IncidentServiceResponse&gt;
@@ -504,9 +499,6 @@ public class IncidentServicesApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentService");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -603,7 +595,7 @@ public class IncidentServicesApi {
   /**
    * Get a list of all incident services
    *
-   * <p>See {@link #listIncidentServicesWithHttpInfo}.
+   * <p>See {@link #listIncidentServicesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;IncidentServicesResponse&gt;
    */
@@ -731,9 +723,6 @@ public class IncidentServicesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listIncidentServices");
 
     Invocation.Builder builder;
     try {
@@ -896,9 +885,6 @@ public class IncidentServicesApi {
             .replaceAll("\\{" + "service_id" + "\\}", apiClient.escapeString(serviceId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateIncidentService");
 
     Invocation.Builder builder;
     try {

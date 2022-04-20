@@ -23,7 +23,8 @@ import java.util.Objects;
   NotebookCellUpdateRequest.JSON_PROPERTY_ID,
   NotebookCellUpdateRequest.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookCellUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -57,7 +58,10 @@ public class NotebookCellUpdateRequest {
   }
 
   /**
-   * Get attributes
+   * The attributes of a notebook cell in update cell request. Valid cell types are
+   * &#x60;markdown&#x60;, &#x60;timeseries&#x60;, &#x60;toplist&#x60;, &#x60;heatmap&#x60;,
+   * &#x60;distribution&#x60;, &#x60;log_stream&#x60;. [More information on each graph visualization
+   * type.](https://docs.datadoghq.com/dashboards/widgets/)
    *
    * @return attributes
    */
@@ -98,7 +102,7 @@ public class NotebookCellUpdateRequest {
   }
 
   /**
-   * Get type
+   * Type of the Notebook Cell resource.
    *
    * @return type
    */

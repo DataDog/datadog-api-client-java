@@ -26,7 +26,8 @@ import java.util.Objects;
   RUMGroupBy.JSON_PROPERTY_SORT,
   RUMGroupBy.JSON_PROPERTY_TOTAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMGroupBy {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
@@ -45,7 +46,7 @@ public class RUMGroupBy {
   private RUMAggregateSort sort;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
-  private RUMGroupByTotal total;
+  private RUMGroupByTotal total = new RUMGroupByTotal(false);
 
   public RUMGroupBy() {}
 
@@ -81,7 +82,8 @@ public class RUMGroupBy {
   }
 
   /**
-   * Get histogram
+   * Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets
+   * are allowed, the number of buckets is (max - min)/interval.
    *
    * @return histogram
    */
@@ -124,7 +126,7 @@ public class RUMGroupBy {
   }
 
   /**
-   * Get missing
+   * The value to use for logs that don&#39;t have the facet used to group by.
    *
    * @return missing
    */
@@ -146,7 +148,7 @@ public class RUMGroupBy {
   }
 
   /**
-   * Get sort
+   * A sort rule.
    *
    * @return sort
    */
@@ -168,7 +170,7 @@ public class RUMGroupBy {
   }
 
   /**
-   * Get total
+   * A resulting object to put the given computes in over all the matching records.
    *
    * @return total
    */
@@ -192,13 +194,13 @@ public class RUMGroupBy {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMGroupBy ruMGroupBy = (RUMGroupBy) o;
-    return Objects.equals(this.facet, ruMGroupBy.facet)
-        && Objects.equals(this.histogram, ruMGroupBy.histogram)
-        && Objects.equals(this.limit, ruMGroupBy.limit)
-        && Objects.equals(this.missing, ruMGroupBy.missing)
-        && Objects.equals(this.sort, ruMGroupBy.sort)
-        && Objects.equals(this.total, ruMGroupBy.total);
+    RUMGroupBy rumGroupBy = (RUMGroupBy) o;
+    return Objects.equals(this.facet, rumGroupBy.facet)
+        && Objects.equals(this.histogram, rumGroupBy.histogram)
+        && Objects.equals(this.limit, rumGroupBy.limit)
+        && Objects.equals(this.missing, rumGroupBy.missing)
+        && Objects.equals(this.sort, rumGroupBy.sort)
+        && Objects.equals(this.total, rumGroupBy.total);
   }
 
   @Override

@@ -23,7 +23,8 @@ import java.util.Objects;
   SLOBulkDeleteResponseData.JSON_PROPERTY_DELETED,
   SLOBulkDeleteResponseData.JSON_PROPERTY_UPDATED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOBulkDeleteResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELETED = "deleted";
@@ -101,9 +102,9 @@ public class SLOBulkDeleteResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOBulkDeleteResponseData slOBulkDeleteResponseData = (SLOBulkDeleteResponseData) o;
-    return Objects.equals(this.deleted, slOBulkDeleteResponseData.deleted)
-        && Objects.equals(this.updated, slOBulkDeleteResponseData.updated);
+    SLOBulkDeleteResponseData sloBulkDeleteResponseData = (SLOBulkDeleteResponseData) o;
+    return Objects.equals(this.deleted, sloBulkDeleteResponseData.deleted)
+        && Objects.equals(this.updated, sloBulkDeleteResponseData.updated);
   }
 
   @Override

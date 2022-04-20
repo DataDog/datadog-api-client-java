@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Relationship to a permissions object. */
 @JsonPropertyOrder({RelationshipToPermission.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToPermission {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -31,7 +32,7 @@ public class RelationshipToPermission {
   }
 
   /**
-   * Get data
+   * Relationship to permission object.
    *
    * @return data
    */

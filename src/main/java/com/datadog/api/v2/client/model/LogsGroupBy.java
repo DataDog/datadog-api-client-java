@@ -26,7 +26,8 @@ import java.util.Objects;
   LogsGroupBy.JSON_PROPERTY_SORT,
   LogsGroupBy.JSON_PROPERTY_TOTAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsGroupBy {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
@@ -45,7 +46,7 @@ public class LogsGroupBy {
   private LogsAggregateSort sort;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
-  private LogsGroupByTotal total;
+  private LogsGroupByTotal total = new LogsGroupByTotal(false);
 
   public LogsGroupBy() {}
 
@@ -81,7 +82,8 @@ public class LogsGroupBy {
   }
 
   /**
-   * Get histogram
+   * Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets
+   * are allowed, the number of buckets is (max - min)/interval.
    *
    * @return histogram
    */
@@ -124,7 +126,7 @@ public class LogsGroupBy {
   }
 
   /**
-   * Get missing
+   * The value to use for logs that don&#39;t have the facet used to group by
    *
    * @return missing
    */
@@ -146,7 +148,7 @@ public class LogsGroupBy {
   }
 
   /**
-   * Get sort
+   * A sort rule
    *
    * @return sort
    */
@@ -168,7 +170,7 @@ public class LogsGroupBy {
   }
 
   /**
-   * Get total
+   * A resulting object to put the given computes in over all the matching records.
    *
    * @return total
    */

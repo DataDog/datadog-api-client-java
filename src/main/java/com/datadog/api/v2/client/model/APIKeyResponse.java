@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Response for retrieving an API key. */
 @JsonPropertyOrder({APIKeyResponse.JSON_PROPERTY_DATA, APIKeyResponse.JSON_PROPERTY_INCLUDED})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class APIKeyResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -36,7 +37,7 @@ public class APIKeyResponse {
   }
 
   /**
-   * Get data
+   * Datadog API key.
    *
    * @return data
    */
@@ -93,9 +94,9 @@ public class APIKeyResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyResponse apIKeyResponse = (APIKeyResponse) o;
-    return Objects.equals(this.data, apIKeyResponse.data)
-        && Objects.equals(this.included, apIKeyResponse.included);
+    APIKeyResponse apiKeyResponse = (APIKeyResponse) o;
+    return Objects.equals(this.data, apiKeyResponse.data)
+        && Objects.equals(this.included, apiKeyResponse.included);
   }
 
   @Override

@@ -24,7 +24,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   NotebookLogStreamCellAttributes.JSON_PROPERTY_GRAPH_SIZE,
   NotebookLogStreamCellAttributes.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookLogStreamCellAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
@@ -53,7 +54,8 @@ public class NotebookLogStreamCellAttributes {
   }
 
   /**
-   * Get definition
+   * The Log Stream displays a log flow matching the defined query. Only available on FREE layout
+   * dashboards.
    *
    * @return definition
    */
@@ -74,7 +76,7 @@ public class NotebookLogStreamCellAttributes {
   }
 
   /**
-   * Get graphSize
+   * The size of the graph.
    *
    * @return graphSize
    */
@@ -98,7 +100,7 @@ public class NotebookLogStreamCellAttributes {
   }
 
   /**
-   * Get time
+   * Timeframe for the notebook cell. When &#39;null&#39;, the notebook global time is used.
    *
    * @return time
    */

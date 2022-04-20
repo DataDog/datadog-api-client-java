@@ -25,7 +25,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   NotebookTimeseriesCellAttributes.JSON_PROPERTY_SPLIT_BY,
   NotebookTimeseriesCellAttributes.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookTimeseriesCellAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
@@ -57,7 +58,8 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * Get definition
+   * The timeseries visualization allows you to display the evolution of one or more metrics, log
+   * events, or Indexed Spans over time.
    *
    * @return definition
    */
@@ -78,7 +80,7 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * Get graphSize
+   * The size of the graph.
    *
    * @return graphSize
    */
@@ -103,7 +105,7 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * Get splitBy
+   * Object describing how to split the graph to display multiple visualizations per request.
    *
    * @return splitBy
    */
@@ -124,7 +126,7 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * Get time
+   * Timeframe for the notebook cell. When &#39;null&#39;, the notebook global time is used.
    *
    * @return time
    */

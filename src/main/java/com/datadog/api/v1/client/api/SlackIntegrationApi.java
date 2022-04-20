@@ -14,7 +14,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SlackIntegrationApi {
   private ApiClient apiClient;
 
@@ -183,9 +184,6 @@ public class SlackIntegrationApi {
                 "\\{" + "account_name" + "\\}", apiClient.escapeString(accountName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSlackIntegrationChannel");
 
     Invocation.Builder builder;
     try {
@@ -358,9 +356,6 @@ public class SlackIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSlackIntegrationChannel");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -507,9 +502,6 @@ public class SlackIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSlackIntegrationChannels");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -625,7 +617,7 @@ public class SlackIntegrationApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -682,9 +674,6 @@ public class SlackIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "removeSlackIntegrationChannel");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -694,7 +683,7 @@ public class SlackIntegrationApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -878,9 +867,6 @@ public class SlackIntegrationApi {
                 "\\{" + "channel_name" + "\\}", apiClient.escapeString(channelName.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateSlackIntegrationChannel");
 
     Invocation.Builder builder;
     try {

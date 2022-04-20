@@ -35,7 +35,8 @@ import java.util.Objects;
   ScatterPlotWidgetDefinition.JSON_PROPERTY_XAXIS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_YAXIS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScatterPlotWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLOR_BY_GROUPS = "color_by_groups";
@@ -151,7 +152,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get requests
+   * Widget definition.
    *
    * @return requests
    */
@@ -172,7 +173,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -215,7 +216,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -261,7 +262,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the scatter plot widget.
    *
    * @return type
    */
@@ -285,7 +286,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get xaxis
+   * Axis controls for the widget.
    *
    * @return xaxis
    */
@@ -307,7 +308,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Get yaxis
+   * Axis controls for the widget.
    *
    * @return yaxis
    */

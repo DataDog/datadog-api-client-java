@@ -23,7 +23,8 @@ import java.util.Objects;
   SLOBulkDeleteError.JSON_PROPERTY_MESSAGE,
   SLOBulkDeleteError.JSON_PROPERTY_TIMEFRAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOBulkDeleteError {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
@@ -95,7 +96,8 @@ public class SLOBulkDeleteError {
   }
 
   /**
-   * Get timeframe
+   * The timeframe of the threshold associated with this error or &quot;all&quot; if all thresholds
+   * are affected.
    *
    * @return timeframe
    */
@@ -121,10 +123,10 @@ public class SLOBulkDeleteError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOBulkDeleteError slOBulkDeleteError = (SLOBulkDeleteError) o;
-    return Objects.equals(this.id, slOBulkDeleteError.id)
-        && Objects.equals(this.message, slOBulkDeleteError.message)
-        && Objects.equals(this.timeframe, slOBulkDeleteError.timeframe);
+    SLOBulkDeleteError sloBulkDeleteError = (SLOBulkDeleteError) o;
+    return Objects.equals(this.id, sloBulkDeleteError.id)
+        && Objects.equals(this.message, sloBulkDeleteError.message)
+        && Objects.equals(this.timeframe, sloBulkDeleteError.timeframe);
   }
 
   @Override

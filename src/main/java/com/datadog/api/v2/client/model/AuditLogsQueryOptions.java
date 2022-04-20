@@ -24,7 +24,8 @@ import java.util.Objects;
   AuditLogsQueryOptions.JSON_PROPERTY_TIME_OFFSET,
   AuditLogsQueryOptions.JSON_PROPERTY_TIMEZONE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditLogsQueryOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TIME_OFFSET = "time_offset";
@@ -60,7 +61,7 @@ public class AuditLogsQueryOptions {
   }
 
   /**
-   * Timezone code. Can be specified as an offset, for example: \&quot;UTC+03:00\&quot;.
+   * Timezone code. Can be specified as an offset, for example: &quot;UTC+03:00&quot;.
    *
    * @return timezone
    */

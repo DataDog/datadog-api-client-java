@@ -22,7 +22,8 @@ import java.util.Objects;
   ProcessSummary.JSON_PROPERTY_ID,
   ProcessSummary.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessSummary {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -41,7 +42,7 @@ public class ProcessSummary {
   }
 
   /**
-   * Get attributes
+   * Attributes for a process summary.
    *
    * @return attributes
    */
@@ -84,7 +85,7 @@ public class ProcessSummary {
   }
 
   /**
-   * Get type
+   * Type of process summary.
    *
    * @return type
    */

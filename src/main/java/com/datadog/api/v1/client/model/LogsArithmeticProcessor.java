@@ -41,7 +41,8 @@ import java.util.Objects;
   LogsArithmeticProcessor.JSON_PROPERTY_TARGET,
   LogsArithmeticProcessor.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArithmeticProcessor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXPRESSION = "expression";
@@ -186,7 +187,7 @@ public class LogsArithmeticProcessor {
   }
 
   /**
-   * Get type
+   * Type of logs arithmetic processor.
    *
    * @return type
    */

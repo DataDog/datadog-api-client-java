@@ -22,7 +22,8 @@ import java.util.Objects;
   SecurityFilter.JSON_PROPERTY_ID,
   SecurityFilter.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityFilter {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -41,7 +42,7 @@ public class SecurityFilter {
   }
 
   /**
-   * Get attributes
+   * The object describing a security filter.
    *
    * @return attributes
    */
@@ -84,7 +85,7 @@ public class SecurityFilter {
   }
 
   /**
-   * Get type
+   * The type of the resource. The value should always be &#x60;security_filters&#x60;.
    *
    * @return type
    */

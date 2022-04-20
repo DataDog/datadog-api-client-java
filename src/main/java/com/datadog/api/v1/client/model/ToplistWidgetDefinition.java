@@ -33,7 +33,8 @@ import java.util.Objects;
   ToplistWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ToplistWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ToplistWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
@@ -138,7 +139,7 @@ public class ToplistWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -181,7 +182,7 @@ public class ToplistWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -227,7 +228,7 @@ public class ToplistWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the top list widget.
    *
    * @return type
    */

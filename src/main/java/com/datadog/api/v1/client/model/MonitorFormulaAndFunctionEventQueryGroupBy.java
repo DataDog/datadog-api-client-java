@@ -23,7 +23,8 @@ import java.util.Objects;
   MonitorFormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_LIMIT,
   MonitorFormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_SORT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionEventQueryGroupBy {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
@@ -92,7 +93,7 @@ public class MonitorFormulaAndFunctionEventQueryGroupBy {
   }
 
   /**
-   * Get sort
+   * Options for sorting group by results.
    *
    * @return sort
    */

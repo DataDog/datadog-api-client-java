@@ -44,7 +44,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentResponseAttributes.JSON_PROPERTY_TIME_TO_RESOLVE,
   IncidentResponseAttributes.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED = "created";

@@ -25,7 +25,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   NotebookHeatMapCellAttributes.JSON_PROPERTY_SPLIT_BY,
   NotebookHeatMapCellAttributes.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookHeatMapCellAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
@@ -57,7 +58,8 @@ public class NotebookHeatMapCellAttributes {
   }
 
   /**
-   * Get definition
+   * The heat map visualization shows metrics aggregated across many tags, such as hosts. The more
+   * hosts that have a particular value, the darker that square is.
    *
    * @return definition
    */
@@ -78,7 +80,7 @@ public class NotebookHeatMapCellAttributes {
   }
 
   /**
-   * Get graphSize
+   * The size of the graph.
    *
    * @return graphSize
    */
@@ -103,7 +105,7 @@ public class NotebookHeatMapCellAttributes {
   }
 
   /**
-   * Get splitBy
+   * Object describing how to split the graph to display multiple visualizations per request.
    *
    * @return splitBy
    */
@@ -124,7 +126,7 @@ public class NotebookHeatMapCellAttributes {
   }
 
   /**
-   * Get time
+   * Timeframe for the notebook cell. When &#39;null&#39;, the notebook global time is used.
    *
    * @return time
    */

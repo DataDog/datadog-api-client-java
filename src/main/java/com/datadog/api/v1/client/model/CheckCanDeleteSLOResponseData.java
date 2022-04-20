@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** An array of service level objective objects. */
 @JsonPropertyOrder({CheckCanDeleteSLOResponseData.JSON_PROPERTY_OK})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CheckCanDeleteSLOResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_OK = "ok";
@@ -64,8 +65,8 @@ public class CheckCanDeleteSLOResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckCanDeleteSLOResponseData checkCanDeleteSLOResponseData = (CheckCanDeleteSLOResponseData) o;
-    return Objects.equals(this.ok, checkCanDeleteSLOResponseData.ok);
+    CheckCanDeleteSLOResponseData checkCanDeleteSloResponseData = (CheckCanDeleteSLOResponseData) o;
+    return Objects.equals(this.ok, checkCanDeleteSloResponseData.ok);
   }
 
   @Override

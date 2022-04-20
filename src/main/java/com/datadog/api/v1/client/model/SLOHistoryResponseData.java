@@ -33,7 +33,8 @@ import java.util.Objects;
   SLOHistoryResponseData.JSON_PROPERTY_TYPE,
   SLOHistoryResponseData.JSON_PROPERTY_TYPE_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM_TS = "from_ts";
@@ -193,7 +194,9 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * Get overall
+   * An object that holds an SLI value and its associated data. It can represent an SLO&#39;s
+   * overall SLI value. This can also represent the SLI value for a specific monitor in
+   * multi-monitor SLOs, or a group in grouped SLOs.
    *
    * @return overall
    */
@@ -215,7 +218,8 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * Get series
+   * A &#x60;metric&#x60; based SLO history response. This is not included in responses for
+   * &#x60;monitor&#x60; based SLOs.
    *
    * @return series
    */
@@ -287,7 +291,7 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * Get type
+   * The type of the service level objective.
    *
    * @return type
    */
@@ -312,7 +316,9 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * Get typeId
+   * A numeric representation of the type of the service level objective (&#x60;0&#x60; for monitor,
+   * &#x60;1&#x60; for metric). Always included in service level objective responses. Ignored in
+   * create/update requests.
    *
    * @return typeId
    */
@@ -339,17 +345,17 @@ public class SLOHistoryResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryResponseData slOHistoryResponseData = (SLOHistoryResponseData) o;
-    return Objects.equals(this.fromTs, slOHistoryResponseData.fromTs)
-        && Objects.equals(this.groupBy, slOHistoryResponseData.groupBy)
-        && Objects.equals(this.groups, slOHistoryResponseData.groups)
-        && Objects.equals(this.monitors, slOHistoryResponseData.monitors)
-        && Objects.equals(this.overall, slOHistoryResponseData.overall)
-        && Objects.equals(this.series, slOHistoryResponseData.series)
-        && Objects.equals(this.thresholds, slOHistoryResponseData.thresholds)
-        && Objects.equals(this.toTs, slOHistoryResponseData.toTs)
-        && Objects.equals(this.type, slOHistoryResponseData.type)
-        && Objects.equals(this.typeId, slOHistoryResponseData.typeId);
+    SLOHistoryResponseData sloHistoryResponseData = (SLOHistoryResponseData) o;
+    return Objects.equals(this.fromTs, sloHistoryResponseData.fromTs)
+        && Objects.equals(this.groupBy, sloHistoryResponseData.groupBy)
+        && Objects.equals(this.groups, sloHistoryResponseData.groups)
+        && Objects.equals(this.monitors, sloHistoryResponseData.monitors)
+        && Objects.equals(this.overall, sloHistoryResponseData.overall)
+        && Objects.equals(this.series, sloHistoryResponseData.series)
+        && Objects.equals(this.thresholds, sloHistoryResponseData.thresholds)
+        && Objects.equals(this.toTs, sloHistoryResponseData.toTs)
+        && Objects.equals(this.type, sloHistoryResponseData.type)
+        && Objects.equals(this.typeId, sloHistoryResponseData.typeId);
   }
 
   @Override

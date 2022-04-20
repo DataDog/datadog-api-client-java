@@ -21,7 +21,8 @@ import java.util.Objects;
   SyntheticsTestRequestCertificate.JSON_PROPERTY_CERT,
   SyntheticsTestRequestCertificate.JSON_PROPERTY_KEY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestRequestCertificate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CERT = "cert";
@@ -37,7 +38,7 @@ public class SyntheticsTestRequestCertificate {
   }
 
   /**
-   * Get cert
+   * Define a request certificate.
    *
    * @return cert
    */
@@ -59,7 +60,7 @@ public class SyntheticsTestRequestCertificate {
   }
 
   /**
-   * Get key
+   * Define a request certificate.
    *
    * @return key
    */

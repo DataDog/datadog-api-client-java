@@ -22,7 +22,8 @@ import java.util.Objects;
   HTTPLogError.JSON_PROPERTY_STATUS,
   HTTPLogError.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HTTPLogError {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DETAIL = "detail";
@@ -106,10 +107,10 @@ public class HTTPLogError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HTTPLogError htTPLogError = (HTTPLogError) o;
-    return Objects.equals(this.detail, htTPLogError.detail)
-        && Objects.equals(this.status, htTPLogError.status)
-        && Objects.equals(this.title, htTPLogError.title);
+    HTTPLogError httpLogError = (HTTPLogError) o;
+    return Objects.equals(this.detail, httpLogError.detail)
+        && Objects.equals(this.status, httpLogError.status)
+        && Objects.equals(this.title, httpLogError.title);
   }
 
   @Override

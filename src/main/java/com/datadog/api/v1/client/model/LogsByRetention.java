@@ -24,7 +24,8 @@ import java.util.Objects;
   LogsByRetention.JSON_PROPERTY_USAGE,
   LogsByRetention.JSON_PROPERTY_USAGE_BY_MONTH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsByRetention {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORGS = "orgs";
@@ -43,7 +44,7 @@ public class LogsByRetention {
   }
 
   /**
-   * Get orgs
+   * Indexed logs usage summary for each organization for each retention period with usage.
    *
    * @return orgs
    */
@@ -98,7 +99,7 @@ public class LogsByRetention {
   }
 
   /**
-   * Get usageByMonth
+   * Object containing a summary of indexed logs usage by retention period for a single month.
    *
    * @return usageByMonth
    */

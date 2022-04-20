@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** The form data submitted to upload IdP metadata */
 @JsonPropertyOrder({IdPMetadataFormData.JSON_PROPERTY_IDP_FILE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IdPMetadataFormData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IDP_FILE = "idp_file";

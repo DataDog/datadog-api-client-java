@@ -32,7 +32,8 @@ import java.util.Objects;
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_TAGS,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleCreatePayload {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CASES = "cases";
@@ -238,7 +239,7 @@ public class SecurityMonitoringRuleCreatePayload {
   }
 
   /**
-   * Get options
+   * Options on rules.
    *
    * @return options
    */
@@ -319,7 +320,7 @@ public class SecurityMonitoringRuleCreatePayload {
   }
 
   /**
-   * Get type
+   * The rule type.
    *
    * @return type
    */

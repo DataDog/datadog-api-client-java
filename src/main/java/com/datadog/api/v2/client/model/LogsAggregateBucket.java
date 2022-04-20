@@ -23,7 +23,8 @@ import java.util.Objects;
   LogsAggregateBucket.JSON_PROPERTY_BY,
   LogsAggregateBucket.JSON_PROPERTY_COMPUTES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateBucket {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BY = "by";

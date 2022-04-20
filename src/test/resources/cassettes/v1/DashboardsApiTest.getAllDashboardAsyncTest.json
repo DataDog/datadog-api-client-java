@@ -6,7 +6,6 @@
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "getAllDashboardAsyncTest" ],
-      "DD-OPERATION-ID" : [ "listDashboards" ],
       "x-datadog-origin" : [ "ciapp-test" ],
       "Accept-Encoding" : [ "deflate,gzip,x-gzip" ],
       "content-length" : [ "0" ]

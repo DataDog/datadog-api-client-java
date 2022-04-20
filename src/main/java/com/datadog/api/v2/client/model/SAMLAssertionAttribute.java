@@ -23,7 +23,8 @@ import java.util.Objects;
   SAMLAssertionAttribute.JSON_PROPERTY_ID,
   SAMLAssertionAttribute.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SAMLAssertionAttribute {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -53,7 +54,7 @@ public class SAMLAssertionAttribute {
   }
 
   /**
-   * Get attributes
+   * Key/Value pair of attributes used in SAML assertion attributes.
    *
    * @return attributes
    */
@@ -95,7 +96,7 @@ public class SAMLAssertionAttribute {
   }
 
   /**
-   * Get type
+   * SAML assertion attributes resource type.
    *
    * @return type
    */
@@ -121,10 +122,10 @@ public class SAMLAssertionAttribute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SAMLAssertionAttribute saMLAssertionAttribute = (SAMLAssertionAttribute) o;
-    return Objects.equals(this.attributes, saMLAssertionAttribute.attributes)
-        && Objects.equals(this.id, saMLAssertionAttribute.id)
-        && Objects.equals(this.type, saMLAssertionAttribute.type);
+    SAMLAssertionAttribute samlAssertionAttribute = (SAMLAssertionAttribute) o;
+    return Objects.equals(this.attributes, samlAssertionAttribute.attributes)
+        && Objects.equals(this.id, samlAssertionAttribute.id)
+        && Objects.equals(this.type, samlAssertionAttribute.type);
   }
 
   @Override

@@ -26,7 +26,8 @@ import java.util.Objects;
   LogQueryDefinition.JSON_PROPERTY_MULTI_COMPUTE,
   LogQueryDefinition.JSON_PROPERTY_SEARCH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
@@ -51,7 +52,7 @@ public class LogQueryDefinition {
   }
 
   /**
-   * Get compute
+   * Define computation for a log query.
    *
    * @return compute
    */
@@ -105,7 +106,7 @@ public class LogQueryDefinition {
   }
 
   /**
-   * A coma separated-list of index names. Use \&quot;*\&quot; query all indexes at once. [Multiple
+   * A coma separated-list of index names. Use &quot;*&quot; query all indexes at once. [Multiple
    * Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
    *
    * @return index
@@ -161,7 +162,7 @@ public class LogQueryDefinition {
   }
 
   /**
-   * Get search
+   * The query being made on the logs.
    *
    * @return search
    */

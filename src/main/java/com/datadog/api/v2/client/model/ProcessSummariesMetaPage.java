@@ -21,7 +21,8 @@ import java.util.Objects;
   ProcessSummariesMetaPage.JSON_PROPERTY_AFTER,
   ProcessSummariesMetaPage.JSON_PROPERTY_SIZE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessSummariesMetaPage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AFTER = "after";

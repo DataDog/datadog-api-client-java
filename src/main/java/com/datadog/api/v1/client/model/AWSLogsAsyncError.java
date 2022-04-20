@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Description of errors. */
 @JsonPropertyOrder({AWSLogsAsyncError.JSON_PROPERTY_CODE, AWSLogsAsyncError.JSON_PROPERTY_MESSAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSLogsAsyncError {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CODE = "code";
@@ -78,9 +79,9 @@ public class AWSLogsAsyncError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSLogsAsyncError awSLogsAsyncError = (AWSLogsAsyncError) o;
-    return Objects.equals(this.code, awSLogsAsyncError.code)
-        && Objects.equals(this.message, awSLogsAsyncError.message);
+    AWSLogsAsyncError awsLogsAsyncError = (AWSLogsAsyncError) o;
+    return Objects.equals(this.code, awsLogsAsyncError.code)
+        && Objects.equals(this.message, awsLogsAsyncError.message);
   }
 
   @Override

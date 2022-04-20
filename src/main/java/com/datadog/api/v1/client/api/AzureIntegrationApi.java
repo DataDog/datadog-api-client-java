@@ -14,7 +14,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AzureIntegrationApi {
   private ApiClient apiClient;
 
@@ -157,9 +158,6 @@ public class AzureIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createAzureIntegration");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -293,9 +291,6 @@ public class AzureIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteAzureIntegration");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -408,9 +403,6 @@ public class AzureIntegrationApi {
     String localVarPath = "/api/v1/integration/azure";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAzureIntegration");
 
     Invocation.Builder builder;
     try {
@@ -544,9 +536,6 @@ public class AzureIntegrationApi {
     String localVarPath = "/api/v1/integration/azure/host_filters";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateAzureHostFilters");
 
     Invocation.Builder builder;
     try {
@@ -683,9 +672,6 @@ public class AzureIntegrationApi {
     String localVarPath = "/api/v1/integration/azure";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateAzureIntegration");
 
     Invocation.Builder builder;
     try {

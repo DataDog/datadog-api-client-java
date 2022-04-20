@@ -21,7 +21,8 @@ import java.util.Objects;
   SyntheticsAPITestResultShortResult.JSON_PROPERTY_PASSED,
   SyntheticsAPITestResultShortResult.JSON_PROPERTY_TIMINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITestResultShortResult {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PASSED = "passed";
@@ -58,7 +59,9 @@ public class SyntheticsAPITestResultShortResult {
   }
 
   /**
-   * Get timings
+   * Object containing all metrics and their values collected for a Synthetic API test. Learn more
+   * about those metrics in [Synthetics
+   * documentation](https://docs.datadoghq.com/synthetics/#metrics).
    *
    * @return timings
    */
@@ -82,10 +85,10 @@ public class SyntheticsAPITestResultShortResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITestResultShortResult syntheticsAPITestResultShortResult =
+    SyntheticsAPITestResultShortResult syntheticsApiTestResultShortResult =
         (SyntheticsAPITestResultShortResult) o;
-    return Objects.equals(this.passed, syntheticsAPITestResultShortResult.passed)
-        && Objects.equals(this.timings, syntheticsAPITestResultShortResult.timings);
+    return Objects.equals(this.passed, syntheticsApiTestResultShortResult.passed)
+        && Objects.equals(this.timings, syntheticsApiTestResultShortResult.timings);
   }
 
   @Override

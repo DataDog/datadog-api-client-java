@@ -36,7 +36,8 @@ import java.util.Objects;
   HeatMapWidgetDefinition.JSON_PROPERTY_TYPE,
   HeatMapWidgetDefinition.JSON_PROPERTY_YAXIS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HeatMapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
@@ -156,8 +157,8 @@ public class HeatMapWidgetDefinition {
   }
 
   /**
-   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;,
-   * \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
+   * Available legend sizes for a widget. Should be one of &quot;0&quot;, &quot;2&quot;,
+   * &quot;4&quot;, &quot;8&quot;, &quot;16&quot;, or &quot;auto&quot;.
    *
    * @return legendSize
    */
@@ -229,7 +230,7 @@ public class HeatMapWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -272,7 +273,7 @@ public class HeatMapWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -318,7 +319,7 @@ public class HeatMapWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the heat map widget.
    *
    * @return type
    */
@@ -342,7 +343,7 @@ public class HeatMapWidgetDefinition {
   }
 
   /**
-   * Get yaxis
+   * Axis controls for the widget.
    *
    * @return yaxis
    */

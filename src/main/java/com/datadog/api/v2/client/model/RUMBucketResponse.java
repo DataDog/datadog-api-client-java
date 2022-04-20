@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Bucket values. */
 @JsonPropertyOrder({RUMBucketResponse.JSON_PROPERTY_BY, RUMBucketResponse.JSON_PROPERTY_COMPUTES})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMBucketResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BY = "by";
@@ -96,9 +97,9 @@ public class RUMBucketResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMBucketResponse ruMBucketResponse = (RUMBucketResponse) o;
-    return Objects.equals(this.by, ruMBucketResponse.by)
-        && Objects.equals(this.computes, ruMBucketResponse.computes);
+    RUMBucketResponse rumBucketResponse = (RUMBucketResponse) o;
+    return Objects.equals(this.by, rumBucketResponse.by)
+        && Objects.equals(this.computes, rumBucketResponse.computes);
   }
 
   @Override

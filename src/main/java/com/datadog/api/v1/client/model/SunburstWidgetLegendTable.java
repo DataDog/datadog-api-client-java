@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Configuration of table-based legend. */
 @JsonPropertyOrder({SunburstWidgetLegendTable.JSON_PROPERTY_TYPE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SunburstWidgetLegendTable {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
@@ -42,7 +43,7 @@ public class SunburstWidgetLegendTable {
   }
 
   /**
-   * Get type
+   * Whether or not to show a table legend.
    *
    * @return type
    */

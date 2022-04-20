@@ -22,7 +22,8 @@ import java.util.Objects;
   WebhooksIntegrationCustomVariableUpdateRequest.JSON_PROPERTY_NAME,
   WebhooksIntegrationCustomVariableUpdateRequest.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WebhooksIntegrationCustomVariableUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_SECRET = "is_secret";

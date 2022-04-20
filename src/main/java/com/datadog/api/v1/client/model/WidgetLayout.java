@@ -25,7 +25,8 @@ import java.util.Objects;
   WidgetLayout.JSON_PROPERTY_X,
   WidgetLayout.JSON_PROPERTY_Y
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetLayout {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HEIGHT = "height";

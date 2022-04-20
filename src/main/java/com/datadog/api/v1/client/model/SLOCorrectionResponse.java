@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** The response object of an SLO correction. */
 @JsonPropertyOrder({SLOCorrectionResponse.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -31,7 +32,7 @@ public class SLOCorrectionResponse {
   }
 
   /**
-   * Get data
+   * The response object of a list of SLO corrections.
    *
    * @return data
    */
@@ -55,8 +56,8 @@ public class SLOCorrectionResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionResponse slOCorrectionResponse = (SLOCorrectionResponse) o;
-    return Objects.equals(this.data, slOCorrectionResponse.data);
+    SLOCorrectionResponse sloCorrectionResponse = (SLOCorrectionResponse) o;
+    return Objects.equals(this.data, sloCorrectionResponse.data);
   }
 
   @Override

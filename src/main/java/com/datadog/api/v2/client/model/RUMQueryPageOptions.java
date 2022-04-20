@@ -21,7 +21,8 @@ import java.util.Objects;
   RUMQueryPageOptions.JSON_PROPERTY_CURSOR,
   RUMQueryPageOptions.JSON_PROPERTY_LIMIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMQueryPageOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CURSOR = "cursor";
@@ -81,9 +82,9 @@ public class RUMQueryPageOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMQueryPageOptions ruMQueryPageOptions = (RUMQueryPageOptions) o;
-    return Objects.equals(this.cursor, ruMQueryPageOptions.cursor)
-        && Objects.equals(this.limit, ruMQueryPageOptions.limit);
+    RUMQueryPageOptions rumQueryPageOptions = (RUMQueryPageOptions) o;
+    return Objects.equals(this.cursor, rumQueryPageOptions.cursor)
+        && Objects.equals(this.limit, rumQueryPageOptions.limit);
   }
 
   @Override

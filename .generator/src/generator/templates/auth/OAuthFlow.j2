@@ -1,0 +1,7 @@
+{% include "ApiInfo.j2" %}
+
+package {{ package_name }}.auth;
+
+public enum OAuthFlow {
+    accessCode, implicit, password, application
+}

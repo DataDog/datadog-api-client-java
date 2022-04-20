@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** PagerDuty service object key. */
 @JsonPropertyOrder({PagerDutyServiceKey.JSON_PROPERTY_SERVICE_KEY})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PagerDutyServiceKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_SERVICE_KEY = "service_key";

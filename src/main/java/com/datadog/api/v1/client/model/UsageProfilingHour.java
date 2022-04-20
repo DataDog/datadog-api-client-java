@@ -25,7 +25,8 @@ import java.util.Objects;
   UsageProfilingHour.JSON_PROPERTY_ORG_NAME,
   UsageProfilingHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageProfilingHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVG_CONTAINER_AGENT_COUNT = "avg_container_agent_count";

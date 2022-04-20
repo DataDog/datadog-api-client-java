@@ -29,7 +29,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_ORG_NAME,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageCloudSecurityPostureManagementHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AAS_HOST_COUNT = "aas_host_count";

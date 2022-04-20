@@ -15,7 +15,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TagsApi {
   private ApiClient apiClient;
 
@@ -82,7 +83,7 @@ public class TagsApi {
   /**
    * Add tags to a host
    *
-   * <p>See {@link #createHostTagsWithHttpInfo}.
+   * <p>See {@link #createHostTagsWithHttpInfoAsync}.
    *
    * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
    *     the tags came from. (required)
@@ -247,9 +248,6 @@ public class TagsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createHostTags");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -312,7 +310,7 @@ public class TagsApi {
   /**
    * Remove host tags
    *
-   * <p>See {@link #deleteHostTagsWithHttpInfo}.
+   * <p>See {@link #deleteHostTagsWithHttpInfoAsync}.
    *
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
    *     (required)
@@ -405,7 +403,7 @@ public class TagsApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -451,9 +449,6 @@ public class TagsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteHostTags");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -463,7 +458,7 @@ public class TagsApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -514,7 +509,7 @@ public class TagsApi {
   /**
    * Get host tags
    *
-   * <p>See {@link #getHostTagsWithHttpInfo}.
+   * <p>See {@link #getHostTagsWithHttpInfoAsync}.
    *
    * @param hostName When specified, filters list of tags to those tags with the specified source.
    *     (required)
@@ -656,9 +651,6 @@ public class TagsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getHostTags");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -718,7 +710,7 @@ public class TagsApi {
   /**
    * Get Tags
    *
-   * <p>See {@link #listHostTagsWithHttpInfo}.
+   * <p>See {@link #listHostTagsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;TagToHosts&gt;
    */
@@ -830,9 +822,6 @@ public class TagsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listHostTags");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -898,7 +887,7 @@ public class TagsApi {
   /**
    * Update host tags
    *
-   * <p>See {@link #updateHostTagsWithHttpInfo}.
+   * <p>See {@link #updateHostTagsWithHttpInfoAsync}.
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
@@ -1062,9 +1051,6 @@ public class TagsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "source", source));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateHostTags");
 
     Invocation.Builder builder;
     try {

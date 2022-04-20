@@ -31,7 +31,8 @@ import java.util.Objects;
   NotebookResponseDataAttributes.JSON_PROPERTY_STATUS,
   NotebookResponseDataAttributes.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
@@ -78,7 +79,7 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * Get author
+   * Attributes of user object returned by the API.
    *
    * @return author
    */
@@ -141,7 +142,7 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * Get metadata
+   * Metadata associated with the notebook.
    *
    * @return metadata
    */
@@ -195,7 +196,7 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * Get status
+   * Publication status of the notebook. For now, always &quot;published&quot;.
    *
    * @return status
    */
@@ -220,7 +221,7 @@ public class NotebookResponseDataAttributes {
   }
 
   /**
-   * Get time
+   * Notebook global timeframe.
    *
    * @return time
    */

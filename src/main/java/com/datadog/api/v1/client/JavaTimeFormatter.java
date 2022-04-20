@@ -19,7 +19,8 @@ import java.time.format.DateTimeParseException;
  * generated for java clients when {@code AbstractJavaCodegen#dateLibrary} specified as {@code
  * java8}.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class JavaTimeFormatter {
 
   private DateTimeFormatter offsetDateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;

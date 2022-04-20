@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** An array of tag filter rules by &#x60;namespace&#x60; and tag filter string. */
 @JsonPropertyOrder({AWSTagFilterListResponse.JSON_PROPERTY_FILTERS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSTagFilterListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTERS = "filters";
@@ -68,8 +69,8 @@ public class AWSTagFilterListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSTagFilterListResponse awSTagFilterListResponse = (AWSTagFilterListResponse) o;
-    return Objects.equals(this.filters, awSTagFilterListResponse.filters);
+    AWSTagFilterListResponse awsTagFilterListResponse = (AWSTagFilterListResponse) o;
+    return Objects.equals(this.filters, awsTagFilterListResponse.filters);
   }
 
   @Override

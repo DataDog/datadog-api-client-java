@@ -34,7 +34,8 @@ import java.util.Objects;
   AWSAccount.JSON_PROPERTY_ROLE_NAME,
   AWSAccount.JSON_PROPERTY_SECRET_ACCESS_KEY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSAccount {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCESS_KEY_ID = "access_key_id";
@@ -132,8 +133,8 @@ public class AWSAccount {
   }
 
   /**
-   * An object, (in the form &#x60;{\&quot;namespace1\&quot;:true/false,
-   * \&quot;namespace2\&quot;:true/false}&#x60;), that enables or disables metric collection for
+   * An object, (in the form &#x60;{&quot;namespace1&quot;:true/false,
+   * &quot;namespace2&quot;:true/false}&#x60;), that enables or disables metric collection for
    * specific AWS namespaces for this AWS account only.
    *
    * @return accountSpecificNamespaceRules
@@ -358,20 +359,20 @@ public class AWSAccount {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSAccount awSAccount = (AWSAccount) o;
-    return Objects.equals(this.accessKeyId, awSAccount.accessKeyId)
-        && Objects.equals(this.accountId, awSAccount.accountId)
+    AWSAccount awsAccount = (AWSAccount) o;
+    return Objects.equals(this.accessKeyId, awsAccount.accessKeyId)
+        && Objects.equals(this.accountId, awsAccount.accountId)
         && Objects.equals(
-            this.accountSpecificNamespaceRules, awSAccount.accountSpecificNamespaceRules)
+            this.accountSpecificNamespaceRules, awsAccount.accountSpecificNamespaceRules)
         && Objects.equals(
-            this.cspmResourceCollectionEnabled, awSAccount.cspmResourceCollectionEnabled)
-        && Objects.equals(this.excludedRegions, awSAccount.excludedRegions)
-        && Objects.equals(this.filterTags, awSAccount.filterTags)
-        && Objects.equals(this.hostTags, awSAccount.hostTags)
-        && Objects.equals(this.metricsCollectionEnabled, awSAccount.metricsCollectionEnabled)
-        && Objects.equals(this.resourceCollectionEnabled, awSAccount.resourceCollectionEnabled)
-        && Objects.equals(this.roleName, awSAccount.roleName)
-        && Objects.equals(this.secretAccessKey, awSAccount.secretAccessKey);
+            this.cspmResourceCollectionEnabled, awsAccount.cspmResourceCollectionEnabled)
+        && Objects.equals(this.excludedRegions, awsAccount.excludedRegions)
+        && Objects.equals(this.filterTags, awsAccount.filterTags)
+        && Objects.equals(this.hostTags, awsAccount.hostTags)
+        && Objects.equals(this.metricsCollectionEnabled, awsAccount.metricsCollectionEnabled)
+        && Objects.equals(this.resourceCollectionEnabled, awsAccount.resourceCollectionEnabled)
+        && Objects.equals(this.roleName, awsAccount.roleName)
+        && Objects.equals(this.secretAccessKey, awsAccount.secretAccessKey);
   }
 
   @Override

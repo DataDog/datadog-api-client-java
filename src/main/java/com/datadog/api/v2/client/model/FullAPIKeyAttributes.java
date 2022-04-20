@@ -24,7 +24,8 @@ import java.util.Objects;
   FullAPIKeyAttributes.JSON_PROPERTY_MODIFIED_AT,
   FullAPIKeyAttributes.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FullAPIKeyAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
@@ -120,12 +121,12 @@ public class FullAPIKeyAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FullAPIKeyAttributes fullAPIKeyAttributes = (FullAPIKeyAttributes) o;
-    return Objects.equals(this.createdAt, fullAPIKeyAttributes.createdAt)
-        && Objects.equals(this.key, fullAPIKeyAttributes.key)
-        && Objects.equals(this.last4, fullAPIKeyAttributes.last4)
-        && Objects.equals(this.modifiedAt, fullAPIKeyAttributes.modifiedAt)
-        && Objects.equals(this.name, fullAPIKeyAttributes.name);
+    FullAPIKeyAttributes fullApiKeyAttributes = (FullAPIKeyAttributes) o;
+    return Objects.equals(this.createdAt, fullApiKeyAttributes.createdAt)
+        && Objects.equals(this.key, fullApiKeyAttributes.key)
+        && Objects.equals(this.last4, fullApiKeyAttributes.last4)
+        && Objects.equals(this.modifiedAt, fullApiKeyAttributes.modifiedAt)
+        && Objects.equals(this.name, fullApiKeyAttributes.name);
   }
 
   @Override

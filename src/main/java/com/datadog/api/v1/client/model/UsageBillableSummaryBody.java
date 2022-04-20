@@ -27,7 +27,8 @@ import java.util.Objects;
   UsageBillableSummaryBody.JSON_PROPERTY_PERCENTAGE_IN_ACCOUNT,
   UsageBillableSummaryBody.JSON_PROPERTY_USAGE_UNIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageBillableSummaryBody {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE = "account_billable_usage";

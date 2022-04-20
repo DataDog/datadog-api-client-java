@@ -23,7 +23,8 @@ import java.util.Objects;
   IncidentTeamResponseData.JSON_PROPERTY_RELATIONSHIPS,
   IncidentTeamResponseData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentTeamResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -45,7 +46,7 @@ public class IncidentTeamResponseData {
   }
 
   /**
-   * Get attributes
+   * The incident team&#39;s attributes from a response.
    *
    * @return attributes
    */
@@ -81,14 +82,8 @@ public class IncidentTeamResponseData {
     this.id = id;
   }
 
-  public IncidentTeamResponseData relationships(IncidentTeamRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
   /**
-   * Get relationships
+   * The incident team&#39;s relationships.
    *
    * @return relationships
    */
@@ -99,10 +94,6 @@ public class IncidentTeamResponseData {
     return relationships;
   }
 
-  public void setRelationships(IncidentTeamRelationships relationships) {
-    this.relationships = relationships;
-  }
-
   public IncidentTeamResponseData type(IncidentTeamType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -110,7 +101,7 @@ public class IncidentTeamResponseData {
   }
 
   /**
-   * Get type
+   * Incident Team resource type.
    *
    * @return type
    */

@@ -33,7 +33,8 @@ import java.util.Objects;
   DashboardListItem.JSON_PROPERTY_TYPE,
   DashboardListItem.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardListItem {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
@@ -90,7 +91,7 @@ public class DashboardListItem {
   }
 
   /**
-   * Get author
+   * Creator of the object.
    *
    * @return author
    */
@@ -228,7 +229,7 @@ public class DashboardListItem {
   }
 
   /**
-   * Get type
+   * The type of the dashboard.
    *
    * @return type
    */

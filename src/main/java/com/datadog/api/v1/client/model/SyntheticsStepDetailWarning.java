@@ -22,7 +22,8 @@ import java.util.Objects;
   SyntheticsStepDetailWarning.JSON_PROPERTY_MESSAGE,
   SyntheticsStepDetailWarning.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsStepDetailWarning {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MESSAGE = "message";
@@ -69,7 +70,7 @@ public class SyntheticsStepDetailWarning {
   }
 
   /**
-   * Get type
+   * User locator used.
    *
    * @return type
    */

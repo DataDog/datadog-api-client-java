@@ -22,7 +22,8 @@ import java.util.Objects;
   UserInvitationData.JSON_PROPERTY_RELATIONSHIPS,
   UserInvitationData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserInvitationData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
@@ -51,7 +52,7 @@ public class UserInvitationData {
   }
 
   /**
-   * Get relationships
+   * Relationships data for user invitation.
    *
    * @return relationships
    */
@@ -72,7 +73,7 @@ public class UserInvitationData {
   }
 
   /**
-   * Get type
+   * User invitations type.
    *
    * @return type
    */

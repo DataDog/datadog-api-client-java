@@ -23,7 +23,8 @@ import java.util.Objects;
   SyntheticsTriggerCITestRunResult.JSON_PROPERTY_PUBLIC_ID,
   SyntheticsTriggerCITestRunResult.JSON_PROPERTY_RESULT_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTriggerCITestRunResult {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEVICE = "device";
@@ -45,7 +46,7 @@ public class SyntheticsTriggerCITestRunResult {
   }
 
   /**
-   * Get device
+   * The device ID.
    *
    * @return device
    */
@@ -135,12 +136,12 @@ public class SyntheticsTriggerCITestRunResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTriggerCITestRunResult syntheticsTriggerCITestRunResult =
+    SyntheticsTriggerCITestRunResult syntheticsTriggerCiTestRunResult =
         (SyntheticsTriggerCITestRunResult) o;
-    return Objects.equals(this.device, syntheticsTriggerCITestRunResult.device)
-        && Objects.equals(this.location, syntheticsTriggerCITestRunResult.location)
-        && Objects.equals(this.publicId, syntheticsTriggerCITestRunResult.publicId)
-        && Objects.equals(this.resultId, syntheticsTriggerCITestRunResult.resultId);
+    return Objects.equals(this.device, syntheticsTriggerCiTestRunResult.device)
+        && Objects.equals(this.location, syntheticsTriggerCiTestRunResult.location)
+        && Objects.equals(this.publicId, syntheticsTriggerCiTestRunResult.publicId)
+        && Objects.equals(this.resultId, syntheticsTriggerCiTestRunResult.resultId);
   }
 
   @Override

@@ -18,7 +18,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentTeamsApi {
   private ApiClient apiClient;
 
@@ -158,9 +159,6 @@ public class IncidentTeamsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createIncidentTeam");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -257,7 +255,7 @@ public class IncidentTeamsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -296,9 +294,6 @@ public class IncidentTeamsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteIncidentTeam");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -308,7 +303,7 @@ public class IncidentTeamsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -359,7 +354,7 @@ public class IncidentTeamsApi {
   /**
    * Get details of an incident team
    *
-   * <p>See {@link #getIncidentTeamWithHttpInfo}.
+   * <p>See {@link #getIncidentTeamWithHttpInfoAsync}.
    *
    * @param teamId The ID of the incident team. (required)
    * @return CompletableFuture&lt;IncidentTeamResponse&gt;
@@ -499,9 +494,6 @@ public class IncidentTeamsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentTeam");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -598,7 +590,7 @@ public class IncidentTeamsApi {
   /**
    * Get a list of all incident teams
    *
-   * <p>See {@link #listIncidentTeamsWithHttpInfo}.
+   * <p>See {@link #listIncidentTeamsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;IncidentTeamsResponse&gt;
    */
@@ -726,9 +718,6 @@ public class IncidentTeamsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listIncidentTeams");
 
     Invocation.Builder builder;
     try {
@@ -890,9 +879,6 @@ public class IncidentTeamsApi {
             .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateIncidentTeam");
 
     Invocation.Builder builder;
     try {

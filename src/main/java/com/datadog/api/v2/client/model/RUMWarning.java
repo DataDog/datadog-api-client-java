@@ -22,7 +22,8 @@ import java.util.Objects;
   RUMWarning.JSON_PROPERTY_DETAIL,
   RUMWarning.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMWarning {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CODE = "code";
@@ -106,10 +107,10 @@ public class RUMWarning {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMWarning ruMWarning = (RUMWarning) o;
-    return Objects.equals(this.code, ruMWarning.code)
-        && Objects.equals(this.detail, ruMWarning.detail)
-        && Objects.equals(this.title, ruMWarning.title);
+    RUMWarning rumWarning = (RUMWarning) o;
+    return Objects.equals(this.code, rumWarning.code)
+        && Objects.equals(this.detail, rumWarning.detail)
+        && Objects.equals(this.title, rumWarning.title);
   }
 
   @Override

@@ -33,7 +33,8 @@ import java.util.Objects;
   LogsPipeline.JSON_PROPERTY_PROCESSORS,
   LogsPipeline.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsPipeline {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
@@ -71,7 +72,7 @@ public class LogsPipeline {
   }
 
   /**
-   * Get filter
+   * Filter for logs.
    *
    * @return filter
    */

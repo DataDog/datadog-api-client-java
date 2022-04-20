@@ -24,7 +24,8 @@ import java.util.Objects;
   SyntheticsPrivateLocationSecrets.JSON_PROPERTY_AUTHENTICATION,
   SyntheticsPrivateLocationSecrets.JSON_PROPERTY_CONFIG_DECRYPTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsPrivateLocationSecrets {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHENTICATION = "authentication";
@@ -41,7 +42,7 @@ public class SyntheticsPrivateLocationSecrets {
   }
 
   /**
-   * Get authentication
+   * Authentication part of the secrets.
    *
    * @return authentication
    */
@@ -64,7 +65,7 @@ public class SyntheticsPrivateLocationSecrets {
   }
 
   /**
-   * Get configDecryption
+   * Private key for the private location.
    *
    * @return configDecryption
    */

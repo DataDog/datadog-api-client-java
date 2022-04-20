@@ -36,7 +36,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 @JsonDeserialize(using = AuthNMappingIncluded.AuthNMappingIncludedDeserializer.class)
 @JsonSerialize(using = AuthNMappingIncluded.AuthNMappingIncludedSerializer.class)
 public class AuthNMappingIncluded extends AbstractOpenApiSchema {
@@ -195,19 +196,19 @@ public class AuthNMappingIncluded extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public AuthNMappingIncluded(Role o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public AuthNMappingIncluded(SAMLAssertionAttribute o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
+  public AuthNMappingIncluded(Role o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
-    schemas.put("Role", new GenericType<Role>() {});
     schemas.put("SAMLAssertionAttribute", new GenericType<SAMLAssertionAttribute>() {});
+    schemas.put("Role", new GenericType<Role>() {});
     JSON.registerDescendants(AuthNMappingIncluded.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -218,19 +219,18 @@ public class AuthNMappingIncluded extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: Role, SAMLAssertionAttribute
+   * against the oneOf child schemas: SAMLAssertionAttribute, Role
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(Role.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(SAMLAssertionAttribute.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(SAMLAssertionAttribute.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(Role.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -239,28 +239,17 @@ public class AuthNMappingIncluded extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be Role, SAMLAssertionAttribute");
+    throw new RuntimeException("Invalid instance type. Must be SAMLAssertionAttribute, Role");
   }
 
   /**
-   * Get the actual instance, which can be the following: Role, SAMLAssertionAttribute
+   * Get the actual instance, which can be the following: SAMLAssertionAttribute, Role
    *
-   * @return The actual instance (Role, SAMLAssertionAttribute)
+   * @return The actual instance (SAMLAssertionAttribute, Role)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `Role`. If the actual instance is not `Role`, the ClassCastException
-   * will be thrown.
-   *
-   * @return The actual instance of `Role`
-   * @throws ClassCastException if the instance is not `Role`
-   */
-  public Role getRole() throws ClassCastException {
-    return (Role) super.getActualInstance();
   }
 
   /**
@@ -272,5 +261,16 @@ public class AuthNMappingIncluded extends AbstractOpenApiSchema {
    */
   public SAMLAssertionAttribute getSAMLAssertionAttribute() throws ClassCastException {
     return (SAMLAssertionAttribute) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `Role`. If the actual instance is not `Role`, the ClassCastException
+   * will be thrown.
+   *
+   * @return The actual instance of `Role`
+   * @throws ClassCastException if the instance is not `Role`
+   */
+  public Role getRole() throws ClassCastException {
+    return (Role) super.getActualInstance();
   }
 }

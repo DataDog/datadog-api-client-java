@@ -25,7 +25,8 @@ import java.util.Objects;
   UsageCWSHour.JSON_PROPERTY_ORG_NAME,
   UsageCWSHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageCWSHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CWS_CONTAINER_COUNT = "cws_container_count";
@@ -159,12 +160,12 @@ public class UsageCWSHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageCWSHour usageCWSHour = (UsageCWSHour) o;
-    return Objects.equals(this.cwsContainerCount, usageCWSHour.cwsContainerCount)
-        && Objects.equals(this.cwsHostCount, usageCWSHour.cwsHostCount)
-        && Objects.equals(this.hour, usageCWSHour.hour)
-        && Objects.equals(this.orgName, usageCWSHour.orgName)
-        && Objects.equals(this.publicId, usageCWSHour.publicId);
+    UsageCWSHour usageCwsHour = (UsageCWSHour) o;
+    return Objects.equals(this.cwsContainerCount, usageCwsHour.cwsContainerCount)
+        && Objects.equals(this.cwsHostCount, usageCwsHour.cwsHostCount)
+        && Objects.equals(this.hour, usageCwsHour.hour)
+        && Objects.equals(this.orgName, usageCwsHour.orgName)
+        && Objects.equals(this.publicId, usageCwsHour.publicId);
   }
 
   @Override

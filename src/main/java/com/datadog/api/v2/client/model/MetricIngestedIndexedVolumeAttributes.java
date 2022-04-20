@@ -21,7 +21,8 @@ import java.util.Objects;
   MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INDEXED_VOLUME,
   MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INGESTED_VOLUME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricIngestedIndexedVolumeAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INDEXED_VOLUME = "indexed_volume";

@@ -30,7 +30,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DashboardSummaryDefinition.JSON_PROPERTY_TITLE,
   DashboardSummaryDefinition.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardSummaryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR_HANDLE = "author_handle";
@@ -183,7 +184,7 @@ public class DashboardSummaryDefinition {
   }
 
   /**
-   * Get layoutType
+   * Layout type of the dashboard.
    *
    * @return layoutType
    */

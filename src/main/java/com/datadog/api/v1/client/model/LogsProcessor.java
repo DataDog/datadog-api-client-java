@@ -36,7 +36,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 @JsonDeserialize(using = LogsProcessor.LogsProcessorDeserializer.class)
 @JsonSerialize(using = LogsProcessor.LogsProcessorSerializer.class)
 public class LogsProcessor extends AbstractOpenApiSchema {
@@ -771,17 +772,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public LogsProcessor(LogsArithmeticProcessor o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public LogsProcessor(LogsAttributeRemapper o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public LogsProcessor(LogsCategoryProcessor o) {
+  public LogsProcessor(LogsGrokParser o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -791,27 +782,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public LogsProcessor(LogsGeoIPParser o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public LogsProcessor(LogsGrokParser o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public LogsProcessor(LogsLookupProcessor o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public LogsProcessor(LogsMessageRemapper o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public LogsProcessor(LogsPipelineProcessor o) {
+  public LogsProcessor(LogsStatusRemapper o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -821,17 +792,12 @@ public class LogsProcessor extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public LogsProcessor(LogsStatusRemapper o) {
+  public LogsProcessor(LogsMessageRemapper o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
-  public LogsProcessor(LogsStringBuilderProcessor o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public LogsProcessor(LogsTraceRemapper o) {
+  public LogsProcessor(LogsAttributeRemapper o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -846,22 +812,57 @@ public class LogsProcessor extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public LogsProcessor(LogsCategoryProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public LogsProcessor(LogsArithmeticProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public LogsProcessor(LogsStringBuilderProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public LogsProcessor(LogsPipelineProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public LogsProcessor(LogsGeoIPParser o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public LogsProcessor(LogsLookupProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public LogsProcessor(LogsTraceRemapper o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
-    schemas.put("LogsArithmeticProcessor", new GenericType<LogsArithmeticProcessor>() {});
-    schemas.put("LogsAttributeRemapper", new GenericType<LogsAttributeRemapper>() {});
-    schemas.put("LogsCategoryProcessor", new GenericType<LogsCategoryProcessor>() {});
-    schemas.put("LogsDateRemapper", new GenericType<LogsDateRemapper>() {});
-    schemas.put("LogsGeoIPParser", new GenericType<LogsGeoIPParser>() {});
     schemas.put("LogsGrokParser", new GenericType<LogsGrokParser>() {});
-    schemas.put("LogsLookupProcessor", new GenericType<LogsLookupProcessor>() {});
-    schemas.put("LogsMessageRemapper", new GenericType<LogsMessageRemapper>() {});
-    schemas.put("LogsPipelineProcessor", new GenericType<LogsPipelineProcessor>() {});
-    schemas.put("LogsServiceRemapper", new GenericType<LogsServiceRemapper>() {});
+    schemas.put("LogsDateRemapper", new GenericType<LogsDateRemapper>() {});
     schemas.put("LogsStatusRemapper", new GenericType<LogsStatusRemapper>() {});
-    schemas.put("LogsStringBuilderProcessor", new GenericType<LogsStringBuilderProcessor>() {});
-    schemas.put("LogsTraceRemapper", new GenericType<LogsTraceRemapper>() {});
+    schemas.put("LogsServiceRemapper", new GenericType<LogsServiceRemapper>() {});
+    schemas.put("LogsMessageRemapper", new GenericType<LogsMessageRemapper>() {});
+    schemas.put("LogsAttributeRemapper", new GenericType<LogsAttributeRemapper>() {});
     schemas.put("LogsURLParser", new GenericType<LogsURLParser>() {});
     schemas.put("LogsUserAgentParser", new GenericType<LogsUserAgentParser>() {});
+    schemas.put("LogsCategoryProcessor", new GenericType<LogsCategoryProcessor>() {});
+    schemas.put("LogsArithmeticProcessor", new GenericType<LogsArithmeticProcessor>() {});
+    schemas.put("LogsStringBuilderProcessor", new GenericType<LogsStringBuilderProcessor>() {});
+    schemas.put("LogsPipelineProcessor", new GenericType<LogsPipelineProcessor>() {});
+    schemas.put("LogsGeoIPParser", new GenericType<LogsGeoIPParser>() {});
+    schemas.put("LogsLookupProcessor", new GenericType<LogsLookupProcessor>() {});
+    schemas.put("LogsTraceRemapper", new GenericType<LogsTraceRemapper>() {});
     JSON.registerDescendants(LogsProcessor.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -872,87 +873,74 @@ public class LogsProcessor extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: LogsArithmeticProcessor, LogsAttributeRemapper,
-   * LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser, LogsLookupProcessor,
-   * LogsMessageRemapper, LogsPipelineProcessor, LogsServiceRemapper, LogsStatusRemapper,
-   * LogsStringBuilderProcessor, LogsTraceRemapper, LogsURLParser, LogsUserAgentParser
+   * against the oneOf child schemas: LogsGrokParser, LogsDateRemapper, LogsStatusRemapper,
+   * LogsServiceRemapper, LogsMessageRemapper, LogsAttributeRemapper, LogsURLParser,
+   * LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,
+   * LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser, LogsLookupProcessor,
+   * LogsTraceRemapper
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(LogsArithmeticProcessor.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(LogsAttributeRemapper.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(LogsCategoryProcessor.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(LogsDateRemapper.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(LogsGeoIPParser.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
     if (JSON.isInstanceOf(LogsGrokParser.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(LogsLookupProcessor.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(LogsDateRemapper.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(LogsMessageRemapper.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(LogsPipelineProcessor.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
-    if (JSON.isInstanceOf(LogsServiceRemapper.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-
     if (JSON.isInstanceOf(LogsStatusRemapper.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(LogsStringBuilderProcessor.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(LogsServiceRemapper.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
-    if (JSON.isInstanceOf(LogsTraceRemapper.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(LogsMessageRemapper.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
+    if (JSON.isInstanceOf(LogsAttributeRemapper.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(LogsURLParser.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(LogsUserAgentParser.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(LogsCategoryProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(LogsArithmeticProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(LogsStringBuilderProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(LogsPipelineProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(LogsGeoIPParser.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(LogsLookupProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(LogsTraceRemapper.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -962,84 +950,29 @@ public class LogsProcessor extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be LogsArithmeticProcessor, LogsAttributeRemapper,"
-            + " LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser,"
-            + " LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor,"
-            + " LogsServiceRemapper, LogsStatusRemapper, LogsStringBuilderProcessor,"
-            + " LogsTraceRemapper, LogsURLParser, LogsUserAgentParser");
+        "Invalid instance type. Must be LogsGrokParser, LogsDateRemapper, LogsStatusRemapper,"
+            + " LogsServiceRemapper, LogsMessageRemapper, LogsAttributeRemapper, LogsURLParser,"
+            + " LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,"
+            + " LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser,"
+            + " LogsLookupProcessor, LogsTraceRemapper");
   }
 
   /**
-   * Get the actual instance, which can be the following: LogsArithmeticProcessor,
-   * LogsAttributeRemapper, LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser,
-   * LogsGrokParser, LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor,
-   * LogsServiceRemapper, LogsStatusRemapper, LogsStringBuilderProcessor, LogsTraceRemapper,
-   * LogsURLParser, LogsUserAgentParser
+   * Get the actual instance, which can be the following: LogsGrokParser, LogsDateRemapper,
+   * LogsStatusRemapper, LogsServiceRemapper, LogsMessageRemapper, LogsAttributeRemapper,
+   * LogsURLParser, LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,
+   * LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser, LogsLookupProcessor,
+   * LogsTraceRemapper
    *
-   * @return The actual instance (LogsArithmeticProcessor, LogsAttributeRemapper,
-   *     LogsCategoryProcessor, LogsDateRemapper, LogsGeoIPParser, LogsGrokParser,
-   *     LogsLookupProcessor, LogsMessageRemapper, LogsPipelineProcessor, LogsServiceRemapper,
-   *     LogsStatusRemapper, LogsStringBuilderProcessor, LogsTraceRemapper, LogsURLParser,
-   *     LogsUserAgentParser)
+   * @return The actual instance (LogsGrokParser, LogsDateRemapper, LogsStatusRemapper,
+   *     LogsServiceRemapper, LogsMessageRemapper, LogsAttributeRemapper, LogsURLParser,
+   *     LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,
+   *     LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser, LogsLookupProcessor,
+   *     LogsTraceRemapper)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `LogsArithmeticProcessor`. If the actual instance is not
-   * `LogsArithmeticProcessor`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `LogsArithmeticProcessor`
-   * @throws ClassCastException if the instance is not `LogsArithmeticProcessor`
-   */
-  public LogsArithmeticProcessor getLogsArithmeticProcessor() throws ClassCastException {
-    return (LogsArithmeticProcessor) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `LogsAttributeRemapper`. If the actual instance is not
-   * `LogsAttributeRemapper`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `LogsAttributeRemapper`
-   * @throws ClassCastException if the instance is not `LogsAttributeRemapper`
-   */
-  public LogsAttributeRemapper getLogsAttributeRemapper() throws ClassCastException {
-    return (LogsAttributeRemapper) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `LogsCategoryProcessor`. If the actual instance is not
-   * `LogsCategoryProcessor`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `LogsCategoryProcessor`
-   * @throws ClassCastException if the instance is not `LogsCategoryProcessor`
-   */
-  public LogsCategoryProcessor getLogsCategoryProcessor() throws ClassCastException {
-    return (LogsCategoryProcessor) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `LogsDateRemapper`. If the actual instance is not
-   * `LogsDateRemapper`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `LogsDateRemapper`
-   * @throws ClassCastException if the instance is not `LogsDateRemapper`
-   */
-  public LogsDateRemapper getLogsDateRemapper() throws ClassCastException {
-    return (LogsDateRemapper) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `LogsGeoIPParser`. If the actual instance is not `LogsGeoIPParser`,
-   * the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `LogsGeoIPParser`
-   * @throws ClassCastException if the instance is not `LogsGeoIPParser`
-   */
-  public LogsGeoIPParser getLogsGeoIPParser() throws ClassCastException {
-    return (LogsGeoIPParser) super.getActualInstance();
   }
 
   /**
@@ -1054,47 +987,14 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsLookupProcessor`. If the actual instance is not
-   * `LogsLookupProcessor`, the ClassCastException will be thrown.
+   * Get the actual instance of `LogsDateRemapper`. If the actual instance is not
+   * `LogsDateRemapper`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `LogsLookupProcessor`
-   * @throws ClassCastException if the instance is not `LogsLookupProcessor`
+   * @return The actual instance of `LogsDateRemapper`
+   * @throws ClassCastException if the instance is not `LogsDateRemapper`
    */
-  public LogsLookupProcessor getLogsLookupProcessor() throws ClassCastException {
-    return (LogsLookupProcessor) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `LogsMessageRemapper`. If the actual instance is not
-   * `LogsMessageRemapper`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `LogsMessageRemapper`
-   * @throws ClassCastException if the instance is not `LogsMessageRemapper`
-   */
-  public LogsMessageRemapper getLogsMessageRemapper() throws ClassCastException {
-    return (LogsMessageRemapper) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `LogsPipelineProcessor`. If the actual instance is not
-   * `LogsPipelineProcessor`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `LogsPipelineProcessor`
-   * @throws ClassCastException if the instance is not `LogsPipelineProcessor`
-   */
-  public LogsPipelineProcessor getLogsPipelineProcessor() throws ClassCastException {
-    return (LogsPipelineProcessor) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `LogsServiceRemapper`. If the actual instance is not
-   * `LogsServiceRemapper`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `LogsServiceRemapper`
-   * @throws ClassCastException if the instance is not `LogsServiceRemapper`
-   */
-  public LogsServiceRemapper getLogsServiceRemapper() throws ClassCastException {
-    return (LogsServiceRemapper) super.getActualInstance();
+  public LogsDateRemapper getLogsDateRemapper() throws ClassCastException {
+    return (LogsDateRemapper) super.getActualInstance();
   }
 
   /**
@@ -1109,25 +1009,36 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsStringBuilderProcessor`. If the actual instance is not
-   * `LogsStringBuilderProcessor`, the ClassCastException will be thrown.
+   * Get the actual instance of `LogsServiceRemapper`. If the actual instance is not
+   * `LogsServiceRemapper`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `LogsStringBuilderProcessor`
-   * @throws ClassCastException if the instance is not `LogsStringBuilderProcessor`
+   * @return The actual instance of `LogsServiceRemapper`
+   * @throws ClassCastException if the instance is not `LogsServiceRemapper`
    */
-  public LogsStringBuilderProcessor getLogsStringBuilderProcessor() throws ClassCastException {
-    return (LogsStringBuilderProcessor) super.getActualInstance();
+  public LogsServiceRemapper getLogsServiceRemapper() throws ClassCastException {
+    return (LogsServiceRemapper) super.getActualInstance();
   }
 
   /**
-   * Get the actual instance of `LogsTraceRemapper`. If the actual instance is not
-   * `LogsTraceRemapper`, the ClassCastException will be thrown.
+   * Get the actual instance of `LogsMessageRemapper`. If the actual instance is not
+   * `LogsMessageRemapper`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `LogsTraceRemapper`
-   * @throws ClassCastException if the instance is not `LogsTraceRemapper`
+   * @return The actual instance of `LogsMessageRemapper`
+   * @throws ClassCastException if the instance is not `LogsMessageRemapper`
    */
-  public LogsTraceRemapper getLogsTraceRemapper() throws ClassCastException {
-    return (LogsTraceRemapper) super.getActualInstance();
+  public LogsMessageRemapper getLogsMessageRemapper() throws ClassCastException {
+    return (LogsMessageRemapper) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LogsAttributeRemapper`. If the actual instance is not
+   * `LogsAttributeRemapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LogsAttributeRemapper`
+   * @throws ClassCastException if the instance is not `LogsAttributeRemapper`
+   */
+  public LogsAttributeRemapper getLogsAttributeRemapper() throws ClassCastException {
+    return (LogsAttributeRemapper) super.getActualInstance();
   }
 
   /**
@@ -1150,5 +1061,82 @@ public class LogsProcessor extends AbstractOpenApiSchema {
    */
   public LogsUserAgentParser getLogsUserAgentParser() throws ClassCastException {
     return (LogsUserAgentParser) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LogsCategoryProcessor`. If the actual instance is not
+   * `LogsCategoryProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LogsCategoryProcessor`
+   * @throws ClassCastException if the instance is not `LogsCategoryProcessor`
+   */
+  public LogsCategoryProcessor getLogsCategoryProcessor() throws ClassCastException {
+    return (LogsCategoryProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LogsArithmeticProcessor`. If the actual instance is not
+   * `LogsArithmeticProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LogsArithmeticProcessor`
+   * @throws ClassCastException if the instance is not `LogsArithmeticProcessor`
+   */
+  public LogsArithmeticProcessor getLogsArithmeticProcessor() throws ClassCastException {
+    return (LogsArithmeticProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LogsStringBuilderProcessor`. If the actual instance is not
+   * `LogsStringBuilderProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LogsStringBuilderProcessor`
+   * @throws ClassCastException if the instance is not `LogsStringBuilderProcessor`
+   */
+  public LogsStringBuilderProcessor getLogsStringBuilderProcessor() throws ClassCastException {
+    return (LogsStringBuilderProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LogsPipelineProcessor`. If the actual instance is not
+   * `LogsPipelineProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LogsPipelineProcessor`
+   * @throws ClassCastException if the instance is not `LogsPipelineProcessor`
+   */
+  public LogsPipelineProcessor getLogsPipelineProcessor() throws ClassCastException {
+    return (LogsPipelineProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LogsGeoIPParser`. If the actual instance is not `LogsGeoIPParser`,
+   * the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LogsGeoIPParser`
+   * @throws ClassCastException if the instance is not `LogsGeoIPParser`
+   */
+  public LogsGeoIPParser getLogsGeoIPParser() throws ClassCastException {
+    return (LogsGeoIPParser) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LogsLookupProcessor`. If the actual instance is not
+   * `LogsLookupProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LogsLookupProcessor`
+   * @throws ClassCastException if the instance is not `LogsLookupProcessor`
+   */
+  public LogsLookupProcessor getLogsLookupProcessor() throws ClassCastException {
+    return (LogsLookupProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LogsTraceRemapper`. If the actual instance is not
+   * `LogsTraceRemapper`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LogsTraceRemapper`
+   * @throws ClassCastException if the instance is not `LogsTraceRemapper`
+   */
+  public LogsTraceRemapper getLogsTraceRemapper() throws ClassCastException {
+    return (LogsTraceRemapper) super.getActualInstance();
   }
 }

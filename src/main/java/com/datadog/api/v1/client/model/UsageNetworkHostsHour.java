@@ -24,7 +24,8 @@ import java.util.Objects;
   UsageNetworkHostsHour.JSON_PROPERTY_ORG_NAME,
   UsageNetworkHostsHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageNetworkHostsHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOST_COUNT = "host_count";

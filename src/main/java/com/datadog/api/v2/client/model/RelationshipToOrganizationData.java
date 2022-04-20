@@ -22,7 +22,8 @@ import java.util.Objects;
   RelationshipToOrganizationData.JSON_PROPERTY_ID,
   RelationshipToOrganizationData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToOrganizationData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
@@ -69,7 +70,7 @@ public class RelationshipToOrganizationData {
   }
 
   /**
-   * Get type
+   * Organizations resource type.
    *
    * @return type
    */

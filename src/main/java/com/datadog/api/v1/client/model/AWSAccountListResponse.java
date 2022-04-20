@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** List of enabled AWS accounts. */
 @JsonPropertyOrder({AWSAccountListResponse.JSON_PROPERTY_ACCOUNTS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSAccountListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
@@ -68,8 +69,8 @@ public class AWSAccountListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSAccountListResponse awSAccountListResponse = (AWSAccountListResponse) o;
-    return Objects.equals(this.accounts, awSAccountListResponse.accounts);
+    AWSAccountListResponse awsAccountListResponse = (AWSAccountListResponse) o;
+    return Objects.equals(this.accounts, awsAccountListResponse.accounts);
   }
 
   @Override

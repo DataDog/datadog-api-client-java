@@ -34,7 +34,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   EventCreateRequest.JSON_PROPERTY_TEXT,
   EventCreateRequest.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventCreateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION_KEY = "aggregation_key";
@@ -109,7 +110,9 @@ public class EventCreateRequest {
   }
 
   /**
-   * Get alertType
+   * If an alert event is enabled, set its type. For example, &#x60;error&#x60;,
+   * &#x60;warning&#x60;, &#x60;info&#x60;, &#x60;success&#x60;, &#x60;user_update&#x60;,
+   * &#x60;recommendation&#x60;, and &#x60;snapshot&#x60;.
    *
    * @return alertType
    */
@@ -198,7 +201,7 @@ public class EventCreateRequest {
   }
 
   /**
-   * Get priority
+   * The priority of the event. For example, &#x60;normal&#x60; or &#x60;low&#x60;.
    *
    * @return priority
    */

@@ -22,7 +22,8 @@ import java.util.Objects;
   UsageSpecifiedCustomReportsData.JSON_PROPERTY_ID,
   UsageSpecifiedCustomReportsData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSpecifiedCustomReportsData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -42,7 +43,7 @@ public class UsageSpecifiedCustomReportsData {
   }
 
   /**
-   * Get attributes
+   * The response containing attributes for specified custom reports.
    *
    * @return attributes
    */
@@ -85,7 +86,7 @@ public class UsageSpecifiedCustomReportsData {
   }
 
   /**
-   * Get type
+   * The type of reports.
    *
    * @return type
    */

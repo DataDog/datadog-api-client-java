@@ -30,7 +30,8 @@ import java.util.Objects;
   AlertGraphWidgetDefinition.JSON_PROPERTY_TYPE,
   AlertGraphWidgetDefinition.JSON_PROPERTY_VIZ_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AlertGraphWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
@@ -96,7 +97,7 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -139,7 +140,7 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -185,7 +186,7 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the alert graph widget.
    *
    * @return type
    */
@@ -209,7 +210,7 @@ public class AlertGraphWidgetDefinition {
   }
 
   /**
-   * Get vizType
+   * Whether to display the Alert Graph as a timeseries or a top list.
    *
    * @return vizType
    */

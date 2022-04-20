@@ -23,7 +23,8 @@ import java.util.Objects;
   LogsArchiveDefinition.JSON_PROPERTY_ID,
   LogsArchiveDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -50,7 +51,7 @@ public class LogsArchiveDefinition {
   }
 
   /**
-   * Get attributes
+   * The attributes associated with the archive.
    *
    * @return attributes
    */

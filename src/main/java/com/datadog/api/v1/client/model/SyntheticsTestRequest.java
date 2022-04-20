@@ -41,7 +41,8 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_TIMEOUT,
   SyntheticsTestRequest.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_INSECURE = "allow_insecure";
@@ -132,7 +133,7 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * Get basicAuth
+   * Object to handle basic authentication when performing the test.
    *
    * @return basicAuth
    */
@@ -175,7 +176,7 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * Get certificate
+   * Client certificate to use when performing the test request.
    *
    * @return certificate
    */
@@ -331,7 +332,7 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * Get method
+   * The HTTP method.
    *
    * @return method
    */
@@ -419,7 +420,7 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * Get proxy
+   * The proxy to perform the test.
    *
    * @return proxy
    */

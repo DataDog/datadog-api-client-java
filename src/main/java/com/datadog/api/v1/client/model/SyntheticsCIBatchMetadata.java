@@ -21,7 +21,8 @@ import java.util.Objects;
   SyntheticsCIBatchMetadata.JSON_PROPERTY_CI,
   SyntheticsCIBatchMetadata.JSON_PROPERTY_GIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCIBatchMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CI = "ci";
@@ -37,7 +38,7 @@ public class SyntheticsCIBatchMetadata {
   }
 
   /**
-   * Get ci
+   * Description of the CI provider.
    *
    * @return ci
    */
@@ -59,7 +60,7 @@ public class SyntheticsCIBatchMetadata {
   }
 
   /**
-   * Get git
+   * Git information.
    *
    * @return git
    */
@@ -83,9 +84,9 @@ public class SyntheticsCIBatchMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCIBatchMetadata syntheticsCIBatchMetadata = (SyntheticsCIBatchMetadata) o;
-    return Objects.equals(this.ci, syntheticsCIBatchMetadata.ci)
-        && Objects.equals(this.git, syntheticsCIBatchMetadata.git);
+    SyntheticsCIBatchMetadata syntheticsCiBatchMetadata = (SyntheticsCIBatchMetadata) o;
+    return Objects.equals(this.ci, syntheticsCiBatchMetadata.ci)
+        && Objects.equals(this.git, syntheticsCiBatchMetadata.git);
   }
 
   @Override

@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Object containing array of IDs of canceled downtimes. */
 @JsonPropertyOrder({CanceledDowntimesIds.JSON_PROPERTY_CANCELLED_IDS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CanceledDowntimesIds {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CANCELLED_IDS = "cancelled_ids";

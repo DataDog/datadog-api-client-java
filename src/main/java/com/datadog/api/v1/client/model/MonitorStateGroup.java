@@ -25,7 +25,8 @@ import java.util.Objects;
   MonitorStateGroup.JSON_PROPERTY_NAME,
   MonitorStateGroup.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorStateGroup {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LAST_NODATA_TS = "last_nodata_ts";
@@ -151,14 +152,8 @@ public class MonitorStateGroup {
     this.name = name;
   }
 
-  public MonitorStateGroup status(MonitorOverallStates status) {
-    this.status = status;
-    this.unparsed |= !status.isValid();
-    return this;
-  }
-
   /**
-   * Get status
+   * The different states your monitor can be in.
    *
    * @return status
    */
@@ -167,13 +162,6 @@ public class MonitorStateGroup {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getStatus() {
     return status;
-  }
-
-  public void setStatus(MonitorOverallStates status) {
-    if (!status.isValid()) {
-      this.unparsed = true;
-    }
-    this.status = status;
   }
 
   /** Return true if this MonitorStateGroup object is equal to o. */

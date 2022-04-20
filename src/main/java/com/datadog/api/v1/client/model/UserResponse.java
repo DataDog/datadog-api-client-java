@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** A Datadog User. */
 @JsonPropertyOrder({UserResponse.JSON_PROPERTY_USER})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USER = "user";
@@ -31,7 +32,7 @@ public class UserResponse {
   }
 
   /**
-   * Get user
+   * Create, edit, and disable users.
    *
    * @return user
    */

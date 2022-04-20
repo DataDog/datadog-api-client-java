@@ -31,7 +31,8 @@ import java.util.Objects;
   AlertValueWidgetDefinition.JSON_PROPERTY_TYPE,
   AlertValueWidgetDefinition.JSON_PROPERTY_UNIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AlertValueWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
@@ -118,7 +119,7 @@ public class AlertValueWidgetDefinition {
   }
 
   /**
-   * Get textAlign
+   * How to align the text on the widget.
    *
    * @return textAlign
    */
@@ -164,7 +165,7 @@ public class AlertValueWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -210,7 +211,7 @@ public class AlertValueWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the alert value widget.
    *
    * @return type
    */

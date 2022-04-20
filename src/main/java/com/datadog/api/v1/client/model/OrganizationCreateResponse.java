@@ -23,7 +23,8 @@ import java.util.Objects;
   OrganizationCreateResponse.JSON_PROPERTY_ORG,
   OrganizationCreateResponse.JSON_PROPERTY_USER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationCreateResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
@@ -45,7 +46,7 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * Get apiKey
+   * Datadog API key.
    *
    * @return apiKey
    */
@@ -67,7 +68,7 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * Get applicationKey
+   * An application key with its associated metadata.
    *
    * @return applicationKey
    */
@@ -89,7 +90,7 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * Get org
+   * Create, edit, and manage organizations.
    *
    * @return org
    */
@@ -111,7 +112,7 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * Get user
+   * Create, edit, and disable users.
    *
    * @return user
    */

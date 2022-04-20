@@ -21,7 +21,8 @@ import java.util.Objects;
   SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_COUNT,
   SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOListResponseMetadataPage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";
@@ -83,9 +84,9 @@ public class SLOListResponseMetadataPage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOListResponseMetadataPage slOListResponseMetadataPage = (SLOListResponseMetadataPage) o;
-    return Objects.equals(this.totalCount, slOListResponseMetadataPage.totalCount)
-        && Objects.equals(this.totalFilteredCount, slOListResponseMetadataPage.totalFilteredCount);
+    SLOListResponseMetadataPage sloListResponseMetadataPage = (SLOListResponseMetadataPage) o;
+    return Objects.equals(this.totalCount, sloListResponseMetadataPage.totalCount)
+        && Objects.equals(this.totalFilteredCount, sloListResponseMetadataPage.totalFilteredCount);
   }
 
   @Override

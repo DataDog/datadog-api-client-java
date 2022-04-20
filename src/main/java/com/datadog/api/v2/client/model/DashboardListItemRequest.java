@@ -22,7 +22,8 @@ import java.util.Objects;
   DashboardListItemRequest.JSON_PROPERTY_ID,
   DashboardListItemRequest.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardListItemRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
@@ -69,7 +70,7 @@ public class DashboardListItemRequest {
   }
 
   /**
-   * Get type
+   * The type of the dashboard.
    *
    * @return type
    */

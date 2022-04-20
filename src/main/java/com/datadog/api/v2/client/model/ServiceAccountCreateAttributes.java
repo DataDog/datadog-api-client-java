@@ -24,7 +24,8 @@ import java.util.Objects;
   ServiceAccountCreateAttributes.JSON_PROPERTY_SERVICE_ACCOUNT,
   ServiceAccountCreateAttributes.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceAccountCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAIL = "email";

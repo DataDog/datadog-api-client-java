@@ -17,7 +17,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditApi {
   private ApiClient apiClient;
 
@@ -139,7 +140,7 @@ public class AuditApi {
   /**
    * Get a list of Audit Logs events
    *
-   * <p>See {@link #listAuditLogsWithHttpInfo}.
+   * <p>See {@link #listAuditLogsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;AuditLogsEventsResponse&gt;
    */
@@ -274,9 +275,6 @@ public class AuditApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listAuditLogs");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -335,7 +333,7 @@ public class AuditApi {
   /**
    * Search Audit Logs events
    *
-   * <p>See {@link #searchAuditLogsWithHttpInfo}.
+   * <p>See {@link #searchAuditLogsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;AuditLogsEventsResponse&gt;
    */
@@ -441,9 +439,6 @@ public class AuditApi {
     String localVarPath = "/api/v2/audit/events/search";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "searchAuditLogs");
 
     Invocation.Builder builder;
     try {

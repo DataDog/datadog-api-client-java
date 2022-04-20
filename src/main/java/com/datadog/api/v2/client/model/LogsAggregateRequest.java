@@ -26,7 +26,8 @@ import java.util.Objects;
   LogsAggregateRequest.JSON_PROPERTY_OPTIONS,
   LogsAggregateRequest.JSON_PROPERTY_PAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
@@ -84,7 +85,7 @@ public class LogsAggregateRequest {
   }
 
   /**
-   * Get filter
+   * The search and filter query settings
    *
    * @return filter
    */
@@ -139,7 +140,8 @@ public class LogsAggregateRequest {
   }
 
   /**
-   * Get options
+   * Global query options that are used during the query. Note: You should only supply timezone or
+   * time offset but not both otherwise the query will fail.
    *
    * @return options
    */
@@ -161,7 +163,7 @@ public class LogsAggregateRequest {
   }
 
   /**
-   * Get page
+   * Paging settings
    *
    * @return page
    */

@@ -25,7 +25,8 @@ import java.util.Objects;
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_USERNAME,
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_WORKSTATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBasicAuthNTLM {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DOMAIN = "domain";
@@ -101,7 +102,7 @@ public class SyntheticsBasicAuthNTLM {
   }
 
   /**
-   * Get type
+   * The type of authentication to use when performing the test.
    *
    * @return type
    */
@@ -169,12 +170,12 @@ public class SyntheticsBasicAuthNTLM {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsBasicAuthNTLM syntheticsBasicAuthNTLM = (SyntheticsBasicAuthNTLM) o;
-    return Objects.equals(this.domain, syntheticsBasicAuthNTLM.domain)
-        && Objects.equals(this.password, syntheticsBasicAuthNTLM.password)
-        && Objects.equals(this.type, syntheticsBasicAuthNTLM.type)
-        && Objects.equals(this.username, syntheticsBasicAuthNTLM.username)
-        && Objects.equals(this.workstation, syntheticsBasicAuthNTLM.workstation);
+    SyntheticsBasicAuthNTLM syntheticsBasicAuthNtlm = (SyntheticsBasicAuthNTLM) o;
+    return Objects.equals(this.domain, syntheticsBasicAuthNtlm.domain)
+        && Objects.equals(this.password, syntheticsBasicAuthNtlm.password)
+        && Objects.equals(this.type, syntheticsBasicAuthNtlm.type)
+        && Objects.equals(this.username, syntheticsBasicAuthNtlm.username)
+        && Objects.equals(this.workstation, syntheticsBasicAuthNtlm.workstation);
   }
 
   @Override

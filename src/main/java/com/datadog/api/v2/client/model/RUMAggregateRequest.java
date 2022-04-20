@@ -29,7 +29,8 @@ import java.util.Objects;
   RUMAggregateRequest.JSON_PROPERTY_OPTIONS,
   RUMAggregateRequest.JSON_PROPERTY_PAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMAggregateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
@@ -87,7 +88,7 @@ public class RUMAggregateRequest {
   }
 
   /**
-   * Get filter
+   * The search and filter query settings.
    *
    * @return filter
    */
@@ -142,7 +143,8 @@ public class RUMAggregateRequest {
   }
 
   /**
-   * Get options
+   * Global query options that are used during the query. Note: Only supply timezone or time offset,
+   * not both. Otherwise, the query fails.
    *
    * @return options
    */
@@ -164,7 +166,7 @@ public class RUMAggregateRequest {
   }
 
   /**
-   * Get page
+   * Paging attributes for listing events.
    *
    * @return page
    */
@@ -188,12 +190,12 @@ public class RUMAggregateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMAggregateRequest ruMAggregateRequest = (RUMAggregateRequest) o;
-    return Objects.equals(this.compute, ruMAggregateRequest.compute)
-        && Objects.equals(this.filter, ruMAggregateRequest.filter)
-        && Objects.equals(this.groupBy, ruMAggregateRequest.groupBy)
-        && Objects.equals(this.options, ruMAggregateRequest.options)
-        && Objects.equals(this.page, ruMAggregateRequest.page);
+    RUMAggregateRequest rumAggregateRequest = (RUMAggregateRequest) o;
+    return Objects.equals(this.compute, rumAggregateRequest.compute)
+        && Objects.equals(this.filter, rumAggregateRequest.filter)
+        && Objects.equals(this.groupBy, rumAggregateRequest.groupBy)
+        && Objects.equals(this.options, rumAggregateRequest.options)
+        && Objects.equals(this.page, rumAggregateRequest.page);
   }
 
   @Override

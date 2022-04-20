@@ -23,7 +23,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageTopAvgMetricsPagination.JSON_PROPERTY_NEXT_RECORD_ID,
   UsageTopAvgMetricsPagination.JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageTopAvgMetricsPagination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LIMIT = "limit";

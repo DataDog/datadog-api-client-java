@@ -29,7 +29,8 @@ import java.util.Objects;
   AzureAccount.JSON_PROPERTY_NEW_TENANT_NAME,
   AzureAccount.JSON_PROPERTY_TENANT_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AzureAccount {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTOMUTE = "automute";

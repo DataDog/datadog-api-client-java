@@ -23,7 +23,8 @@ import java.util.Objects;
   MetricBulkTagConfigCreate.JSON_PROPERTY_ID,
   MetricBulkTagConfigCreate.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricBulkTagConfigCreate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -53,7 +54,7 @@ public class MetricBulkTagConfigCreate {
   }
 
   /**
-   * Get attributes
+   * Optional parameters for bulk creating metric tag configurations.
    *
    * @return attributes
    */
@@ -95,7 +96,7 @@ public class MetricBulkTagConfigCreate {
   }
 
   /**
-   * Get type
+   * The metric bulk configure tags resource.
    *
    * @return type
    */

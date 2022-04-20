@@ -18,7 +18,8 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HttpBasicAuth implements Authentication {
   private String username;
   private String password;

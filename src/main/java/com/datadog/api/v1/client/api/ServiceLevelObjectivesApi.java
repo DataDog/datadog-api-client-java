@@ -23,7 +23,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceLevelObjectivesApi {
   private ApiClient apiClient;
 
@@ -171,9 +172,6 @@ public class ServiceLevelObjectivesApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ids", ids));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "checkCanDeleteSLO");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -305,9 +303,6 @@ public class ServiceLevelObjectivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createSLO");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -368,7 +363,7 @@ public class ServiceLevelObjectivesApi {
   /**
    * Delete an SLO
    *
-   * <p>See {@link #deleteSLOWithHttpInfo}.
+   * <p>See {@link #deleteSLOWithHttpInfoAsync}.
    *
    * @param sloId The ID of the service level objective. (required)
    * @return CompletableFuture&lt;SLODeleteResponse&gt;
@@ -505,9 +500,6 @@ public class ServiceLevelObjectivesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "force", force));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSLO");
 
     Invocation.Builder builder;
     try {
@@ -646,9 +638,6 @@ public class ServiceLevelObjectivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSLOTimeframeInBulk");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -708,7 +697,7 @@ public class ServiceLevelObjectivesApi {
   /**
    * Get an SLO&#39;s details
    *
-   * <p>See {@link #getSLOWithHttpInfo}.
+   * <p>See {@link #getSLOWithHttpInfoAsync}.
    *
    * @param sloId The ID of the service level objective object. (required)
    * @return CompletableFuture&lt;SLOResponse&gt;
@@ -843,9 +832,6 @@ public class ServiceLevelObjectivesApi {
 
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "with_configured_alert_ids", withConfiguredAlertIds));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSLO");
 
     Invocation.Builder builder;
     try {
@@ -985,9 +971,6 @@ public class ServiceLevelObjectivesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSLOCorrections");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1066,7 +1049,7 @@ public class ServiceLevelObjectivesApi {
   /**
    * Get an SLO&#39;s history
    *
-   * <p>See {@link #getSLOHistoryWithHttpInfo}.
+   * <p>See {@link #getSLOHistoryWithHttpInfoAsync}.
    *
    * @param sloId The ID of the service level objective object. (required)
    * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds. (required)
@@ -1260,9 +1243,6 @@ public class ServiceLevelObjectivesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "target", target));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "apply_correction", applyCorrection));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getSLOHistory");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1384,7 +1364,7 @@ public class ServiceLevelObjectivesApi {
   /**
    * Get all SLOs
    *
-   * <p>See {@link #listSLOsWithHttpInfo}.
+   * <p>See {@link #listSLOsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;SLOListResponse&gt;
    */
@@ -1515,9 +1495,6 @@ public class ServiceLevelObjectivesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "metrics_query", metricsQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listSLOs");
 
     Invocation.Builder builder;
     try {
@@ -1672,9 +1649,6 @@ public class ServiceLevelObjectivesApi {
             .replaceAll("\\{" + "slo_id" + "\\}", apiClient.escapeString(sloId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateSLO");
 
     Invocation.Builder builder;
     try {

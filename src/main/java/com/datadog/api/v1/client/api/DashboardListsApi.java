@@ -15,7 +15,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardListsApi {
   private ApiClient apiClient;
 
@@ -150,9 +151,6 @@ public class DashboardListsApi {
     String localVarPath = "/api/v1/dashboard/lists/manual";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createDashboardList");
 
     Invocation.Builder builder;
     try {
@@ -292,9 +290,6 @@ public class DashboardListsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteDashboardList");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -432,9 +427,6 @@ public class DashboardListsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getDashboardList");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -547,9 +539,6 @@ public class DashboardListsApi {
     String localVarPath = "/api/v1/dashboard/lists/manual";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listDashboardLists");
 
     Invocation.Builder builder;
     try {
@@ -708,9 +697,6 @@ public class DashboardListsApi {
             .replaceAll("\\{" + "list_id" + "\\}", apiClient.escapeString(listId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateDashboardList");
 
     Invocation.Builder builder;
     try {

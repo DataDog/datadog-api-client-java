@@ -24,7 +24,8 @@ import java.util.Objects;
   LogsListResponse.JSON_PROPERTY_NEXT_LOG_ID,
   LogsListResponse.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LOGS = "logs";

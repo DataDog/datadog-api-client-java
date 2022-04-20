@@ -24,7 +24,8 @@ import java.util.Objects;
   LogsListRequestTime.JSON_PROPERTY_TIMEZONE,
   LogsListRequestTime.JSON_PROPERTY_TO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListRequestTime {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";
@@ -72,8 +73,8 @@ public class LogsListRequestTime {
   }
 
   /**
-   * Timezone can be specified both as an offset (for example \&quot;UTC+03:00\&quot;) or a regional
-   * zone (for example \&quot;Europe/Paris\&quot;).
+   * Timezone can be specified both as an offset (for example &quot;UTC+03:00&quot;) or a regional
+   * zone (for example &quot;Europe/Paris&quot;).
    *
    * @return timezone
    */

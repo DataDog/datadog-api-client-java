@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** AuthN Mapping relationship to SAML Assertion Attribute. */
 @JsonPropertyOrder({RelationshipToSAMLAssertionAttribute.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToSAMLAssertionAttribute {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -42,7 +43,7 @@ public class RelationshipToSAMLAssertionAttribute {
   }
 
   /**
-   * Get data
+   * Data of AuthN Mapping relationship to SAML Assertion Attribute.
    *
    * @return data
    */
@@ -65,9 +66,9 @@ public class RelationshipToSAMLAssertionAttribute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToSAMLAssertionAttribute relationshipToSAMLAssertionAttribute =
+    RelationshipToSAMLAssertionAttribute relationshipToSamlAssertionAttribute =
         (RelationshipToSAMLAssertionAttribute) o;
-    return Objects.equals(this.data, relationshipToSAMLAssertionAttribute.data);
+    return Objects.equals(this.data, relationshipToSamlAssertionAttribute.data);
   }
 
   @Override

@@ -28,7 +28,8 @@ import java.util.Objects;
   RUMEventAttributes.JSON_PROPERTY_TAGS,
   RUMEventAttributes.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMEventAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -63,7 +64,7 @@ public class RUMEventAttributes {
    */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Object> getAttributes() {
     return attributes;
   }
@@ -153,11 +154,11 @@ public class RUMEventAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMEventAttributes ruMEventAttributes = (RUMEventAttributes) o;
-    return Objects.equals(this.attributes, ruMEventAttributes.attributes)
-        && Objects.equals(this.service, ruMEventAttributes.service)
-        && Objects.equals(this.tags, ruMEventAttributes.tags)
-        && Objects.equals(this.timestamp, ruMEventAttributes.timestamp);
+    RUMEventAttributes rumEventAttributes = (RUMEventAttributes) o;
+    return Objects.equals(this.attributes, rumEventAttributes.attributes)
+        && Objects.equals(this.service, rumEventAttributes.service)
+        && Objects.equals(this.tags, rumEventAttributes.tags)
+        && Objects.equals(this.timestamp, rumEventAttributes.timestamp);
   }
 
   @Override

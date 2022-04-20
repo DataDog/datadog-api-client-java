@@ -23,7 +23,8 @@ import java.util.Objects;
   UsageAttributionResponse.JSON_PROPERTY_METADATA,
   UsageAttributionResponse.JSON_PROPERTY_USAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributionResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_METADATA = "metadata";
@@ -39,7 +40,7 @@ public class UsageAttributionResponse {
   }
 
   /**
-   * Get metadata
+   * The object containing document metadata.
    *
    * @return metadata
    */

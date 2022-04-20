@@ -23,7 +23,8 @@ import java.util.Objects;
   SlackIntegrationChannelDisplay.JSON_PROPERTY_SNAPSHOT,
   SlackIntegrationChannelDisplay.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SlackIntegrationChannelDisplay {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MESSAGE = "message";

@@ -24,7 +24,8 @@ import java.util.Objects;
   IncidentResponseData.JSON_PROPERTY_RELATIONSHIPS,
   IncidentResponseData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -57,7 +58,7 @@ public class IncidentResponseData {
   }
 
   /**
-   * Get attributes
+   * The incident&#39;s attributes from a response.
    *
    * @return attributes
    */
@@ -99,7 +100,7 @@ public class IncidentResponseData {
   }
 
   /**
-   * Get relationships
+   * The incident&#39;s relationships from a response.
    *
    * @return relationships
    */
@@ -121,7 +122,7 @@ public class IncidentResponseData {
   }
 
   /**
-   * Get type
+   * Incident resource type.
    *
    * @return type
    */

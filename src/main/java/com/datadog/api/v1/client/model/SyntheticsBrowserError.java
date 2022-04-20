@@ -24,7 +24,8 @@ import java.util.Objects;
   SyntheticsBrowserError.JSON_PROPERTY_STATUS,
   SyntheticsBrowserError.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserError {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -120,7 +121,7 @@ public class SyntheticsBrowserError {
   }
 
   /**
-   * Get type
+   * Error type returned by a browser test.
    *
    * @return type
    */

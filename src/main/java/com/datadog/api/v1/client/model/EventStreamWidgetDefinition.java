@@ -31,7 +31,8 @@ import java.util.Objects;
   EventStreamWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   EventStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventStreamWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";
@@ -77,7 +78,7 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * Get eventSize
+   * Size to use to display an event.
    *
    * @return eventSize
    */
@@ -143,7 +144,7 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -186,7 +187,7 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -232,7 +233,7 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the event stream widget.
    *
    * @return type
    */

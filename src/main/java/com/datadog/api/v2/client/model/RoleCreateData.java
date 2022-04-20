@@ -23,7 +23,8 @@ import java.util.Objects;
   RoleCreateData.JSON_PROPERTY_RELATIONSHIPS,
   RoleCreateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleCreateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -52,7 +53,7 @@ public class RoleCreateData {
   }
 
   /**
-   * Get attributes
+   * Attributes of the created role.
    *
    * @return attributes
    */
@@ -73,7 +74,7 @@ public class RoleCreateData {
   }
 
   /**
-   * Get relationships
+   * Relationships of the role object.
    *
    * @return relationships
    */
@@ -95,7 +96,7 @@ public class RoleCreateData {
   }
 
   /**
-   * Get type
+   * Roles type.
    *
    * @return type
    */

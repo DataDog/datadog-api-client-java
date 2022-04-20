@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Object describing the browser test configuration. */
 @JsonPropertyOrder({SyntheticsBrowserTestResultFullCheck.JSON_PROPERTY_CONFIG})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestResultFullCheck {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
@@ -41,7 +42,7 @@ public class SyntheticsBrowserTestResultFullCheck {
   }
 
   /**
-   * Get config
+   * Configuration object for a Synthetic test.
    *
    * @return config
    */

@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Widget column. */
 @JsonPropertyOrder({ListStreamColumn.JSON_PROPERTY_FIELD, ListStreamColumn.JSON_PROPERTY_WIDTH})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamColumn {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELD = "field";
@@ -66,7 +67,7 @@ public class ListStreamColumn {
   }
 
   /**
-   * Get width
+   * Widget column width.
    *
    * @return width
    */

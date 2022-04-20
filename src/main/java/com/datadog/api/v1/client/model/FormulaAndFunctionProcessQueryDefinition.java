@@ -31,7 +31,8 @@ import java.util.Objects;
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TAG_FILTERS,
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TEXT_FILTER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionProcessQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
@@ -83,7 +84,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   /**
-   * Get aggregator
+   * The aggregation methods available for metrics queries.
    *
    * @return aggregator
    */
@@ -109,7 +110,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   /**
-   * Get dataSource
+   * Data sources that rely on the process backend.
    *
    * @return dataSource
    */
@@ -215,7 +216,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   /**
-   * Get sort
+   * Direction of sort.
    *
    * @return sort
    */

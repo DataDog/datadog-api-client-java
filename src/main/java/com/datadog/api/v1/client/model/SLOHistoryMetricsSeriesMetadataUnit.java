@@ -26,7 +26,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOHistoryMetricsSeriesMetadataUnit.JSON_PROPERTY_SCALE_FACTOR,
   SLOHistoryMetricsSeriesMetadataUnit.JSON_PROPERTY_SHORT_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMetricsSeriesMetadataUnit {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FAMILY = "family";
@@ -203,14 +204,14 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryMetricsSeriesMetadataUnit slOHistoryMetricsSeriesMetadataUnit =
+    SLOHistoryMetricsSeriesMetadataUnit sloHistoryMetricsSeriesMetadataUnit =
         (SLOHistoryMetricsSeriesMetadataUnit) o;
-    return Objects.equals(this.family, slOHistoryMetricsSeriesMetadataUnit.family)
-        && Objects.equals(this.id, slOHistoryMetricsSeriesMetadataUnit.id)
-        && Objects.equals(this.name, slOHistoryMetricsSeriesMetadataUnit.name)
-        && Objects.equals(this.plural, slOHistoryMetricsSeriesMetadataUnit.plural)
-        && Objects.equals(this.scaleFactor, slOHistoryMetricsSeriesMetadataUnit.scaleFactor)
-        && Objects.equals(this.shortName, slOHistoryMetricsSeriesMetadataUnit.shortName);
+    return Objects.equals(this.family, sloHistoryMetricsSeriesMetadataUnit.family)
+        && Objects.equals(this.id, sloHistoryMetricsSeriesMetadataUnit.id)
+        && Objects.equals(this.name, sloHistoryMetricsSeriesMetadataUnit.name)
+        && Objects.equals(this.plural, sloHistoryMetricsSeriesMetadataUnit.plural)
+        && Objects.equals(this.scaleFactor, sloHistoryMetricsSeriesMetadataUnit.scaleFactor)
+        && Objects.equals(this.shortName, sloHistoryMetricsSeriesMetadataUnit.shortName);
   }
 
   @Override

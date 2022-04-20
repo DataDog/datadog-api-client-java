@@ -1,0 +1,318 @@
+{#-{% include "ApiInfo.j2" %}#}
+package {{ package_name }}.api;
+
+import {{ package_name }}.ApiException;
+import {{ package_name  }}.ApiClient;
+import {{ package_name  }}.ApiResponse;
+import {{ package_name  }}.Configuration;
+import {{ package_name  }}.Pair;
+
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+
+{%- for model in get_api_models(operations) %}
+import {{ package_name }}.model.{{ model }};
+{%- endfor %}
+
+{{ generated_annotation }}
+public class {{ name }} {
+  private ApiClient apiClient;
+  public {{ name }}() {
+    this(Configuration.getDefaultApiClient());
+  }
+
+  public {{ name }}(ApiClient apiClient) {
+    this.apiClient = apiClient;
+  }
+
+  /**
+   * Get the API client
+   *
+   * @return API client
+   */
+  public ApiClient getApiClient() {
+    return apiClient;
+  }
+
+  /**
+   * Set the API client
+   *
+   * @param apiClient an instance of API client
+   */
+  public void setApiClient(ApiClient apiClient) {
+    this.apiClient = apiClient;
+  }
+
+  {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
+  {%- set allParams = operation|parameters | list %}
+  {%- set optionalParams = allParams|rejectattr('1.required', 'equalto', true) | list %}
+  {%- set requiredParams = allParams|selectattr('1.required', 'equalto', true) | list %}
+  {%- set pathParams = allParams|selectattr('1.in', 'equalto', "path") | list %}
+  {%- set queryParams = allParams|selectattr('1.in', 'equalto', "query") | list %}
+  {%- set formParams = allParams|selectattr('1.in', 'equalto', "form") | list %}
+  {%- set headerParams = allParams|selectattr('1.in', 'equalto', "header") | list %}
+  {%- set authMethods = operation.security if "security" in operation else openapi.security %}
+  {%- set returnType = operation|return_type %}
+  {%- set operationId = operation.operationId|untitle_case %}
+  {%- set bodyParamName = operation.get("x-codegen-request-body-name", "body") %}
+
+{%- macro endpointDocAndAnnotation(async=False, showRequired=True, showOptional=False, optionalParameterArg=False, throwsApiException=True) -%}
+/**
+ * {{ operation.summary|escape_html }}
+ *
+ * See {@link #{{ operationId }}WithHttpInfo{{ "Async" if async }}}.
+ *
+ {%- for name, parameter in allParams %}
+ {%- if parameter.required and showRequired %}
+ * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{%- endif %})
+ {%- elif not parameter.required and showOptional %}
+ * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (optional{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{%- endif %})
+ {%- endif %}
+ {%- endfor %}
+ {%- if optionalParameterArg %}
+ * @param parameters Optional parameters for the request.
+ {%- endif %}
+ {%- if returnType %}
+ * @return {% if async %}CompletableFuture&lt;{{ returnType|escape_html }}&gt;{% else%}{{ returnType|escape_html }}{%endif %}
+ {%- endif %}
+ {%- if throwsApiException %}
+ * @throws ApiException if fails to make API call
+ {%- endif %}
+ {%- if operation.deprecated %}
+ * @deprecated
+ {%- endif %}
+ */
+{%- if operation.deprecated %}
+@Deprecated
+{%- endif %}
+{%- endmacro %}
+
+  {%- if optionalParams %}
+
+  /**
+   * Manage optional parameters to {{ operationId }}.
+   */
+  public static class {{ operationId|upperfirst }}OptionalParameters {
+    {%- for name, parameter in optionalParams %}
+    private {{ get_type_for_parameter(parameter) }} {{ name|variable_name }};
+    {%- endfor %}
+
+    {%- for name, parameter in optionalParams %}
+    {%- set paramName = name|variable_name %}
+
+    /**
+     * Set {{ paramName }}
+     * @param {{ paramName }} {{ parameter.description|escape_html }} (optional{% if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{% endif %})
+     * @return {{ operationId|upperfirst }}OptionalParameters
+     */
+    public {{ operationId|upperfirst }}OptionalParameters {{ paramName }}({{ get_type_for_parameter(parameter) }} {{ paramName }}) {
+      this.{{ paramName }} = {{ paramName }};
+      return this;
+    }
+    {%- endfor %}
+  }
+  {%- endif %}
+
+  {{ endpointDocAndAnnotation() }}
+  {%- if optionalParams %}
+  public {% if returnType %}{{ returnType }}{% else %}void{% endif %} {{ operationId }} ({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
+    {% if returnType %}return{% endif %} {{ operationId }}WithHttpInfo({% for name, parameter in requiredParams %} {{ name|variable_name }}, {% endfor %}new {{ operationId|upperfirst }}OptionalParameters()){% if returnType %}.getData(){% endif %};
+  }
+
+  {{ endpointDocAndAnnotation(async=True, throwsApiException=False) }}
+  public CompletableFuture<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>{{ operationId }}Async({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) {
+    return {{ operationId }}WithHttpInfoAsync({% for name, parameter in requiredParams %}{{ name|variable_name }}, {% endfor %}new {{ operationId|upperfirst }}OptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
+  }
+
+  {{ endpointDocAndAnnotation(optionalParameterArg=True) }}
+  public {% if returnType %}{{ returnType }}{% else %} void{% endif %} {{ operationId }}({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) throws ApiException {
+    {% if returnType %}return{% endif %} {{ operationId }}WithHttpInfo({% for name, parameter in requiredParams %}{{ name|variable_name }}, {% endfor %}parameters){% if returnType %}.getData(){% endif %};
+  }
+
+  {{ endpointDocAndAnnotation(async=True, optionalParameterArg=True, throwsApiException=False) }}
+  public CompletableFuture<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>{{ operationId }}Async({% for name, parameter in requiredParams %} {{ get_type_for_parameter(parameter) }} {{ name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) {
+    return {{ operationId }}WithHttpInfoAsync({% for name, parameter in requiredParams %}{{ name|variable_name }}, {% endfor %}parameters).thenApply(response -> {
+        return response.getData();
+    });
+  }
+  {%- else %}
+  public {% if returnType %}{{ returnType }} {% else %} void {% endif %} {{ operationId }}({% for name, parameter in allParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
+    {% if returnType %}return {% endif %}{{ operationId }}WithHttpInfo({% for name, parameter in allParams %}{{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}){% if returnType %}.getData(){% endif %};
+  }
+
+  {{ endpointDocAndAnnotation(async=True, throwsApiException=False) }}
+  public CompletableFuture<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>{{ operationId }}Async({% for name, parameter in allParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{%- if loop.nextitem %}, {% endif %}{% endfor %}) {
+    return {{ operationId }}WithHttpInfoAsync({% for name, parameter in allParams %}{{ name|variable_name }}{%- if loop.nextitem %}, {% endif %}{% endfor %}).thenApply(response -> {
+        return response.getData();
+    });
+  }
+  {%- endif %}
+
+  /**
+   * {{ operation.summary|escape_html }}
+   *
+   * {{ operation.description|escape_html }}
+   *
+   {%- for name, parameter in requiredParams %}
+   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
+   {%- endfor %}
+   {%- if optionalParams %}
+   * @param parameters Optional parameters for the request.
+   {%- endif %}
+   * @return ApiResponse&lt;{% if returnType %}{{ returnType|escape_html }}{% else %}Void{% endif %}&gt;
+   * @throws ApiException if fails to make API call
+   {%- if operation.responses %}
+   * @http.response.details
+   * <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       {%- for responseCode, response in operation.responses.items() %}
+   *       <tr><td> {{ responseCode }} </td><td> {{ response.description|escape_html }} </td><td>  -  </td></tr>
+       {%- endfor %}
+   *     </table>
+   {%- endif %}
+   {%- if operation.deprecated %}
+   * @deprecated
+   {%- endif %}
+   */
+  {%- if operation.deprecated %}
+  @Deprecated
+  {%- endif %}
+  {%- if optionalParams %}
+  public ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}> {{ operationId }}WithHttpInfo({%- for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) throws ApiException {
+  {%- else %}
+  public ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}> {{ operationId }}WithHttpInfo({% for name, parameter in allParams %}{{ get_type_for_parameter(parameter) }} {{name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
+  {%- endif %}
+    Object localVarPostBody = {% if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}{% if operation.requestBody.required %}{{ bodyParamName }}{% else %}parameters.body{% endif %}{% else %}null{% endif %};
+    {%- for name, parameter in allParams %}
+    {%- if parameter.required %}
+
+    // verify the required parameter '{{ name|variable_name }}' is set
+    if ({{ name|variable_name }} == null) {
+      throw new ApiException(400, "Missing the required parameter '{{ name|variable_name }}' when calling {{ operationId }}");
+    }
+    {%- else %}
+    {%- if name != bodyParamName %}
+    {{ get_type_for_parameter(parameter) }} {{ name|variable_name }} = parameters.{{ name|variable_name }};
+    {%- endif %}
+    {%- endif %}
+    {%- endfor %}
+    // create path and map variables
+    String localVarPath = "{{ path }}"
+      {%- for name, parameter in pathParams %}
+      .replaceAll("\\{" + "{{ name }}" + "\\}", apiClient.escapeString({{ name|variable_name }}.toString()))
+      {%- endfor %};
+
+    {% if queryParams %}
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    {%- endif %}
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    {%- if formParams %}
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    {%- endif %}
+{# keep line #}
+    {%- for name, parameter in queryParams %}
+    localVarQueryParams.addAll(apiClient.parameterToPairs("{{ parameter|collection_format }}", "{{ name }}", {{ name|variable_name }}));
+    {%- endfor %}
+
+    {%- for name, parameter in headerParams %}
+      if ({{ name|variable_name }} != null) localVarHeaderParams.put("{{ name }}", apiClient.parameterToString({{ name|variable_name }}));
+    {%- endfor %}
+
+    {%- for name, parameter in formParams %}
+      if ({{ name|variable_name }} != null) localVarFormParams.put("{{ name }}", {{ name|variable_name }});
+    {%- endfor %}
+
+    Invocation.Builder builder = apiClient.createBuilder("{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- for mediaType in operation|accept_headers %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %} }, new String[] { {% for authMethod in authMethods|reverse %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %} });
+    return apiClient.invokeAPI("{{ method.upper() }}", builder, localVarHeaderParams,  new String[] { {%- if operation.requestBody is defined %} {%- for mediaType in operation.requestBody.content.keys() %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{%- endfor %}{%- endif %} }, localVarPostBody,{% if formParams %}localVarFormParams{% else %}new HashMap<String, Object>(){% endif %} , {% if operation.requestBody %}{% if operation.requestBody.nullable %}true{% else %}false{% endif %}{% else %}false{% endif %}, {% if returnType %}new GenericType<{{ returnType }}>() {}{% else %}null{% endif %});
+  }
+
+  /**
+   * {{ operation.summary|escape_html }}
+   *
+   * See {@link #{{ operationId }}WithHttpInfo}.
+   *
+   {%- for name, parameter in requiredParams %}
+   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
+   {%- endfor %}
+   {%- if optionalParams %}
+   * @param parameters Optional parameters for the request.
+   {%- endif %}
+   * @return CompletableFuture&lt;ApiResponse&lt;{% if returnType %}{{ returnType|escape_html }}{% else %}Void{% endif %}&gt;&gt;
+   {%- if operation.deprecated %}
+   * @deprecated
+   {%- endif %}
+   */
+  {%- if operation.deprecated %}
+  @Deprecated
+  {%- endif %}
+  {%- if optionalParams %}
+  public CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> {{ operationId }}WithHttpInfoAsync({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) {
+  {%- else %}
+  public CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> {{ operationId }}WithHttpInfoAsync({% for name, parameter in allParams %}{{ get_type_for_parameter(parameter) }} {{name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) {
+  {%- endif %}
+    Object localVarPostBody = {% if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}{% if operation.requestBody.required %}{{ bodyParamName }}{% else %}parameters.body{% endif %}{% else %}null{% endif %};
+
+    {%- for name, parameter in allParams %}
+    {%- if parameter.required %}
+
+    // verify the required parameter '{{ name|variable_name }}' is set
+    if ({{ name|variable_name }} == null) {
+        CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter '{{ name|variable_name }}' when calling {{ operationId }}"));
+        return result;
+    }
+    {%- else %}
+    {%- if name != bodyParamName %}
+    {{ get_type_for_parameter(parameter) }} {{ name|variable_name }} = parameters.{{ name|variable_name }};
+    {%- endif %}
+    {%- endif %}
+    {%- endfor %}
+    // create path and map variables
+    String localVarPath = "{{ path }}"
+      {%- for name, parameter in pathParams %}
+      .replaceAll("\\{" + "{{ name }}" + "\\}", apiClient.escapeString({{ name|variable_name }}.toString()))
+      {%- endfor %};
+
+    {% if queryParams %}
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    {%- endif %}
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    {%- if formParams %}
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    {%- endif %}
+{# keep line #}
+    {%- for name, parameter in queryParams %}
+    localVarQueryParams.addAll(apiClient.parameterToPairs("{{ parameter|collection_format }}", "{{ name }}", {{ name|variable_name }}));
+    {%- endfor %}
+
+    {%- for name, parameter in headerParams %}
+      if ({{ name|variable_name }} != null) localVarHeaderParams.put("{{ name }}", apiClient.parameterToString({{ name|variable_name }}));
+    {%- endfor %}
+
+    {%- for name, parameter in formParams %}
+      if ({{ name|variable_name }} != null) localVarFormParams.put("{{ name }}", {{ name|variable_name }});
+    {% endfor %}
+
+    Invocation.Builder builder;
+    try {
+      builder = apiClient.createBuilder("{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- for mediaType in operation|accept_headers %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %} }, new String[] { {% for authMethod in authMethods|reverse %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %} });
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync("{{ method.upper() }}", builder, localVarHeaderParams,  new String[] { {%- if operation.requestBody is defined %} {%- for mediaType in operation.requestBody.content.keys() %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{%- endfor %}{%- endif %} }, localVarPostBody,{% if formParams %}localVarFormParams{% else %}new HashMap<String, Object>(){% endif %} , {% if operation.requestBody %}{% if operation.requestBody.nullable %}true{% else %}false{% endif %}{% else %}false{% endif %}, {% if returnType %}new GenericType<{{ returnType }}>() {}{% else %}null{% endif %});
+  }
+  {%- endfor %}
+}

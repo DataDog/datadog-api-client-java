@@ -10,7 +10,8 @@
 
 package com.datadog.api.v2.client;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Pair {
   private String name = "";
   private String value = "";

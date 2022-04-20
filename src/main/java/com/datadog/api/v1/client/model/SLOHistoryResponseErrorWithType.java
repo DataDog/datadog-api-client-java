@@ -22,7 +22,8 @@ import java.util.Objects;
   SLOHistoryResponseErrorWithType.JSON_PROPERTY_ERROR_MESSAGE,
   SLOHistoryResponseErrorWithType.JSON_PROPERTY_ERROR_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryResponseErrorWithType {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERROR_MESSAGE = "error_message";
@@ -90,10 +91,10 @@ public class SLOHistoryResponseErrorWithType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryResponseErrorWithType slOHistoryResponseErrorWithType =
+    SLOHistoryResponseErrorWithType sloHistoryResponseErrorWithType =
         (SLOHistoryResponseErrorWithType) o;
-    return Objects.equals(this.errorMessage, slOHistoryResponseErrorWithType.errorMessage)
-        && Objects.equals(this.errorType, slOHistoryResponseErrorWithType.errorType);
+    return Objects.equals(this.errorMessage, sloHistoryResponseErrorWithType.errorMessage)
+        && Objects.equals(this.errorType, sloHistoryResponseErrorWithType.errorType);
   }
 
   @Override

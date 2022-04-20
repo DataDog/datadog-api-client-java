@@ -22,7 +22,8 @@ import java.util.Objects;
   LogsArchiveOrderDefinition.JSON_PROPERTY_ATTRIBUTES,
   LogsArchiveOrderDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveOrderDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -52,7 +53,7 @@ public class LogsArchiveOrderDefinition {
   }
 
   /**
-   * Get attributes
+   * The attributes associated with the archive order.
    *
    * @return attributes
    */
@@ -73,7 +74,7 @@ public class LogsArchiveOrderDefinition {
   }
 
   /**
-   * Get type
+   * Type of the archive order definition.
    *
    * @return type
    */

@@ -22,7 +22,8 @@ import java.util.Objects;
   ApplicationKey.JSON_PROPERTY_NAME,
   ApplicationKey.JSON_PROPERTY_OWNER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HASH = "hash";

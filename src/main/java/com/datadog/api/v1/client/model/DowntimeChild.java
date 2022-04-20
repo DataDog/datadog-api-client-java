@@ -41,7 +41,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DowntimeChild.JSON_PROPERTY_TIMEZONE,
   DowntimeChild.JSON_PROPERTY_UPDATER_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DowntimeChild {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTIVE = "active";
@@ -346,7 +347,7 @@ public class DowntimeChild {
   }
 
   /**
-   * Get recurrence
+   * An object defining the recurrence of the downtime.
    *
    * @return recurrence
    */

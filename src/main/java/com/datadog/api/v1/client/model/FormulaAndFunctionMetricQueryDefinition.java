@@ -24,7 +24,8 @@ import java.util.Objects;
   FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_NAME,
   FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_QUERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionMetricQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
@@ -61,7 +62,7 @@ public class FormulaAndFunctionMetricQueryDefinition {
   }
 
   /**
-   * Get aggregator
+   * The aggregation methods available for metrics queries.
    *
    * @return aggregator
    */
@@ -87,7 +88,7 @@ public class FormulaAndFunctionMetricQueryDefinition {
   }
 
   /**
-   * Get dataSource
+   * Data source for metrics queries.
    *
    * @return dataSource
    */

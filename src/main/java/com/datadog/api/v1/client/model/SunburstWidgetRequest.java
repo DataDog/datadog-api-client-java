@@ -34,7 +34,8 @@ import java.util.Objects;
   SunburstWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   SunburstWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SunburstWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
@@ -83,7 +84,7 @@ public class SunburstWidgetRequest {
   }
 
   /**
-   * Get apmQuery
+   * The log query.
    *
    * @return apmQuery
    */
@@ -105,7 +106,7 @@ public class SunburstWidgetRequest {
   }
 
   /**
-   * Get auditQuery
+   * The log query.
    *
    * @return auditQuery
    */
@@ -127,7 +128,7 @@ public class SunburstWidgetRequest {
   }
 
   /**
-   * Get eventQuery
+   * The log query.
    *
    * @return eventQuery
    */
@@ -182,7 +183,7 @@ public class SunburstWidgetRequest {
   }
 
   /**
-   * Get logQuery
+   * The log query.
    *
    * @return logQuery
    */
@@ -204,7 +205,7 @@ public class SunburstWidgetRequest {
   }
 
   /**
-   * Get networkQuery
+   * The log query.
    *
    * @return networkQuery
    */
@@ -226,7 +227,7 @@ public class SunburstWidgetRequest {
   }
 
   /**
-   * Get processQuery
+   * The process query to use in the widget.
    *
    * @return processQuery
    */
@@ -248,7 +249,7 @@ public class SunburstWidgetRequest {
   }
 
   /**
-   * Get profileMetricsQuery
+   * The log query.
    *
    * @return profileMetricsQuery
    */
@@ -324,7 +325,7 @@ public class SunburstWidgetRequest {
   }
 
   /**
-   * Get responseFormat
+   * Timeseries or Scalar response.
    *
    * @return responseFormat
    */
@@ -349,7 +350,7 @@ public class SunburstWidgetRequest {
   }
 
   /**
-   * Get rumQuery
+   * The log query.
    *
    * @return rumQuery
    */
@@ -371,7 +372,7 @@ public class SunburstWidgetRequest {
   }
 
   /**
-   * Get securityQuery
+   * The log query.
    *
    * @return securityQuery
    */

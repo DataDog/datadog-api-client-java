@@ -23,7 +23,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Creator.JSON_PROPERTY_HANDLE,
   Creator.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Creator {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAIL = "email";

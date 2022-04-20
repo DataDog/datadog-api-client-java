@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Wrapper object with the different monitor states. */
 @JsonPropertyOrder({MonitorState.JSON_PROPERTY_GROUPS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorState {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GROUPS = "groups";

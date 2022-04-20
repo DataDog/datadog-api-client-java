@@ -22,7 +22,8 @@ import java.util.Objects;
  * Response containing the number of indexed logs for each hour and index for a given organization.
  */
 @JsonPropertyOrder({UsageLogsByIndexResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageLogsByIndexResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";

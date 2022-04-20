@@ -12,7 +12,8 @@ package com.datadog.api.v2.client;
 
 import java.util.HashMap;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Configuration {
   private static ApiClient defaultApiClient;
 

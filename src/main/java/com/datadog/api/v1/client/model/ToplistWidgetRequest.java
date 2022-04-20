@@ -36,7 +36,8 @@ import java.util.Objects;
   ToplistWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_STYLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ToplistWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
@@ -91,7 +92,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get apmQuery
+   * The log query.
    *
    * @return apmQuery
    */
@@ -113,7 +114,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get auditQuery
+   * The log query.
    *
    * @return auditQuery
    */
@@ -169,7 +170,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get eventQuery
+   * The log query.
    *
    * @return eventQuery
    */
@@ -224,7 +225,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get logQuery
+   * The log query.
    *
    * @return logQuery
    */
@@ -246,7 +247,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get networkQuery
+   * The log query.
    *
    * @return networkQuery
    */
@@ -268,7 +269,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get processQuery
+   * The process query to use in the widget.
    *
    * @return processQuery
    */
@@ -290,7 +291,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get profileMetricsQuery
+   * The log query.
    *
    * @return profileMetricsQuery
    */
@@ -366,7 +367,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get responseFormat
+   * Timeseries or Scalar response.
    *
    * @return responseFormat
    */
@@ -391,7 +392,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get rumQuery
+   * The log query.
    *
    * @return rumQuery
    */
@@ -413,7 +414,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get securityQuery
+   * The log query.
    *
    * @return securityQuery
    */
@@ -435,7 +436,7 @@ public class ToplistWidgetRequest {
   }
 
   /**
-   * Get style
+   * Define request widget style.
    *
    * @return style
    */

@@ -24,7 +24,8 @@ import java.util.Objects;
   SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_TARGET,
   SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAssertionJSONPathTarget {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_OPERATOR = "operator";
@@ -59,7 +60,7 @@ public class SyntheticsAssertionJSONPathTarget {
   }
 
   /**
-   * Get operator
+   * Assertion operator to apply.
    *
    * @return operator
    */
@@ -104,7 +105,7 @@ public class SyntheticsAssertionJSONPathTarget {
   }
 
   /**
-   * Get target
+   * Composed target for &#x60;validatesJSONPath&#x60; operator.
    *
    * @return target
    */
@@ -126,7 +127,7 @@ public class SyntheticsAssertionJSONPathTarget {
   }
 
   /**
-   * Get type
+   * Type of the assertion.
    *
    * @return type
    */
@@ -152,12 +153,12 @@ public class SyntheticsAssertionJSONPathTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAssertionJSONPathTarget syntheticsAssertionJSONPathTarget =
+    SyntheticsAssertionJSONPathTarget syntheticsAssertionJsonPathTarget =
         (SyntheticsAssertionJSONPathTarget) o;
-    return Objects.equals(this.operator, syntheticsAssertionJSONPathTarget.operator)
-        && Objects.equals(this.property, syntheticsAssertionJSONPathTarget.property)
-        && Objects.equals(this.target, syntheticsAssertionJSONPathTarget.target)
-        && Objects.equals(this.type, syntheticsAssertionJSONPathTarget.type);
+    return Objects.equals(this.operator, syntheticsAssertionJsonPathTarget.operator)
+        && Objects.equals(this.property, syntheticsAssertionJsonPathTarget.property)
+        && Objects.equals(this.target, syntheticsAssertionJsonPathTarget.target)
+        && Objects.equals(this.type, syntheticsAssertionJsonPathTarget.type);
   }
 
   @Override

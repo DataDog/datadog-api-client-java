@@ -82,7 +82,8 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_VSPHERE_HOST_TOP99P
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSummaryDateOrg {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENT_HOST_TOP99P = "agent_host_top99p";

@@ -14,7 +14,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GcpIntegrationApi {
   private ApiClient apiClient;
 
@@ -149,9 +150,6 @@ public class GcpIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createGCPIntegration");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -284,9 +282,6 @@ public class GcpIntegrationApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteGCPIntegration");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -398,9 +393,6 @@ public class GcpIntegrationApi {
     String localVarPath = "/api/v1/integration/gcp";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listGCPIntegration");
 
     Invocation.Builder builder;
     try {
@@ -536,9 +528,6 @@ public class GcpIntegrationApi {
     String localVarPath = "/api/v1/integration/gcp";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateGCPIntegration");
 
     Invocation.Builder builder;
     try {

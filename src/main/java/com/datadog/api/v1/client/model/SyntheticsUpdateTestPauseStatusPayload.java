@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Object to start or pause an existing Synthetic test. */
 @JsonPropertyOrder({SyntheticsUpdateTestPauseStatusPayload.JSON_PROPERTY_NEW_STATUS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsUpdateTestPauseStatusPayload {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NEW_STATUS = "new_status";
@@ -31,7 +32,8 @@ public class SyntheticsUpdateTestPauseStatusPayload {
   }
 
   /**
-   * Get newStatus
+   * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
+   * test.
    *
    * @return newStatus
    */

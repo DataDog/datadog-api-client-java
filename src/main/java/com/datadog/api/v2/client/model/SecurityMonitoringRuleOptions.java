@@ -25,7 +25,8 @@ import java.util.Objects;
   SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DETECTION_METHOD = "detectionMethod";
@@ -54,7 +55,7 @@ public class SecurityMonitoringRuleOptions {
   }
 
   /**
-   * Get detectionMethod
+   * The detection method.
    *
    * @return detectionMethod
    */
@@ -80,7 +81,8 @@ public class SecurityMonitoringRuleOptions {
   }
 
   /**
-   * Get evaluationWindow
+   * A time window is specified to match when at least one of the cases matches true. This is a
+   * sliding window and evaluates in real time.
    *
    * @return evaluationWindow
    */
@@ -106,7 +108,7 @@ public class SecurityMonitoringRuleOptions {
   }
 
   /**
-   * Get impossibleTravelOptions
+   * Options on impossible travel rules.
    *
    * @return impossibleTravelOptions
    */
@@ -129,7 +131,8 @@ public class SecurityMonitoringRuleOptions {
   }
 
   /**
-   * Get keepAlive
+   * Once a signal is generated, the signal will remain “open” if a case is matched at least once
+   * within this keep alive window.
    *
    * @return keepAlive
    */
@@ -155,7 +158,8 @@ public class SecurityMonitoringRuleOptions {
   }
 
   /**
-   * Get maxSignalDuration
+   * A signal will “close” regardless of the query being matched once the time exceeds the maximum
+   * duration. This time is calculated from the first seen timestamp.
    *
    * @return maxSignalDuration
    */
@@ -181,7 +185,7 @@ public class SecurityMonitoringRuleOptions {
   }
 
   /**
-   * Get newValueOptions
+   * Options on new value rules.
    *
    * @return newValueOptions
    */

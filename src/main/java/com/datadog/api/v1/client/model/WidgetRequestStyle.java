@@ -22,7 +22,8 @@ import java.util.Objects;
   WidgetRequestStyle.JSON_PROPERTY_LINE_WIDTH,
   WidgetRequestStyle.JSON_PROPERTY_PALETTE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetRequestStyle {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LINE_TYPE = "line_type";
@@ -41,7 +42,7 @@ public class WidgetRequestStyle {
   }
 
   /**
-   * Get lineType
+   * Type of lines displayed.
    *
    * @return lineType
    */
@@ -66,7 +67,7 @@ public class WidgetRequestStyle {
   }
 
   /**
-   * Get lineWidth
+   * Width of line displayed.
    *
    * @return lineWidth
    */

@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Meta attributes. */
 @JsonPropertyOrder({SecurityMonitoringSignalsListResponseMeta.JSON_PROPERTY_PAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalsListResponseMeta {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PAGE = "page";
@@ -32,7 +33,7 @@ public class SecurityMonitoringSignalsListResponseMeta {
   }
 
   /**
-   * Get page
+   * Paging attributes.
    *
    * @return page
    */

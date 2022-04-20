@@ -21,7 +21,8 @@ import java.util.Objects;
   SecurityMonitoringFilter.JSON_PROPERTY_ACTION,
   SecurityMonitoringFilter.JSON_PROPERTY_QUERY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringFilter {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTION = "action";
@@ -37,7 +38,7 @@ public class SecurityMonitoringFilter {
   }
 
   /**
-   * Get action
+   * The type of filtering action.
    *
    * @return action
    */

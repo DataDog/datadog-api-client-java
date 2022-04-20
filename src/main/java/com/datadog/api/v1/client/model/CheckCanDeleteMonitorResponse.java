@@ -25,7 +25,8 @@ import java.util.Objects;
   CheckCanDeleteMonitorResponse.JSON_PROPERTY_DATA,
   CheckCanDeleteMonitorResponse.JSON_PROPERTY_ERRORS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CheckCanDeleteMonitorResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -51,7 +52,7 @@ public class CheckCanDeleteMonitorResponse {
   }
 
   /**
-   * Get data
+   * Wrapper object with the list of monitor IDs.
    *
    * @return data
    */

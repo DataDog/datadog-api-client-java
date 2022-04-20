@@ -24,7 +24,8 @@ import java.util.Objects;
   LogsAPIError.JSON_PROPERTY_DETAILS,
   LogsAPIError.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAPIError {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CODE = "code";
@@ -120,10 +121,10 @@ public class LogsAPIError {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogsAPIError logsAPIError = (LogsAPIError) o;
-    return Objects.equals(this.code, logsAPIError.code)
-        && Objects.equals(this.details, logsAPIError.details)
-        && Objects.equals(this.message, logsAPIError.message);
+    LogsAPIError logsApiError = (LogsAPIError) o;
+    return Objects.equals(this.code, logsApiError.code)
+        && Objects.equals(this.details, logsApiError.details)
+        && Objects.equals(this.message, logsApiError.message);
   }
 
   @Override

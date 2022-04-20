@@ -26,7 +26,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   WebhooksIntegration.JSON_PROPERTY_PAYLOAD,
   WebhooksIntegration.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WebhooksIntegration {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_HEADERS = "custom_headers";
@@ -93,7 +94,7 @@ public class WebhooksIntegration {
   }
 
   /**
-   * Get encodeAs
+   * Encoding type. Can be given either &#x60;json&#x60; or &#x60;form&#x60;.
    *
    * @return encodeAs
    */

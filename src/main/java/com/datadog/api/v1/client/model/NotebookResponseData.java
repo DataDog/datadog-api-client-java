@@ -23,7 +23,8 @@ import java.util.Objects;
   NotebookResponseData.JSON_PROPERTY_ID,
   NotebookResponseData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -57,7 +58,7 @@ public class NotebookResponseData {
   }
 
   /**
-   * Get attributes
+   * The attributes of a notebook.
    *
    * @return attributes
    */
@@ -89,7 +90,7 @@ public class NotebookResponseData {
   }
 
   /**
-   * Get type
+   * Type of the Notebook resource.
    *
    * @return type
    */

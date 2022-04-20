@@ -20,7 +20,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SecurityMonitoringRuleImpossibleTravelOptions.JSON_PROPERTY_BASELINE_USER_LOCATIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleImpossibleTravelOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BASELINE_USER_LOCATIONS = "baselineUserLocations";

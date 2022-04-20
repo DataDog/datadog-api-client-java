@@ -33,7 +33,8 @@ import java.util.Objects;
   SyntheticsAPITest.JSON_PROPERTY_TAGS,
   SyntheticsAPITest.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
@@ -95,7 +96,7 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * Get config
+   * Configuration object for a Synthetic API test.
    *
    * @return config
    */
@@ -194,7 +195,7 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * Get options
+   * Object describing the extra options for a Synthetic test.
    *
    * @return options
    */
@@ -227,7 +228,8 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * Get status
+   * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
+   * test.
    *
    * @return status
    */
@@ -252,7 +254,8 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * Get subtype
+   * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;,
+   * &#x60;dns&#x60;, &#x60;icmp&#x60;, &#x60;udp&#x60;, &#x60;websocket&#x60; or &#x60;multi&#x60;.
    *
    * @return subtype
    */
@@ -306,7 +309,7 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * Get type
+   * Type of the Synthetic test, &#x60;api&#x60;.
    *
    * @return type
    */
@@ -332,18 +335,18 @@ public class SyntheticsAPITest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITest syntheticsAPITest = (SyntheticsAPITest) o;
-    return Objects.equals(this.config, syntheticsAPITest.config)
-        && Objects.equals(this.locations, syntheticsAPITest.locations)
-        && Objects.equals(this.message, syntheticsAPITest.message)
-        && Objects.equals(this.monitorId, syntheticsAPITest.monitorId)
-        && Objects.equals(this.name, syntheticsAPITest.name)
-        && Objects.equals(this.options, syntheticsAPITest.options)
-        && Objects.equals(this.publicId, syntheticsAPITest.publicId)
-        && Objects.equals(this.status, syntheticsAPITest.status)
-        && Objects.equals(this.subtype, syntheticsAPITest.subtype)
-        && Objects.equals(this.tags, syntheticsAPITest.tags)
-        && Objects.equals(this.type, syntheticsAPITest.type);
+    SyntheticsAPITest syntheticsApiTest = (SyntheticsAPITest) o;
+    return Objects.equals(this.config, syntheticsApiTest.config)
+        && Objects.equals(this.locations, syntheticsApiTest.locations)
+        && Objects.equals(this.message, syntheticsApiTest.message)
+        && Objects.equals(this.monitorId, syntheticsApiTest.monitorId)
+        && Objects.equals(this.name, syntheticsApiTest.name)
+        && Objects.equals(this.options, syntheticsApiTest.options)
+        && Objects.equals(this.publicId, syntheticsApiTest.publicId)
+        && Objects.equals(this.status, syntheticsApiTest.status)
+        && Objects.equals(this.subtype, syntheticsApiTest.subtype)
+        && Objects.equals(this.tags, syntheticsApiTest.tags)
+        && Objects.equals(this.type, syntheticsApiTest.type);
   }
 
   @Override

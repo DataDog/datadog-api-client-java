@@ -23,7 +23,8 @@ import java.util.Objects;
   UsageTopAvgMetricsHour.JSON_PROPERTY_METRIC_CATEGORY,
   UsageTopAvgMetricsHour.JSON_PROPERTY_METRIC_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageTopAvgMetricsHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVG_METRIC_HOUR = "avg_metric_hour";
@@ -87,7 +88,7 @@ public class UsageTopAvgMetricsHour {
   }
 
   /**
-   * Get metricCategory
+   * Contains the metric category.
    *
    * @return metricCategory
    */

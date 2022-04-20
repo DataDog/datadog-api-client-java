@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Wrapper for a single bulk tag configuration status response. */
 @JsonPropertyOrder({MetricBulkTagConfigResponse.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricBulkTagConfigResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -31,7 +32,8 @@ public class MetricBulkTagConfigResponse {
   }
 
   /**
-   * Get data
+   * The status of a request to bulk configure metric tags. It contains the fields from the original
+   * request for reference.
    *
    * @return data
    */

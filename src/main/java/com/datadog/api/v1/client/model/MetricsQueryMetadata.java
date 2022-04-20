@@ -34,7 +34,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MetricsQueryMetadata.JSON_PROPERTY_TAG_SET,
   MetricsQueryMetadata.JSON_PROPERTY_UNIT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsQueryMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGR = "aggr";
@@ -235,9 +236,9 @@ public class MetricsQueryMetadata {
   }
 
   /**
-   * Detailed information about the metric unit. First element describes the \&quot;primary
-   * unit\&quot; (for example, &#x60;bytes&#x60; in &#x60;bytes per second&#x60;), second describes
-   * the \&quot;per unit\&quot; (for example, &#x60;second&#x60; in &#x60;bytes per second&#x60;).
+   * Detailed information about the metric unit. First element describes the &quot;primary
+   * unit&quot; (for example, &#x60;bytes&#x60; in &#x60;bytes per second&#x60;), second describes
+   * the &quot;per unit&quot; (for example, &#x60;second&#x60; in &#x60;bytes per second&#x60;).
    *
    * @return unit
    */

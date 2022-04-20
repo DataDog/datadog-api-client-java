@@ -51,7 +51,8 @@ import java.util.Objects;
   UsageBillableSummaryKeys.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECKS_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_TIMESERIES_AVERAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageBillableSummaryKeys {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_HOST_SUM = "apm_host_sum";
@@ -159,7 +160,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get apmHostSum
+   * Response with properties for each aggregated usage type.
    *
    * @return apmHostSum
    */
@@ -181,7 +182,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get apmHostTop99p
+   * Response with properties for each aggregated usage type.
    *
    * @return apmHostTop99p
    */
@@ -203,7 +204,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get apmTraceSearchSum
+   * Response with properties for each aggregated usage type.
    *
    * @return apmTraceSearchSum
    */
@@ -226,7 +227,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get fargateContainerAverage
+   * Response with properties for each aggregated usage type.
    *
    * @return fargateContainerAverage
    */
@@ -248,7 +249,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get infraContainerSum
+   * Response with properties for each aggregated usage type.
    *
    * @return infraContainerSum
    */
@@ -270,7 +271,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get infraHostSum
+   * Response with properties for each aggregated usage type.
    *
    * @return infraHostSum
    */
@@ -292,7 +293,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get infraHostTop99p
+   * Response with properties for each aggregated usage type.
    *
    * @return infraHostTop99p
    */
@@ -314,7 +315,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get iotTop99p
+   * Response with properties for each aggregated usage type.
    *
    * @return iotTop99p
    */
@@ -337,7 +338,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get lambdaFunctionAverage
+   * Response with properties for each aggregated usage type.
    *
    * @return lambdaFunctionAverage
    */
@@ -360,7 +361,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get logsIndexed15daySum
+   * Response with properties for each aggregated usage type.
    *
    * @return logsIndexed15daySum
    */
@@ -383,7 +384,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get logsIndexed180daySum
+   * Response with properties for each aggregated usage type.
    *
    * @return logsIndexed180daySum
    */
@@ -406,7 +407,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get logsIndexed30daySum
+   * Response with properties for each aggregated usage type.
    *
    * @return logsIndexed30daySum
    */
@@ -428,7 +429,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get logsIndexed3daySum
+   * Response with properties for each aggregated usage type.
    *
    * @return logsIndexed3daySum
    */
@@ -451,7 +452,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get logsIndexed45daySum
+   * Response with properties for each aggregated usage type.
    *
    * @return logsIndexed45daySum
    */
@@ -474,7 +475,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get logsIndexed60daySum
+   * Response with properties for each aggregated usage type.
    *
    * @return logsIndexed60daySum
    */
@@ -496,7 +497,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get logsIndexed7daySum
+   * Response with properties for each aggregated usage type.
    *
    * @return logsIndexed7daySum
    */
@@ -519,7 +520,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get logsIndexed90daySum
+   * Response with properties for each aggregated usage type.
    *
    * @return logsIndexed90daySum
    */
@@ -542,7 +543,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get logsIndexedCustomRetentionSum
+   * Response with properties for each aggregated usage type.
    *
    * @return logsIndexedCustomRetentionSum
    */
@@ -565,7 +566,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get logsIndexedSum
+   * Response with properties for each aggregated usage type.
    *
    * @return logsIndexedSum
    */
@@ -587,7 +588,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get logsIngestedSum
+   * Response with properties for each aggregated usage type.
    *
    * @return logsIngestedSum
    */
@@ -610,7 +611,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get networkDeviceTop99p
+   * Response with properties for each aggregated usage type.
    *
    * @return networkDeviceTop99p
    */
@@ -632,7 +633,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get npmFlowSum
+   * Response with properties for each aggregated usage type.
    *
    * @return npmFlowSum
    */
@@ -654,7 +655,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get npmHostSum
+   * Response with properties for each aggregated usage type.
    *
    * @return npmHostSum
    */
@@ -676,7 +677,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get npmHostTop99p
+   * Response with properties for each aggregated usage type.
    *
    * @return npmHostTop99p
    */
@@ -698,7 +699,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get profContainerSum
+   * Response with properties for each aggregated usage type.
    *
    * @return profContainerSum
    */
@@ -720,7 +721,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get profHostTop99p
+   * Response with properties for each aggregated usage type.
    *
    * @return profHostTop99p
    */
@@ -742,7 +743,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get rumSum
+   * Response with properties for each aggregated usage type.
    *
    * @return rumSum
    */
@@ -765,7 +766,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get serverlessInvocationSum
+   * Response with properties for each aggregated usage type.
    *
    * @return serverlessInvocationSum
    */
@@ -787,7 +788,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get siemSum
+   * Response with properties for each aggregated usage type.
    *
    * @return siemSum
    */
@@ -810,7 +811,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get syntheticsApiTestsSum
+   * Response with properties for each aggregated usage type.
    *
    * @return syntheticsApiTestsSum
    */
@@ -833,7 +834,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get syntheticsBrowserChecksSum
+   * Response with properties for each aggregated usage type.
    *
    * @return syntheticsBrowserChecksSum
    */
@@ -855,7 +856,7 @@ public class UsageBillableSummaryKeys {
   }
 
   /**
-   * Get timeseriesAverage
+   * Response with properties for each aggregated usage type.
    *
    * @return timeseriesAverage
    */

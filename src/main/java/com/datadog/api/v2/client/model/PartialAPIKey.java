@@ -23,7 +23,8 @@ import java.util.Objects;
   PartialAPIKey.JSON_PROPERTY_RELATIONSHIPS,
   PartialAPIKey.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PartialAPIKey {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -45,7 +46,7 @@ public class PartialAPIKey {
   }
 
   /**
-   * Get attributes
+   * Attributes of a partial API key.
    *
    * @return attributes
    */
@@ -88,7 +89,7 @@ public class PartialAPIKey {
   }
 
   /**
-   * Get relationships
+   * Resources related to the API key.
    *
    * @return relationships
    */
@@ -110,7 +111,7 @@ public class PartialAPIKey {
   }
 
   /**
-   * Get type
+   * API Keys resource type.
    *
    * @return type
    */
@@ -137,11 +138,11 @@ public class PartialAPIKey {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PartialAPIKey partialAPIKey = (PartialAPIKey) o;
-    return Objects.equals(this.attributes, partialAPIKey.attributes)
-        && Objects.equals(this.id, partialAPIKey.id)
-        && Objects.equals(this.relationships, partialAPIKey.relationships)
-        && Objects.equals(this.type, partialAPIKey.type);
+    PartialAPIKey partialApiKey = (PartialAPIKey) o;
+    return Objects.equals(this.attributes, partialApiKey.attributes)
+        && Objects.equals(this.id, partialApiKey.id)
+        && Objects.equals(this.relationships, partialApiKey.relationships)
+        && Objects.equals(this.type, partialApiKey.type);
   }
 
   @Override

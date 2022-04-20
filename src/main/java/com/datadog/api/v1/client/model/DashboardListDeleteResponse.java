@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Deleted dashboard details. */
 @JsonPropertyOrder({DashboardListDeleteResponse.JSON_PROPERTY_DELETED_DASHBOARD_LIST_ID})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardListDeleteResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELETED_DASHBOARD_LIST_ID = "deleted_dashboard_list_id";

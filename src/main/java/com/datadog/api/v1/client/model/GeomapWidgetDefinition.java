@@ -31,7 +31,8 @@ import java.util.Objects;
   GeomapWidgetDefinition.JSON_PROPERTY_TYPE,
   GeomapWidgetDefinition.JSON_PROPERTY_VIEW
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GeomapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
@@ -151,7 +152,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Get style
+   * The style to apply to the widget.
    *
    * @return style
    */
@@ -172,7 +173,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -215,7 +216,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -261,7 +262,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the geomap widget.
    *
    * @return type
    */
@@ -285,7 +286,7 @@ public class GeomapWidgetDefinition {
   }
 
   /**
-   * Get view
+   * The view of the world that the map should render.
    *
    * @return view
    */

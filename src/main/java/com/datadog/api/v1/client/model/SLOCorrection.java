@@ -22,7 +22,8 @@ import java.util.Objects;
   SLOCorrection.JSON_PROPERTY_ID,
   SLOCorrection.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrection {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -41,7 +42,7 @@ public class SLOCorrection {
   }
 
   /**
-   * Get attributes
+   * The attribute object associated with the SLO correction.
    *
    * @return attributes
    */
@@ -84,7 +85,7 @@ public class SLOCorrection {
   }
 
   /**
-   * Get type
+   * SLO correction resource type.
    *
    * @return type
    */
@@ -111,10 +112,10 @@ public class SLOCorrection {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrection slOCorrection = (SLOCorrection) o;
-    return Objects.equals(this.attributes, slOCorrection.attributes)
-        && Objects.equals(this.id, slOCorrection.id)
-        && Objects.equals(this.type, slOCorrection.type);
+    SLOCorrection sloCorrection = (SLOCorrection) o;
+    return Objects.equals(this.attributes, sloCorrection.attributes)
+        && Objects.equals(this.id, sloCorrection.id)
+        && Objects.equals(this.type, sloCorrection.type);
   }
 
   @Override

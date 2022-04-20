@@ -36,7 +36,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 @JsonDeserialize(using = IncidentFieldAttributes.IncidentFieldAttributesDeserializer.class)
 @JsonSerialize(using = IncidentFieldAttributes.IncidentFieldAttributesSerializer.class)
 public class IncidentFieldAttributes extends AbstractOpenApiSchema {
@@ -207,23 +208,23 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public IncidentFieldAttributes(IncidentFieldAttributesMultipleValue o) {
+  public IncidentFieldAttributes(IncidentFieldAttributesSingleValue o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
-  public IncidentFieldAttributes(IncidentFieldAttributesSingleValue o) {
+  public IncidentFieldAttributes(IncidentFieldAttributesMultipleValue o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
   static {
     schemas.put(
-        "IncidentFieldAttributesMultipleValue",
-        new GenericType<IncidentFieldAttributesMultipleValue>() {});
-    schemas.put(
         "IncidentFieldAttributesSingleValue",
         new GenericType<IncidentFieldAttributesSingleValue>() {});
+    schemas.put(
+        "IncidentFieldAttributesMultipleValue",
+        new GenericType<IncidentFieldAttributesMultipleValue>() {});
     JSON.registerDescendants(IncidentFieldAttributes.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -234,8 +235,8 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: IncidentFieldAttributesMultipleValue,
-   * IncidentFieldAttributesSingleValue
+   * against the oneOf child schemas: IncidentFieldAttributesSingleValue,
+   * IncidentFieldAttributesMultipleValue
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -243,13 +244,12 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
   @Override
   public void setActualInstance(Object instance) {
     if (JSON.isInstanceOf(
-        IncidentFieldAttributesMultipleValue.class, instance, new HashSet<Class<?>>())) {
+        IncidentFieldAttributesSingleValue.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(
-        IncidentFieldAttributesSingleValue.class, instance, new HashSet<Class<?>>())) {
+        IncidentFieldAttributesMultipleValue.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -259,32 +259,20 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be IncidentFieldAttributesMultipleValue,"
-            + " IncidentFieldAttributesSingleValue");
+        "Invalid instance type. Must be IncidentFieldAttributesSingleValue,"
+            + " IncidentFieldAttributesMultipleValue");
   }
 
   /**
-   * Get the actual instance, which can be the following: IncidentFieldAttributesMultipleValue,
-   * IncidentFieldAttributesSingleValue
+   * Get the actual instance, which can be the following: IncidentFieldAttributesSingleValue,
+   * IncidentFieldAttributesMultipleValue
    *
-   * @return The actual instance (IncidentFieldAttributesMultipleValue,
-   *     IncidentFieldAttributesSingleValue)
+   * @return The actual instance (IncidentFieldAttributesSingleValue,
+   *     IncidentFieldAttributesMultipleValue)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `IncidentFieldAttributesMultipleValue`. If the actual instance is
-   * not `IncidentFieldAttributesMultipleValue`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `IncidentFieldAttributesMultipleValue`
-   * @throws ClassCastException if the instance is not `IncidentFieldAttributesMultipleValue`
-   */
-  public IncidentFieldAttributesMultipleValue getIncidentFieldAttributesMultipleValue()
-      throws ClassCastException {
-    return (IncidentFieldAttributesMultipleValue) super.getActualInstance();
   }
 
   /**
@@ -297,5 +285,17 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
   public IncidentFieldAttributesSingleValue getIncidentFieldAttributesSingleValue()
       throws ClassCastException {
     return (IncidentFieldAttributesSingleValue) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `IncidentFieldAttributesMultipleValue`. If the actual instance is
+   * not `IncidentFieldAttributesMultipleValue`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `IncidentFieldAttributesMultipleValue`
+   * @throws ClassCastException if the instance is not `IncidentFieldAttributesMultipleValue`
+   */
+  public IncidentFieldAttributesMultipleValue getIncidentFieldAttributesMultipleValue()
+      throws ClassCastException {
+    return (IncidentFieldAttributesMultipleValue) super.getActualInstance();
   }
 }

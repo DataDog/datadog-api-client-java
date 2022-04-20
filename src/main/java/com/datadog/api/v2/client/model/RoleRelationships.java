@@ -21,7 +21,8 @@ import java.util.Objects;
   RoleRelationships.JSON_PROPERTY_PERMISSIONS,
   RoleRelationships.JSON_PROPERTY_USERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
@@ -37,7 +38,7 @@ public class RoleRelationships {
   }
 
   /**
-   * Get permissions
+   * Relationship to multiple permissions objects.
    *
    * @return permissions
    */
@@ -59,7 +60,7 @@ public class RoleRelationships {
   }
 
   /**
-   * Get users
+   * Relationship to users.
    *
    * @return users
    */

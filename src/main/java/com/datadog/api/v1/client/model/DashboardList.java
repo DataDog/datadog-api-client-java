@@ -29,7 +29,8 @@ import java.util.Objects;
   DashboardList.JSON_PROPERTY_NAME,
   DashboardList.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardList {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
@@ -63,14 +64,8 @@ public class DashboardList {
     this.name = name;
   }
 
-  public DashboardList author(Creator author) {
-    this.author = author;
-    this.unparsed |= author.unparsed;
-    return this;
-  }
-
   /**
-   * Get author
+   * Object describing the creator of the shared element.
    *
    * @return author
    */
@@ -79,10 +74,6 @@ public class DashboardList {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getAuthor() {
     return author;
-  }
-
-  public void setAuthor(Creator author) {
-    this.author = author;
   }
 
   /**

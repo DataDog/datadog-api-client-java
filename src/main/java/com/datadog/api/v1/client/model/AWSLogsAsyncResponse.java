@@ -23,7 +23,8 @@ import java.util.Objects;
   AWSLogsAsyncResponse.JSON_PROPERTY_ERRORS,
   AWSLogsAsyncResponse.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSLogsAsyncResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERRORS = "errors";
@@ -95,9 +96,9 @@ public class AWSLogsAsyncResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSLogsAsyncResponse awSLogsAsyncResponse = (AWSLogsAsyncResponse) o;
-    return Objects.equals(this.errors, awSLogsAsyncResponse.errors)
-        && Objects.equals(this.status, awSLogsAsyncResponse.status);
+    AWSLogsAsyncResponse awsLogsAsyncResponse = (AWSLogsAsyncResponse) o;
+    return Objects.equals(this.errors, awsLogsAsyncResponse.errors)
+        && Objects.equals(this.status, awsLogsAsyncResponse.status);
   }
 
   @Override

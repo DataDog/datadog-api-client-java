@@ -40,7 +40,8 @@ import java.util.Objects;
   TimeseriesWidgetDefinition.JSON_PROPERTY_TYPE,
   TimeseriesWidgetDefinition.JSON_PROPERTY_YAXIS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TimeseriesWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
@@ -206,7 +207,7 @@ public class TimeseriesWidgetDefinition {
   }
 
   /**
-   * Get legendLayout
+   * Layout of the legend.
    *
    * @return legendLayout
    */
@@ -230,8 +231,8 @@ public class TimeseriesWidgetDefinition {
   }
 
   /**
-   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;,
-   * \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
+   * Available legend sizes for a widget. Should be one of &quot;0&quot;, &quot;2&quot;,
+   * &quot;4&quot;, &quot;8&quot;, &quot;16&quot;, or &quot;auto&quot;.
    *
    * @return legendSize
    */
@@ -315,7 +316,7 @@ public class TimeseriesWidgetDefinition {
   }
 
   /**
-   * Get rightYaxis
+   * Axis controls for the widget.
    *
    * @return rightYaxis
    */
@@ -358,7 +359,7 @@ public class TimeseriesWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -401,7 +402,7 @@ public class TimeseriesWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -447,7 +448,7 @@ public class TimeseriesWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the timeseries widget.
    *
    * @return type
    */
@@ -471,7 +472,7 @@ public class TimeseriesWidgetDefinition {
   }
 
   /**
-   * Get yaxis
+   * Axis controls for the widget.
    *
    * @return yaxis
    */

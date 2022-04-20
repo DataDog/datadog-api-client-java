@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Relationships of the user object. */
 @JsonPropertyOrder({UserRelationships.JSON_PROPERTY_ROLES})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ROLES = "roles";
@@ -31,7 +32,7 @@ public class UserRelationships {
   }
 
   /**
-   * Get roles
+   * Relationship to roles.
    *
    * @return roles
    */

@@ -49,7 +49,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_TIMEOUT_H,
   MonitorOptions.JSON_PROPERTY_VARIABLES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
@@ -128,14 +129,8 @@ public class MonitorOptions {
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private List<MonitorFormulaAndFunctionQueryDefinition> variables = null;
 
-  public MonitorOptions aggregation(MonitorOptionsAggregation aggregation) {
-    this.aggregation = aggregation;
-    this.unparsed |= aggregation.unparsed;
-    return this;
-  }
-
   /**
-   * Get aggregation
+   * Type of aggregation performed in the monitor query.
    *
    * @return aggregation
    */
@@ -144,10 +139,6 @@ public class MonitorOptions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOptionsAggregation getAggregation() {
     return aggregation;
-  }
-
-  public void setAggregation(MonitorOptionsAggregation aggregation) {
-    this.aggregation = aggregation;
   }
 
   /**
@@ -722,7 +713,7 @@ public class MonitorOptions {
   }
 
   /**
-   * Get thresholdWindows
+   * Alerting time window options.
    *
    * @return thresholdWindows
    */
@@ -744,7 +735,7 @@ public class MonitorOptions {
   }
 
   /**
-   * Get thresholds
+   * List of the different monitor threshold available.
    *
    * @return thresholds
    */

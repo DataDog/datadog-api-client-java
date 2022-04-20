@@ -24,7 +24,8 @@ import java.util.Objects;
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_STEP_COUNT_COMPLETED,
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_STEP_COUNT_TOTAL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestResultShortResult {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEVICE = "device";
@@ -49,7 +50,7 @@ public class SyntheticsBrowserTestResultShortResult {
   }
 
   /**
-   * Get device
+   * Object describing the device used to perform the Synthetic test.
    *
    * @return device
    */

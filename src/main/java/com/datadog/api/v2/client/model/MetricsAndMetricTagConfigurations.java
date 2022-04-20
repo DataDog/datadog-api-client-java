@@ -36,7 +36,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 @JsonDeserialize(
     using = MetricsAndMetricTagConfigurations.MetricsAndMetricTagConfigurationsDeserializer.class)
 @JsonSerialize(
@@ -236,7 +237,6 @@ public class MetricsAndMetricTagConfigurations extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-
     if (JSON.isInstanceOf(MetricTagConfiguration.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;

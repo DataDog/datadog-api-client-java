@@ -24,7 +24,8 @@ import java.util.Objects;
   LogsByRetentionMonthlyUsage.JSON_PROPERTY_DATE,
   LogsByRetentionMonthlyUsage.JSON_PROPERTY_USAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsByRetentionMonthlyUsage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATE = "date";

@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Publication status of the notebook. For now, always \&quot;published\&quot;. */
+/** Publication status of the notebook. For now, always &quot;published&quot;. */
 @JsonSerialize(using = NotebookStatus.NotebookStatusSerializer.class)
 public class NotebookStatus {
 

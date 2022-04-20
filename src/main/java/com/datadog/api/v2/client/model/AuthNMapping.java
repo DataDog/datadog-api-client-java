@@ -27,7 +27,8 @@ import java.util.Objects;
   AuthNMapping.JSON_PROPERTY_RELATIONSHIPS,
   AuthNMapping.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMapping {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -63,7 +64,7 @@ public class AuthNMapping {
   }
 
   /**
-   * Get attributes
+   * Attributes of AuthN Mapping.
    *
    * @return attributes
    */
@@ -138,7 +139,7 @@ public class AuthNMapping {
   }
 
   /**
-   * Get relationships
+   * All relationships associated with AuthN Mapping.
    *
    * @return relationships
    */
@@ -160,7 +161,7 @@ public class AuthNMapping {
   }
 
   /**
-   * Get type
+   * AuthN Mappings resource type.
    *
    * @return type
    */

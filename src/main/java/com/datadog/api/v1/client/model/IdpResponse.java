@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** The IdP response object. */
 @JsonPropertyOrder({IdpResponse.JSON_PROPERTY_MESSAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IdpResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MESSAGE = "message";

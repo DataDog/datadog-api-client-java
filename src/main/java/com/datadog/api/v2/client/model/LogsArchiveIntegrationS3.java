@@ -22,7 +22,8 @@ import java.util.Objects;
   LogsArchiveIntegrationS3.JSON_PROPERTY_ACCOUNT_ID,
   LogsArchiveIntegrationS3.JSON_PROPERTY_ROLE_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveIntegrationS3 {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";

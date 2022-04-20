@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Response containing the number of RUM Sessions for each hour for a given organization. */
 @JsonPropertyOrder({UsageRumSessionsResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageRumSessionsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";

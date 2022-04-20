@@ -27,7 +27,8 @@ import java.util.Objects;
   NotebookUpdateDataAttributes.JSON_PROPERTY_STATUS,
   NotebookUpdateDataAttributes.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookUpdateDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CELLS = "cells";
@@ -94,7 +95,7 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * Get metadata
+   * Metadata associated with the notebook.
    *
    * @return metadata
    */
@@ -136,7 +137,7 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * Get status
+   * Publication status of the notebook. For now, always &quot;published&quot;.
    *
    * @return status
    */
@@ -161,7 +162,7 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * Get time
+   * Notebook global timeframe.
    *
    * @return time
    */

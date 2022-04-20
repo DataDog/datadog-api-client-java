@@ -28,7 +28,8 @@ import java.util.Objects;
   UsageBillableSummaryHour.JSON_PROPERTY_START_DATE,
   UsageBillableSummaryHour.JSON_PROPERTY_USAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageBillableSummaryHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BILLING_PLAN = "billing_plan";
@@ -209,7 +210,7 @@ public class UsageBillableSummaryHour {
   }
 
   /**
-   * Get usage
+   * Response with aggregated usage types.
    *
    * @return usage
    */

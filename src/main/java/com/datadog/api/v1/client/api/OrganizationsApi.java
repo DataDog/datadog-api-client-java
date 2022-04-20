@@ -19,7 +19,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationsApi {
   private ApiClient apiClient;
 
@@ -161,9 +162,6 @@ public class OrganizationsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createChildOrg");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -302,9 +300,6 @@ public class OrganizationsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getOrg");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -415,9 +410,6 @@ public class OrganizationsApi {
     String localVarPath = "/api/v1/org";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listOrgs");
 
     Invocation.Builder builder;
     try {
@@ -577,9 +569,6 @@ public class OrganizationsApi {
             .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateOrg");
 
     Invocation.Builder builder;
     try {
@@ -743,9 +732,6 @@ public class OrganizationsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "uploadIdPForOrg");
 
     if (idpFile != null) localVarFormParams.put("idp_file", idpFile);
 

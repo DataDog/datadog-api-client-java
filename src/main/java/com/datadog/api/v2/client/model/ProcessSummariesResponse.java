@@ -23,7 +23,8 @@ import java.util.Objects;
   ProcessSummariesResponse.JSON_PROPERTY_DATA,
   ProcessSummariesResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessSummariesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -72,7 +73,7 @@ public class ProcessSummariesResponse {
   }
 
   /**
-   * Get meta
+   * Response metadata object.
    *
    * @return meta
    */

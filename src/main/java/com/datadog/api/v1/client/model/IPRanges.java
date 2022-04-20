@@ -28,7 +28,8 @@ import java.util.Objects;
   IPRanges.JSON_PROPERTY_VERSION,
   IPRanges.JSON_PROPERTY_WEBHOOKS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IPRanges {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENTS = "agents";
@@ -65,7 +66,7 @@ public class IPRanges {
   }
 
   /**
-   * Get agents
+   * Available prefix information for the Agent endpoints.
    *
    * @return agents
    */
@@ -87,7 +88,7 @@ public class IPRanges {
   }
 
   /**
-   * Get api
+   * Available prefix information for the API endpoints.
    *
    * @return api
    */
@@ -109,7 +110,7 @@ public class IPRanges {
   }
 
   /**
-   * Get apm
+   * Available prefix information for the APM endpoints.
    *
    * @return apm
    */
@@ -131,7 +132,7 @@ public class IPRanges {
   }
 
   /**
-   * Get logs
+   * Available prefix information for the Logs endpoints.
    *
    * @return logs
    */
@@ -174,7 +175,7 @@ public class IPRanges {
   }
 
   /**
-   * Get process
+   * Available prefix information for the Process endpoints.
    *
    * @return process
    */
@@ -196,7 +197,7 @@ public class IPRanges {
   }
 
   /**
-   * Get synthetics
+   * Available prefix information for the Synthetics endpoints.
    *
    * @return synthetics
    */
@@ -239,7 +240,7 @@ public class IPRanges {
   }
 
   /**
-   * Get webhooks
+   * Available prefix information for the Webhook endpoints.
    *
    * @return webhooks
    */

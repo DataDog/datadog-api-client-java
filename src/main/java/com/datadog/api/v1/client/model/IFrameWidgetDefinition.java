@@ -25,7 +25,8 @@ import java.util.Objects;
   IFrameWidgetDefinition.JSON_PROPERTY_TYPE,
   IFrameWidgetDefinition.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IFrameWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
@@ -52,7 +53,7 @@ public class IFrameWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the iframe widget.
    *
    * @return type
    */
@@ -98,9 +99,9 @@ public class IFrameWidgetDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IFrameWidgetDefinition iframeWidgetDefinition = (IFrameWidgetDefinition) o;
-    return Objects.equals(this.type, iframeWidgetDefinition.type)
-        && Objects.equals(this.url, iframeWidgetDefinition.url);
+    IFrameWidgetDefinition iFrameWidgetDefinition = (IFrameWidgetDefinition) o;
+    return Objects.equals(this.type, iFrameWidgetDefinition.type)
+        && Objects.equals(this.url, iFrameWidgetDefinition.url);
   }
 
   @Override

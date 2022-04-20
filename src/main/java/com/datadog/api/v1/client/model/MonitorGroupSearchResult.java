@@ -28,7 +28,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorGroupSearchResult.JSON_PROPERTY_MONITOR_NAME,
   MonitorGroupSearchResult.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorGroupSearchResult {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GROUP = "group";
@@ -138,14 +139,8 @@ public class MonitorGroupSearchResult {
     return monitorName;
   }
 
-  public MonitorGroupSearchResult status(MonitorOverallStates status) {
-    this.status = status;
-    this.unparsed |= !status.isValid();
-    return this;
-  }
-
   /**
-   * Get status
+   * The different states your monitor can be in.
    *
    * @return status
    */
@@ -154,13 +149,6 @@ public class MonitorGroupSearchResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getStatus() {
     return status;
-  }
-
-  public void setStatus(MonitorOverallStates status) {
-    if (!status.isValid()) {
-      this.unparsed = true;
-    }
-    this.status = status;
   }
 
   /** Return true if this MonitorGroupSearchResult object is equal to o. */

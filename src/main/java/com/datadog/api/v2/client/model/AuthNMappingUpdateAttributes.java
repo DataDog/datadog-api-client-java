@@ -21,7 +21,8 @@ import java.util.Objects;
   AuthNMappingUpdateAttributes.JSON_PROPERTY_ATTRIBUTE_KEY,
   AuthNMappingUpdateAttributes.JSON_PROPERTY_ATTRIBUTE_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTE_KEY = "attribute_key";

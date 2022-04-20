@@ -22,7 +22,8 @@ import java.util.Objects;
   SyntheticsTestRequestCertificateItem.JSON_PROPERTY_FILENAME,
   SyntheticsTestRequestCertificateItem.JSON_PROPERTY_UPDATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestRequestCertificateItem {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONTENT = "content";

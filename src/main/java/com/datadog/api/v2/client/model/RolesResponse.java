@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Response containing information about multiple roles. */
 @JsonPropertyOrder({RolesResponse.JSON_PROPERTY_DATA, RolesResponse.JSON_PROPERTY_META})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RolesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -69,7 +70,7 @@ public class RolesResponse {
   }
 
   /**
-   * Get meta
+   * Object describing meta attributes of response.
    *
    * @return meta
    */

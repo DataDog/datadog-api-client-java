@@ -20,7 +20,8 @@ import java.util.Objects;
 
 /** Invalid query performed. */
 @JsonPropertyOrder({HTTPLogErrors.JSON_PROPERTY_ERRORS})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HTTPLogErrors {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERRORS = "errors";
@@ -68,8 +69,8 @@ public class HTTPLogErrors {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HTTPLogErrors htTPLogErrors = (HTTPLogErrors) o;
-    return Objects.equals(this.errors, htTPLogErrors.errors);
+    HTTPLogErrors httpLogErrors = (HTTPLogErrors) o;
+    return Objects.equals(this.errors, httpLogErrors.errors);
   }
 
   @Override

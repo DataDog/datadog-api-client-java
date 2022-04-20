@@ -14,7 +14,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessesApi {
   private ApiClient apiClient;
 
@@ -142,7 +143,7 @@ public class ProcessesApi {
   /**
    * Get all processes
    *
-   * <p>See {@link #listProcessesWithHttpInfo}.
+   * <p>See {@link #listProcessesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;ProcessSummariesResponse&gt;
    */
@@ -274,9 +275,6 @@ public class ProcessesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listProcesses");
 
     Invocation.Builder builder;
     try {

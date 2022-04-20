@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Create a role. */
 @JsonPropertyOrder({RoleCreateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleCreateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -41,7 +42,7 @@ public class RoleCreateRequest {
   }
 
   /**
-   * Get data
+   * Data related to the creation of a role.
    *
    * @return data
    */

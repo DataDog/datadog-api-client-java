@@ -38,7 +38,8 @@ import java.util.Objects;
   SyntheticsCITest.JSON_PROPERTY_START_URL,
   SyntheticsCITest.JSON_PROPERTY_VARIABLES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCITest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_INSECURE_CERTIFICATES =
@@ -120,7 +121,7 @@ public class SyntheticsCITest {
   }
 
   /**
-   * Get basicAuth
+   * Object to handle basic authentication when performing the test.
    *
    * @return basicAuth
    */
@@ -314,7 +315,7 @@ public class SyntheticsCITest {
   }
 
   /**
-   * Get metadata
+   * Metadata for the Synthetics tests run.
    *
    * @return metadata
    */
@@ -356,7 +357,7 @@ public class SyntheticsCITest {
   }
 
   /**
-   * Get retry
+   * Object describing the retry strategy to apply to a Synthetic test.
    *
    * @return retry
    */
@@ -430,22 +431,22 @@ public class SyntheticsCITest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCITest syntheticsCITest = (SyntheticsCITest) o;
+    SyntheticsCITest syntheticsCiTest = (SyntheticsCITest) o;
     return Objects.equals(
-            this.allowInsecureCertificates, syntheticsCITest.allowInsecureCertificates)
-        && Objects.equals(this.basicAuth, syntheticsCITest.basicAuth)
-        && Objects.equals(this.body, syntheticsCITest.body)
-        && Objects.equals(this.bodyType, syntheticsCITest.bodyType)
-        && Objects.equals(this.cookies, syntheticsCITest.cookies)
-        && Objects.equals(this.deviceIds, syntheticsCITest.deviceIds)
-        && Objects.equals(this.followRedirects, syntheticsCITest.followRedirects)
-        && Objects.equals(this.headers, syntheticsCITest.headers)
-        && Objects.equals(this.locations, syntheticsCITest.locations)
-        && Objects.equals(this.metadata, syntheticsCITest.metadata)
-        && Objects.equals(this.publicId, syntheticsCITest.publicId)
-        && Objects.equals(this.retry, syntheticsCITest.retry)
-        && Objects.equals(this.startUrl, syntheticsCITest.startUrl)
-        && Objects.equals(this.variables, syntheticsCITest.variables);
+            this.allowInsecureCertificates, syntheticsCiTest.allowInsecureCertificates)
+        && Objects.equals(this.basicAuth, syntheticsCiTest.basicAuth)
+        && Objects.equals(this.body, syntheticsCiTest.body)
+        && Objects.equals(this.bodyType, syntheticsCiTest.bodyType)
+        && Objects.equals(this.cookies, syntheticsCiTest.cookies)
+        && Objects.equals(this.deviceIds, syntheticsCiTest.deviceIds)
+        && Objects.equals(this.followRedirects, syntheticsCiTest.followRedirects)
+        && Objects.equals(this.headers, syntheticsCiTest.headers)
+        && Objects.equals(this.locations, syntheticsCiTest.locations)
+        && Objects.equals(this.metadata, syntheticsCiTest.metadata)
+        && Objects.equals(this.publicId, syntheticsCiTest.publicId)
+        && Objects.equals(this.retry, syntheticsCiTest.retry)
+        && Objects.equals(this.startUrl, syntheticsCiTest.startUrl)
+        && Objects.equals(this.variables, syntheticsCiTest.variables);
   }
 
   @Override

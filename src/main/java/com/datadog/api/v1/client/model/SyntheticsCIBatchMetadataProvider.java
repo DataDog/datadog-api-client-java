@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** Description of the CI provider. */
 @JsonPropertyOrder({SyntheticsCIBatchMetadataProvider.JSON_PROPERTY_NAME})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCIBatchMetadataProvider {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
@@ -54,9 +55,9 @@ public class SyntheticsCIBatchMetadataProvider {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCIBatchMetadataProvider syntheticsCIBatchMetadataProvider =
+    SyntheticsCIBatchMetadataProvider syntheticsCiBatchMetadataProvider =
         (SyntheticsCIBatchMetadataProvider) o;
-    return Objects.equals(this.name, syntheticsCIBatchMetadataProvider.name);
+    return Objects.equals(this.name, syntheticsCiBatchMetadataProvider.name);
   }
 
   @Override

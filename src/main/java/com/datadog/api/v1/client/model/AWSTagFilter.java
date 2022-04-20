@@ -21,7 +21,8 @@ import java.util.Objects;
   AWSTagFilter.JSON_PROPERTY_NAMESPACE,
   AWSTagFilter.JSON_PROPERTY_TAG_FILTER_STR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSTagFilter {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAMESPACE = "namespace";
@@ -37,7 +38,7 @@ public class AWSTagFilter {
   }
 
   /**
-   * Get namespace
+   * The namespace associated with the tag filter entry.
    *
    * @return namespace
    */
@@ -85,9 +86,9 @@ public class AWSTagFilter {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSTagFilter awSTagFilter = (AWSTagFilter) o;
-    return Objects.equals(this.namespace, awSTagFilter.namespace)
-        && Objects.equals(this.tagFilterStr, awSTagFilter.tagFilterStr);
+    AWSTagFilter awsTagFilter = (AWSTagFilter) o;
+    return Objects.equals(this.namespace, awsTagFilter.namespace)
+        && Objects.equals(this.tagFilterStr, awsTagFilter.tagFilterStr);
   }
 
   @Override

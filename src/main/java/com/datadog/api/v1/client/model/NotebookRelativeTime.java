@@ -19,7 +19,8 @@ import java.util.Objects;
 
 /** Relative timeframe. */
 @JsonPropertyOrder({NotebookRelativeTime.JSON_PROPERTY_LIVE_SPAN})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookRelativeTime {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LIVE_SPAN = "live_span";
@@ -41,7 +42,7 @@ public class NotebookRelativeTime {
   }
 
   /**
-   * Get liveSpan
+   * The available timeframes depend on the widget you are using.
    *
    * @return liveSpan
    */

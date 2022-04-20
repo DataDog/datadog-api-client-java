@@ -24,7 +24,8 @@ import java.util.Objects;
   UsageSyntheticsAPIHour.JSON_PROPERTY_ORG_NAME,
   UsageSyntheticsAPIHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSyntheticsAPIHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHECK_CALLS_COUNT = "check_calls_count";
@@ -132,11 +133,11 @@ public class UsageSyntheticsAPIHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSyntheticsAPIHour usageSyntheticsAPIHour = (UsageSyntheticsAPIHour) o;
-    return Objects.equals(this.checkCallsCount, usageSyntheticsAPIHour.checkCallsCount)
-        && Objects.equals(this.hour, usageSyntheticsAPIHour.hour)
-        && Objects.equals(this.orgName, usageSyntheticsAPIHour.orgName)
-        && Objects.equals(this.publicId, usageSyntheticsAPIHour.publicId);
+    UsageSyntheticsAPIHour usageSyntheticsApiHour = (UsageSyntheticsAPIHour) o;
+    return Objects.equals(this.checkCallsCount, usageSyntheticsApiHour.checkCallsCount)
+        && Objects.equals(this.hour, usageSyntheticsApiHour.hour)
+        && Objects.equals(this.orgName, usageSyntheticsApiHour.orgName)
+        && Objects.equals(this.publicId, usageSyntheticsApiHour.publicId);
   }
 
   @Override

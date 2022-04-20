@@ -33,7 +33,8 @@ import java.util.Objects;
   TreeMapWidgetDefinition.JSON_PROPERTY_TITLE,
   TreeMapWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TreeMapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLOR_BY = "color_by";
@@ -73,7 +74,7 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * Get colorBy
+   * The attribute used to determine color in the widget.
    *
    * @return colorBy
    */
@@ -98,7 +99,7 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * Get groupBy
+   * The attribute used to group elements in the widget.
    *
    * @return groupBy
    */
@@ -152,7 +153,7 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * Get sizeBy
+   * The attribute used to determine size in the widget.
    *
    * @return sizeBy
    */
@@ -198,7 +199,7 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the treemap widget.
    *
    * @return type
    */

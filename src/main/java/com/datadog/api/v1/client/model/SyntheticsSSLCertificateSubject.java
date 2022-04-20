@@ -26,7 +26,8 @@ import java.util.Objects;
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_S_T,
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_ALT_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsSSLCertificateSubject {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_C = "C";
@@ -206,15 +207,15 @@ public class SyntheticsSSLCertificateSubject {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsSSLCertificateSubject syntheticsSSLCertificateSubject =
+    SyntheticsSSLCertificateSubject syntheticsSslCertificateSubject =
         (SyntheticsSSLCertificateSubject) o;
-    return Objects.equals(this.C, syntheticsSSLCertificateSubject.C)
-        && Objects.equals(this.CN, syntheticsSSLCertificateSubject.CN)
-        && Objects.equals(this.L, syntheticsSSLCertificateSubject.L)
-        && Objects.equals(this.O, syntheticsSSLCertificateSubject.O)
-        && Objects.equals(this.OU, syntheticsSSLCertificateSubject.OU)
-        && Objects.equals(this.ST, syntheticsSSLCertificateSubject.ST)
-        && Objects.equals(this.altName, syntheticsSSLCertificateSubject.altName);
+    return Objects.equals(this.C, syntheticsSslCertificateSubject.C)
+        && Objects.equals(this.CN, syntheticsSslCertificateSubject.CN)
+        && Objects.equals(this.L, syntheticsSslCertificateSubject.L)
+        && Objects.equals(this.O, syntheticsSslCertificateSubject.O)
+        && Objects.equals(this.OU, syntheticsSslCertificateSubject.OU)
+        && Objects.equals(this.ST, syntheticsSslCertificateSubject.ST)
+        && Objects.equals(this.altName, syntheticsSslCertificateSubject.altName);
   }
 
   @Override

@@ -25,7 +25,8 @@ import java.util.Objects;
   SLOThreshold.JSON_PROPERTY_WARNING,
   SLOThreshold.JSON_PROPERTY_WARNING_DISPLAY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOThreshold {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TARGET = "target";
@@ -104,7 +105,7 @@ public class SLOThreshold {
   }
 
   /**
-   * Get timeframe
+   * The SLO time window options.
    *
    * @return timeframe
    */
@@ -174,12 +175,12 @@ public class SLOThreshold {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOThreshold slOThreshold = (SLOThreshold) o;
-    return Objects.equals(this.target, slOThreshold.target)
-        && Objects.equals(this.targetDisplay, slOThreshold.targetDisplay)
-        && Objects.equals(this.timeframe, slOThreshold.timeframe)
-        && Objects.equals(this.warning, slOThreshold.warning)
-        && Objects.equals(this.warningDisplay, slOThreshold.warningDisplay);
+    SLOThreshold sloThreshold = (SLOThreshold) o;
+    return Objects.equals(this.target, sloThreshold.target)
+        && Objects.equals(this.targetDisplay, sloThreshold.targetDisplay)
+        && Objects.equals(this.timeframe, sloThreshold.timeframe)
+        && Objects.equals(this.warning, sloThreshold.warning)
+        && Objects.equals(this.warningDisplay, sloThreshold.warningDisplay);
   }
 
   @Override

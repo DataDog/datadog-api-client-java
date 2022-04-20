@@ -30,7 +30,8 @@ import java.util.Objects;
   UsageAttributionBody.JSON_PROPERTY_UPDATED_AT,
   UsageAttributionBody.JSON_PROPERTY_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributionBody {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MONTH = "month";
@@ -198,7 +199,7 @@ public class UsageAttributionBody {
   }
 
   /**
-   * Get values
+   * Fields in Usage Summary by tag(s).
    *
    * @return values
    */

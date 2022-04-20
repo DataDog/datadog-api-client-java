@@ -18,7 +18,8 @@ import java.util.Objects;
 
 /** The description of a notebook response. */
 @JsonPropertyOrder({NotebookResponse.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -31,7 +32,7 @@ public class NotebookResponse {
   }
 
   /**
-   * Get data
+   * The data for a notebook.
    *
    * @return data
    */

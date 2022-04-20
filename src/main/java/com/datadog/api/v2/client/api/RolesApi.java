@@ -25,7 +25,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RolesApi {
   private ApiClient apiClient;
 
@@ -187,9 +188,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "addPermissionToRole");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -348,9 +346,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "addUserToRole");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -505,9 +500,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "cloneRole");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -639,9 +631,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "createRole");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -736,7 +725,7 @@ public class RolesApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -774,9 +763,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "deleteRole");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -786,7 +772,7 @@ public class RolesApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
@@ -910,9 +896,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getRole");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1024,9 +1007,6 @@ public class RolesApi {
     String localVarPath = "/api/v2/permissions";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listPermissions");
 
     Invocation.Builder builder;
     try {
@@ -1165,9 +1145,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listRolePermissions");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1193,6 +1170,224 @@ public class RolesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<PermissionsResponse>() {});
+  }
+
+  /** Manage optional parameters to listRoles. */
+  public static class ListRolesOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private RolesSort sort;
+    private String filter;
+
+    /**
+     * Set pageSize
+     *
+     * @param pageSize Size for a given page. (optional, default to 10)
+     * @return ListRolesOptionalParameters
+     */
+    public ListRolesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListRolesOptionalParameters
+     */
+    public ListRolesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set sort
+     *
+     * @param sort Sort roles depending on the given field. Sort order is **ascending** by default.
+     *     Sort order is **descending** if the field is prefixed by a negative sign, for example:
+     *     &#x60;sort&#x3D;-name&#x60;. (optional, default to "name")
+     * @return ListRolesOptionalParameters
+     */
+    public ListRolesOptionalParameters sort(RolesSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set filter
+     *
+     * @param filter Filter all roles by the given string. (optional)
+     * @return ListRolesOptionalParameters
+     */
+    public ListRolesOptionalParameters filter(String filter) {
+      this.filter = filter;
+      return this;
+    }
+  }
+
+  /**
+   * List roles
+   *
+   * <p>See {@link #listRolesWithHttpInfo}.
+   *
+   * @return RolesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RolesResponse listRoles() throws ApiException {
+    return listRolesWithHttpInfo(new ListRolesOptionalParameters()).getData();
+  }
+
+  /**
+   * List roles
+   *
+   * <p>See {@link #listRolesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;RolesResponse&gt;
+   */
+  public CompletableFuture<RolesResponse> listRolesAsync() {
+    return listRolesWithHttpInfoAsync(new ListRolesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List roles
+   *
+   * <p>See {@link #listRolesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return RolesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RolesResponse listRoles(ListRolesOptionalParameters parameters) throws ApiException {
+    return listRolesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List roles
+   *
+   * <p>See {@link #listRolesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;RolesResponse&gt;
+   */
+  public CompletableFuture<RolesResponse> listRolesAsync(ListRolesOptionalParameters parameters) {
+    return listRolesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List roles
+   *
+   * <p>Returns all roles, including their names and their unique identifiers.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;RolesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RolesResponse> listRolesWithHttpInfo(ListRolesOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    RolesSort sort = parameters.sort;
+    String filter = parameters.filter;
+    // create path and map variables
+    String localVarPath = "/api/v2/roles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "RolesApi.listRoles",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RolesResponse>() {});
+  }
+
+  /**
+   * List roles
+   *
+   * <p>See {@link #listRolesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;RolesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RolesResponse>> listRolesWithHttpInfoAsync(
+      ListRolesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    RolesSort sort = parameters.sort;
+    String filter = parameters.filter;
+    // create path and map variables
+    String localVarPath = "/api/v2/roles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "RolesApi.listRoles",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RolesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RolesResponse>() {});
   }
 
   /** Manage optional parameters to listRoleUsers. */
@@ -1230,7 +1425,7 @@ public class RolesApi {
      * @param sort User attribute to order results by. Sort order is **ascending** by default. Sort
      *     order is **descending** if the field is prefixed by a negative sign, for example
      *     &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;,
-     *     &#x60;status&#x60;. (optional, default to name)
+     *     &#x60;status&#x60;. (optional, default to "name")
      * @return ListRoleUsersOptionalParameters
      */
     public ListRoleUsersOptionalParameters sort(String sort) {
@@ -1266,7 +1461,7 @@ public class RolesApi {
   /**
    * Get all users of a role
    *
-   * <p>See {@link #listRoleUsersWithHttpInfo}.
+   * <p>See {@link #listRoleUsersWithHttpInfoAsync}.
    *
    * @param roleId The unique identifier of the role. (required)
    * @return CompletableFuture&lt;UsersResponse&gt;
@@ -1415,9 +1610,6 @@ public class RolesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listRoleUsers");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -1443,227 +1635,6 @@ public class RolesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsersResponse>() {});
-  }
-
-  /** Manage optional parameters to listRoles. */
-  public static class ListRolesOptionalParameters {
-    private Long pageSize;
-    private Long pageNumber;
-    private RolesSort sort;
-    private String filter;
-
-    /**
-     * Set pageSize
-     *
-     * @param pageSize Size for a given page. (optional, default to 10)
-     * @return ListRolesOptionalParameters
-     */
-    public ListRolesOptionalParameters pageSize(Long pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    /**
-     * Set pageNumber
-     *
-     * @param pageNumber Specific page number to return. (optional, default to 0)
-     * @return ListRolesOptionalParameters
-     */
-    public ListRolesOptionalParameters pageNumber(Long pageNumber) {
-      this.pageNumber = pageNumber;
-      return this;
-    }
-
-    /**
-     * Set sort
-     *
-     * @param sort Sort roles depending on the given field. Sort order is **ascending** by default.
-     *     Sort order is **descending** if the field is prefixed by a negative sign, for example:
-     *     &#x60;sort&#x3D;-name&#x60;. (optional, default to name)
-     * @return ListRolesOptionalParameters
-     */
-    public ListRolesOptionalParameters sort(RolesSort sort) {
-      this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Set filter
-     *
-     * @param filter Filter all roles by the given string. (optional)
-     * @return ListRolesOptionalParameters
-     */
-    public ListRolesOptionalParameters filter(String filter) {
-      this.filter = filter;
-      return this;
-    }
-  }
-
-  /**
-   * List roles
-   *
-   * <p>See {@link #listRolesWithHttpInfo}.
-   *
-   * @return RolesResponse
-   * @throws ApiException if fails to make API call
-   */
-  public RolesResponse listRoles() throws ApiException {
-    return listRolesWithHttpInfo(new ListRolesOptionalParameters()).getData();
-  }
-
-  /**
-   * List roles
-   *
-   * <p>See {@link #listRolesWithHttpInfo}.
-   *
-   * @return CompletableFuture&lt;RolesResponse&gt;
-   */
-  public CompletableFuture<RolesResponse> listRolesAsync() {
-    return listRolesWithHttpInfoAsync(new ListRolesOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * List roles
-   *
-   * <p>See {@link #listRolesWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return RolesResponse
-   * @throws ApiException if fails to make API call
-   */
-  public RolesResponse listRoles(ListRolesOptionalParameters parameters) throws ApiException {
-    return listRolesWithHttpInfo(parameters).getData();
-  }
-
-  /**
-   * List roles
-   *
-   * <p>See {@link #listRolesWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;RolesResponse&gt;
-   */
-  public CompletableFuture<RolesResponse> listRolesAsync(ListRolesOptionalParameters parameters) {
-    return listRolesWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * List roles
-   *
-   * <p>Returns all roles, including their names and their unique identifiers.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;RolesResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<RolesResponse> listRolesWithHttpInfo(ListRolesOptionalParameters parameters)
-      throws ApiException {
-    Object localVarPostBody = null;
-    Long pageSize = parameters.pageSize;
-    Long pageNumber = parameters.pageNumber;
-    RolesSort sort = parameters.sort;
-    String filter = parameters.filter;
-    // create path and map variables
-    String localVarPath = "/api/v2/roles";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "RolesApi.listRoles",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<RolesResponse>() {});
-  }
-
-  /**
-   * List roles
-   *
-   * <p>See {@link #listRolesWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;RolesResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<RolesResponse>> listRolesWithHttpInfoAsync(
-      ListRolesOptionalParameters parameters) {
-    Object localVarPostBody = null;
-    Long pageSize = parameters.pageSize;
-    Long pageNumber = parameters.pageNumber;
-    RolesSort sort = parameters.sort;
-    String filter = parameters.filter;
-    // create path and map variables
-    String localVarPath = "/api/v2/roles";
-
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listRoles");
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "RolesApi.listRoles",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RolesResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<RolesResponse>() {});
   }
 
   /**
@@ -1798,9 +1769,6 @@ public class RolesApi {
             .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "removePermissionFromRole");
 
     Invocation.Builder builder;
     try {
@@ -1961,9 +1929,6 @@ public class RolesApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "removeUserFromRole");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -2119,9 +2084,6 @@ public class RolesApi {
             .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "updateRole");
 
     Invocation.Builder builder;
     try {

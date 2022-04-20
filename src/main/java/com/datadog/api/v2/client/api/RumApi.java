@@ -19,7 +19,8 @@ import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RumApi {
   private ApiClient apiClient;
 
@@ -158,9 +159,6 @@ public class RumApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "aggregateRUMEvents");
-
     Invocation.Builder builder;
     try {
       builder =
@@ -281,7 +279,7 @@ public class RumApi {
   /**
    * Get a list of RUM events
    *
-   * <p>See {@link #listRUMEventsWithHttpInfo}.
+   * <p>See {@link #listRUMEventsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;RUMEventsResponse&gt;
    */
@@ -415,9 +413,6 @@ public class RumApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "listRUMEvents");
 
     Invocation.Builder builder;
     try {
@@ -553,9 +548,6 @@ public class RumApi {
     String localVarPath = "/api/v2/rum/events/search";
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "searchRUMEvents");
 
     Invocation.Builder builder;
     try {

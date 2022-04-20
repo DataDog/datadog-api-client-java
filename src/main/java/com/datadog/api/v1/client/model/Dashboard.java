@@ -43,7 +43,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Dashboard.JSON_PROPERTY_URL,
   Dashboard.JSON_PROPERTY_WIDGETS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Dashboard {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR_HANDLE = "author_handle";
@@ -234,7 +235,7 @@ public class Dashboard {
   }
 
   /**
-   * Get layoutType
+   * Layout type of the dashboard.
    *
    * @return layoutType
    */
@@ -313,7 +314,9 @@ public class Dashboard {
   }
 
   /**
-   * Get reflowType
+   * Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is
+   * &#39;ordered&#39;. If set to &#39;fixed&#39;, the dashboard expects all widgets to have a
+   * layout, and if it&#39;s set to &#39;auto&#39;, widgets should not have layouts.
    *
    * @return reflowType
    */

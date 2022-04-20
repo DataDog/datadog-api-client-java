@@ -23,7 +23,8 @@ import java.util.Objects;
   LogsMetricCreateData.JSON_PROPERTY_ID,
   LogsMetricCreateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricCreateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -57,7 +58,7 @@ public class LogsMetricCreateData {
   }
 
   /**
-   * Get attributes
+   * The object describing the Datadog log-based metric to create.
    *
    * @return attributes
    */
@@ -98,7 +99,7 @@ public class LogsMetricCreateData {
   }
 
   /**
-   * Get type
+   * The type of the resource. The value should always be logs_metrics.
    *
    * @return type
    */

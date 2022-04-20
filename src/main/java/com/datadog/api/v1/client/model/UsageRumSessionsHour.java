@@ -27,7 +27,8 @@ import java.util.Objects;
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_ANDROID,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_IOS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageRumSessionsHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";

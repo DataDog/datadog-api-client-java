@@ -33,7 +33,8 @@ import java.util.Objects;
   LogsGrokParser.JSON_PROPERTY_SOURCE,
   LogsGrokParser.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsGrokParser {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GROK = "grok";
@@ -75,7 +76,7 @@ public class LogsGrokParser {
   }
 
   /**
-   * Get grok
+   * Set of rules for the grok parser.
    *
    * @return grok
    */
@@ -187,7 +188,7 @@ public class LogsGrokParser {
   }
 
   /**
-   * Get type
+   * Type of logs grok parser.
    *
    * @return type
    */

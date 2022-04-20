@@ -23,7 +23,8 @@ import java.util.Objects;
   PartialAPIKeyAttributes.JSON_PROPERTY_MODIFIED_AT,
   PartialAPIKeyAttributes.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PartialAPIKeyAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
@@ -104,11 +105,11 @@ public class PartialAPIKeyAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PartialAPIKeyAttributes partialAPIKeyAttributes = (PartialAPIKeyAttributes) o;
-    return Objects.equals(this.createdAt, partialAPIKeyAttributes.createdAt)
-        && Objects.equals(this.last4, partialAPIKeyAttributes.last4)
-        && Objects.equals(this.modifiedAt, partialAPIKeyAttributes.modifiedAt)
-        && Objects.equals(this.name, partialAPIKeyAttributes.name);
+    PartialAPIKeyAttributes partialApiKeyAttributes = (PartialAPIKeyAttributes) o;
+    return Objects.equals(this.createdAt, partialApiKeyAttributes.createdAt)
+        && Objects.equals(this.last4, partialApiKeyAttributes.last4)
+        && Objects.equals(this.modifiedAt, partialApiKeyAttributes.modifiedAt)
+        && Objects.equals(this.name, partialApiKeyAttributes.name);
   }
 
   @Override

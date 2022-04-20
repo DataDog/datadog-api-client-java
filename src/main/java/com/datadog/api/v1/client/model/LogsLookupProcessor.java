@@ -35,7 +35,8 @@ import java.util.Objects;
   LogsLookupProcessor.JSON_PROPERTY_TARGET,
   LogsLookupProcessor.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsLookupProcessor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFAULT_LOOKUP = "default_lookup";
@@ -128,8 +129,8 @@ public class LogsLookupProcessor {
 
   /**
    * Mapping table of values for the source attribute and their associated target attribute values,
-   * formatted as &#x60;[\&quot;source_key1,target_value1\&quot;,
-   * \&quot;source_key2,target_value2\&quot;]&#x60;
+   * formatted as &#x60;[&quot;source_key1,target_value1&quot;,
+   * &quot;source_key2,target_value2&quot;]&#x60;
    *
    * @return lookupTable
    */
@@ -212,7 +213,7 @@ public class LogsLookupProcessor {
   }
 
   /**
-   * Get type
+   * Type of logs lookup processor.
    *
    * @return type
    */

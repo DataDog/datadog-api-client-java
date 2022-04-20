@@ -22,7 +22,8 @@ import java.util.Objects;
   RUMEvent.JSON_PROPERTY_ID,
   RUMEvent.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMEvent {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -41,7 +42,7 @@ public class RUMEvent {
   }
 
   /**
-   * Get attributes
+   * JSON object containing all event attributes and their associated values.
    *
    * @return attributes
    */
@@ -84,7 +85,7 @@ public class RUMEvent {
   }
 
   /**
-   * Get type
+   * Type of the event.
    *
    * @return type
    */
@@ -111,10 +112,10 @@ public class RUMEvent {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMEvent ruMEvent = (RUMEvent) o;
-    return Objects.equals(this.attributes, ruMEvent.attributes)
-        && Objects.equals(this.id, ruMEvent.id)
-        && Objects.equals(this.type, ruMEvent.type);
+    RUMEvent rumEvent = (RUMEvent) o;
+    return Objects.equals(this.attributes, rumEvent.attributes)
+        && Objects.equals(this.id, rumEvent.id)
+        && Objects.equals(this.type, rumEvent.type);
   }
 
   @Override

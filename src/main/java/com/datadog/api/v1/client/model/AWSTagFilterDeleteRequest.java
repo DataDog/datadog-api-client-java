@@ -21,7 +21,8 @@ import java.util.Objects;
   AWSTagFilterDeleteRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSTagFilterDeleteRequest.JSON_PROPERTY_NAMESPACE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSTagFilterDeleteRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -58,7 +59,7 @@ public class AWSTagFilterDeleteRequest {
   }
 
   /**
-   * Get namespace
+   * The namespace associated with the tag filter entry.
    *
    * @return namespace
    */
@@ -85,9 +86,9 @@ public class AWSTagFilterDeleteRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSTagFilterDeleteRequest awSTagFilterDeleteRequest = (AWSTagFilterDeleteRequest) o;
-    return Objects.equals(this.accountId, awSTagFilterDeleteRequest.accountId)
-        && Objects.equals(this.namespace, awSTagFilterDeleteRequest.namespace);
+    AWSTagFilterDeleteRequest awsTagFilterDeleteRequest = (AWSTagFilterDeleteRequest) o;
+    return Objects.equals(this.accountId, awsTagFilterDeleteRequest.accountId)
+        && Objects.equals(this.namespace, awsTagFilterDeleteRequest.namespace);
   }
 
   @Override

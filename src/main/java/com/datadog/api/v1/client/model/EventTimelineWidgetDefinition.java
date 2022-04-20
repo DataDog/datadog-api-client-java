@@ -30,7 +30,8 @@ import java.util.Objects;
   EventTimelineWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   EventTimelineWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventTimelineWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
@@ -114,7 +115,7 @@ public class EventTimelineWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -157,7 +158,7 @@ public class EventTimelineWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -203,7 +204,7 @@ public class EventTimelineWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the event timeline widget.
    *
    * @return type
    */

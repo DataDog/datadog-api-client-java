@@ -39,7 +39,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOResponseData.JSON_PROPERTY_THRESHOLDS,
   SLOResponseData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIGURED_ALERT_IDS = "configured_alert_ids";
@@ -126,14 +127,8 @@ public class SLOResponseData {
     return createdAt;
   }
 
-  public SLOResponseData creator(Creator creator) {
-    this.creator = creator;
-    this.unparsed |= creator.unparsed;
-    return this;
-  }
-
   /**
-   * Get creator
+   * Object describing the creator of the shared element.
    *
    * @return creator
    */
@@ -142,10 +137,6 @@ public class SLOResponseData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
     return creator;
-  }
-
-  public void setCreator(Creator creator) {
-    this.creator = creator;
   }
 
   public SLOResponseData description(String description) {
@@ -329,7 +320,9 @@ public class SLOResponseData {
   }
 
   /**
-   * Get query
+   * A metric SLI query. **Required if type is &#x60;metric&#x60;**. Note that Datadog only allows
+   * the sum by aggregator to be used because this will sum up all request counts instead of
+   * averaging them, or taking the max or min of all of those requests.
    *
    * @return query
    */
@@ -414,7 +407,7 @@ public class SLOResponseData {
   }
 
   /**
-   * Get type
+   * The type of the service level objective.
    *
    * @return type
    */
@@ -441,21 +434,21 @@ public class SLOResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOResponseData slOResponseData = (SLOResponseData) o;
-    return Objects.equals(this.configuredAlertIds, slOResponseData.configuredAlertIds)
-        && Objects.equals(this.createdAt, slOResponseData.createdAt)
-        && Objects.equals(this.creator, slOResponseData.creator)
-        && Objects.equals(this.description, slOResponseData.description)
-        && Objects.equals(this.groups, slOResponseData.groups)
-        && Objects.equals(this.id, slOResponseData.id)
-        && Objects.equals(this.modifiedAt, slOResponseData.modifiedAt)
-        && Objects.equals(this.monitorIds, slOResponseData.monitorIds)
-        && Objects.equals(this.monitorTags, slOResponseData.monitorTags)
-        && Objects.equals(this.name, slOResponseData.name)
-        && Objects.equals(this.query, slOResponseData.query)
-        && Objects.equals(this.tags, slOResponseData.tags)
-        && Objects.equals(this.thresholds, slOResponseData.thresholds)
-        && Objects.equals(this.type, slOResponseData.type);
+    SLOResponseData sloResponseData = (SLOResponseData) o;
+    return Objects.equals(this.configuredAlertIds, sloResponseData.configuredAlertIds)
+        && Objects.equals(this.createdAt, sloResponseData.createdAt)
+        && Objects.equals(this.creator, sloResponseData.creator)
+        && Objects.equals(this.description, sloResponseData.description)
+        && Objects.equals(this.groups, sloResponseData.groups)
+        && Objects.equals(this.id, sloResponseData.id)
+        && Objects.equals(this.modifiedAt, sloResponseData.modifiedAt)
+        && Objects.equals(this.monitorIds, sloResponseData.monitorIds)
+        && Objects.equals(this.monitorTags, sloResponseData.monitorTags)
+        && Objects.equals(this.name, sloResponseData.name)
+        && Objects.equals(this.query, sloResponseData.query)
+        && Objects.equals(this.tags, sloResponseData.tags)
+        && Objects.equals(this.thresholds, sloResponseData.thresholds)
+        && Objects.equals(this.type, sloResponseData.type);
   }
 
   @Override

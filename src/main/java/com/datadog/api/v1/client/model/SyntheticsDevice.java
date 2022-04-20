@@ -25,7 +25,8 @@ import java.util.Objects;
   SyntheticsDevice.JSON_PROPERTY_NAME,
   SyntheticsDevice.JSON_PROPERTY_WIDTH
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsDevice {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HEIGHT = "height";
@@ -85,7 +86,7 @@ public class SyntheticsDevice {
   }
 
   /**
-   * Get id
+   * The device ID.
    *
    * @return id
    */

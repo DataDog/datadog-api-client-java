@@ -24,7 +24,8 @@ import java.util.Objects;
   SLOListResponse.JSON_PROPERTY_ERRORS,
   SLOListResponse.JSON_PROPERTY_METADATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
@@ -105,7 +106,7 @@ public class SLOListResponse {
   }
 
   /**
-   * Get metadata
+   * The metadata object containing additional information about the list of SLOs.
    *
    * @return metadata
    */
@@ -129,10 +130,10 @@ public class SLOListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOListResponse slOListResponse = (SLOListResponse) o;
-    return Objects.equals(this.data, slOListResponse.data)
-        && Objects.equals(this.errors, slOListResponse.errors)
-        && Objects.equals(this.metadata, slOListResponse.metadata);
+    SLOListResponse sloListResponse = (SLOListResponse) o;
+    return Objects.equals(this.data, sloListResponse.data)
+        && Objects.equals(this.errors, sloListResponse.errors)
+        && Objects.equals(this.metadata, sloListResponse.metadata);
   }
 
   @Override

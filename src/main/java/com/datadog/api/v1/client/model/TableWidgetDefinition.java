@@ -33,7 +33,8 @@ import java.util.Objects;
   TableWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   TableWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TableWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
@@ -112,7 +113,7 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * Get hasSearchBar
+   * Controls the display of the search bar.
    *
    * @return hasSearchBar
    */
@@ -166,7 +167,7 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * Get time
+   * Time setting for the widget.
    *
    * @return time
    */
@@ -209,7 +210,7 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * Get titleAlign
+   * How to align the text on the widget.
    *
    * @return titleAlign
    */
@@ -255,7 +256,7 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * Get type
+   * Type of the table widget.
    *
    * @return type
    */
