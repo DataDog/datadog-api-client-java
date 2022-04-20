@@ -76,6 +76,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_UNITS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NPM_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_CONTAINER_AGENT_COUNT_AVG,
@@ -280,6 +281,10 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P_SUM = "npm_host_top99p_sum";
   private Long npmHostTop99pSum;
+
+  public static final String JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_AGG_SUM =
+      "observability_pipelines_bytes_processed_agg_sum";
+  private Long observabilityPipelinesBytesProcessedAggSum;
 
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM =
       "online_archive_events_count_agg_sum";
@@ -1504,6 +1509,30 @@ public class UsageSummaryResponse {
     this.npmHostTop99pSum = npmHostTop99pSum;
   }
 
+  public UsageSummaryResponse observabilityPipelinesBytesProcessedAggSum(
+      Long observabilityPipelinesBytesProcessedAggSum) {
+    this.observabilityPipelinesBytesProcessedAggSum = observabilityPipelinesBytesProcessedAggSum;
+    return this;
+  }
+
+  /**
+   * Sum of all observability pipelines bytes processed over all hours in the current months for all
+   * organizations.
+   *
+   * @return observabilityPipelinesBytesProcessedAggSum
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getObservabilityPipelinesBytesProcessedAggSum() {
+    return observabilityPipelinesBytesProcessedAggSum;
+  }
+
+  public void setObservabilityPipelinesBytesProcessedAggSum(
+      Long observabilityPipelinesBytesProcessedAggSum) {
+    this.observabilityPipelinesBytesProcessedAggSum = observabilityPipelinesBytesProcessedAggSum;
+  }
+
   public UsageSummaryResponse onlineArchiveEventsCountAggSum(Long onlineArchiveEventsCountAggSum) {
     this.onlineArchiveEventsCountAggSum = onlineArchiveEventsCountAggSum;
     return this;
@@ -2034,6 +2063,9 @@ public class UsageSummaryResponse {
             usageSummaryResponse.netflowIndexedEventsCountAggSum)
         && Objects.equals(this.npmHostTop99pSum, usageSummaryResponse.npmHostTop99pSum)
         && Objects.equals(
+            this.observabilityPipelinesBytesProcessedAggSum,
+            usageSummaryResponse.observabilityPipelinesBytesProcessedAggSum)
+        && Objects.equals(
             this.onlineArchiveEventsCountAggSum,
             usageSummaryResponse.onlineArchiveEventsCountAggSum)
         && Objects.equals(
@@ -2128,6 +2160,7 @@ public class UsageSummaryResponse {
         mobileRumUnitsAggSum,
         netflowIndexedEventsCountAggSum,
         npmHostTop99pSum,
+        observabilityPipelinesBytesProcessedAggSum,
         onlineArchiveEventsCountAggSum,
         opentelemetryHostTop99pSum,
         profilingContainerAgentCountAvg,
@@ -2269,6 +2302,9 @@ public class UsageSummaryResponse {
         .append(toIndentedString(netflowIndexedEventsCountAggSum))
         .append("\n");
     sb.append("    npmHostTop99pSum: ").append(toIndentedString(npmHostTop99pSum)).append("\n");
+    sb.append("    observabilityPipelinesBytesProcessedAggSum: ")
+        .append(toIndentedString(observabilityPipelinesBytesProcessedAggSum))
+        .append("\n");
     sb.append("    onlineArchiveEventsCountAggSum: ")
         .append(toIndentedString(onlineArchiveEventsCountAggSum))
         .append("\n");

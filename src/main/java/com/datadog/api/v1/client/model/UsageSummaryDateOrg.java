@@ -66,6 +66,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_NAME,
   UsageSummaryDateOrg.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_NPM_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PROFILING_HOST_TOP99P,
@@ -245,6 +246,10 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P = "npm_host_top99p";
   private Long npmHostTop99p;
+
+  public static final String JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM =
+      "observability_pipelines_bytes_processed_sum";
+  private Long observabilityPipelinesBytesProcessedSum;
 
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM =
       "online_archive_events_count_sum";
@@ -1347,6 +1352,30 @@ public class UsageSummaryDateOrg {
     this.npmHostTop99p = npmHostTop99p;
   }
 
+  public UsageSummaryDateOrg observabilityPipelinesBytesProcessedSum(
+      Long observabilityPipelinesBytesProcessedSum) {
+    this.observabilityPipelinesBytesProcessedSum = observabilityPipelinesBytesProcessedSum;
+    return this;
+  }
+
+  /**
+   * Sum of all observability pipelines bytes processed over all hours in the current date for the
+   * given org.
+   *
+   * @return observabilityPipelinesBytesProcessedSum
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getObservabilityPipelinesBytesProcessedSum() {
+    return observabilityPipelinesBytesProcessedSum;
+  }
+
+  public void setObservabilityPipelinesBytesProcessedSum(
+      Long observabilityPipelinesBytesProcessedSum) {
+    this.observabilityPipelinesBytesProcessedSum = observabilityPipelinesBytesProcessedSum;
+  }
+
   public UsageSummaryDateOrg onlineArchiveEventsCountSum(Long onlineArchiveEventsCountSum) {
     this.onlineArchiveEventsCountSum = onlineArchiveEventsCountSum;
     return this;
@@ -1753,6 +1782,9 @@ public class UsageSummaryDateOrg {
             this.netflowIndexedEventsCountSum, usageSummaryDateOrg.netflowIndexedEventsCountSum)
         && Objects.equals(this.npmHostTop99p, usageSummaryDateOrg.npmHostTop99p)
         && Objects.equals(
+            this.observabilityPipelinesBytesProcessedSum,
+            usageSummaryDateOrg.observabilityPipelinesBytesProcessedSum)
+        && Objects.equals(
             this.onlineArchiveEventsCountSum, usageSummaryDateOrg.onlineArchiveEventsCountSum)
         && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDateOrg.opentelemetryHostTop99p)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDateOrg.profilingHostTop99p)
@@ -1829,6 +1861,7 @@ public class UsageSummaryDateOrg {
         name,
         netflowIndexedEventsCountSum,
         npmHostTop99p,
+        observabilityPipelinesBytesProcessedSum,
         onlineArchiveEventsCountSum,
         opentelemetryHostTop99p,
         profilingHostTop99p,
@@ -1946,6 +1979,9 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(netflowIndexedEventsCountSum))
         .append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
+    sb.append("    observabilityPipelinesBytesProcessedSum: ")
+        .append(toIndentedString(observabilityPipelinesBytesProcessedSum))
+        .append("\n");
     sb.append("    onlineArchiveEventsCountSum: ")
         .append(toIndentedString(onlineArchiveEventsCountSum))
         .append("\n");
