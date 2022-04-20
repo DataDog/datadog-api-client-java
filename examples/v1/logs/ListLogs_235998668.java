@@ -19,7 +19,7 @@ public class Example {
     LogsListRequest body =
         new LogsListRequest()
             .index("main")
-            .query("service:web*")
+            .query("host:Test*")
             .sort(LogsSort.TIME_ASCENDING)
             .time(
                 new LogsListRequestTime()
