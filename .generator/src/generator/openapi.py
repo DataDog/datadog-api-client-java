@@ -154,7 +154,7 @@ def get_type_for_attribute(schema, attribute, current_name=None):
 
 
 def get_type_for_parameter(parameter):
-    """Return Go type name for the parameter."""
+    """Return Java type name for the parameter."""
     if "content" in parameter:
         assert "in" not in parameter
         for content in parameter["content"].values():
@@ -162,20 +162,10 @@ def get_type_for_parameter(parameter):
     return type_to_java(parameter.get("schema"))
 
 
-def get_type_for_response(response):
-    """Return Go type name for the response."""
-    if "content" in response:
-        for content in response["content"].values():
-            if "schema" in content:
-                return type_to_java(content["schema"])
-
-
 def child_models(schema, alternative_name=None, seen=None, parent=None):
     seen = seen or set()
     current_name = get_name(schema)
     name = current_name or alternative_name
-
-    # schema["name"] = name
 
     if parent is not None:
         schema["parent"] = parent

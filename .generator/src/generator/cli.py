@@ -29,23 +29,17 @@ def cli(input, output):
     Generate a Ruby code snippet from OpenAPI specification.
     """
     spec = openapi.load(input)
-
     version = input.parent.name
-    with (input.parent.parent.parent / "config" / f"{version}.json").open() as fp:
-        config = json.load(fp)
-
     env = Environment(loader=FileSystemLoader(str(pathlib.Path(__file__).parent / "templates")))
 
     env.filters["accept_headers"] = openapi.accept_headers
     env.filters["attribute_name"] = formatter.attribute_name
-    env.filters["block_comment"] = formatter.block_comment
     env.filters["camel_case"] = formatter.camel_case
     env.filters["collection_format"] = openapi.collection_format
     env.filters["format_server"] = openapi.format_server
     env.filters["format_value"] = formatter.format_value
     env.filters["parameter_schema"] = openapi.parameter_schema
     env.filters["parameters"] = openapi.parameters
-    env.filters["response_type"] = openapi.get_type_for_response
     env.filters["return_type"] = openapi.return_type
     env.filters["simple_type"] = formatter.simple_type
     env.filters["snake_case"] = formatter.snake_case
@@ -57,7 +51,6 @@ def cli(input, output):
     env.filters["get_required_attributes"] = openapi.get_required_attributes
     env.filters["escape_html"] = formatter.escape_html
 
-    env.globals["config"] = config
     env.globals["enumerate"] = enumerate
     env.globals["get_name"] = openapi.get_name
     env.globals["get_type_for_attribute"] = openapi.get_type_for_attribute
