@@ -31,10 +31,16 @@ public class ListStreamSource {
   public static final ListStreamSource AUDIT_STREAM = new ListStreamSource("audit_stream");
   public static final ListStreamSource RUM_ISSUE_STREAM = new ListStreamSource("rum_issue_stream");
   public static final ListStreamSource APM_ISSUE_STREAM = new ListStreamSource("apm_issue_stream");
+  public static final ListStreamSource TRACE_STREAM = new ListStreamSource("trace_stream");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("logs_stream", "audit_stream", "rum_issue_stream", "apm_issue_stream"));
+          Arrays.asList(
+              "logs_stream",
+              "audit_stream",
+              "rum_issue_stream",
+              "apm_issue_stream",
+              "trace_stream"));
 
   private String value;
 

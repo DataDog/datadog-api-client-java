@@ -293,7 +293,8 @@ public class MonitorsApi {
    * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
    * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
    * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **Process Alert Query** Example:
+   * threshold. **NOTE** Only available on US1-FED, US3, US5 and in closed beta on EU and US1.
+   * **Process Alert Query** Example:
    * &#x60;processes(search).over(tags).rollup(&#39;count&#39;).last(timeframe) operator #&#x60; -
    * **&#x60;search&#x60;** free text search string for querying processes. Matching processes match
    * results on the [Live
