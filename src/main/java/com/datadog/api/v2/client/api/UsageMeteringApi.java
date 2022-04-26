@@ -5,6 +5,7 @@ import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.Pair;
+import com.datadog.api.v2.client.model.CostByOrgResponse;
 import com.datadog.api.v2.client.model.UsageObservabilityPipelinesResponse;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -44,6 +45,207 @@ public class UsageMeteringApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /** Manage optional parameters to getCostByOrg. */
+  public static class GetCostByOrgOptionalParameters {
+    private OffsetDateTime endMonth;
+
+    /**
+     * Set endMonth
+     *
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+     *     cost ending this month. (optional)
+     * @return GetCostByOrgOptionalParameters
+     */
+    public GetCostByOrgOptionalParameters endMonth(OffsetDateTime endMonth) {
+      this.endMonth = endMonth;
+      return this;
+    }
+  }
+
+  /**
+   * Get Cost Across Multi-Org Account
+   *
+   * <p>See {@link #getCostByOrgWithHttpInfo}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     cost beginning this month. (required)
+   * @return CostByOrgResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostByOrgResponse getCostByOrg(OffsetDateTime startMonth) throws ApiException {
+    return getCostByOrgWithHttpInfo(startMonth, new GetCostByOrgOptionalParameters()).getData();
+  }
+
+  /**
+   * Get Cost Across Multi-Org Account
+   *
+   * <p>See {@link #getCostByOrgWithHttpInfoAsync}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     cost beginning this month. (required)
+   * @return CompletableFuture&lt;CostByOrgResponse&gt;
+   */
+  public CompletableFuture<CostByOrgResponse> getCostByOrgAsync(OffsetDateTime startMonth) {
+    return getCostByOrgWithHttpInfoAsync(startMonth, new GetCostByOrgOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get Cost Across Multi-Org Account
+   *
+   * <p>See {@link #getCostByOrgWithHttpInfo}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     cost beginning this month. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CostByOrgResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostByOrgResponse getCostByOrg(
+      OffsetDateTime startMonth, GetCostByOrgOptionalParameters parameters) throws ApiException {
+    return getCostByOrgWithHttpInfo(startMonth, parameters).getData();
+  }
+
+  /**
+   * Get Cost Across Multi-Org Account
+   *
+   * <p>See {@link #getCostByOrgWithHttpInfoAsync}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     cost beginning this month. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostByOrgResponse&gt;
+   */
+  public CompletableFuture<CostByOrgResponse> getCostByOrgAsync(
+      OffsetDateTime startMonth, GetCostByOrgOptionalParameters parameters) {
+    return getCostByOrgWithHttpInfoAsync(startMonth, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get Cost Across Multi-Org Account
+   *
+   * <p>Get Cost Across Multi-Org Account.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     cost beginning this month. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostByOrgResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostByOrgResponse> getCostByOrgWithHttpInfo(
+      OffsetDateTime startMonth, GetCostByOrgOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startMonth' is set
+    if (startMonth == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'startMonth' when calling getCostByOrg");
+    }
+    OffsetDateTime endMonth = parameters.endMonth;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/cost_by_org";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getCostByOrg",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostByOrgResponse>() {});
+  }
+
+  /**
+   * Get Cost Across Multi-Org Account
+   *
+   * <p>See {@link #getCostByOrgWithHttpInfo}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     cost beginning this month. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostByOrgResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostByOrgResponse>> getCostByOrgWithHttpInfoAsync(
+      OffsetDateTime startMonth, GetCostByOrgOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startMonth' is set
+    if (startMonth == null) {
+      CompletableFuture<ApiResponse<CostByOrgResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'startMonth' when calling getCostByOrg"));
+      return result;
+    }
+    OffsetDateTime endMonth = parameters.endMonth;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/cost_by_org";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getCostByOrg",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostByOrgResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostByOrgResponse>() {});
   }
 
   /** Manage optional parameters to getUsageObservabilityPipelines. */
