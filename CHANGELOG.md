@@ -1,5 +1,46 @@
 # CHANGELOG
 
+## 1.6.0 / 2022-04-26
+
+### Fixed
+* Fix event intake response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1199
+* Fix type for `date` field in `LogsByRetentionMonthlyUsage` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1216
+* Parse URI manually by @therve in https://github.com/DataDog/datadog-api-client-java/pull/1207
+* Fix org name maximum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1239
+* Fix pagination for top avg metrics endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1245
+* Make type optional for synthetics basic auth model by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1269
+* Set correct type for `tags` property by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1288
+### Added
+* [Synthetics] Add missing option for SSL tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1206
+* Add impossible travel detection method by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1211
+* Add CI App usage endpoint and usage summary columns by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1215
+* [RUM] Add search endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1213
+* Add support for getting online archive usage by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1220
+* Add endpoint for retrieving audit logs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1219
+* Add support for Error Tracking monitors by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1241
+* Add support for `ci-pipelines` monitor using Formulas and Functions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1250
+* Add aggregate endpoint for RUM by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1259
+* Add  `median` aggregation functions to RUM and logs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1267
+* Add endpoint for validation of existing monitors by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1268
+* Create new ListStreamSource types in order to deprecate ISSUE_STREAM by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1276
+* [Query Value Widget] Add the timeseries background by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1266
+* Add `restricted_roles` to Synthetics tests and private locations by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1278
+* Add v2 SAML config IdP Metadata upload endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1286
+* Support pagination in Python by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1292
+* Add Usage API endpoint for observability-pipelines and add properties to v1 GetUsageSummary by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1264
+### Changed
+* Update dependencies by @therve in https://github.com/DataDog/datadog-api-client-java/pull/1262
+### Removed
+* Remove `lambda_usage` and `lambda_percentage` from usage API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1256
+* [dashboards] Removed `issue_stream` type from `ListStreamSource` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1282
+### Deprecated
+* [monitors] Deprecate `locked` property and clarify documentation for `restricted_roles` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1233
+
+## New Contributors
+* @juan-fernandez made their first contribution in https://github.com/DataDog/datadog-api-client-java/pull/1226
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-1.5.0...datadog-api-client-1.6.0
+
 ## 1.5.0 / 2022-02-21
 
 ### Fixed
