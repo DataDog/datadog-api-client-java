@@ -49,6 +49,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openapitools.jackson.nullable.JsonNullableModule;
 
 /** API tests for LogsArchivesApi */
 public class LogsArchivesApiTest extends V2APITest {
@@ -72,6 +73,7 @@ public class LogsArchivesApiTest extends V2APITest {
   @BeforeClass
   public static void initApi() {
     api = new LogsArchivesApi(generalApiUnitTestClient);
+    objectMapper.registerModule(new JsonNullableModule());
   }
 
   /**
