@@ -3,8 +3,8 @@ package com.datadog.api.v2.client.api;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.assertEquals;
 
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.ApiResponse;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiResponse;
 import com.datadog.api.v2.client.model.DashboardListItems;
 import org.junit.BeforeClass;
 import org.junit.Test;

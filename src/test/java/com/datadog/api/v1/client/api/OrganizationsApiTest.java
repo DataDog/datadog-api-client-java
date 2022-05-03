@@ -13,7 +13,7 @@ import static org.junit.Assume.assumeFalse;
 
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
-import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

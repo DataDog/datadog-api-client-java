@@ -10,8 +10,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
 import com.datadog.api.TestUtils;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.ApiResponse;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiResponse;
 import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

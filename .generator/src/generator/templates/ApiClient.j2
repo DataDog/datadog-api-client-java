@@ -72,11 +72,20 @@ import java.text.DateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import {{ package_name }}.auth.ApiKeyAuth;
-import {{ package_name }}.auth.Authentication;
-import {{ package_name }}.auth.HttpBasicAuth;
-import {{ package_name }}.auth.HttpBearerAuth;
-import {{ package_name }}.auth.OAuth;
+import {{ common_package_name }}.ApiException;
+import {{ common_package_name }}.ApiResponse;
+import {{ common_package_name }}.JSON;
+import {{ common_package_name }}.Pair;
+import {{ common_package_name }}.RFC3339DateFormat;
+import {{ common_package_name }}.ServerConfiguration;
+import {{ common_package_name }}.ServerVariable;
+import {{ common_package_name }}.StringUtil;
+
+import {{ common_package_name }}.auth.ApiKeyAuth;
+import {{ common_package_name }}.auth.Authentication;
+import {{ common_package_name }}.auth.HttpBasicAuth;
+import {{ common_package_name }}.auth.HttpBearerAuth;
+import {{ common_package_name }}.auth.OAuth;
 
 {%- macro server_configuration(server) -%}
      new ServerConfiguration(

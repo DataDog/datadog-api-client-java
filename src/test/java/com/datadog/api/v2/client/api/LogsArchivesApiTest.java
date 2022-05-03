@@ -21,8 +21,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 import com.datadog.api.TestUtils;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.ApiResponse;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiResponse;
 import com.datadog.api.v2.client.model.LogsArchive;
 import com.datadog.api.v2.client.model.LogsArchiveCreateRequest;
 import com.datadog.api.v2.client.model.LogsArchiveCreateRequestAttributes;

@@ -7,6 +7,7 @@ from . import openapi
 from . import formatter
 
 PACKAGE_NAME = "com.datadog.api.{}.client"
+COMMON_PACKAGE_NAME = "com.datadog.api.client"
 GENERATED_ANNOTATION = (
     '@javax.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")'
 )
@@ -64,6 +65,7 @@ def cli(input, output):
     env.globals["get_api_models"] = openapi.get_api_models
     env.globals["openapi"] = spec
     env.globals["package_name"] = PACKAGE_NAME.format(version)
+    env.globals["common_package_name"] = COMMON_PACKAGE_NAME
     env.globals["generated_annotation"] = GENERATED_ANNOTATION
     env.globals["get_accessors"] = openapi.get_accessors
     env.globals["get_default"] = openapi.get_default
@@ -73,11 +75,10 @@ def cli(input, output):
     api_j2 = env.get_template("Api.j2")
     model_j2 = env.get_template("model.j2")
 
-    extra_files = {
-        "ApiClient.java": env.get_template("ApiClient.j2"),
+    common_files = {
+        "AbstractOpenApiSchema.java": env.get_template("AbstractOpenApiSchema.j2"),
         "ApiException.java": env.get_template("ApiException.j2"),
         "ApiResponse.java": env.get_template("ApiResponse.j2"),
-        "Configuration.java": env.get_template("Configuration.j2"),
         "JSON.java": env.get_template("JSON.j2"),
         "JavaTimeFormatter.java": env.get_template("JavaTimeFormatter.j2"),
         "JsonTimeSerializer.java": env.get_template("JsonTimeSerializer.j2"),
@@ -88,11 +89,13 @@ def cli(input, output):
         "StringUtil.java": env.get_template("StringUtil.j2"),
         "PaginationIterable.java": env.get_template("PaginationIterable.j2"),
         "PaginationIterator.java": env.get_template("PaginationIterator.j2")
+        "UnparsedObject.java": env.get_template("UnparsedObject.j2"),
     }
 
-    extra_models = {
-        "AbstractOpenApiSchema.java": env.get_template("AbstractOpenApiSchema.j2"),
-        "UnparsedObject.java": env.get_template("UnparsedObject.j2"),
+    extra_files = {
+        "ApiClient.java": env.get_template("ApiClient.j2"),
+        "Configuration.java": env.get_template("Configuration.j2"),
+        "JavaTimeFormatter.java": env.get_template("JavaTimeFormatter.j2"),
     }
 
     auth_files = {
@@ -109,25 +112,28 @@ def cli(input, output):
 
     output.mkdir(parents=True, exist_ok=True)
 
+    client_output = output.parent.parent / "client"
+    client_output.mkdir(parents=True, exist_ok=True)
+
     for name, template in extra_files.items():
         filename = output / name
         with filename.open("w") as fp:
             fp.write(template.render(apis=apis, models=models))
 
-    auth_path = output / "auth"
+    auth_path = client_output / "auth"
     auth_path.mkdir(parents=True, exist_ok=True)
     for name, template in auth_files.items():
         filename = auth_path / name
         with filename.open("w") as fp:
             fp.write(template.render())
 
-    model_dir = output / "model"
-    model_dir.mkdir(parents=True, exist_ok=True)
-    for name, template in extra_models.items():
-        filename = model_dir / name
+    for name, template in common_files.items():
+        filename = client_output / name
         with filename.open("w") as fp:
             fp.write(template.render())
 
+    model_dir = output / "model"
+    model_dir.mkdir(parents=True, exist_ok=True)
     for name, model in models.items():
         model_path = model_dir / f"{name}.java"
         with model_path.open("w") as fp:

@@ -12,7 +12,7 @@ package com.datadog.api.v1.client.api;
 
 import static org.junit.Assert.*;
 
-import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.LogsAPIErrorResponse;
 import com.datadog.api.v1.client.model.LogsPipeline;

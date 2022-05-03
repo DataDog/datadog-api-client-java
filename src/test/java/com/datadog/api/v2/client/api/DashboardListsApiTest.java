@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v1.client.model.DashboardList;
-import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.model.*;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -42,13 +42,13 @@ public class DashboardListsApiTest extends V2APITest {
   }
 
   @After
-  public void deleteDashboardList() throws com.datadog.api.v1.client.ApiException {
+  public void deleteDashboardList() throws ApiException {
     dashboardListsApiV1.deleteDashboardList(dashboardListID);
   }
 
   @Before
   public void createDashboardList()
-      throws com.datadog.api.v1.client.ApiException, NoSuchAlgorithmException {
+      throws ApiException, NoSuchAlgorithmException {
     com.datadog.api.v1.client.ApiClient v1Client = new com.datadog.api.v1.client.ApiClient();
     HashMap<String, String> secrets = new HashMap<>();
     secrets.put("apiKeyAuth", TEST_API_KEY);

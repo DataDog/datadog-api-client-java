@@ -8,7 +8,7 @@ package com.datadog.api.v1.client.api;
 
 import static org.junit.Assert.assertEquals;
 
-import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v1.client.model.LogsPipelinesOrder;
 import java.util.ArrayList;
 import java.util.List;

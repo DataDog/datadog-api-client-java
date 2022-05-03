@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import com.datadog.api.TestUtils;
-import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v1.client.model.IPRanges;
 import java.io.IOException;
 import org.junit.Test;

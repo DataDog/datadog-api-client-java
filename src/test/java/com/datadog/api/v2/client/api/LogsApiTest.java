@@ -16,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
-import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v2.client.model.LogsListRequest;
 import com.datadog.api.v2.client.model.LogsListRequestPage;
 import com.datadog.api.v2.client.model.LogsListResponse;

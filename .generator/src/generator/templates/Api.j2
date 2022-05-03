@@ -1,12 +1,12 @@
 {#-{% include "ApiInfo.j2" %}#}
 package {{ package_name }}.api;
 
-import {{ package_name }}.ApiException;
+import {{ common_package_name }}.ApiException;
+import {{ common_package_name }}.ApiResponse;
+import {{ common_package_name }}.Pair;
+import {{ common_package_name }}.PaginationIterable;
 import {{ package_name }}.ApiClient;
-import {{ package_name }}.ApiResponse;
 import {{ package_name }}.Configuration;
-import {{ package_name }}.Pair;
-import {{ package_name }}.PaginationIterable;
 
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.client.Invocation;

@@ -481,7 +481,7 @@ public class World {
 
     String apiVersion = getVersion();
     Class<?> exceptionClass =
-        Class.forName("com.datadog.api." + apiVersion + ".client.ApiException");
+        Class.forName("com.datadog.api.client.ApiException");
 
     Undo undoSettings =
         UndoAction.UndoAction()
