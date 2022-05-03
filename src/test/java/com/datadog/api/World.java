@@ -480,8 +480,7 @@ public class World {
     responseClass = requestBuilder.getReturnType();
 
     String apiVersion = getVersion();
-    Class<?> exceptionClass =
-        Class.forName("com.datadog.api.client.ApiException");
+    Class<?> exceptionClass = Class.forName("com.datadog.api.client.ApiException");
 
     Undo undoSettings =
         UndoAction.UndoAction()

@@ -47,8 +47,7 @@ public class DashboardListsApiTest extends V2APITest {
   }
 
   @Before
-  public void createDashboardList()
-      throws ApiException, NoSuchAlgorithmException {
+  public void createDashboardList() throws ApiException, NoSuchAlgorithmException {
     com.datadog.api.v1.client.ApiClient v1Client = new com.datadog.api.v1.client.ApiClient();
     HashMap<String, String> secrets = new HashMap<>();
     secrets.put("apiKeyAuth", TEST_API_KEY);
