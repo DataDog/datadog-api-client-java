@@ -14,7 +14,7 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
 
-    None body =
+    Map<String, List<SLOTimeframe>> body =
         Map.ofEntries(
             Map.entry("id1", Arrays.asList(SLOTimeframe.SEVEN_DAYS, SLOTimeframe.THIRTY_DAYS)),
             Map.entry("id2", Arrays.asList(SLOTimeframe.SEVEN_DAYS, SLOTimeframe.THIRTY_DAYS)));

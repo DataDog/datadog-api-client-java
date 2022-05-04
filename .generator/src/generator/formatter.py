@@ -3,6 +3,8 @@ from functools import singledispatch
 import re
 import warnings
 
+from . import openapi
+
 KEYWORDS = {
     "abstract",
     "assert",
@@ -473,7 +475,11 @@ def format_data_with_schema_dict(
             imports |= extra_imports
 
         # imports.add("java.util.Map")
-        return None, f"Map.ofEntries({parameters.rstrip(',')})", imports
+        return (
+            "Map<String, {}>".format(openapi.type_to_java(schema["additionalProperties"])),
+            f"Map.ofEntries({parameters.rstrip(',')})",
+            imports,
+        )
 
     if "oneOf" in schema:
         assert name is not None
