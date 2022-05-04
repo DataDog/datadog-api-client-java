@@ -25,6 +25,7 @@ import {{ api_reponse_type_import}};
 {%- for model in (parameters_models|list + (body_models or [])|list)|unique|sort %}
 import com.datadog.api.{{ version }}.client.model.{{ model }};
 {%- endfor %}
+import java.io.File;
 import java.time.*;
 import java.util.*;
 

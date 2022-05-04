@@ -5,6 +5,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.OrganizationsApi;
 import com.datadog.api.v1.client.model.IdpResponse;
+import java.io.File;
 import java.time.*;
 import java.util.*;
 
@@ -14,7 +15,7 @@ public class Example {
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
 
     try {
-      IdpResponse result = apiInstance.uploadIdPForOrg("abc123");
+      IdpResponse result = apiInstance.uploadIdPForOrg("abc123", new File("./idp_metadata.xml"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrganizationsApi#uploadIdPForOrg");

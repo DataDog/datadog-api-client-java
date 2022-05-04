@@ -226,7 +226,19 @@ def format_parameters(kwargs, spec, replace_values=None, has_body=False):
     has_optional = False
     imports = set()
 
-    for p in spec.get("parameters", []):
+    parameters_spec = {p["name"]: p for p in spec.get("parameters", [])}
+    if "requestBody" in spec and "multipart/form-data" in spec["requestBody"]["content"]:
+        parent = spec["requestBody"]["content"]["multipart/form-data"]["schema"]
+        for name, schema in parent["properties"].items():
+            parameters_spec[name] = {
+                "in": "form",
+                "schema": schema,
+                "name": name,
+                "description": schema.get("description"),
+                "required": name in parent.get("required", []),
+            }
+
+    for p in parameters_spec.values():
         required = p.get("required", False)
         if required:
             k = p["name"]
@@ -333,6 +345,9 @@ def format_data_with_schema(
                     raise TypeError(f"{x} is not supported type {schema}")
                 return "true" if x else "false"
 
+            def open_file(x):
+                return f"new File({format_string(x)})"
+
             formatter = {
                 "int32": lambda x: str(int(x)),
                 "int64": lambda x: str(int(x)) + "L",
@@ -343,6 +358,7 @@ def format_data_with_schema(
                 "boolean": format_bool,
                 "string": format_string,
                 "email": format_string,
+                "binary": open_file,
                 None: format_interface,
             }[schema.get("format", schema.get("type"))]
 
