@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The attributes associated with the archive. */
 @JsonPropertyOrder({
@@ -25,6 +26,7 @@ import java.util.Objects;
   LogsArchiveAttributes.JSON_PROPERTY_INCLUDE_TAGS,
   LogsArchiveAttributes.JSON_PROPERTY_NAME,
   LogsArchiveAttributes.JSON_PROPERTY_QUERY,
+  LogsArchiveAttributes.JSON_PROPERTY_REHYDRATION_MAX_SCAN_SIZE_IN_GB,
   LogsArchiveAttributes.JSON_PROPERTY_REHYDRATION_TAGS,
   LogsArchiveAttributes.JSON_PROPERTY_STATE
 })
@@ -43,6 +45,10 @@ public class LogsArchiveAttributes {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_REHYDRATION_MAX_SCAN_SIZE_IN_GB =
+      "rehydration_max_scan_size_in_gb";
+  private JsonNullable<Long> rehydrationMaxScanSizeInGb = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_REHYDRATION_TAGS = "rehydration_tags";
   private List<String> rehydrationTags = null;
@@ -152,6 +158,38 @@ public class LogsArchiveAttributes {
     this.query = query;
   }
 
+  public LogsArchiveAttributes rehydrationMaxScanSizeInGb(Long rehydrationMaxScanSizeInGb) {
+    this.rehydrationMaxScanSizeInGb = JsonNullable.<Long>of(rehydrationMaxScanSizeInGb);
+    return this;
+  }
+
+  /**
+   * Maximum scan size for rehydration from this archive.
+   *
+   * @return rehydrationMaxScanSizeInGb
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+  public Long getRehydrationMaxScanSizeInGb() {
+    return rehydrationMaxScanSizeInGb.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_REHYDRATION_MAX_SCAN_SIZE_IN_GB)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getRehydrationMaxScanSizeInGb_JsonNullable() {
+    return rehydrationMaxScanSizeInGb;
+  }
+
+  @JsonProperty(JSON_PROPERTY_REHYDRATION_MAX_SCAN_SIZE_IN_GB)
+  public void setRehydrationMaxScanSizeInGb_JsonNullable(
+      JsonNullable<Long> rehydrationMaxScanSizeInGb) {
+    this.rehydrationMaxScanSizeInGb = rehydrationMaxScanSizeInGb;
+  }
+
+  public void setRehydrationMaxScanSizeInGb(Long rehydrationMaxScanSizeInGb) {
+    this.rehydrationMaxScanSizeInGb = JsonNullable.<Long>of(rehydrationMaxScanSizeInGb);
+  }
+
   public LogsArchiveAttributes rehydrationTags(List<String> rehydrationTags) {
     this.rehydrationTags = rehydrationTags;
     return this;
@@ -220,13 +258,16 @@ public class LogsArchiveAttributes {
         && Objects.equals(this.includeTags, logsArchiveAttributes.includeTags)
         && Objects.equals(this.name, logsArchiveAttributes.name)
         && Objects.equals(this.query, logsArchiveAttributes.query)
+        && Objects.equals(
+            this.rehydrationMaxScanSizeInGb, logsArchiveAttributes.rehydrationMaxScanSizeInGb)
         && Objects.equals(this.rehydrationTags, logsArchiveAttributes.rehydrationTags)
         && Objects.equals(this.state, logsArchiveAttributes.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, includeTags, name, query, rehydrationTags, state);
+    return Objects.hash(
+        destination, includeTags, name, query, rehydrationMaxScanSizeInGb, rehydrationTags, state);
   }
 
   @Override
@@ -237,6 +278,9 @@ public class LogsArchiveAttributes {
     sb.append("    includeTags: ").append(toIndentedString(includeTags)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    rehydrationMaxScanSizeInGb: ")
+        .append(toIndentedString(rehydrationMaxScanSizeInGb))
+        .append("\n");
     sb.append("    rehydrationTags: ").append(toIndentedString(rehydrationTags)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
