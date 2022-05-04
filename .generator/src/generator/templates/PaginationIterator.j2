@@ -1,0 +1,67 @@
+{% include "ApiInfo.j2" %}
+
+package {{ package_name }};
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.lang.reflect.Method;
+
+public class PaginationIterator<T> implements Iterator<T> {
+  private String nextCursor;
+  private ArrayList data;
+  private int count = 0;
+  private PaginationIterable iterable;
+  private Method requestMethod;
+
+  PaginationIterator(PaginationIterable iterable) {
+    this.iterable = iterable;
+    this.requestMethod = buildRequestMethod();
+  }
+
+  private Method buildRequestMethod() {
+    Method[] methods = this.iterable.requestClass.getClass().getDeclaredMethods();
+    for (Method m : methods) {
+      if (m.getName().equals(this.iterable.requestName)) {
+        if (m.getParameterTypes().length == this.iterable.args.length) {
+          m.setAccessible(true);
+          return m;
+        }
+      }
+    }
+
+    throw new RuntimeException("Unable to find request method " + this.iterable.requestName);
+  }
+
+  private void getNextPage() throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    Object response = this.requestMethod.invoke(iterable.requestClass, iterable.args);
+
+    Method data =
+    data = ((ArrayList) response.getClass().getMethod("getData").invoke(response));
+  }
+
+  @Override
+  public boolean hasNext() {
+    // Initial request
+    if (nextCursor == null) {
+      try {
+        getNextPage();
+      } catch (Exception e) {
+        throw new RuntimeException("Unable to get paginated results" + e.getMessage(), e);
+      }
+      nextCursor = "not null";
+    }
+
+    if (count < data.size()) {
+      return true;
+    }
+
+    return false;
+  }
+
+  @Override
+  public T next() {
+    count++;
+    return ((T) data.get(count - 1));
+  }
+}

@@ -1,0 +1,30 @@
+{% include "ApiInfo.j2" %}
+
+package {{ package_name }};
+
+public class PaginationIterable<T> implements Iterable<T> {
+  Object requestClass;
+  String requestName;
+  String resultsPath;
+  String valueGetterPath;
+  String valueSetterPath;
+  String valueSetterPrefix;
+  Object limit;
+  Object[] args;
+
+  public PaginationIterable(Object requestClass, String requestName, String resultsPath, String valueGetterPath, String valueSetterPath, String valueSetterPrefix, Object limit, Object... args ) {
+    this.requestClass = requestClass;
+    this.requestName = requestName;
+    this.resultsPath = resultsPath;
+    this.valueGetterPath = valueGetterPath;
+    this.valueSetterPath = valueSetterPath;
+    this.valueSetterPrefix = valueSetterPrefix;
+    this.limit = limit;
+    this.args = args;
+  }
+
+  @Override
+  public PaginationIterator<T> iterator() {
+    return new PaginationIterator<T>(this);
+  }
+}
