@@ -554,7 +554,10 @@ def get_response_type(schema, version):
             api_response_type = f"List<{simple_type(nested_schema)}>"
     else:
         name = schema_name(response_schema)
-        api_response_type = name
+        if name:
+            api_response_type = name
+        else:
+            api_response_type = simple_type(response_schema)
 
     if name:
         return api_response_type, f"com.datadog.api.{version}.client.model.{name}"

@@ -17,7 +17,8 @@ public class Example {
         new SyntheticsUpdateTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.LIVE);
 
     try {
-      apiInstance.updateTestPauseStatus("public_id", body);
+      Boolean result = apiInstance.updateTestPauseStatus("public_id", body);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SyntheticsApi#updateTestPauseStatus");
       System.err.println("Status code: " + e.getCode());
