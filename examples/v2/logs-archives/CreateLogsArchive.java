@@ -38,6 +38,7 @@ public class Example {
                             .includeTags(false)
                             .name("Nginx Archive")
                             .query("source:nginx")
+                            .rehydrationMaxScanSizeInGb(100L)
                             .rehydrationTags(Arrays.asList("team:intake", "team:app")))
                     .type("archives"));
 
