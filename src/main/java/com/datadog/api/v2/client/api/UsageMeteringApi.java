@@ -6,6 +6,7 @@ import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.CostByOrgResponse;
+import com.datadog.api.v2.client.model.UsageApplicationSecurityMonitoringResponse;
 import com.datadog.api.v2.client.model.UsageObservabilityPipelinesResponse;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -246,6 +247,226 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CostByOrgResponse>() {});
+  }
+
+  /** Manage optional parameters to getUsageApplicationSecurityMonitoring. */
+  public static class GetUsageApplicationSecurityMonitoringOptionalParameters {
+    private OffsetDateTime endHr;
+
+    /**
+     * Set endHr
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageApplicationSecurityMonitoringOptionalParameters
+     */
+    public GetUsageApplicationSecurityMonitoringOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly usage for Application Security
+   *
+   * <p>See {@link #getUsageApplicationSecurityMonitoringWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageApplicationSecurityMonitoringResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageApplicationSecurityMonitoringResponse getUsageApplicationSecurityMonitoring(
+      OffsetDateTime startHr) throws ApiException {
+    return getUsageApplicationSecurityMonitoringWithHttpInfo(
+            startHr, new GetUsageApplicationSecurityMonitoringOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get hourly usage for Application Security
+   *
+   * <p>See {@link #getUsageApplicationSecurityMonitoringWithHttpInfoAsync}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return CompletableFuture&lt;UsageApplicationSecurityMonitoringResponse&gt;
+   */
+  public CompletableFuture<UsageApplicationSecurityMonitoringResponse>
+      getUsageApplicationSecurityMonitoringAsync(OffsetDateTime startHr) {
+    return getUsageApplicationSecurityMonitoringWithHttpInfoAsync(
+            startHr, new GetUsageApplicationSecurityMonitoringOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for Application Security
+   *
+   * <p>See {@link #getUsageApplicationSecurityMonitoringWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageApplicationSecurityMonitoringResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageApplicationSecurityMonitoringResponse getUsageApplicationSecurityMonitoring(
+      OffsetDateTime startHr, GetUsageApplicationSecurityMonitoringOptionalParameters parameters)
+      throws ApiException {
+    return getUsageApplicationSecurityMonitoringWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Application Security
+   *
+   * <p>See {@link #getUsageApplicationSecurityMonitoringWithHttpInfoAsync}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;UsageApplicationSecurityMonitoringResponse&gt;
+   */
+  public CompletableFuture<UsageApplicationSecurityMonitoringResponse>
+      getUsageApplicationSecurityMonitoringAsync(
+          OffsetDateTime startHr,
+          GetUsageApplicationSecurityMonitoringOptionalParameters parameters) {
+    return getUsageApplicationSecurityMonitoringWithHttpInfoAsync(startHr, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for Application Security
+   *
+   * <p>Get hourly usage for Application Security .
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageApplicationSecurityMonitoringResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageApplicationSecurityMonitoringResponse>
+      getUsageApplicationSecurityMonitoringWithHttpInfo(
+          OffsetDateTime startHr,
+          GetUsageApplicationSecurityMonitoringOptionalParameters parameters)
+          throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'startHr' when calling"
+              + " getUsageApplicationSecurityMonitoring");
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/application_security";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageApplicationSecurityMonitoring",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageApplicationSecurityMonitoringResponse>() {});
+  }
+
+  /**
+   * Get hourly usage for Application Security
+   *
+   * <p>See {@link #getUsageApplicationSecurityMonitoringWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageApplicationSecurityMonitoringResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageApplicationSecurityMonitoringResponse>>
+      getUsageApplicationSecurityMonitoringWithHttpInfoAsync(
+          OffsetDateTime startHr,
+          GetUsageApplicationSecurityMonitoringOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      CompletableFuture<ApiResponse<UsageApplicationSecurityMonitoringResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'startHr' when calling"
+                  + " getUsageApplicationSecurityMonitoring"));
+      return result;
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/application_security";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageApplicationSecurityMonitoring",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageApplicationSecurityMonitoringResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageApplicationSecurityMonitoringResponse>() {});
   }
 
   /** Manage optional parameters to getUsageObservabilityPipelines. */
