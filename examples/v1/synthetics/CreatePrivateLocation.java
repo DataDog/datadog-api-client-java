@@ -7,8 +7,7 @@ import com.datadog.api.v1.client.api.SyntheticsApi;
 import com.datadog.api.v1.client.model.SyntheticsPrivateLocation;
 import com.datadog.api.v1.client.model.SyntheticsPrivateLocationCreationResponse;
 import com.datadog.api.v1.client.model.SyntheticsPrivateLocationMetadata;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

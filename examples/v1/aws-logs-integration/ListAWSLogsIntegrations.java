@@ -5,8 +5,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 import com.datadog.api.v1.client.model.AWSLogsListResponse;
-import java.time.*;
-import java.util.*;
+import java.util.List;
 
 public class Example {
   public static void main(String[] args) {

@@ -14,8 +14,8 @@ import com.datadog.api.v1.client.model.MonitorFormulaAndFunctionQueryDefinition;
 import com.datadog.api.v1.client.model.MonitorOptions;
 import com.datadog.api.v1.client.model.MonitorThresholds;
 import com.datadog.api.v1.client.model.MonitorType;
-import java.time.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

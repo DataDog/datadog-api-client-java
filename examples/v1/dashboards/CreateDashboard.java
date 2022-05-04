@@ -17,8 +17,7 @@ import com.datadog.api.v1.client.model.TimeseriesWidgetRequest;
 import com.datadog.api.v1.client.model.Widget;
 import com.datadog.api.v1.client.model.WidgetDefinition;
 import com.datadog.api.v1.client.model.WidgetSort;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

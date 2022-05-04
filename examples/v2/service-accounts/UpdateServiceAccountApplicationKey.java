@@ -9,8 +9,7 @@ import com.datadog.api.v2.client.model.ApplicationKeyUpdateData;
 import com.datadog.api.v2.client.model.ApplicationKeyUpdateRequest;
 import com.datadog.api.v2.client.model.ApplicationKeysType;
 import com.datadog.api.v2.client.model.PartialApplicationKeyResponse;
-import java.time.*;
-import java.util.*;
+import java.util.Arrays;
 
 public class Example {
   public static void main(String[] args) {

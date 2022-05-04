@@ -6,8 +6,6 @@ import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.OrganizationsApi;
 import com.datadog.api.v2.client.api.OrganizationsApi.UploadIdPMetadataOptionalParameters;
 import java.io.File;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

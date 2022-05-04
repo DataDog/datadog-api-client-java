@@ -9,8 +9,8 @@ import com.datadog.api.v2.client.model.MetricBulkTagConfigCreate;
 import com.datadog.api.v2.client.model.MetricBulkTagConfigCreateAttributes;
 import com.datadog.api.v2.client.model.MetricBulkTagConfigCreateRequest;
 import com.datadog.api.v2.client.model.MetricBulkTagConfigResponse;
-import java.time.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

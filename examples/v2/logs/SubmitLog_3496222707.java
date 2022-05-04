@@ -7,8 +7,8 @@ import com.datadog.api.v2.client.api.LogsApi;
 import com.datadog.api.v2.client.api.LogsApi.SubmitLogOptionalParameters;
 import com.datadog.api.v2.client.model.ContentEncoding;
 import com.datadog.api.v2.client.model.HTTPLogItem;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 public class Example {
   public static void main(String[] args) {

@@ -8,8 +8,6 @@ import com.datadog.api.v1.client.model.OrganizationBilling;
 import com.datadog.api.v1.client.model.OrganizationCreateBody;
 import com.datadog.api.v1.client.model.OrganizationCreateResponse;
 import com.datadog.api.v1.client.model.OrganizationSubscription;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

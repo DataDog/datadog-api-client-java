@@ -6,8 +6,6 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.PagerDutyIntegrationApi;
 import com.datadog.api.v1.client.model.PagerDutyService;
 import com.datadog.api.v1.client.model.PagerDutyServiceName;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

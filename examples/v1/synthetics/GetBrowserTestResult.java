@@ -5,8 +5,6 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestResultFull;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

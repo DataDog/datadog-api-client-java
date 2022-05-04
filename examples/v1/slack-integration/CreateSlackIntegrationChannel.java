@@ -6,8 +6,6 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.SlackIntegrationApi;
 import com.datadog.api.v1.client.model.SlackIntegrationChannel;
 import com.datadog.api.v1.client.model.SlackIntegrationChannelDisplay;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

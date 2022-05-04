@@ -10,8 +10,7 @@ import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestFilter
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestPage;
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalsListResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalsSort;
-import java.time.*;
-import java.util.*;
+import java.time.OffsetDateTime;
 
 public class Example {
   public static void main(String[] args) {

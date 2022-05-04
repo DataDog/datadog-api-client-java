@@ -6,9 +6,7 @@ import com.datadog.api.v1.client.api.UsageMeteringApi;
 import com.datadog.api.v1.client.api.UsageMeteringApi.GetUsageAttributionOptionalParameters;
 import com.datadog.api.v1.client.model.UsageAttributionResponse;
 import com.datadog.api.v1.client.model.UsageAttributionSupportedMetrics;
-import java.time.*;
 import java.time.OffsetDateTime;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

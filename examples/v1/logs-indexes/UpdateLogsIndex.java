@@ -9,8 +9,7 @@ import com.datadog.api.v1.client.model.LogsExclusionFilter;
 import com.datadog.api.v1.client.model.LogsFilter;
 import com.datadog.api.v1.client.model.LogsIndex;
 import com.datadog.api.v1.client.model.LogsIndexUpdateRequest;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

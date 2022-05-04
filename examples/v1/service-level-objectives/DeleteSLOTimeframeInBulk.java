@@ -6,8 +6,9 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 import com.datadog.api.v1.client.model.SLOBulkDeleteResponse;
 import com.datadog.api.v1.client.model.SLOTimeframe;
-import java.time.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {

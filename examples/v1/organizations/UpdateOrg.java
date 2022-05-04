@@ -14,8 +14,7 @@ import com.datadog.api.v1.client.model.OrganizationSettingsSamlAutocreateUsersDo
 import com.datadog.api.v1.client.model.OrganizationSettingsSamlIdpInitiatedLogin;
 import com.datadog.api.v1.client.model.OrganizationSettingsSamlStrictMode;
 import com.datadog.api.v1.client.model.OrganizationSubscription;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

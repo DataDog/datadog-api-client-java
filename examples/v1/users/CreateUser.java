@@ -7,8 +7,6 @@ import com.datadog.api.v1.client.api.UsersApi;
 import com.datadog.api.v1.client.model.AccessRole;
 import com.datadog.api.v1.client.model.User;
 import com.datadog.api.v1.client.model.UserResponse;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

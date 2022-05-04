@@ -11,8 +11,7 @@ import com.datadog.api.v2.client.model.SecurityFilterExclusionFilter;
 import com.datadog.api.v2.client.model.SecurityFilterFilteredDataType;
 import com.datadog.api.v2.client.model.SecurityFilterResponse;
 import com.datadog.api.v2.client.model.SecurityFilterType;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

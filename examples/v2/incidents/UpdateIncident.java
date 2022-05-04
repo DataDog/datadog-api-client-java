@@ -12,8 +12,7 @@ import com.datadog.api.v2.client.model.IncidentType;
 import com.datadog.api.v2.client.model.IncidentUpdateAttributes;
 import com.datadog.api.v2.client.model.IncidentUpdateData;
 import com.datadog.api.v2.client.model.IncidentUpdateRequest;
-import java.time.*;
-import java.util.*;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {

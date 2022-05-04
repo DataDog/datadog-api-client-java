@@ -16,8 +16,7 @@ import com.datadog.api.v2.client.model.LogsGroupByMissing;
 import com.datadog.api.v2.client.model.LogsGroupByTotal;
 import com.datadog.api.v2.client.model.LogsQueryFilter;
 import com.datadog.api.v2.client.model.LogsSortOrder;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

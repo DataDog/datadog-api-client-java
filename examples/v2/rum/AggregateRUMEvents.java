@@ -14,8 +14,7 @@ import com.datadog.api.v2.client.model.RUMGroupByTotal;
 import com.datadog.api.v2.client.model.RUMQueryFilter;
 import com.datadog.api.v2.client.model.RUMQueryOptions;
 import com.datadog.api.v2.client.model.RUMQueryPageOptions;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

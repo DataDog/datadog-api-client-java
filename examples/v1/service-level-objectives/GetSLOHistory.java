@@ -4,9 +4,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 import com.datadog.api.v1.client.model.SLOHistoryResponse;
-import java.time.*;
 import java.time.OffsetDateTime;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

@@ -6,8 +6,6 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.WebhooksIntegrationApi;
 import com.datadog.api.v1.client.model.WebhooksIntegrationCustomVariableResponse;
 import com.datadog.api.v1.client.model.WebhooksIntegrationCustomVariableUpdateRequest;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

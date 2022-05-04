@@ -8,8 +8,7 @@ import com.datadog.api.v1.client.model.LogsListRequest;
 import com.datadog.api.v1.client.model.LogsListRequestTime;
 import com.datadog.api.v1.client.model.LogsListResponse;
 import com.datadog.api.v1.client.model.LogsSort;
-import java.time.*;
-import java.util.*;
+import java.time.OffsetDateTime;
 
 public class Example {
   public static void main(String[] args) {

@@ -6,8 +6,6 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 import com.datadog.api.v1.client.model.AWSNamespace;
 import com.datadog.api.v1.client.model.AWSTagFilterDeleteRequest;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

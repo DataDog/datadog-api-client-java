@@ -5,8 +5,9 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 import com.datadog.api.v1.client.model.AWSAccount;
-import java.time.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {

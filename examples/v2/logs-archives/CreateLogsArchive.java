@@ -12,8 +12,7 @@ import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDestination;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationAzure;
 import com.datadog.api.v2.client.model.LogsArchiveDestinationAzureType;
 import com.datadog.api.v2.client.model.LogsArchiveIntegrationAzure;
-import java.time.*;
-import java.util.*;
+import java.util.Arrays;
 
 public class Example {
   public static void main(String[] args) {

@@ -8,8 +8,7 @@ import com.datadog.api.v2.client.model.LogsArchiveOrder;
 import com.datadog.api.v2.client.model.LogsArchiveOrderAttributes;
 import com.datadog.api.v2.client.model.LogsArchiveOrderDefinition;
 import com.datadog.api.v2.client.model.LogsArchiveOrderDefinitionType;
-import java.time.*;
-import java.util.*;
+import java.util.Arrays;
 
 public class Example {
   public static void main(String[] args) {

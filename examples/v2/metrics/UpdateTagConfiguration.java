@@ -9,8 +9,7 @@ import com.datadog.api.v2.client.model.MetricTagConfigurationType;
 import com.datadog.api.v2.client.model.MetricTagConfigurationUpdateAttributes;
 import com.datadog.api.v2.client.model.MetricTagConfigurationUpdateData;
 import com.datadog.api.v2.client.model.MetricTagConfigurationUpdateRequest;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

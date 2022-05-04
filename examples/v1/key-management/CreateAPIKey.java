@@ -6,8 +6,6 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.KeyManagementApi;
 import com.datadog.api.v1.client.model.ApiKey;
 import com.datadog.api.v1.client.model.ApiKeyResponse;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

@@ -5,9 +5,8 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DowntimesApi;
 import com.datadog.api.v1.client.model.Downtime;
 import com.datadog.api.v1.client.model.DowntimeRecurrence;
-import java.time.*;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

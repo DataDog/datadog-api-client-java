@@ -6,8 +6,7 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.MonitorsApi;
 import com.datadog.api.v1.client.api.MonitorsApi.ListMonitorsOptionalParameters;
 import com.datadog.api.v1.client.model.Monitor;
-import java.time.*;
-import java.util.*;
+import java.util.List;
 
 public class Example {
   public static void main(String[] args) {

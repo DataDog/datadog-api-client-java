@@ -11,8 +11,8 @@ import com.datadog.api.v1.client.model.SyntheticsGlobalVariableParseTestOptionsT
 import com.datadog.api.v1.client.model.SyntheticsGlobalVariableParserType;
 import com.datadog.api.v1.client.model.SyntheticsGlobalVariableValue;
 import com.datadog.api.v1.client.model.SyntheticsVariableParser;
-import java.time.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
