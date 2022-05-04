@@ -4,7 +4,6 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
-import com.datadog.api.v1.client.model.None;
 import java.time.*;
 import java.util.*;
 
@@ -14,8 +13,7 @@ public class Example {
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
 
     try {
-      List<None> result = apiInstance.listAvailableAWSNamespaces();
-      System.out.println(result);
+      apiInstance.listAvailableAWSNamespaces();
     } catch (ApiException e) {
       System.err.println("Exception when calling AwsIntegrationApi#listAvailableAWSNamespaces");
       System.err.println("Status code: " + e.getCode());

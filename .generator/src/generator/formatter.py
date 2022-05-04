@@ -535,4 +535,7 @@ def get_response_type(schema, version):
     else:
         name = schema_name(response_schema)
         api_response_type = name
-    return api_response_type, f"com.datadog.api.{version}.client.model.{name}"
+
+    if name:
+        return api_response_type, f"com.datadog.api.{version}.client.model.{name}"
+    return None, None
