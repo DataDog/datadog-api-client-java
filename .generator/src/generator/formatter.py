@@ -546,12 +546,16 @@ def get_response_type(schema, version):
         return "File", "java.io.File"
 
     if response_schema.get("type") == "array":
-        name = schema_name(response_schema.get("items"))
-        api_response_type = f"List<{name}>"
+        nested_schema = response_schema.get("items")
+        name = schema_name(nested_schema)
+        if name:
+            api_response_type = f"List<{name}>"
+        else:
+            api_response_type = f"List<{simple_type(nested_schema)}>"
     else:
         name = schema_name(response_schema)
         api_response_type = name
 
     if name:
         return api_response_type, f"com.datadog.api.{version}.client.model.{name}"
-    return None, None
+    return api_response_type, None
