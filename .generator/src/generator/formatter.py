@@ -417,12 +417,6 @@ def format_data_with_schema_list(
         param_count += 1
         imports |= extra_imports
 
-    # For lists, retrieve the data schema name
-    data_name = schema_name(schema["items"])
-
-    if data_name:
-        imports.add(data_name)
-
     if param_count > 1:
         parameters = f"Arrays.asList({parameters})"
     elif param_count == 1:
