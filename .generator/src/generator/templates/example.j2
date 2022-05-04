@@ -1,0 +1,74 @@
+// {{ scenario.name|wordwrap(width=120)}}
+
+{%- set required_parameters, optional_parameters, parameters_models = format_parameters(context.api_request.kwargs, spec=operation_spec, replace_values=context._replace_values, has_body=context.body) %}
+{%- if context.body %}
+{%- set body_type, body, body_models = format_data_with_schema(context.body.value, context.api_request.schema.spec, replace_values=context._replace_values) %}
+{%- endif %}
+{%- set api_response_type, api_reponse_type_import = get_response_type(context.api_response, version)%}
+
+{%- for package, imports in context._imports.items() %}
+{%- for import in imports %}
+import {{ package }}.{{ import }};
+{%- endfor %}
+{%- endfor %}
+
+import com.datadog.api.{{ version }}.client.ApiClient;
+import com.datadog.api.{{ version }}.client.ApiException;
+import com.datadog.api.{{ version }}.client.Configuration;
+import com.datadog.api.{{ version }}.client.api.{{ context.api_instance.name|camel_case|upperfirst }}Api;
+{%- if optional_parameters %}
+import com.datadog.api.{{ version }}.client.api.{{ context.api_instance.name|camel_case|upperfirst }}Api.{{ context.api_request.operation_id }}OptionalParameters;
+{%- endif %}
+{%- if api_reponse_type_import %}
+import {{ api_reponse_type_import}};
+{%- endif %}
+{%- for model in (parameters_models|list + (body_models or [])|list)|unique|sort %}
+import com.datadog.api.{{ version }}.client.model.{{ model }};
+{%- endfor %}
+import java.time.*;
+import java.util.*;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+{%- for operation in context._enable_operations %}
+    defaultClient.setUnstableOperationEnabled("{{ operation|camel_case|untitle_case }}", true);
+{%- endfor %}
+    {{ context.api_instance.name|camel_case|upperfirst }}Api apiInstance = new {{ context.api_instance.name|camel_case|upperfirst }}Api(defaultClient);
+
+{%- for name, values in context._given.items() %}
+
+    // {{ name }}
+{%- for value, schema in values.items()|sort %}
+{%- if schema.type == 'string' %}
+    String {{ value }} = System.getenv("{{ value }}");
+{%- elif schema.type == 'integer' %}
+    Long {{ value }} = Long.parseLong(System.getenv("{{ value }}"));
+{%- elif schema.type == 'boolean' %}
+    Boolean {{ value }} = Boolean.parseBoolean((System.getenv("{{ value }}"));
+{%- else %}
+{{ 1/0 }}
+{%- endif %}
+{%- endfor %}
+
+{%- endfor %}
+
+{%- if context.body %}
+
+    {{ body_type }} body = {{ body }};
+{%- endif %}
+
+    try {
+      {% if api_response_type %}{{api_response_type}} result = {% endif %}apiInstance.{{ context.api_request.operation_id|untitle_case }}({% if required_parameters %}{{ required_parameters }}{% endif %}{% if optional_parameters %}{% if required_parameters %}{{ "," }}{% endif %}{{ optional_parameters }}{% endif %});
+      {%- if api_response_type %}
+      System.out.println(result);
+      {%- endif %}
+    } catch (ApiException e) {
+      System.err.println("Exception when calling {{ context.api_instance.name|camel_case|upperfirst }}Api#{{ context.api_request.operation_id|untitle_case }}");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
