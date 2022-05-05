@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 // Get monthly usage attribution returns "OK" response
+||||||| parent of ebb74b06e (Fix examples)
+// Get Monthly Usage Attribution returns "OK" response
+=======
+// Get Monthly Usage Attribution returns "OK" response
+import com.datadog.api.client.ApiException;
+>>>>>>> ebb74b06e (Fix examples)
 import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 import com.datadog.api.v1.client.model.MonthlyUsageAttributionResponse;

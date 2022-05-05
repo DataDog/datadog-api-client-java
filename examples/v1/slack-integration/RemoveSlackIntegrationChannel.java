@@ -1,7 +1,7 @@
 // Remove a Slack integration channel returns "The channel was removed successfully." response
 
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.SlackIntegrationApi;
 

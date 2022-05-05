@@ -1,7 +1,7 @@
 // Get all hosts with metadata deserializes successfully
 
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.HostsApi;
 import com.datadog.api.v1.client.api.HostsApi.ListHostsOptionalParameters;

@@ -1,6 +1,6 @@
 // Get hourly usage for Application Security returns "OK" response
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.UsageMeteringApi;
 import com.datadog.api.v2.client.api.UsageMeteringApi.GetUsageApplicationSecurityMonitoringOptionalParameters;

@@ -1,6 +1,12 @@
+<<<<<<< HEAD:examples/v1/usage-metering/GetMonthlyUsageAttribution_3849653599.java
 // Paginate monthly usage attribution
+||||||| parent of ebb74b06e (Fix examples):examples/v1/usage-metering/GetMonthlyUsageAttribution_3738504447.java
+// Paginate Monthly Usage Attribution
+=======
+// Paginate Monthly Usage Attribution
+import com.datadog.api.client.ApiException;
+>>>>>>> ebb74b06e (Fix examples):examples/v1/usage-metering/GetMonthlyUsageAttribution_3738504447.java
 import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 import com.datadog.api.v1.client.api.UsageMeteringApi.GetMonthlyUsageAttributionOptionalParameters;

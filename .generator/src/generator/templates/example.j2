@@ -12,8 +12,8 @@ import {{ package }}.{{ import }};
 {%- endfor %}
 {%- endfor %}
 
+import com.datadog.api.client.ApiException;
 import com.datadog.api.{{ version }}.client.ApiClient;
-import com.datadog.api.{{ version }}.client.ApiException;
 import com.datadog.api.{{ version }}.client.Configuration;
 import com.datadog.api.{{ version }}.client.api.{{ context.api_instance.name|camel_case|upperfirst }}Api;
 {%- if optional_parameters %}

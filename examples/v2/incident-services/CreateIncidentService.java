@@ -1,7 +1,7 @@
 // Create a new incident service returns "CREATED" response
 
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.IncidentServicesApi;
 import com.datadog.api.v2.client.model.IncidentServiceCreateAttributes;

@@ -1,6 +1,6 @@
 // Schedule a downtime until date
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DowntimesApi;
 import com.datadog.api.v1.client.model.Downtime;

@@ -1,6 +1,6 @@
 // Get hourly logs usage by retention returns "OK" response
+import com.datadog.api.client.ApiException;
 import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 import com.datadog.api.v1.client.api.UsageMeteringApi.GetUsageLogsByRetentionOptionalParameters;
