@@ -9,8 +9,6 @@ import com.datadog.api.v2.client.model.CloudWorkloadSecurityAgentRuleCreateData;
 import com.datadog.api.v2.client.model.CloudWorkloadSecurityAgentRuleCreateRequest;
 import com.datadog.api.v2.client.model.CloudWorkloadSecurityAgentRuleResponse;
 import com.datadog.api.v2.client.model.CloudWorkloadSecurityAgentRuleType;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

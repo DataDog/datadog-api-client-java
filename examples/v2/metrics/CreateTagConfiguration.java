@@ -10,8 +10,7 @@ import com.datadog.api.v2.client.model.MetricTagConfigurationCreateRequest;
 import com.datadog.api.v2.client.model.MetricTagConfigurationMetricTypes;
 import com.datadog.api.v2.client.model.MetricTagConfigurationResponse;
 import com.datadog.api.v2.client.model.MetricTagConfigurationType;
-import java.time.*;
-import java.util.*;
+import java.util.Arrays;
 
 public class Example {
   public static void main(String[] args) {

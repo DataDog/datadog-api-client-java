@@ -24,8 +24,9 @@ import com.datadog.api.v1.client.model.SyntheticsTestRequest;
 import com.datadog.api.v1.client.model.SyntheticsTestRequestCertificate;
 import com.datadog.api.v1.client.model.SyntheticsTestRequestCertificateItem;
 import com.datadog.api.v1.client.model.SyntheticsTestRequestProxy;
-import java.time.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {

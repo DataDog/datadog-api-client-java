@@ -8,9 +8,9 @@ import com.datadog.api.v1.client.model.IntakePayloadAccepted;
 import com.datadog.api.v1.client.model.MetricContentEncoding;
 import com.datadog.api.v1.client.model.MetricsPayload;
 import com.datadog.api.v1.client.model.Series;
-import java.time.*;
 import java.time.OffsetDateTime;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

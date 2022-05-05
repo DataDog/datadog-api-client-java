@@ -7,8 +7,8 @@ import com.datadog.api.v1.client.api.ServiceChecksApi;
 import com.datadog.api.v1.client.model.IntakePayloadAccepted;
 import com.datadog.api.v1.client.model.ServiceCheck;
 import com.datadog.api.v1.client.model.ServiceCheckStatus;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 public class Example {
   public static void main(String[] args) {

@@ -17,8 +17,7 @@ import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryCreate;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleSeverity;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleTypeCreate;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

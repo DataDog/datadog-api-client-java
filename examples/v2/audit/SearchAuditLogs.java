@@ -11,8 +11,6 @@ import com.datadog.api.v2.client.model.AuditLogsQueryOptions;
 import com.datadog.api.v2.client.model.AuditLogsQueryPageOptions;
 import com.datadog.api.v2.client.model.AuditLogsSearchEventsRequest;
 import com.datadog.api.v2.client.model.AuditLogsSort;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

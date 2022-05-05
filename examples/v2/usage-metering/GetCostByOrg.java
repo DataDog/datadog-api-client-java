@@ -4,9 +4,7 @@ import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.UsageMeteringApi;
 import com.datadog.api.v2.client.model.CostByOrgResponse;
-import java.time.*;
 import java.time.OffsetDateTime;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

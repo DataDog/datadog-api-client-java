@@ -12,8 +12,7 @@ import com.datadog.api.v2.client.model.UserInvitationsRequest;
 import com.datadog.api.v2.client.model.UserInvitationsResponse;
 import com.datadog.api.v2.client.model.UserInvitationsType;
 import com.datadog.api.v2.client.model.UsersType;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

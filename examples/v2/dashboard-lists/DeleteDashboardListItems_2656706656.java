@@ -8,8 +8,7 @@ import com.datadog.api.v2.client.model.DashboardListDeleteItemsRequest;
 import com.datadog.api.v2.client.model.DashboardListDeleteItemsResponse;
 import com.datadog.api.v2.client.model.DashboardListItemRequest;
 import com.datadog.api.v2.client.model.DashboardType;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

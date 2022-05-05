@@ -6,8 +6,7 @@ import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.LogsApi;
 import com.datadog.api.v2.client.api.LogsApi.ListLogsGetOptionalParameters;
 import com.datadog.api.v2.client.model.LogsListResponse;
-import java.time.*;
-import java.util.*;
+import java.time.OffsetDateTime;
 
 public class Example {
   public static void main(String[] args) {

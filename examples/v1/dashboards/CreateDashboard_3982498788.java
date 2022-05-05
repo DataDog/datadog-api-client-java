@@ -15,8 +15,7 @@ import com.datadog.api.v1.client.model.WidgetDisplayType;
 import com.datadog.api.v1.client.model.WidgetLineType;
 import com.datadog.api.v1.client.model.WidgetLineWidth;
 import com.datadog.api.v1.client.model.WidgetRequestStyle;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
