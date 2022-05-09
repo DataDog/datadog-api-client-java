@@ -2858,7 +2858,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for CI Visibility
    *
-   * <p>Get hourly usage for CI Visibility (Tests, Pipeline, Combo, and Spans).
+   * <p>Get hourly usage for CI Visibility (Tests, Pipeline, and Spans).
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
