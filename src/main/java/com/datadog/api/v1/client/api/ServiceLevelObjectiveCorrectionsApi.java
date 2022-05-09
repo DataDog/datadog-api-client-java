@@ -614,7 +614,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   /**
    * Update an SLO correction
    *
-   * <p>Update the specified SLO correction object object.
+   * <p>Update the specified SLO correction object.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @param body The edited SLO correction object. (required)

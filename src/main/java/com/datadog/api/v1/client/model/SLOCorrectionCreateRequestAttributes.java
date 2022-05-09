@@ -185,7 +185,7 @@ public class SLOCorrectionCreateRequestAttributes {
   }
 
   /**
-   * ID of the SLO that this correction will be applied to.
+   * ID of the SLO that this correction applies to.
    *
    * @return sloId
    */
