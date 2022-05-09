@@ -146,7 +146,7 @@ public class SLOCorrectionUpdateRequestAttributes {
 
   /**
    * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO
-   * corrections are &#x60;FREQ&#x60;, &#x60;INTERVAL&#x60;, &#x60;COUNT&#x60; and
+   * corrections are &#x60;FREQ&#x60;, &#x60;INTERVAL&#x60;, &#x60;COUNT&#x60;, and
    * &#x60;UNTIL&#x60;.
    *
    * @return rrule
