@@ -4,15 +4,19 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.PaginationIterable;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.RUMAggregateRequest;
 import com.datadog.api.v2.client.model.RUMAnalyticsAggregateResponse;
+import com.datadog.api.v2.client.model.RUMEvent;
 import com.datadog.api.v2.client.model.RUMEventsResponse;
+import com.datadog.api.v2.client.model.RUMQueryPageOptions;
 import com.datadog.api.v2.client.model.RUMSearchEventsRequest;
 import com.datadog.api.v2.client.model.RUMSort;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -322,6 +326,60 @@ public class RumApi {
             });
   }
 
+  public PaginationIterable<RUMEvent> listRUMEventsWithPagination() throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 10;
+    ListRUMEventsOptionalParameters parameters = new ListRUMEventsOptionalParameters();
+
+    parameters.pageLimit(10);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listRUMEvents",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  public PaginationIterable<RUMEvent> listRUMEventsWithPagination(
+      ListRUMEventsOptionalParameters parameters) throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 10;
+
+    parameters.pageLimit(10);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listRUMEvents",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
   /**
    * Get a list of RUM events
    *
@@ -468,6 +526,37 @@ public class RumApi {
             response -> {
               return response.getData();
             });
+  }
+
+  public PaginationIterable<RUMEvent> searchRUMEventsWithPagination(RUMSearchEventsRequest body)
+      throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "body.getPage.setCursor";
+    Boolean valueSetterParamOptional = false;
+    Integer limit = 10;
+
+    if (body.getPage() == null) {
+      body.setPage(new RUMQueryPageOptions());
+    }
+
+    body.getPage().setLimit(10);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("body", body);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "searchRUMEvents",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**

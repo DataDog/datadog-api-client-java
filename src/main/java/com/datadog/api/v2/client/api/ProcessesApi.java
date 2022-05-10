@@ -4,10 +4,13 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.PaginationIterable;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.ProcessSummariesResponse;
+import com.datadog.api.v2.client.model.ProcessSummary;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -184,6 +187,60 @@ public class ProcessesApi {
             response -> {
               return response.getData();
             });
+  }
+
+  public PaginationIterable<ProcessSummary> listProcessesWithPagination() throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 1000;
+    ListProcessesOptionalParameters parameters = new ListProcessesOptionalParameters();
+
+    parameters.pageLimit(1000);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listProcesses",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  public PaginationIterable<ProcessSummary> listProcessesWithPagination(
+      ListProcessesOptionalParameters parameters) throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 1000;
+
+    parameters.pageLimit(1000);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listProcesses",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**

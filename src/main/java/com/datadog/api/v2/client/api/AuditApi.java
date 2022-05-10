@@ -4,13 +4,17 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.PaginationIterable;
 import com.datadog.api.v2.client.Pair;
+import com.datadog.api.v2.client.model.AuditLogsEvent;
 import com.datadog.api.v2.client.model.AuditLogsEventsResponse;
+import com.datadog.api.v2.client.model.AuditLogsQueryPageOptions;
 import com.datadog.api.v2.client.model.AuditLogsSearchEventsRequest;
 import com.datadog.api.v2.client.model.AuditLogsSort;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -181,6 +185,60 @@ public class AuditApi {
             response -> {
               return response.getData();
             });
+  }
+
+  public PaginationIterable<AuditLogsEvent> listAuditLogsWithPagination() throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 10;
+    ListAuditLogsOptionalParameters parameters = new ListAuditLogsOptionalParameters();
+
+    parameters.pageLimit(10);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listAuditLogs",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  public PaginationIterable<AuditLogsEvent> listAuditLogsWithPagination(
+      ListAuditLogsOptionalParameters parameters) throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 10;
+
+    parameters.pageLimit(10);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listAuditLogs",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**
@@ -374,6 +432,76 @@ public class AuditApi {
             response -> {
               return response.getData();
             });
+  }
+
+  public PaginationIterable<AuditLogsEvent> searchAuditLogsWithPagination() throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "body.getPage.setCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 10;
+    SearchAuditLogsOptionalParameters parameters = new SearchAuditLogsOptionalParameters();
+
+    if (parameters.body == null) {
+      parameters.body(new AuditLogsSearchEventsRequest());
+    }
+
+    if (parameters.body.getPage() == null) {
+      parameters.body.setPage(new AuditLogsQueryPageOptions());
+    }
+
+    parameters.body.getPage().setLimit(10);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "searchAuditLogs",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  public PaginationIterable<AuditLogsEvent> searchAuditLogsWithPagination(
+      SearchAuditLogsOptionalParameters parameters) throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "body.getPage.setCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 10;
+
+    if (parameters.body == null) {
+      parameters.body(new AuditLogsSearchEventsRequest());
+    }
+
+    if (parameters.body.getPage() == null) {
+      parameters.body.setPage(new AuditLogsQueryPageOptions());
+    }
+
+    parameters.body.getPage().setLimit(10);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "searchAuditLogs",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**

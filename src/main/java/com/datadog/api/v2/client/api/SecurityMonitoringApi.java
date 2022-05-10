@@ -4,6 +4,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.PaginationIterable;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.SecurityFilterCreateRequest;
 import com.datadog.api.v2.client.model.SecurityFilterResponse;
@@ -13,12 +14,15 @@ import com.datadog.api.v2.client.model.SecurityMonitoringListRulesResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleUpdatePayload;
+import com.datadog.api.v2.client.model.SecurityMonitoringSignal;
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequest;
+import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestPage;
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalsListResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalsSort;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -1341,6 +1345,62 @@ public class SecurityMonitoringApi {
             });
   }
 
+  public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination()
+      throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 10;
+    ListSecurityMonitoringSignalsOptionalParameters parameters =
+        new ListSecurityMonitoringSignalsOptionalParameters();
+
+    parameters.pageLimit(10);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listSecurityMonitoringSignals",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination(
+      ListSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 10;
+
+    parameters.pageLimit(10);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listSecurityMonitoringSignals",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
   /**
    * Get a quick list of security signals
    *
@@ -1541,6 +1601,78 @@ public class SecurityMonitoringApi {
             response -> {
               return response.getData();
             });
+  }
+
+  public PaginationIterable<SecurityMonitoringSignal>
+      searchSecurityMonitoringSignalsWithPagination() throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "body.getPage.setCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 10;
+    SearchSecurityMonitoringSignalsOptionalParameters parameters =
+        new SearchSecurityMonitoringSignalsOptionalParameters();
+
+    if (parameters.body == null) {
+      parameters.body(new SecurityMonitoringSignalListRequest());
+    }
+
+    if (parameters.body.getPage() == null) {
+      parameters.body.setPage(new SecurityMonitoringSignalListRequestPage());
+    }
+
+    parameters.body.getPage().setLimit(10);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "searchSecurityMonitoringSignals",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  public PaginationIterable<SecurityMonitoringSignal> searchSecurityMonitoringSignalsWithPagination(
+      SearchSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "body.getPage.setCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit = 10;
+
+    if (parameters.body == null) {
+      parameters.body(new SecurityMonitoringSignalListRequest());
+    }
+
+    if (parameters.body.getPage() == null) {
+      parameters.body.setPage(new SecurityMonitoringSignalListRequestPage());
+    }
+
+    parameters.body.getPage().setLimit(10);
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "searchSecurityMonitoringSignals",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**
