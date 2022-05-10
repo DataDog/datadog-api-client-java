@@ -7,6 +7,7 @@ import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.CostByOrgResponse;
 import com.datadog.api.v2.client.model.UsageApplicationSecurityMonitoringResponse;
+import com.datadog.api.v2.client.model.UsageLambdaTracedInvocationsResponse;
 import com.datadog.api.v2.client.model.UsageObservabilityPipelinesResponse;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -467,6 +468,222 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageApplicationSecurityMonitoringResponse>() {});
+  }
+
+  /** Manage optional parameters to getUsageLambdaTracedInvocations. */
+  public static class GetUsageLambdaTracedInvocationsOptionalParameters {
+    private OffsetDateTime endHr;
+
+    /**
+     * Set endHr
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageLambdaTracedInvocationsOptionalParameters
+     */
+    public GetUsageLambdaTracedInvocationsOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly usage for Lambda Traced Invocations
+   *
+   * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageLambdaTracedInvocationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageLambdaTracedInvocationsResponse getUsageLambdaTracedInvocations(
+      OffsetDateTime startHr) throws ApiException {
+    return getUsageLambdaTracedInvocationsWithHttpInfo(
+            startHr, new GetUsageLambdaTracedInvocationsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get hourly usage for Lambda Traced Invocations
+   *
+   * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfoAsync}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return CompletableFuture&lt;UsageLambdaTracedInvocationsResponse&gt;
+   */
+  public CompletableFuture<UsageLambdaTracedInvocationsResponse>
+      getUsageLambdaTracedInvocationsAsync(OffsetDateTime startHr) {
+    return getUsageLambdaTracedInvocationsWithHttpInfoAsync(
+            startHr, new GetUsageLambdaTracedInvocationsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for Lambda Traced Invocations
+   *
+   * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageLambdaTracedInvocationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageLambdaTracedInvocationsResponse getUsageLambdaTracedInvocations(
+      OffsetDateTime startHr, GetUsageLambdaTracedInvocationsOptionalParameters parameters)
+      throws ApiException {
+    return getUsageLambdaTracedInvocationsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Lambda Traced Invocations
+   *
+   * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfoAsync}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;UsageLambdaTracedInvocationsResponse&gt;
+   */
+  public CompletableFuture<UsageLambdaTracedInvocationsResponse>
+      getUsageLambdaTracedInvocationsAsync(
+          OffsetDateTime startHr, GetUsageLambdaTracedInvocationsOptionalParameters parameters) {
+    return getUsageLambdaTracedInvocationsWithHttpInfoAsync(startHr, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for Lambda Traced Invocations
+   *
+   * <p>Get hourly usage for Lambda Traced Invocations.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageLambdaTracedInvocationsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageLambdaTracedInvocationsResponse>
+      getUsageLambdaTracedInvocationsWithHttpInfo(
+          OffsetDateTime startHr, GetUsageLambdaTracedInvocationsOptionalParameters parameters)
+          throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'startHr' when calling getUsageLambdaTracedInvocations");
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/lambda_traced_invocations";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getUsageLambdaTracedInvocations",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageLambdaTracedInvocationsResponse>() {});
+  }
+
+  /**
+   * Get hourly usage for Lambda Traced Invocations
+   *
+   * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageLambdaTracedInvocationsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageLambdaTracedInvocationsResponse>>
+      getUsageLambdaTracedInvocationsWithHttpInfoAsync(
+          OffsetDateTime startHr, GetUsageLambdaTracedInvocationsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      CompletableFuture<ApiResponse<UsageLambdaTracedInvocationsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'startHr' when calling"
+                  + " getUsageLambdaTracedInvocations"));
+      return result;
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/lambda_traced_invocations";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getUsageLambdaTracedInvocations",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageLambdaTracedInvocationsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageLambdaTracedInvocationsResponse>() {});
   }
 
   /** Manage optional parameters to getUsageObservabilityPipelines. */
