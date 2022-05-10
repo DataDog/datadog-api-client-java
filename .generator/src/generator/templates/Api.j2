@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
 import java.time.OffsetDateTime;
 
@@ -179,55 +180,148 @@ public class {{ name }} {
     {%- set _, getters, _ = get_accessors(pagination.resultsPath) %}
     String resultsPath = "{{ ".".join(getters) }}";
 
+{#- Pagination cursor param fields #}
     {%- if pagination.cursorParam %}
-    {%- set _, getters, _ = get_accessors(pagination.cursorPath) %}
-    String valueGetterPath = "{{ ".".join(getters) }}";
+    {%- set _, cursorPathGetters, _ = get_accessors(pagination.cursorPath) %}
     {%- set paramSchema = get_parameter_schema_from_name(pagination.cursorParam.split(".")[0], allParams) %}
-    {%- set _, getters, setters = get_accessors(pagination.cursorParam, schema=paramSchema) %}
-    String valueSetterPrefix = "{{ prefix }}";
-    String valueSetterPath = "{% if getters|length > 1 %}{{ ".".join(getters[:getters|length-1]) }}.{% endif %}{{ setters[getters|length-1] }}";
+    {%- set cursorParamOptional, cursorParamGetters, cursorParamSetters = get_accessors(pagination.cursorParam, schema=paramSchema) %}
+    String valueGetterPath = "{{ ".".join(cursorPathGetters) }}";
+    String valueSetterPath = "{%- if cursorParamGetters|length > 1 %}{{ ".".join(cursorParamGetters[:cursorParamGetters|length-1]) }}.{%- endif %}{{ cursorParamSetters[cursorParamSetters|length-1] }}";
+    Boolean valueSetterParamOptional = {{ cursorParamOptional|lower }};
     {%- endif %}
 
+{#- Pagination page offset param fields #}
     {%- if pagination.pageOffsetParam %}
-    String valueGetterPath = "";
     {%- set paramSchema = get_parameter_schema_from_name(pagination.pageOffsetParam.split(".")[0], allParams) %}
-    {%- set prefix, getters, setters = get_accessors(pagination.pageOffsetParam, schema=paramSchema) %}
-    String valueSetterPrefix = "{{ prefix }}";
-    String valueSetterPath = "{% if getters|length > 1 %}{{ ".".join(getters[:getters|length-1]) }}.{% endif %}{{ setters[getters|length-1] }}";
+    {%- set optional, getters, setters = get_accessors(pagination.pageOffsetParam, schema=paramSchema) %}
+    String valueGetterPath = "";
+    String valueSetterPath = "{%- if getters|length > 1 %}{{ ".".join(getters[:getters|length-1]) }}.{%- endif %}{{ setters[getters|length-1] }}";
+    Boolean valueSetterParamOptional = {{ optional|lower }};
     {%- endif %}
+
+{#- Limit param field #}
     {{ get_container_type(operation, pagination.limitParam) }} limit = {{ get_default(operation, pagination.limitParam) }};
 
+{#- Limit param part fields #}
     {%- set limitParamParts = pagination.limitParam.split(".") %}
     {%- set paramSchema = get_parameter_schema_from_name(limitParamParts[0], allParams) %}
-    {%- set prefix, limitParamGetters, limitParamSetters = get_accessors(pagination.limitParam, schema=paramSchema) %}
+    {%- set limitParamOptional, limitParamGetters, limitParamSetters = get_accessors(pagination.limitParam, schema=paramSchema) %}
     {%- if optionalParams %}
-    {{ operationId|upperfirst }}OptionalParameters optionalParams = new {{ operationId|upperfirst }}OptionalParameters();
+    {{ operationId|upperfirst }}OptionalParameters parameters = new {{ operationId|upperfirst }}OptionalParameters();
     {%- endif %}
 
-    {%- if prefix %}
+    {% if limitParamParts|length == 1 %}
+    {%- if limitParamOptional %}
+    parameters.{{ limitParamGetters[0] ~ "(" ~ get_default(operation, pagination.limitParam) ~ ")" }};
+    {%- endif %}
+    {% else %}
+
+    {%- if limitParamOptional %}
+    if ({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }} ==  null) {
+        {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamSetters[0] ~ "(new " ~ get_container_type(operation, limitParamParts[0]) ~ "())" }};
+    }
+    {%- endif %}
+
     {%- for i in range(1, limitParamGetters|length) %}
-    {% set limitParam = ".".join(limitParamParts[:i]) %}
-    if ({% if prefix %}{{ prefix }}.{% endif %}{{ ".".join(limitParamGetters[:i]) }} == null) {
-        {% if prefix %}{{ prefix }}.{% endif %}{% if i > 1 %}{{ ".".join(limitParamGetters[:i-1]) }}.{% endif %}{{ limitParamSetters[i-1] ~ "(new " ~ get_container_type(operation, limitParam) ~ "())" }};
+    {%- if loop.nextitem %}
+
+    if({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i+1]) }}() == null) {
+        {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i]) }}{{ limitParamSetters[i] }}(new {{ get_container_type(operation, ".".join(limitParamParts[:i+1])) }}());
     }
-    {%- endfor %}
-    {%- else %}
-    {%- for i in range(2, limitParamGetters|length) %}
-    {% set limitParam = ".".join(limitParamParts[:i]) %}
-    if ({% if prefix %}{{ prefix }}.{% endif %}{{ ".".join(limitParamGetters[:i]) }} == null) {
-        {% if prefix %}{{ prefix }}.{% endif %}{% if i > 1 %}{{ ".".join(limitParamGetters[:i-1]) }}.{% endif %}{{ limitParamSetters[i-1] ~ "(new " ~ get_container_type(operation, limitParam) ~ "())" }};
-    }
+    {%- endif %}
+
+    {% if loop.last %}
+    {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length-1]) }}().{{ limitParamSetters[limitParamGetters|length-1] }}({{ get_default(operation, pagination.limitParam) }});
+    {%- endif %}
+
     {%- endfor %}
     {%- endif %}
 
-    if ({% if prefix %}{{ prefix }}.{% endif %}{{ ".".join(limitParamGetters) }} == null) {
-        {% if prefix %}{{ prefix }}.{% endif %}{% if limitParamGetters|length > 1 %}{{ ".".join(limitParamGetters[:limitParamGetters|length-1]) }}.{% endif %}{{ limitParamSetters[limitParamGetters|length-1] ~ "(" ~ get_default(operation, pagination.limitParam) ~ ")" }};
-    }
+    {# build args map #}
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    {%- for name, parameter in requiredParams %}
+    args.put("{{ name|variable_name }}", {{ name|variable_name }});
+    {%- endfor %}
+    {%- if optionalParams %}
+    args.put("optionalParams", parameters);
+    {%- endif  %}
 
-    PaginationIterable iterator = new PaginationIterable(this, "{{ operationId }}", resultsPath, valueGetterPath, valueSetterPath, valueSetterPrefix, limit{% for name, parameter in requiredParams %}, {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}{%- if optionalParams %}, optionalParams{%- endif %});
+    PaginationIterable iterator = new PaginationIterable(this, "{{ operationId }}", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, limit, args);
 
     return iterator;
   }
+
+  {%- if optionalParams %}
+  public PaginationIterable<{{ get_pagintion_return_item_type(operation, pagination["resultsPath"]) }}> {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) throws ApiException {
+    {%- set _, getters, _ = get_accessors(pagination.resultsPath) %}
+    String resultsPath = "{{ ".".join(getters) }}";
+
+{#- Pagination cursor param fields #}
+    {%- if pagination.cursorParam %}
+    {%- set _, cursorPathGetters, _ = get_accessors(pagination.cursorPath) %}
+    {%- set paramSchema = get_parameter_schema_from_name(pagination.cursorParam.split(".")[0], allParams) %}
+    {%- set cursorParamOptional, cursorParamGetters, cursorParamSetters = get_accessors(pagination.cursorParam, schema=paramSchema) %}
+    String valueGetterPath = "{{ ".".join(cursorPathGetters) }}";
+    String valueSetterPath = "{%- if cursorParamGetters|length > 1 %}{{ ".".join(cursorParamGetters[:cursorParamGetters|length-1]) }}.{%- endif %}{{ cursorParamSetters[cursorParamSetters|length-1] }}";
+    Boolean valueSetterParamOptional = {{ cursorParamOptional|lower }};
+    {%- endif %}
+
+{#- Pagination page offset param fields #}
+    {%- if pagination.pageOffsetParam %}
+    {%- set paramSchema = get_parameter_schema_from_name(pagination.pageOffsetParam.split(".")[0], allParams) %}
+    {%- set optional, getters, setters = get_accessors(pagination.pageOffsetParam, schema=paramSchema) %}
+    String valueGetterPath = "";
+    String valueSetterPath = "{%- if getters|length > 1 %}{{ ".".join(getters[:getters|length-1]) }}.{%- endif %}{{ setters[getters|length-1] }}";
+    Boolean valueSetterParamOptional = {{ optional|lower }};
+    {%- endif %}
+
+{#- Limit param field #}
+    {{ get_container_type(operation, pagination.limitParam) }} limit = {{ get_default(operation, pagination.limitParam) }};
+
+{#- Limit param part fields #}
+    {%- set limitParamParts = pagination.limitParam.split(".") %}
+    {%- set paramSchema = get_parameter_schema_from_name(limitParamParts[0], allParams) %}
+    {%- set limitParamOptional, limitParamGetters, limitParamSetters = get_accessors(pagination.limitParam, schema=paramSchema) %}
+
+    {% if limitParamParts|length == 1 %}
+    {%- if limitParamOptional %}
+    parameters.{{ limitParamGetters[0] ~ "(" ~ get_default(operation, pagination.limitParam) ~ ")" }};
+    {%- endif %}
+    {% else %}
+
+    {%- if limitParamOptional %}
+    if ({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }} ==  null) {
+        {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamSetters[0] ~ "(new " ~ get_container_type(operation, limitParamParts[0]) ~ "())" }};
+    }
+    {%- endif %}
+
+    {%- for i in range(1, limitParamGetters|length) %}
+    {%- if loop.nextitem %}
+
+    if({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i+1]) }}() == null) {
+        {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i]) }}{{ limitParamSetters[i] }}(new {{ get_container_type(operation, ".".join(limitParamParts[:i+1])) }}());
+    }
+    {%- endif %}
+
+    {% if loop.last %}
+    {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length-1]) }}().{{ limitParamSetters[limitParamGetters|length-1] }}({{ get_default(operation, pagination.limitParam) }});
+    {%- endif %}
+
+    {%- endfor %}
+    {%- endif %}
+
+    {# build args map #}
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    {%- for name, parameter in requiredParams %}
+    args.put("{{ name|variable_name }}", {{ name|variable_name }});
+    {%- endfor %}
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator = new PaginationIterable(this, "{{ operationId }}", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, limit, args);
+
+    return iterator;
+  }
+  {%- endif %}
   {%- endif %}
 
 

@@ -515,18 +515,22 @@ class Schema:
 
 def get_accessors(param_path, schema={}):
     param_path = param_path.split(".")
-    prefix = None
+    optional = False
     getter, setter = [], []
     if schema:
-        prefix = "optionalParams" if not schema.get("required") else ""
-        param_name = formatter.variable_name(param_path.pop(0))
-        getter, setter = [param_name], [param_name]
+        optional = not schema.get("required", True)
+        if optional:
+            param_name = formatter.variable_name(param_path.pop(0))
+            getter, setter = [param_name], [param_name]
+        else:
+            param_name = formatter.variable_name(param_path.pop(0))
+            getter, setter = [param_name], [param_name]
 
     for part in param_path:
-        getter.append(f"get{formatter.attribute_name(part)}()")
+        getter.append(f"get{formatter.attribute_name(part)}")
         setter.append(f"set{formatter.attribute_name(part)}")
 
-    return prefix, getter, setter
+    return optional, getter, setter
 
 
 def get_default(operation, attribute_path):

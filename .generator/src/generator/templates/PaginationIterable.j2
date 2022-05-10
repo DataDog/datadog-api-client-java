@@ -2,23 +2,25 @@
 
 package {{ package_name }};
 
+import java.util.LinkedHashMap;
+
 public class PaginationIterable<T> implements Iterable<T> {
   Object requestClass;
   String requestName;
-  String resultsPath;
-  String valueGetterPath;
-  String valueSetterPath;
-  String valueSetterPrefix;
+  String[] resultsPath;
+  String[] valueGetterPath;
+  String[] valueSetterPath;
+  Boolean valueSetterParamOptional;
   Object limit;
-  Object[] args;
+  LinkedHashMap<String, Object> args;
 
-  public PaginationIterable(Object requestClass, String requestName, String resultsPath, String valueGetterPath, String valueSetterPath, String valueSetterPrefix, Object limit, Object... args ) {
+  public PaginationIterable(Object requestClass, String requestName, String resultsPath, String valueGetterPath, String valueSetterPath, Boolean valueSetterParamOptional, Object limit, LinkedHashMap<String, Object> args ) {
     this.requestClass = requestClass;
     this.requestName = requestName;
-    this.resultsPath = resultsPath;
-    this.valueGetterPath = valueGetterPath;
-    this.valueSetterPath = valueSetterPath;
-    this.valueSetterPrefix = valueSetterPrefix;
+    this.resultsPath = resultsPath.split("\\.");
+    this.valueGetterPath = valueGetterPath.split("\\.");
+    this.valueSetterPath = valueSetterPath.split("\\.");
+    this.valueSetterParamOptional = valueSetterParamOptional;
     this.limit = limit;
     this.args = args;
   }

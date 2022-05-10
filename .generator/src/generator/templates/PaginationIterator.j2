@@ -2,28 +2,33 @@
 
 package {{ package_name }};
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.lang.reflect.Method;
 
 public class PaginationIterator<T> implements Iterator<T> {
-  private String nextCursor;
+  private int currentIndex = 0;
+  private int totalCount = 0;
+  private Boolean hasNextPage;
   private ArrayList data;
-  private int count = 0;
   private PaginationIterable iterable;
   private Method requestMethod;
 
   PaginationIterator(PaginationIterable iterable) {
     this.iterable = iterable;
     this.requestMethod = buildRequestMethod();
+
+    // Populate initial data
+    getNextPage();
   }
 
   private Method buildRequestMethod() {
     Method[] methods = this.iterable.requestClass.getClass().getDeclaredMethods();
     for (Method m : methods) {
       if (m.getName().equals(this.iterable.requestName)) {
-        if (m.getParameterTypes().length == this.iterable.args.length) {
+        if (m.getParameterTypes().length == this.iterable.args.keySet().size()) {
           m.setAccessible(true);
           return m;
         }
@@ -33,27 +38,111 @@ public class PaginationIterator<T> implements Iterator<T> {
     throw new RuntimeException("Unable to find request method " + this.iterable.requestName);
   }
 
-  private void getNextPage() throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-    Object response = this.requestMethod.invoke(iterable.requestClass, iterable.args);
+  private void setNextPageValue(Object response)  throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    Object value = response;
 
-    Method data =
-    data = ((ArrayList) response.getClass().getMethod("getData").invoke(response));
+    if (this.iterable.valueGetterPath.length > 0) {
+      for (String path : this.iterable.valueGetterPath) {
+        value = value.getClass().getMethod(path).invoke(value);
+      }
+    } else {
+      // will fallback to pageOffset = totalCount;
+      value = null;
+    }
+
+    Object temp;
+    int i;
+    if (this.iterable.valueSetterParamOptional) {
+      temp = this.iterable.args.get("optionalParams");
+      i = 0;
+    } else {
+      temp = this.iterable.args.get(this.iterable.valueSetterPath[0]);
+      i = 1;
+    }
+
+    // Get the correct object with the setter method
+    for (; i < this.iterable.valueSetterPath.length - 1; i++) {
+      try {
+        // Check if field else fallback to method
+        Field f = temp.getClass().getDeclaredField(this.iterable.valueSetterPath[i]);
+        f.setAccessible(true);
+        temp = f.get(temp);
+      } catch (Exception e) {
+        temp = temp.getClass().getMethod(this.iterable.valueSetterPath[i]).invoke(temp);
+      }
+    }
+
+    // Set the fallback pageOffset value
+    // We cast the type based on the setterMethod parameter type
+    if (value == null) {
+      Method[] methods = temp.getClass().getDeclaredMethods();
+      Method setterMethod = null;
+      for (Method m : methods) {
+        if (m.getName().equals(this.iterable.valueSetterPath[i])) {
+          setterMethod = m;
+          break;
+        }
+      }
+
+      assert setterMethod != null;
+      String pType = setterMethod.getParameterTypes()[0].toString();
+      switch(pType){
+        case "long":
+        case "java.lang.Long":
+          value = (long) this.totalCount;
+          break;
+        case "string":
+        case "java.lang.String":
+          value = String.valueOf(this.totalCount);
+          break;
+        default:
+          value = this.totalCount;
+      }
+    }
+
+    // Set the value
+    temp.getClass().getMethod(this.iterable.valueSetterPath[this.iterable.valueSetterPath.length - 1], value.getClass()).invoke(temp, value);
+
+    this.hasNextPage = true;
+  }
+
+  private void getNextPage() {
+    Object response;
+    try {
+      response = this.requestMethod.invoke(iterable.requestClass, iterable.args.values().toArray());
+      Object resultData = response;
+
+      for (String path : this.iterable.resultsPath) {
+        resultData = resultData.getClass().getMethod(path).invoke(resultData);
+      }
+
+      this.data = ((ArrayList) resultData);
+      this.totalCount += this.data.size();
+      this.currentIndex = 0;
+    } catch (Exception e) {
+      throw new RuntimeException("Unable to preload results: " + e.getMessage(), e);
+    }
+
+    try {
+      setNextPageValue(response);
+    } catch (Exception e) {
+      this.hasNextPage = false;
+    }
   }
 
   @Override
   public boolean hasNext() {
-    // Initial request
-    if (nextCursor == null) {
-      try {
-        getNextPage();
-      } catch (Exception e) {
-        throw new RuntimeException("Unable to get paginated results" + e.getMessage(), e);
-      }
-      nextCursor = "not null";
+    if (this.currentIndex < this.data.size()) {
+      return true;
     }
 
-    if (count < data.size()) {
-      return true;
+    if (this.data.size() < ((int) this.iterable.limit)) {
+      return false;
+    }
+
+    if (this.hasNextPage) {
+      getNextPage();
+      return this.data.size() != 0;
     }
 
     return false;
@@ -61,7 +150,7 @@ public class PaginationIterator<T> implements Iterator<T> {
 
   @Override
   public T next() {
-    count++;
-    return ((T) data.get(count - 1));
+    this.currentIndex++;
+    return ((T) data.get(currentIndex - 1));
   }
 }
