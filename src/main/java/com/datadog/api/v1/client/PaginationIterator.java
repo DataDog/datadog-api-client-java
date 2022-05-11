@@ -32,6 +32,20 @@ public class PaginationIterator<T> implements Iterator<T> {
     getNextPage();
   }
 
+  private static int converToInt(Object arg) {
+    switch (arg.toString()) {
+      case "java.lang.Long":
+        Long value;
+        value = Long.parseLong(arg.toString());
+        return value.intValue();
+      case "string":
+      case "java.lang.String":
+        return Integer.parseInt(arg.toString());
+      default:
+        return (int) arg;
+    }
+  }
+
   private Method buildRequestMethod() {
     Method[] methods = this.iterable.requestClass.getClass().getDeclaredMethods();
     for (Method m : methods) {
@@ -131,6 +145,7 @@ public class PaginationIterator<T> implements Iterator<T> {
 
       this.data = ((ArrayList) resultData);
       this.totalCount += this.data.size();
+      // Reset the index back to zero
       this.currentIndex = 0;
     } catch (Exception e) {
       throw new RuntimeException("Unable to preload results: " + e.getMessage(), e);
@@ -149,7 +164,7 @@ public class PaginationIterator<T> implements Iterator<T> {
       return true;
     }
 
-    if (this.data.size() < ((int) this.iterable.limit)) {
+    if (this.data.size() < converToInt(this.iterable.limit)) {
       return false;
     }
 
