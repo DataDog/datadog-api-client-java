@@ -40,11 +40,13 @@ public class World {
   Class<?> requestParametersClass;
   Object requestParameters;
   Method requestBuilder;
+  String methodName;
   List<Object> parametersArray;
 
   // Response information
   Class<?> responseClass;
   Object response; // ApiResponse<?>
+  ArrayList<Object> paginatedItems;
 
   // Name control
   Scenario scenario;
@@ -522,6 +524,43 @@ public class World {
         throw new Exception(e.getCause());
       }
       undo.add(getRequestUndo(apiVersion, undoSettings, data));
+    }
+  }
+
+  public void sendPaginatedRequest() throws Exception {
+    if (requestParametersClass != null) {
+      parametersArray.add(requestParameters);
+    }
+
+    Method paginatedMethod = null;
+    // Get the paginated method.
+    for (Method method : apiClass.getMethods()) {
+      if (method.getName().equals(methodName + "WithPagination")) {
+        if (parametersArray.size() == method.getParameterCount()) {
+          paginatedMethod = method;
+          break;
+        }
+      }
+    }
+
+    responseClass = paginatedMethod.getReturnType();
+
+    String apiVersion = getVersion();
+    Class<?> exceptionClass =
+        Class.forName("com.datadog.api." + apiVersion + ".client.ApiException");
+
+    try {
+      response = paginatedMethod.invoke(api, parametersArray.toArray());
+    } catch (Exception e) {
+      throw e;
+    }
+
+    paginatedItems = new ArrayList<>();
+    Object iterator = response.getClass().getMethod("iterator").invoke(response);
+
+    while (((boolean) iterator.getClass().getMethod("hasNext").invoke(iterator))) {
+      Object item = iterator.getClass().getMethod("next").invoke(iterator);
+      paginatedItems.add(item);
     }
   }
 
