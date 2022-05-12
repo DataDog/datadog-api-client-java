@@ -212,7 +212,12 @@ public class {{ name }} {
 
     {% if limitParamParts|length == 1 %}
     {%- if limitParamOptional %}
-    parameters.{{ limitParamGetters[0] ~ "(" ~ get_default(operation, pagination.limitParam) ~ ")" }};
+    if (parameters.{{ limitParamGetters[0] }} == null) {
+        limit = {{ get_default(operation, pagination.limitParam) }};
+        parameters.{{ limitParamGetters[0] ~ "(limit)" }};
+    } else {
+        limit = {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }};
+    }
     {%- endif %}
     {% else %}
 
@@ -231,7 +236,12 @@ public class {{ name }} {
     {%- endif %}
 
     {% if loop.last %}
-    {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length-1]) }}().{{ limitParamSetters[limitParamGetters|length-1] }}({{ get_default(operation, pagination.limitParam) }});
+    if ({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length]) }}() == null) {
+        limit = {{ get_default(operation, pagination.limitParam) }};
+        {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length-1]) }}().{{ limitParamSetters[limitParamGetters|length-1] }}(limit);
+    } else {
+        limit = {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length]) }}();
+    }
     {%- endif %}
 
     {%- endfor %}
@@ -276,7 +286,7 @@ public class {{ name }} {
     {%- endif %}
 
 {#- Limit param field #}
-    {{ get_container_type(operation, pagination.limitParam) }} limit = {{ get_default(operation, pagination.limitParam) }};
+    {{ get_container_type(operation, pagination.limitParam) }} limit;
 
 {#- Limit param part fields #}
     {%- set limitParamParts = pagination.limitParam.split(".") %}
@@ -285,7 +295,12 @@ public class {{ name }} {
 
     {% if limitParamParts|length == 1 %}
     {%- if limitParamOptional %}
-    parameters.{{ limitParamGetters[0] ~ "(" ~ get_default(operation, pagination.limitParam) ~ ")" }};
+    if (parameters.{{ limitParamGetters[0] }} == null) {
+        limit = {{ get_default(operation, pagination.limitParam) }};
+        parameters.{{ limitParamGetters[0] ~ "(limit)" }};
+    } else {
+        limit = {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }};
+    }
     {%- endif %}
     {% else %}
 
@@ -298,13 +313,18 @@ public class {{ name }} {
     {%- for i in range(1, limitParamGetters|length) %}
     {%- if loop.nextitem %}
 
-    if({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i+1]) }}() == null) {
+    if ({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i+1]) }}() == null) {
         {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i]) }}{{ limitParamSetters[i] }}(new {{ get_container_type(operation, ".".join(limitParamParts[:i+1])) }}());
     }
     {%- endif %}
 
     {% if loop.last %}
-    {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length-1]) }}().{{ limitParamSetters[limitParamGetters|length-1] }}({{ get_default(operation, pagination.limitParam) }});
+    if ({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length]) }}() == null) {
+        limit = {{ get_default(operation, pagination.limitParam) }};
+        {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length-1]) }}().{{ limitParamSetters[limitParamGetters|length-1] }}(limit);
+    } else {
+        limit = {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length]) }}();
+    }
     {%- endif %}
 
     {%- endfor %}

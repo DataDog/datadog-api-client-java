@@ -634,7 +634,12 @@ public class IncidentsApi {
     Long limit = 10l;
     ListIncidentsOptionalParameters parameters = new ListIncidentsOptionalParameters();
 
-    parameters.pageSize(10l);
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
 
     LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
     args.put("optionalParams", parameters);
@@ -659,9 +664,14 @@ public class IncidentsApi {
     String valueGetterPath = "";
     String valueSetterPath = "pageOffset";
     Boolean valueSetterParamOptional = true;
-    Long limit = 10l;
+    Long limit;
 
-    parameters.pageSize(10l);
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
 
     LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
     args.put("optionalParams", parameters);

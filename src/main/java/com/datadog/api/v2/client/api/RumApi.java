@@ -334,7 +334,12 @@ public class RumApi {
     Integer limit = 10;
     ListRUMEventsOptionalParameters parameters = new ListRUMEventsOptionalParameters();
 
-    parameters.pageLimit(10);
+    if (parameters.pageLimit == null) {
+      limit = 10;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
 
     LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
     args.put("optionalParams", parameters);
@@ -359,9 +364,14 @@ public class RumApi {
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";
     Boolean valueSetterParamOptional = true;
-    Integer limit = 10;
+    Integer limit;
 
-    parameters.pageLimit(10);
+    if (parameters.pageLimit == null) {
+      limit = 10;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
 
     LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
     args.put("optionalParams", parameters);
@@ -540,7 +550,12 @@ public class RumApi {
       body.setPage(new RUMQueryPageOptions());
     }
 
-    body.getPage().setLimit(10);
+    if (body.getPage().getLimit() == null) {
+      limit = 10;
+      body.getPage().setLimit(limit);
+    } else {
+      limit = body.getPage().getLimit();
+    }
 
     LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
     args.put("body", body);

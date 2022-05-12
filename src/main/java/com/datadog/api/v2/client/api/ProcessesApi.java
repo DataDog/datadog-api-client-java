@@ -197,7 +197,12 @@ public class ProcessesApi {
     Integer limit = 1000;
     ListProcessesOptionalParameters parameters = new ListProcessesOptionalParameters();
 
-    parameters.pageLimit(1000);
+    if (parameters.pageLimit == null) {
+      limit = 1000;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
 
     LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
     args.put("optionalParams", parameters);
@@ -222,9 +227,14 @@ public class ProcessesApi {
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";
     Boolean valueSetterParamOptional = true;
-    Integer limit = 1000;
+    Integer limit;
 
-    parameters.pageLimit(1000);
+    if (parameters.pageLimit == null) {
+      limit = 1000;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
 
     LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
     args.put("optionalParams", parameters);
