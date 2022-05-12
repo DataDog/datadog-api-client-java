@@ -150,7 +150,9 @@ public class UsageMeteringApi {
    *
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageCustomReportsResponse getDailyCustomReports() throws ApiException {
     return getDailyCustomReportsWithHttpInfo(new GetDailyCustomReportsOptionalParameters())
         .getData();
@@ -162,7 +164,9 @@ public class UsageMeteringApi {
    * <p>See {@link #getDailyCustomReportsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageCustomReportsResponse> getDailyCustomReportsAsync() {
     return getDailyCustomReportsWithHttpInfoAsync(new GetDailyCustomReportsOptionalParameters())
         .thenApply(
@@ -179,7 +183,9 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageCustomReportsResponse getDailyCustomReports(
       GetDailyCustomReportsOptionalParameters parameters) throws ApiException {
     return getDailyCustomReportsWithHttpInfo(parameters).getData();
@@ -192,7 +198,9 @@ public class UsageMeteringApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageCustomReportsResponse> getDailyCustomReportsAsync(
       GetDailyCustomReportsOptionalParameters parameters) {
     return getDailyCustomReportsWithHttpInfoAsync(parameters)
@@ -218,7 +226,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageCustomReportsResponse> getDailyCustomReportsWithHttpInfo(
       GetDailyCustomReportsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
@@ -264,7 +275,9 @@ public class UsageMeteringApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageCustomReportsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageCustomReportsResponse>>
       getDailyCustomReportsWithHttpInfoAsync(GetDailyCustomReportsOptionalParameters parameters) {
     Object localVarPostBody = null;
@@ -1075,7 +1088,9 @@ public class UsageMeteringApi {
    *
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageCustomReportsResponse getMonthlyCustomReports() throws ApiException {
     return getMonthlyCustomReportsWithHttpInfo(new GetMonthlyCustomReportsOptionalParameters())
         .getData();
@@ -1087,7 +1102,9 @@ public class UsageMeteringApi {
    * <p>See {@link #getMonthlyCustomReportsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageCustomReportsResponse> getMonthlyCustomReportsAsync() {
     return getMonthlyCustomReportsWithHttpInfoAsync(new GetMonthlyCustomReportsOptionalParameters())
         .thenApply(
@@ -1104,7 +1121,9 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageCustomReportsResponse getMonthlyCustomReports(
       GetMonthlyCustomReportsOptionalParameters parameters) throws ApiException {
     return getMonthlyCustomReportsWithHttpInfo(parameters).getData();
@@ -1117,7 +1136,9 @@ public class UsageMeteringApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageCustomReportsResponse> getMonthlyCustomReportsAsync(
       GetMonthlyCustomReportsOptionalParameters parameters) {
     return getMonthlyCustomReportsWithHttpInfoAsync(parameters)
@@ -1143,7 +1164,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageCustomReportsResponse> getMonthlyCustomReportsWithHttpInfo(
       GetMonthlyCustomReportsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
@@ -1189,7 +1213,9 @@ public class UsageMeteringApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageCustomReportsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageCustomReportsResponse>>
       getMonthlyCustomReportsWithHttpInfoAsync(
           GetMonthlyCustomReportsOptionalParameters parameters) {
@@ -1576,7 +1602,9 @@ public class UsageMeteringApi {
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return UsageSpecifiedCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageSpecifiedCustomReportsResponse getSpecifiedDailyCustomReports(String reportId)
       throws ApiException {
     return getSpecifiedDailyCustomReportsWithHttpInfo(reportId).getData();
@@ -1589,7 +1617,9 @@ public class UsageMeteringApi {
    *
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return CompletableFuture&lt;UsageSpecifiedCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageSpecifiedCustomReportsResponse> getSpecifiedDailyCustomReportsAsync(
       String reportId) {
     return getSpecifiedDailyCustomReportsWithHttpInfoAsync(reportId)
@@ -1616,7 +1646,10 @@ public class UsageMeteringApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageSpecifiedCustomReportsResponse>
       getSpecifiedDailyCustomReportsWithHttpInfo(String reportId) throws ApiException {
     Object localVarPostBody = null;
@@ -1661,7 +1694,9 @@ public class UsageMeteringApi {
    *
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>>
       getSpecifiedDailyCustomReportsWithHttpInfoAsync(String reportId) {
     Object localVarPostBody = null;
@@ -1720,7 +1755,9 @@ public class UsageMeteringApi {
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return UsageSpecifiedCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageSpecifiedCustomReportsResponse getSpecifiedMonthlyCustomReports(String reportId)
       throws ApiException {
     return getSpecifiedMonthlyCustomReportsWithHttpInfo(reportId).getData();
@@ -1733,7 +1770,9 @@ public class UsageMeteringApi {
    *
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return CompletableFuture&lt;UsageSpecifiedCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageSpecifiedCustomReportsResponse>
       getSpecifiedMonthlyCustomReportsAsync(String reportId) {
     return getSpecifiedMonthlyCustomReportsWithHttpInfoAsync(reportId)
@@ -1761,7 +1800,10 @@ public class UsageMeteringApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageSpecifiedCustomReportsResponse>
       getSpecifiedMonthlyCustomReportsWithHttpInfo(String reportId) throws ApiException {
     Object localVarPostBody = null;
@@ -1807,7 +1849,9 @@ public class UsageMeteringApi {
    *
    * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>>
       getSpecifiedMonthlyCustomReportsWithHttpInfoAsync(String reportId) {
     Object localVarPostBody = null;
@@ -2156,7 +2200,9 @@ public class UsageMeteringApi {
    *     types. (required)
    * @return UsageAttributionResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageAttributionResponse getUsageAttribution(
       OffsetDateTime startMonth, UsageAttributionSupportedMetrics fields) throws ApiException {
     return getUsageAttributionWithHttpInfo(
@@ -2174,7 +2220,9 @@ public class UsageMeteringApi {
    * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
    *     types. (required)
    * @return CompletableFuture&lt;UsageAttributionResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageAttributionResponse> getUsageAttributionAsync(
       OffsetDateTime startMonth, UsageAttributionSupportedMetrics fields) {
     return getUsageAttributionWithHttpInfoAsync(
@@ -2197,7 +2245,9 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return UsageAttributionResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageAttributionResponse getUsageAttribution(
       OffsetDateTime startMonth,
       UsageAttributionSupportedMetrics fields,
@@ -2217,7 +2267,9 @@ public class UsageMeteringApi {
    *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageAttributionResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageAttributionResponse> getUsageAttributionAsync(
       OffsetDateTime startMonth,
       UsageAttributionSupportedMetrics fields,
@@ -2249,7 +2301,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(
       OffsetDateTime startMonth,
       UsageAttributionSupportedMetrics fields,
@@ -2321,7 +2376,9 @@ public class UsageMeteringApi {
    *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageAttributionResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageAttributionResponse>>
       getUsageAttributionWithHttpInfoAsync(
           OffsetDateTime startMonth,
