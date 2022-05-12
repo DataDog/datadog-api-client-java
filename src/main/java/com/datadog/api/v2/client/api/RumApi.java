@@ -331,7 +331,7 @@ public class RumApi {
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";
     Boolean valueSetterParamOptional = true;
-    Integer limit = 10;
+    Integer limit;
     ListRUMEventsOptionalParameters parameters = new ListRUMEventsOptionalParameters();
 
     if (parameters.pageLimit == null) {
@@ -544,7 +544,7 @@ public class RumApi {
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "body.getPage.setCursor";
     Boolean valueSetterParamOptional = false;
-    Integer limit = 10;
+    Integer limit;
 
     if (body.getPage() == null) {
       body.setPage(new RUMQueryPageOptions());

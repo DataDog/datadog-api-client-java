@@ -236,15 +236,16 @@ public class World {
     clientClass.getMethod("configureApiKeys", Map.class).invoke(client, secrets);
   }
 
-  public void newRequest(String methodName) {
+  public void newRequest(String name) {
+    methodName = toMethodName(name);
     for (Method method : apiClass.getMethods()) {
-      if (method.getName().equals(toMethodName(methodName) + "WithHttpInfo")) {
+      if (method.getName().equals(methodName + "WithHttpInfo")) {
         requestBuilder = method;
         break;
       }
     }
     for (Class c : apiClass.getClasses()) {
-      if (c.getName().endsWith(methodName + "OptionalParameters")) {
+      if (c.getName().endsWith(name + "OptionalParameters")) {
         requestParametersClass = c;
         try {
           requestParameters = c.getConstructor().newInstance();
@@ -535,7 +536,7 @@ public class World {
     Method paginatedMethod = null;
     // Get the paginated method.
     for (Method method : apiClass.getMethods()) {
-      if (method.getName().equals(methodName + "WithPagination")) {
+      if (method.getName().equals(this.methodName + "WithPagination")) {
         if (parametersArray.size() == method.getParameterCount()) {
           paginatedMethod = method;
           break;

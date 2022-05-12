@@ -631,7 +631,7 @@ public class IncidentsApi {
     String valueGetterPath = "";
     String valueSetterPath = "pageOffset";
     Boolean valueSetterParamOptional = true;
-    Long limit = 10l;
+    Long limit;
     ListIncidentsOptionalParameters parameters = new ListIncidentsOptionalParameters();
 
     if (parameters.pageSize == null) {

@@ -1351,7 +1351,7 @@ public class SecurityMonitoringApi {
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";
     Boolean valueSetterParamOptional = true;
-    Integer limit = 10;
+    Integer limit;
     ListSecurityMonitoringSignalsOptionalParameters parameters =
         new ListSecurityMonitoringSignalsOptionalParameters();
 
@@ -1619,7 +1619,7 @@ public class SecurityMonitoringApi {
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "body.getPage.setCursor";
     Boolean valueSetterParamOptional = true;
-    Integer limit = 10;
+    Integer limit;
     SearchSecurityMonitoringSignalsOptionalParameters parameters =
         new SearchSecurityMonitoringSignalsOptionalParameters();
 

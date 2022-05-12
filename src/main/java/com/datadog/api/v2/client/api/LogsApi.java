@@ -266,7 +266,7 @@ public class LogsApi {
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "body.getPage.setCursor";
     Boolean valueSetterParamOptional = true;
-    Integer limit = 10;
+    Integer limit;
     ListLogsOptionalParameters parameters = new ListLogsOptionalParameters();
 
     if (parameters.body == null) {
@@ -587,7 +587,7 @@ public class LogsApi {
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";
     Boolean valueSetterParamOptional = true;
-    Integer limit = 10;
+    Integer limit;
     ListLogsGetOptionalParameters parameters = new ListLogsGetOptionalParameters();
 
     if (parameters.pageLimit == null) {

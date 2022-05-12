@@ -200,7 +200,7 @@ public class {{ name }} {
     {%- endif %}
 
 {#- Limit param field #}
-    {{ get_container_type(operation, pagination.limitParam) }} limit = {{ get_default(operation, pagination.limitParam) }};
+    {{ get_container_type(operation, pagination.limitParam) }} limit;
 
 {#- Limit param part fields #}
     {%- set limitParamParts = pagination.limitParam.split(".") %}

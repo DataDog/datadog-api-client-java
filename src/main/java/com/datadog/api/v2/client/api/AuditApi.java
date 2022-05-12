@@ -192,7 +192,7 @@ public class AuditApi {
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";
     Boolean valueSetterParamOptional = true;
-    Integer limit = 10;
+    Integer limit;
     ListAuditLogsOptionalParameters parameters = new ListAuditLogsOptionalParameters();
 
     if (parameters.pageLimit == null) {
@@ -449,7 +449,7 @@ public class AuditApi {
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "body.getPage.setCursor";
     Boolean valueSetterParamOptional = true;
-    Integer limit = 10;
+    Integer limit;
     SearchAuditLogsOptionalParameters parameters = new SearchAuditLogsOptionalParameters();
 
     if (parameters.body == null) {
