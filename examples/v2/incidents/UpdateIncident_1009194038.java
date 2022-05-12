@@ -10,8 +10,6 @@ import com.datadog.api.v2.client.model.IncidentUpdateData;
 import com.datadog.api.v2.client.model.IncidentUpdateRelationships;
 import com.datadog.api.v2.client.model.IncidentUpdateRequest;
 import com.datadog.api.v2.client.model.NullableRelationshipToUser;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

@@ -5,9 +5,7 @@ import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.UsageMeteringApi;
 import com.datadog.api.v2.client.api.UsageMeteringApi.GetUsageObservabilityPipelinesOptionalParameters;
 import com.datadog.api.v2.client.model.UsageObservabilityPipelinesResponse;
-import java.time.*;
 import java.time.OffsetDateTime;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

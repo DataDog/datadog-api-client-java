@@ -1,0 +1,40 @@
+[
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_hourly_usage_for_Application_Security_returns_Bad_Request_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v2/usage/application_security",
+      "queryStringParameters": {
+        "start_hr": [
+          "2022-04-29T16:40:49.302Z"
+        ],
+        "end_hr": [
+          "2022-04-27T16:40:49.302Z"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "956ce8ed-8bb5-c37a-2ba7-722998e91236"
+  }
+]

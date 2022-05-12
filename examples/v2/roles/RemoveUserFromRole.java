@@ -8,8 +8,6 @@ import com.datadog.api.v2.client.model.RelationshipToUser;
 import com.datadog.api.v2.client.model.RelationshipToUserData;
 import com.datadog.api.v2.client.model.UsersResponse;
 import com.datadog.api.v2.client.model.UsersType;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

@@ -6,8 +6,6 @@ import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.ProcessesApi;
 import com.datadog.api.v2.client.api.ProcessesApi.ListProcessesOptionalParameters;
 import com.datadog.api.v2.client.model.ProcessSummariesResponse;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-./extract-code-blocks.sh examples
-
 for f in examples/*/*/*.java ; do
     filename=$(basename -- "$f")
     filename="${filename%.*}"

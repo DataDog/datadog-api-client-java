@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Number of RUM Sessions recorded for each hour for a given organization. */
 @JsonPropertyOrder({
@@ -25,7 +26,8 @@ import java.util.Objects;
   UsageRumSessionsHour.JSON_PROPERTY_REPLAY_SESSION_COUNT,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_ANDROID,
-  UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_IOS
+  UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_IOS,
+  UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_REACTNATIVE
 })
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -44,13 +46,16 @@ public class UsageRumSessionsHour {
   private Long replaySessionCount;
 
   public static final String JSON_PROPERTY_SESSION_COUNT = "session_count";
-  private Long sessionCount;
+  private JsonNullable<Long> sessionCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_SESSION_COUNT_ANDROID = "session_count_android";
-  private Long sessionCountAndroid;
+  private JsonNullable<Long> sessionCountAndroid = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_SESSION_COUNT_IOS = "session_count_ios";
-  private Long sessionCountIos;
+  private JsonNullable<Long> sessionCountIos = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_SESSION_COUNT_REACTNATIVE = "session_count_reactnative";
+  private JsonNullable<Long> sessionCountReactnative = JsonNullable.<Long>undefined();
 
   public UsageRumSessionsHour hour(OffsetDateTime hour) {
     this.hour = hour;
@@ -137,7 +142,7 @@ public class UsageRumSessionsHour {
   }
 
   public UsageRumSessionsHour sessionCount(Long sessionCount) {
-    this.sessionCount = sessionCount;
+    this.sessionCount = JsonNullable.<Long>of(sessionCount);
     return this;
   }
 
@@ -147,18 +152,28 @@ public class UsageRumSessionsHour {
    * @return sessionCount
    */
   @javax.annotation.Nullable
+  @JsonIgnore
+  public Long getSessionCount() {
+    return sessionCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SESSION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSessionCount() {
+  public JsonNullable<Long> getSessionCount_JsonNullable() {
     return sessionCount;
   }
 
-  public void setSessionCount(Long sessionCount) {
+  @JsonProperty(JSON_PROPERTY_SESSION_COUNT)
+  public void setSessionCount_JsonNullable(JsonNullable<Long> sessionCount) {
     this.sessionCount = sessionCount;
   }
 
+  public void setSessionCount(Long sessionCount) {
+    this.sessionCount = JsonNullable.<Long>of(sessionCount);
+  }
+
   public UsageRumSessionsHour sessionCountAndroid(Long sessionCountAndroid) {
-    this.sessionCountAndroid = sessionCountAndroid;
+    this.sessionCountAndroid = JsonNullable.<Long>of(sessionCountAndroid);
     return this;
   }
 
@@ -169,18 +184,28 @@ public class UsageRumSessionsHour {
    * @return sessionCountAndroid
    */
   @javax.annotation.Nullable
+  @JsonIgnore
+  public Long getSessionCountAndroid() {
+    return sessionCountAndroid.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SESSION_COUNT_ANDROID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSessionCountAndroid() {
+  public JsonNullable<Long> getSessionCountAndroid_JsonNullable() {
     return sessionCountAndroid;
   }
 
-  public void setSessionCountAndroid(Long sessionCountAndroid) {
+  @JsonProperty(JSON_PROPERTY_SESSION_COUNT_ANDROID)
+  public void setSessionCountAndroid_JsonNullable(JsonNullable<Long> sessionCountAndroid) {
     this.sessionCountAndroid = sessionCountAndroid;
   }
 
+  public void setSessionCountAndroid(Long sessionCountAndroid) {
+    this.sessionCountAndroid = JsonNullable.<Long>of(sessionCountAndroid);
+  }
+
   public UsageRumSessionsHour sessionCountIos(Long sessionCountIos) {
-    this.sessionCountIos = sessionCountIos;
+    this.sessionCountIos = JsonNullable.<Long>of(sessionCountIos);
     return this;
   }
 
@@ -190,14 +215,56 @@ public class UsageRumSessionsHour {
    * @return sessionCountIos
    */
   @javax.annotation.Nullable
+  @JsonIgnore
+  public Long getSessionCountIos() {
+    return sessionCountIos.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SESSION_COUNT_IOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSessionCountIos() {
+  public JsonNullable<Long> getSessionCountIos_JsonNullable() {
     return sessionCountIos;
   }
 
-  public void setSessionCountIos(Long sessionCountIos) {
+  @JsonProperty(JSON_PROPERTY_SESSION_COUNT_IOS)
+  public void setSessionCountIos_JsonNullable(JsonNullable<Long> sessionCountIos) {
     this.sessionCountIos = sessionCountIos;
+  }
+
+  public void setSessionCountIos(Long sessionCountIos) {
+    this.sessionCountIos = JsonNullable.<Long>of(sessionCountIos);
+  }
+
+  public UsageRumSessionsHour sessionCountReactnative(Long sessionCountReactnative) {
+    this.sessionCountReactnative = JsonNullable.<Long>of(sessionCountReactnative);
+    return this;
+  }
+
+  /**
+   * Contains the number of mobile RUM Sessions on React Native (data available beginning May 1,
+   * 2022).
+   *
+   * @return sessionCountReactnative
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+  public Long getSessionCountReactnative() {
+    return sessionCountReactnative.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SESSION_COUNT_REACTNATIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getSessionCountReactnative_JsonNullable() {
+    return sessionCountReactnative;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SESSION_COUNT_REACTNATIVE)
+  public void setSessionCountReactnative_JsonNullable(JsonNullable<Long> sessionCountReactnative) {
+    this.sessionCountReactnative = sessionCountReactnative;
+  }
+
+  public void setSessionCountReactnative(Long sessionCountReactnative) {
+    this.sessionCountReactnative = JsonNullable.<Long>of(sessionCountReactnative);
   }
 
   /** Return true if this UsageRumSessionsHour object is equal to o. */
@@ -216,7 +283,9 @@ public class UsageRumSessionsHour {
         && Objects.equals(this.replaySessionCount, usageRumSessionsHour.replaySessionCount)
         && Objects.equals(this.sessionCount, usageRumSessionsHour.sessionCount)
         && Objects.equals(this.sessionCountAndroid, usageRumSessionsHour.sessionCountAndroid)
-        && Objects.equals(this.sessionCountIos, usageRumSessionsHour.sessionCountIos);
+        && Objects.equals(this.sessionCountIos, usageRumSessionsHour.sessionCountIos)
+        && Objects.equals(
+            this.sessionCountReactnative, usageRumSessionsHour.sessionCountReactnative);
   }
 
   @Override
@@ -228,7 +297,8 @@ public class UsageRumSessionsHour {
         replaySessionCount,
         sessionCount,
         sessionCountAndroid,
-        sessionCountIos);
+        sessionCountIos,
+        sessionCountReactnative);
   }
 
   @Override
@@ -244,6 +314,9 @@ public class UsageRumSessionsHour {
         .append(toIndentedString(sessionCountAndroid))
         .append("\n");
     sb.append("    sessionCountIos: ").append(toIndentedString(sessionCountIos)).append("\n");
+    sb.append("    sessionCountReactnative: ")
+        .append(toIndentedString(sessionCountReactnative))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }

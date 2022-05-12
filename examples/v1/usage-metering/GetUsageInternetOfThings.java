@@ -5,9 +5,7 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 import com.datadog.api.v1.client.api.UsageMeteringApi.GetUsageInternetOfThingsOptionalParameters;
 import com.datadog.api.v1.client.model.UsageIoTResponse;
-import java.time.*;
 import java.time.OffsetDateTime;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

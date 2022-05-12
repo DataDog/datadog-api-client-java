@@ -7,8 +7,7 @@ import com.datadog.api.v2.client.api.LogsApi;
 import com.datadog.api.v2.client.model.LogsAggregateRequest;
 import com.datadog.api.v2.client.model.LogsAggregateResponse;
 import com.datadog.api.v2.client.model.LogsQueryFilter;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

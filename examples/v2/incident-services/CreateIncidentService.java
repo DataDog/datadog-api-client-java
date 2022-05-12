@@ -9,8 +9,6 @@ import com.datadog.api.v2.client.model.IncidentServiceCreateData;
 import com.datadog.api.v2.client.model.IncidentServiceCreateRequest;
 import com.datadog.api.v2.client.model.IncidentServiceResponse;
 import com.datadog.api.v2.client.model.IncidentServiceType;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

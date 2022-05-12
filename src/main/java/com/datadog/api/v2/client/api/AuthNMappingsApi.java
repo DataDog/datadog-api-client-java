@@ -471,7 +471,6 @@ public class AuthNMappingsApi {
     private Long pageSize;
     private Long pageNumber;
     private AuthNMappingsSort sort;
-    private List<String> include;
     private String filter;
 
     /**
@@ -504,17 +503,6 @@ public class AuthNMappingsApi {
      */
     public ListAuthNMappingsOptionalParameters sort(AuthNMappingsSort sort) {
       this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Set include
-     *
-     * @param include Include additional information in the response. (optional)
-     * @return ListAuthNMappingsOptionalParameters
-     */
-    public ListAuthNMappingsOptionalParameters include(List<String> include) {
-      this.include = include;
       return this;
     }
 
@@ -611,7 +599,6 @@ public class AuthNMappingsApi {
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     AuthNMappingsSort sort = parameters.sort;
-    List<String> include = parameters.include;
     String filter = parameters.filter;
     // create path and map variables
     String localVarPath = "/api/v2/authn_mappings";
@@ -622,7 +609,6 @@ public class AuthNMappingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
     Invocation.Builder builder =
@@ -659,7 +645,6 @@ public class AuthNMappingsApi {
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     AuthNMappingsSort sort = parameters.sort;
-    List<String> include = parameters.include;
     String filter = parameters.filter;
     // create path and map variables
     String localVarPath = "/api/v2/authn_mappings";
@@ -670,7 +655,6 @@ public class AuthNMappingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
     Invocation.Builder builder;

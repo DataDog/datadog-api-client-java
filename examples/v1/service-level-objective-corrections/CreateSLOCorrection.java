@@ -9,9 +9,7 @@ import com.datadog.api.v1.client.model.SLOCorrectionCreateRequest;
 import com.datadog.api.v1.client.model.SLOCorrectionCreateRequestAttributes;
 import com.datadog.api.v1.client.model.SLOCorrectionResponse;
 import com.datadog.api.v1.client.model.SLOCorrectionType;
-import java.time.*;
 import java.time.OffsetDateTime;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

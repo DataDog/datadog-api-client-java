@@ -5,7 +5,7 @@ repos:
     name: Generate
     language: node
     entry: make
-    files: '^(\.generator/.*|\.pre-commit-config\.yaml|\.prettierrc\.yml|Makefile)'
+    files: '^(\.generator/.*|\.pre-commit-config\.yaml|\.prettierrc\.yml|Makefile|src/test/resources/com/datadog/api/v*/client/api/.*)'
     pass_filenames: false
   - id: docs
     name: Format documentation
@@ -62,3 +62,12 @@ repos:
     entry: ./format.sh
     files: '^src/test/'
     types: [file, java]
+  - id: examples
+    name: examples
+    language: python
+    entry: bash -c "cd .generator && poetry install && poetry run pytest"
+    files: "^.generator/"
+    stages: [manual]
+    pass_filenames: false
+    additional_dependencies:
+      - "poetry"

@@ -5,8 +5,8 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.LogsApi;
 import com.datadog.api.v1.client.model.HTTPLogItem;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 public class Example {
   public static void main(String[] args) {

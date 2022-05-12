@@ -9,8 +9,6 @@ import com.datadog.api.v2.client.model.UserCreateData;
 import com.datadog.api.v2.client.model.UserCreateRequest;
 import com.datadog.api.v2.client.model.UserResponse;
 import com.datadog.api.v2.client.model.UsersType;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

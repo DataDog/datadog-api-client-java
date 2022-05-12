@@ -16,8 +16,8 @@ import com.datadog.api.v1.client.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.v1.client.model.SyntheticsTestOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.v1.client.model.SyntheticsTestRequest;
-import java.time.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

@@ -10,8 +10,6 @@ import com.datadog.api.v2.client.model.LogsMetricType;
 import com.datadog.api.v2.client.model.LogsMetricUpdateAttributes;
 import com.datadog.api.v2.client.model.LogsMetricUpdateData;
 import com.datadog.api.v2.client.model.LogsMetricUpdateRequest;
-import java.time.*;
-import java.util.*;
 
 public class Example {
   public static void main(String[] args) {

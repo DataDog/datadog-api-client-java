@@ -7,8 +7,7 @@ import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.DashboardBulkActionData;
 import com.datadog.api.v1.client.model.DashboardResourceType;
 import com.datadog.api.v1.client.model.DashboardRestoreRequest;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

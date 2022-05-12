@@ -13,8 +13,7 @@ import com.datadog.api.v2.client.model.ServiceAccountCreateRequest;
 import com.datadog.api.v2.client.model.UserRelationships;
 import com.datadog.api.v2.client.model.UserResponse;
 import com.datadog.api.v2.client.model.UsersType;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {

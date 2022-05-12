@@ -34,6 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DowntimeChild.JSON_PROPERTY_MESSAGE,
   DowntimeChild.JSON_PROPERTY_MONITOR_ID,
   DowntimeChild.JSON_PROPERTY_MONITOR_TAGS,
+  DowntimeChild.JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION,
   DowntimeChild.JSON_PROPERTY_PARENT_ID,
   DowntimeChild.JSON_PROPERTY_RECURRENCE,
   DowntimeChild.JSON_PROPERTY_SCOPE,
@@ -74,6 +75,10 @@ public class DowntimeChild {
 
   public static final String JSON_PROPERTY_MONITOR_TAGS = "monitor_tags";
   private List<String> monitorTags = null;
+
+  public static final String JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION =
+      "mute_first_recovery_notification";
+  private Boolean muteFirstRecoveryNotification;
 
   public static final String JSON_PROPERTY_PARENT_ID = "parent_id";
   private JsonNullable<Long> parentId = JsonNullable.<Long>undefined();
@@ -310,6 +315,27 @@ public class DowntimeChild {
     this.monitorTags = monitorTags;
   }
 
+  public DowntimeChild muteFirstRecoveryNotification(Boolean muteFirstRecoveryNotification) {
+    this.muteFirstRecoveryNotification = muteFirstRecoveryNotification;
+    return this;
+  }
+
+  /**
+   * If the first recovery notification during a downtime should be muted.
+   *
+   * @return muteFirstRecoveryNotification
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getMuteFirstRecoveryNotification() {
+    return muteFirstRecoveryNotification;
+  }
+
+  public void setMuteFirstRecoveryNotification(Boolean muteFirstRecoveryNotification) {
+    this.muteFirstRecoveryNotification = muteFirstRecoveryNotification;
+  }
+
   public DowntimeChild parentId(Long parentId) {
     this.parentId = JsonNullable.<Long>of(parentId);
     return this;
@@ -494,6 +520,8 @@ public class DowntimeChild {
         && Objects.equals(this.message, downtimeChild.message)
         && Objects.equals(this.monitorId, downtimeChild.monitorId)
         && Objects.equals(this.monitorTags, downtimeChild.monitorTags)
+        && Objects.equals(
+            this.muteFirstRecoveryNotification, downtimeChild.muteFirstRecoveryNotification)
         && Objects.equals(this.parentId, downtimeChild.parentId)
         && Objects.equals(this.recurrence, downtimeChild.recurrence)
         && Objects.equals(this.scope, downtimeChild.scope)
@@ -515,6 +543,7 @@ public class DowntimeChild {
         message,
         monitorId,
         monitorTags,
+        muteFirstRecoveryNotification,
         parentId,
         recurrence,
         scope,
@@ -537,6 +566,9 @@ public class DowntimeChild {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    monitorId: ").append(toIndentedString(monitorId)).append("\n");
     sb.append("    monitorTags: ").append(toIndentedString(monitorTags)).append("\n");
+    sb.append("    muteFirstRecoveryNotification: ")
+        .append(toIndentedString(muteFirstRecoveryNotification))
+        .append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    recurrence: ").append(toIndentedString(recurrence)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");

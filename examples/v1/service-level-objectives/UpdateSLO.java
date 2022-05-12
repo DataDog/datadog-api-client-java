@@ -10,8 +10,7 @@ import com.datadog.api.v1.client.model.SLOTimeframe;
 import com.datadog.api.v1.client.model.SLOType;
 import com.datadog.api.v1.client.model.ServiceLevelObjective;
 import com.datadog.api.v1.client.model.ServiceLevelObjectiveQuery;
-import java.time.*;
-import java.util.*;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
