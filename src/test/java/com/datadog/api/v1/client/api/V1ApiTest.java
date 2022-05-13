@@ -168,7 +168,7 @@ public abstract class V1ApiTest extends TestUtils.APITest {
         url = parsedUrl.getPath();
         generalApiClient.setServerIndex(1);
         generalApiClient.setServerVariables(serverVariables);
-      } catch(Exception e) {
+      } catch (Exception e) {
         throw new RuntimeException("Malformed url", e);
       }
     }
