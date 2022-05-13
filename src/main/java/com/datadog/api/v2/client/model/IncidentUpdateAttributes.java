@@ -10,10 +10,12 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JavaTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,12 +41,16 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class IncidentUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_END = "customer_impact_end";
+
+  @JsonSerialize(using = JavaTimeSerializer.class)
   private JsonNullable<OffsetDateTime> customerImpactEnd = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE = "customer_impact_scope";
   private String customerImpactScope;
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_START = "customer_impact_start";
+
+  @JsonSerialize(using = JavaTimeSerializer.class)
   private JsonNullable<OffsetDateTime> customerImpactStart =
       JsonNullable.<OffsetDateTime>undefined();
 
@@ -52,6 +58,8 @@ public class IncidentUpdateAttributes {
   private Boolean customerImpacted;
 
   public static final String JSON_PROPERTY_DETECTED = "detected";
+
+  @JsonSerialize(using = JavaTimeSerializer.class)
   private JsonNullable<OffsetDateTime> detected = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_FIELDS = "fields";
@@ -61,6 +69,8 @@ public class IncidentUpdateAttributes {
   private List<IncidentNotificationHandle> notificationHandles = null;
 
   public static final String JSON_PROPERTY_RESOLVED = "resolved";
+
+  @JsonSerialize(using = JavaTimeSerializer.class)
   private JsonNullable<OffsetDateTime> resolved = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";

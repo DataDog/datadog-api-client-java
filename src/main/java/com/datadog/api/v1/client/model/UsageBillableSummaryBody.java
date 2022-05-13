@@ -10,10 +10,12 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JavaTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -38,9 +40,13 @@ public class UsageBillableSummaryBody {
   private Long elapsedUsageHours;
 
   public static final String JSON_PROPERTY_FIRST_BILLABLE_USAGE_HOUR = "first_billable_usage_hour";
+
+  @JsonSerialize(using = JavaTimeSerializer.class)
   private OffsetDateTime firstBillableUsageHour;
 
   public static final String JSON_PROPERTY_LAST_BILLABLE_USAGE_HOUR = "last_billable_usage_hour";
+
+  @JsonSerialize(using = JavaTimeSerializer.class)
   private OffsetDateTime lastBillableUsageHour;
 
   public static final String JSON_PROPERTY_ORG_BILLABLE_USAGE = "org_billable_usage";
