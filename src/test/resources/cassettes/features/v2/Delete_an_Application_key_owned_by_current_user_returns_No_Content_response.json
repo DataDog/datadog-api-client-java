@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_an_Application_key_owned_by_current_user_returns_No_Content_response-1641826583\"},\"type\":\"application_keys\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_an_Application_key_owned_by_current_user_returns_No_Content_response-1652349125\"},\"type\":\"application_keys\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"8c0eeda4-0be7-4ff3-a84f-d107adc6345c\",\"attributes\":{\"name\":\"Test-Delete_an_Application_key_owned_by_current_user_returns_No_Content_response-1641826583\",\"created_at\":\"2022-01-10T14:56:24.051310+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"c1469afb-30e6-4b63-81ab-4ba8436e5150\",\"attributes\":{\"name\":\"Test-Delete_an_Application_key_owned_by_current_user_returns_No_Content_response-1652349125\",\"created_at\":\"2022-05-12T09:52:05.932111+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"leak_information\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9d61df24-c377-6cc2-3ac6-f38dbb69ebe3"
+    "id": "247f4769-744b-8d32-1161-7b9463eda5eb"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/current_user/application_keys/8c0eeda4-0be7-4ff3-a84f-d107adc6345c",
+      "path": "/api/v2/current_user/application_keys/c1469afb-30e6-4b63-81ab-4ba8436e5150",
       "keepAlive": false,
       "secure": true
     },
@@ -56,7 +56,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1d4ff09c-24a2-5001-75ba-279489538a5e"
+    "id": "133ea7e9-4aca-9c3e-7ca7-08e4c11db523"
   },
   {
     "httpRequest": {
@@ -66,7 +66,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/current_user/application_keys/8c0eeda4-0be7-4ff3-a84f-d107adc6345c",
+      "path": "/api/v2/current_user/application_keys/c1469afb-30e6-4b63-81ab-4ba8436e5150",
       "keepAlive": false,
       "secure": true
     },
@@ -86,6 +86,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1d4ff09c-24a2-5001-75ba-279489538a5f"
+    "id": "133ea7e9-4aca-9c3e-7ca7-08e4c11db524"
   }
 ]

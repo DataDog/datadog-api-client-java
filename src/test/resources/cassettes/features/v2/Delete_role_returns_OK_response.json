@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_role_returns_OK_response-1641826586\"},\"type\":\"roles\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_role_returns_OK_response-1652349164\"},\"type\":\"roles\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"7c9a4fa0-7225-11ec-b5d3-da7ad0900002\",\"attributes\":{\"name\":\"Test-Delete_role_returns_OK_response-1641826586\",\"created_at\":\"2022-01-10T14:56:27.148368+00:00\",\"modified_at\":\"2022-01-10T14:56:27.198222+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}}",
+      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"458463ac-d1d9-11ec-ad3d-da7ad0900002\",\"attributes\":{\"name\":\"Test-Delete_role_returns_OK_response-1652349164\",\"created_at\":\"2022-05-12T09:52:44.604665+00:00\",\"modified_at\":\"2022-05-12T09:52:44.680814+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"b6bf9ac6-9a59-11ec-8480-da7ad0900002\"}]}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "24927731-ac29-a06a-a163-ab326d694f26"
+    "id": "1cfd0398-f727-b11d-4f24-3006c1c7aa25"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/roles/7c9a4fa0-7225-11ec-b5d3-da7ad0900002",
+      "path": "/api/v2/roles/458463ac-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -56,7 +56,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "75d266f9-dd4d-1cdb-a85d-e9f876b52aec"
+    "id": "b7ef8eae-e67e-5942-62c3-84246e72356d"
   },
   {
     "httpRequest": {
@@ -66,12 +66,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/roles/7c9a4fa0-7225-11ec-b5d3-da7ad0900002",
+      "path": "/api/v2/roles/458463ac-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"The role 7c9a4fa0-7225-11ec-b5d3-da7ad0900002 does not exist not found\"]}",
+      "body": "{\"errors\": [\"458463ac-d1d9-11ec-ad3d-da7ad0900002 not found\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -86,6 +86,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "75d266f9-dd4d-1cdb-a85d-e9f876b52aed"
+    "id": "b7ef8eae-e67e-5942-62c3-84246e72356e"
   }
 ]

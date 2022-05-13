@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"filter\":{\"query\":\"source:Test-Delete_a_log_based_metric_returns_OK_response-1641833867\"}},\"id\":\"Test-Delete_a_log_based_metric_returns_OK_response-1641833867\",\"type\":\"logs_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"filter\":{\"query\":\"source:Test-Delete_a_log_based_metric_returns_OK_response-1652349143\"}},\"id\":\"Test-Delete_a_log_based_metric_returns_OK_response-1652349143\",\"type\":\"logs_metrics\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"source:Test-Delete_a_log_based_metric_returns_OK_response-1641833867\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Delete_a_log_based_metric_returns_OK_response_1641833867\"}}",
+      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"source:Test-Delete_a_log_based_metric_returns_OK_response-1652349143\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Delete_a_log_based_metric_returns_OK_response_1652349143\"}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3ee4fc6b-0d75-8913-a531-d98132ff2461"
+    "id": "b9e06018-0894-969b-2f3c-d8898f7bf343"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/logs/config/metrics/Test_Delete_a_log_based_metric_returns_OK_response_1641833867",
+      "path": "/api/v2/logs/config/metrics/Test_Delete_a_log_based_metric_returns_OK_response_1652349143",
       "keepAlive": false,
       "secure": true
     },
@@ -61,7 +61,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3c321372-c243-fac3-f0b2-1b257424a6f2"
+    "id": "64a7bae1-1f24-ed7c-a900-8e4705725a6b"
   },
   {
     "httpRequest": {
@@ -71,12 +71,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/logs/config/metrics/Test_Delete_a_log_based_metric_returns_OK_response_1641833867",
+      "path": "/api/v2/logs/config/metrics/Test_Delete_a_log_based_metric_returns_OK_response_1652349143",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Metric with name 'Test_Delete_a_log_based_metric_returns_OK_response_1641833867' not found)\"]}",
+      "body": "{\"errors\":[\"not_found(Metric with name 'Test_Delete_a_log_based_metric_returns_OK_response_1652349143' not found)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -91,6 +91,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3c321372-c243-fac3-f0b2-1b257424a6f3"
+    "id": "64a7bae1-1f24-ed7c-a900-8e4705725a6c"
   }
 ]

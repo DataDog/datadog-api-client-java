@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Disable_a_user_returns_OK_response-1641826593@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Disable_a_user_returns_OK_response-1652349216@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"users\",\"id\":\"80726a36-7225-11ec-b5d3-da7ad0900002\",\"attributes\":{\"name\":null,\"handle\":\"test-disable_a_user_returns_ok_response-1641826593@datadoghq.com\",\"created_at\":\"2022-01-10T14:56:33.596225+00:00\",\"modified_at\":\"2022-01-10T14:56:33.648991+00:00\",\"email\":\"test-disable_a_user_returns_ok_response-1641826593@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/1abd8fd8ed99582e40d59125a77c8078?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}",
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"649b7e06-d1d9-11ec-ad3d-da7ad0900002\",\"attributes\":{\"name\":null,\"handle\":\"test-disable_a_user_returns_ok_response-1652349216@datadoghq.com\",\"created_at\":\"2022-05-12T09:53:36.764381+00:00\",\"modified_at\":\"2022-05-12T09:53:36.851751+00:00\",\"email\":\"test-disable_a_user_returns_ok_response-1652349216@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/0be9a183f9c8c81ab435f271e21830c2?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d69fd832-0823-ac06-4967-e207911bae70"
+    "id": "82d032d6-df1a-a4fb-1245-7d7a332da0cc"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/users/80726a36-7225-11ec-b5d3-da7ad0900002",
+      "path": "/api/v2/users/649b7e06-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -56,7 +56,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5be5d051-f802-de20-cdb0-aa70c6ca7a62"
+    "id": "6407185d-273c-6ddb-1c52-dc31d8885bce"
   },
   {
     "httpRequest": {
@@ -66,12 +66,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/users/80726a36-7225-11ec-b5d3-da7ad0900002",
+      "path": "/api/v2/users/649b7e06-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"80726a36-7225-11ec-b5d3-da7ad0900002 not found\"]}",
+      "body": "{\"errors\": [\"649b7e06-d1d9-11ec-ad3d-da7ad0900002 not found\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -86,6 +86,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5be5d051-f802-de20-cdb0-aa70c6ca7a63"
+    "id": "6407185d-273c-6ddb-1c52-dc31d8885bcf"
   }
 ]

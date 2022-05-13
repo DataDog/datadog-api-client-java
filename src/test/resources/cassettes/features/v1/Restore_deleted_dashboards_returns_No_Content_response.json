@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Restore_deleted_dashboards_returns_No_Content_response-1645780092 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Restore_deleted_dashboards_returns_No_Content_response-1652348991 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"}}]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"mer-dv6-8hm\",\"title\":\"Test-Restore_deleted_dashboards_returns_No_Content_response-1645780092 with Profile Metrics Query\",\"url\":\"/dashboard/mer-dv6-8hm/test-restoredeleteddashboardsreturnsnocontentresponse-1645780092-with-profile-me\",\"created_at\":\"2022-02-25T09:08:12.769980+00:00\",\"modified_at\":\"2022-02-25T09:08:12.769980+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"search\":{\"query\":\"runtime:jvm\"},\"group_by\":[{\"facet\":\"service\",\"sort\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\",\"order\":\"desc\"},\"limit\":10}],\"compute\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\"}}}],\"type\":\"timeseries\"},\"id\":5722443162930506}],\"layout_type\":\"ordered\"}",
+      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"9tx-gsv-z5x\",\"title\":\"Test-Restore_deleted_dashboards_returns_No_Content_response-1652348991 with Profile Metrics Query\",\"url\":\"/dashboard/9tx-gsv-z5x/test-restoredeleteddashboardsreturnsnocontentresponse-1652348991-with-profile-me\",\"created_at\":\"2022-05-12T09:49:51.831214+00:00\",\"modified_at\":\"2022-05-12T09:49:51.831214+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"search\":{\"query\":\"runtime:jvm\"},\"group_by\":[{\"facet\":\"service\",\"sort\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\",\"order\":\"desc\"},\"limit\":10}],\"compute\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\"}}}],\"type\":\"timeseries\"},\"id\":4207265436765014}],\"layout_type\":\"ordered\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "86314ef6-5a42-7d85-d5e2-8e1d8adaa8ff"
+    "id": "b4a31a44-4f04-c9f4-1676-461bb395a6b8"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/dashboard/mer-dv6-8hm",
+      "path": "/api/v1/dashboard/9tx-gsv-z5x",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"mer-dv6-8hm\"}",
+      "body": "{\"deleted_dashboard_id\":\"9tx-gsv-z5x\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -61,13 +61,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0b06be46-3515-4812-a103-12800093c781"
+    "id": "b7773d7e-c63d-509c-57fe-11bfdca3fa81"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":[{\"id\":\"mer-dv6-8hm\",\"type\":\"dashboard\"}]}"
+        "json": "{\"data\":[{\"id\":\"9tx-gsv-z5x\",\"type\":\"dashboard\"}]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -90,7 +90,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0eece539-e061-a820-5edf-e7860ef00837"
+    "id": "b94a8190-bd70-fa3e-719b-d2129a805b3a"
   },
   {
     "httpRequest": {
@@ -100,12 +100,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/dashboard/mer-dv6-8hm",
+      "path": "/api/v1/dashboard/9tx-gsv-z5x",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"mer-dv6-8hm\"}",
+      "body": "{\"deleted_dashboard_id\":\"9tx-gsv-z5x\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -120,6 +120,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0b06be46-3515-4812-a103-12800093c782"
+    "id": "b7773d7e-c63d-509c-57fe-11bfdca3fa82"
   }
 ]
