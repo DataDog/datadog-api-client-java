@@ -23,27 +23,17 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The detection method. */
+/** Hardcoded evaluator type. */
 @JsonSerialize(
     using =
-        SecurityMonitoringRuleDetectionMethod.SecurityMonitoringRuleDetectionMethodSerializer.class)
-public class SecurityMonitoringRuleDetectionMethod {
+        SecurityMonitoringRuleHardcodedEvaluatorType
+            .SecurityMonitoringRuleHardcodedEvaluatorTypeSerializer.class)
+public class SecurityMonitoringRuleHardcodedEvaluatorType {
 
-  public static final SecurityMonitoringRuleDetectionMethod THRESHOLD =
-      new SecurityMonitoringRuleDetectionMethod("threshold");
-  public static final SecurityMonitoringRuleDetectionMethod NEW_VALUE =
-      new SecurityMonitoringRuleDetectionMethod("new_value");
-  public static final SecurityMonitoringRuleDetectionMethod ANOMALY_DETECTION =
-      new SecurityMonitoringRuleDetectionMethod("anomaly_detection");
-  public static final SecurityMonitoringRuleDetectionMethod IMPOSSIBLE_TRAVEL =
-      new SecurityMonitoringRuleDetectionMethod("impossible_travel");
-  public static final SecurityMonitoringRuleDetectionMethod HARDCODED =
-      new SecurityMonitoringRuleDetectionMethod("hardcoded");
+  public static final SecurityMonitoringRuleHardcodedEvaluatorType LOG4SHELL =
+      new SecurityMonitoringRuleHardcodedEvaluatorType("log4shell");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "threshold", "new_value", "anomaly_detection", "impossible_travel", "hardcoded"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("log4shell"));
 
   private String value;
 
@@ -51,24 +41,24 @@ public class SecurityMonitoringRuleDetectionMethod {
     return allowedValues.contains(this.value);
   }
 
-  SecurityMonitoringRuleDetectionMethod(String value) {
+  SecurityMonitoringRuleHardcodedEvaluatorType(String value) {
     this.value = value;
   }
 
-  public static class SecurityMonitoringRuleDetectionMethodSerializer
-      extends StdSerializer<SecurityMonitoringRuleDetectionMethod> {
-    public SecurityMonitoringRuleDetectionMethodSerializer(
-        Class<SecurityMonitoringRuleDetectionMethod> t) {
+  public static class SecurityMonitoringRuleHardcodedEvaluatorTypeSerializer
+      extends StdSerializer<SecurityMonitoringRuleHardcodedEvaluatorType> {
+    public SecurityMonitoringRuleHardcodedEvaluatorTypeSerializer(
+        Class<SecurityMonitoringRuleHardcodedEvaluatorType> t) {
       super(t);
     }
 
-    public SecurityMonitoringRuleDetectionMethodSerializer() {
+    public SecurityMonitoringRuleHardcodedEvaluatorTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        SecurityMonitoringRuleDetectionMethod value,
+        SecurityMonitoringRuleHardcodedEvaluatorType value,
         JsonGenerator jgen,
         SerializerProvider provider)
         throws IOException, JsonProcessingException {
@@ -85,7 +75,7 @@ public class SecurityMonitoringRuleDetectionMethod {
     this.value = value;
   }
 
-  /** Return true if this SecurityMonitoringRuleDetectionMethod object is equal to o. */
+  /** Return true if this SecurityMonitoringRuleHardcodedEvaluatorType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +84,7 @@ public class SecurityMonitoringRuleDetectionMethod {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((SecurityMonitoringRuleDetectionMethod) o).value);
+    return this.value.equals(((SecurityMonitoringRuleHardcodedEvaluatorType) o).value);
   }
 
   @Override
@@ -108,7 +98,7 @@ public class SecurityMonitoringRuleDetectionMethod {
   }
 
   @JsonCreator
-  public static SecurityMonitoringRuleDetectionMethod fromValue(String value) {
-    return new SecurityMonitoringRuleDetectionMethod(value);
+  public static SecurityMonitoringRuleHardcodedEvaluatorType fromValue(String value) {
+    return new SecurityMonitoringRuleHardcodedEvaluatorType(value);
   }
 }
