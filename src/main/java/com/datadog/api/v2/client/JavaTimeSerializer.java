@@ -18,8 +18,8 @@ import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class JavaTimeSerializer extends StdSerializer<OffsetDateTime> {
-  private static DateTimeFormatter msFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
-  private static DateTimeFormatter missingMsFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
+  private static DateTimeFormatter formatter =
+      DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 
   public JavaTimeSerializer() {
     this(null);
@@ -32,11 +32,6 @@ public class JavaTimeSerializer extends StdSerializer<OffsetDateTime> {
   @Override
   public void serialize(OffsetDateTime value, JsonGenerator gen, SerializerProvider arg2)
       throws IOException {
-
-    if (value.getNano() == 0) {
-      gen.writeString(missingMsFormatter.format(value));
-    } else {
-      gen.writeString(msFormatter.format(value));
-    }
+    gen.writeString(formatter.format(value));
   }
 }
