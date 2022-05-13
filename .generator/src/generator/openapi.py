@@ -116,7 +116,10 @@ def type_to_java(schema, alternative_name=None):
     if name:
         if "enum" in schema:
             return prefix + name
-        if not (has_additional_properties(schema) and not schema.get("properties")) and schema.get("type", "object") == "object":
+        if (
+            not (has_additional_properties(schema) and not schema.get("properties"))
+            and schema.get("type", "object") == "object"
+        ):
             return prefix + name
 
     type_ = schema.get("type")
