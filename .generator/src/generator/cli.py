@@ -72,6 +72,7 @@ def cli(input, output):
         "Configuration.java": env.get_template("Configuration.j2"),
         "JSON.java": env.get_template("JSON.j2"),
         "JavaTimeFormatter.java": env.get_template("JavaTimeFormatter.j2"),
+        "JavaTimeSerializer.java": env.get_template("JavaTimeSerializer.j2"),
         "Pair.java": env.get_template("Pair.j2"),
         "RFC3339DateFormat.java": env.get_template("RFC3339DateFormat.j2"),
         "ServerConfiguration.java": env.get_template("ServerConfiguration.j2"),
