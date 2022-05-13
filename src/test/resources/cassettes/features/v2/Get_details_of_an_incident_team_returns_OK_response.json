@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_details_of_an_incident_team_returns_OK_response-1641829842\"},\"type\":\"teams\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_details_of_an_incident_team_returns_OK_response-1652349100\"},\"type\":\"teams\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"created_at\":\"2019-10-02T08:15:39.795051+00:00\",\"modified_at\":\"2020-06-15T12:33:12.884459+00:00\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Active\"},\"relationships\":{\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}],\"data\":{\"type\":\"teams\",\"id\":\"ebff582d-6d91-544d-a693-34181fdd127c\",\"attributes\":{\"name\":\"Test-Get_details_of_an_incident_team_returns_OK_response-1641829842\",\"created\":\"2022-01-10T15:50:42.988020+00:00\",\"modified\":\"2022-01-10T15:50:42.988020+00:00\"},\"relationships\":{\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+      "body": "{\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"created_at\":\"2019-10-02T08:15:39.795051+00:00\",\"modified_at\":\"2020-06-15T12:33:12.884459+00:00\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Active\"},\"relationships\":{\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}],\"data\":{\"type\":\"teams\",\"id\":\"d447ff27-d27c-59ab-a492-42c455411a49\",\"attributes\":{\"name\":\"Test-Get_details_of_an_incident_team_returns_OK_response-1652349100\",\"created\":\"2022-05-12T09:51:41.287353+00:00\",\"modified\":\"2022-05-12T09:51:41.287353+00:00\"},\"relationships\":{\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "079d3796-36fe-5672-34a3-42fd34318f97"
+    "id": "443ffec8-54b0-ea99-e0e5-ebae9b6d83b3"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "GET",
-      "path": "/api/v2/teams/ebff582d-6d91-544d-a693-34181fdd127c",
+      "path": "/api/v2/teams/d447ff27-d27c-59ab-a492-42c455411a49",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"teams\",\"id\":\"ebff582d-6d91-544d-a693-34181fdd127c\",\"attributes\":{\"name\":\"Test-Get_details_of_an_incident_team_returns_OK_response-1641829842\",\"created\":\"2022-01-10T15:50:42.988020+00:00\",\"modified\":\"2022-01-10T15:50:42.988020+00:00\"},\"relationships\":{\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+      "body": "{\"data\":{\"type\":\"teams\",\"id\":\"d447ff27-d27c-59ab-a492-42c455411a49\",\"attributes\":{\"name\":\"Test-Get_details_of_an_incident_team_returns_OK_response-1652349100\",\"created\":\"2022-05-12T09:51:41.287353+00:00\",\"modified\":\"2022-05-12T09:51:41.287353+00:00\"},\"relationships\":{\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -61,7 +61,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ceddf2b9-133a-0032-9e35-c539f10f3b28"
+    "id": "5c4786b0-bc27-3702-471b-23904789a975"
   },
   {
     "httpRequest": {
@@ -71,7 +71,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/teams/ebff582d-6d91-544d-a693-34181fdd127c",
+      "path": "/api/v2/teams/d447ff27-d27c-59ab-a492-42c455411a49",
       "keepAlive": false,
       "secure": true
     },
@@ -86,6 +86,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "871fc026-15f3-e3ec-8629-91a81617ee10"
+    "id": "c1a92ce0-e23a-47fe-58e6-ae338eae6972"
   }
 ]

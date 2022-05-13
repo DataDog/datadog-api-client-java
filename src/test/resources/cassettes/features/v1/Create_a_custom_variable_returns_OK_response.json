@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"is_secret\":true,\"name\":\"TESTCREATEACUSTOMVARIABLERETURNSOKRESPONSE1642429420\",\"value\":\"CUSTOM_VARIABLE_VALUE\"}"
+        "json": "{\"is_secret\":true,\"name\":\"TESTCREATEACUSTOMVARIABLERETURNSOKRESPONSE1652349031\",\"value\":\"CUSTOM_VARIABLE_VALUE\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"is_secret\":true,\"name\":\"TESTCREATEACUSTOMVARIABLERETURNSOKRESPONSE1642429420\"}",
+      "body": "{\"is_secret\":true,\"name\":\"TESTCREATEACUSTOMVARIABLERETURNSOKRESPONSE1652349031\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a74e4871-eb93-0fe6-8faa-43432f0ca7b0"
+    "id": "937d98a4-7ea1-7dd7-ab6f-742513849a8a"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTCREATEACUSTOMVARIABLERETURNSOKRESPONSE1642429420",
+      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTCREATEACUSTOMVARIABLERETURNSOKRESPONSE1652349031",
       "keepAlive": false,
       "secure": true
     },
@@ -61,6 +61,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0f99c918-7013-367b-16f5-4f897a7f4b9f"
+    "id": "1906076d-1675-0659-77b3-8761c4e20190"
   }
 ]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"series\": [{\"metric\": \"TestUpdateatagconfigurationreturnsOKresponse1648572657\", \"points\": [[1648572657.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
+        "json": "{\"series\": [{\"metric\": \"TestUpdateatagconfigurationreturnsOKresponse1652354372\", \"points\": [[1652354372.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a9fdafd1-b2e4-0629-0b71-d26f3b34515d"
+    "id": "8c11b6c5-6022-4cd8-0bdb-bd60e51aabff"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestUpdateatagconfigurationreturnsOKresponse1648572657\"]},\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1648572657\",\"type\":\"manage_tags\"}}"
+        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestUpdateatagconfigurationreturnsOKresponse1652354372\"]},\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1652354372\",\"type\":\"manage_tags\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -45,12 +45,12 @@
         ]
       },
       "method": "POST",
-      "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1648572657/tags",
+      "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1652354372/tags",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1648572657\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"TestUpdateatagconfigurationreturnsOKresponse1648572657\"],\"created_at\":\"2022-03-29T16:50:58.686271+00:00\",\"modified_at\":\"2022-03-29T16:50:58.686271+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
+      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1652354372\",\"attributes\":{\"tags\":[\"datacenter\",\"TestUpdateatagconfigurationreturnsOKresponse1652354372\",\"app\"],\"created_at\":\"2022-05-12T11:19:33.257425+00:00\",\"modified_at\":\"2022-05-12T11:19:33.257425+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,13 +65,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d1260d61-3239-3dab-6ce4-3e2ea3b69bff"
+    "id": "78db6c44-f176-4e44-f02a-f700ecc90faf"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"tags\":[\"app\"]},\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1648572657\",\"type\":\"manage_tags\"}}"
+        "json": "{\"data\":{\"attributes\":{\"tags\":[\"app\"]},\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1652354372\",\"type\":\"manage_tags\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -79,12 +79,12 @@
         ]
       },
       "method": "PATCH",
-      "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1648572657/tags",
+      "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1652354372/tags",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1648572657\",\"attributes\":{\"tags\":[\"app\"],\"created_at\":\"2022-03-29T16:50:58.686271+00:00\",\"modified_at\":\"2022-03-29T16:50:59.386565+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
+      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1652354372\",\"attributes\":{\"tags\":[\"app\"],\"created_at\":\"2022-05-12T11:19:33.257425+00:00\",\"modified_at\":\"2022-05-12T11:19:33.820520+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -99,7 +99,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1f7163bf-fb1f-d960-cb08-d2aaa77be329"
+    "id": "a7a0b38d-6b3c-0351-70d9-659a0508c3d4"
   },
   {
     "httpRequest": {
@@ -109,7 +109,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1648572657/tags",
+      "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1652354372/tags",
       "keepAlive": false,
       "secure": true
     },
@@ -124,6 +124,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "faf851b2-ee95-1b71-6338-5a01663f4b84"
+    "id": "12557285-41dd-d62d-c9d3-09d004086f13"
   }
 ]

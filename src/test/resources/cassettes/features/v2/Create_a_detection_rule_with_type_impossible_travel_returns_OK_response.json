@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"hasExtendedTitle\":true,\"isEnabled\":true,\"message\":\"test\",\"name\":\"Test-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response-1646054517\",\"options\":{\"detectionMethod\":\"impossible_travel\",\"evaluationWindow\":900,\"impossibleTravelOptions\":{\"baselineUserLocations\":false},\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"geo_data\",\"distinctFields\":[],\"groupByFields\":[\"@usr.id\"],\"metric\":\"@network.client.geoip\",\"query\":\"*\"}],\"tags\":[],\"type\":\"log_detection\"}"
+        "json": "{\"cases\":[{\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"hasExtendedTitle\":true,\"isEnabled\":true,\"message\":\"test\",\"name\":\"Test-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response-1652349188\",\"options\":{\"detectionMethod\":\"impossible_travel\",\"evaluationWindow\":900,\"impossibleTravelOptions\":{\"baselineUserLocations\":false},\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"geo_data\",\"distinctFields\":[],\"groupByFields\":[\"@usr.id\"],\"metric\":\"@network.client.geoip\",\"query\":\"*\"}],\"tags\":[],\"type\":\"log_detection\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,10 +16,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":true,\"message\":\"test\",\"options\":{\"impossibleTravelOptions\":{\"baselineUserLocations\":false},\"detectionMethod\":\"impossible_travel\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1646054517609,\"filters\":[],\"queries\":[{\"distinctFields\":[],\"name\":\"\",\"metric\":\"@network.client.geoip\",\"aggregation\":\"geo_data\",\"groupByFields\":[\"@usr.id\"],\"query\":\"*\"}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\"}],\"type\":\"log_detection\",\"id\":\"7xa-vww-kan\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response-1646054517\"}",
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":true,\"message\":\"test\",\"options\":{\"impossibleTravelOptions\":{\"baselineUserLocations\":false},\"detectionMethod\":\"impossible_travel\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1652349188680,\"filters\":[],\"queries\":[{\"distinctFields\":[],\"name\":\"\",\"metric\":\"@network.client.geoip\",\"aggregation\":\"geo_data\",\"groupByFields\":[\"@usr.id\"],\"query\":\"*\"}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\"}],\"type\":\"log_detection\",\"id\":\"gnq-slf-npc\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response-1652349188\"}\n",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "49af63a7-878d-8b79-2558-be5c73238678"
+    "id": "52d2aab8-e1e3-22d3-462f-72338564819c"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/7xa-vww-kan",
+      "path": "/api/v2/security_monitoring/rules/gnq-slf-npc",
       "keepAlive": false,
       "secure": true
     },
@@ -56,6 +56,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "07886f91-301e-dcde-50ad-9b96dd700e94"
+    "id": "1d92975c-9154-cfc7-ff3c-12ef06eca923"
   }
 ]

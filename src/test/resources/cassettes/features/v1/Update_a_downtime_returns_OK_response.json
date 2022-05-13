@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\":\"Test-Update_a_downtime_returns_OK_response-1650631217\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1652445617,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testupdateadowntimereturnsokresponse1650631217\"],\"start\":1650631217,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"message\":\"Test-Update_a_downtime_returns_OK_response-1652349003\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1654163403,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testupdateadowntimereturnsokresponse1652349003\"],\"start\":1652349003,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":1652445617,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1650631218,\"org_id\":321813,\"modified\":1650631218,\"disabled\":false,\"start\":1650631217,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testupdateadowntimereturnsokresponse1650631217\"],\"message\":\"Test-Update_a_downtime_returns_OK_response-1650631217\",\"downtime_type\":2,\"id\":1898176836,\"updater_id\":null}",
+      "body": "{\"recurrence\":{\"until_date\":1654163403,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1652349004,\"org_id\":321813,\"modified\":1652349004,\"disabled\":false,\"start\":1652349003,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testupdateadowntimereturnsokresponse1652349003\"],\"message\":\"Test-Update_a_downtime_returns_OK_response-1652349003\",\"downtime_type\":2,\"id\":1944162328,\"updater_id\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e2d6608b-4726-dfee-5ef7-7070ffb741e3"
+    "id": "8e0209d1-c924-a7e5-f3f2-ec810cc882fc"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\":\"Test-Update_a_downtime_returns_OK_response-1650631217-updated\",\"mute_first_recovery_notification\":true}"
+        "json": "{\"message\":\"Test-Update_a_downtime_returns_OK_response-1652349003-updated\",\"mute_first_recovery_notification\":true}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -45,12 +45,12 @@
         ]
       },
       "method": "PUT",
-      "path": "/api/v1/downtime/1898176836",
+      "path": "/api/v1/downtime/1944162328",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":1652445617,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":true,\"created\":1650631218,\"org_id\":321813,\"modified\":1650631218,\"disabled\":false,\"start\":1650631217,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testupdateadowntimereturnsokresponse1650631217\"],\"message\":\"Test-Update_a_downtime_returns_OK_response-1650631217-updated\",\"downtime_type\":2,\"id\":1898176836,\"updater_id\":1445416}",
+      "body": "{\"recurrence\":{\"until_date\":1654163403,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":true,\"created\":1652349004,\"org_id\":321813,\"modified\":1652349004,\"disabled\":false,\"start\":1652349003,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testupdateadowntimereturnsokresponse1652349003\"],\"message\":\"Test-Update_a_downtime_returns_OK_response-1652349003-updated\",\"downtime_type\":2,\"id\":1944162328,\"updater_id\":1445416}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cc84ea7b-c8e0-fa9e-4d80-02db51aeea17"
+    "id": "0d067bc1-7d11-6b42-ed52-135377cf458c"
   },
   {
     "httpRequest": {
@@ -75,7 +75,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/downtime/1898176836",
+      "path": "/api/v1/downtime/1944162328",
       "keepAlive": false,
       "secure": true
     },
@@ -90,6 +90,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "15c91db2-d801-6bb4-49b3-3ef58a760e50"
+    "id": "4bd9efb3-4a2f-7b6e-beac-e5e36abba43f"
   }
 ]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1641826587\",\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1641826587\"},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1652349191\",\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1652349191\"},\"type\":\"security_filters\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1641826587\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1641826587\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"whv-r8o-zmp\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1652349191\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1652349191\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"7zq-iqt-o0r\"}}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4f9967e6-1927-49a3-1a11-ac4ae9b903c5"
+    "id": "6d294537-7138-0e5e-898e-eadf65dca561"
   },
   {
     "httpRequest": {
@@ -41,12 +41,16 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/whv-r8o-zmp",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/7zq-iqt-o0r",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
+      "headers": {
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ]
+      },
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -56,7 +60,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6a2ea296-90c7-646e-8fd6-d0be0ba9fc05"
+    "id": "a46273a7-a586-c4bf-d261-20b09bcbd753"
   },
   {
     "httpRequest": {
@@ -66,12 +70,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/whv-r8o-zmp",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/7zq-iqt-o0r",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Security filter with id 'whv-r8o-zmp' not found)\"]}",
+      "body": "{\"errors\":[\"not_found(Security filter with id '7zq-iqt-o0r' not found)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -86,6 +90,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6a2ea296-90c7-646e-8fd6-d0be0ba9fc06"
+    "id": "a46273a7-a586-c4bf-d261-20b09bcbd754"
   }
 ]

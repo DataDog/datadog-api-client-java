@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "[{\"check\":\"app.ok\",\"host_name\":\"host\",\"status\":0,\"tags\":[\"test:TestSubmitaServiceCheckreturnsPayloadacceptedresponse1641430265\"]}]"
+        "json": "[{\"check\":\"app.ok\",\"host_name\":\"host\",\"status\":0,\"tags\":[\"test:TestSubmitaServiceCheckreturnsPayloadacceptedresponse1652349011\"]}]"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"status\":\"ok\"}",
+      "body": "{\"status\": \"ok\"}",
       "headers": {
         "Content-Type": [
           "text/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "afaf8f09-e5af-d3b3-20d1-9086c4df1769"
+    "id": "0e244a06-e294-2ad8-9850-9d583e3fc695"
   }
 ]

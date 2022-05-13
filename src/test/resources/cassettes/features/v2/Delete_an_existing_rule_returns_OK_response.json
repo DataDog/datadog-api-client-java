@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Delete_an_existing_rule_returns_OK_response-1641826589\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metric\":\"\",\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Delete_an_existing_rule_returns_OK_response-1652349193\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metric\":\"\",\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,10 +16,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1641826589685,\"filters\":[],\"queries\":[{\"distinctFields\":[],\"name\":\"\",\"metric\":\"\",\"aggregation\":\"count\",\"groupByFields\":[],\"query\":\"@test:true\"}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"cas-csx-jwf\",\"isDefault\":false,\"name\":\"Test-Delete_an_existing_rule_returns_OK_response-1641826589\"}",
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1652349194387,\"filters\":[],\"queries\":[{\"distinctFields\":[],\"name\":\"\",\"metric\":\"\",\"aggregation\":\"count\",\"groupByFields\":[],\"query\":\"@test:true\"}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"rsi-g0p-3jz\",\"isDefault\":false,\"name\":\"Test-Delete_an_existing_rule_returns_OK_response-1652349193\"}\n",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "bf864c8c-bfb9-bfde-51f4-1154aca65d4b"
+    "id": "099a214c-e7d9-450d-d5ce-c31739db551c"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/cas-csx-jwf",
+      "path": "/api/v2/security_monitoring/rules/rsi-g0p-3jz",
       "keepAlive": false,
       "secure": true
     },
@@ -56,7 +56,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1c30f556-f243-2c78-137a-78b2949f0cb0"
+    "id": "b2a223c7-a99a-b6a6-788b-bf5dedb0920c"
   },
   {
     "httpRequest": {
@@ -66,12 +66,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/cas-csx-jwf",
+      "path": "/api/v2/security_monitoring/rules/rsi-g0p-3jz",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Threat detection rule not found: cas-csx-jwf\"]}",
+      "body": "{\"errors\":[\"Threat detection rule not found: rsi-g0p-3jz\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -86,6 +86,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1c30f556-f243-2c78-137a-78b2949f0cb1"
+    "id": "b2a223c7-a99a-b6a6-788b-bf5dedb0920d"
   }
 ]

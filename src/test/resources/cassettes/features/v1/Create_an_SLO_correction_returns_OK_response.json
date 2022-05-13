@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"name\": \"Test-Create_an_SLO_correction_returns_OK_response-1641829824\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
+        "json": "{\"name\": \"Test-Create_an_SLO_correction_returns_OK_response-1652349011\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"description\":\"\",\"monitor_tags\":[],\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"thresholds\":[{\"warning\":98.0,\"warning_display\":\"98.\",\"target\":95.0,\"target_display\":\"95.\",\"timeframe\":\"7d\"}],\"type_id\":1,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"id\":\"29e5d0559e8d5726a400448a93f28ece\",\"name\":\"Test-Create_an_SLO_correction_returns_OK_response-1641829824\",\"created_at\":1641829824,\"tags\":[],\"modified_at\":1641829824,\"type\":\"metric\"}],\"error\":null}",
+      "body": "{\"data\":[{\"description\":\"\",\"monitor_tags\":[],\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"thresholds\":[{\"warning\":98.0,\"warning_display\":\"98.\",\"target\":95.0,\"target_display\":\"95.\",\"timeframe\":\"7d\"}],\"type_id\":1,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"id\":\"26d1f492d25b598fb6ef1a0405faa153\",\"name\":\"Test-Create_an_SLO_correction_returns_OK_response-1652349011\",\"created_at\":1652349012,\"tags\":[],\"modified_at\":1652349012,\"type\":\"metric\"}],\"error\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7d22187f-3f7c-2d30-97c8-33424f16caf4"
+    "id": "26ed78dc-5ff5-1415-9240-6fd3921c17bb"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"category\":\"Scheduled Maintenance\",\"description\":\"Test-Create_an_SLO_correction_returns_OK_response-1641829824\",\"end\":1641833424,\"slo_id\":\"29e5d0559e8d5726a400448a93f28ece\",\"start\":1641829824,\"timezone\":\"UTC\"},\"type\":\"correction\"}}"
+        "json": "{\"data\":{\"attributes\":{\"category\":\"Scheduled Maintenance\",\"description\":\"Test-Create_an_SLO_correction_returns_OK_response-1652349011\",\"end\":1652352611,\"slo_id\":\"26d1f492d25b598fb6ef1a0405faa153\",\"start\":1652349011,\"timezone\":\"UTC\"},\"type\":\"correction\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -50,7 +50,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"correction\",\"id\":\"0699f8e8-722d-11ec-b5d6-da7ad0900002\",\"attributes\":{\"slo_id\":\"29e5d0559e8d5726a400448a93f28ece\",\"start\":1641829824,\"end\":1641833424,\"description\":\"Test-Create_an_SLO_correction_returns_OK_response-1641829824\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"created_at\":null,\"modified_at\":null,\"rrule\":null,\"duration\":null,\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"modifier\":null}}}",
+      "body": "{\"data\":{\"type\":\"correction\",\"id\":\"eb223538-d1d8-11ec-8dd2-da7ad0902002\",\"attributes\":{\"slo_id\":\"26d1f492d25b598fb6ef1a0405faa153\",\"start\":1652349011,\"end\":1652352611,\"description\":\"Test-Create_an_SLO_correction_returns_OK_response-1652349011\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"created_at\":null,\"modified_at\":null,\"rrule\":null,\"duration\":null,\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"modifier\":null}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ebe9541d-30d5-9316-4309-44e60e16b06b"
+    "id": "1704ab33-f657-d368-d67f-fc258f3bcd30"
   },
   {
     "httpRequest": {
@@ -75,7 +75,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/slo/correction/0699f8e8-722d-11ec-b5d6-da7ad0900002",
+      "path": "/api/v1/slo/correction/eb223538-d1d8-11ec-8dd2-da7ad0902002",
       "keepAlive": false,
       "secure": true
     },
@@ -90,7 +90,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5f62fdff-69fc-a0cf-9f79-a2e8ca2247b2"
+    "id": "6c61c6d6-f2de-df6e-98c8-e67b7adb4c12"
   },
   {
     "httpRequest": {
@@ -100,12 +100,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/slo/29e5d0559e8d5726a400448a93f28ece",
+      "path": "/api/v1/slo/26d1f492d25b598fb6ef1a0405faa153",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[\"29e5d0559e8d5726a400448a93f28ece\"],\"error\":null}",
+      "body": "{\"data\":[\"26d1f492d25b598fb6ef1a0405faa153\"],\"error\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -120,6 +120,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "aa0e634b-7296-69a9-32e1-2bde26f1a022"
+    "id": "9edf0d69-70ca-2983-f258-3f9daa052cb6"
   }
 ]

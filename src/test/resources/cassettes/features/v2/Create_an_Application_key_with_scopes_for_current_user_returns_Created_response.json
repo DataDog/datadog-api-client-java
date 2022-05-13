@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_an_Application_key_with_scopes_for_current_user_returns_Created_response-1641829846\",\"scopes\":[\"dashboards_read\",\"dashboards_write\",\"dashboards_public_share\"]},\"type\":\"application_keys\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_an_Application_key_with_scopes_for_current_user_returns_Created_response-1652349122\",\"scopes\":[\"dashboards_read\",\"dashboards_write\",\"dashboards_public_share\"]},\"type\":\"application_keys\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"aa974b16-31b0-4f3b-956d-8af3445eddbc\",\"attributes\":{\"name\":\"Test-Create_an_Application_key_with_scopes_for_current_user_returns_Created_response-1641829846\",\"created_at\":\"2022-01-10T15:50:46.973085+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":[\"dashboards_read\",\"dashboards_write\",\"dashboards_public_share\"]},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"aae6e868-4746-46f2-a457-5b39d35b0c30\",\"attributes\":{\"name\":\"Test-Create_an_Application_key_with_scopes_for_current_user_returns_Created_response-1652349122\",\"created_at\":\"2022-05-12T09:52:03.065338+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":[\"dashboards_read\",\"dashboards_write\",\"dashboards_public_share\"]},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"leak_information\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "33b6d07b-83fa-1913-21cb-e2b22041bf70"
+    "id": "f27c5670-45cd-bc3c-ae39-90733a885f91"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/current_user/application_keys/aa974b16-31b0-4f3b-956d-8af3445eddbc",
+      "path": "/api/v2/current_user/application_keys/aae6e868-4746-46f2-a457-5b39d35b0c30",
       "keepAlive": false,
       "secure": true
     },
@@ -56,6 +56,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c12e569e-badb-48ab-d4ff-23ac9d6b58a6"
+    "id": "8450ffcd-c3fc-f96d-2996-8ec5f0ba6918"
   }
 ]
