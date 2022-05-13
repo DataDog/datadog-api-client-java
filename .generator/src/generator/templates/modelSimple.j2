@@ -256,23 +256,22 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- endif %}
   {%- endfor %}
   {%- if model.get("additionalProperties") %}
-  {%- set additionalPropertiesType = model["additionalProperties"]["type"] %}
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  private Map<String, {{ additionalPropertiesType }}> additionalProperties;
+  private Map<String, {{ model.additionalProperties|simple_type }}> additionalProperties;
 
   /**
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
   @JsonAnySetter
-  public {{ name }} putAdditionalProperty(String key, {{ additionalPropertiesType }} value) {
+  public {{ name }} putAdditionalProperty(String key, {{ model.additionalProperties|simple_type }} value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, {{ additionalPropertiesType }}>();
+        this.additionalProperties = new HashMap<String, {{ model.additionalProperties|simple_type }}>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -282,14 +281,14 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
    * Return the additional (undeclared) property.
    */
   @JsonAnyGetter
-  public Map<String, {{ additionalPropertiesType }}> getAdditionalProperties() {
+  public Map<String, {{ model.additionalProperties|simple_type }}> getAdditionalProperties() {
     return additionalProperties;
   }
 
   /**
    * Return the additional (undeclared) property with the specified name.
    */
-  public {{ additionalPropertiesType }} getAdditionalProperty(String key) {
+  public {{ model.additionalProperties|simple_type }} getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
         return null;
     }
