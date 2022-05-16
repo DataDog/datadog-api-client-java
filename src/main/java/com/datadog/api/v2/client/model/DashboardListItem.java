@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -43,7 +44,7 @@ public class DashboardListItem {
 
   public static final String JSON_PROPERTY_CREATED = "created";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_ICON = "icon";
@@ -63,7 +64,7 @@ public class DashboardListItem {
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_POPULARITY = "popularity";

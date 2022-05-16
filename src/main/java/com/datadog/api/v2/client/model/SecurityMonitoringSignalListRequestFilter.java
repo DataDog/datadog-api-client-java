@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,7 +31,7 @@ public class SecurityMonitoringSignalListRequestFilter {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime from;
 
   public static final String JSON_PROPERTY_QUERY = "query";
@@ -38,7 +39,7 @@ public class SecurityMonitoringSignalListRequestFilter {
 
   public static final String JSON_PROPERTY_TO = "to";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime to;
 
   public SecurityMonitoringSignalListRequestFilter from(OffsetDateTime from) {

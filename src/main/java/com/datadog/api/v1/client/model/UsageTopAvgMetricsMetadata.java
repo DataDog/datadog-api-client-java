@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,12 +31,12 @@ public class UsageTopAvgMetricsMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DAY = "day";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime day;
 
   public static final String JSON_PROPERTY_MONTH = "month";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime month;
 
   public static final String JSON_PROPERTY_PAGINATION = "pagination";

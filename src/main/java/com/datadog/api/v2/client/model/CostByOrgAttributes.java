@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -37,7 +38,7 @@ public class CostByOrgAttributes {
 
   public static final String JSON_PROPERTY_DATE = "date";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime date;
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";

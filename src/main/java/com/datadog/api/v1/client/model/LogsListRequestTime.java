@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -31,7 +32,7 @@ public class LogsListRequestTime {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime from;
 
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
@@ -39,7 +40,7 @@ public class LogsListRequestTime {
 
   public static final String JSON_PROPERTY_TO = "to";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime to;
 
   public LogsListRequestTime() {}

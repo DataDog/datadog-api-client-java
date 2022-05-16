@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -52,7 +53,7 @@ public class LogContent {
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime timestamp;
 
   public LogContent attributes(Map<String, Object> attributes) {

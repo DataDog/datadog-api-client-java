@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,7 +36,7 @@ public class OrganizationAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -46,7 +47,7 @@ public class OrganizationAttributes {
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modifiedAt;
 
   public static final String JSON_PROPERTY_NAME = "name";

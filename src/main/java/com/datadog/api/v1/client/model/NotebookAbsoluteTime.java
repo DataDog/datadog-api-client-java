@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -31,7 +32,7 @@ public class NotebookAbsoluteTime {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_END = "end";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime end;
 
   public static final String JSON_PROPERTY_LIVE = "live";
@@ -39,7 +40,7 @@ public class NotebookAbsoluteTime {
 
   public static final String JSON_PROPERTY_START = "start";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime start;
 
   public NotebookAbsoluteTime() {}

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -29,7 +30,7 @@ public class SyntheticsDeletedTest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELETED_AT = "deleted_at";
 
-  @JsonSerialize(using = JavaTimeSerializer.class)
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime deletedAt;
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
