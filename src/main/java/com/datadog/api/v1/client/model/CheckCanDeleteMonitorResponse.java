@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response of monitor IDs that can or can&#39;t be safely deleted. */
+/** Response of monitor IDs that can or can't be safely deleted. */
 @JsonPropertyOrder({
   CheckCanDeleteMonitorResponse.JSON_PROPERTY_DATA,
   CheckCanDeleteMonitorResponse.JSON_PROPERTY_ERRORS
@@ -80,7 +80,7 @@ public class CheckCanDeleteMonitorResponse {
   }
 
   /**
-   * A mapping of Monitor ID to strings denoting where it&#39;s used.
+   * A mapping of Monitor ID to strings denoting where it's used.
    *
    * @return errors
    */

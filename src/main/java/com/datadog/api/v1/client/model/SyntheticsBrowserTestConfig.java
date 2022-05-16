@@ -149,8 +149,9 @@ public class SyntheticsBrowserTestConfig {
   }
 
   /**
-   * Cookies to be used for the request, using the
-   * [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+   * Cookies to be used for the request, using the <a
+   * href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">Set-Cookie</a>
+   * syntax.
    *
    * @return setCookie
    */

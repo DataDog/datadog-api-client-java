@@ -18,8 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /**
- * Object defining a variable that can be used in your browser test. Learn more in the [Browser test
- * Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
+ * Object defining a variable that can be used in your browser test. Learn more in the <a
+ * href="https://docs.datadoghq.com/synthetics/browser_tests/actions#variable">Browser test Actions
+ * documentation</a>.
  */
 @JsonPropertyOrder({
   SyntheticsBrowserVariable.JSON_PROPERTY_EXAMPLE,

@@ -22,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * A service level objective object includes a service level indicator, thresholds for one or more
- * timeframes, and metadata (&#x60;name&#x60;, &#x60;description&#x60;, &#x60;tags&#x60;, etc.).
+ * timeframes, and metadata (<code>name</code>, <code>description</code>, <code>tags</code>, etc.).
  */
 @JsonPropertyOrder({
   ServiceLevelObjectiveRequest.JSON_PROPERTY_DESCRIPTION,
@@ -82,8 +82,10 @@ public class ServiceLevelObjectiveRequest {
   }
 
   /**
-   * A user-defined description of the service level objective. Always included in service level
-   * objective responses (but may be &#x60;null&#x60;). Optional in create/update requests.
+   * A user-defined description of the service level objective.
+   *
+   * <p>Always included in service level objective responses (but may be <code>null</code>).
+   * Optional in create/update requests.
    *
    * @return description
    */
@@ -123,9 +125,10 @@ public class ServiceLevelObjectiveRequest {
 
   /**
    * A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.
-   * Included in service level objective responses if it is not empty. Optional in create/update
+   *
+   * <p>Included in service level objective responses if it is not empty. Optional in create/update
    * requests for monitor service level objectives, but may only be used when then length of the
-   * &#x60;monitor_ids&#x60; field is one.
+   * <code>monitor_ids</code> field is one.
    *
    * @return groups
    */
@@ -154,8 +157,8 @@ public class ServiceLevelObjectiveRequest {
   }
 
   /**
-   * A list of monitor ids that defines the scope of a monitor service level objective. **Required
-   * if type is &#x60;monitor&#x60;**.
+   * A list of monitor ids that defines the scope of a monitor service level objective.
+   * <strong>Required if type is <code>monitor</code></strong>.
    *
    * @return monitorIds
    */
@@ -197,9 +200,9 @@ public class ServiceLevelObjectiveRequest {
   }
 
   /**
-   * A metric SLI query. **Required if type is &#x60;metric&#x60;**. Note that Datadog only allows
-   * the sum by aggregator to be used because this will sum up all request counts instead of
-   * averaging them, or taking the max or min of all of those requests.
+   * A metric SLI query. <strong>Required if type is <code>metric</code></strong>. Note that Datadog
+   * only allows the sum by aggregator to be used because this will sum up all request counts
+   * instead of averaging them, or taking the max or min of all of those requests.
    *
    * @return query
    */

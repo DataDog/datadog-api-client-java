@@ -65,7 +65,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a global variable
+   * Create a global variable.
    *
    * <p>See {@link #createGlobalVariableWithHttpInfo}.
    *
@@ -79,7 +79,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a global variable
+   * Create a global variable.
    *
    * <p>See {@link #createGlobalVariableWithHttpInfoAsync}.
    *
@@ -96,9 +96,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a global variable
-   *
-   * <p>Create a Synthetics global variable.
+   * Create a Synthetics global variable.
    *
    * @param body Details of the global variable to create. (required)
    * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
@@ -148,7 +146,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a global variable
+   * Create a global variable.
    *
    * <p>See {@link #createGlobalVariableWithHttpInfo}.
    *
@@ -200,7 +198,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a private location
+   * Create a private location.
    *
    * <p>See {@link #createPrivateLocationWithHttpInfo}.
    *
@@ -214,7 +212,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a private location
+   * Create a private location.
    *
    * <p>See {@link #createPrivateLocationWithHttpInfoAsync}.
    *
@@ -231,9 +229,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a private location
-   *
-   * <p>Create a new Synthetics private location.
+   * Create a new Synthetics private location.
    *
    * @param body Details of the private location to create. (required)
    * @return ApiResponse&lt;SyntheticsPrivateLocationCreationResponse&gt;
@@ -283,7 +279,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a private location
+   * Create a private location.
    *
    * <p>See {@link #createPrivateLocationWithHttpInfo}.
    *
@@ -337,7 +333,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create an API test
+   * Create an API test.
    *
    * <p>See {@link #createSyntheticsAPITestWithHttpInfo}.
    *
@@ -350,7 +346,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create an API test
+   * Create an API test.
    *
    * <p>See {@link #createSyntheticsAPITestWithHttpInfoAsync}.
    *
@@ -366,9 +362,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create an API test
-   *
-   * <p>Create a Synthetic API test.
+   * Create a Synthetic API test.
    *
    * @param body Details of the test to create. (required)
    * @return ApiResponse&lt;SyntheticsAPITest&gt;
@@ -419,7 +413,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create an API test
+   * Create an API test.
    *
    * <p>See {@link #createSyntheticsAPITestWithHttpInfo}.
    *
@@ -471,7 +465,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a browser test
+   * Create a browser test.
    *
    * <p>See {@link #createSyntheticsBrowserTestWithHttpInfo}.
    *
@@ -485,7 +479,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a browser test
+   * Create a browser test.
    *
    * <p>See {@link #createSyntheticsBrowserTestWithHttpInfoAsync}.
    *
@@ -502,9 +496,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a browser test
-   *
-   * <p>Create a Synthetic browser test.
+   * Create a Synthetic browser test.
    *
    * @param body Details of the test to create. (required)
    * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
@@ -555,7 +547,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a browser test
+   * Create a browser test.
    *
    * <p>See {@link #createSyntheticsBrowserTestWithHttpInfo}.
    *
@@ -608,7 +600,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete a global variable
+   * Delete a global variable.
    *
    * <p>See {@link #deleteGlobalVariableWithHttpInfo}.
    *
@@ -620,7 +612,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete a global variable
+   * Delete a global variable.
    *
    * <p>See {@link #deleteGlobalVariableWithHttpInfoAsync}.
    *
@@ -635,9 +627,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete a global variable
-   *
-   * <p>Delete a Synthetics global variable.
+   * Delete a Synthetics global variable.
    *
    * @param variableId The ID of the global variable. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -690,7 +680,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete a global variable
+   * Delete a global variable.
    *
    * <p>See {@link #deleteGlobalVariableWithHttpInfo}.
    *
@@ -746,7 +736,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete a private location
+   * Delete a private location.
    *
    * <p>See {@link #deletePrivateLocationWithHttpInfo}.
    *
@@ -758,7 +748,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete a private location
+   * Delete a private location.
    *
    * <p>See {@link #deletePrivateLocationWithHttpInfoAsync}.
    *
@@ -773,9 +763,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete a private location
-   *
-   * <p>Delete a Synthetics private location.
+   * Delete a Synthetics private location.
    *
    * @param locationId The ID of the private location. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -827,7 +815,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete a private location
+   * Delete a private location.
    *
    * <p>See {@link #deletePrivateLocationWithHttpInfo}.
    *
@@ -883,7 +871,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete tests
+   * Delete tests.
    *
    * <p>See {@link #deleteTestsWithHttpInfo}.
    *
@@ -897,7 +885,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete tests
+   * Delete tests.
    *
    * <p>See {@link #deleteTestsWithHttpInfoAsync}.
    *
@@ -914,9 +902,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete tests
-   *
-   * <p>Delete multiple Synthetic tests by ID.
+   * Delete multiple Synthetic tests by ID.
    *
    * @param body Public ID list of the Synthetic tests to be deleted. (required)
    * @return ApiResponse&lt;SyntheticsDeleteTestsResponse&gt;
@@ -966,7 +952,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete tests
+   * Delete tests.
    *
    * <p>See {@link #deleteTestsWithHttpInfo}.
    *
@@ -1019,7 +1005,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a global variable
+   * Edit a global variable.
    *
    * <p>See {@link #editGlobalVariableWithHttpInfo}.
    *
@@ -1034,7 +1020,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a global variable
+   * Edit a global variable.
    *
    * <p>See {@link #editGlobalVariableWithHttpInfoAsync}.
    *
@@ -1052,9 +1038,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a global variable
-   *
-   * <p>Edit a Synthetics global variable.
+   * Edit a Synthetics global variable.
    *
    * @param variableId The ID of the global variable. (required)
    * @param body Details of the global variable to update. (required)
@@ -1114,7 +1098,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a global variable
+   * Edit a global variable.
    *
    * <p>See {@link #editGlobalVariableWithHttpInfo}.
    *
@@ -1179,7 +1163,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test
+   * Get an API test.
    *
    * <p>See {@link #getAPITestWithHttpInfo}.
    *
@@ -1192,7 +1176,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test
+   * Get an API test.
    *
    * <p>See {@link #getAPITestWithHttpInfoAsync}.
    *
@@ -1208,9 +1192,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test
-   *
-   * <p>Get the detailed configuration associated with a Synthetic API test.
+   * Get the detailed configuration associated with a Synthetic API test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @return ApiResponse&lt;SyntheticsAPITest&gt;
@@ -1262,7 +1244,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test
+   * Get an API test.
    *
    * <p>See {@link #getAPITestWithHttpInfo}.
    *
@@ -1356,7 +1338,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test&#39;s latest results summaries
+   * Get an API test&#39;s latest results summaries.
    *
    * <p>See {@link #getAPITestLatestResultsWithHttpInfo}.
    *
@@ -1372,7 +1354,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test&#39;s latest results summaries
+   * Get an API test&#39;s latest results summaries.
    *
    * <p>See {@link #getAPITestLatestResultsWithHttpInfoAsync}.
    *
@@ -1390,7 +1372,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test&#39;s latest results summaries
+   * Get an API test&#39;s latest results summaries.
    *
    * <p>See {@link #getAPITestLatestResultsWithHttpInfo}.
    *
@@ -1405,7 +1387,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test&#39;s latest results summaries
+   * Get an API test&#39;s latest results summaries.
    *
    * <p>See {@link #getAPITestLatestResultsWithHttpInfoAsync}.
    *
@@ -1423,9 +1405,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test&#39;s latest results summaries
-   *
-   * <p>Get the last 50 test results summaries for a given Synthetics API test.
+   * Get the last 50 test results summaries for a given Synthetics API test.
    *
    * @param publicId The public ID of the test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -1486,7 +1466,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test&#39;s latest results summaries
+   * Get an API test&#39;s latest results summaries.
    *
    * <p>See {@link #getAPITestLatestResultsWithHttpInfo}.
    *
@@ -1553,7 +1533,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test result
+   * Get an API test result.
    *
    * <p>See {@link #getAPITestResultWithHttpInfo}.
    *
@@ -1568,7 +1548,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test result
+   * Get an API test result.
    *
    * <p>See {@link #getAPITestResultWithHttpInfoAsync}.
    *
@@ -1586,9 +1566,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test result
-   *
-   * <p>Get a specific full result from a given (API) Synthetic test.
+   * Get a specific full result from a given (API) Synthetic test.
    *
    * @param publicId The public ID of the API test to which the target result belongs. (required)
    * @param resultId The ID of the result to get. (required)
@@ -1648,7 +1626,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get an API test result
+   * Get an API test result.
    *
    * <p>See {@link #getAPITestResultWithHttpInfo}.
    *
@@ -1716,7 +1694,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test
+   * Get a browser test.
    *
    * <p>See {@link #getBrowserTestWithHttpInfo}.
    *
@@ -1729,7 +1707,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test
+   * Get a browser test.
    *
    * <p>See {@link #getBrowserTestWithHttpInfoAsync}.
    *
@@ -1745,9 +1723,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test
-   *
-   * <p>Get the detailed configuration (including steps) associated with a Synthetic browser test.
+   * Get the detailed configuration (including steps) associated with a Synthetic browser test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
@@ -1799,7 +1775,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test
+   * Get a browser test.
    *
    * <p>See {@link #getBrowserTestWithHttpInfo}.
    *
@@ -1893,7 +1869,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test&#39;s latest results summaries
+   * Get a browser test&#39;s latest results summaries.
    *
    * <p>See {@link #getBrowserTestLatestResultsWithHttpInfo}.
    *
@@ -1909,7 +1885,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test&#39;s latest results summaries
+   * Get a browser test&#39;s latest results summaries.
    *
    * <p>See {@link #getBrowserTestLatestResultsWithHttpInfoAsync}.
    *
@@ -1927,7 +1903,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test&#39;s latest results summaries
+   * Get a browser test&#39;s latest results summaries.
    *
    * <p>See {@link #getBrowserTestLatestResultsWithHttpInfo}.
    *
@@ -1943,7 +1919,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test&#39;s latest results summaries
+   * Get a browser test&#39;s latest results summaries.
    *
    * <p>See {@link #getBrowserTestLatestResultsWithHttpInfoAsync}.
    *
@@ -1962,9 +1938,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test&#39;s latest results summaries
-   *
-   * <p>Get the last 50 test results summaries for a given Synthetics Browser test.
+   * Get the last 50 test results summaries for a given Synthetics Browser test.
    *
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -2028,7 +2002,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test&#39;s latest results summaries
+   * Get a browser test&#39;s latest results summaries.
    *
    * <p>See {@link #getBrowserTestLatestResultsWithHttpInfo}.
    *
@@ -2097,7 +2071,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test result
+   * Get a browser test result.
    *
    * <p>See {@link #getBrowserTestResultWithHttpInfo}.
    *
@@ -2113,7 +2087,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test result
+   * Get a browser test result.
    *
    * <p>See {@link #getBrowserTestResultWithHttpInfoAsync}.
    *
@@ -2132,9 +2106,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test result
-   *
-   * <p>Get a specific full result from a given (browser) Synthetic test.
+   * Get a specific full result from a given (browser) Synthetic test.
    *
    * @param publicId The public ID of the browser test to which the target result belongs.
    *     (required)
@@ -2195,7 +2167,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a browser test result
+   * Get a browser test result.
    *
    * <p>See {@link #getBrowserTestResultWithHttpInfo}.
    *
@@ -2264,7 +2236,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a global variable
+   * Get a global variable.
    *
    * <p>See {@link #getGlobalVariableWithHttpInfo}.
    *
@@ -2277,7 +2249,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a global variable
+   * Get a global variable.
    *
    * <p>See {@link #getGlobalVariableWithHttpInfoAsync}.
    *
@@ -2293,9 +2265,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a global variable
-   *
-   * <p>Get the detailed configuration of a global variable.
+   * Get the detailed configuration of a global variable.
    *
    * @param variableId The ID of the global variable. (required)
    * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
@@ -2348,7 +2318,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a global variable
+   * Get a global variable.
    *
    * <p>See {@link #getGlobalVariableWithHttpInfo}.
    *
@@ -2403,7 +2373,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a private location
+   * Get a private location.
    *
    * <p>See {@link #getPrivateLocationWithHttpInfo}.
    *
@@ -2416,7 +2386,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a private location
+   * Get a private location.
    *
    * <p>See {@link #getPrivateLocationWithHttpInfoAsync}.
    *
@@ -2432,9 +2402,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a private location
-   *
-   * <p>Get a Synthetics private location.
+   * Get a Synthetics private location.
    *
    * @param locationId The ID of the private location. (required)
    * @return ApiResponse&lt;SyntheticsPrivateLocation&gt;
@@ -2486,7 +2454,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a private location
+   * Get a private location.
    *
    * <p>See {@link #getPrivateLocationWithHttpInfo}.
    *
@@ -2541,7 +2509,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get details of batch
+   * Get details of batch.
    *
    * <p>See {@link #getSyntheticsCIBatchWithHttpInfo}.
    *
@@ -2554,7 +2522,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get details of batch
+   * Get details of batch.
    *
    * <p>See {@link #getSyntheticsCIBatchWithHttpInfoAsync}.
    *
@@ -2570,9 +2538,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get details of batch
-   *
-   * <p>Get a batch&#39;s updated details.
+   * Get a batch's updated details.
    *
    * @param batchId The ID of the batch. (required)
    * @return ApiResponse&lt;SyntheticsBatchDetails&gt;
@@ -2623,7 +2589,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get details of batch
+   * Get details of batch.
    *
    * <p>See {@link #getSyntheticsCIBatchWithHttpInfo}.
    *
@@ -2677,7 +2643,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test configuration
+   * Get a test configuration.
    *
    * <p>See {@link #getTestWithHttpInfo}.
    *
@@ -2690,7 +2656,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test configuration
+   * Get a test configuration.
    *
    * <p>See {@link #getTestWithHttpInfoAsync}.
    *
@@ -2706,9 +2672,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test configuration
-   *
-   * <p>Get the detailed configuration associated with a Synthetics test.
+   * Get the detailed configuration associated with a Synthetics test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @return ApiResponse&lt;SyntheticsTestDetails&gt;
@@ -2759,7 +2723,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test configuration
+   * Get a test configuration.
    *
    * <p>See {@link #getTestWithHttpInfo}.
    *
@@ -2812,7 +2776,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get all global variables
+   * Get all global variables.
    *
    * <p>See {@link #listGlobalVariablesWithHttpInfo}.
    *
@@ -2824,7 +2788,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get all global variables
+   * Get all global variables.
    *
    * <p>See {@link #listGlobalVariablesWithHttpInfoAsync}.
    *
@@ -2839,9 +2803,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get all global variables
-   *
-   * <p>Get the list of all Synthetics global variables.
+   * Get the list of all Synthetics global variables.
    *
    * @return ApiResponse&lt;SyntheticsListGlobalVariablesResponse&gt;
    * @throws ApiException if fails to make API call
@@ -2883,7 +2845,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get all global variables
+   * Get all global variables.
    *
    * <p>See {@link #listGlobalVariablesWithHttpInfo}.
    *
@@ -2926,7 +2888,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get all locations (public and private)
+   * Get all locations (public and private).
    *
    * <p>See {@link #listLocationsWithHttpInfo}.
    *
@@ -2938,7 +2900,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get all locations (public and private)
+   * Get all locations (public and private).
    *
    * <p>See {@link #listLocationsWithHttpInfoAsync}.
    *
@@ -2953,9 +2915,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get all locations (public and private)
-   *
-   * <p>Get the list of public and private locations available for Synthetic tests. No arguments
+   * Get the list of public and private locations available for Synthetic tests. No arguments
    * required.
    *
    * @return ApiResponse&lt;SyntheticsLocations&gt;
@@ -2996,7 +2956,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get all locations (public and private)
+   * Get all locations (public and private).
    *
    * <p>See {@link #listLocationsWithHttpInfo}.
    *
@@ -3037,7 +2997,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the list of all tests
+   * Get the list of all tests.
    *
    * <p>See {@link #listTestsWithHttpInfo}.
    *
@@ -3049,7 +3009,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the list of all tests
+   * Get the list of all tests.
    *
    * <p>See {@link #listTestsWithHttpInfoAsync}.
    *
@@ -3064,9 +3024,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the list of all tests
-   *
-   * <p>Get the list of all Synthetic tests.
+   * Get the list of all Synthetic tests.
    *
    * @return ApiResponse&lt;SyntheticsListTestsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -3108,7 +3066,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the list of all tests
+   * Get the list of all tests.
    *
    * <p>See {@link #listTestsWithHttpInfo}.
    *
@@ -3150,7 +3108,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger tests from CI/CD pipelines
+   * Trigger tests from CI/CD pipelines.
    *
    * <p>See {@link #triggerCITestsWithHttpInfo}.
    *
@@ -3164,7 +3122,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger tests from CI/CD pipelines
+   * Trigger tests from CI/CD pipelines.
    *
    * <p>See {@link #triggerCITestsWithHttpInfoAsync}.
    *
@@ -3181,9 +3139,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger tests from CI/CD pipelines
-   *
-   * <p>Trigger a set of Synthetics tests for continuous integration.
+   * Trigger a set of Synthetics tests for continuous integration.
    *
    * @param body Details of the test to trigger. (required)
    * @return ApiResponse&lt;SyntheticsTriggerCITestsResponse&gt;
@@ -3232,7 +3188,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger tests from CI/CD pipelines
+   * Trigger tests from CI/CD pipelines.
    *
    * <p>See {@link #triggerCITestsWithHttpInfo}.
    *
@@ -3286,7 +3242,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger Synthetics tests
+   * Trigger Synthetics tests.
    *
    * <p>See {@link #triggerTestsWithHttpInfo}.
    *
@@ -3300,7 +3256,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger Synthetics tests
+   * Trigger Synthetics tests.
    *
    * <p>See {@link #triggerTestsWithHttpInfoAsync}.
    *
@@ -3317,9 +3273,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger Synthetics tests
-   *
-   * <p>Trigger a set of Synthetics tests.
+   * Trigger a set of Synthetics tests.
    *
    * @param body The identifiers of the tests to trigger. (required)
    * @return ApiResponse&lt;SyntheticsTriggerCITestsResponse&gt;
@@ -3368,7 +3322,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger Synthetics tests
+   * Trigger Synthetics tests.
    *
    * <p>See {@link #triggerTestsWithHttpInfo}.
    *
@@ -3421,7 +3375,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit an API test
+   * Edit an API test.
    *
    * <p>See {@link #updateAPITestWithHttpInfo}.
    *
@@ -3436,7 +3390,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit an API test
+   * Edit an API test.
    *
    * <p>See {@link #updateAPITestWithHttpInfoAsync}.
    *
@@ -3454,9 +3408,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit an API test
-   *
-   * <p>Edit the configuration of a Synthetic API test.
+   * Edit the configuration of a Synthetic API test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @param body New test details to be saved. (required)
@@ -3516,7 +3468,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit an API test
+   * Edit an API test.
    *
    * <p>See {@link #updateAPITestWithHttpInfo}.
    *
@@ -3580,7 +3532,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a browser test
+   * Edit a browser test.
    *
    * <p>See {@link #updateBrowserTestWithHttpInfo}.
    *
@@ -3595,7 +3547,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a browser test
+   * Edit a browser test.
    *
    * <p>See {@link #updateBrowserTestWithHttpInfoAsync}.
    *
@@ -3613,9 +3565,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a browser test
-   *
-   * <p>Edit the configuration of a Synthetic browser test.
+   * Edit the configuration of a Synthetic browser test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @param body New test details to be saved. (required)
@@ -3675,7 +3625,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a browser test
+   * Edit a browser test.
    *
    * <p>See {@link #updateBrowserTestWithHttpInfo}.
    *
@@ -3739,7 +3689,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a private location
+   * Edit a private location.
    *
    * <p>See {@link #updatePrivateLocationWithHttpInfo}.
    *
@@ -3754,7 +3704,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a private location
+   * Edit a private location.
    *
    * <p>See {@link #updatePrivateLocationWithHttpInfoAsync}.
    *
@@ -3772,9 +3722,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a private location
-   *
-   * <p>Edit a Synthetics private location.
+   * Edit a Synthetics private location.
    *
    * @param locationId The ID of the private location. (required)
    * @param body Details of the private location to be updated. (required)
@@ -3833,7 +3781,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a private location
+   * Edit a private location.
    *
    * <p>See {@link #updatePrivateLocationWithHttpInfo}.
    *
@@ -3899,7 +3847,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Pause or start a test
+   * Pause or start a test.
    *
    * <p>See {@link #updateTestPauseStatusWithHttpInfo}.
    *
@@ -3914,7 +3862,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Pause or start a test
+   * Pause or start a test.
    *
    * <p>See {@link #updateTestPauseStatusWithHttpInfoAsync}.
    *
@@ -3932,9 +3880,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Pause or start a test
-   *
-   * <p>Pause or start a Synthetics test by changing the status.
+   * Pause or start a Synthetics test by changing the status.
    *
    * @param publicId The public ID of the Synthetic test to update. (required)
    * @param body Status to set the given Synthetic test to. (required)
@@ -3994,7 +3940,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Pause or start a test
+   * Pause or start a test.
    *
    * <p>See {@link #updateTestPauseStatusWithHttpInfo}.
    *

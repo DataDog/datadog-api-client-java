@@ -45,7 +45,7 @@ public class AuthenticationApi {
   }
 
   /**
-   * Validate API key
+   * Validate API key.
    *
    * <p>See {@link #validateWithHttpInfo}.
    *
@@ -57,7 +57,7 @@ public class AuthenticationApi {
   }
 
   /**
-   * Validate API key
+   * Validate API key.
    *
    * <p>See {@link #validateWithHttpInfoAsync}.
    *
@@ -72,9 +72,7 @@ public class AuthenticationApi {
   }
 
   /**
-   * Validate API key
-   *
-   * <p>Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
+   * Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
    *
    * @return ApiResponse&lt;AuthenticationValidationResponse&gt;
    * @throws ApiException if fails to make API call
@@ -115,7 +113,7 @@ public class AuthenticationApi {
   }
 
   /**
-   * Validate API key
+   * Validate API key.
    *
    * <p>See {@link #validateWithHttpInfo}.
    *

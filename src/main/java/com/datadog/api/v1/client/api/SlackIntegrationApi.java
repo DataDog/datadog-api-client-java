@@ -46,7 +46,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Create a Slack integration channel
+   * Create a Slack integration channel.
    *
    * <p>See {@link #createSlackIntegrationChannelWithHttpInfo}.
    *
@@ -61,7 +61,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Create a Slack integration channel
+   * Create a Slack integration channel.
    *
    * <p>See {@link #createSlackIntegrationChannelWithHttpInfoAsync}.
    *
@@ -79,9 +79,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Create a Slack integration channel
-   *
-   * <p>Add a channel to your Datadog-Slack integration.
+   * Add a channel to your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param body Payload describing Slack channel to be created (required)
@@ -144,7 +142,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Create a Slack integration channel
+   * Create a Slack integration channel.
    *
    * <p>See {@link #createSlackIntegrationChannelWithHttpInfo}.
    *
@@ -213,7 +211,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get a Slack integration channel
+   * Get a Slack integration channel.
    *
    * <p>See {@link #getSlackIntegrationChannelWithHttpInfo}.
    *
@@ -228,7 +226,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get a Slack integration channel
+   * Get a Slack integration channel.
    *
    * <p>See {@link #getSlackIntegrationChannelWithHttpInfoAsync}.
    *
@@ -246,9 +244,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get a Slack integration channel
-   *
-   * <p>Get a channel configured for your Datadog-Slack integration.
+   * Get a channel configured for your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
@@ -313,7 +309,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get a Slack integration channel
+   * Get a Slack integration channel.
    *
    * <p>See {@link #getSlackIntegrationChannelWithHttpInfo}.
    *
@@ -384,7 +380,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get all channels in a Slack integration
+   * Get all channels in a Slack integration.
    *
    * <p>See {@link #getSlackIntegrationChannelsWithHttpInfo}.
    *
@@ -398,7 +394,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get all channels in a Slack integration
+   * Get all channels in a Slack integration.
    *
    * <p>See {@link #getSlackIntegrationChannelsWithHttpInfoAsync}.
    *
@@ -415,9 +411,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get all channels in a Slack integration
-   *
-   * <p>Get a list of all channels configured for your Datadog-Slack integration.
+   * Get a list of all channels configured for your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @return ApiResponse&lt;List&lt;SlackIntegrationChannel&gt;&gt;
@@ -472,7 +466,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get all channels in a Slack integration
+   * Get all channels in a Slack integration.
    *
    * <p>See {@link #getSlackIntegrationChannelsWithHttpInfo}.
    *
@@ -531,7 +525,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Remove a Slack integration channel
+   * Remove a Slack integration channel.
    *
    * <p>See {@link #removeSlackIntegrationChannelWithHttpInfo}.
    *
@@ -545,7 +539,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Remove a Slack integration channel
+   * Remove a Slack integration channel.
    *
    * <p>See {@link #removeSlackIntegrationChannelWithHttpInfoAsync}.
    *
@@ -562,9 +556,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Remove a Slack integration channel
-   *
-   * <p>Remove a channel from your Datadog-Slack integration.
+   * Remove a channel from your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
@@ -631,7 +623,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Remove a Slack integration channel
+   * Remove a Slack integration channel.
    *
    * <p>See {@link #removeSlackIntegrationChannelWithHttpInfo}.
    *
@@ -702,7 +694,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Update a Slack integration channel
+   * Update a Slack integration channel.
    *
    * <p>See {@link #updateSlackIntegrationChannelWithHttpInfo}.
    *
@@ -718,7 +710,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Update a Slack integration channel
+   * Update a Slack integration channel.
    *
    * <p>See {@link #updateSlackIntegrationChannelWithHttpInfoAsync}.
    *
@@ -737,9 +729,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Update a Slack integration channel
-   *
-   * <p>Update a channel used in your Datadog-Slack integration.
+   * Update a channel used in your Datadog-Slack integration.
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
@@ -813,7 +803,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Update a Slack integration channel
+   * Update a Slack integration channel.
    *
    * <p>See {@link #updateSlackIntegrationChannelWithHttpInfo}.
    *

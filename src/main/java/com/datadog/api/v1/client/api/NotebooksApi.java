@@ -49,7 +49,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Create a notebook
+   * Create a notebook.
    *
    * <p>See {@link #createNotebookWithHttpInfo}.
    *
@@ -62,7 +62,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Create a notebook
+   * Create a notebook.
    *
    * <p>See {@link #createNotebookWithHttpInfoAsync}.
    *
@@ -78,9 +78,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Create a notebook
-   *
-   * <p>Create a notebook using the specified options.
+   * Create a notebook using the specified options.
    *
    * @param body The JSON description of the notebook you want to create. (required)
    * @return ApiResponse&lt;NotebookResponse&gt;
@@ -130,7 +128,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Create a notebook
+   * Create a notebook.
    *
    * <p>See {@link #createNotebookWithHttpInfo}.
    *
@@ -182,7 +180,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Delete a notebook
+   * Delete a notebook.
    *
    * <p>See {@link #deleteNotebookWithHttpInfo}.
    *
@@ -194,7 +192,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Delete a notebook
+   * Delete a notebook.
    *
    * <p>See {@link #deleteNotebookWithHttpInfoAsync}.
    *
@@ -209,9 +207,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Delete a notebook
-   *
-   * <p>Delete a notebook using the specified ID.
+   * Delete a notebook using the specified ID.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -264,7 +260,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Delete a notebook
+   * Delete a notebook.
    *
    * <p>See {@link #deleteNotebookWithHttpInfo}.
    *
@@ -318,7 +314,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Get a notebook
+   * Get a notebook.
    *
    * <p>See {@link #getNotebookWithHttpInfo}.
    *
@@ -331,7 +327,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Get a notebook
+   * Get a notebook.
    *
    * <p>See {@link #getNotebookWithHttpInfoAsync}.
    *
@@ -347,9 +343,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Get a notebook
-   *
-   * <p>Get a notebook using the specified notebook ID.
+   * Get a notebook using the specified notebook ID.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
    * @return ApiResponse&lt;NotebookResponse&gt;
@@ -403,7 +397,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Get a notebook
+   * Get a notebook.
    *
    * <p>See {@link #getNotebookWithHttpInfo}.
    *
@@ -473,7 +467,7 @@ public class NotebooksApi {
     /**
      * Set authorHandle
      *
-     * @param authorHandle Return notebooks created by the given &#x60;author_handle&#x60;.
+     * @param authorHandle Return notebooks created by the given <code>author_handle</code>.
      *     (optional)
      * @return ListNotebooksOptionalParameters
      */
@@ -485,8 +479,8 @@ public class NotebooksApi {
     /**
      * Set excludeAuthorHandle
      *
-     * @param excludeAuthorHandle Return notebooks not created by the given
-     *     &#x60;author_handle&#x60;. (optional)
+     * @param excludeAuthorHandle Return notebooks not created by the given <code>author_handle
+     *     </code>. (optional)
      * @return ListNotebooksOptionalParameters
      */
     public ListNotebooksOptionalParameters excludeAuthorHandle(String excludeAuthorHandle) {
@@ -519,8 +513,8 @@ public class NotebooksApi {
     /**
      * Set sortField
      *
-     * @param sortField Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or
-     *     &#x60;created&#x60;. (optional, default to "modified")
+     * @param sortField Sort by field <code>modified</code>, <code>name</code>, or <code>created
+     *     </code>. (optional, default to "modified")
      * @return ListNotebooksOptionalParameters
      */
     public ListNotebooksOptionalParameters sortField(String sortField) {
@@ -531,7 +525,7 @@ public class NotebooksApi {
     /**
      * Set sortDir
      *
-     * @param sortDir Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;. (optional, default to
+     * @param sortDir Sort by direction <code>asc</code> or <code>desc</code>. (optional, default to
      *     "desc")
      * @return ListNotebooksOptionalParameters
      */
@@ -543,7 +537,7 @@ public class NotebooksApi {
     /**
      * Set query
      *
-     * @param query Return only notebooks with &#x60;query&#x60; string in notebook name or author
+     * @param query Return only notebooks with <code>query</code> string in notebook name or author
      *     handle. (optional)
      * @return ListNotebooksOptionalParameters
      */
@@ -555,8 +549,8 @@ public class NotebooksApi {
     /**
      * Set includeCells
      *
-     * @param includeCells Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global
-     *     &#x60;time&#x60; for each notebook. (optional, default to true)
+     * @param includeCells Value of <code>false</code> excludes the <code>cells</code> and global
+     *     <code>time</code> for each notebook. (optional, default to true)
      * @return ListNotebooksOptionalParameters
      */
     public ListNotebooksOptionalParameters includeCells(Boolean includeCells) {
@@ -590,7 +584,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Get all notebooks
+   * Get all notebooks.
    *
    * <p>See {@link #listNotebooksWithHttpInfo}.
    *
@@ -602,7 +596,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Get all notebooks
+   * Get all notebooks.
    *
    * <p>See {@link #listNotebooksWithHttpInfoAsync}.
    *
@@ -617,7 +611,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Get all notebooks
+   * Get all notebooks.
    *
    * <p>See {@link #listNotebooksWithHttpInfo}.
    *
@@ -631,7 +625,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Get all notebooks
+   * Get all notebooks.
    *
    * <p>See {@link #listNotebooksWithHttpInfoAsync}.
    *
@@ -648,10 +642,8 @@ public class NotebooksApi {
   }
 
   /**
-   * Get all notebooks
-   *
-   * <p>Get all notebooks. This can also be used to search for notebooks with a particular
-   * &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
+   * Get all notebooks. This can also be used to search for notebooks with a particular <code>query
+   * </code> in the notebook <code>name</code> or author <code>handle</code>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;NotebooksResponse&gt;
@@ -718,7 +710,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Get all notebooks
+   * Get all notebooks.
    *
    * <p>See {@link #listNotebooksWithHttpInfo}.
    *
@@ -784,7 +776,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Update a notebook
+   * Update a notebook.
    *
    * <p>See {@link #updateNotebookWithHttpInfo}.
    *
@@ -799,7 +791,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Update a notebook
+   * Update a notebook.
    *
    * <p>See {@link #updateNotebookWithHttpInfoAsync}.
    *
@@ -817,9 +809,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Update a notebook
-   *
-   * <p>Update a notebook using the specified ID.
+   * Update a notebook using the specified ID.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
    * @param body Update notebook request body. (required)
@@ -881,7 +871,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Update a notebook
+   * Update a notebook.
    *
    * <p>See {@link #updateNotebookWithHttpInfo}.
    *

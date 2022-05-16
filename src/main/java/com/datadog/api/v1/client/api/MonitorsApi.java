@@ -51,7 +51,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Check if a monitor can be deleted
+   * Check if a monitor can be deleted.
    *
    * <p>See {@link #checkCanDeleteMonitorWithHttpInfo}.
    *
@@ -65,7 +65,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Check if a monitor can be deleted
+   * Check if a monitor can be deleted.
    *
    * <p>See {@link #checkCanDeleteMonitorWithHttpInfoAsync}.
    *
@@ -82,9 +82,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Check if a monitor can be deleted
-   *
-   * <p>Check if the given monitors can be deleted.
+   * Check if the given monitors can be deleted.
    *
    * @param monitorIds The IDs of the monitor to check. (required)
    * @return ApiResponse&lt;CheckCanDeleteMonitorResponse&gt;
@@ -138,7 +136,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Check if a monitor can be deleted
+   * Check if a monitor can be deleted.
    *
    * <p>See {@link #checkCanDeleteMonitorWithHttpInfo}.
    *
@@ -196,7 +194,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Create a monitor
+   * Create a monitor.
    *
    * <p>See {@link #createMonitorWithHttpInfo}.
    *
@@ -209,7 +207,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Create a monitor
+   * Create a monitor.
    *
    * <p>See {@link #createMonitorWithHttpInfoAsync}.
    *
@@ -225,140 +223,270 @@ public class MonitorsApi {
   }
 
   /**
-   * Create a monitor
+   * Create a monitor using the specified options.
    *
-   * <p>Create a monitor using the specified options. #### Monitor Types The type of monitor chosen
-   * from: - anomaly: &#x60;query alert&#x60; - APM: &#x60;query alert&#x60; or
-   * &#x60;trace-analytics alert&#x60; - composite: &#x60;composite&#x60; - custom: &#x60;service
-   * check&#x60; - event: &#x60;event alert&#x60; - forecast: &#x60;query alert&#x60; - host:
-   * &#x60;service check&#x60; - integration: &#x60;query alert&#x60; or &#x60;service check&#x60; -
-   * live process: &#x60;process alert&#x60; - logs: &#x60;log alert&#x60; - metric: &#x60;query
-   * alert&#x60; - network: &#x60;service check&#x60; - outlier: &#x60;query alert&#x60; - process:
-   * &#x60;service check&#x60; - rum: &#x60;rum alert&#x60; - SLO: &#x60;slo alert&#x60; - watchdog:
-   * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; - audit: &#x60;audit alert&#x60;
-   * - error-tracking: &#x60;error-tracking alert&#x60; #### Query Types **Metric Alert Query**
-   * Example: &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #&#x60; -
-   * &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change - &#x60;time_window&#x60;:
-   * &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 10080 depending on the monitor type) or
-   * &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 168 depending on the monitor type) or
-   * &#x60;last_1d&#x60;, or &#x60;last_1w&#x60; - &#x60;space_aggr&#x60;: avg, sum, min, or max -
-   * &#x60;tags&#x60;: one or more tags (comma-separated), or * - &#x60;key&#x60;: a &#39;key&#39;
-   * in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) -
-   * &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; -
-   * &#x60;#&#x60;: an integer or decimal number used to set the threshold If you are using the
-   * &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time aggregator, instead use
-   * &#x60;change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}]
-   * operator #&#x60; with: - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60;
-   * avg, sum, max, min [Learn
-   * more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions) -
-   * &#x60;time_window&#x60; last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h
-   * (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - &#x60;timeshift&#x60;
-   * #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago Use this to create an outlier monitor
-   * using the following query:
-   * &#x60;avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host},
-   * &#39;dbscan&#39;, 7) &gt; 0&#x60; **Service Check Query** Example:
-   * &#x60;&quot;check&quot;.over(tags).last(count).by(group).count_by_status()&#x60; -
-   * **&#x60;check&#x60;** name of the check, for example &#x60;datadog.agent.up&#x60; -
-   * **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or &quot;*&quot;. for example:
-   * &#x60;.over(&quot;env:prod&quot;, &quot;role:db&quot;)&#x60;; **&#x60;over&#x60;** cannot be
-   * blank. - **&#x60;count&#x60;** must be at greater than or equal to your max threshold (defined
-   * in the &#x60;options&#x60;). It is limited to 100. For example, if you&#39;ve specified to
-   * notify on 1 critical, 3 ok, and 2 warn statuses, &#x60;count&#x60; should be at least 3. -
-   * **&#x60;group&#x60;** must be specified for check monitors. Per-check grouping is already
-   * explicitly known for some service checks. For example, Postgres integration monitors are tagged
-   * by &#x60;db&#x60;, &#x60;host&#x60;, and &#x60;port&#x60;, and Network monitors by
-   * &#x60;host&#x60;, &#x60;instance&#x60;, and &#x60;url&#x60;. See [Service
-   * Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation for more
-   * information. **Event Alert Query** Example: &#x60;events(&#39;sources:nagios
-   * status:error,warning priority:normal tags: &quot;string
-   * query&quot;&#39;).rollup(&quot;count&quot;).last(&quot;1h&quot;)&quot;&#x60; -
-   * **&#x60;event&#x60;**, the event query string: - **&#x60;string_query&#x60;** free text query
-   * to match against event title and text. - **&#x60;sources&#x60;** event sources
-   * (comma-separated). - **&#x60;status&#x60;** event statuses (comma-separated). Valid options:
-   * error, warn, and info. - **&#x60;priority&#x60;** event priorities (comma-separated). Valid
-   * options: low, normal, all. - **&#x60;host&#x60;** event reporting host (comma-separated). -
-   * **&#x60;tags&#x60;** event tags (comma-separated). - **&#x60;excluded_tags&#x60;** excluded
-   * event tags (comma-separated). - **&#x60;rollup&#x60;** the stats roll-up method.
-   * &#x60;count&#x60; is the only supported method now. - **&#x60;last&#x60;** the timeframe to
-   * roll up the counts. Examples: 45m, 4h. Supported timeframes: m, h and d. This value should not
-   * exceed 48 hours. **NOTE** The Event Alert Query is being deprecated and replaced by the Event
-   * V2 Alert Query. For more information, see the [Event Migration
-   * guide](https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/). **Event V2
-   * Alert Query** Example: &#x60;events(query).rollup(rollup_method[, measure]).last(time_window)
-   * operator #&#x60; - **&#x60;query&#x60;** The search query - following the [Log search
-   * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The
-   * stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;.
-   * - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; -
-   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m
-   * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
-   * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
-   * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **Process Alert Query** Example:
-   * &#x60;processes(search).over(tags).rollup(&#39;count&#39;).last(timeframe) operator #&#x60; -
-   * **&#x60;search&#x60;** free text search string for querying processes. Matching processes match
-   * results on the [Live
-   * Processes](https://docs.datadoghq.com/infrastructure/process/?tab&#x3D;linuxwindows) page. -
-   * **&#x60;tags&#x60;** one or more tags (comma-separated) - **&#x60;timeframe&#x60;** the
-   * timeframe to roll up the counts. Examples: 10m, 4h. Supported timeframes: s, m, h and d -
-   * **&#x60;operator&#x60;** &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; -
-   * **&#x60;#&#x60;** an integer or decimal number used to set the threshold **Logs Alert Query**
-   * Example: &#x60;logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window)
-   * operator #&#x60; - **&#x60;query&#x60;** The search query - following the [Log search
-   * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;index_name&#x60;** For
-   * multi-index organizations, the log index in which the request is performed. -
-   * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
-   * &#x60;avg&#x60; and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
-   * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
-   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
-   * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
-   * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
-   * an integer or decimal number used to set the threshold. **Composite Query** Example:
-   * &#x60;12345 &amp;&amp; 67890&#x60;, where &#x60;12345&#x60; and &#x60;67890&#x60; are the IDs
-   * of non-composite monitors * **&#x60;name&#x60;** [*required*, *default* &#x3D; **dynamic, based
-   * on query**]: The name of the alert. * **&#x60;message&#x60;** [*required*, *default* &#x3D;
-   * **dynamic, based on query**]: A message to include with notifications for this monitor. Email
-   * notifications can be sent to specific users by using the same &#39;@username&#39; notation as
-   * events. * **&#x60;tags&#x60;** [*optional*, *default* &#x3D; **empty list**]: A list of tags to
-   * associate with your monitor. When getting all monitor details via the API, use the
-   * &#x60;monitor_tags&#x60; argument to filter results by these tags. It is only available via the
-   * API and isn&#39;t visible or editable in the Datadog UI. **SLO Alert Query** Example:
-   * &#x60;error_budget(&quot;slo_id&quot;).over(&quot;time_window&quot;) operator #&#x60; -
-   * **&#x60;slo_id&#x60;**: The alphanumeric SLO ID of the SLO you are configuring the alert for. -
-   * **&#x60;time_window&#x60;**: The time window of the SLO target you wish to alert on. Valid
-   * options: &#x60;7d&#x60;, &#x60;30d&#x60;, &#x60;90d&#x60;. - **&#x60;operator&#x60;**:
-   * &#x60;&gt;&#x3D;&#x60; or &#x60;&gt;&#x60; **Audit Alert Query** Example:
-   * &#x60;audits(query).rollup(rollup_method[, measure]).last(time_window) operator #&#x60; -
-   * **&#x60;query&#x60;** The search query - following the [Log search
-   * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The
-   * stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;.
-   * - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; -
-   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m
-   * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
-   * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
-   * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5. **CI
-   * Pipelines Alert Query** Example: &#x60;ci-pipelines(query).rollup(rollup_method[,
-   * measure]).last(time_window) operator #&#x60; - **&#x60;query&#x60;** The search query -
-   * following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). -
-   * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
-   * &#x60;avg&#x60;, and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
-   * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
-   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
-   * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
-   * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
-   * an integer or decimal number used to set the threshold. **NOTE** CI Pipeline monitors are in
-   * alpha on US1, EU, US3 and US5. **Error Tracking Alert Query** Example(RUM):
-   * &#x60;error-tracking-rum(query).rollup(rollup_method[, measure]).last(time_window) operator
-   * #&#x60; Example(APM Traces): &#x60;error-tracking-traces(query).rollup(rollup_method[,
-   * measure]).last(time_window) operator #&#x60; - **&#x60;query&#x60;** The search query -
-   * following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). -
-   * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
-   * &#x60;avg&#x60;, and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
-   * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
-   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
-   * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
-   * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
-   * an integer or decimal number used to set the threshold.
+   * <h4>Monitor Types</h4>
+   *
+   * <p>The type of monitor chosen from:
+   *
+   * <ul>
+   *   <li>anomaly: <code>query alert</code>
+   *   <li>APM: <code>query alert</code> or <code>trace-analytics alert</code>
+   *   <li>composite: <code>composite</code>
+   *   <li>custom: <code>service check</code>
+   *   <li>event: <code>event alert</code>
+   *   <li>forecast: <code>query alert</code>
+   *   <li>host: <code>service check</code>
+   *   <li>integration: <code>query alert</code> or <code>service check</code>
+   *   <li>live process: <code>process alert</code>
+   *   <li>logs: <code>log alert</code>
+   *   <li>metric: <code>query alert</code>
+   *   <li>network: <code>service check</code>
+   *   <li>outlier: <code>query alert</code>
+   *   <li>process: <code>service check</code>
+   *   <li>rum: <code>rum alert</code>
+   *   <li>SLO: <code>slo alert</code>
+   *   <li>watchdog: <code>event alert</code>
+   *   <li>event-v2: <code>event-v2 alert</code>
+   *   <li>audit: <code>audit alert</code>
+   *   <li>error-tracking: <code>error-tracking alert</code>
+   * </ul>
+   *
+   * <h4>Query Types</h4>
+   *
+   * <p><strong>Metric Alert Query</strong>
+   *
+   * <p>Example: <code>time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #</code>
+   *
+   * <ul>
+   *   <li><code>time_aggr</code>: avg, sum, max, min, change, or pct_change
+   *   <li><code>time_window</code>: <code>last_#m</code> (with <code>#</code> between 1 and 10080
+   *       depending on the monitor type) or <code>last_#h</code>(with <code>#</code> between 1 and
+   *       168 depending on the monitor type) or <code>last_1d</code>, or <code>last_1w</code>
+   *   <li><code>space_aggr</code>: avg, sum, min, or max
+   *   <li><code>tags</code>: one or more tags (comma-separated), or *
+   *   <li><code>key</code>: a 'key' in key:value tag syntax; defines a separate alert for each tag
+   *       in the group (multi-alert)
+   *   <li><code>operator</code>: &lt;, &lt;=, &gt;, &gt;=, ==, or !=
+   *   <li><code>#</code>: an integer or decimal number used to set the threshold
+   * </ul>
+   *
+   * <p>If you are using the <code>_change_</code> or <code>_pct_change_</code> time aggregator,
+   * instead use <code>change_aggr(time_aggr(time_window),
+   * timeshift):space_aggr:metric{tags} [by {key}] operator #</code> with:
+   *
+   * <ul>
+   *   <li><code>change_aggr</code> change, pct_change
+   *   <li><code>time_aggr</code> avg, sum, max, min <a
+   *       href="https://docs.datadoghq.com/monitors/create/types/#define-the-conditions">Learn
+   *       more</a>
+   *   <li><code>time_window</code> last_#m (between 1 and 2880 depending on the monitor type),
+   *       last_#h (between 1 and 48 depending on the monitor type), or last_#d (1 or 2)
+   *   <li><code>timeshift</code> #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago
+   * </ul>
+   *
+   * <p>Use this to create an outlier monitor using the following query: <code>
+   * avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, 'dbscan', 7) &gt; 0
+   * </code>
+   *
+   * <p><strong>Service Check Query</strong>
+   *
+   * <p>Example: <code>"check".over(tags).last(count).by(group).count_by_status()</code>
+   *
+   * <ul>
+   *   <li><strong><code>check</code></strong> name of the check, for example <code>datadog.agent.up
+   *       </code>
+   *   <li><strong><code>tags</code></strong> one or more quoted tags (comma-separated), or "<em>".
+   *       for example: <code>.over("env:prod", "role:db")</code>; </em><em><code>over</code></em>*
+   *       cannot be blank.
+   *   <li><strong><code>count</code></strong> must be at greater than or equal to your max
+   *       threshold (defined in the <code>options</code>). It is limited to 100. For example, if
+   *       you've specified to notify on 1 critical, 3 ok, and 2 warn statuses, <code>count</code>
+   *       should be at least 3.
+   *   <li><strong><code>group</code></strong> must be specified for check monitors. Per-check
+   *       grouping is already explicitly known for some service checks. For example, Postgres
+   *       integration monitors are tagged by <code>db</code>, <code>host</code>, and <code>port
+   *       </code>, and Network monitors by <code>host</code>, <code>instance</code>, and <code>url
+   *       </code>. See <a href="https://docs.datadoghq.com/api/latest/service-checks/">Service
+   *       Checks</a> documentation for more information.
+   * </ul>
+   *
+   * <p><strong>Event Alert Query</strong>
+   *
+   * <p>Example: <code>
+   * events('sources:nagios status:error,warning priority:normal tags: "string query"').rollup("count").last("1h")"
+   * </code>
+   *
+   * <ul>
+   *   <li><strong><code>event</code></strong>, the event query string:
+   *   <li><strong><code>string_query</code></strong> free text query to match against event title
+   *       and text.
+   *   <li><strong><code>sources</code></strong> event sources (comma-separated).
+   *   <li><strong><code>status</code></strong> event statuses (comma-separated). Valid options:
+   *       error, warn, and info.
+   *   <li><strong><code>priority</code></strong> event priorities (comma-separated). Valid options:
+   *       low, normal, all.
+   *   <li><strong><code>host</code></strong> event reporting host (comma-separated).
+   *   <li><strong><code>tags</code></strong> event tags (comma-separated).
+   *   <li><strong><code>excluded_tags</code></strong> excluded event tags (comma-separated).
+   *   <li><strong><code>rollup</code></strong> the stats roll-up method. <code>count</code> is the
+   *       only supported method now.
+   *   <li><strong><code>last</code></strong> the timeframe to roll up the counts. Examples: 45m,
+   *       4h. Supported timeframes: m, h and d. This value should not exceed 48 hours.
+   * </ul>
+   *
+   * <p><strong>NOTE</strong> The Event Alert Query is being deprecated and replaced by the Event V2
+   * Alert Query. For more information, see the <a
+   * href="https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/">Event
+   * Migration guide</a>.
+   *
+   * <p><strong>Event V2 Alert Query</strong>
+   *
+   * <p>Example: <code>events(query).rollup(rollup_method[, measure]).last(time_window) operator #
+   * </code>
+   *
+   * <ul>
+   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
+   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
+   *       count</code>, <code>avg</code> and <code>cardinality</code>.
+   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
+   *       rollup_method</code> - specify the measure or the facet name you want to use.
+   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
+   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   * </ul>
+   *
+   * <p><strong>Process Alert Query</strong>
+   *
+   * <p>Example: <code>processes(search).over(tags).rollup('count').last(timeframe) operator #
+   * </code>
+   *
+   * <ul>
+   *   <li><strong><code>search</code></strong> free text search string for querying processes.
+   *       Matching processes match results on the <a
+   *       href="https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows">Live
+   *       Processes</a> page.
+   *   <li><strong><code>tags</code></strong> one or more tags (comma-separated)
+   *   <li><strong><code>timeframe</code></strong> the timeframe to roll up the counts. Examples:
+   *       10m, 4h. Supported timeframes: s, m, h and d
+   *   <li><strong><code>operator</code></strong> &lt;, &lt;=, &gt;, &gt;=, ==, or !=
+   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold
+   * </ul>
+   *
+   * <p><strong>Logs Alert Query</strong>
+   *
+   * <p>Example: <code>
+   * logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #
+   * </code>
+   *
+   * <ul>
+   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
+   *   <li><strong><code>index_name</code></strong> For multi-index organizations, the log index in
+   *       which the request is performed.
+   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
+   *       count</code>, <code>avg</code> and <code>cardinality</code>.
+   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
+   *       rollup_method</code> - specify the measure or the facet name you want to use.
+   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
+   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   * </ul>
+   *
+   * <p><strong>Composite Query</strong>
+   *
+   * <p>Example: <code>12345 &amp;&amp; 67890</code>, where <code>12345</code> and <code>67890
+   * </code> are the IDs of non-composite monitors
+   *
+   * <ul>
+   *   <li><strong><code>name</code></strong> [<em>required</em>, <em>default</em> =
+   *       <strong>dynamic, based on query</strong>]: The name of the alert.
+   *   <li><strong><code>message</code></strong> [<em>required</em>, <em>default</em> =
+   *       <strong>dynamic, based on query</strong>]: A message to include with notifications for
+   *       this monitor. Email notifications can be sent to specific users by using the same
+   *       '@username' notation as events.
+   *   <li><strong><code>tags</code></strong> [<em>optional</em>, <em>default</em> = <strong>empty
+   *       list</strong>]: A list of tags to associate with your monitor. When getting all monitor
+   *       details via the API, use the <code>monitor_tags</code> argument to filter results by
+   *       these tags. It is only available via the API and isn't visible or editable in the Datadog
+   *       UI.
+   * </ul>
+   *
+   * <p><strong>SLO Alert Query</strong>
+   *
+   * <p>Example: <code>error_budget("slo_id").over("time_window") operator #</code>
+   *
+   * <ul>
+   *   <li><strong><code>slo_id</code></strong>: The alphanumeric SLO ID of the SLO you are
+   *       configuring the alert for.
+   *   <li><strong><code>time_window</code></strong>: The time window of the SLO target you wish to
+   *       alert on. Valid options: <code>7d</code>, <code>30d</code>, <code>90d</code>.
+   *   <li><strong><code>operator</code></strong>: <code>&gt;=</code> or <code>&gt;</code>
+   * </ul>
+   *
+   * <p><strong>Audit Alert Query</strong>
+   *
+   * <p>Example: <code>audits(query).rollup(rollup_method[, measure]).last(time_window) operator #
+   * </code>
+   *
+   * <ul>
+   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
+   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
+   *       count</code>, <code>avg</code> and <code>cardinality</code>.
+   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
+   *       rollup_method</code> - specify the measure or the facet name you want to use.
+   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
+   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   * </ul>
+   *
+   * <p><strong>NOTE</strong> Only available on US1-FED and in closed beta on US1, EU, US3, and US5.
+   *
+   * <p><strong>CI Pipelines Alert Query</strong>
+   *
+   * <p>Example: <code>
+   * ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #</code>
+   *
+   * <ul>
+   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
+   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
+   *       count</code>, <code>avg</code>, and <code>cardinality</code>.
+   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
+   *       rollup_method</code> - specify the measure or the facet name you want to use.
+   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
+   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   * </ul>
+   *
+   * <p><strong>NOTE</strong> CI Pipeline monitors are in alpha on US1, EU, US3 and US5.
+   *
+   * <p><strong>Error Tracking Alert Query</strong>
+   *
+   * <p>Example(RUM): <code>
+   * error-tracking-rum(query).rollup(rollup_method[, measure]).last(time_window) operator #</code>
+   * Example(APM Traces): <code>
+   * error-tracking-traces(query).rollup(rollup_method[, measure]).last(time_window) operator #
+   * </code>
+   *
+   * <ul>
+   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
+   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
+   *       count</code>, <code>avg</code>, and <code>cardinality</code>.
+   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
+   *       rollup_method</code> - specify the measure or the facet name you want to use.
+   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
+   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   * </ul>
    *
    * @param body Create a monitor request body. (required)
    * @return ApiResponse&lt;Monitor&gt;
@@ -407,7 +535,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Create a monitor
+   * Create a monitor.
    *
    * <p>See {@link #createMonitorWithHttpInfo}.
    *
@@ -464,8 +592,8 @@ public class MonitorsApi {
     /**
      * Set force
      *
-     * @param force Delete the monitor even if it&#39;s referenced by other resources (for example
-     *     SLO, composite monitor). (optional)
+     * @param force Delete the monitor even if it's referenced by other resources (for example SLO,
+     *     composite monitor). (optional)
      * @return DeleteMonitorOptionalParameters
      */
     public DeleteMonitorOptionalParameters force(String force) {
@@ -475,7 +603,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Delete a monitor
+   * Delete a monitor.
    *
    * <p>See {@link #deleteMonitorWithHttpInfo}.
    *
@@ -488,7 +616,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Delete a monitor
+   * Delete a monitor.
    *
    * <p>See {@link #deleteMonitorWithHttpInfoAsync}.
    *
@@ -504,7 +632,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Delete a monitor
+   * Delete a monitor.
    *
    * <p>See {@link #deleteMonitorWithHttpInfo}.
    *
@@ -519,7 +647,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Delete a monitor
+   * Delete a monitor.
    *
    * <p>See {@link #deleteMonitorWithHttpInfoAsync}.
    *
@@ -537,9 +665,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Delete a monitor
-   *
-   * <p>Delete the specified monitor
+   * Delete the specified monitor
    *
    * @param monitorId The ID of the monitor. (required)
    * @param parameters Optional parameters for the request.
@@ -598,7 +724,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Delete a monitor
+   * Delete a monitor.
    *
    * <p>See {@link #deleteMonitorWithHttpInfo}.
    *
@@ -664,8 +790,8 @@ public class MonitorsApi {
      * Set groupStates
      *
      * @param groupStates When specified, shows additional information about the group states.
-     *     Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and
-     *     &#x60;no data&#x60;. (optional)
+     *     Choose one or more from <code>all</code>, <code>alert</code>, <code>warn</code>, and
+     *     <code>no data</code>. (optional)
      * @return GetMonitorOptionalParameters
      */
     public GetMonitorOptionalParameters groupStates(String groupStates) {
@@ -675,7 +801,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get a monitor&#39;s details
+   * Get a monitor&#39;s details.
    *
    * <p>See {@link #getMonitorWithHttpInfo}.
    *
@@ -688,7 +814,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get a monitor&#39;s details
+   * Get a monitor&#39;s details.
    *
    * <p>See {@link #getMonitorWithHttpInfoAsync}.
    *
@@ -704,7 +830,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get a monitor&#39;s details
+   * Get a monitor&#39;s details.
    *
    * <p>See {@link #getMonitorWithHttpInfo}.
    *
@@ -719,7 +845,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get a monitor&#39;s details
+   * Get a monitor&#39;s details.
    *
    * <p>See {@link #getMonitorWithHttpInfoAsync}.
    *
@@ -737,9 +863,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get a monitor&#39;s details
-   *
-   * <p>Get details about the specified monitor from your organization.
+   * Get details about the specified monitor from your organization.
    *
    * @param monitorId The ID of the monitor (required)
    * @param parameters Optional parameters for the request.
@@ -797,7 +921,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get a monitor&#39;s details
+   * Get a monitor&#39;s details.
    *
    * <p>See {@link #getMonitorWithHttpInfo}.
    *
@@ -870,8 +994,8 @@ public class MonitorsApi {
      * Set groupStates
      *
      * @param groupStates When specified, shows additional information about the group states.
-     *     Choose one or more from &#x60;all&#x60;, &#x60;alert&#x60;, &#x60;warn&#x60;, and
-     *     &#x60;no data&#x60;. (optional)
+     *     Choose one or more from <code>all</code>, <code>alert</code>, <code>warn</code>, and
+     *     <code>no data</code>. (optional)
      * @return ListMonitorsOptionalParameters
      */
     public ListMonitorsOptionalParameters groupStates(String groupStates) {
@@ -894,7 +1018,7 @@ public class MonitorsApi {
      * Set tags
      *
      * @param tags A comma separated list indicating what tags, if any, should be used to filter the
-     *     list of monitors by scope. For example, &#x60;host:host0&#x60;. (optional)
+     *     list of monitors by scope. For example, <code>host:host0</code>. (optional)
      * @return ListMonitorsOptionalParameters
      */
     public ListMonitorsOptionalParameters tags(String tags) {
@@ -907,7 +1031,7 @@ public class MonitorsApi {
      *
      * @param monitorTags A comma separated list indicating what service and/or custom tags, if any,
      *     should be used to filter the list of monitors. Tags created in the Datadog UI
-     *     automatically have the service key prepended. For example, &#x60;service:my-app&#x60;.
+     *     automatically have the service key prepended. For example, <code>service:my-app</code>.
      *     (optional)
      * @return ListMonitorsOptionalParameters
      */
@@ -957,8 +1081,8 @@ public class MonitorsApi {
      * Set pageSize
      *
      * @param pageSize The number of monitors to return per page. If the page argument is not
-     *     specified, the default behavior returns all monitors without a &#x60;page_size&#x60;
-     *     limit. However, if page is specified and &#x60;page_size&#x60; is not, the argument
+     *     specified, the default behavior returns all monitors without a <code>page_size</code>
+     *     limit. However, if page is specified and <code>page_size</code> is not, the argument
      *     defaults to 100. (optional)
      * @return ListMonitorsOptionalParameters
      */
@@ -969,7 +1093,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details
+   * Get all monitor details.
    *
    * <p>See {@link #listMonitorsWithHttpInfo}.
    *
@@ -981,7 +1105,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details
+   * Get all monitor details.
    *
    * <p>See {@link #listMonitorsWithHttpInfoAsync}.
    *
@@ -996,7 +1120,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details
+   * Get all monitor details.
    *
    * <p>See {@link #listMonitorsWithHttpInfo}.
    *
@@ -1009,7 +1133,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details
+   * Get all monitor details.
    *
    * <p>See {@link #listMonitorsWithHttpInfoAsync}.
    *
@@ -1026,9 +1150,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details
-   *
-   * <p>Get details about the specified monitor from your organization.
+   * Get details about the specified monitor from your organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;List&lt;Monitor&gt;&gt;
@@ -1090,7 +1212,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details
+   * Get all monitor details.
    *
    * <p>See {@link #listMonitorsWithHttpInfo}.
    *
@@ -1160,12 +1282,12 @@ public class MonitorsApi {
     /**
      * Set query
      *
-     * @param query After entering a search query in your [Manage Monitor page][1] use the query
+     * @param query After entering a search query in your <a
+     *     href="https://app.datadoghq.com/monitors/manage">Manage Monitor page</a> use the query
      *     parameter value in the URL of the page as value for this parameter. Consult the dedicated
-     *     [manage monitor documentation][2] page to learn more. The query can contain any number of
-     *     space-separated monitor attributes, for instance &#x60;query&#x3D;&quot;type:metric
-     *     status:alert&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]:
-     *     /monitors/manage/#find-the-monitors (optional)
+     *     <a href="/monitors/manage/#find-the-monitors">manage monitor documentation</a> page to
+     *     learn more. The query can contain any number of space-separated monitor attributes, for
+     *     instance <code>query="type:metric status:alert"</code>. (optional)
      * @return SearchMonitorGroupsOptionalParameters
      */
     public SearchMonitorGroupsOptionalParameters query(String query) {
@@ -1199,9 +1321,14 @@ public class MonitorsApi {
      * Set sort
      *
      * @param sort String for sort order, composed of field and sort order separate by a comma, for
-     *     example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;,
-     *     &#x60;desc&#x60;. Supported fields: * &#x60;name&#x60; * &#x60;status&#x60; *
-     *     &#x60;tags&#x60; (optional)
+     *     example <code>name,asc</code>. Supported sort directions: <code>asc</code>, <code>desc
+     *     </code>. Supported fields:
+     *     <ul>
+     *       <li><code>name</code>
+     *       <li><code>status</code>
+     *       <li><code>tags</code>
+     *     </ul>
+     *     (optional)
      * @return SearchMonitorGroupsOptionalParameters
      */
     public SearchMonitorGroupsOptionalParameters sort(String sort) {
@@ -1211,7 +1338,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors group search
+   * Monitors group search.
    *
    * <p>See {@link #searchMonitorGroupsWithHttpInfo}.
    *
@@ -1223,7 +1350,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors group search
+   * Monitors group search.
    *
    * <p>See {@link #searchMonitorGroupsWithHttpInfoAsync}.
    *
@@ -1238,7 +1365,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors group search
+   * Monitors group search.
    *
    * <p>See {@link #searchMonitorGroupsWithHttpInfo}.
    *
@@ -1252,7 +1379,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors group search
+   * Monitors group search.
    *
    * <p>See {@link #searchMonitorGroupsWithHttpInfoAsync}.
    *
@@ -1269,9 +1396,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors group search
-   *
-   * <p>Search and filter your monitor groups details.
+   * Search and filter your monitor groups details.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MonitorGroupSearchResponse&gt;
@@ -1325,7 +1450,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors group search
+   * Monitors group search.
    *
    * <p>See {@link #searchMonitorGroupsWithHttpInfo}.
    *
@@ -1387,12 +1512,12 @@ public class MonitorsApi {
     /**
      * Set query
      *
-     * @param query After entering a search query in your [Manage Monitor page][1] use the query
+     * @param query After entering a search query in your <a
+     *     href="https://app.datadoghq.com/monitors/manage">Manage Monitor page</a> use the query
      *     parameter value in the URL of the page as value for this parameter. Consult the dedicated
-     *     [manage monitor documentation][2] page to learn more. The query can contain any number of
-     *     space-separated monitor attributes, for instance &#x60;query&#x3D;&quot;type:metric
-     *     status:alert&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]:
-     *     /monitors/manage/#find-the-monitors (optional)
+     *     <a href="/monitors/manage/#find-the-monitors">manage monitor documentation</a> page to
+     *     learn more. The query can contain any number of space-separated monitor attributes, for
+     *     instance <code>query="type:metric status:alert"</code>. (optional)
      * @return SearchMonitorsOptionalParameters
      */
     public SearchMonitorsOptionalParameters query(String query) {
@@ -1426,9 +1551,14 @@ public class MonitorsApi {
      * Set sort
      *
      * @param sort String for sort order, composed of field and sort order separate by a comma, for
-     *     example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;,
-     *     &#x60;desc&#x60;. Supported fields: * &#x60;name&#x60; * &#x60;status&#x60; *
-     *     &#x60;tags&#x60; (optional)
+     *     example <code>name,asc</code>. Supported sort directions: <code>asc</code>, <code>desc
+     *     </code>. Supported fields:
+     *     <ul>
+     *       <li><code>name</code>
+     *       <li><code>status</code>
+     *       <li><code>tags</code>
+     *     </ul>
+     *     (optional)
      * @return SearchMonitorsOptionalParameters
      */
     public SearchMonitorsOptionalParameters sort(String sort) {
@@ -1438,7 +1568,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors search
+   * Monitors search.
    *
    * <p>See {@link #searchMonitorsWithHttpInfo}.
    *
@@ -1450,7 +1580,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors search
+   * Monitors search.
    *
    * <p>See {@link #searchMonitorsWithHttpInfoAsync}.
    *
@@ -1465,7 +1595,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors search
+   * Monitors search.
    *
    * <p>See {@link #searchMonitorsWithHttpInfo}.
    *
@@ -1479,7 +1609,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors search
+   * Monitors search.
    *
    * <p>See {@link #searchMonitorsWithHttpInfoAsync}.
    *
@@ -1496,9 +1626,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors search
-   *
-   * <p>Search and filter your monitors details.
+   * Search and filter your monitors details.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MonitorSearchResponse&gt;
@@ -1552,7 +1680,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Monitors search
+   * Monitors search.
    *
    * <p>See {@link #searchMonitorsWithHttpInfo}.
    *
@@ -1605,7 +1733,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Edit a monitor
+   * Edit a monitor.
    *
    * <p>See {@link #updateMonitorWithHttpInfo}.
    *
@@ -1619,7 +1747,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Edit a monitor
+   * Edit a monitor.
    *
    * <p>See {@link #updateMonitorWithHttpInfoAsync}.
    *
@@ -1636,9 +1764,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Edit a monitor
-   *
-   * <p>Edit the specified monitor.
+   * Edit the specified monitor.
    *
    * @param monitorId The ID of the monitor. (required)
    * @param body Edit a monitor request body. (required)
@@ -1699,7 +1825,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Edit a monitor
+   * Edit a monitor.
    *
    * <p>See {@link #updateMonitorWithHttpInfo}.
    *
@@ -1763,7 +1889,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Validate an existing monitor
+   * Validate an existing monitor.
    *
    * <p>See {@link #validateExistingMonitorWithHttpInfo}.
    *
@@ -1777,7 +1903,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Validate an existing monitor
+   * Validate an existing monitor.
    *
    * <p>See {@link #validateExistingMonitorWithHttpInfoAsync}.
    *
@@ -1794,9 +1920,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Validate an existing monitor
-   *
-   * <p>Validate the monitor provided in the request.
+   * Validate the monitor provided in the request.
    *
    * @param monitorId The ID of the monitor (required)
    * @param body Monitor request object (required)
@@ -1855,7 +1979,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Validate an existing monitor
+   * Validate an existing monitor.
    *
    * <p>See {@link #validateExistingMonitorWithHttpInfo}.
    *
@@ -1920,7 +2044,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Validate a monitor
+   * Validate a monitor.
    *
    * <p>See {@link #validateMonitorWithHttpInfo}.
    *
@@ -1933,7 +2057,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Validate a monitor
+   * Validate a monitor.
    *
    * <p>See {@link #validateMonitorWithHttpInfoAsync}.
    *
@@ -1949,9 +2073,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Validate a monitor
-   *
-   * <p>Validate the monitor provided in the request.
+   * Validate the monitor provided in the request.
    *
    * @param body Monitor request object (required)
    * @return ApiResponse&lt;Object&gt;
@@ -2000,7 +2122,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Validate a monitor
+   * Validate a monitor.
    *
    * <p>See {@link #validateMonitorWithHttpInfo}.
    *

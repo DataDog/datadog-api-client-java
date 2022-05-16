@@ -51,7 +51,7 @@ public class RumApi {
   }
 
   /**
-   * Aggregate RUM events
+   * Aggregate RUM events.
    *
    * <p>See {@link #aggregateRUMEventsWithHttpInfo}.
    *
@@ -65,7 +65,7 @@ public class RumApi {
   }
 
   /**
-   * Aggregate RUM events
+   * Aggregate RUM events.
    *
    * <p>See {@link #aggregateRUMEventsWithHttpInfoAsync}.
    *
@@ -82,9 +82,7 @@ public class RumApi {
   }
 
   /**
-   * Aggregate RUM events
-   *
-   * <p>The API endpoint to aggregate RUM events into buckets of computed metrics and timeseries.
+   * The API endpoint to aggregate RUM events into buckets of computed metrics and timeseries.
    *
    * @param body (required)
    * @return ApiResponse&lt;RUMAnalyticsAggregateResponse&gt;
@@ -134,7 +132,7 @@ public class RumApi {
   }
 
   /**
-   * Aggregate RUM events
+   * Aggregate RUM events.
    *
    * <p>See {@link #aggregateRUMEventsWithHttpInfo}.
    *
@@ -265,7 +263,7 @@ public class RumApi {
   }
 
   /**
-   * Get a list of RUM events
+   * Get a list of RUM events.
    *
    * <p>See {@link #listRUMEventsWithHttpInfo}.
    *
@@ -277,7 +275,7 @@ public class RumApi {
   }
 
   /**
-   * Get a list of RUM events
+   * Get a list of RUM events.
    *
    * <p>See {@link #listRUMEventsWithHttpInfoAsync}.
    *
@@ -292,7 +290,7 @@ public class RumApi {
   }
 
   /**
-   * Get a list of RUM events
+   * Get a list of RUM events.
    *
    * <p>See {@link #listRUMEventsWithHttpInfo}.
    *
@@ -306,7 +304,7 @@ public class RumApi {
   }
 
   /**
-   * Get a list of RUM events
+   * Get a list of RUM events.
    *
    * <p>See {@link #listRUMEventsWithHttpInfoAsync}.
    *
@@ -323,11 +321,11 @@ public class RumApi {
   }
 
   /**
-   * Get a list of RUM events
+   * List endpoint returns events that match a RUM search query. <a
+   * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
+   * paginated</a>.
    *
-   * <p>List endpoint returns events that match a RUM search query. [Results are paginated][1]. Use
-   * this endpoint to see your latest RUM events. [1]:
-   * https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * <p>Use this endpoint to see your latest RUM events.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;RUMEventsResponse&gt;
@@ -385,7 +383,7 @@ public class RumApi {
   }
 
   /**
-   * Get a list of RUM events
+   * Get a list of RUM events.
    *
    * <p>See {@link #listRUMEventsWithHttpInfo}.
    *
@@ -442,7 +440,7 @@ public class RumApi {
   }
 
   /**
-   * Search RUM events
+   * Search RUM events.
    *
    * <p>See {@link #searchRUMEventsWithHttpInfo}.
    *
@@ -455,7 +453,7 @@ public class RumApi {
   }
 
   /**
-   * Search RUM events
+   * Search RUM events.
    *
    * <p>See {@link #searchRUMEventsWithHttpInfoAsync}.
    *
@@ -471,11 +469,11 @@ public class RumApi {
   }
 
   /**
-   * Search RUM events
+   * List endpoint returns RUM events that match a RUM search query. <a
+   * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
+   * paginated</a>.
    *
-   * <p>List endpoint returns RUM events that match a RUM search query. [Results are paginated][1].
-   * Use this endpoint to build complex RUM events filtering and search. [1]:
-   * https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * <p>Use this endpoint to build complex RUM events filtering and search.
    *
    * @param body (required)
    * @return ApiResponse&lt;RUMEventsResponse&gt;
@@ -525,7 +523,7 @@ public class RumApi {
   }
 
   /**
-   * Search RUM events
+   * Search RUM events.
    *
    * <p>See {@link #searchRUMEventsWithHttpInfo}.
    *

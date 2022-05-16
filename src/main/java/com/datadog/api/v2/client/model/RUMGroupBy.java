@@ -126,7 +126,7 @@ public class RUMGroupBy {
   }
 
   /**
-   * The value to use for logs that don&#39;t have the facet used to group by.
+   * The value to use for logs that don't have the facet used to group by.
    *
    * @return missing
    */

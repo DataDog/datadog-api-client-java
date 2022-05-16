@@ -45,7 +45,7 @@ public class SyntheticsParsingOptions {
   }
 
   /**
-   * When type is &#x60;http_header&#x60;, name of the header to use to extract the value.
+   * When type is <code>http_header</code>, name of the header to use to extract the value.
    *
    * @return field
    */

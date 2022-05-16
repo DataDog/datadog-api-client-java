@@ -38,7 +38,7 @@ public class SecurityFilterResponse {
   }
 
   /**
-   * The security filter&#39;s properties.
+   * The security filter's properties.
    *
    * @return data
    */

@@ -106,8 +106,8 @@ public class LogQueryDefinition {
   }
 
   /**
-   * A coma separated-list of index names. Use &quot;*&quot; query all indexes at once. [Multiple
-   * Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
+   * A coma separated-list of index names. Use "*" query all indexes at once. <a
+   * href="https://docs.datadoghq.com/logs/indexes/#multiple-indexes">Multiple Indexes</a>
    *
    * @return index
    */
@@ -140,7 +140,7 @@ public class LogQueryDefinition {
   }
 
   /**
-   * This field is mutually exclusive with &#x60;compute&#x60;.
+   * This field is mutually exclusive with <code>compute</code>.
    *
    * @return multiCompute
    */

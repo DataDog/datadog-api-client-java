@@ -57,7 +57,7 @@ public class RolesApi {
   }
 
   /**
-   * Grant permission to a role
+   * Grant permission to a role.
    *
    * <p>See {@link #addPermissionToRoleWithHttpInfo}.
    *
@@ -72,7 +72,7 @@ public class RolesApi {
   }
 
   /**
-   * Grant permission to a role
+   * Grant permission to a role.
    *
    * <p>See {@link #addPermissionToRoleWithHttpInfoAsync}.
    *
@@ -90,9 +90,7 @@ public class RolesApi {
   }
 
   /**
-   * Grant permission to a role
-   *
-   * <p>Adds a permission to a role.
+   * Adds a permission to a role.
    *
    * @param roleId The unique identifier of the role. (required)
    * @param body (required)
@@ -152,7 +150,7 @@ public class RolesApi {
   }
 
   /**
-   * Grant permission to a role
+   * Grant permission to a role.
    *
    * <p>See {@link #addPermissionToRoleWithHttpInfo}.
    *
@@ -216,7 +214,7 @@ public class RolesApi {
   }
 
   /**
-   * Add a user to a role
+   * Add a user to a role.
    *
    * <p>See {@link #addUserToRoleWithHttpInfo}.
    *
@@ -230,7 +228,7 @@ public class RolesApi {
   }
 
   /**
-   * Add a user to a role
+   * Add a user to a role.
    *
    * <p>See {@link #addUserToRoleWithHttpInfoAsync}.
    *
@@ -248,9 +246,7 @@ public class RolesApi {
   }
 
   /**
-   * Add a user to a role
-   *
-   * <p>Adds a user to a role.
+   * Adds a user to a role.
    *
    * @param roleId The unique identifier of the role. (required)
    * @param body (required)
@@ -310,7 +306,7 @@ public class RolesApi {
   }
 
   /**
-   * Add a user to a role
+   * Add a user to a role.
    *
    * <p>See {@link #addUserToRoleWithHttpInfo}.
    *
@@ -374,7 +370,7 @@ public class RolesApi {
   }
 
   /**
-   * Create a new role by cloning an existing role
+   * Create a new role by cloning an existing role.
    *
    * <p>See {@link #cloneRoleWithHttpInfo}.
    *
@@ -388,7 +384,7 @@ public class RolesApi {
   }
 
   /**
-   * Create a new role by cloning an existing role
+   * Create a new role by cloning an existing role.
    *
    * <p>See {@link #cloneRoleWithHttpInfoAsync}.
    *
@@ -405,9 +401,7 @@ public class RolesApi {
   }
 
   /**
-   * Create a new role by cloning an existing role
-   *
-   * <p>Clone an existing role
+   * Clone an existing role
    *
    * @param roleId The unique identifier of the role. (required)
    * @param body (required)
@@ -466,7 +460,7 @@ public class RolesApi {
   }
 
   /**
-   * Create a new role by cloning an existing role
+   * Create a new role by cloning an existing role.
    *
    * <p>See {@link #cloneRoleWithHttpInfo}.
    *
@@ -528,7 +522,7 @@ public class RolesApi {
   }
 
   /**
-   * Create role
+   * Create role.
    *
    * <p>See {@link #createRoleWithHttpInfo}.
    *
@@ -541,7 +535,7 @@ public class RolesApi {
   }
 
   /**
-   * Create role
+   * Create role.
    *
    * <p>See {@link #createRoleWithHttpInfoAsync}.
    *
@@ -557,9 +551,7 @@ public class RolesApi {
   }
 
   /**
-   * Create role
-   *
-   * <p>Create a new role for your organization.
+   * Create a new role for your organization.
    *
    * @param body (required)
    * @return ApiResponse&lt;RoleCreateResponse&gt;
@@ -608,7 +600,7 @@ public class RolesApi {
   }
 
   /**
-   * Create role
+   * Create role.
    *
    * <p>See {@link #createRoleWithHttpInfo}.
    *
@@ -659,7 +651,7 @@ public class RolesApi {
   }
 
   /**
-   * Delete role
+   * Delete role.
    *
    * <p>See {@link #deleteRoleWithHttpInfo}.
    *
@@ -671,7 +663,7 @@ public class RolesApi {
   }
 
   /**
-   * Delete role
+   * Delete role.
    *
    * <p>See {@link #deleteRoleWithHttpInfoAsync}.
    *
@@ -686,9 +678,7 @@ public class RolesApi {
   }
 
   /**
-   * Delete role
-   *
-   * <p>Disables a role.
+   * Disables a role.
    *
    * @param roleId The unique identifier of the role. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -739,7 +729,7 @@ public class RolesApi {
   }
 
   /**
-   * Delete role
+   * Delete role.
    *
    * <p>See {@link #deleteRoleWithHttpInfo}.
    *
@@ -791,7 +781,7 @@ public class RolesApi {
   }
 
   /**
-   * Get a role
+   * Get a role.
    *
    * <p>See {@link #getRoleWithHttpInfo}.
    *
@@ -804,7 +794,7 @@ public class RolesApi {
   }
 
   /**
-   * Get a role
+   * Get a role.
    *
    * <p>See {@link #getRoleWithHttpInfoAsync}.
    *
@@ -820,9 +810,7 @@ public class RolesApi {
   }
 
   /**
-   * Get a role
-   *
-   * <p>Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
+   * Get a role in the organization specified by the role’s <code>role_id</code>.
    *
    * @param roleId The unique identifier of the role. (required)
    * @return ApiResponse&lt;RoleResponse&gt;
@@ -872,7 +860,7 @@ public class RolesApi {
   }
 
   /**
-   * Get a role
+   * Get a role.
    *
    * <p>See {@link #getRoleWithHttpInfo}.
    *
@@ -924,7 +912,7 @@ public class RolesApi {
   }
 
   /**
-   * List permissions
+   * List permissions.
    *
    * <p>See {@link #listPermissionsWithHttpInfo}.
    *
@@ -936,7 +924,7 @@ public class RolesApi {
   }
 
   /**
-   * List permissions
+   * List permissions.
    *
    * <p>See {@link #listPermissionsWithHttpInfoAsync}.
    *
@@ -951,9 +939,7 @@ public class RolesApi {
   }
 
   /**
-   * List permissions
-   *
-   * <p>Returns a list of all permissions, including name, description, and ID.
+   * Returns a list of all permissions, including name, description, and ID.
    *
    * @return ApiResponse&lt;PermissionsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -995,7 +981,7 @@ public class RolesApi {
   }
 
   /**
-   * List permissions
+   * List permissions.
    *
    * <p>See {@link #listPermissionsWithHttpInfo}.
    *
@@ -1036,7 +1022,7 @@ public class RolesApi {
   }
 
   /**
-   * List permissions for a role
+   * List permissions for a role.
    *
    * <p>See {@link #listRolePermissionsWithHttpInfo}.
    *
@@ -1049,7 +1035,7 @@ public class RolesApi {
   }
 
   /**
-   * List permissions for a role
+   * List permissions for a role.
    *
    * <p>See {@link #listRolePermissionsWithHttpInfoAsync}.
    *
@@ -1065,9 +1051,7 @@ public class RolesApi {
   }
 
   /**
-   * List permissions for a role
-   *
-   * <p>Returns a list of all permissions for a single role.
+   * Returns a list of all permissions for a single role.
    *
    * @param roleId The unique identifier of the role. (required)
    * @return ApiResponse&lt;PermissionsResponse&gt;
@@ -1119,7 +1103,7 @@ public class RolesApi {
   }
 
   /**
-   * List permissions for a role
+   * List permissions for a role.
    *
    * <p>See {@link #listRolePermissionsWithHttpInfo}.
    *
@@ -1204,9 +1188,9 @@ public class RolesApi {
     /**
      * Set sort
      *
-     * @param sort Sort roles depending on the given field. Sort order is **ascending** by default.
-     *     Sort order is **descending** if the field is prefixed by a negative sign, for example:
-     *     &#x60;sort&#x3D;-name&#x60;. (optional, default to "name")
+     * @param sort Sort roles depending on the given field. Sort order is <strong>ascending</strong>
+     *     by default. Sort order is <strong>descending</strong> if the field is prefixed by a
+     *     negative sign, for example: <code>sort=-name</code>. (optional, default to "name")
      * @return ListRolesOptionalParameters
      */
     public ListRolesOptionalParameters sort(RolesSort sort) {
@@ -1227,7 +1211,7 @@ public class RolesApi {
   }
 
   /**
-   * List roles
+   * List roles.
    *
    * <p>See {@link #listRolesWithHttpInfo}.
    *
@@ -1239,7 +1223,7 @@ public class RolesApi {
   }
 
   /**
-   * List roles
+   * List roles.
    *
    * <p>See {@link #listRolesWithHttpInfoAsync}.
    *
@@ -1254,7 +1238,7 @@ public class RolesApi {
   }
 
   /**
-   * List roles
+   * List roles.
    *
    * <p>See {@link #listRolesWithHttpInfo}.
    *
@@ -1267,7 +1251,7 @@ public class RolesApi {
   }
 
   /**
-   * List roles
+   * List roles.
    *
    * <p>See {@link #listRolesWithHttpInfoAsync}.
    *
@@ -1283,9 +1267,7 @@ public class RolesApi {
   }
 
   /**
-   * List roles
-   *
-   * <p>Returns all roles, including their names and their unique identifiers.
+   * Returns all roles, including their names and their unique identifiers.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;RolesResponse&gt;
@@ -1338,7 +1320,7 @@ public class RolesApi {
   }
 
   /**
-   * List roles
+   * List roles.
    *
    * <p>See {@link #listRolesWithHttpInfo}.
    *
@@ -1422,10 +1404,10 @@ public class RolesApi {
     /**
      * Set sort
      *
-     * @param sort User attribute to order results by. Sort order is **ascending** by default. Sort
-     *     order is **descending** if the field is prefixed by a negative sign, for example
-     *     &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;,
-     *     &#x60;status&#x60;. (optional, default to "name")
+     * @param sort User attribute to order results by. Sort order is <strong>ascending</strong> by
+     *     default. Sort order is <strong>descending</strong> if the field is prefixed by a negative
+     *     sign, for example <code>sort=-name</code>. Options: <code>name</code>, <code>email</code>
+     *     , <code>status</code>. (optional, default to "name")
      * @return ListRoleUsersOptionalParameters
      */
     public ListRoleUsersOptionalParameters sort(String sort) {
@@ -1446,7 +1428,7 @@ public class RolesApi {
   }
 
   /**
-   * Get all users of a role
+   * Get all users of a role.
    *
    * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
@@ -1459,7 +1441,7 @@ public class RolesApi {
   }
 
   /**
-   * Get all users of a role
+   * Get all users of a role.
    *
    * <p>See {@link #listRoleUsersWithHttpInfoAsync}.
    *
@@ -1475,7 +1457,7 @@ public class RolesApi {
   }
 
   /**
-   * Get all users of a role
+   * Get all users of a role.
    *
    * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
@@ -1490,7 +1472,7 @@ public class RolesApi {
   }
 
   /**
-   * Get all users of a role
+   * Get all users of a role.
    *
    * <p>See {@link #listRoleUsersWithHttpInfoAsync}.
    *
@@ -1508,9 +1490,7 @@ public class RolesApi {
   }
 
   /**
-   * Get all users of a role
-   *
-   * <p>Gets all users of a role.
+   * Gets all users of a role.
    *
    * @param roleId The unique identifier of the role. (required)
    * @param parameters Optional parameters for the request.
@@ -1573,7 +1553,7 @@ public class RolesApi {
   }
 
   /**
-   * Get all users of a role
+   * Get all users of a role.
    *
    * <p>See {@link #listRoleUsersWithHttpInfo}.
    *
@@ -1638,7 +1618,7 @@ public class RolesApi {
   }
 
   /**
-   * Revoke permission
+   * Revoke permission.
    *
    * <p>See {@link #removePermissionFromRoleWithHttpInfo}.
    *
@@ -1653,7 +1633,7 @@ public class RolesApi {
   }
 
   /**
-   * Revoke permission
+   * Revoke permission.
    *
    * <p>See {@link #removePermissionFromRoleWithHttpInfoAsync}.
    *
@@ -1671,9 +1651,7 @@ public class RolesApi {
   }
 
   /**
-   * Revoke permission
-   *
-   * <p>Removes a permission from a role.
+   * Removes a permission from a role.
    *
    * @param roleId The unique identifier of the role. (required)
    * @param body (required)
@@ -1733,7 +1711,7 @@ public class RolesApi {
   }
 
   /**
-   * Revoke permission
+   * Revoke permission.
    *
    * <p>See {@link #removePermissionFromRoleWithHttpInfo}.
    *
@@ -1798,7 +1776,7 @@ public class RolesApi {
   }
 
   /**
-   * Remove a user from a role
+   * Remove a user from a role.
    *
    * <p>See {@link #removeUserFromRoleWithHttpInfo}.
    *
@@ -1813,7 +1791,7 @@ public class RolesApi {
   }
 
   /**
-   * Remove a user from a role
+   * Remove a user from a role.
    *
    * <p>See {@link #removeUserFromRoleWithHttpInfoAsync}.
    *
@@ -1831,9 +1809,7 @@ public class RolesApi {
   }
 
   /**
-   * Remove a user from a role
-   *
-   * <p>Removes a user from a role.
+   * Removes a user from a role.
    *
    * @param roleId The unique identifier of the role. (required)
    * @param body (required)
@@ -1893,7 +1869,7 @@ public class RolesApi {
   }
 
   /**
-   * Remove a user from a role
+   * Remove a user from a role.
    *
    * <p>See {@link #removeUserFromRoleWithHttpInfo}.
    *
@@ -1957,7 +1933,7 @@ public class RolesApi {
   }
 
   /**
-   * Update a role
+   * Update a role.
    *
    * <p>See {@link #updateRoleWithHttpInfo}.
    *
@@ -1971,7 +1947,7 @@ public class RolesApi {
   }
 
   /**
-   * Update a role
+   * Update a role.
    *
    * <p>See {@link #updateRoleWithHttpInfoAsync}.
    *
@@ -1989,9 +1965,7 @@ public class RolesApi {
   }
 
   /**
-   * Update a role
-   *
-   * <p>Edit a role. Can only be used with application keys belonging to administrators.
+   * Edit a role. Can only be used with application keys belonging to administrators.
    *
    * @param roleId The unique identifier of the role. (required)
    * @param body (required)
@@ -2051,7 +2025,7 @@ public class RolesApi {
   }
 
   /**
-   * Update a role
+   * Update a role.
    *
    * <p>See {@link #updateRoleWithHttpInfo}.
    *

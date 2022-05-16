@@ -66,15 +66,15 @@ public class {{ name }} {
 
 {%- macro endpointDocAndAnnotation(async=False, showRequired=True, showOptional=False, optionalParameterArg=False, throwsApiException=True) -%}
 /**
- * {{ operation.summary|escape_html }}
+ * {{ operation.summary|escape_html }}.
  *
  * See {@link #{{ operationId }}WithHttpInfo{{ "Async" if async }}}.
  *
  {%- for name, parameter in allParams %}
  {%- if parameter.required and showRequired %}
- * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{%- endif %})
+ * @param {{ name|variable_name }} {{ parameter.description|inline_docstring }} (required{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{%- endif %})
  {%- elif not parameter.required and showOptional %}
- * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (optional{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{%- endif %})
+ * @param {{ name|variable_name }} {{ parameter.description|inline_docstring }} (optional{%- if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{%- endif %})
  {%- endif %}
  {%- endfor %}
  {%- if optionalParameterArg %}
@@ -110,7 +110,7 @@ public class {{ name }} {
 
     /**
      * Set {{ paramName }}
-     * @param {{ paramName }} {{ parameter.description|escape_html }} (optional{% if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{% endif %})
+     * @param {{ paramName }} {{ parameter.description|inline_docstring }} (optional{% if parameter.get("schema", {}).default is defined %}, default to {{ parameter.schema.default|format_value }}{% endif %})
      * @return {{ operationId|upperfirst }}OptionalParameters
      */
     public {{ operationId|upperfirst }}OptionalParameters {{ paramName }}({{ get_type_for_parameter(parameter) }} {{ paramName }}) {
@@ -159,12 +159,10 @@ public class {{ name }} {
   {%- endif %}
 
   /**
-   * {{ operation.summary|escape_html }}
-   *
-   * {{ operation.description|escape_html }}
+{{ operation.description|docstring }}
    *
    {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
+   * @param {{ name|variable_name }} {{ parameter.description|inline_docstring }} (required)
    {%- endfor %}
    {%- if optionalParams %}
    * @param parameters Optional parameters for the request.
@@ -238,12 +236,12 @@ public class {{ name }} {
   }
 
   /**
-   * {{ operation.summary|escape_html }}
+   * {{ operation.summary|escape_html }}.
    *
    * See {@link #{{ operationId }}WithHttpInfo}.
    *
    {%- for name, parameter in requiredParams %}
-   * @param {{ name|variable_name }} {{ parameter.description|escape_html }} (required)
+   * @param {{ name|variable_name }} {{ parameter.description|inline_docstring }} (required)
    {%- endfor %}
    {%- if optionalParams %}
    * @param parameters Optional parameters for the request.

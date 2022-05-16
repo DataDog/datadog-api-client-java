@@ -83,7 +83,7 @@ public class LogsArchiveDestinationS3 {
   }
 
   /**
-   * The S3 Archive&#39;s integration destination.
+   * The S3 Archive's integration destination.
    *
    * @return integration
    */

@@ -83,7 +83,7 @@ public class LogsArchiveDestinationGCS {
   }
 
   /**
-   * The GCS archive&#39;s integration destination.
+   * The GCS archive's integration destination.
    *
    * @return integration
    */

@@ -50,7 +50,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Grant role to an archive
+   * Grant role to an archive.
    *
    * <p>See {@link #addReadRoleToArchiveWithHttpInfo}.
    *
@@ -63,7 +63,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Grant role to an archive
+   * Grant role to an archive.
    *
    * <p>See {@link #addReadRoleToArchiveWithHttpInfoAsync}.
    *
@@ -80,9 +80,8 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Grant role to an archive
-   *
-   * <p>Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
+   * Adds a read role to an archive. (<a href="https://docs.datadoghq.com/api/v2/roles/">Roles
+   * API</a>)
    *
    * @param archiveId The ID of the archive. (required)
    * @param body (required)
@@ -142,7 +141,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Grant role to an archive
+   * Grant role to an archive.
    *
    * <p>See {@link #addReadRoleToArchiveWithHttpInfo}.
    *
@@ -206,7 +205,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Create an archive
+   * Create an archive.
    *
    * <p>See {@link #createLogsArchiveWithHttpInfo}.
    *
@@ -219,7 +218,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Create an archive
+   * Create an archive.
    *
    * <p>See {@link #createLogsArchiveWithHttpInfoAsync}.
    *
@@ -235,9 +234,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Create an archive
-   *
-   * <p>Create an archive in your organization.
+   * Create an archive in your organization.
    *
    * @param body The definition of the new archive. (required)
    * @return ApiResponse&lt;LogsArchive&gt;
@@ -287,7 +284,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Create an archive
+   * Create an archive.
    *
    * <p>See {@link #createLogsArchiveWithHttpInfo}.
    *
@@ -339,7 +336,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Delete an archive
+   * Delete an archive.
    *
    * <p>See {@link #deleteLogsArchiveWithHttpInfo}.
    *
@@ -351,7 +348,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Delete an archive
+   * Delete an archive.
    *
    * <p>See {@link #deleteLogsArchiveWithHttpInfoAsync}.
    *
@@ -366,9 +363,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Delete an archive
-   *
-   * <p>Delete a given archive from your organization.
+   * Delete a given archive from your organization.
    *
    * @param archiveId The ID of the archive. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -420,7 +415,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Delete an archive
+   * Delete an archive.
    *
    * <p>See {@link #deleteLogsArchiveWithHttpInfo}.
    *
@@ -473,7 +468,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get an archive
+   * Get an archive.
    *
    * <p>See {@link #getLogsArchiveWithHttpInfo}.
    *
@@ -486,7 +481,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get an archive
+   * Get an archive.
    *
    * <p>See {@link #getLogsArchiveWithHttpInfoAsync}.
    *
@@ -502,9 +497,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get an archive
-   *
-   * <p>Get a specific archive from your organization.
+   * Get a specific archive from your organization.
    *
    * @param archiveId The ID of the archive. (required)
    * @return ApiResponse&lt;LogsArchive&gt;
@@ -556,7 +549,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get an archive
+   * Get an archive.
    *
    * <p>See {@link #getLogsArchiveWithHttpInfo}.
    *
@@ -610,7 +603,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get archive order
+   * Get archive order.
    *
    * <p>See {@link #getLogsArchiveOrderWithHttpInfo}.
    *
@@ -622,7 +615,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get archive order
+   * Get archive order.
    *
    * <p>See {@link #getLogsArchiveOrderWithHttpInfoAsync}.
    *
@@ -637,9 +630,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get archive order
-   *
-   * <p>Get the current order of your archives. This endpoint takes no JSON arguments.
+   * Get the current order of your archives. This endpoint takes no JSON arguments.
    *
    * @return ApiResponse&lt;LogsArchiveOrder&gt;
    * @throws ApiException if fails to make API call
@@ -680,7 +671,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get archive order
+   * Get archive order.
    *
    * <p>See {@link #getLogsArchiveOrderWithHttpInfo}.
    *
@@ -721,7 +712,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * List read roles for an archive
+   * List read roles for an archive.
    *
    * <p>See {@link #listArchiveReadRolesWithHttpInfo}.
    *
@@ -734,7 +725,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * List read roles for an archive
+   * List read roles for an archive.
    *
    * <p>See {@link #listArchiveReadRolesWithHttpInfoAsync}.
    *
@@ -750,9 +741,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * List read roles for an archive
-   *
-   * <p>Returns all read roles a given archive is restricted to.
+   * Returns all read roles a given archive is restricted to.
    *
    * @param archiveId The ID of the archive. (required)
    * @return ApiResponse&lt;RolesResponse&gt;
@@ -805,7 +794,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * List read roles for an archive
+   * List read roles for an archive.
    *
    * <p>See {@link #listArchiveReadRolesWithHttpInfo}.
    *
@@ -859,7 +848,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get all archives
+   * Get all archives.
    *
    * <p>See {@link #listLogsArchivesWithHttpInfo}.
    *
@@ -871,7 +860,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get all archives
+   * Get all archives.
    *
    * <p>See {@link #listLogsArchivesWithHttpInfoAsync}.
    *
@@ -886,9 +875,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get all archives
-   *
-   * <p>Get the list of configured logs archives with their definitions.
+   * Get the list of configured logs archives with their definitions.
    *
    * @return ApiResponse&lt;LogsArchives&gt;
    * @throws ApiException if fails to make API call
@@ -929,7 +916,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Get all archives
+   * Get all archives.
    *
    * <p>See {@link #listLogsArchivesWithHttpInfo}.
    *
@@ -970,7 +957,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Revoke role from an archive
+   * Revoke role from an archive.
    *
    * <p>See {@link #removeRoleFromArchiveWithHttpInfo}.
    *
@@ -983,7 +970,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Revoke role from an archive
+   * Revoke role from an archive.
    *
    * <p>See {@link #removeRoleFromArchiveWithHttpInfoAsync}.
    *
@@ -1000,9 +987,8 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Revoke role from an archive
-   *
-   * <p>Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
+   * Removes a role from an archive. (<a href="https://docs.datadoghq.com/api/v2/roles/">Roles
+   * API</a>)
    *
    * @param archiveId The ID of the archive. (required)
    * @param body (required)
@@ -1062,7 +1048,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Revoke role from an archive
+   * Revoke role from an archive.
    *
    * <p>See {@link #removeRoleFromArchiveWithHttpInfo}.
    *
@@ -1127,7 +1113,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Update an archive
+   * Update an archive.
    *
    * <p>See {@link #updateLogsArchiveWithHttpInfo}.
    *
@@ -1142,7 +1128,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Update an archive
+   * Update an archive.
    *
    * <p>See {@link #updateLogsArchiveWithHttpInfoAsync}.
    *
@@ -1160,10 +1146,10 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Update an archive
+   * Update a given archive configuration.
    *
-   * <p>Update a given archive configuration. **Note**: Using this method updates your archive
-   * configuration by **replacing** your current configuration with the new one sent to your Datadog
+   * <p><strong>Note</strong>: Using this method updates your archive configuration by
+   * <strong>replacing</strong> your current configuration with the new one sent to your Datadog
    * organization.
    *
    * @param archiveId The ID of the archive. (required)
@@ -1224,7 +1210,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Update an archive
+   * Update an archive.
    *
    * <p>See {@link #updateLogsArchiveWithHttpInfo}.
    *
@@ -1288,7 +1274,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Update archive order
+   * Update archive order.
    *
    * <p>See {@link #updateLogsArchiveOrderWithHttpInfo}.
    *
@@ -1301,7 +1287,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Update archive order
+   * Update archive order.
    *
    * <p>See {@link #updateLogsArchiveOrderWithHttpInfoAsync}.
    *
@@ -1317,12 +1303,11 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Update archive order
+   * Update the order of your archives. Since logs are processed sequentially, reordering an archive
+   * may change the structure and content of the data processed by other archives.
    *
-   * <p>Update the order of your archives. Since logs are processed sequentially, reordering an
-   * archive may change the structure and content of the data processed by other archives. **Note**:
-   * Using the &#x60;PUT&#x60; method updates your archive&#39;s order by replacing the current
-   * order with the new one.
+   * <p><strong>Note</strong>: Using the <code>PUT</code> method updates your archive's order by
+   * replacing the current order with the new one.
    *
    * @param body An object containing the new ordered list of archive IDs. (required)
    * @return ApiResponse&lt;LogsArchiveOrder&gt;
@@ -1373,7 +1358,7 @@ public class LogsArchivesApi {
   }
 
   /**
-   * Update archive order
+   * Update archive order.
    *
    * <p>See {@link #updateLogsArchiveOrderWithHttpInfo}.
    *

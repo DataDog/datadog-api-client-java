@@ -60,7 +60,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPMetadataWithHttpInfo}.
    *
@@ -71,7 +71,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPMetadataWithHttpInfoAsync}.
    */
@@ -84,7 +84,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPMetadataWithHttpInfo}.
    *
@@ -97,7 +97,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPMetadataWithHttpInfoAsync}.
    *
@@ -113,10 +113,9 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Endpoint for uploading IdP metadata for SAML setup.
    *
-   * <p>Endpoint for uploading IdP metadata for SAML setup. Use this endpoint to upload or replace
-   * IdP metadata for SAML login configuration.
+   * <p>Use this endpoint to upload or replace IdP metadata for SAML login configuration.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Void&gt;
@@ -164,7 +163,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPMetadataWithHttpInfo}.
    *

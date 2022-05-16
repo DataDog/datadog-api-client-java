@@ -77,10 +77,10 @@ public class SnapshotsApi {
     /**
      * Set graphDef
      *
-     * @param graphDef A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead
-     *     of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined
-     *     here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted
-     *     to a single line then URL encoded. (optional)
+     * @param graphDef A JSON document defining the graph. <code>graph_def</code> can be used
+     *     instead of <code>metric_query</code>. The JSON document uses the <a
+     *     href="https://docs.datadoghq.com/graphing/graphing_json/#grammar">grammar defined
+     *     here</a> and should be formatted to a single line then URL encoded. (optional)
      * @return GetGraphSnapshotOptionalParameters
      */
     public GetGraphSnapshotOptionalParameters graphDef(String graphDef) {
@@ -102,7 +102,7 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots
+   * Take graph snapshots.
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
@@ -117,7 +117,7 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots
+   * Take graph snapshots.
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfoAsync}.
    *
@@ -134,7 +134,7 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots
+   * Take graph snapshots.
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
@@ -150,7 +150,7 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots
+   * Take graph snapshots.
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfoAsync}.
    *
@@ -169,10 +169,8 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots
-   *
-   * <p>Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is
-   * available.
+   * Take graph snapshots. <strong>Note</strong>: When a snapshot is created, there is some delay
+   * before it is available.
    *
    * @param start The POSIX timestamp of the start of the query. (required)
    * @param end The POSIX timestamp of the end of the query. (required)
@@ -242,7 +240,7 @@ public class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots
+   * Take graph snapshots.
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *

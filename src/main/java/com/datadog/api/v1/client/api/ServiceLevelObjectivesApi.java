@@ -55,7 +55,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Check if SLOs can be safely deleted
+   * Check if SLOs can be safely deleted.
    *
    * <p>See {@link #checkCanDeleteSLOWithHttpInfo}.
    *
@@ -69,7 +69,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Check if SLOs can be safely deleted
+   * Check if SLOs can be safely deleted.
    *
    * <p>See {@link #checkCanDeleteSLOWithHttpInfoAsync}.
    *
@@ -86,9 +86,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Check if SLOs can be safely deleted
-   *
-   * <p>Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without
+   * Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without
    * disrupting a dashboard.
    *
    * @param ids A comma separated list of the IDs of the service level objectives objects.
@@ -144,7 +142,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Check if SLOs can be safely deleted
+   * Check if SLOs can be safely deleted.
    *
    * <p>See {@link #checkCanDeleteSLOWithHttpInfo}.
    *
@@ -200,7 +198,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Create an SLO object
+   * Create an SLO object.
    *
    * <p>See {@link #createSLOWithHttpInfo}.
    *
@@ -213,7 +211,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Create an SLO object
+   * Create an SLO object.
    *
    * <p>See {@link #createSLOWithHttpInfoAsync}.
    *
@@ -229,9 +227,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Create an SLO object
-   *
-   * <p>Create a service level objective object.
+   * Create a service level objective object.
    *
    * @param body Service level objective request object. (required)
    * @return ApiResponse&lt;SLOListResponse&gt;
@@ -280,7 +276,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Create an SLO object
+   * Create an SLO object.
    *
    * <p>See {@link #createSLOWithHttpInfo}.
    *
@@ -337,8 +333,8 @@ public class ServiceLevelObjectivesApi {
     /**
      * Set force
      *
-     * @param force Delete the monitor even if it&#39;s referenced by other resources (for example
-     *     SLO, composite monitor). (optional)
+     * @param force Delete the monitor even if it's referenced by other resources (for example SLO,
+     *     composite monitor). (optional)
      * @return DeleteSLOOptionalParameters
      */
     public DeleteSLOOptionalParameters force(String force) {
@@ -348,7 +344,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Delete an SLO
+   * Delete an SLO.
    *
    * <p>See {@link #deleteSLOWithHttpInfo}.
    *
@@ -361,7 +357,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Delete an SLO
+   * Delete an SLO.
    *
    * <p>See {@link #deleteSLOWithHttpInfoAsync}.
    *
@@ -377,7 +373,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Delete an SLO
+   * Delete an SLO.
    *
    * <p>See {@link #deleteSLOWithHttpInfo}.
    *
@@ -392,7 +388,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Delete an SLO
+   * Delete an SLO.
    *
    * <p>See {@link #deleteSLOWithHttpInfoAsync}.
    *
@@ -410,11 +406,10 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Delete an SLO
+   * Permanently delete the specified service level objective object.
    *
-   * <p>Permanently delete the specified service level objective object. If an SLO is used in a
-   * dashboard, the &#x60;DELETE /v1/slo/&#x60; endpoint returns a 409 conflict error because the
-   * SLO is referenced in a dashboard.
+   * <p>If an SLO is used in a dashboard, the <code>DELETE /v1/slo/</code> endpoint returns a 409
+   * conflict error because the SLO is referenced in a dashboard.
    *
    * @param sloId The ID of the service level objective. (required)
    * @param parameters Optional parameters for the request.
@@ -471,7 +466,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Delete an SLO
+   * Delete an SLO.
    *
    * <p>See {@link #deleteSLOWithHttpInfo}.
    *
@@ -529,7 +524,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Bulk Delete SLO Timeframes
+   * Bulk Delete SLO Timeframes.
    *
    * <p>See {@link #deleteSLOTimeframeInBulkWithHttpInfo}.
    *
@@ -543,7 +538,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Bulk Delete SLO Timeframes
+   * Bulk Delete SLO Timeframes.
    *
    * <p>See {@link #deleteSLOTimeframeInBulkWithHttpInfoAsync}.
    *
@@ -560,11 +555,11 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Bulk Delete SLO Timeframes
+   * Delete (or partially delete) multiple service level objective objects.
    *
-   * <p>Delete (or partially delete) multiple service level objective objects. This endpoint
-   * facilitates deletion of one or more thresholds for one or more service level objective objects.
-   * If all thresholds are deleted, the service level objective object is deleted as well.
+   * <p>This endpoint facilitates deletion of one or more thresholds for one or more service level
+   * objective objects. If all thresholds are deleted, the service level objective object is deleted
+   * as well.
    *
    * @param body Delete multiple service level objective objects request body. (required)
    * @return ApiResponse&lt;SLOBulkDeleteResponse&gt;
@@ -614,7 +609,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Bulk Delete SLO Timeframes
+   * Bulk Delete SLO Timeframes.
    *
    * <p>See {@link #deleteSLOTimeframeInBulkWithHttpInfo}.
    *
@@ -682,7 +677,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s details
+   * Get an SLO&#39;s details.
    *
    * <p>See {@link #getSLOWithHttpInfo}.
    *
@@ -695,7 +690,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s details
+   * Get an SLO&#39;s details.
    *
    * <p>See {@link #getSLOWithHttpInfoAsync}.
    *
@@ -711,7 +706,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s details
+   * Get an SLO&#39;s details.
    *
    * <p>See {@link #getSLOWithHttpInfo}.
    *
@@ -725,7 +720,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s details
+   * Get an SLO&#39;s details.
    *
    * <p>See {@link #getSLOWithHttpInfoAsync}.
    *
@@ -743,9 +738,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s details
-   *
-   * <p>Get a service level objective object.
+   * Get a service level objective object.
    *
    * @param sloId The ID of the service level objective object. (required)
    * @param parameters Optional parameters for the request.
@@ -802,7 +795,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s details
+   * Get an SLO&#39;s details.
    *
    * <p>See {@link #getSLOWithHttpInfo}.
    *
@@ -861,7 +854,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get Corrections For an SLO
+   * Get Corrections For an SLO.
    *
    * <p>See {@link #getSLOCorrectionsWithHttpInfo}.
    *
@@ -874,7 +867,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get Corrections For an SLO
+   * Get Corrections For an SLO.
    *
    * <p>See {@link #getSLOCorrectionsWithHttpInfoAsync}.
    *
@@ -890,9 +883,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get Corrections For an SLO
-   *
-   * <p>Get corrections applied to an SLO
+   * Get corrections applied to an SLO
    *
    * @param sloId The ID of the service level objective object. (required)
    * @return ApiResponse&lt;SLOCorrectionListResponse&gt;
@@ -945,7 +936,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get Corrections For an SLO
+   * Get Corrections For an SLO.
    *
    * <p>See {@link #getSLOCorrectionsWithHttpInfo}.
    *
@@ -1006,8 +997,8 @@ public class ServiceLevelObjectivesApi {
     /**
      * Set target
      *
-     * @param target The SLO target. If &#x60;target&#x60; is passed in, the response will include
-     *     the remaining error budget and a timeframe value of &#x60;custom&#x60;. (optional)
+     * @param target The SLO target. If <code>target</code> is passed in, the response will include
+     *     the remaining error budget and a timeframe value of <code>custom</code>. (optional)
      * @return GetSLOHistoryOptionalParameters
      */
     public GetSLOHistoryOptionalParameters target(Double target) {
@@ -1018,8 +1009,8 @@ public class ServiceLevelObjectivesApi {
     /**
      * Set applyCorrection
      *
-     * @param applyCorrection Defaults to &#x60;true&#x60;. If any SLO corrections are applied and
-     *     this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and
+     * @param applyCorrection Defaults to <code>true</code>. If any SLO corrections are applied and
+     *     this parameter is set to <code>false</code>, then the corrections will not be applied and
      *     the SLI values will not be affected. (optional)
      * @return GetSLOHistoryOptionalParameters
      */
@@ -1030,13 +1021,13 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s history
+   * Get an SLO&#39;s history.
    *
    * <p>See {@link #getSLOHistoryWithHttpInfo}.
    *
    * @param sloId The ID of the service level objective object. (required)
-   * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds. (required)
-   * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds. (required)
+   * @param fromTs The <code>from</code> timestamp for the query window in epoch seconds. (required)
+   * @param toTs The <code>to</code> timestamp for the query window in epoch seconds. (required)
    * @return SLOHistoryResponse
    * @throws ApiException if fails to make API call
    */
@@ -1047,13 +1038,13 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s history
+   * Get an SLO&#39;s history.
    *
    * <p>See {@link #getSLOHistoryWithHttpInfoAsync}.
    *
    * @param sloId The ID of the service level objective object. (required)
-   * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds. (required)
-   * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds. (required)
+   * @param fromTs The <code>from</code> timestamp for the query window in epoch seconds. (required)
+   * @param toTs The <code>to</code> timestamp for the query window in epoch seconds. (required)
    * @return CompletableFuture&lt;SLOHistoryResponse&gt;
    */
   public CompletableFuture<SLOHistoryResponse> getSLOHistoryAsync(
@@ -1067,13 +1058,13 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s history
+   * Get an SLO&#39;s history.
    *
    * <p>See {@link #getSLOHistoryWithHttpInfo}.
    *
    * @param sloId The ID of the service level objective object. (required)
-   * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds. (required)
-   * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds. (required)
+   * @param fromTs The <code>from</code> timestamp for the query window in epoch seconds. (required)
+   * @param toTs The <code>to</code> timestamp for the query window in epoch seconds. (required)
    * @param parameters Optional parameters for the request.
    * @return SLOHistoryResponse
    * @throws ApiException if fails to make API call
@@ -1085,13 +1076,13 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s history
+   * Get an SLO&#39;s history.
    *
    * <p>See {@link #getSLOHistoryWithHttpInfoAsync}.
    *
    * @param sloId The ID of the service level objective object. (required)
-   * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds. (required)
-   * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds. (required)
+   * @param fromTs The <code>from</code> timestamp for the query window in epoch seconds. (required)
+   * @param toTs The <code>to</code> timestamp for the query window in epoch seconds. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;SLOHistoryResponse&gt;
    */
@@ -1105,17 +1096,18 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s history
+   * Get a specific SLO’s history, regardless of its SLO type.
    *
-   * <p>Get a specific SLO’s history, regardless of its SLO type. The detailed history data is
-   * structured according to the source data type. For example, metric data is included for event
-   * SLOs that use the metric source, and monitor SLO types include the monitor transition history.
-   * **Note:** There are different response formats for event based and time based SLOs. Examples of
-   * both are shown.
+   * <p>The detailed history data is structured according to the source data type. For example,
+   * metric data is included for event SLOs that use the metric source, and monitor SLO types
+   * include the monitor transition history.
+   *
+   * <p><strong>Note:</strong> There are different response formats for event based and time based
+   * SLOs. Examples of both are shown.
    *
    * @param sloId The ID of the service level objective object. (required)
-   * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds. (required)
-   * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds. (required)
+   * @param fromTs The <code>from</code> timestamp for the query window in epoch seconds. (required)
+   * @param toTs The <code>to</code> timestamp for the query window in epoch seconds. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SLOHistoryResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1188,13 +1180,13 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get an SLO&#39;s history
+   * Get an SLO&#39;s history.
    *
    * <p>See {@link #getSLOHistoryWithHttpInfo}.
    *
    * @param sloId The ID of the service level objective object. (required)
-   * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds. (required)
-   * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds. (required)
+   * @param fromTs The <code>from</code> timestamp for the query window in epoch seconds. (required)
+   * @param toTs The <code>to</code> timestamp for the query window in epoch seconds. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;SLOHistoryResponse&gt;&gt;
    */
@@ -1350,7 +1342,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get all SLOs
+   * Get all SLOs.
    *
    * <p>See {@link #listSLOsWithHttpInfo}.
    *
@@ -1362,7 +1354,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get all SLOs
+   * Get all SLOs.
    *
    * <p>See {@link #listSLOsWithHttpInfoAsync}.
    *
@@ -1377,7 +1369,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get all SLOs
+   * Get all SLOs.
    *
    * <p>See {@link #listSLOsWithHttpInfo}.
    *
@@ -1390,7 +1382,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get all SLOs
+   * Get all SLOs.
    *
    * <p>See {@link #listSLOsWithHttpInfoAsync}.
    *
@@ -1406,9 +1398,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get all SLOs
-   *
-   * <p>Get a list of service level objective objects for your organization.
+   * Get a list of service level objective objects for your organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SLOListResponse&gt;
@@ -1467,7 +1457,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get all SLOs
+   * Get all SLOs.
    *
    * <p>See {@link #listSLOsWithHttpInfo}.
    *
@@ -1524,7 +1514,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Update an SLO
+   * Update an SLO.
    *
    * <p>See {@link #updateSLOWithHttpInfo}.
    *
@@ -1538,7 +1528,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Update an SLO
+   * Update an SLO.
    *
    * <p>See {@link #updateSLOWithHttpInfoAsync}.
    *
@@ -1556,9 +1546,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Update an SLO
-   *
-   * <p>Update the specified service level objective object.
+   * Update the specified service level objective object.
    *
    * @param sloId The ID of the service level objective object. (required)
    * @param body The edited service level objective request object. (required)
@@ -1616,7 +1604,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Update an SLO
+   * Update an SLO.
    *
    * <p>See {@link #updateSLOWithHttpInfo}.
    *

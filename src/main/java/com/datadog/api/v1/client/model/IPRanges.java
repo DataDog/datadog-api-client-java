@@ -153,7 +153,7 @@ public class IPRanges {
   }
 
   /**
-   * Date when last updated, in the form &#x60;YYYY-MM-DD-hh-mm-ss&#x60;.
+   * Date when last updated, in the form <code>YYYY-MM-DD-hh-mm-ss</code>.
    *
    * @return modified
    */

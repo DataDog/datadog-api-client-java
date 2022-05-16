@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** The attributes of a notebook &#x60;markdown&#x60; cell. */
+/** The attributes of a notebook <code>markdown</code> cell. */
 @JsonPropertyOrder({NotebookMarkdownCellAttributes.JSON_PROPERTY_DEFINITION})
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,8 +43,9 @@ public class NotebookMarkdownCellAttributes {
   }
 
   /**
-   * Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/),
-   * which enables the use of headings, subheadings, links, images, lists, and code blocks.
+   * Text in a notebook is formatted with <a
+   * href="https://daringfireball.net/projects/markdown/">Markdown</a>, which enables the use of
+   * headings, subheadings, links, images, lists, and code blocks.
    *
    * @return definition
    */

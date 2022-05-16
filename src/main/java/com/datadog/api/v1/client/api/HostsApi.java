@@ -66,7 +66,7 @@ public class HostsApi {
   }
 
   /**
-   * Get the total number of active hosts
+   * Get the total number of active hosts.
    *
    * <p>See {@link #getHostTotalsWithHttpInfo}.
    *
@@ -78,7 +78,7 @@ public class HostsApi {
   }
 
   /**
-   * Get the total number of active hosts
+   * Get the total number of active hosts.
    *
    * <p>See {@link #getHostTotalsWithHttpInfoAsync}.
    *
@@ -93,7 +93,7 @@ public class HostsApi {
   }
 
   /**
-   * Get the total number of active hosts
+   * Get the total number of active hosts.
    *
    * <p>See {@link #getHostTotalsWithHttpInfo}.
    *
@@ -106,7 +106,7 @@ public class HostsApi {
   }
 
   /**
-   * Get the total number of active hosts
+   * Get the total number of active hosts.
    *
    * <p>See {@link #getHostTotalsWithHttpInfoAsync}.
    *
@@ -123,11 +123,9 @@ public class HostsApi {
   }
 
   /**
-   * Get the total number of active hosts
-   *
-   * <p>This endpoint returns the total number of active and up hosts in your Datadog account.
-   * Active means the host has reported in the past hour, and up means it has reported in the past
-   * two hours.
+   * This endpoint returns the total number of active and up hosts in your Datadog account. Active
+   * means the host has reported in the past hour, and up means it has reported in the past two
+   * hours.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HostTotals&gt;
@@ -175,7 +173,7 @@ public class HostsApi {
   }
 
   /**
-   * Get the total number of active hosts
+   * Get the total number of active hosts.
    *
    * <p>See {@link #getHostTotalsWithHttpInfo}.
    *
@@ -257,7 +255,7 @@ public class HostsApi {
     /**
      * Set sortDir
      *
-     * @param sortDir Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;.
+     * @param sortDir Direction of sort. Options include <code>asc</code> and <code>desc</code>.
      *     (optional)
      * @return ListHostsOptionalParameters
      */
@@ -326,7 +324,7 @@ public class HostsApi {
   }
 
   /**
-   * Get all hosts for your organization
+   * Get all hosts for your organization.
    *
    * <p>See {@link #listHostsWithHttpInfo}.
    *
@@ -338,7 +336,7 @@ public class HostsApi {
   }
 
   /**
-   * Get all hosts for your organization
+   * Get all hosts for your organization.
    *
    * <p>See {@link #listHostsWithHttpInfoAsync}.
    *
@@ -353,7 +351,7 @@ public class HostsApi {
   }
 
   /**
-   * Get all hosts for your organization
+   * Get all hosts for your organization.
    *
    * <p>See {@link #listHostsWithHttpInfo}.
    *
@@ -366,7 +364,7 @@ public class HostsApi {
   }
 
   /**
-   * Get all hosts for your organization
+   * Get all hosts for your organization.
    *
    * <p>See {@link #listHostsWithHttpInfoAsync}.
    *
@@ -383,10 +381,8 @@ public class HostsApi {
   }
 
   /**
-   * Get all hosts for your organization
-   *
-   * <p>This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past
-   * 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000
+   * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3
+   * hours are included by default. Retention is 7 days. Results are paginated with a max of 1000
    * results at a time.
    *
    * @param parameters Optional parameters for the request.
@@ -451,7 +447,7 @@ public class HostsApi {
   }
 
   /**
-   * Get all hosts for your organization
+   * Get all hosts for your organization.
    *
    * <p>See {@link #listHostsWithHttpInfo}.
    *
@@ -514,7 +510,7 @@ public class HostsApi {
   }
 
   /**
-   * Mute a host
+   * Mute a host.
    *
    * <p>See {@link #muteHostWithHttpInfo}.
    *
@@ -528,7 +524,7 @@ public class HostsApi {
   }
 
   /**
-   * Mute a host
+   * Mute a host.
    *
    * <p>See {@link #muteHostWithHttpInfoAsync}.
    *
@@ -545,9 +541,7 @@ public class HostsApi {
   }
 
   /**
-   * Mute a host
-   *
-   * <p>Mute a host.
+   * Mute a host.
    *
    * @param hostName Name of the host to mute. (required)
    * @param body Mute a host request body. (required)
@@ -605,7 +599,7 @@ public class HostsApi {
   }
 
   /**
-   * Mute a host
+   * Mute a host.
    *
    * <p>See {@link #muteHostWithHttpInfo}.
    *
@@ -667,7 +661,7 @@ public class HostsApi {
   }
 
   /**
-   * Unmute a host
+   * Unmute a host.
    *
    * <p>See {@link #unmuteHostWithHttpInfo}.
    *
@@ -680,7 +674,7 @@ public class HostsApi {
   }
 
   /**
-   * Unmute a host
+   * Unmute a host.
    *
    * <p>See {@link #unmuteHostWithHttpInfoAsync}.
    *
@@ -696,9 +690,7 @@ public class HostsApi {
   }
 
   /**
-   * Unmute a host
-   *
-   * <p>Unmutes a host. This endpoint takes no JSON arguments.
+   * Unmutes a host. This endpoint takes no JSON arguments.
    *
    * @param hostName Name of the host to unmute. (required)
    * @return ApiResponse&lt;HostMuteResponse&gt;
@@ -749,7 +741,7 @@ public class HostsApi {
   }
 
   /**
-   * Unmute a host
+   * Unmute a host.
    *
    * <p>See {@link #unmuteHostWithHttpInfo}.
    *

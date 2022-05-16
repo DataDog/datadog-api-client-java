@@ -48,7 +48,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO correction
+   * Create an SLO correction.
    *
    * <p>See {@link #createSLOCorrectionWithHttpInfo}.
    *
@@ -62,7 +62,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO correction
+   * Create an SLO correction.
    *
    * <p>See {@link #createSLOCorrectionWithHttpInfoAsync}.
    *
@@ -79,9 +79,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO correction
-   *
-   * <p>Create an SLO Correction.
+   * Create an SLO Correction.
    *
    * @param body Create an SLO Correction (required)
    * @return ApiResponse&lt;SLOCorrectionResponse&gt;
@@ -132,7 +130,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO correction
+   * Create an SLO correction.
    *
    * <p>See {@link #createSLOCorrectionWithHttpInfo}.
    *
@@ -184,7 +182,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Delete an SLO correction
+   * Delete an SLO correction.
    *
    * <p>See {@link #deleteSLOCorrectionWithHttpInfo}.
    *
@@ -196,7 +194,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Delete an SLO correction
+   * Delete an SLO correction.
    *
    * <p>See {@link #deleteSLOCorrectionWithHttpInfoAsync}.
    *
@@ -211,9 +209,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Delete an SLO correction
-   *
-   * <p>Permanently delete the specified SLO correction object.
+   * Permanently delete the specified SLO correction object.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -267,7 +263,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Delete an SLO correction
+   * Delete an SLO correction.
    *
    * <p>See {@link #deleteSLOCorrectionWithHttpInfo}.
    *
@@ -324,7 +320,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction for an SLO
+   * Get an SLO correction for an SLO.
    *
    * <p>See {@link #getSLOCorrectionWithHttpInfo}.
    *
@@ -337,7 +333,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction for an SLO
+   * Get an SLO correction for an SLO.
    *
    * <p>See {@link #getSLOCorrectionWithHttpInfoAsync}.
    *
@@ -353,9 +349,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction for an SLO
-   *
-   * <p>Get an SLO correction.
+   * Get an SLO correction.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @return ApiResponse&lt;SLOCorrectionResponse&gt;
@@ -409,7 +403,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction for an SLO
+   * Get an SLO correction for an SLO.
    *
    * <p>See {@link #getSLOCorrectionWithHttpInfo}.
    *
@@ -466,7 +460,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all SLO corrections
+   * Get all SLO corrections.
    *
    * <p>See {@link #listSLOCorrectionWithHttpInfo}.
    *
@@ -478,7 +472,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all SLO corrections
+   * Get all SLO corrections.
    *
    * <p>See {@link #listSLOCorrectionWithHttpInfoAsync}.
    *
@@ -493,9 +487,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all SLO corrections
-   *
-   * <p>Get all Service Level Objective corrections.
+   * Get all Service Level Objective corrections.
    *
    * @return ApiResponse&lt;SLOCorrectionListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -537,7 +529,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all SLO corrections
+   * Get all SLO corrections.
    *
    * <p>See {@link #listSLOCorrectionWithHttpInfo}.
    *
@@ -579,7 +571,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update an SLO correction
+   * Update an SLO correction.
    *
    * <p>See {@link #updateSLOCorrectionWithHttpInfo}.
    *
@@ -594,7 +586,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update an SLO correction
+   * Update an SLO correction.
    *
    * <p>See {@link #updateSLOCorrectionWithHttpInfoAsync}.
    *
@@ -612,9 +604,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update an SLO correction
-   *
-   * <p>Update the specified SLO correction object.
+   * Update the specified SLO correction object.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @param body The edited SLO correction object. (required)
@@ -676,7 +666,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update an SLO correction
+   * Update an SLO correction.
    *
    * <p>See {@link #updateSLOCorrectionWithHttpInfo}.
    *

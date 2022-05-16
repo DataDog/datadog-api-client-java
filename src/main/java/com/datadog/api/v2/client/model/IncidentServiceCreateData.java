@@ -52,7 +52,7 @@ public class IncidentServiceCreateData {
   }
 
   /**
-   * The incident service&#39;s attributes for a create request.
+   * The incident service's attributes for a create request.
    *
    * @return attributes
    */
@@ -68,7 +68,7 @@ public class IncidentServiceCreateData {
   }
 
   /**
-   * The incident service&#39;s relationships.
+   * The incident service's relationships.
    *
    * @return relationships
    */

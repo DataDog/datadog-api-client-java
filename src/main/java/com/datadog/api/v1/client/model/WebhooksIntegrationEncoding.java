@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Encoding type. Can be given either &#x60;json&#x60; or &#x60;form&#x60;. */
+/** Encoding type. Can be given either <code>json</code> or <code>form</code>. */
 @JsonSerialize(using = WebhooksIntegrationEncoding.WebhooksIntegrationEncodingSerializer.class)
 public class WebhooksIntegrationEncoding {
 

@@ -82,9 +82,9 @@ public class LogsIndexUpdateRequest {
   }
 
   /**
-   * If true, sets the &#x60;daily_limit&#x60; value to null and the index is not limited on a daily
-   * basis (any specified &#x60;daily_limit&#x60; value in the request is ignored). If false or
-   * omitted, the index&#39;s current &#x60;daily_limit&#x60; is maintained.
+   * If true, sets the <code>daily_limit</code> value to null and the index is not limited on a
+   * daily basis (any specified <code>daily_limit</code> value in the request is ignored). If false
+   * or omitted, the index's current <code>daily_limit</code> is maintained.
    *
    * @return disableDailyLimit
    */
@@ -162,9 +162,10 @@ public class LogsIndexUpdateRequest {
 
   /**
    * The number of days before logs are deleted from this index. Available values depend on
-   * retention plans specified in your organization&#39;s contract/subscriptions. **Note:** Changing
-   * the retention for an index adjusts the length of retention for all logs already in this index.
-   * It may also affect billing.
+   * retention plans specified in your organization's contract/subscriptions.
+   *
+   * <p><strong>Note:</strong> Changing the retention for an index adjusts the length of retention
+   * for all logs already in this index. It may also affect billing.
    *
    * @return numRetentionDays
    */

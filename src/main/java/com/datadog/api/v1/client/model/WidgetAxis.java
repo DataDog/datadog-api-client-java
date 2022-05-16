@@ -134,8 +134,8 @@ public class WidgetAxis {
   }
 
   /**
-   * Specifies the scale type. Possible values are &#x60;linear&#x60;, &#x60;log&#x60;,
-   * &#x60;sqrt&#x60;, &#x60;pow##&#x60; (for example &#x60;pow2&#x60;, &#x60;pow0.5&#x60; etc.).
+   * Specifies the scale type. Possible values are <code>linear</code>, <code>log</code>, <code>sqrt
+   * </code>, <code>pow##</code> (for example <code>pow2</code>, <code>pow0.5</code> etc.).
    *
    * @return scale
    */

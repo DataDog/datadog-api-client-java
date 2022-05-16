@@ -24,9 +24,9 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * If an alert event is enabled, set its type. For example, &#x60;error&#x60;, &#x60;warning&#x60;,
- * &#x60;info&#x60;, &#x60;success&#x60;, &#x60;user_update&#x60;, &#x60;recommendation&#x60;, and
- * &#x60;snapshot&#x60;.
+ * If an alert event is enabled, set its type. For example, <code>error</code>, <code>warning</code>
+ * , <code>info</code>, <code>success</code>, <code>user_update</code>, <code>recommendation</code>,
+ * and <code>snapshot</code>.
  */
 @JsonSerialize(using = EventAlertType.EventAlertTypeSerializer.class)
 public class EventAlertType {

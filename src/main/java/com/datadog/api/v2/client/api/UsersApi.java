@@ -55,7 +55,7 @@ public class UsersApi {
   }
 
   /**
-   * Create a service account
+   * Create a service account.
    *
    * <p>See {@link #createServiceAccountWithHttpInfo}.
    *
@@ -68,7 +68,7 @@ public class UsersApi {
   }
 
   /**
-   * Create a service account
+   * Create a service account.
    *
    * <p>See {@link #createServiceAccountWithHttpInfoAsync}.
    *
@@ -85,9 +85,7 @@ public class UsersApi {
   }
 
   /**
-   * Create a service account
-   *
-   * <p>Create a service account for your organization.
+   * Create a service account for your organization.
    *
    * @param body (required)
    * @return ApiResponse&lt;UserResponse&gt;
@@ -137,7 +135,7 @@ public class UsersApi {
   }
 
   /**
-   * Create a service account
+   * Create a service account.
    *
    * <p>See {@link #createServiceAccountWithHttpInfo}.
    *
@@ -189,7 +187,7 @@ public class UsersApi {
   }
 
   /**
-   * Create a user
+   * Create a user.
    *
    * <p>See {@link #createUserWithHttpInfo}.
    *
@@ -202,7 +200,7 @@ public class UsersApi {
   }
 
   /**
-   * Create a user
+   * Create a user.
    *
    * <p>See {@link #createUserWithHttpInfoAsync}.
    *
@@ -218,9 +216,7 @@ public class UsersApi {
   }
 
   /**
-   * Create a user
-   *
-   * <p>Create a user for your organization.
+   * Create a user for your organization.
    *
    * @param body (required)
    * @return ApiResponse&lt;UserResponse&gt;
@@ -269,7 +265,7 @@ public class UsersApi {
   }
 
   /**
-   * Create a user
+   * Create a user.
    *
    * <p>See {@link #createUserWithHttpInfo}.
    *
@@ -320,7 +316,7 @@ public class UsersApi {
   }
 
   /**
-   * Disable a user
+   * Disable a user.
    *
    * <p>See {@link #disableUserWithHttpInfo}.
    *
@@ -332,7 +328,7 @@ public class UsersApi {
   }
 
   /**
-   * Disable a user
+   * Disable a user.
    *
    * <p>See {@link #disableUserWithHttpInfoAsync}.
    *
@@ -347,9 +343,7 @@ public class UsersApi {
   }
 
   /**
-   * Disable a user
-   *
-   * <p>Disable a user. Can only be used with an application key belonging to an administrator user.
+   * Disable a user. Can only be used with an application key belonging to an administrator user.
    *
    * @param userId The ID of the user. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -400,7 +394,7 @@ public class UsersApi {
   }
 
   /**
-   * Disable a user
+   * Disable a user.
    *
    * <p>See {@link #disableUserWithHttpInfo}.
    *
@@ -453,7 +447,7 @@ public class UsersApi {
   }
 
   /**
-   * Get a user invitation
+   * Get a user invitation.
    *
    * <p>See {@link #getInvitationWithHttpInfo}.
    *
@@ -466,7 +460,7 @@ public class UsersApi {
   }
 
   /**
-   * Get a user invitation
+   * Get a user invitation.
    *
    * <p>See {@link #getInvitationWithHttpInfoAsync}.
    *
@@ -482,9 +476,7 @@ public class UsersApi {
   }
 
   /**
-   * Get a user invitation
-   *
-   * <p>Returns a single user invitation by its UUID.
+   * Returns a single user invitation by its UUID.
    *
    * @param userInvitationUuid The UUID of the user invitation. (required)
    * @return ApiResponse&lt;UserInvitationResponse&gt;
@@ -538,7 +530,7 @@ public class UsersApi {
   }
 
   /**
-   * Get a user invitation
+   * Get a user invitation.
    *
    * <p>See {@link #getInvitationWithHttpInfo}.
    *
@@ -595,7 +587,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user details
+   * Get user details.
    *
    * <p>See {@link #getUserWithHttpInfo}.
    *
@@ -608,7 +600,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user details
+   * Get user details.
    *
    * <p>See {@link #getUserWithHttpInfoAsync}.
    *
@@ -624,9 +616,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user details
-   *
-   * <p>Get a user in the organization specified by the user’s &#x60;user_id&#x60;.
+   * Get a user in the organization specified by the user’s <code>user_id</code>.
    *
    * @param userId The ID of the user. (required)
    * @return ApiResponse&lt;UserResponse&gt;
@@ -676,7 +666,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user details
+   * Get user details.
    *
    * <p>See {@link #getUserWithHttpInfo}.
    *
@@ -728,7 +718,7 @@ public class UsersApi {
   }
 
   /**
-   * Get a user organization
+   * Get a user organization.
    *
    * <p>See {@link #listUserOrganizationsWithHttpInfo}.
    *
@@ -741,7 +731,7 @@ public class UsersApi {
   }
 
   /**
-   * Get a user organization
+   * Get a user organization.
    *
    * <p>See {@link #listUserOrganizationsWithHttpInfoAsync}.
    *
@@ -757,9 +747,7 @@ public class UsersApi {
   }
 
   /**
-   * Get a user organization
-   *
-   * <p>Get a user organization. Returns the user information and all organizations joined by this
+   * Get a user organization. Returns the user information and all organizations joined by this
    * user.
    *
    * @param userId The ID of the user. (required)
@@ -812,7 +800,7 @@ public class UsersApi {
   }
 
   /**
-   * Get a user organization
+   * Get a user organization.
    *
    * <p>See {@link #listUserOrganizationsWithHttpInfo}.
    *
@@ -866,7 +854,7 @@ public class UsersApi {
   }
 
   /**
-   * Get a user permissions
+   * Get a user permissions.
    *
    * <p>See {@link #listUserPermissionsWithHttpInfo}.
    *
@@ -879,7 +867,7 @@ public class UsersApi {
   }
 
   /**
-   * Get a user permissions
+   * Get a user permissions.
    *
    * <p>See {@link #listUserPermissionsWithHttpInfoAsync}.
    *
@@ -895,10 +883,8 @@ public class UsersApi {
   }
 
   /**
-   * Get a user permissions
-   *
-   * <p>Get a user permission set. Returns a list of the user’s permissions granted by the
-   * associated user&#39;s roles.
+   * Get a user permission set. Returns a list of the user’s permissions granted by the associated
+   * user's roles.
    *
    * @param userId The ID of the user. (required)
    * @return ApiResponse&lt;PermissionsResponse&gt;
@@ -950,7 +936,7 @@ public class UsersApi {
   }
 
   /**
-   * Get a user permissions
+   * Get a user permissions.
    *
    * <p>See {@link #listUserPermissionsWithHttpInfo}.
    *
@@ -1038,9 +1024,9 @@ public class UsersApi {
      * Set sort
      *
      * @param sort User attribute to order results by. Sort order is ascending by default. Sort
-     *     order is descending if the field is prefixed by a negative sign, for example
-     *     &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;,
-     *     &#x60;user_count&#x60;. (optional, default to "name")
+     *     order is descending if the field is prefixed by a negative sign, for example <code>
+     *     sort=-name</code>. Options: <code>name</code>, <code>modified_at</code>, <code>user_count
+     *     </code>. (optional, default to "name")
      * @return ListUsersOptionalParameters
      */
     public ListUsersOptionalParameters sort(String sort) {
@@ -1051,7 +1037,7 @@ public class UsersApi {
     /**
      * Set sortDir
      *
-     * @param sortDir Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional,
+     * @param sortDir Direction of sort. Options: <code>asc</code>, <code>desc</code>. (optional,
      *     default to "desc")
      * @return ListUsersOptionalParameters
      */
@@ -1075,7 +1061,7 @@ public class UsersApi {
      * Set filterStatus
      *
      * @param filterStatus Filter on status attribute. Comma separated list, with possible values
-     *     &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no
+     *     <code>Active</code>, <code>Pending</code>, and <code>Disabled</code>. Defaults to no
      *     filtering. (optional)
      * @return ListUsersOptionalParameters
      */
@@ -1086,7 +1072,7 @@ public class UsersApi {
   }
 
   /**
-   * List all users
+   * List all users.
    *
    * <p>See {@link #listUsersWithHttpInfo}.
    *
@@ -1098,7 +1084,7 @@ public class UsersApi {
   }
 
   /**
-   * List all users
+   * List all users.
    *
    * <p>See {@link #listUsersWithHttpInfoAsync}.
    *
@@ -1113,7 +1099,7 @@ public class UsersApi {
   }
 
   /**
-   * List all users
+   * List all users.
    *
    * <p>See {@link #listUsersWithHttpInfo}.
    *
@@ -1126,7 +1112,7 @@ public class UsersApi {
   }
 
   /**
-   * List all users
+   * List all users.
    *
    * <p>See {@link #listUsersWithHttpInfoAsync}.
    *
@@ -1142,9 +1128,7 @@ public class UsersApi {
   }
 
   /**
-   * List all users
-   *
-   * <p>Get the list of all users in the organization. This list includes all users even if they are
+   * Get the list of all users in the organization. This list includes all users even if they are
    * deactivated or unverified.
    *
    * @param parameters Optional parameters for the request.
@@ -1203,7 +1187,7 @@ public class UsersApi {
   }
 
   /**
-   * List all users
+   * List all users.
    *
    * <p>See {@link #listUsersWithHttpInfo}.
    *
@@ -1260,7 +1244,7 @@ public class UsersApi {
   }
 
   /**
-   * Send invitation emails
+   * Send invitation emails.
    *
    * <p>See {@link #sendInvitationsWithHttpInfo}.
    *
@@ -1273,7 +1257,7 @@ public class UsersApi {
   }
 
   /**
-   * Send invitation emails
+   * Send invitation emails.
    *
    * <p>See {@link #sendInvitationsWithHttpInfoAsync}.
    *
@@ -1290,9 +1274,7 @@ public class UsersApi {
   }
 
   /**
-   * Send invitation emails
-   *
-   * <p>Sends emails to one or more users inviting them to join the organization.
+   * Sends emails to one or more users inviting them to join the organization.
    *
    * @param body (required)
    * @return ApiResponse&lt;UserInvitationsResponse&gt;
@@ -1342,7 +1324,7 @@ public class UsersApi {
   }
 
   /**
-   * Send invitation emails
+   * Send invitation emails.
    *
    * <p>See {@link #sendInvitationsWithHttpInfo}.
    *
@@ -1394,7 +1376,7 @@ public class UsersApi {
   }
 
   /**
-   * Update a user
+   * Update a user.
    *
    * <p>See {@link #updateUserWithHttpInfo}.
    *
@@ -1408,7 +1390,7 @@ public class UsersApi {
   }
 
   /**
-   * Update a user
+   * Update a user.
    *
    * <p>See {@link #updateUserWithHttpInfoAsync}.
    *
@@ -1425,9 +1407,7 @@ public class UsersApi {
   }
 
   /**
-   * Update a user
-   *
-   * <p>Edit a user. Can only be used with an application key belonging to an administrator user.
+   * Edit a user. Can only be used with an application key belonging to an administrator user.
    *
    * @param userId The ID of the user. (required)
    * @param body (required)
@@ -1487,7 +1467,7 @@ public class UsersApi {
   }
 
   /**
-   * Update a user
+   * Update a user.
    *
    * <p>See {@link #updateUserWithHttpInfo}.
    *

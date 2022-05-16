@@ -50,7 +50,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key
+   * Create an API key.
    *
    * <p>See {@link #createAPIKeyWithHttpInfo}.
    *
@@ -63,7 +63,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key
+   * Create an API key.
    *
    * <p>See {@link #createAPIKeyWithHttpInfoAsync}.
    *
@@ -79,9 +79,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key
-   *
-   * <p>Creates an API key with a given name.
+   * Creates an API key with a given name.
    *
    * @param body (required)
    * @return ApiResponse&lt;ApiKeyResponse&gt;
@@ -130,7 +128,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key
+   * Create an API key.
    *
    * <p>See {@link #createAPIKeyWithHttpInfo}.
    *
@@ -180,7 +178,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key
+   * Create an application key.
    *
    * <p>See {@link #createApplicationKeyWithHttpInfo}.
    *
@@ -193,7 +191,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key
+   * Create an application key.
    *
    * <p>See {@link #createApplicationKeyWithHttpInfoAsync}.
    *
@@ -209,9 +207,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key
-   *
-   * <p>Create an application key with a given name.
+   * Create an application key with a given name.
    *
    * @param body (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
@@ -262,7 +258,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key
+   * Create an application key.
    *
    * <p>See {@link #createApplicationKeyWithHttpInfo}.
    *
@@ -314,7 +310,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an API key
+   * Delete an API key.
    *
    * <p>See {@link #deleteAPIKeyWithHttpInfo}.
    *
@@ -327,7 +323,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an API key
+   * Delete an API key.
    *
    * <p>See {@link #deleteAPIKeyWithHttpInfoAsync}.
    *
@@ -343,9 +339,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an API key
-   *
-   * <p>Delete a given API key.
+   * Delete a given API key.
    *
    * @param key The specific API key you are working with. (required)
    * @return ApiResponse&lt;ApiKeyResponse&gt;
@@ -396,7 +390,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an API key
+   * Delete an API key.
    *
    * <p>See {@link #deleteAPIKeyWithHttpInfo}.
    *
@@ -448,7 +442,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key
+   * Delete an application key.
    *
    * <p>See {@link #deleteApplicationKeyWithHttpInfo}.
    *
@@ -461,7 +455,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key
+   * Delete an application key.
    *
    * <p>See {@link #deleteApplicationKeyWithHttpInfoAsync}.
    *
@@ -477,9 +471,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key
-   *
-   * <p>Delete a given application key.
+   * Delete a given application key.
    *
    * @param key The specific APP key you are working with. (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
@@ -531,7 +523,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key
+   * Delete an application key.
    *
    * <p>See {@link #deleteApplicationKeyWithHttpInfo}.
    *
@@ -585,7 +577,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key
+   * Get API key.
    *
    * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
@@ -598,7 +590,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key
+   * Get API key.
    *
    * <p>See {@link #getAPIKeyWithHttpInfoAsync}.
    *
@@ -614,9 +606,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key
-   *
-   * <p>Get a given API key.
+   * Get a given API key.
    *
    * @param key The specific API key you are working with. (required)
    * @return ApiResponse&lt;ApiKeyResponse&gt;
@@ -666,7 +656,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key
+   * Get API key.
    *
    * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
@@ -718,7 +708,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key
+   * Get an application key.
    *
    * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
@@ -731,7 +721,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key
+   * Get an application key.
    *
    * <p>See {@link #getApplicationKeyWithHttpInfoAsync}.
    *
@@ -747,9 +737,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key
-   *
-   * <p>Get a given application key.
+   * Get a given application key.
    *
    * @param key The specific APP key you are working with. (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
@@ -801,7 +789,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key
+   * Get an application key.
    *
    * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
@@ -855,7 +843,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys
+   * Get all API keys.
    *
    * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
@@ -867,7 +855,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys
+   * Get all API keys.
    *
    * <p>See {@link #listAPIKeysWithHttpInfoAsync}.
    *
@@ -882,9 +870,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys
-   *
-   * <p>Get all API keys available for your account.
+   * Get all API keys available for your account.
    *
    * @return ApiResponse&lt;ApiKeyListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -925,7 +911,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys
+   * Get all API keys.
    *
    * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
@@ -966,7 +952,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys
+   * Get all application keys.
    *
    * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
@@ -978,7 +964,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys
+   * Get all application keys.
    *
    * <p>See {@link #listApplicationKeysWithHttpInfoAsync}.
    *
@@ -993,9 +979,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys
-   *
-   * <p>Get all application keys available for your Datadog account.
+   * Get all application keys available for your Datadog account.
    *
    * @return ApiResponse&lt;ApplicationKeyListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1037,7 +1021,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys
+   * Get all application keys.
    *
    * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
@@ -1079,7 +1063,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key
+   * Edit an API key.
    *
    * <p>See {@link #updateAPIKeyWithHttpInfo}.
    *
@@ -1093,7 +1077,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key
+   * Edit an API key.
    *
    * <p>See {@link #updateAPIKeyWithHttpInfoAsync}.
    *
@@ -1110,9 +1094,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key
-   *
-   * <p>Edit an API key name.
+   * Edit an API key name.
    *
    * @param key The specific API key you are working with. (required)
    * @param body (required)
@@ -1171,7 +1153,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key
+   * Edit an API key.
    *
    * <p>See {@link #updateAPIKeyWithHttpInfo}.
    *
@@ -1233,7 +1215,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key
+   * Edit an application key.
    *
    * <p>See {@link #updateApplicationKeyWithHttpInfo}.
    *
@@ -1248,7 +1230,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key
+   * Edit an application key.
    *
    * <p>See {@link #updateApplicationKeyWithHttpInfoAsync}.
    *
@@ -1266,9 +1248,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key
-   *
-   * <p>Edit an application key name.
+   * Edit an application key name.
    *
    * @param key The specific APP key you are working with. (required)
    * @param body (required)
@@ -1329,7 +1309,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key
+   * Edit an application key.
    *
    * <p>See {@link #updateApplicationKeyWithHttpInfo}.
    *

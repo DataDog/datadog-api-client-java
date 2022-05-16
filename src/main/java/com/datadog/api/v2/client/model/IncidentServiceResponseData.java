@@ -58,7 +58,7 @@ public class IncidentServiceResponseData {
   }
 
   /**
-   * The incident service&#39;s attributes from a response.
+   * The incident service's attributes from a response.
    *
    * @return attributes
    */
@@ -79,7 +79,7 @@ public class IncidentServiceResponseData {
   }
 
   /**
-   * The incident service&#39;s ID.
+   * The incident service's ID.
    *
    * @return id
    */
@@ -94,7 +94,7 @@ public class IncidentServiceResponseData {
   }
 
   /**
-   * The incident service&#39;s relationships.
+   * The incident service's relationships.
    *
    * @return relationships
    */

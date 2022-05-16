@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Object containing the definition of a metric&#39;s distinct volume. */
+/** Object containing the definition of a metric's distinct volume. */
 @JsonPropertyOrder({MetricDistinctVolumeAttributes.JSON_PROPERTY_DISTINCT_VOLUME})
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Object to handle &#x60;SIGV4&#x60; authentication when performing the test. */
+/** Object to handle <code>SIGV4</code> authentication when performing the test. */
 @JsonPropertyOrder({
   SyntheticsBasicAuthSigv4.JSON_PROPERTY_ACCESS_KEY,
   SyntheticsBasicAuthSigv4.JSON_PROPERTY_REGION,
@@ -68,7 +68,7 @@ public class SyntheticsBasicAuthSigv4 {
   }
 
   /**
-   * Access key for the &#x60;SIGV4&#x60; authentication.
+   * Access key for the <code>SIGV4</code> authentication.
    *
    * @return accessKey
    */
@@ -88,7 +88,7 @@ public class SyntheticsBasicAuthSigv4 {
   }
 
   /**
-   * Region for the &#x60;SIGV4&#x60; authentication.
+   * Region for the <code>SIGV4</code> authentication.
    *
    * @return region
    */
@@ -109,7 +109,7 @@ public class SyntheticsBasicAuthSigv4 {
   }
 
   /**
-   * Secret key for the &#x60;SIGV4&#x60; authentication.
+   * Secret key for the <code>SIGV4</code> authentication.
    *
    * @return secretKey
    */
@@ -129,7 +129,7 @@ public class SyntheticsBasicAuthSigv4 {
   }
 
   /**
-   * Service name for the &#x60;SIGV4&#x60; authentication.
+   * Service name for the <code>SIGV4</code> authentication.
    *
    * @return serviceName
    */
@@ -150,7 +150,7 @@ public class SyntheticsBasicAuthSigv4 {
   }
 
   /**
-   * Session token for the &#x60;SIGV4&#x60; authentication.
+   * Session token for the <code>SIGV4</code> authentication.
    *
    * @return sessionToken
    */

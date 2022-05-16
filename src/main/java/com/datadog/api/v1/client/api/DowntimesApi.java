@@ -48,7 +48,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel a downtime
+   * Cancel a downtime.
    *
    * <p>See {@link #cancelDowntimeWithHttpInfo}.
    *
@@ -60,7 +60,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel a downtime
+   * Cancel a downtime.
    *
    * <p>See {@link #cancelDowntimeWithHttpInfoAsync}.
    *
@@ -75,9 +75,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel a downtime
-   *
-   * <p>Cancel a downtime.
+   * Cancel a downtime.
    *
    * @param downtimeId ID of the downtime to cancel. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -129,7 +127,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel a downtime
+   * Cancel a downtime.
    *
    * <p>See {@link #cancelDowntimeWithHttpInfo}.
    *
@@ -183,7 +181,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel downtimes by scope
+   * Cancel downtimes by scope.
    *
    * <p>See {@link #cancelDowntimesByScopeWithHttpInfo}.
    *
@@ -197,7 +195,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel downtimes by scope
+   * Cancel downtimes by scope.
    *
    * <p>See {@link #cancelDowntimesByScopeWithHttpInfoAsync}.
    *
@@ -214,9 +212,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel downtimes by scope
-   *
-   * <p>Delete all downtimes that match the scope of &#x60;X&#x60;.
+   * Delete all downtimes that match the scope of <code>X</code>.
    *
    * @param body Scope to cancel downtimes for. (required)
    * @return ApiResponse&lt;CanceledDowntimesIds&gt;
@@ -267,7 +263,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel downtimes by scope
+   * Cancel downtimes by scope.
    *
    * <p>See {@link #cancelDowntimesByScopeWithHttpInfo}.
    *
@@ -319,7 +315,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Schedule a downtime
+   * Schedule a downtime.
    *
    * <p>See {@link #createDowntimeWithHttpInfo}.
    *
@@ -332,7 +328,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Schedule a downtime
+   * Schedule a downtime.
    *
    * <p>See {@link #createDowntimeWithHttpInfoAsync}.
    *
@@ -348,9 +344,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Schedule a downtime
-   *
-   * <p>Schedule a downtime.
+   * Schedule a downtime.
    *
    * @param body Schedule a downtime request body. (required)
    * @return ApiResponse&lt;Downtime&gt;
@@ -399,7 +393,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Schedule a downtime
+   * Schedule a downtime.
    *
    * <p>See {@link #createDowntimeWithHttpInfo}.
    *
@@ -450,7 +444,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get a downtime
+   * Get a downtime.
    *
    * <p>See {@link #getDowntimeWithHttpInfo}.
    *
@@ -463,7 +457,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get a downtime
+   * Get a downtime.
    *
    * <p>See {@link #getDowntimeWithHttpInfoAsync}.
    *
@@ -479,9 +473,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get a downtime
-   *
-   * <p>Get downtime detail by &#x60;downtime_id&#x60;.
+   * Get downtime detail by <code>downtime_id</code>.
    *
    * @param downtimeId ID of the downtime to fetch. (required)
    * @return ApiResponse&lt;Downtime&gt;
@@ -533,7 +525,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get a downtime
+   * Get a downtime.
    *
    * <p>See {@link #getDowntimeWithHttpInfo}.
    *
@@ -603,7 +595,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes
+   * Get all downtimes.
    *
    * <p>See {@link #listDowntimesWithHttpInfo}.
    *
@@ -615,7 +607,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes
+   * Get all downtimes.
    *
    * <p>See {@link #listDowntimesWithHttpInfoAsync}.
    *
@@ -630,7 +622,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes
+   * Get all downtimes.
    *
    * <p>See {@link #listDowntimesWithHttpInfo}.
    *
@@ -644,7 +636,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes
+   * Get all downtimes.
    *
    * <p>See {@link #listDowntimesWithHttpInfoAsync}.
    *
@@ -661,9 +653,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes
-   *
-   * <p>Get all scheduled downtimes.
+   * Get all scheduled downtimes.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
@@ -710,7 +700,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes
+   * Get all downtimes.
    *
    * <p>See {@link #listDowntimesWithHttpInfo}.
    *
@@ -757,7 +747,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor
+   * Get all downtimes for a monitor.
    *
    * <p>See {@link #listMonitorDowntimesWithHttpInfo}.
    *
@@ -770,7 +760,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor
+   * Get all downtimes for a monitor.
    *
    * <p>See {@link #listMonitorDowntimesWithHttpInfoAsync}.
    *
@@ -786,9 +776,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor
-   *
-   * <p>Get all active downtimes for the specified monitor.
+   * Get all active downtimes for the specified monitor.
    *
    * @param monitorId The id of the monitor (required)
    * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
@@ -840,7 +828,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor
+   * Get all downtimes for a monitor.
    *
    * <p>See {@link #listMonitorDowntimesWithHttpInfo}.
    *
@@ -894,7 +882,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Update a downtime
+   * Update a downtime.
    *
    * <p>See {@link #updateDowntimeWithHttpInfo}.
    *
@@ -908,7 +896,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Update a downtime
+   * Update a downtime.
    *
    * <p>See {@link #updateDowntimeWithHttpInfoAsync}.
    *
@@ -925,9 +913,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Update a downtime
-   *
-   * <p>Update a single downtime by &#x60;downtime_id&#x60;.
+   * Update a single downtime by <code>downtime_id</code>.
    *
    * @param downtimeId ID of the downtime to update. (required)
    * @param body Update a downtime request body. (required)
@@ -988,7 +974,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Update a downtime
+   * Update a downtime.
    *
    * <p>See {@link #updateDowntimeWithHttpInfo}.
    *

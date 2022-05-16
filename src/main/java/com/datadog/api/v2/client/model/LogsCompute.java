@@ -80,8 +80,7 @@ public class LogsCompute {
   }
 
   /**
-   * The time buckets&#39; size (only used for type&#x3D;timeseries) Defaults to a resolution of 150
-   * points
+   * The time buckets' size (only used for type=timeseries) Defaults to a resolution of 150 points
    *
    * @return interval
    */

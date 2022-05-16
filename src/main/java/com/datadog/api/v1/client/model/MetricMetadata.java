@@ -90,7 +90,7 @@ public class MetricMetadata {
   }
 
   /**
-   * Per unit of the metric such as &#x60;second&#x60; in &#x60;bytes per second&#x60;.
+   * Per unit of the metric such as <code>second</code> in <code>bytes per second</code>.
    *
    * @return perUnit
    */
@@ -153,7 +153,7 @@ public class MetricMetadata {
   }
 
   /**
-   * Metric type such as &#x60;gauge&#x60; or &#x60;rate&#x60;.
+   * Metric type such as <code>gauge</code> or <code>rate</code>.
    *
    * @return type
    */
@@ -174,7 +174,7 @@ public class MetricMetadata {
   }
 
   /**
-   * Primary unit of the metric such as &#x60;byte&#x60; or &#x60;operation&#x60;.
+   * Primary unit of the metric such as <code>byte</code> or <code>operation</code>.
    *
    * @return unit
    */

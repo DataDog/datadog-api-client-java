@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Object for a single metric&#39;s indexed tags. */
+/** Object for a single metric's indexed tags. */
 @JsonPropertyOrder({
   MetricAllTags.JSON_PROPERTY_ATTRIBUTES,
   MetricAllTags.JSON_PROPERTY_ID,
@@ -42,7 +42,7 @@ public class MetricAllTags {
   }
 
   /**
-   * Object containing the definition of a metric&#39;s tags.
+   * Object containing the definition of a metric's tags.
    *
    * @return attributes
    */

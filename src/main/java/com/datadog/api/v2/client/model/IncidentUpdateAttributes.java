@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The incident&#39;s attributes for an update request. */
+/** The incident's attributes for an update request. */
 @JsonPropertyOrder({
   IncidentUpdateAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_END,
   IncidentUpdateAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE,
@@ -272,7 +272,7 @@ public class IncidentUpdateAttributes {
   }
 
   /**
-   * Timestamp when the incident&#39;s state was set to resolved.
+   * Timestamp when the incident's state was set to resolved.
    *
    * @return resolved
    */

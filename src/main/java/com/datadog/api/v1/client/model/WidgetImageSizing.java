@@ -24,9 +24,9 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * How to size the image on the widget. The values are based on the image &#x60;object-fit&#x60; CSS
- * properties. **Note**: &#x60;zoom&#x60;, &#x60;fit&#x60; and &#x60;center&#x60; values are
- * deprecated.
+ * How to size the image on the widget. The values are based on the image <code>object-fit</code>
+ * CSS properties. <strong>Note</strong>: <code>zoom</code>, <code>fit</code> and <code>center
+ * </code> values are deprecated.
  */
 @JsonSerialize(using = WidgetImageSizing.WidgetImageSizingSerializer.class)
 public class WidgetImageSizing {

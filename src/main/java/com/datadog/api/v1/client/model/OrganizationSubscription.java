@@ -36,8 +36,8 @@ public class OrganizationSubscription {
   }
 
   /**
-   * The subscription type. Types available are &#x60;trial&#x60;, &#x60;free&#x60;, and
-   * &#x60;pro&#x60;.
+   * The subscription type. Types available are <code>trial</code>, <code>free</code>, and <code>pro
+   * </code>.
    *
    * @return type
    */

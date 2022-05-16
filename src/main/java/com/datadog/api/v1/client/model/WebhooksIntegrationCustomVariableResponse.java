@@ -73,8 +73,8 @@ public class WebhooksIntegrationCustomVariableResponse {
   }
 
   /**
-   * The name of the variable. It corresponds with &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;. It must
-   * only contains upper-case characters, integers or underscores.
+   * The name of the variable. It corresponds with <code>&lt;CUSTOM_VARIABLE_NAME&gt;</code>. It
+   * must only contains upper-case characters, integers or underscores.
    *
    * @return name
    */
@@ -94,7 +94,7 @@ public class WebhooksIntegrationCustomVariableResponse {
   }
 
   /**
-   * Value of the custom variable. It won&#39;t be returned if the variable is secret.
+   * Value of the custom variable. It won't be returned if the variable is secret.
    *
    * @return value
    */

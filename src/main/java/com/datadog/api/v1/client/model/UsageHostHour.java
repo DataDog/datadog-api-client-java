@@ -291,8 +291,8 @@ public class UsageHostHour {
 
   /**
    * Contains the total number of billable infrastructure hosts reporting during a given hour. This
-   * is the sum of &#x60;agent_host_count&#x60;, &#x60;aws_host_count&#x60;, and
-   * &#x60;gcp_host_count&#x60;.
+   * is the sum of <code>agent_host_count</code>, <code>aws_host_count</code>, and <code>
+   * gcp_host_count</code>.
    *
    * @return hostCount
    */

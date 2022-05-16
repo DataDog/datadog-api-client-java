@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Object to handle &#x60;NTLM&#x60; authentication when performing the test. */
+/** Object to handle <code>NTLM</code> authentication when performing the test. */
 @JsonPropertyOrder({
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_DOMAIN,
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_PASSWORD,

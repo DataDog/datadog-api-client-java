@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** The GCS archive&#39;s integration destination. */
+/** The GCS archive's integration destination. */
 @JsonPropertyOrder({
   LogsArchiveIntegrationGCS.JSON_PROPERTY_CLIENT_EMAIL,
   LogsArchiveIntegrationGCS.JSON_PROPERTY_PROJECT_ID

@@ -93,7 +93,7 @@ public class LogsArchiveDestinationAzure {
   }
 
   /**
-   * The Azure archive&#39;s integration destination.
+   * The Azure archive's integration destination.
    *
    * @return integration
    */

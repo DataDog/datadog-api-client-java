@@ -211,7 +211,7 @@ public class Dashboard {
 
   /**
    * Whether this dashboard is read-only. If True, only the author and admins can make changes to
-   * it. Prefer using &#x60;restricted_roles&#x60; to manage write authorization.
+   * it. Prefer using <code>restricted_roles</code> to manage write authorization.
    *
    * @return isReadOnly
    * @deprecated
@@ -314,9 +314,9 @@ public class Dashboard {
   }
 
   /**
-   * Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is
-   * &#39;ordered&#39;. If set to &#39;fixed&#39;, the dashboard expects all widgets to have a
-   * layout, and if it&#39;s set to &#39;auto&#39;, widgets should not have layouts.
+   * Reflow type for a <strong>new dashboard layout</strong> dashboard. Set this only when layout
+   * type is 'ordered'. If set to 'fixed', the dashboard expects all widgets to have a layout, and
+   * if it's set to 'auto', widgets should not have layouts.
    *
    * @return reflowType
    */

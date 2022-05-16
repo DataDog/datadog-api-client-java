@@ -51,7 +51,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Create an application key for this service account
+   * Create an application key for this service account.
    *
    * <p>See {@link #createServiceAccountApplicationKeyWithHttpInfo}.
    *
@@ -66,7 +66,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Create an application key for this service account
+   * Create an application key for this service account.
    *
    * <p>See {@link #createServiceAccountApplicationKeyWithHttpInfoAsync}.
    *
@@ -84,9 +84,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Create an application key for this service account
-   *
-   * <p>Create an application key for this service account.
+   * Create an application key for this service account.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param body (required)
@@ -150,7 +148,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Create an application key for this service account
+   * Create an application key for this service account.
    *
    * <p>See {@link #createServiceAccountApplicationKeyWithHttpInfo}.
    *
@@ -221,7 +219,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Delete an application key for this service account
+   * Delete an application key for this service account.
    *
    * <p>See {@link #deleteServiceAccountApplicationKeyWithHttpInfo}.
    *
@@ -235,7 +233,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Delete an application key for this service account
+   * Delete an application key for this service account.
    *
    * <p>See {@link #deleteServiceAccountApplicationKeyWithHttpInfoAsync}.
    *
@@ -252,9 +250,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Delete an application key for this service account
-   *
-   * <p>Delete an application key owned by this service account.
+   * Delete an application key owned by this service account.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
@@ -320,7 +316,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Delete an application key for this service account
+   * Delete an application key for this service account.
    *
    * <p>See {@link #deleteServiceAccountApplicationKeyWithHttpInfo}.
    *
@@ -391,7 +387,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Get one application key for this service account
+   * Get one application key for this service account.
    *
    * <p>See {@link #getServiceAccountApplicationKeyWithHttpInfo}.
    *
@@ -406,7 +402,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Get one application key for this service account
+   * Get one application key for this service account.
    *
    * <p>See {@link #getServiceAccountApplicationKeyWithHttpInfoAsync}.
    *
@@ -424,9 +420,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Get one application key for this service account
-   *
-   * <p>Get an application key owned by this service account.
+   * Get an application key owned by this service account.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
@@ -491,7 +485,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Get one application key for this service account
+   * Get one application key for this service account.
    *
    * <p>See {@link #getServiceAccountApplicationKeyWithHttpInfo}.
    *
@@ -647,7 +641,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account
+   * List application keys for this service account.
    *
    * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfo}.
    *
@@ -663,7 +657,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account
+   * List application keys for this service account.
    *
    * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfoAsync}.
    *
@@ -681,7 +675,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account
+   * List application keys for this service account.
    *
    * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfo}.
    *
@@ -697,7 +691,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account
+   * List application keys for this service account.
    *
    * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfoAsync}.
    *
@@ -715,9 +709,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account
-   *
-   * <p>List all application keys available for this service account.
+   * List all application keys available for this service account.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param parameters Optional parameters for the request.
@@ -792,7 +784,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * List application keys for this service account
+   * List application keys for this service account.
    *
    * <p>See {@link #listServiceAccountApplicationKeysWithHttpInfo}.
    *
@@ -870,7 +862,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Edit an application key for this service account
+   * Edit an application key for this service account.
    *
    * <p>See {@link #updateServiceAccountApplicationKeyWithHttpInfo}.
    *
@@ -888,7 +880,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Edit an application key for this service account
+   * Edit an application key for this service account.
    *
    * <p>See {@link #updateServiceAccountApplicationKeyWithHttpInfoAsync}.
    *
@@ -907,9 +899,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Edit an application key for this service account
-   *
-   * <p>Edit an application key owned by this service account.
+   * Edit an application key owned by this service account.
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
@@ -985,7 +975,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Edit an application key for this service account
+   * Edit an application key for this service account.
    *
    * <p>See {@link #updateServiceAccountApplicationKeyWithHttpInfo}.
    *

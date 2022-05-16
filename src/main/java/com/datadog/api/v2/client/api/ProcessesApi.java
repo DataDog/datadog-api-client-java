@@ -80,9 +80,9 @@ public class ProcessesApi {
      * Set from
      *
      * @param from Unix timestamp (number of seconds since epoch) of the start of the query window.
-     *     If not provided, the start of the query window will be 15 minutes before the
-     *     &#x60;to&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided,
-     *     the query window will be &#x60;[now - 15m, now]&#x60;. (optional)
+     *     If not provided, the start of the query window will be 15 minutes before the <code>to
+     *     </code> timestamp. If neither <code>from</code> nor <code>to</code> are provided, the
+     *     query window will be <code>[now - 15m, now]</code>. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters from(Long from) {
@@ -94,9 +94,9 @@ public class ProcessesApi {
      * Set to
      *
      * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If
-     *     not provided, the end of the query window will be 15 minutes after the &#x60;from&#x60;
-     *     timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window
-     *     will be &#x60;[now - 15m, now]&#x60;. (optional)
+     *     not provided, the end of the query window will be 15 minutes after the <code>from</code>
+     *     timestamp. If neither <code>from</code> nor <code>to</code> are provided, the query
+     *     window will be <code>[now - 15m, now]</code>. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters to(Long to) {
@@ -119,7 +119,7 @@ public class ProcessesApi {
      * Set pageCursor
      *
      * @param pageCursor String to query the next page of results. This key is provided with each
-     *     valid response from the API in &#x60;meta.page.after&#x60;. (optional)
+     *     valid response from the API in <code>meta.page.after</code>. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters pageCursor(String pageCursor) {
@@ -129,7 +129,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
+   * Get all processes.
    *
    * <p>See {@link #listProcessesWithHttpInfo}.
    *
@@ -141,7 +141,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
+   * Get all processes.
    *
    * <p>See {@link #listProcessesWithHttpInfoAsync}.
    *
@@ -156,7 +156,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
+   * Get all processes.
    *
    * <p>See {@link #listProcessesWithHttpInfo}.
    *
@@ -170,7 +170,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
+   * Get all processes.
    *
    * <p>See {@link #listProcessesWithHttpInfoAsync}.
    *
@@ -187,9 +187,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
-   *
-   * <p>Get all processes for your organization.
+   * Get all processes for your organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ProcessSummariesResponse&gt;
@@ -247,7 +245,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
+   * Get all processes.
    *
    * <p>See {@link #listProcessesWithHttpInfo}.
    *

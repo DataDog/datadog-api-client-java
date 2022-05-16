@@ -25,7 +25,7 @@ import java.util.Set;
 
 /**
  * Supported fields for usage attribution requests (valid requests contain one or more metrics, or
- * &#x60;*&#x60; for all).
+ * <code>*</code> for all).
  */
 @JsonSerialize(
     using = UsageAttributionSupportedMetrics.UsageAttributionSupportedMetricsSerializer.class)

@@ -47,7 +47,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Create a new service object
+   * Create a new service object.
    *
    * <p>See {@link #createPagerDutyIntegrationServiceWithHttpInfo}.
    *
@@ -61,7 +61,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Create a new service object
+   * Create a new service object.
    *
    * <p>See {@link #createPagerDutyIntegrationServiceWithHttpInfoAsync}.
    *
@@ -78,9 +78,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Create a new service object
-   *
-   * <p>Create a new service object in the PagerDuty integration.
+   * Create a new service object in the PagerDuty integration.
    *
    * @param body Create a new service object request body. (required)
    * @return ApiResponse&lt;PagerDutyServiceName&gt;
@@ -131,7 +129,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Create a new service object
+   * Create a new service object.
    *
    * <p>See {@link #createPagerDutyIntegrationServiceWithHttpInfo}.
    *
@@ -185,7 +183,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Delete a single service object
+   * Delete a single service object.
    *
    * <p>See {@link #deletePagerDutyIntegrationServiceWithHttpInfo}.
    *
@@ -197,7 +195,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Delete a single service object
+   * Delete a single service object.
    *
    * <p>See {@link #deletePagerDutyIntegrationServiceWithHttpInfoAsync}.
    *
@@ -212,9 +210,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Delete a single service object
-   *
-   * <p>Delete a single service object in the Datadog-PagerDuty integration.
+   * Delete a single service object in the Datadog-PagerDuty integration.
    *
    * @param serviceName The service name (required)
    * @return ApiResponse&lt;Void&gt;
@@ -269,7 +265,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Delete a single service object
+   * Delete a single service object.
    *
    * <p>See {@link #deletePagerDutyIntegrationServiceWithHttpInfo}.
    *
@@ -326,7 +322,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Get a single service object
+   * Get a single service object.
    *
    * <p>See {@link #getPagerDutyIntegrationServiceWithHttpInfo}.
    *
@@ -340,7 +336,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Get a single service object
+   * Get a single service object.
    *
    * <p>See {@link #getPagerDutyIntegrationServiceWithHttpInfoAsync}.
    *
@@ -357,9 +353,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Get a single service object
-   *
-   * <p>Get service name in the Datadog-PagerDuty integration.
+   * Get service name in the Datadog-PagerDuty integration.
    *
    * @param serviceName The service name. (required)
    * @return ApiResponse&lt;PagerDutyServiceName&gt;
@@ -414,7 +408,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Get a single service object
+   * Get a single service object.
    *
    * <p>See {@link #getPagerDutyIntegrationServiceWithHttpInfo}.
    *
@@ -471,7 +465,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Update a single service object
+   * Update a single service object.
    *
    * <p>See {@link #updatePagerDutyIntegrationServiceWithHttpInfo}.
    *
@@ -485,7 +479,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Update a single service object
+   * Update a single service object.
    *
    * <p>See {@link #updatePagerDutyIntegrationServiceWithHttpInfoAsync}.
    *
@@ -502,9 +496,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Update a single service object
-   *
-   * <p>Update a single service object in the Datadog-PagerDuty integration.
+   * Update a single service object in the Datadog-PagerDuty integration.
    *
    * @param serviceName The service name (required)
    * @param body Update an existing service object request body. (required)
@@ -568,7 +560,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Update a single service object
+   * Update a single service object.
    *
    * <p>See {@link #updatePagerDutyIntegrationServiceWithHttpInfo}.
    *

@@ -178,7 +178,7 @@ public class LogsIndex {
 
   /**
    * The number of days before logs are deleted from this index. Available values depend on
-   * retention plans specified in your organization&#39;s contract/subscriptions.
+   * retention plans specified in your organization's contract/subscriptions.
    *
    * @return numRetentionDays
    */

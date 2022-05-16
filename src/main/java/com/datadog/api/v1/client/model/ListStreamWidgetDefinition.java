@@ -80,8 +80,7 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Available legend sizes for a widget. Should be one of &quot;0&quot;, &quot;2&quot;,
-   * &quot;4&quot;, &quot;8&quot;, &quot;16&quot;, or &quot;auto&quot;.
+   * Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
    *
    * @return legendSize
    */

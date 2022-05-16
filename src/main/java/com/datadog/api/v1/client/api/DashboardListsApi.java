@@ -47,7 +47,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Create a dashboard list
+   * Create a dashboard list.
    *
    * <p>See {@link #createDashboardListWithHttpInfo}.
    *
@@ -60,7 +60,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Create a dashboard list
+   * Create a dashboard list.
    *
    * <p>See {@link #createDashboardListWithHttpInfoAsync}.
    *
@@ -76,9 +76,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Create a dashboard list
-   *
-   * <p>Create an empty dashboard list.
+   * Create an empty dashboard list.
    *
    * @param body Create a dashboard list request body. (required)
    * @return ApiResponse&lt;DashboardList&gt;
@@ -128,7 +126,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Create a dashboard list
+   * Create a dashboard list.
    *
    * <p>See {@link #createDashboardListWithHttpInfo}.
    *
@@ -180,7 +178,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Delete a dashboard list
+   * Delete a dashboard list.
    *
    * <p>See {@link #deleteDashboardListWithHttpInfo}.
    *
@@ -193,7 +191,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Delete a dashboard list
+   * Delete a dashboard list.
    *
    * <p>See {@link #deleteDashboardListWithHttpInfoAsync}.
    *
@@ -209,9 +207,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Delete a dashboard list
-   *
-   * <p>Delete a dashboard list.
+   * Delete a dashboard list.
    *
    * @param listId ID of the dashboard list to delete. (required)
    * @return ApiResponse&lt;DashboardListDeleteResponse&gt;
@@ -263,7 +259,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Delete a dashboard list
+   * Delete a dashboard list.
    *
    * <p>See {@link #deleteDashboardListWithHttpInfo}.
    *
@@ -319,7 +315,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Get a dashboard list
+   * Get a dashboard list.
    *
    * <p>See {@link #getDashboardListWithHttpInfo}.
    *
@@ -332,7 +328,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Get a dashboard list
+   * Get a dashboard list.
    *
    * <p>See {@link #getDashboardListWithHttpInfoAsync}.
    *
@@ -348,9 +344,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Get a dashboard list
-   *
-   * <p>Fetch an existing dashboard list&#39;s definition.
+   * Fetch an existing dashboard list's definition.
    *
    * @param listId ID of the dashboard list to fetch. (required)
    * @return ApiResponse&lt;DashboardList&gt;
@@ -401,7 +395,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Get a dashboard list
+   * Get a dashboard list.
    *
    * <p>See {@link #getDashboardListWithHttpInfo}.
    *
@@ -455,7 +449,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Get all dashboard lists
+   * Get all dashboard lists.
    *
    * <p>See {@link #listDashboardListsWithHttpInfo}.
    *
@@ -467,7 +461,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Get all dashboard lists
+   * Get all dashboard lists.
    *
    * <p>See {@link #listDashboardListsWithHttpInfoAsync}.
    *
@@ -482,9 +476,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Get all dashboard lists
-   *
-   * <p>Fetch all of your existing dashboard list definitions.
+   * Fetch all of your existing dashboard list definitions.
    *
    * @return ApiResponse&lt;DashboardListListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -526,7 +518,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Get all dashboard lists
+   * Get all dashboard lists.
    *
    * <p>See {@link #listDashboardListsWithHttpInfo}.
    *
@@ -568,7 +560,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Update a dashboard list
+   * Update a dashboard list.
    *
    * <p>See {@link #updateDashboardListWithHttpInfo}.
    *
@@ -582,7 +574,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Update a dashboard list
+   * Update a dashboard list.
    *
    * <p>See {@link #updateDashboardListWithHttpInfoAsync}.
    *
@@ -600,9 +592,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Update a dashboard list
-   *
-   * <p>Update the name of a dashboard list.
+   * Update the name of a dashboard list.
    *
    * @param listId ID of the dashboard list to update. (required)
    * @param body Update a dashboard list request body. (required)
@@ -662,7 +652,7 @@ public class DashboardListsApi {
   }
 
   /**
-   * Update a dashboard list
+   * Update a dashboard list.
    *
    * <p>See {@link #updateDashboardListWithHttpInfo}.
    *

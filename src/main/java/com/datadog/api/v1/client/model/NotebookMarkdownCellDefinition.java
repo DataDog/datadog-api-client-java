@@ -18,8 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /**
- * Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/),
- * which enables the use of headings, subheadings, links, images, lists, and code blocks.
+ * Text in a notebook is formatted with <a
+ * href="https://daringfireball.net/projects/markdown/">Markdown</a>, which enables the use of
+ * headings, subheadings, links, images, lists, and code blocks.
  */
 @JsonPropertyOrder({
   NotebookMarkdownCellDefinition.JSON_PROPERTY_TEXT,

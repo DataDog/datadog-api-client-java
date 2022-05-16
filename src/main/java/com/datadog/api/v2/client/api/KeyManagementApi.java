@@ -55,7 +55,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key
+   * Create an API key.
    *
    * <p>See {@link #createAPIKeyWithHttpInfo}.
    *
@@ -68,7 +68,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key
+   * Create an API key.
    *
    * <p>See {@link #createAPIKeyWithHttpInfoAsync}.
    *
@@ -84,9 +84,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key
-   *
-   * <p>Create an API key.
+   * Create an API key.
    *
    * @param body (required)
    * @return ApiResponse&lt;APIKeyResponse&gt;
@@ -136,7 +134,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an API key
+   * Create an API key.
    *
    * <p>See {@link #createAPIKeyWithHttpInfo}.
    *
@@ -187,7 +185,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key for current user
+   * Create an application key for current user.
    *
    * <p>See {@link #createCurrentUserApplicationKeyWithHttpInfo}.
    *
@@ -201,7 +199,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key for current user
+   * Create an application key for current user.
    *
    * <p>See {@link #createCurrentUserApplicationKeyWithHttpInfoAsync}.
    *
@@ -219,8 +217,6 @@ public class KeyManagementApi {
 
   /**
    * Create an application key for current user
-   *
-   * <p>Create an application key for current user
    *
    * @param body (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
@@ -271,7 +267,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Create an application key for current user
+   * Create an application key for current user.
    *
    * <p>See {@link #createCurrentUserApplicationKeyWithHttpInfo}.
    *
@@ -325,7 +321,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an API key
+   * Delete an API key.
    *
    * <p>See {@link #deleteAPIKeyWithHttpInfo}.
    *
@@ -337,7 +333,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an API key
+   * Delete an API key.
    *
    * <p>See {@link #deleteAPIKeyWithHttpInfoAsync}.
    *
@@ -352,9 +348,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an API key
-   *
-   * <p>Delete an API key.
+   * Delete an API key.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -405,7 +399,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an API key
+   * Delete an API key.
    *
    * <p>See {@link #deleteAPIKeyWithHttpInfo}.
    *
@@ -458,7 +452,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key
+   * Delete an application key.
    *
    * <p>See {@link #deleteApplicationKeyWithHttpInfo}.
    *
@@ -470,7 +464,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key
+   * Delete an application key.
    *
    * <p>See {@link #deleteApplicationKeyWithHttpInfoAsync}.
    *
@@ -486,8 +480,6 @@ public class KeyManagementApi {
 
   /**
    * Delete an application key
-   *
-   * <p>Delete an application key
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -538,7 +530,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key
+   * Delete an application key.
    *
    * <p>See {@link #deleteApplicationKeyWithHttpInfo}.
    *
@@ -592,7 +584,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key owned by current user
+   * Delete an application key owned by current user.
    *
    * <p>See {@link #deleteCurrentUserApplicationKeyWithHttpInfo}.
    *
@@ -604,7 +596,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key owned by current user
+   * Delete an application key owned by current user.
    *
    * <p>See {@link #deleteCurrentUserApplicationKeyWithHttpInfoAsync}.
    *
@@ -620,8 +612,6 @@ public class KeyManagementApi {
 
   /**
    * Delete an application key owned by current user
-   *
-   * <p>Delete an application key owned by current user
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -674,7 +664,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Delete an application key owned by current user
+   * Delete an application key owned by current user.
    *
    * <p>See {@link #deleteCurrentUserApplicationKeyWithHttpInfo}.
    *
@@ -737,8 +727,8 @@ public class KeyManagementApi {
      * Set include
      *
      * @param include Comma separated list of resource paths for related resources to include in the
-     *     response. Supported resource paths are &#x60;created_by&#x60; and
-     *     &#x60;modified_by&#x60;. (optional)
+     *     response. Supported resource paths are <code>created_by</code> and <code>modified_by
+     *     </code>. (optional)
      * @return GetAPIKeyOptionalParameters
      */
     public GetAPIKeyOptionalParameters include(String include) {
@@ -748,7 +738,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key
+   * Get API key.
    *
    * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
@@ -761,7 +751,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key
+   * Get API key.
    *
    * <p>See {@link #getAPIKeyWithHttpInfoAsync}.
    *
@@ -777,7 +767,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key
+   * Get API key.
    *
    * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
@@ -792,7 +782,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key
+   * Get API key.
    *
    * <p>See {@link #getAPIKeyWithHttpInfoAsync}.
    *
@@ -810,9 +800,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key
-   *
-   * <p>Get an API key.
+   * Get an API key.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param parameters Optional parameters for the request.
@@ -869,7 +857,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get API key
+   * Get API key.
    *
    * <p>See {@link #getAPIKeyWithHttpInfo}.
    *
@@ -934,8 +922,8 @@ public class KeyManagementApi {
     /**
      * Set include
      *
-     * @param include Resource path for related resources to include in the response. Only
-     *     &#x60;owned_by&#x60; is supported. (optional)
+     * @param include Resource path for related resources to include in the response. Only <code>
+     *     owned_by</code> is supported. (optional)
      * @return GetApplicationKeyOptionalParameters
      */
     public GetApplicationKeyOptionalParameters include(String include) {
@@ -945,7 +933,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key
+   * Get an application key.
    *
    * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
@@ -959,7 +947,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key
+   * Get an application key.
    *
    * <p>See {@link #getApplicationKeyWithHttpInfoAsync}.
    *
@@ -975,7 +963,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key
+   * Get an application key.
    *
    * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
@@ -990,7 +978,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key
+   * Get an application key.
    *
    * <p>See {@link #getApplicationKeyWithHttpInfoAsync}.
    *
@@ -1008,9 +996,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key
-   *
-   * <p>Get an application key for your org.
+   * Get an application key for your org.
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
@@ -1068,7 +1054,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get an application key
+   * Get an application key.
    *
    * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
@@ -1127,7 +1113,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get one application key owned by current user
+   * Get one application key owned by current user.
    *
    * <p>See {@link #getCurrentUserApplicationKeyWithHttpInfo}.
    *
@@ -1140,7 +1126,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get one application key owned by current user
+   * Get one application key owned by current user.
    *
    * <p>See {@link #getCurrentUserApplicationKeyWithHttpInfoAsync}.
    *
@@ -1157,9 +1143,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get one application key owned by current user
-   *
-   * <p>Get an application key owned by current user
+   * Get an application key owned by current user
    *
    * @param appKeyId The ID of the application key. (required)
    * @return ApiResponse&lt;ApplicationKeyResponse&gt;
@@ -1212,7 +1196,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get one application key owned by current user
+   * Get one application key owned by current user.
    *
    * <p>See {@link #getCurrentUserApplicationKeyWithHttpInfo}.
    *
@@ -1377,8 +1361,8 @@ public class KeyManagementApi {
      * Set include
      *
      * @param include Comma separated list of resource paths for related resources to include in the
-     *     response. Supported resource paths are &#x60;created_by&#x60; and
-     *     &#x60;modified_by&#x60;. (optional)
+     *     response. Supported resource paths are <code>created_by</code> and <code>modified_by
+     *     </code>. (optional)
      * @return ListAPIKeysOptionalParameters
      */
     public ListAPIKeysOptionalParameters include(String include) {
@@ -1388,7 +1372,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys
+   * Get all API keys.
    *
    * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
@@ -1400,7 +1384,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys
+   * Get all API keys.
    *
    * <p>See {@link #listAPIKeysWithHttpInfoAsync}.
    *
@@ -1415,7 +1399,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys
+   * Get all API keys.
    *
    * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
@@ -1428,7 +1412,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys
+   * Get all API keys.
    *
    * <p>See {@link #listAPIKeysWithHttpInfoAsync}.
    *
@@ -1445,9 +1429,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys
-   *
-   * <p>List all API keys available for your account.
+   * List all API keys available for your account.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;APIKeysResponse&gt;
@@ -1515,7 +1497,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all API keys
+   * Get all API keys.
    *
    * <p>See {@link #listAPIKeysWithHttpInfo}.
    *
@@ -1662,7 +1644,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys
+   * Get all application keys.
    *
    * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
@@ -1674,7 +1656,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys
+   * Get all application keys.
    *
    * <p>See {@link #listApplicationKeysWithHttpInfoAsync}.
    *
@@ -1689,7 +1671,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys
+   * Get all application keys.
    *
    * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
@@ -1703,7 +1685,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys
+   * Get all application keys.
    *
    * <p>See {@link #listApplicationKeysWithHttpInfoAsync}.
    *
@@ -1720,9 +1702,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys
-   *
-   * <p>List all application keys available for your org
+   * List all application keys available for your org
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListApplicationKeysResponse&gt;
@@ -1783,7 +1763,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys
+   * Get all application keys.
    *
    * <p>See {@link #listApplicationKeysWithHttpInfo}.
    *
@@ -1925,7 +1905,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user
+   * Get all application keys owned by current user.
    *
    * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
    *
@@ -1939,7 +1919,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user
+   * Get all application keys owned by current user.
    *
    * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfoAsync}.
    *
@@ -1955,7 +1935,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user
+   * Get all application keys owned by current user.
    *
    * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
    *
@@ -1969,7 +1949,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user
+   * Get all application keys owned by current user.
    *
    * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfoAsync}.
    *
@@ -1986,9 +1966,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user
-   *
-   * <p>List all application keys available for current user
+   * List all application keys available for current user
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListApplicationKeysResponse&gt;
@@ -2049,7 +2027,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get all application keys owned by current user
+   * Get all application keys owned by current user.
    *
    * <p>See {@link #listCurrentUserApplicationKeysWithHttpInfo}.
    *
@@ -2110,7 +2088,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key
+   * Edit an API key.
    *
    * <p>See {@link #updateAPIKeyWithHttpInfo}.
    *
@@ -2125,7 +2103,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key
+   * Edit an API key.
    *
    * <p>See {@link #updateAPIKeyWithHttpInfoAsync}.
    *
@@ -2143,9 +2121,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key
-   *
-   * <p>Update an API key.
+   * Update an API key.
    *
    * @param apiKeyId The ID of the API key. (required)
    * @param body (required)
@@ -2205,7 +2181,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an API key
+   * Edit an API key.
    *
    * <p>See {@link #updateAPIKeyWithHttpInfo}.
    *
@@ -2268,7 +2244,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key
+   * Edit an application key.
    *
    * <p>See {@link #updateApplicationKeyWithHttpInfo}.
    *
@@ -2283,7 +2259,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key
+   * Edit an application key.
    *
    * <p>See {@link #updateApplicationKeyWithHttpInfoAsync}.
    *
@@ -2302,8 +2278,6 @@ public class KeyManagementApi {
 
   /**
    * Edit an application key
-   *
-   * <p>Edit an application key
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
@@ -2363,7 +2337,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key
+   * Edit an application key.
    *
    * <p>See {@link #updateApplicationKeyWithHttpInfo}.
    *
@@ -2427,7 +2401,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key owned by current user
+   * Edit an application key owned by current user.
    *
    * <p>See {@link #updateCurrentUserApplicationKeyWithHttpInfo}.
    *
@@ -2442,7 +2416,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key owned by current user
+   * Edit an application key owned by current user.
    *
    * <p>See {@link #updateCurrentUserApplicationKeyWithHttpInfoAsync}.
    *
@@ -2461,8 +2435,6 @@ public class KeyManagementApi {
 
   /**
    * Edit an application key owned by current user
-   *
-   * <p>Edit an application key owned by current user
    *
    * @param appKeyId The ID of the application key. (required)
    * @param body (required)
@@ -2524,7 +2496,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Edit an application key owned by current user
+   * Edit an application key owned by current user.
    *
    * <p>See {@link #updateCurrentUserApplicationKeyWithHttpInfo}.
    *

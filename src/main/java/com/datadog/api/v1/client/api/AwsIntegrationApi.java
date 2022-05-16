@@ -52,7 +52,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Create an AWS integration
+   * Create an AWS integration.
    *
    * <p>See {@link #createAWSAccountWithHttpInfo}.
    *
@@ -65,7 +65,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Create an AWS integration
+   * Create an AWS integration.
    *
    * <p>See {@link #createAWSAccountWithHttpInfoAsync}.
    *
@@ -81,9 +81,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Create an AWS integration
-   *
-   * <p>Create a Datadog-Amazon Web Services integration. Using the &#x60;POST&#x60; method updates
+   * Create a Datadog-Amazon Web Services integration. Using the <code>POST</code> method updates
    * your integration configuration by adding your new configuration to the existing one in your
    * Datadog organization. A unique AWS Account ID for role based authentication.
    *
@@ -136,7 +134,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Create an AWS integration
+   * Create an AWS integration.
    *
    * <p>See {@link #createAWSAccountWithHttpInfo}.
    *
@@ -188,14 +186,14 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Set an AWS tag filter
+   * Set an AWS tag filter.
    *
    * <p>See {@link #createAWSTagFilterWithHttpInfo}.
    *
-   * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
-   *     &#x60;namespace&#x60;, and filtering string. Namespace options are
-   *     &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;,
-   *     &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. (required)
+   * @param body Set an AWS tag filter using an <code>aws_account_identifier</code>, <code>namespace
+   *     </code>, and filtering string. Namespace options are <code>application_elb</code>, <code>
+   *     elb</code>, <code>lambda</code>, <code>network_elb</code>, <code>rds</code>, <code>sqs
+   *     </code>, and <code>custom</code>. (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
@@ -204,14 +202,14 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Set an AWS tag filter
+   * Set an AWS tag filter.
    *
    * <p>See {@link #createAWSTagFilterWithHttpInfoAsync}.
    *
-   * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
-   *     &#x60;namespace&#x60;, and filtering string. Namespace options are
-   *     &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;,
-   *     &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. (required)
+   * @param body Set an AWS tag filter using an <code>aws_account_identifier</code>, <code>namespace
+   *     </code>, and filtering string. Namespace options are <code>application_elb</code>, <code>
+   *     elb</code>, <code>lambda</code>, <code>network_elb</code>, <code>rds</code>, <code>sqs
+   *     </code>, and <code>custom</code>. (required)
    * @return CompletableFuture&lt;Object&gt;
    */
   public CompletableFuture<Object> createAWSTagFilterAsync(AWSTagFilterCreateRequest body) {
@@ -223,14 +221,12 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Set an AWS tag filter
+   * Set an AWS tag filter.
    *
-   * <p>Set an AWS tag filter.
-   *
-   * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
-   *     &#x60;namespace&#x60;, and filtering string. Namespace options are
-   *     &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;,
-   *     &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. (required)
+   * @param body Set an AWS tag filter using an <code>aws_account_identifier</code>, <code>namespace
+   *     </code>, and filtering string. Namespace options are <code>application_elb</code>, <code>
+   *     elb</code>, <code>lambda</code>, <code>network_elb</code>, <code>rds</code>, <code>sqs
+   *     </code>, and <code>custom</code>. (required)
    * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -278,14 +274,14 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Set an AWS tag filter
+   * Set an AWS tag filter.
    *
    * <p>See {@link #createAWSTagFilterWithHttpInfo}.
    *
-   * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
-   *     &#x60;namespace&#x60;, and filtering string. Namespace options are
-   *     &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;,
-   *     &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. (required)
+   * @param body Set an AWS tag filter using an <code>aws_account_identifier</code>, <code>namespace
+   *     </code>, and filtering string. Namespace options are <code>application_elb</code>, <code>
+   *     elb</code>, <code>lambda</code>, <code>network_elb</code>, <code>rds</code>, <code>sqs
+   *     </code>, and <code>custom</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Object>> createAWSTagFilterWithHttpInfoAsync(
@@ -333,13 +329,14 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Generate a new external ID
+   * Generate a new external ID.
    *
    * <p>See {@link #createNewAWSExternalIDWithHttpInfo}.
    *
    * @param body Your Datadog role delegation name. For more information about your AWS account Role
-   *     name, see the [Datadog AWS integration configuration
-   *     info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). (required)
+   *     name, see the <a
+   *     href="https://docs.datadoghq.com/integrations/amazon_web_services/#setup">Datadog AWS
+   *     integration configuration info</a>. (required)
    * @return AWSAccountCreateResponse
    * @throws ApiException if fails to make API call
    */
@@ -348,13 +345,14 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Generate a new external ID
+   * Generate a new external ID.
    *
    * <p>See {@link #createNewAWSExternalIDWithHttpInfoAsync}.
    *
    * @param body Your Datadog role delegation name. For more information about your AWS account Role
-   *     name, see the [Datadog AWS integration configuration
-   *     info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). (required)
+   *     name, see the <a
+   *     href="https://docs.datadoghq.com/integrations/amazon_web_services/#setup">Datadog AWS
+   *     integration configuration info</a>. (required)
    * @return CompletableFuture&lt;AWSAccountCreateResponse&gt;
    */
   public CompletableFuture<AWSAccountCreateResponse> createNewAWSExternalIDAsync(AWSAccount body) {
@@ -366,13 +364,12 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Generate a new external ID
-   *
-   * <p>Generate a new AWS external ID for a given AWS account ID and role name pair.
+   * Generate a new AWS external ID for a given AWS account ID and role name pair.
    *
    * @param body Your Datadog role delegation name. For more information about your AWS account Role
-   *     name, see the [Datadog AWS integration configuration
-   *     info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). (required)
+   *     name, see the <a
+   *     href="https://docs.datadoghq.com/integrations/amazon_web_services/#setup">Datadog AWS
+   *     integration configuration info</a>. (required)
    * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -420,13 +417,14 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Generate a new external ID
+   * Generate a new external ID.
    *
    * <p>See {@link #createNewAWSExternalIDWithHttpInfo}.
    *
    * @param body Your Datadog role delegation name. For more information about your AWS account Role
-   *     name, see the [Datadog AWS integration configuration
-   *     info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). (required)
+   *     name, see the <a
+   *     href="https://docs.datadoghq.com/integrations/amazon_web_services/#setup">Datadog AWS
+   *     integration configuration info</a>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountCreateResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<AWSAccountCreateResponse>>
@@ -474,7 +472,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete an AWS integration
+   * Delete an AWS integration.
    *
    * <p>See {@link #deleteAWSAccountWithHttpInfo}.
    *
@@ -487,7 +485,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete an AWS integration
+   * Delete an AWS integration.
    *
    * <p>See {@link #deleteAWSAccountWithHttpInfoAsync}.
    *
@@ -503,10 +501,8 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete an AWS integration
-   *
-   * <p>Delete a Datadog-AWS integration matching the specified &#x60;account_id&#x60; and
-   * &#x60;role_name parameters&#x60;.
+   * Delete a Datadog-AWS integration matching the specified <code>account_id</code> and <code>
+   * role_name parameters</code>.
    *
    * @param body AWS request object (required)
    * @return ApiResponse&lt;Object&gt;
@@ -557,7 +553,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete an AWS integration
+   * Delete an AWS integration.
    *
    * <p>See {@link #deleteAWSAccountWithHttpInfo}.
    *
@@ -609,11 +605,11 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete a tag filtering entry
+   * Delete a tag filtering entry.
    *
    * <p>See {@link #deleteAWSTagFilterWithHttpInfo}.
    *
-   * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
+   * @param body Delete a tag filtering entry for a given AWS account and <code>dd-aws</code>
    *     namespace. (required)
    * @return Object
    * @throws ApiException if fails to make API call
@@ -623,11 +619,11 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete a tag filtering entry
+   * Delete a tag filtering entry.
    *
    * <p>See {@link #deleteAWSTagFilterWithHttpInfoAsync}.
    *
-   * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
+   * @param body Delete a tag filtering entry for a given AWS account and <code>dd-aws</code>
    *     namespace. (required)
    * @return CompletableFuture&lt;Object&gt;
    */
@@ -640,11 +636,9 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete a tag filtering entry
+   * Delete a tag filtering entry.
    *
-   * <p>Delete a tag filtering entry.
-   *
-   * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
+   * @param body Delete a tag filtering entry for a given AWS account and <code>dd-aws</code>
    *     namespace. (required)
    * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
@@ -693,11 +687,11 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete a tag filtering entry
+   * Delete a tag filtering entry.
    *
    * <p>See {@link #deleteAWSTagFilterWithHttpInfo}.
    *
-   * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
+   * @param body Delete a tag filtering entry for a given AWS account and <code>dd-aws</code>
    *     namespace. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
@@ -746,7 +740,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List namespace rules
+   * List namespace rules.
    *
    * <p>See {@link #listAvailableAWSNamespacesWithHttpInfo}.
    *
@@ -758,7 +752,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List namespace rules
+   * List namespace rules.
    *
    * <p>See {@link #listAvailableAWSNamespacesWithHttpInfoAsync}.
    *
@@ -773,10 +767,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List namespace rules
-   *
-   * <p>List all namespace rules for a given Datadog-AWS integration. This endpoint takes no
-   * arguments.
+   * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
    *
    * @return ApiResponse&lt;List&lt;String&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -817,7 +808,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List namespace rules
+   * List namespace rules.
    *
    * <p>See {@link #listAvailableAWSNamespacesWithHttpInfo}.
    *
@@ -867,7 +858,7 @@ public class AwsIntegrationApi {
     /**
      * Set accountId
      *
-     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;.
+     * @param accountId Only return AWS accounts that matches this <code>account_id</code>.
      *     (optional)
      * @return ListAWSAccountsOptionalParameters
      */
@@ -890,7 +881,7 @@ public class AwsIntegrationApi {
     /**
      * Set accessKeyId
      *
-     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
+     * @param accessKeyId Only return AWS accounts that matches this <code>access_key_id</code>.
      *     (optional)
      * @return ListAWSAccountsOptionalParameters
      */
@@ -901,7 +892,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations
+   * List all AWS integrations.
    *
    * <p>See {@link #listAWSAccountsWithHttpInfo}.
    *
@@ -913,7 +904,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations
+   * List all AWS integrations.
    *
    * <p>See {@link #listAWSAccountsWithHttpInfoAsync}.
    *
@@ -928,7 +919,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations
+   * List all AWS integrations.
    *
    * <p>See {@link #listAWSAccountsWithHttpInfo}.
    *
@@ -942,7 +933,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations
+   * List all AWS integrations.
    *
    * <p>See {@link #listAWSAccountsWithHttpInfoAsync}.
    *
@@ -959,9 +950,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations
-   *
-   * <p>List all Datadog-AWS integrations available in your Datadog organization.
+   * List all Datadog-AWS integrations available in your Datadog organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;AWSAccountListResponse&gt;
@@ -1013,7 +1002,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * List all AWS integrations
+   * List all AWS integrations.
    *
    * <p>See {@link #listAWSAccountsWithHttpInfo}.
    *
@@ -1064,11 +1053,11 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Get all AWS tag filters
+   * Get all AWS tag filters.
    *
    * <p>See {@link #listAWSTagFiltersWithHttpInfo}.
    *
-   * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
+   * @param accountId Only return AWS filters that matches this <code>account_id</code>. (required)
    * @return AWSTagFilterListResponse
    * @throws ApiException if fails to make API call
    */
@@ -1077,11 +1066,11 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Get all AWS tag filters
+   * Get all AWS tag filters.
    *
    * <p>See {@link #listAWSTagFiltersWithHttpInfoAsync}.
    *
-   * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
+   * @param accountId Only return AWS filters that matches this <code>account_id</code>. (required)
    * @return CompletableFuture&lt;AWSTagFilterListResponse&gt;
    */
   public CompletableFuture<AWSTagFilterListResponse> listAWSTagFiltersAsync(String accountId) {
@@ -1093,11 +1082,9 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Get all AWS tag filters
+   * Get all AWS tag filters.
    *
-   * <p>Get all AWS tag filters.
-   *
-   * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
+   * @param accountId Only return AWS filters that matches this <code>account_id</code>. (required)
    * @return ApiResponse&lt;AWSTagFilterListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1148,11 +1135,11 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Get all AWS tag filters
+   * Get all AWS tag filters.
    *
    * <p>See {@link #listAWSTagFiltersWithHttpInfo}.
    *
-   * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
+   * @param accountId Only return AWS filters that matches this <code>account_id</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSTagFilterListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<AWSTagFilterListResponse>>
@@ -1211,7 +1198,7 @@ public class AwsIntegrationApi {
     /**
      * Set accountId
      *
-     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;.
+     * @param accountId Only return AWS accounts that matches this <code>account_id</code>.
      *     (optional)
      * @return UpdateAWSAccountOptionalParameters
      */
@@ -1223,8 +1210,8 @@ public class AwsIntegrationApi {
     /**
      * Set roleName
      *
-     * @param roleName Only return AWS accounts that match this &#x60;role_name&#x60;. Required if
-     *     &#x60;account_id&#x60; is specified. (optional)
+     * @param roleName Only return AWS accounts that match this <code>role_name</code>. Required if
+     *     <code>account_id</code> is specified. (optional)
      * @return UpdateAWSAccountOptionalParameters
      */
     public UpdateAWSAccountOptionalParameters roleName(String roleName) {
@@ -1235,7 +1222,7 @@ public class AwsIntegrationApi {
     /**
      * Set accessKeyId
      *
-     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
+     * @param accessKeyId Only return AWS accounts that matches this <code>access_key_id</code>.
      *     Required if none of the other two options are specified. (optional)
      * @return UpdateAWSAccountOptionalParameters
      */
@@ -1246,7 +1233,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS integration
+   * Update an AWS integration.
    *
    * <p>See {@link #updateAWSAccountWithHttpInfo}.
    *
@@ -1259,7 +1246,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS integration
+   * Update an AWS integration.
    *
    * <p>See {@link #updateAWSAccountWithHttpInfoAsync}.
    *
@@ -1275,7 +1262,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS integration
+   * Update an AWS integration.
    *
    * <p>See {@link #updateAWSAccountWithHttpInfo}.
    *
@@ -1290,7 +1277,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS integration
+   * Update an AWS integration.
    *
    * <p>See {@link #updateAWSAccountWithHttpInfoAsync}.
    *
@@ -1308,9 +1295,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS integration
-   *
-   * <p>Update a Datadog-Amazon Web Services integration.
+   * Update a Datadog-Amazon Web Services integration.
    *
    * @param body AWS request object (required)
    * @param parameters Optional parameters for the request.
@@ -1370,7 +1355,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS integration
+   * Update an AWS integration.
    *
    * <p>See {@link #updateAWSAccountWithHttpInfo}.
    *

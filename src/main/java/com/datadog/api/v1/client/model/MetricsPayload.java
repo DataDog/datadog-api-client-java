@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** The metrics&#39; payload. */
+/** The metrics' payload. */
 @JsonPropertyOrder({MetricsPayload.JSON_PROPERTY_SERIES})
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
