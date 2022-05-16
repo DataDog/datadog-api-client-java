@@ -39,7 +39,7 @@ public class RolesApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -48,7 +48,7 @@ public class RolesApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -1164,7 +1164,7 @@ public class RolesApi {
     private String filter;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListRolesOptionalParameters
@@ -1175,7 +1175,7 @@ public class RolesApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return ListRolesOptionalParameters
@@ -1186,7 +1186,7 @@ public class RolesApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort Sort roles depending on the given field. Sort order is <strong>ascending</strong>
      *     by default. Sort order is <strong>descending</strong> if the field is prefixed by a
@@ -1199,7 +1199,7 @@ public class RolesApi {
     }
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter Filter all roles by the given string. (optional)
      * @return ListRolesOptionalParameters
@@ -1380,7 +1380,7 @@ public class RolesApi {
     private String filter;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListRoleUsersOptionalParameters
@@ -1391,7 +1391,7 @@ public class RolesApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return ListRoleUsersOptionalParameters
@@ -1402,7 +1402,7 @@ public class RolesApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort User attribute to order results by. Sort order is <strong>ascending</strong> by
      *     default. Sort order is <strong>descending</strong> if the field is prefixed by a negative
@@ -1416,7 +1416,7 @@ public class RolesApi {
     }
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter Filter all users by the given string. Defaults to no filtering. (optional)
      * @return ListRoleUsersOptionalParameters

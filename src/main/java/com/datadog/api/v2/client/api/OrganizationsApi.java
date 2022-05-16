@@ -26,7 +26,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -35,7 +35,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -48,7 +48,7 @@ public class OrganizationsApi {
     private File idpFile;
 
     /**
-     * Set idpFile
+     * Set idpFile.
      *
      * @param idpFile The IdP metadata XML file (optional)
      * @return UploadIdPMetadataOptionalParameters

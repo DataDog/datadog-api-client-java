@@ -33,7 +33,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -42,7 +42,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -590,7 +590,7 @@ public class MonitorsApi {
     private String force;
 
     /**
-     * Set force
+     * Set force.
      *
      * @param force Delete the monitor even if it's referenced by other resources (for example SLO,
      *     composite monitor). (optional)
@@ -787,7 +787,7 @@ public class MonitorsApi {
     private String groupStates;
 
     /**
-     * Set groupStates
+     * Set groupStates.
      *
      * @param groupStates When specified, shows additional information about the group states.
      *     Choose one or more from <code>all</code>, <code>alert</code>, <code>warn</code>, and
@@ -991,7 +991,7 @@ public class MonitorsApi {
     private Integer pageSize;
 
     /**
-     * Set groupStates
+     * Set groupStates.
      *
      * @param groupStates When specified, shows additional information about the group states.
      *     Choose one or more from <code>all</code>, <code>alert</code>, <code>warn</code>, and
@@ -1004,7 +1004,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param name A string to filter monitors by name. (optional)
      * @return ListMonitorsOptionalParameters
@@ -1015,7 +1015,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set tags
+     * Set tags.
      *
      * @param tags A comma separated list indicating what tags, if any, should be used to filter the
      *     list of monitors by scope. For example, <code>host:host0</code>. (optional)
@@ -1027,7 +1027,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set monitorTags
+     * Set monitorTags.
      *
      * @param monitorTags A comma separated list indicating what service and/or custom tags, if any,
      *     should be used to filter the list of monitors. Tags created in the Datadog UI
@@ -1041,7 +1041,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set withDowntimes
+     * Set withDowntimes.
      *
      * @param withDowntimes If this argument is set to true, then the returned data includes all
      *     current active downtimes for each monitor. (optional)
@@ -1053,7 +1053,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set idOffset
+     * Set idOffset.
      *
      * @param idOffset Use this parameter for paginating through large sets of monitors. Start with
      *     a value of zero, make a request, set the value to the last ID of result set, and then
@@ -1066,7 +1066,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set page
+     * Set page.
      *
      * @param page The page to start paginating from. If this argument is not specified, the request
      *     returns all monitors without pagination. (optional)
@@ -1078,7 +1078,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize The number of monitors to return per page. If the page argument is not
      *     specified, the default behavior returns all monitors without a <code>page_size</code>
@@ -1280,7 +1280,7 @@ public class MonitorsApi {
     private String sort;
 
     /**
-     * Set query
+     * Set query.
      *
      * @param query After entering a search query in your <a
      *     href="https://app.datadoghq.com/monitors/manage">Manage Monitor page</a> use the query
@@ -1296,7 +1296,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set page
+     * Set page.
      *
      * @param page Page to start paginating from. (optional, default to 0)
      * @return SearchMonitorGroupsOptionalParameters
@@ -1307,7 +1307,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set perPage
+     * Set perPage.
      *
      * @param perPage Number of monitors to return per page. (optional, default to 30)
      * @return SearchMonitorGroupsOptionalParameters
@@ -1318,7 +1318,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort String for sort order, composed of field and sort order separate by a comma, for
      *     example <code>name,asc</code>. Supported sort directions: <code>asc</code>, <code>desc
@@ -1510,7 +1510,7 @@ public class MonitorsApi {
     private String sort;
 
     /**
-     * Set query
+     * Set query.
      *
      * @param query After entering a search query in your <a
      *     href="https://app.datadoghq.com/monitors/manage">Manage Monitor page</a> use the query
@@ -1526,7 +1526,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set page
+     * Set page.
      *
      * @param page Page to start paginating from. (optional, default to 0)
      * @return SearchMonitorsOptionalParameters
@@ -1537,7 +1537,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set perPage
+     * Set perPage.
      *
      * @param perPage Number of monitors to return per page. (optional, default to 30)
      * @return SearchMonitorsOptionalParameters
@@ -1548,7 +1548,7 @@ public class MonitorsApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort String for sort order, composed of field and sort order separate by a comma, for
      *     example <code>name,asc</code>. Supported sort directions: <code>asc</code>, <code>desc

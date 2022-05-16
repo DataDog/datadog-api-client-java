@@ -31,7 +31,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -40,7 +40,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -465,7 +465,7 @@ public class NotebooksApi {
     private String type;
 
     /**
-     * Set authorHandle
+     * Set authorHandle.
      *
      * @param authorHandle Return notebooks created by the given <code>author_handle</code>.
      *     (optional)
@@ -477,7 +477,7 @@ public class NotebooksApi {
     }
 
     /**
-     * Set excludeAuthorHandle
+     * Set excludeAuthorHandle.
      *
      * @param excludeAuthorHandle Return notebooks not created by the given <code>author_handle
      *     </code>. (optional)
@@ -489,7 +489,7 @@ public class NotebooksApi {
     }
 
     /**
-     * Set start
+     * Set start.
      *
      * @param start The index of the first notebook you want returned. (optional)
      * @return ListNotebooksOptionalParameters
@@ -500,7 +500,7 @@ public class NotebooksApi {
     }
 
     /**
-     * Set count
+     * Set count.
      *
      * @param count The number of notebooks to be returned. (optional)
      * @return ListNotebooksOptionalParameters
@@ -511,7 +511,7 @@ public class NotebooksApi {
     }
 
     /**
-     * Set sortField
+     * Set sortField.
      *
      * @param sortField Sort by field <code>modified</code>, <code>name</code>, or <code>created
      *     </code>. (optional, default to "modified")
@@ -523,7 +523,7 @@ public class NotebooksApi {
     }
 
     /**
-     * Set sortDir
+     * Set sortDir.
      *
      * @param sortDir Sort by direction <code>asc</code> or <code>desc</code>. (optional, default to
      *     "desc")
@@ -535,7 +535,7 @@ public class NotebooksApi {
     }
 
     /**
-     * Set query
+     * Set query.
      *
      * @param query Return only notebooks with <code>query</code> string in notebook name or author
      *     handle. (optional)
@@ -547,7 +547,7 @@ public class NotebooksApi {
     }
 
     /**
-     * Set includeCells
+     * Set includeCells.
      *
      * @param includeCells Value of <code>false</code> excludes the <code>cells</code> and global
      *     <code>time</code> for each notebook. (optional, default to true)
@@ -559,7 +559,7 @@ public class NotebooksApi {
     }
 
     /**
-     * Set isTemplate
+     * Set isTemplate.
      *
      * @param isTemplate True value returns only template notebooks. Default is false (returns only
      *     non-template notebooks). (optional, default to false)
@@ -571,7 +571,7 @@ public class NotebooksApi {
     }
 
     /**
-     * Set type
+     * Set type.
      *
      * @param type If type is provided, returns only notebooks with that metadata type. Default does
      *     not have type filtering. (optional)

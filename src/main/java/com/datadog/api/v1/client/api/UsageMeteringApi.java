@@ -70,7 +70,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -79,7 +79,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -95,7 +95,7 @@ public class UsageMeteringApi {
     private UsageSort sort;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize The number of files to return in the response. <code>[default=60]</code>.
      *     (optional)
@@ -107,7 +107,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber The identifier of the first page to return. This parameter is used for the
      *     pagination feature <code>[default=0]</code>. (optional)
@@ -119,7 +119,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortDir
+     * Set sortDir.
      *
      * @param sortDir The direction to sort by: <code>[desc, asc]</code>. (optional, default to
      *     "desc")
@@ -131,7 +131,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort The field to sort by: <code>[computed_on, size, start_date, end_date]</code>.
      *     (optional, default to "start_date")
@@ -328,7 +328,7 @@ public class UsageMeteringApi {
     private String tagBreakdownKeys;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -340,7 +340,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set nextRecordId
+     * Set nextRecordId.
      *
      * @param nextRecordId List following results with a next_record_id provided in the previous
      *     query. (optional)
@@ -352,7 +352,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set tagBreakdownKeys
+     * Set tagBreakdownKeys.
      *
      * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is
      *     provided the usage will not be broken down by tags. To see which tags are available, look
@@ -617,7 +617,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -825,7 +825,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -1030,7 +1030,7 @@ public class UsageMeteringApi {
     private UsageSort sort;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize The number of files to return in the response <code>[default=60].</code>
      *     (optional)
@@ -1042,7 +1042,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber The identifier of the first page to return. This parameter is used for the
      *     pagination feature <code>[default=0]</code>. (optional)
@@ -1054,7 +1054,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortDir
+     * Set sortDir.
      *
      * @param sortDir The direction to sort by: <code>[desc, asc]</code>. (optional, default to
      *     "desc")
@@ -1066,7 +1066,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort The field to sort by: <code>[computed_on, size, start_date, end_date]</code>.
      *     (optional, default to "start_date")
@@ -1266,7 +1266,7 @@ public class UsageMeteringApi {
     private String nextRecordId;
 
     /**
-     * Set endMonth
+     * Set endMonth.
      *
      * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
      *     for usage ending this month. (optional)
@@ -1278,7 +1278,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortDirection
+     * Set sortDirection.
      *
      * @param sortDirection The direction to sort by: <code>[desc, asc]</code>. (optional, default
      *     to "desc")
@@ -1291,7 +1291,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortName
+     * Set sortName.
      *
      * @param sortName The field to sort by. (optional)
      * @return GetMonthlyUsageAttributionOptionalParameters
@@ -1303,7 +1303,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set tagBreakdownKeys
+     * Set tagBreakdownKeys.
      *
      * @param tagBreakdownKeys Comma separated list of tag keys used to group usage. If no value is
      *     provided the usage will not be broken down by tags. To see which tags are available, look
@@ -1316,7 +1316,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set nextRecordId
+     * Set nextRecordId.
      *
      * @param nextRecordId List following results with a next_record_id provided in the previous
      *     query. (optional)
@@ -1901,7 +1901,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -2112,7 +2112,7 @@ public class UsageMeteringApi {
     private Long limit;
 
     /**
-     * Set endMonth
+     * Set endMonth.
      *
      * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
      *     for usage ending this month. (optional)
@@ -2124,7 +2124,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortDirection
+     * Set sortDirection.
      *
      * @param sortDirection The direction to sort by: <code>[desc, asc]</code>. (optional, default
      *     to "desc")
@@ -2136,7 +2136,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortName
+     * Set sortName.
      *
      * @param sortName The field to sort by. (optional, default to "custom_timeseries_usage")
      * @return GetUsageAttributionOptionalParameters
@@ -2147,7 +2147,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set includeDescendants
+     * Set includeDescendants.
      *
      * @param includeDescendants Include child org usage in the response. Defaults to false.
      *     (optional, default to false)
@@ -2159,7 +2159,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set offset
+     * Set offset.
      *
      * @param offset Number of records to skip before beginning to return. (optional, default to 0)
      * @return GetUsageAttributionOptionalParameters
@@ -2170,7 +2170,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set limit
+     * Set limit.
      *
      * @param limit Maximum number of records to be returned. (optional, default to 5000)
      * @return GetUsageAttributionOptionalParameters
@@ -2447,7 +2447,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -2647,7 +2647,7 @@ public class UsageMeteringApi {
     private OffsetDateTime month;
 
     /**
-     * Set month
+     * Set month.
      *
      * @param month Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
      *     usage starting this month. (optional)
@@ -2820,7 +2820,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -3019,7 +3019,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -3237,7 +3237,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -3436,7 +3436,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -3635,7 +3635,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -3835,7 +3835,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -4034,7 +4034,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -4240,7 +4240,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -4445,7 +4445,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -4644,7 +4644,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -4844,7 +4844,7 @@ public class UsageMeteringApi {
     private List<String> indexName;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -4856,7 +4856,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set indexName
+     * Set indexName.
      *
      * @param indexName Comma-separated list of log index names. (optional)
      * @return GetUsageLogsByIndexOptionalParameters
@@ -5064,7 +5064,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -5274,7 +5274,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -5480,7 +5480,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -5686,7 +5686,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -5892,7 +5892,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -6093,7 +6093,7 @@ public class UsageMeteringApi {
     private String type;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -6105,7 +6105,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set type
+     * Set type.
      *
      * @param type RUM type: <code>[browser, mobile]</code>. Defaults to <code>browser</code>.
      *     (optional)
@@ -6315,7 +6315,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -6515,7 +6515,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -6714,7 +6714,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -6914,7 +6914,7 @@ public class UsageMeteringApi {
     private Boolean includeOrgDetails;
 
     /**
-     * Set endMonth
+     * Set endMonth.
      *
      * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
      *     for usage ending this month. (optional)
@@ -6926,7 +6926,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set includeOrgDetails
+     * Set includeOrgDetails.
      *
      * @param includeOrgDetails Include usage summaries for each sub-org. (optional)
      * @return GetUsageSummaryOptionalParameters
@@ -7131,7 +7131,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -7346,7 +7346,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -7553,7 +7553,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -7763,7 +7763,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending <strong>before</strong> this hour. (optional)
@@ -7970,7 +7970,7 @@ public class UsageMeteringApi {
     private String nextRecordId;
 
     /**
-     * Set month
+     * Set month.
      *
      * @param month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage
      *     beginning at this hour. (Either month or day should be specified, but not both)
@@ -7983,7 +7983,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set day
+     * Set day.
      *
      * @param day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning
      *     at this hour. (Either month or day should be specified, but not both) (optional)
@@ -7995,7 +7995,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set names
+     * Set names.
      *
      * @param names Comma-separated list of metric names. (optional)
      * @return GetUsageTopAvgMetricsOptionalParameters
@@ -8006,7 +8006,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set limit
+     * Set limit.
      *
      * @param limit Maximum number of results to return (between 1 and 5000) - defaults to 500
      *     results if limit not specified. (optional, default to 500)
@@ -8018,7 +8018,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set nextRecordId
+     * Set nextRecordId.
      *
      * @param nextRecordId List following results with a next_record_id provided in the previous
      *     query. (optional)

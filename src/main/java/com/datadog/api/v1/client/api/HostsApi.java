@@ -31,7 +31,7 @@ public class HostsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -40,7 +40,7 @@ public class HostsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -53,7 +53,7 @@ public class HostsApi {
     private Long from;
 
     /**
-     * Set from
+     * Set from.
      *
      * @param from Number of seconds from which you want to get total number of active hosts.
      *     (optional)
@@ -231,7 +231,7 @@ public class HostsApi {
     private Boolean includeHostsMetadata;
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter String to filter search results. (optional)
      * @return ListHostsOptionalParameters
@@ -242,7 +242,7 @@ public class HostsApi {
     }
 
     /**
-     * Set sortField
+     * Set sortField.
      *
      * @param sortField Sort hosts by this field. (optional)
      * @return ListHostsOptionalParameters
@@ -253,7 +253,7 @@ public class HostsApi {
     }
 
     /**
-     * Set sortDir
+     * Set sortDir.
      *
      * @param sortDir Direction of sort. Options include <code>asc</code> and <code>desc</code>.
      *     (optional)
@@ -265,7 +265,7 @@ public class HostsApi {
     }
 
     /**
-     * Set start
+     * Set start.
      *
      * @param start Host result to start search from. (optional)
      * @return ListHostsOptionalParameters
@@ -276,7 +276,7 @@ public class HostsApi {
     }
 
     /**
-     * Set count
+     * Set count.
      *
      * @param count Number of hosts to return. Max 1000. (optional)
      * @return ListHostsOptionalParameters
@@ -287,7 +287,7 @@ public class HostsApi {
     }
 
     /**
-     * Set from
+     * Set from.
      *
      * @param from Number of seconds since UNIX epoch from which you want to search your hosts.
      *     (optional)
@@ -299,7 +299,7 @@ public class HostsApi {
     }
 
     /**
-     * Set includeMutedHostsData
+     * Set includeMutedHostsData.
      *
      * @param includeMutedHostsData Include information on the muted status of hosts and when the
      *     mute expires. (optional)
@@ -311,7 +311,7 @@ public class HostsApi {
     }
 
     /**
-     * Set includeHostsMetadata
+     * Set includeHostsMetadata.
      *
      * @param includeHostsMetadata Include additional metadata about the hosts (agent_version,
      *     machine, platform, processor, etc.). (optional)

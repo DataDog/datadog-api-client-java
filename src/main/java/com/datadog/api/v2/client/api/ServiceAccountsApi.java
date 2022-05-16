@@ -33,7 +33,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -42,7 +42,7 @@ public class ServiceAccountsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -568,7 +568,7 @@ public class ServiceAccountsApi {
     private String filterCreatedAtEnd;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListServiceAccountApplicationKeysOptionalParameters
@@ -579,7 +579,7 @@ public class ServiceAccountsApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return ListServiceAccountApplicationKeysOptionalParameters
@@ -590,7 +590,7 @@ public class ServiceAccountsApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort Application key attribute used to sort results. Sort order is ascending by
      *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -603,7 +603,7 @@ public class ServiceAccountsApi {
     }
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter Filter application keys by the specified string. (optional)
      * @return ListServiceAccountApplicationKeysOptionalParameters
@@ -614,7 +614,7 @@ public class ServiceAccountsApi {
     }
 
     /**
-     * Set filterCreatedAtStart
+     * Set filterCreatedAtStart.
      *
      * @param filterCreatedAtStart Only include application keys created on or after the specified
      *     date. (optional)
@@ -627,7 +627,7 @@ public class ServiceAccountsApi {
     }
 
     /**
-     * Set filterCreatedAtEnd
+     * Set filterCreatedAtEnd.
      *
      * @param filterCreatedAtEnd Only include application keys created on or before the specified
      *     date. (optional)

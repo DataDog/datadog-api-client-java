@@ -35,7 +35,7 @@ public class LogsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -44,7 +44,7 @@ public class LogsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -188,7 +188,7 @@ public class LogsApi {
     private LogsListRequest body;
 
     /**
-     * Set body
+     * Set body.
      *
      * @param body (optional)
      * @return ListLogsOptionalParameters
@@ -361,7 +361,7 @@ public class LogsApi {
     private Integer pageLimit;
 
     /**
-     * Set filterQuery
+     * Set filterQuery.
      *
      * @param filterQuery Search query following logs syntax. (optional)
      * @return ListLogsGetOptionalParameters
@@ -372,7 +372,7 @@ public class LogsApi {
     }
 
     /**
-     * Set filterIndex
+     * Set filterIndex.
      *
      * @param filterIndex For customers with multiple indexes, the indexes to search Defaults to '*'
      *     which means all indexes (optional)
@@ -384,7 +384,7 @@ public class LogsApi {
     }
 
     /**
-     * Set filterFrom
+     * Set filterFrom.
      *
      * @param filterFrom Minimum timestamp for requested logs. (optional)
      * @return ListLogsGetOptionalParameters
@@ -395,7 +395,7 @@ public class LogsApi {
     }
 
     /**
-     * Set filterTo
+     * Set filterTo.
      *
      * @param filterTo Maximum timestamp for requested logs. (optional)
      * @return ListLogsGetOptionalParameters
@@ -406,7 +406,7 @@ public class LogsApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort Order of logs in results. (optional)
      * @return ListLogsGetOptionalParameters
@@ -417,7 +417,7 @@ public class LogsApi {
     }
 
     /**
-     * Set pageCursor
+     * Set pageCursor.
      *
      * @param pageCursor List following results with a cursor provided in the previous query.
      *     (optional)
@@ -429,7 +429,7 @@ public class LogsApi {
     }
 
     /**
-     * Set pageLimit
+     * Set pageLimit.
      *
      * @param pageLimit Maximum number of logs in the response. (optional, default to 10)
      * @return ListLogsGetOptionalParameters
@@ -631,7 +631,7 @@ public class LogsApi {
     private String ddtags;
 
     /**
-     * Set contentEncoding
+     * Set contentEncoding.
      *
      * @param contentEncoding HTTP header used to compress the media-type. (optional)
      * @return SubmitLogOptionalParameters
@@ -642,7 +642,7 @@ public class LogsApi {
     }
 
     /**
-     * Set ddtags
+     * Set ddtags.
      *
      * @param ddtags Log tags can be passed as query parameters with <code>text/plain</code> content
      *     type. (optional)

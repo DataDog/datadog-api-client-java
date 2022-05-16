@@ -34,7 +34,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -43,7 +43,7 @@ public class MetricsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -194,7 +194,7 @@ public class MetricsApi {
     private String tagFilter;
 
     /**
-     * Set host
+     * Set host.
      *
      * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved
      *     are those with the corresponding hostname tag. (optional)
@@ -206,7 +206,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set tagFilter
+     * Set tagFilter.
      *
      * @param tagFilter Filter metrics that have been submitted with the given tags. Supports
      *     boolean and wildcard expressions. Cannot be combined with other filters. (optional)
@@ -718,7 +718,7 @@ public class MetricsApi {
     private MetricContentEncoding contentEncoding;
 
     /**
-     * Set contentEncoding
+     * Set contentEncoding.
      *
      * @param contentEncoding HTTP header used to compress the media-type. (optional)
      * @return SubmitMetricsOptionalParameters

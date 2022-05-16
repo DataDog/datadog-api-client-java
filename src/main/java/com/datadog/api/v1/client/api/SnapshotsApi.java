@@ -28,7 +28,7 @@ public class SnapshotsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -37,7 +37,7 @@ public class SnapshotsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -53,7 +53,7 @@ public class SnapshotsApi {
     private String title;
 
     /**
-     * Set metricQuery
+     * Set metricQuery.
      *
      * @param metricQuery The metric query. (optional)
      * @return GetGraphSnapshotOptionalParameters
@@ -64,7 +64,7 @@ public class SnapshotsApi {
     }
 
     /**
-     * Set eventQuery
+     * Set eventQuery.
      *
      * @param eventQuery A query that adds event bands to the graph. (optional)
      * @return GetGraphSnapshotOptionalParameters
@@ -75,7 +75,7 @@ public class SnapshotsApi {
     }
 
     /**
-     * Set graphDef
+     * Set graphDef.
      *
      * @param graphDef A JSON document defining the graph. <code>graph_def</code> can be used
      *     instead of <code>metric_query</code>. The JSON document uses the <a
@@ -89,7 +89,7 @@ public class SnapshotsApi {
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param title A title for the graph. If no title is specified, the graph does not have a
      *     title. (optional)

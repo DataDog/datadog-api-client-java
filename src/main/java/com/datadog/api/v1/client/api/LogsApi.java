@@ -31,7 +31,7 @@ public class LogsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -40,7 +40,7 @@ public class LogsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -189,7 +189,7 @@ public class LogsApi {
     private String ddtags;
 
     /**
-     * Set contentEncoding
+     * Set contentEncoding.
      *
      * @param contentEncoding HTTP header used to compress the media-type. (optional)
      * @return SubmitLogOptionalParameters
@@ -200,7 +200,7 @@ public class LogsApi {
     }
 
     /**
-     * Set ddtags
+     * Set ddtags.
      *
      * @param ddtags Log tags can be passed as query parameters with <code>text/plain</code> content
      *     type. (optional)

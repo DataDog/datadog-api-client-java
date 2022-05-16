@@ -32,7 +32,7 @@ public class EventsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -41,7 +41,7 @@ public class EventsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -323,7 +323,7 @@ public class EventsApi {
     private Integer page;
 
     /**
-     * Set priority
+     * Set priority.
      *
      * @param priority Priority of your events, either <code>low</code> or <code>normal</code>.
      *     (optional)
@@ -335,7 +335,7 @@ public class EventsApi {
     }
 
     /**
-     * Set sources
+     * Set sources.
      *
      * @param sources A comma separated string of sources. (optional)
      * @return ListEventsOptionalParameters
@@ -346,7 +346,7 @@ public class EventsApi {
     }
 
     /**
-     * Set tags
+     * Set tags.
      *
      * @param tags A comma separated list indicating what tags, if any, should be used to filter the
      *     list of monitors by scope. (optional)
@@ -358,7 +358,7 @@ public class EventsApi {
     }
 
     /**
-     * Set unaggregated
+     * Set unaggregated.
      *
      * @param unaggregated Set unaggregated to <code>true</code> to return all events within the
      *     specified [<code>start</code>,<code>end</code>] timeframe. Otherwise if an event is
@@ -374,7 +374,7 @@ public class EventsApi {
     }
 
     /**
-     * Set excludeAggregate
+     * Set excludeAggregate.
      *
      * @param excludeAggregate Set <code>exclude_aggregate</code> to <code>true</code> to only
      *     return unaggregated events where <code>is_aggregate=false</code> in the response. If the
@@ -388,7 +388,7 @@ public class EventsApi {
     }
 
     /**
-     * Set page
+     * Set page.
      *
      * @param page By default 1000 results are returned per request. Set page to the number of the
      *     page to return with <code>0</code> being the first page. The page parameter can only be

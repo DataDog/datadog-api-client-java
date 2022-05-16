@@ -31,7 +31,7 @@ public class AuditApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -40,7 +40,7 @@ public class AuditApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -58,7 +58,7 @@ public class AuditApi {
     private Integer pageLimit;
 
     /**
-     * Set filterQuery
+     * Set filterQuery.
      *
      * @param filterQuery Search query following Audit Logs syntax. (optional)
      * @return ListAuditLogsOptionalParameters
@@ -69,7 +69,7 @@ public class AuditApi {
     }
 
     /**
-     * Set filterFrom
+     * Set filterFrom.
      *
      * @param filterFrom Minimum timestamp for requested events. (optional)
      * @return ListAuditLogsOptionalParameters
@@ -80,7 +80,7 @@ public class AuditApi {
     }
 
     /**
-     * Set filterTo
+     * Set filterTo.
      *
      * @param filterTo Maximum timestamp for requested events. (optional)
      * @return ListAuditLogsOptionalParameters
@@ -91,7 +91,7 @@ public class AuditApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort Order of events in results. (optional)
      * @return ListAuditLogsOptionalParameters
@@ -102,7 +102,7 @@ public class AuditApi {
     }
 
     /**
-     * Set pageCursor
+     * Set pageCursor.
      *
      * @param pageCursor List following results with a cursor provided in the previous query.
      *     (optional)
@@ -114,7 +114,7 @@ public class AuditApi {
     }
 
     /**
-     * Set pageLimit
+     * Set pageLimit.
      *
      * @param pageLimit Maximum number of events in the response. (optional, default to 10)
      * @return ListAuditLogsOptionalParameters
@@ -307,7 +307,7 @@ public class AuditApi {
     private AuditLogsSearchEventsRequest body;
 
     /**
-     * Set body
+     * Set body.
      *
      * @param body (optional)
      * @return SearchAuditLogsOptionalParameters

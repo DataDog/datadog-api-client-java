@@ -47,7 +47,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -56,7 +56,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -1304,7 +1304,7 @@ public class SyntheticsApi {
     private List<String> probeDc;
 
     /**
-     * Set fromTs
+     * Set fromTs.
      *
      * @param fromTs Timestamp in milliseconds from which to start querying results. (optional)
      * @return GetAPITestLatestResultsOptionalParameters
@@ -1315,7 +1315,7 @@ public class SyntheticsApi {
     }
 
     /**
-     * Set toTs
+     * Set toTs.
      *
      * @param toTs Timestamp in milliseconds up to which to query results. (optional)
      * @return GetAPITestLatestResultsOptionalParameters
@@ -1326,7 +1326,7 @@ public class SyntheticsApi {
     }
 
     /**
-     * Set probeDc
+     * Set probeDc.
      *
      * @param probeDc Locations for which to query results. (optional)
      * @return GetAPITestLatestResultsOptionalParameters
@@ -1835,7 +1835,7 @@ public class SyntheticsApi {
     private List<String> probeDc;
 
     /**
-     * Set fromTs
+     * Set fromTs.
      *
      * @param fromTs Timestamp in milliseconds from which to start querying results. (optional)
      * @return GetBrowserTestLatestResultsOptionalParameters
@@ -1846,7 +1846,7 @@ public class SyntheticsApi {
     }
 
     /**
-     * Set toTs
+     * Set toTs.
      *
      * @param toTs Timestamp in milliseconds up to which to query results. (optional)
      * @return GetBrowserTestLatestResultsOptionalParameters
@@ -1857,7 +1857,7 @@ public class SyntheticsApi {
     }
 
     /**
-     * Set probeDc
+     * Set probeDc.
      *
      * @param probeDc Locations for which to query results. (optional)
      * @return GetBrowserTestLatestResultsOptionalParameters

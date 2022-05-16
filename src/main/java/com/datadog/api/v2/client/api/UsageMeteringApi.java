@@ -32,7 +32,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -41,7 +41,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -54,7 +54,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endMonth;
 
     /**
-     * Set endMonth
+     * Set endMonth.
      *
      * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
      *     for cost ending this month. (optional)
@@ -253,7 +253,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -471,7 +471,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)
@@ -685,7 +685,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
      *     for usage ending <strong>before</strong> this hour. (optional)

@@ -37,7 +37,7 @@ public class UsersApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -46,7 +46,7 @@ public class UsersApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -999,7 +999,7 @@ public class UsersApi {
     private String filterStatus;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListUsersOptionalParameters
@@ -1010,7 +1010,7 @@ public class UsersApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return ListUsersOptionalParameters
@@ -1021,7 +1021,7 @@ public class UsersApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort User attribute to order results by. Sort order is ascending by default. Sort
      *     order is descending if the field is prefixed by a negative sign, for example <code>
@@ -1035,7 +1035,7 @@ public class UsersApi {
     }
 
     /**
-     * Set sortDir
+     * Set sortDir.
      *
      * @param sortDir Direction of sort. Options: <code>asc</code>, <code>desc</code>. (optional,
      *     default to "desc")
@@ -1047,7 +1047,7 @@ public class UsersApi {
     }
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter Filter all users by the given string. Defaults to no filtering. (optional)
      * @return ListUsersOptionalParameters
@@ -1058,7 +1058,7 @@ public class UsersApi {
     }
 
     /**
-     * Set filterStatus
+     * Set filterStatus.
      *
      * @param filterStatus Filter on status attribute. Comma separated list, with possible values
      *     <code>Active</code>, <code>Pending</code>, and <code>Disabled</code>. Defaults to no

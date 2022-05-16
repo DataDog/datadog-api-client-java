@@ -37,7 +37,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -46,7 +46,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -331,7 +331,7 @@ public class ServiceLevelObjectivesApi {
     private String force;
 
     /**
-     * Set force
+     * Set force.
      *
      * @param force Delete the monitor even if it's referenced by other resources (for example SLO,
      *     composite monitor). (optional)
@@ -665,7 +665,7 @@ public class ServiceLevelObjectivesApi {
     private Boolean withConfiguredAlertIds;
 
     /**
-     * Set withConfiguredAlertIds
+     * Set withConfiguredAlertIds.
      *
      * @param withConfiguredAlertIds Get the IDs of SLO monitors that reference this SLO. (optional)
      * @return GetSLOOptionalParameters
@@ -995,7 +995,7 @@ public class ServiceLevelObjectivesApi {
     private Boolean applyCorrection;
 
     /**
-     * Set target
+     * Set target.
      *
      * @param target The SLO target. If <code>target</code> is passed in, the response will include
      *     the remaining error budget and a timeframe value of <code>custom</code>. (optional)
@@ -1007,7 +1007,7 @@ public class ServiceLevelObjectivesApi {
     }
 
     /**
-     * Set applyCorrection
+     * Set applyCorrection.
      *
      * @param applyCorrection Defaults to <code>true</code>. If any SLO corrections are applied and
      *     this parameter is set to <code>false</code>, then the corrections will not be applied and
@@ -1272,7 +1272,7 @@ public class ServiceLevelObjectivesApi {
     private Long offset;
 
     /**
-     * Set ids
+     * Set ids.
      *
      * @param ids A comma separated list of the IDs of the service level objectives objects.
      *     (optional)
@@ -1284,7 +1284,7 @@ public class ServiceLevelObjectivesApi {
     }
 
     /**
-     * Set query
+     * Set query.
      *
      * @param query The query string to filter results based on SLO names. (optional)
      * @return ListSLOsOptionalParameters
@@ -1295,7 +1295,7 @@ public class ServiceLevelObjectivesApi {
     }
 
     /**
-     * Set tagsQuery
+     * Set tagsQuery.
      *
      * @param tagsQuery The query string to filter results based on a single SLO tag. (optional)
      * @return ListSLOsOptionalParameters
@@ -1306,7 +1306,7 @@ public class ServiceLevelObjectivesApi {
     }
 
     /**
-     * Set metricsQuery
+     * Set metricsQuery.
      *
      * @param metricsQuery The query string to filter results based on SLO numerator and
      *     denominator. (optional)
@@ -1318,7 +1318,7 @@ public class ServiceLevelObjectivesApi {
     }
 
     /**
-     * Set limit
+     * Set limit.
      *
      * @param limit The number of SLOs to return in the response. (optional)
      * @return ListSLOsOptionalParameters
@@ -1329,7 +1329,7 @@ public class ServiceLevelObjectivesApi {
     }
 
     /**
-     * Set offset
+     * Set offset.
      *
      * @param offset The specific offset to use as the beginning of the returned response.
      *     (optional)

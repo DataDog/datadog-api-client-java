@@ -29,7 +29,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -38,7 +38,7 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */

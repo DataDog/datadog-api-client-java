@@ -33,7 +33,7 @@ public class RumApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -42,7 +42,7 @@ public class RumApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -195,7 +195,7 @@ public class RumApi {
     private Integer pageLimit;
 
     /**
-     * Set filterQuery
+     * Set filterQuery.
      *
      * @param filterQuery Search query following RUM syntax. (optional)
      * @return ListRUMEventsOptionalParameters
@@ -206,7 +206,7 @@ public class RumApi {
     }
 
     /**
-     * Set filterFrom
+     * Set filterFrom.
      *
      * @param filterFrom Minimum timestamp for requested events. (optional)
      * @return ListRUMEventsOptionalParameters
@@ -217,7 +217,7 @@ public class RumApi {
     }
 
     /**
-     * Set filterTo
+     * Set filterTo.
      *
      * @param filterTo Maximum timestamp for requested events. (optional)
      * @return ListRUMEventsOptionalParameters
@@ -228,7 +228,7 @@ public class RumApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort Order of events in results. (optional)
      * @return ListRUMEventsOptionalParameters
@@ -239,7 +239,7 @@ public class RumApi {
     }
 
     /**
-     * Set pageCursor
+     * Set pageCursor.
      *
      * @param pageCursor List following results with a cursor provided in the previous query.
      *     (optional)
@@ -251,7 +251,7 @@ public class RumApi {
     }
 
     /**
-     * Set pageLimit
+     * Set pageLimit.
      *
      * @param pageLimit Maximum number of events in the response. (optional, default to 10)
      * @return ListRUMEventsOptionalParameters

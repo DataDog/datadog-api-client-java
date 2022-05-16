@@ -29,7 +29,7 @@ public class TagsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -38,7 +38,7 @@ public class TagsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -51,7 +51,7 @@ public class TagsApi {
     private String source;
 
     /**
-     * Set source
+     * Set source.
      *
      * @param source The source of the tags. <a
      *     href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete
@@ -278,7 +278,7 @@ public class TagsApi {
     private String source;
 
     /**
-     * Set source
+     * Set source.
      *
      * @param source The source of the tags (for example chef, puppet). <a
      *     href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete
@@ -476,7 +476,7 @@ public class TagsApi {
     private String source;
 
     /**
-     * Set source
+     * Set source.
      *
      * @param source Source to filter. (optional)
      * @return GetHostTagsOptionalParameters
@@ -676,7 +676,7 @@ public class TagsApi {
     private String source;
 
     /**
-     * Set source
+     * Set source.
      *
      * @param source When specified, filters host list to those tags with the specified source.
      *     (optional)
@@ -845,7 +845,7 @@ public class TagsApi {
     private String source;
 
     /**
-     * Set source
+     * Set source.
      *
      * @param source The source of the tags (for example chef, puppet). <a
      *     href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">Complete

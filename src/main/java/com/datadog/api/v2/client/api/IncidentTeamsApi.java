@@ -32,7 +32,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -41,7 +41,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -322,7 +322,7 @@ public class IncidentTeamsApi {
     private IncidentRelatedObject include;
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Specifies which types of related objects should be included in the response.
      *     (optional)
@@ -523,7 +523,7 @@ public class IncidentTeamsApi {
     private String filter;
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Specifies which types of related objects should be included in the response.
      *     (optional)
@@ -535,7 +535,7 @@ public class IncidentTeamsApi {
     }
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListIncidentTeamsOptionalParameters
@@ -546,7 +546,7 @@ public class IncidentTeamsApi {
     }
 
     /**
-     * Set pageOffset
+     * Set pageOffset.
      *
      * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
      *     default to 0)
@@ -558,7 +558,7 @@ public class IncidentTeamsApi {
     }
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter A search query that filters teams by name. (optional)
      * @return ListIncidentTeamsOptionalParameters

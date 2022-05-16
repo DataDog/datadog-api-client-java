@@ -37,7 +37,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -46,7 +46,7 @@ public class MetricsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -800,7 +800,7 @@ public class MetricsApi {
     private Long windowSeconds;
 
     /**
-     * Set filterConfigured
+     * Set filterConfigured.
      *
      * @param filterConfigured Filter metrics that have configured tags. (optional)
      * @return ListTagConfigurationsOptionalParameters
@@ -811,7 +811,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterTagsConfigured
+     * Set filterTagsConfigured.
      *
      * @param filterTagsConfigured Filter tag configurations by configured tags. (optional)
      * @return ListTagConfigurationsOptionalParameters
@@ -823,7 +823,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterMetricType
+     * Set filterMetricType.
      *
      * @param filterMetricType Filter tag configurations by metric type. (optional, default to
      *     "gauge")
@@ -836,7 +836,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterIncludePercentiles
+     * Set filterIncludePercentiles.
      *
      * @param filterIncludePercentiles Filter distributions with additional percentile aggregations
      *     enabled or disabled. (optional)
@@ -849,7 +849,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterTags
+     * Set filterTags.
      *
      * @param filterTags Filter metrics that have been submitted with the given tags. Supports
      *     boolean and wildcard expressions. Cannot be combined with other filters. (optional)
@@ -861,7 +861,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set windowSeconds
+     * Set windowSeconds.
      *
      * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag]
      *     query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). (optional)

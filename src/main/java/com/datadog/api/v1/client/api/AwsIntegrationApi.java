@@ -34,7 +34,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -43,7 +43,7 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -856,7 +856,7 @@ public class AwsIntegrationApi {
     private String accessKeyId;
 
     /**
-     * Set accountId
+     * Set accountId.
      *
      * @param accountId Only return AWS accounts that matches this <code>account_id</code>.
      *     (optional)
@@ -868,7 +868,7 @@ public class AwsIntegrationApi {
     }
 
     /**
-     * Set roleName
+     * Set roleName.
      *
      * @param roleName Only return AWS accounts that matches this role_name. (optional)
      * @return ListAWSAccountsOptionalParameters
@@ -879,7 +879,7 @@ public class AwsIntegrationApi {
     }
 
     /**
-     * Set accessKeyId
+     * Set accessKeyId.
      *
      * @param accessKeyId Only return AWS accounts that matches this <code>access_key_id</code>.
      *     (optional)
@@ -1196,7 +1196,7 @@ public class AwsIntegrationApi {
     private String accessKeyId;
 
     /**
-     * Set accountId
+     * Set accountId.
      *
      * @param accountId Only return AWS accounts that matches this <code>account_id</code>.
      *     (optional)
@@ -1208,7 +1208,7 @@ public class AwsIntegrationApi {
     }
 
     /**
-     * Set roleName
+     * Set roleName.
      *
      * @param roleName Only return AWS accounts that match this <code>role_name</code>. Required if
      *     <code>account_id</code> is specified. (optional)
@@ -1220,7 +1220,7 @@ public class AwsIntegrationApi {
     }
 
     /**
-     * Set accessKeyId
+     * Set accessKeyId.
      *
      * @param accessKeyId Only return AWS accounts that matches this <code>access_key_id</code>.
      *     Required if none of the other two options are specified. (optional)

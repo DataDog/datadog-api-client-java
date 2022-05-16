@@ -32,7 +32,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -41,7 +41,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -593,7 +593,7 @@ public class DashboardsApi {
     private Boolean filterDeleted;
 
     /**
-     * Set filterShared
+     * Set filterShared.
      *
      * @param filterShared When <code>true</code>, this query only returns shared custom created or
      *     cloned dashboards. (optional)
@@ -605,7 +605,7 @@ public class DashboardsApi {
     }
 
     /**
-     * Set filterDeleted
+     * Set filterDeleted.
      *
      * @param filterDeleted When <code>true</code>, this query returns only deleted custom-created
      *     or cloned dashboards. This parameter is incompatible with <code>filter[shared]</code>.

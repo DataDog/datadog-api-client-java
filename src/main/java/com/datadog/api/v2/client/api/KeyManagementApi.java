@@ -37,7 +37,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -46,7 +46,7 @@ public class KeyManagementApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -724,7 +724,7 @@ public class KeyManagementApi {
     private String include;
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Comma separated list of resource paths for related resources to include in the
      *     response. Supported resource paths are <code>created_by</code> and <code>modified_by
@@ -920,7 +920,7 @@ public class KeyManagementApi {
     private String include;
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Resource path for related resources to include in the response. Only <code>
      *     owned_by</code> is supported. (optional)
@@ -1264,7 +1264,7 @@ public class KeyManagementApi {
     private String include;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListAPIKeysOptionalParameters
@@ -1275,7 +1275,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return ListAPIKeysOptionalParameters
@@ -1286,7 +1286,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort API key attribute used to sort results. Sort order is ascending by default. In
      *     order to specify a descending sort, prefix the attribute with a minus sign. (optional,
@@ -1299,7 +1299,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter Filter API keys by the specified string. (optional)
      * @return ListAPIKeysOptionalParameters
@@ -1310,7 +1310,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set filterCreatedAtStart
+     * Set filterCreatedAtStart.
      *
      * @param filterCreatedAtStart Only include API keys created on or after the specified date.
      *     (optional)
@@ -1322,7 +1322,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set filterCreatedAtEnd
+     * Set filterCreatedAtEnd.
      *
      * @param filterCreatedAtEnd Only include API keys created on or before the specified date.
      *     (optional)
@@ -1334,7 +1334,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set filterModifiedAtStart
+     * Set filterModifiedAtStart.
      *
      * @param filterModifiedAtStart Only include API keys modified on or after the specified date.
      *     (optional)
@@ -1346,7 +1346,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set filterModifiedAtEnd
+     * Set filterModifiedAtEnd.
      *
      * @param filterModifiedAtEnd Only include API keys modified on or before the specified date.
      *     (optional)
@@ -1358,7 +1358,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Comma separated list of resource paths for related resources to include in the
      *     response. Supported resource paths are <code>created_by</code> and <code>modified_by
@@ -1573,7 +1573,7 @@ public class KeyManagementApi {
     private String filterCreatedAtEnd;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListApplicationKeysOptionalParameters
@@ -1584,7 +1584,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return ListApplicationKeysOptionalParameters
@@ -1595,7 +1595,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort Application key attribute used to sort results. Sort order is ascending by
      *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -1608,7 +1608,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter Filter application keys by the specified string. (optional)
      * @return ListApplicationKeysOptionalParameters
@@ -1619,7 +1619,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set filterCreatedAtStart
+     * Set filterCreatedAtStart.
      *
      * @param filterCreatedAtStart Only include application keys created on or after the specified
      *     date. (optional)
@@ -1631,7 +1631,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set filterCreatedAtEnd
+     * Set filterCreatedAtEnd.
      *
      * @param filterCreatedAtEnd Only include application keys created on or before the specified
      *     date. (optional)
@@ -1832,7 +1832,7 @@ public class KeyManagementApi {
     private String filterCreatedAtEnd;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListCurrentUserApplicationKeysOptionalParameters
@@ -1843,7 +1843,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return ListCurrentUserApplicationKeysOptionalParameters
@@ -1854,7 +1854,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort Application key attribute used to sort results. Sort order is ascending by
      *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
@@ -1867,7 +1867,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter Filter application keys by the specified string. (optional)
      * @return ListCurrentUserApplicationKeysOptionalParameters
@@ -1878,7 +1878,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set filterCreatedAtStart
+     * Set filterCreatedAtStart.
      *
      * @param filterCreatedAtStart Only include application keys created on or after the specified
      *     date. (optional)
@@ -1891,7 +1891,7 @@ public class KeyManagementApi {
     }
 
     /**
-     * Set filterCreatedAtEnd
+     * Set filterCreatedAtEnd.
      *
      * @param filterCreatedAtEnd Only include application keys created on or before the specified
      *     date. (optional)

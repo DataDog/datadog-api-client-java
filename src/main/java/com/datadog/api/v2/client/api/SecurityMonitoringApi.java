@@ -39,7 +39,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -48,7 +48,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -1004,7 +1004,7 @@ public class SecurityMonitoringApi {
     private Long pageNumber;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListSecurityMonitoringRulesOptionalParameters
@@ -1015,7 +1015,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return ListSecurityMonitoringRulesOptionalParameters
@@ -1197,7 +1197,7 @@ public class SecurityMonitoringApi {
     private Integer pageLimit;
 
     /**
-     * Set filterQuery
+     * Set filterQuery.
      *
      * @param filterQuery The search query for security signals. (optional)
      * @return ListSecurityMonitoringSignalsOptionalParameters
@@ -1208,7 +1208,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set filterFrom
+     * Set filterFrom.
      *
      * @param filterFrom The minimum timestamp for requested security signals. (optional)
      * @return ListSecurityMonitoringSignalsOptionalParameters
@@ -1219,7 +1219,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set filterTo
+     * Set filterTo.
      *
      * @param filterTo The maximum timestamp for requested security signals. (optional)
      * @return ListSecurityMonitoringSignalsOptionalParameters
@@ -1230,7 +1230,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort The order of the security signals in results. (optional)
      * @return ListSecurityMonitoringSignalsOptionalParameters
@@ -1242,7 +1242,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set pageCursor
+     * Set pageCursor.
      *
      * @param pageCursor A list of results using the cursor provided in the previous query.
      *     (optional)
@@ -1254,7 +1254,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set pageLimit
+     * Set pageLimit.
      *
      * @param pageLimit The maximum number of security signals in the response. (optional, default
      *     to 10)
@@ -1453,7 +1453,7 @@ public class SecurityMonitoringApi {
     private SecurityMonitoringSignalListRequest body;
 
     /**
-     * Set body
+     * Set body.
      *
      * @param body (optional)
      * @return SearchSecurityMonitoringSignalsOptionalParameters
