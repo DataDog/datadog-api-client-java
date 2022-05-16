@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-package com.datadog.api.v2.client;
+package com.datadog.api.v1.client;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -17,21 +17,27 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class JavaTimeSerializer extends StdSerializer<OffsetDateTime> {
-  private static DateTimeFormatter formatter =
+public class JsonTimeSerializer extends StdSerializer<OffsetDateTime> {
+  private static DateTimeFormatter msFormatter =
       DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+  private static DateTimeFormatter missingMsFormatter =
+      DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
 
-  public JavaTimeSerializer() {
+  public JsonTimeSerializer() {
     this(null);
   }
 
-  public JavaTimeSerializer(Class<OffsetDateTime> t) {
+  public JsonTimeSerializer(Class<OffsetDateTime> t) {
     super(t);
   }
 
   @Override
   public void serialize(OffsetDateTime value, JsonGenerator gen, SerializerProvider arg2)
       throws IOException {
-    gen.writeString(formatter.format(value));
+    if (value.getNano() == 0) {
+      gen.writeString(missingMsFormatter.format(value));
+    } else {
+      gen.writeString(msFormatter.format(value));
+    }
   }
 }

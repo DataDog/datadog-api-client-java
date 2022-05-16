@@ -10,7 +10,6 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JavaTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
