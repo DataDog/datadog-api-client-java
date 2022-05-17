@@ -468,7 +468,6 @@ def format_data_with_schema_dict(
     name, imports = get_name_and_imports(schema)
 
     if "properties" in schema:
-        assert not schema.get("additionalProperties")
         assert "oneOf" not in schema
 
         if name is None:
@@ -476,6 +475,8 @@ def format_data_with_schema_dict(
         parameters = f"new {name}()"
 
         for k, v in data.items():
+            if k not in schema["properties"]:
+                continue
             r, value, extra_imports = format_data_with_schema(
                 v,
                 schema["properties"][k],
@@ -489,28 +490,43 @@ def format_data_with_schema_dict(
         if name not in imports:
             imports.add(name)
 
-        return name, parameters, imports
+        if not schema.get("additionalProperties"):
+            return name, parameters, imports
 
     if schema.get("additionalProperties"):
         assert "oneOf" not in schema
+        has_properties = schema.get("properties")
+        if has_properties:
+            if not parameters:
+                if name is None:
+                    name = default_name
+                parameters = f"new {name}()"
+        else:
+            parameters = ""
 
-        parameters = ""
         for k, v in data.items():
+            if has_properties and k in schema["properties"]:
+                continue
             r, value, extra_imports = format_data_with_schema(
                 v,
                 schema["additionalProperties"],
                 replace_values=replace_values,
                 default_name=name + untitle_case(camel_case(k)) if name else None,
             )
-            parameters += f'Map.entry("{k}", {value}),'
+            if has_properties:
+                parameters += f'\n.putAdditionalProperty("{k}", {value})'
+            else:
+                parameters += f'Map.entry("{k}", {value}),'
             imports |= extra_imports
 
-        # imports.add("java.util.Map")
-        return (
-            "Map<String, {}>".format(openapi.type_to_java(schema["additionalProperties"])),
-            f"Map.ofEntries({parameters.rstrip(',')})",
-            imports,
-        )
+        if has_properties:
+            return name, parameters, imports
+        else:
+            return (
+                "Map<String, {}>".format(openapi.type_to_java(schema["additionalProperties"])),
+                f"Map.ofEntries({parameters.rstrip(',')})",
+                imports,
+            )
 
     if "oneOf" in schema:
         assert name is not None
