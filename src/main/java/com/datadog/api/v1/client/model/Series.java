@@ -53,7 +53,7 @@ public class Series {
   private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "gauge";
+  private String type = "";
 
   public Series() {}
 
@@ -199,7 +199,8 @@ public class Series {
   }
 
   /**
-   * The type of the metric either <code>count</code>, <code>gauge</code>, or <code>rate</code>.
+   * The type of the metric. Valid types are "",<code>count</code>, <code>gauge</code>, and <code>
+   * rate</code>.
    *
    * @return type
    */

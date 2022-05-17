@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"series\": [{\"metric\": \"system.load.1\", \"points\": [{\"timestamp\": 1650641018, \"value\": 0.7}], \"type\": 0}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Submit_metrics_returns_Payload_accepted_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/series",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 202,
+      "reasonPhrase": "Accepted"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0a2ac212-c4d1-6921-d277-324283be1580"
+  }
+]

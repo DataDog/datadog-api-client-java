@@ -5,11 +5,14 @@ import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.Pair;
+import com.datadog.api.v2.client.model.IntakePayloadAccepted;
 import com.datadog.api.v2.client.model.MetricAllTagsResponse;
 import com.datadog.api.v2.client.model.MetricBulkTagConfigCreateRequest;
 import com.datadog.api.v2.client.model.MetricBulkTagConfigDeleteRequest;
 import com.datadog.api.v2.client.model.MetricBulkTagConfigResponse;
+import com.datadog.api.v2.client.model.MetricContentEncoding;
 import com.datadog.api.v2.client.model.MetricEstimateResponse;
+import com.datadog.api.v2.client.model.MetricPayload;
 import com.datadog.api.v2.client.model.MetricTagConfigurationCreateRequest;
 import com.datadog.api.v2.client.model.MetricTagConfigurationMetricTypes;
 import com.datadog.api.v2.client.model.MetricTagConfigurationResponse;
@@ -1622,6 +1625,211 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricVolumesResponse>() {});
+  }
+
+  /** Manage optional parameters to submitMetrics. */
+  public static class SubmitMetricsOptionalParameters {
+    private MetricContentEncoding contentEncoding;
+
+    /**
+     * Set contentEncoding.
+     *
+     * @param contentEncoding HTTP header used to compress the media-type. (optional, default to
+     *     "deflate")
+     * @return SubmitMetricsOptionalParameters
+     */
+    public SubmitMetricsOptionalParameters contentEncoding(MetricContentEncoding contentEncoding) {
+      this.contentEncoding = contentEncoding;
+      return this;
+    }
+  }
+
+  /**
+   * Submit metrics.
+   *
+   * <p>See {@link #submitMetricsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return IntakePayloadAccepted
+   * @throws ApiException if fails to make API call
+   */
+  public IntakePayloadAccepted submitMetrics(MetricPayload body) throws ApiException {
+    return submitMetricsWithHttpInfo(body, new SubmitMetricsOptionalParameters()).getData();
+  }
+
+  /**
+   * Submit metrics.
+   *
+   * <p>See {@link #submitMetricsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
+   */
+  public CompletableFuture<IntakePayloadAccepted> submitMetricsAsync(MetricPayload body) {
+    return submitMetricsWithHttpInfoAsync(body, new SubmitMetricsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Submit metrics.
+   *
+   * <p>See {@link #submitMetricsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return IntakePayloadAccepted
+   * @throws ApiException if fails to make API call
+   */
+  public IntakePayloadAccepted submitMetrics(
+      MetricPayload body, SubmitMetricsOptionalParameters parameters) throws ApiException {
+    return submitMetricsWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Submit metrics.
+   *
+   * <p>See {@link #submitMetricsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
+   */
+  public CompletableFuture<IntakePayloadAccepted> submitMetricsAsync(
+      MetricPayload body, SubmitMetricsOptionalParameters parameters) {
+    return submitMetricsWithHttpInfoAsync(body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s
+   * dashboards. The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads must
+   * have a decompressed size of less than 5 megabytes (5242880 bytes).
+   *
+   * <p>If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
+   *
+   * <ul>
+   *   <li>64 bits for the timestamp
+   *   <li>64 bits for the value
+   *   <li>20 bytes for the metric names
+   *   <li>50 bytes for the timeseries
+   *   <li>The full payload is approximately 100 bytes.
+   * </ul>
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IntakePayloadAccepted&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
+   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IntakePayloadAccepted> submitMetricsWithHttpInfo(
+      MetricPayload body, SubmitMetricsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling submitMetrics");
+    }
+    MetricContentEncoding contentEncoding = parameters.contentEncoding;
+    // create path and map variables
+    String localVarPath = "/api/v2/series";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    if (contentEncoding != null)
+      localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "MetricsApi.submitMetrics",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IntakePayloadAccepted>() {});
+  }
+
+  /**
+   * Submit metrics.
+   *
+   * <p>See {@link #submitMetricsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IntakePayloadAccepted&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IntakePayloadAccepted>> submitMetricsWithHttpInfoAsync(
+      MetricPayload body, SubmitMetricsOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IntakePayloadAccepted>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling submitMetrics"));
+      return result;
+    }
+    MetricContentEncoding contentEncoding = parameters.contentEncoding;
+    // create path and map variables
+    String localVarPath = "/api/v2/series";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    if (contentEncoding != null)
+      localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "MetricsApi.submitMetrics",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IntakePayloadAccepted>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IntakePayloadAccepted>() {});
   }
 
   /**
