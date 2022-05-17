@@ -656,7 +656,7 @@ public class MetricsApi {
     private Integer filterTimespanH;
 
     /**
-     * Set filterGroups
+     * Set filterGroups.
      *
      * @param filterGroups Filtered tag groups that the metric is configured to query with.
      *     (optional)
@@ -668,7 +668,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterHoursAgo
+     * Set filterHoursAgo.
      *
      * @param filterHoursAgo The number of hours of look back (from now) to estimate cardinality
      *     with. (optional)
@@ -680,11 +680,11 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterNumAggregations
+     * Set filterNumAggregations.
      *
-     * @param filterNumAggregations The number of aggregations that a &#x60;count&#x60;,
-     *     &#x60;rate&#x60;, or &#x60;gauge&#x60; metric is configured to use. Max number of
-     *     aggregation combos is 9. (optional)
+     * @param filterNumAggregations The number of aggregations that a <code>count</code>, <code>rate
+     *     </code>, or <code>gauge</code> metric is configured to use. Max number of aggregation
+     *     combos is 9. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterNumAggregations(
@@ -694,7 +694,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterPct
+     * Set filterPct.
      *
      * @param filterPct A boolean, for distribution metrics only, to estimate cardinality if the
      *     metric includes additional percentile aggregators. (optional)
@@ -706,7 +706,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterTimespanH
+     * Set filterTimespanH.
      *
      * @param filterTimespanH A window, in hours, from the look back to estimate cardinality with.
      *     (optional)
@@ -719,7 +719,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
+   * Estimate Output Series - Public v2 API.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
    *
@@ -734,7 +734,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
+   * Estimate Output Series - Public v2 API.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
    *
@@ -752,7 +752,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
+   * Estimate Output Series - Public v2 API.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
    *
@@ -768,7 +768,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
+   * Estimate Output Series - Public v2 API.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
    *
@@ -786,9 +786,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
-   *
-   * <p>Returns a cardinality estimate for a metric with a given tag, percentile, and number of
+   * Returns a cardinality estimate for a metric with a given tag, percentile, and number of
    * aggregations configuration.
    *
    * @param metricName The name of the metric. (required)
@@ -860,7 +858,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
+   * Estimate Output Series - Public v2 API.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
    *

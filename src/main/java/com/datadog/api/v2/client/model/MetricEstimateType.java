@@ -24,10 +24,10 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Estimate type based on the queried configuration. By default, &#x60;count_or_gauge&#x60; is
- * returned. &#x60;distribution&#x60; is returned for distribution metrics without percentiles
- * enabled. Lastly, &#x60;percentile&#x60; is returned if &#x60;filter[pct]&#x3D;true&#x60; is
- * queried with a distribution metric.
+ * Estimate type based on the queried configuration. By default, <code>count_or_gauge</code> is
+ * returned. <code>distribution</code> is returned for distribution metrics without percentiles
+ * enabled. Lastly, <code>percentile</code> is returned if <code>filter[pct]=true</code> is queried
+ * with a distribution metric.
  */
 @JsonSerialize(using = MetricEstimateType.MetricEstimateTypeSerializer.class)
 public class MetricEstimateType {
