@@ -31,8 +31,9 @@ public class OrganizationSettingsSamlIdpInitiatedLogin {
   }
 
   /**
-   * Whether SAML IdP initiated login is enabled, learn more in the [SAML
-   * documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).
+   * Whether SAML IdP initiated login is enabled, learn more in the <a
+   * href="https://docs.datadoghq.com/account_management/saml/#idp-initiated-login">SAML
+   * documentation</a>.
    *
    * @return enabled
    */

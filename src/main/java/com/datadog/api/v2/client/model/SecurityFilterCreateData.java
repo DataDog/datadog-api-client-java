@@ -73,7 +73,7 @@ public class SecurityFilterCreateData {
   }
 
   /**
-   * The type of the resource. The value should always be &#x60;security_filters&#x60;.
+   * The type of the resource. The value should always be <code>security_filters</code>.
    *
    * @return type
    */

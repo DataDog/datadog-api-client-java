@@ -158,9 +158,11 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Array of one request object to display in the widget. See the dedicated [Request JSON schema
-   * documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json) to learn how
-   * to build the &#x60;REQUEST_SCHEMA&#x60;.
+   * Array of one request object to display in the widget.
+   *
+   * <p>See the dedicated <a
+   * href="https://docs.datadoghq.com/dashboards/graphing_json/request_json">Request JSON schema
+   * documentation</a> to learn how to build the <code>REQUEST_SCHEMA</code>.
    *
    * @return requests
    */

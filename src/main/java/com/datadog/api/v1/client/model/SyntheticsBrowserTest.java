@@ -229,7 +229,7 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
+   * Define whether you want to start (<code>live</code>) or pause (<code>paused</code>) a Synthetic
    * test.
    *
    * @return status
@@ -317,7 +317,7 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Type of the Synthetic test, &#x60;browser&#x60;.
+   * Type of the Synthetic test, <code>browser</code>.
    *
    * @return type
    */

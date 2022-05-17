@@ -38,7 +38,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -47,7 +47,7 @@ public class MetricsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -56,7 +56,7 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics
+   * Configure tags for multiple metrics.
    *
    * <p>See {@link #createBulkTagsMetricsConfigurationWithHttpInfo}.
    *
@@ -70,7 +70,7 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics
+   * Configure tags for multiple metrics.
    *
    * <p>See {@link #createBulkTagsMetricsConfigurationWithHttpInfoAsync}.
    *
@@ -87,15 +87,13 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics
-   *
-   * <p>Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and
+   * Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and
    * distribution metrics. Metrics are selected by passing a metric name prefix. Use the Delete
    * method of this API path to remove tag configurations. Results can be sent to a set of account
    * email addresses, just like the same operation in the Datadog web app. If multiple calls include
    * the same metric, the last configuration applied (not by submit order) is used, do not expect
    * deterministic ordering of concurrent calls. Can only be used with application keys of users
-   * with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * with the <code>Manage Tags for Metrics</code> permission.
    *
    * @param body (required)
    * @return ApiResponse&lt;MetricBulkTagConfigResponse&gt;
@@ -147,7 +145,7 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics
+   * Configure tags for multiple metrics.
    *
    * <p>See {@link #createBulkTagsMetricsConfigurationWithHttpInfo}.
    *
@@ -203,7 +201,7 @@ public class MetricsApi {
   }
 
   /**
-   * Create a tag configuration
+   * Create a tag configuration.
    *
    * <p>See {@link #createTagConfigurationWithHttpInfo}.
    *
@@ -218,7 +216,7 @@ public class MetricsApi {
   }
 
   /**
-   * Create a tag configuration
+   * Create a tag configuration.
    *
    * <p>See {@link #createTagConfigurationWithHttpInfoAsync}.
    *
@@ -236,12 +234,10 @@ public class MetricsApi {
   }
 
   /**
-   * Create a tag configuration
-   *
-   * <p>Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution
+   * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution
    * metric. Optionally, include percentile aggregations on any distribution metric or configure
    * custom aggregations on any count, rate, or gauge metric. Can only be used with application keys
-   * of users with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * of users with the <code>Manage Tags for Metrics</code> permission.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)
@@ -302,7 +298,7 @@ public class MetricsApi {
   }
 
   /**
-   * Create a tag configuration
+   * Create a tag configuration.
    *
    * <p>See {@link #createTagConfigurationWithHttpInfo}.
    *
@@ -372,7 +368,7 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics
+   * Configure tags for multiple metrics.
    *
    * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfo}.
    *
@@ -386,7 +382,7 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics
+   * Configure tags for multiple metrics.
    *
    * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfoAsync}.
    *
@@ -403,12 +399,10 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics
-   *
-   * <p>Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and
+   * Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and
    * distribution metrics. Metrics are selected by passing a metric name prefix. Results can be sent
    * to a set of account email addresses, just like the same operation in the Datadog web app. Can
-   * only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60;
+   * only be used with application keys of users with the <code>Manage Tags for Metrics</code>
    * permission.
    *
    * @param body (required)
@@ -461,7 +455,7 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics
+   * Configure tags for multiple metrics.
    *
    * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfo}.
    *
@@ -517,7 +511,7 @@ public class MetricsApi {
   }
 
   /**
-   * Delete a tag configuration
+   * Delete a tag configuration.
    *
    * <p>See {@link #deleteTagConfigurationWithHttpInfo}.
    *
@@ -529,7 +523,7 @@ public class MetricsApi {
   }
 
   /**
-   * Delete a tag configuration
+   * Delete a tag configuration.
    *
    * <p>See {@link #deleteTagConfigurationWithHttpInfoAsync}.
    *
@@ -544,10 +538,8 @@ public class MetricsApi {
   }
 
   /**
-   * Delete a tag configuration
-   *
-   * <p>Deletes a metric&#39;s tag configuration. Can only be used with application keys from users
-   * with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * Deletes a metric's tag configuration. Can only be used with application keys from users with
+   * the <code>Manage Tags for Metrics</code> permission.
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -600,7 +592,7 @@ public class MetricsApi {
   }
 
   /**
-   * Delete a tag configuration
+   * Delete a tag configuration.
    *
    * <p>See {@link #deleteTagConfigurationWithHttpInfo}.
    *
@@ -664,7 +656,7 @@ public class MetricsApi {
     private Integer filterTimespanH;
 
     /**
-     * Set filterGroups
+     * Set filterGroups.
      *
      * @param filterGroups Filtered tag groups that the metric is configured to query with.
      *     (optional)
@@ -676,7 +668,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterHoursAgo
+     * Set filterHoursAgo.
      *
      * @param filterHoursAgo The number of hours of look back (from now) to estimate cardinality
      *     with. (optional)
@@ -688,11 +680,11 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterNumAggregations
+     * Set filterNumAggregations.
      *
-     * @param filterNumAggregations The number of aggregations that a &#x60;count&#x60;,
-     *     &#x60;rate&#x60;, or &#x60;gauge&#x60; metric is configured to use. Max number of
-     *     aggregation combos is 9. (optional)
+     * @param filterNumAggregations The number of aggregations that a <code>count</code>, <code>rate
+     *     </code>, or <code>gauge</code> metric is configured to use. Max number of aggregation
+     *     combos is 9. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterNumAggregations(
@@ -702,7 +694,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterPct
+     * Set filterPct.
      *
      * @param filterPct A boolean, for distribution metrics only, to estimate cardinality if the
      *     metric includes additional percentile aggregators. (optional)
@@ -714,7 +706,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterTimespanH
+     * Set filterTimespanH.
      *
      * @param filterTimespanH A window, in hours, from the look back to estimate cardinality with.
      *     (optional)
@@ -727,7 +719,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
+   * Estimate Output Series - Public v2 API.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
    *
@@ -742,7 +734,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
+   * Estimate Output Series - Public v2 API.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
    *
@@ -760,7 +752,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
+   * Estimate Output Series - Public v2 API.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
    *
@@ -776,7 +768,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
+   * Estimate Output Series - Public v2 API.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
    *
@@ -794,9 +786,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
-   *
-   * <p>Returns a cardinality estimate for a metric with a given tag, percentile, and number of
+   * Returns a cardinality estimate for a metric with a given tag, percentile, and number of
    * aggregations configuration.
    *
    * @param metricName The name of the metric. (required)
@@ -868,7 +858,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API
+   * Estimate Output Series - Public v2 API.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
    *
@@ -941,7 +931,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configuration by name
+   * List tag configuration by name.
    *
    * <p>See {@link #listTagConfigurationByNameWithHttpInfo}.
    *
@@ -955,7 +945,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configuration by name
+   * List tag configuration by name.
    *
    * <p>See {@link #listTagConfigurationByNameWithHttpInfoAsync}.
    *
@@ -972,9 +962,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configuration by name
-   *
-   * <p>Returns the tag configuration for the given metric name.
+   * Returns the tag configuration for the given metric name.
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;MetricTagConfigurationResponse&gt;
@@ -1028,7 +1016,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configuration by name
+   * List tag configuration by name.
    *
    * <p>See {@link #listTagConfigurationByNameWithHttpInfo}.
    *
@@ -1096,7 +1084,7 @@ public class MetricsApi {
     private Long windowSeconds;
 
     /**
-     * Set filterConfigured
+     * Set filterConfigured.
      *
      * @param filterConfigured Filter metrics that have configured tags. (optional)
      * @return ListTagConfigurationsOptionalParameters
@@ -1107,7 +1095,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterTagsConfigured
+     * Set filterTagsConfigured.
      *
      * @param filterTagsConfigured Filter tag configurations by configured tags. (optional)
      * @return ListTagConfigurationsOptionalParameters
@@ -1119,7 +1107,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterMetricType
+     * Set filterMetricType.
      *
      * @param filterMetricType Filter tag configurations by metric type. (optional, default to
      *     "gauge")
@@ -1132,7 +1120,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterIncludePercentiles
+     * Set filterIncludePercentiles.
      *
      * @param filterIncludePercentiles Filter distributions with additional percentile aggregations
      *     enabled or disabled. (optional)
@@ -1145,7 +1133,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set filterTags
+     * Set filterTags.
      *
      * @param filterTags Filter metrics that have been submitted with the given tags. Supports
      *     boolean and wildcard expressions. Cannot be combined with other filters. (optional)
@@ -1157,7 +1145,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set windowSeconds
+     * Set windowSeconds.
      *
      * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag]
      *     query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). (optional)
@@ -1170,7 +1158,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations
+   * List tag configurations.
    *
    * <p>See {@link #listTagConfigurationsWithHttpInfo}.
    *
@@ -1183,7 +1171,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations
+   * List tag configurations.
    *
    * <p>See {@link #listTagConfigurationsWithHttpInfoAsync}.
    *
@@ -1198,7 +1186,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations
+   * List tag configurations.
    *
    * <p>See {@link #listTagConfigurationsWithHttpInfo}.
    *
@@ -1212,7 +1200,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations
+   * List tag configurations.
    *
    * <p>See {@link #listTagConfigurationsWithHttpInfoAsync}.
    *
@@ -1229,10 +1217,8 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations
-   *
-   * <p>Returns all configured count/gauge/rate/distribution metric names (with additional filters
-   * if specified).
+   * Returns all configured count/gauge/rate/distribution metric names (with additional filters if
+   * specified).
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;
@@ -1294,7 +1280,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations
+   * List tag configurations.
    *
    * <p>See {@link #listTagConfigurationsWithHttpInfo}.
    *
@@ -1356,7 +1342,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tags by metric name
+   * List tags by metric name.
    *
    * <p>See {@link #listTagsByMetricNameWithHttpInfo}.
    *
@@ -1369,7 +1355,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tags by metric name
+   * List tags by metric name.
    *
    * <p>See {@link #listTagsByMetricNameWithHttpInfoAsync}.
    *
@@ -1385,9 +1371,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tags by metric name
-   *
-   * <p>View indexed tag key-value pairs for a given metric name.
+   * View indexed tag key-value pairs for a given metric name.
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;MetricAllTagsResponse&gt;
@@ -1441,7 +1425,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tags by metric name
+   * List tags by metric name.
    *
    * <p>See {@link #listTagsByMetricNameWithHttpInfo}.
    *
@@ -1497,7 +1481,7 @@ public class MetricsApi {
   }
 
   /**
-   * List distinct metric volumes by metric name
+   * List distinct metric volumes by metric name.
    *
    * <p>See {@link #listVolumesByMetricNameWithHttpInfo}.
    *
@@ -1510,7 +1494,7 @@ public class MetricsApi {
   }
 
   /**
-   * List distinct metric volumes by metric name
+   * List distinct metric volumes by metric name.
    *
    * <p>See {@link #listVolumesByMetricNameWithHttpInfoAsync}.
    *
@@ -1526,12 +1510,12 @@ public class MetricsApi {
   }
 
   /**
-   * List distinct metric volumes by metric name
+   * View distinct metrics volumes for the given metric name.
    *
-   * <p>View distinct metrics volumes for the given metric name. Custom distribution metrics will
-   * return both ingested and indexed custom metric volumes. For Metrics without Limits&amp;trade;
-   * beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated
-   * in-app from other products will return &#x60;null&#x60; for ingested volumes.
+   * <p>Custom distribution metrics will return both ingested and indexed custom metric volumes. For
+   * Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed
+   * volumes. Custom metrics generated in-app from other products will return <code>null</code> for
+   * ingested volumes.
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;MetricVolumesResponse&gt;
@@ -1585,7 +1569,7 @@ public class MetricsApi {
   }
 
   /**
-   * List distinct metric volumes by metric name
+   * List distinct metric volumes by metric name.
    *
    * <p>See {@link #listVolumesByMetricNameWithHttpInfo}.
    *
@@ -1641,7 +1625,7 @@ public class MetricsApi {
   }
 
   /**
-   * Update a tag configuration
+   * Update a tag configuration.
    *
    * <p>See {@link #updateTagConfigurationWithHttpInfo}.
    *
@@ -1656,7 +1640,7 @@ public class MetricsApi {
   }
 
   /**
-   * Update a tag configuration
+   * Update a tag configuration.
    *
    * <p>See {@link #updateTagConfigurationWithHttpInfoAsync}.
    *
@@ -1674,11 +1658,9 @@ public class MetricsApi {
   }
 
   /**
-   * Update a tag configuration
-   *
-   * <p>Update the tag configuration of a metric or percentile aggregations of a distribution metric
-   * or custom aggregations of a count, rate, or gauge metric. Can only be used with application
-   * keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or
+   * custom aggregations of a count, rate, or gauge metric. Can only be used with application keys
+   * from users with the <code>Manage Tags for Metrics</code> permission.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)
@@ -1739,7 +1721,7 @@ public class MetricsApi {
   }
 
   /**
-   * Update a tag configuration
+   * Update a tag configuration.
    *
    * <p>See {@link #updateTagConfigurationWithHttpInfo}.
    *

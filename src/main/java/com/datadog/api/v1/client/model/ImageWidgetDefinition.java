@@ -148,8 +148,8 @@ public class ImageWidgetDefinition {
   }
 
   /**
-   * Size of the margins around the image. **Note**: &#x60;small&#x60; and &#x60;large&#x60; values
-   * are deprecated.
+   * Size of the margins around the image. <strong>Note</strong>: <code>small</code> and <code>large
+   * </code> values are deprecated.
    *
    * @return margin
    */
@@ -174,9 +174,9 @@ public class ImageWidgetDefinition {
   }
 
   /**
-   * How to size the image on the widget. The values are based on the image &#x60;object-fit&#x60;
-   * CSS properties. **Note**: &#x60;zoom&#x60;, &#x60;fit&#x60; and &#x60;center&#x60; values are
-   * deprecated.
+   * How to size the image on the widget. The values are based on the image <code>object-fit</code>
+   * CSS properties. <strong>Note</strong>: <code>zoom</code>, <code>fit</code> and <code>center
+   * </code> values are deprecated.
    *
    * @return sizing
    */

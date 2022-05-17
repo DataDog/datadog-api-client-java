@@ -47,7 +47,7 @@ public class LogsPipelinesOrder {
   }
 
   /**
-   * Ordered Array of &#x60;&lt;PIPELINE_ID&gt;&#x60; strings, the order of pipeline IDs in the
+   * Ordered Array of <code>&lt;PIPELINE_ID&gt;</code> strings, the order of pipeline IDs in the
    * array define the overall Pipelines order for Datadog.
    *
    * @return pipelineIds

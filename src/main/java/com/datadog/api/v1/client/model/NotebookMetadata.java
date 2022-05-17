@@ -63,8 +63,7 @@ public class NotebookMetadata {
   }
 
   /**
-   * Whether or not the notebook takes snapshot image backups of the notebook&#39;s fixed-time
-   * graphs.
+   * Whether or not the notebook takes snapshot image backups of the notebook's fixed-time graphs.
    *
    * @return takeSnapshots
    */

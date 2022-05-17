@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** The security filter&#39;s properties. */
+/** The security filter's properties. */
 @JsonPropertyOrder({
   SecurityFilter.JSON_PROPERTY_ATTRIBUTES,
   SecurityFilter.JSON_PROPERTY_ID,
@@ -85,7 +85,7 @@ public class SecurityFilter {
   }
 
   /**
-   * The type of the resource. The value should always be &#x60;security_filters&#x60;.
+   * The type of the resource. The value should always be <code>security_filters</code>.
    *
    * @return type
    */

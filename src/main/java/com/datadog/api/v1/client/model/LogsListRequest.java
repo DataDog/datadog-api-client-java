@@ -128,7 +128,7 @@ public class LogsListRequest {
   }
 
   /**
-   * Time-ascending &#x60;asc&#x60; or time-descending &#x60;desc&#x60;results.
+   * Time-ascending <code>asc</code> or time-descending <code>desc</code>results.
    *
    * @return sort
    */
@@ -152,9 +152,11 @@ public class LogsListRequest {
   }
 
   /**
-   * Hash identifier of the first log to return in the list, available in a log &#x60;id&#x60;
-   * attribute. This parameter is used for the pagination feature. **Note**: This parameter is
-   * ignored if the corresponding log is out of the scope of the specified time window.
+   * Hash identifier of the first log to return in the list, available in a log <code>id</code>
+   * attribute. This parameter is used for the pagination feature.
+   *
+   * <p><strong>Note</strong>: This parameter is ignored if the corresponding log is out of the
+   * scope of the specified time window.
    *
    * @return startAt
    */

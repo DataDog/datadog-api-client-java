@@ -61,7 +61,7 @@ public class MetricsQueryResponse {
   private Long toDate;
 
   /**
-   * Message indicating the errors if status is not &#x60;ok&#x60;.
+   * Message indicating the errors if status is not <code>ok</code>.
    *
    * @return error
    */
@@ -97,7 +97,7 @@ public class MetricsQueryResponse {
   }
 
   /**
-   * Message indicating &#x60;success&#x60; if status is &#x60;ok&#x60;.
+   * Message indicating <code>success</code> if status is <code>ok</code>.
    *
    * @return message
    */

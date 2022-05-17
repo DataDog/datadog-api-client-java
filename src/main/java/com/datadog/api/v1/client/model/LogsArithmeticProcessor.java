@@ -21,17 +21,29 @@ import java.util.Objects;
  * Use the Arithmetic Processor to add a new attribute (without spaces or special characters in the
  * new attribute name) to a log with the result of the provided formula. This enables you to remap
  * different time attributes with different units into a single attribute, or to compute operations
- * on attributes within the same log. The formula can use parentheses and the basic arithmetic
- * operators &#x60;-&#x60;, &#x60;+&#x60;, &#x60;*&#x60;, &#x60;/&#x60;. By default, the calculation
- * is skipped if an attribute is missing. Select “Replace missing attribute by 0” to automatically
- * populate missing attribute values with 0 to ensure that the calculation is done. An attribute is
- * missing if it is not found in the log attributes, or if it cannot be converted to a number.
- * *Notes*: - The operator &#x60;-&#x60; needs to be space split in the formula as it can also be
- * contained in attribute names. - If the target attribute already exists, it is overwritten by the
- * result of the formula. - Results are rounded up to the 9th decimal. For example, if the result of
- * the formula is &#x60;0.1234567891&#x60;, the actual value stored for the attribute is
- * &#x60;0.123456789&#x60;. - If you need to scale a unit of measure, see [Scale
- * Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab&#x3D;filter#matcher-and-filter).
+ * on attributes within the same log.
+ *
+ * <p>The formula can use parentheses and the basic arithmetic operators <code>-</code>, <code>+
+ * </code>, <code>*</code>, <code>/</code>.
+ *
+ * <p>By default, the calculation is skipped if an attribute is missing. Select “Replace missing
+ * attribute by 0” to automatically populate missing attribute values with 0 to ensure that the
+ * calculation is done. An attribute is missing if it is not found in the log attributes, or if it
+ * cannot be converted to a number.
+ *
+ * <p><em>Notes</em>:
+ *
+ * <ul>
+ *   <li>The operator <code>-</code> needs to be space split in the formula as it can also be
+ *       contained in attribute names.
+ *   <li>If the target attribute already exists, it is overwritten by the result of the formula.
+ *   <li>Results are rounded up to the 9th decimal. For example, if the result of the formula is
+ *       <code>0.1234567891</code>, the actual value stored for the attribute is <code>0.123456789
+ *       </code>.
+ *   <li>If you need to scale a unit of measure, see <a
+ *       href="https://docs.datadoghq.com/logs/log_configuration/parsing/?tab=filter#matcher-and-filter">Scale
+ *       Filter</a>.
+ * </ul>
  */
 @JsonPropertyOrder({
   LogsArithmeticProcessor.JSON_PROPERTY_EXPRESSION,
@@ -123,8 +135,8 @@ public class LogsArithmeticProcessor {
   }
 
   /**
-   * If &#x60;true&#x60;, it replaces all missing attributes of expression by &#x60;0&#x60;,
-   * &#x60;false&#x60; skip the operation if an attribute is missing.
+   * If <code>true</code>, it replaces all missing attributes of expression by <code>0</code>,
+   * <code>false</code> skip the operation if an attribute is missing.
    *
    * @return isReplaceMissing
    */

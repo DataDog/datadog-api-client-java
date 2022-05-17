@@ -30,7 +30,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -39,7 +39,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -48,7 +48,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Create an index
+   * Create an index.
    *
    * <p>See {@link #createLogsIndexWithHttpInfo}.
    *
@@ -61,7 +61,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Create an index
+   * Create an index.
    *
    * <p>See {@link #createLogsIndexWithHttpInfoAsync}.
    *
@@ -77,9 +77,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Create an index
-   *
-   * <p>Creates a new index. Returns the Index object passed in the request body when the request is
+   * Creates a new index. Returns the Index object passed in the request body when the request is
    * successful.
    *
    * @param body Object containing the new index. (required)
@@ -129,7 +127,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Create an index
+   * Create an index.
    *
    * <p>See {@link #createLogsIndexWithHttpInfo}.
    *
@@ -181,7 +179,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get an index
+   * Get an index.
    *
    * <p>See {@link #getLogsIndexWithHttpInfo}.
    *
@@ -194,7 +192,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get an index
+   * Get an index.
    *
    * <p>See {@link #getLogsIndexWithHttpInfoAsync}.
    *
@@ -210,9 +208,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get an index
-   *
-   * <p>Get one log index from your organization. This endpoint takes no JSON arguments.
+   * Get one log index from your organization. This endpoint takes no JSON arguments.
    *
    * @param name Name of the log index. (required)
    * @return ApiResponse&lt;LogsIndex&gt;
@@ -263,7 +259,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get an index
+   * Get an index.
    *
    * <p>See {@link #getLogsIndexWithHttpInfo}.
    *
@@ -315,7 +311,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get indexes order
+   * Get indexes order.
    *
    * <p>See {@link #getLogsIndexOrderWithHttpInfo}.
    *
@@ -327,7 +323,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get indexes order
+   * Get indexes order.
    *
    * <p>See {@link #getLogsIndexOrderWithHttpInfoAsync}.
    *
@@ -342,9 +338,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get indexes order
-   *
-   * <p>Get the current order of your log indexes. This endpoint takes no JSON arguments.
+   * Get the current order of your log indexes. This endpoint takes no JSON arguments.
    *
    * @return ApiResponse&lt;LogsIndexesOrder&gt;
    * @throws ApiException if fails to make API call
@@ -385,7 +379,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get indexes order
+   * Get indexes order.
    *
    * <p>See {@link #getLogsIndexOrderWithHttpInfo}.
    *
@@ -426,7 +420,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get all indexes
+   * Get all indexes.
    *
    * <p>See {@link #listLogIndexesWithHttpInfo}.
    *
@@ -438,7 +432,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get all indexes
+   * Get all indexes.
    *
    * <p>See {@link #listLogIndexesWithHttpInfoAsync}.
    *
@@ -453,10 +447,8 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get all indexes
-   *
-   * <p>The Index object describes the configuration of a log index. This endpoint returns an array
-   * of the &#x60;LogIndex&#x60; objects of your organization.
+   * The Index object describes the configuration of a log index. This endpoint returns an array of
+   * the <code>LogIndex</code> objects of your organization.
    *
    * @return ApiResponse&lt;LogsIndexListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -497,7 +489,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Get all indexes
+   * Get all indexes.
    *
    * <p>See {@link #listLogIndexesWithHttpInfo}.
    *
@@ -538,12 +530,12 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update an index
+   * Update an index.
    *
    * <p>See {@link #updateLogsIndexWithHttpInfo}.
    *
    * @param name Name of the log index. (required)
-   * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
+   * @param body Object containing the new <code>LogsIndexUpdateRequest</code>. (required)
    * @return LogsIndex
    * @throws ApiException if fails to make API call
    */
@@ -552,12 +544,12 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update an index
+   * Update an index.
    *
    * <p>See {@link #updateLogsIndexWithHttpInfoAsync}.
    *
    * @param name Name of the log index. (required)
-   * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
+   * @param body Object containing the new <code>LogsIndexUpdateRequest</code>. (required)
    * @return CompletableFuture&lt;LogsIndex&gt;
    */
   public CompletableFuture<LogsIndex> updateLogsIndexAsync(
@@ -570,15 +562,15 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update an index
+   * Update an index as identified by its name. Returns the Index object passed in the request body
+   * when the request is successful.
    *
-   * <p>Update an index as identified by its name. Returns the Index object passed in the request
-   * body when the request is successful. Using the &#x60;PUT&#x60; method updates your index’s
-   * configuration by **replacing** your current configuration with the new one sent to your Datadog
+   * <p>Using the <code>PUT</code> method updates your index’s configuration by
+   * <strong>replacing</strong> your current configuration with the new one sent to your Datadog
    * organization.
    *
    * @param name Name of the log index. (required)
-   * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
+   * @param body Object containing the new <code>LogsIndexUpdateRequest</code>. (required)
    * @return ApiResponse&lt;LogsIndex&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -634,12 +626,12 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update an index
+   * Update an index.
    *
    * <p>See {@link #updateLogsIndexWithHttpInfo}.
    *
    * @param name Name of the log index. (required)
-   * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
+   * @param body Object containing the new <code>LogsIndexUpdateRequest</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;LogsIndex&gt;&gt;
    */
   public CompletableFuture<ApiResponse<LogsIndex>> updateLogsIndexWithHttpInfoAsync(
@@ -698,7 +690,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update indexes order
+   * Update indexes order.
    *
    * <p>See {@link #updateLogsIndexOrderWithHttpInfo}.
    *
@@ -711,7 +703,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update indexes order
+   * Update indexes order.
    *
    * <p>See {@link #updateLogsIndexOrderWithHttpInfoAsync}.
    *
@@ -727,10 +719,8 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update indexes order
-   *
-   * <p>This endpoint updates the index order of your organization. It returns the index order
-   * object passed in the request body when the request is successful.
+   * This endpoint updates the index order of your organization. It returns the index order object
+   * passed in the request body when the request is successful.
    *
    * @param body Object containing the new ordered list of index names (required)
    * @return ApiResponse&lt;LogsIndexesOrder&gt;
@@ -780,7 +770,7 @@ public class LogsIndexesApi {
   }
 
   /**
-   * Update indexes order
+   * Update indexes order.
    *
    * <p>See {@link #updateLogsIndexOrderWithHttpInfo}.
    *

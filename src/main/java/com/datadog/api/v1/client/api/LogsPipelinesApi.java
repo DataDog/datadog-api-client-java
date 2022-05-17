@@ -29,7 +29,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -38,7 +38,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -47,7 +47,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Create a pipeline
+   * Create a pipeline.
    *
    * <p>See {@link #createLogsPipelineWithHttpInfo}.
    *
@@ -60,7 +60,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Create a pipeline
+   * Create a pipeline.
    *
    * <p>See {@link #createLogsPipelineWithHttpInfoAsync}.
    *
@@ -76,9 +76,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Create a pipeline
-   *
-   * <p>Create a pipeline in your organization.
+   * Create a pipeline in your organization.
    *
    * @param body Definition of the new pipeline. (required)
    * @return ApiResponse&lt;LogsPipeline&gt;
@@ -128,7 +126,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Create a pipeline
+   * Create a pipeline.
    *
    * <p>See {@link #createLogsPipelineWithHttpInfo}.
    *
@@ -180,7 +178,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Delete a pipeline
+   * Delete a pipeline.
    *
    * <p>See {@link #deleteLogsPipelineWithHttpInfo}.
    *
@@ -192,7 +190,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Delete a pipeline
+   * Delete a pipeline.
    *
    * <p>See {@link #deleteLogsPipelineWithHttpInfoAsync}.
    *
@@ -207,9 +205,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Delete a pipeline
-   *
-   * <p>Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
+   * Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -261,7 +257,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Delete a pipeline
+   * Delete a pipeline.
    *
    * <p>See {@link #deleteLogsPipelineWithHttpInfo}.
    *
@@ -316,7 +312,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get a pipeline
+   * Get a pipeline.
    *
    * <p>See {@link #getLogsPipelineWithHttpInfo}.
    *
@@ -329,7 +325,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get a pipeline
+   * Get a pipeline.
    *
    * <p>See {@link #getLogsPipelineWithHttpInfoAsync}.
    *
@@ -345,9 +341,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get a pipeline
-   *
-   * <p>Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
+   * Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
    *
    * @param pipelineId ID of the pipeline to get. (required)
    * @return ApiResponse&lt;LogsPipeline&gt;
@@ -400,7 +394,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get a pipeline
+   * Get a pipeline.
    *
    * <p>See {@link #getLogsPipelineWithHttpInfo}.
    *
@@ -455,7 +449,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get pipeline order
+   * Get pipeline order.
    *
    * <p>See {@link #getLogsPipelineOrderWithHttpInfo}.
    *
@@ -467,7 +461,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get pipeline order
+   * Get pipeline order.
    *
    * <p>See {@link #getLogsPipelineOrderWithHttpInfoAsync}.
    *
@@ -482,9 +476,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get pipeline order
-   *
-   * <p>Get the current order of your pipelines. This endpoint takes no JSON arguments.
+   * Get the current order of your pipelines. This endpoint takes no JSON arguments.
    *
    * @return ApiResponse&lt;LogsPipelinesOrder&gt;
    * @throws ApiException if fails to make API call
@@ -525,7 +517,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get pipeline order
+   * Get pipeline order.
    *
    * <p>See {@link #getLogsPipelineOrderWithHttpInfo}.
    *
@@ -567,7 +559,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get all pipelines
+   * Get all pipelines.
    *
    * <p>See {@link #listLogsPipelinesWithHttpInfo}.
    *
@@ -579,7 +571,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get all pipelines
+   * Get all pipelines.
    *
    * <p>See {@link #listLogsPipelinesWithHttpInfoAsync}.
    *
@@ -594,9 +586,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get all pipelines
-   *
-   * <p>Get all pipelines from your organization. This endpoint takes no JSON arguments.
+   * Get all pipelines from your organization. This endpoint takes no JSON arguments.
    *
    * @return ApiResponse&lt;List&lt;LogsPipeline&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -637,7 +627,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Get all pipelines
+   * Get all pipelines.
    *
    * <p>See {@link #listLogsPipelinesWithHttpInfo}.
    *
@@ -678,7 +668,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update a pipeline
+   * Update a pipeline.
    *
    * <p>See {@link #updateLogsPipelineWithHttpInfo}.
    *
@@ -692,7 +682,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update a pipeline
+   * Update a pipeline.
    *
    * <p>See {@link #updateLogsPipelineWithHttpInfoAsync}.
    *
@@ -710,11 +700,11 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update a pipeline
+   * Update a given pipeline configuration to change it’s processors or their order.
    *
-   * <p>Update a given pipeline configuration to change it’s processors or their order. **Note**:
-   * Using this method updates your pipeline configuration by **replacing** your current
-   * configuration with the new one sent to your Datadog organization.
+   * <p><strong>Note</strong>: Using this method updates your pipeline configuration by
+   * <strong>replacing</strong> your current configuration with the new one sent to your Datadog
+   * organization.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
    * @param body New definition of the pipeline. (required)
@@ -774,7 +764,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update a pipeline
+   * Update a pipeline.
    *
    * <p>See {@link #updateLogsPipelineWithHttpInfo}.
    *
@@ -839,7 +829,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update pipeline order
+   * Update pipeline order.
    *
    * <p>See {@link #updateLogsPipelineOrderWithHttpInfo}.
    *
@@ -852,7 +842,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update pipeline order
+   * Update pipeline order.
    *
    * <p>See {@link #updateLogsPipelineOrderWithHttpInfoAsync}.
    *
@@ -869,11 +859,11 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update pipeline order
-   *
-   * <p>Update the order of your pipelines. Since logs are processed sequentially, reordering a
+   * Update the order of your pipelines. Since logs are processed sequentially, reordering a
    * pipeline may change the structure and content of the data processed by other pipelines and
-   * their processors. **Note**: Using the &#x60;PUT&#x60; method updates your pipeline order by
+   * their processors.
+   *
+   * <p><strong>Note</strong>: Using the <code>PUT</code> method updates your pipeline order by
    * replacing your current order with the new one sent to your Datadog organization.
    *
    * @param body Object containing the new ordered list of pipeline IDs. (required)
@@ -925,7 +915,7 @@ public class LogsPipelinesApi {
   }
 
   /**
-   * Update pipeline order
+   * Update pipeline order.
    *
    * <p>See {@link #updateLogsPipelineOrderWithHttpInfo}.
    *

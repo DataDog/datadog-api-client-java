@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** The rule&#39;s suppression filter. */
+/** The rule's suppression filter. */
 @JsonPropertyOrder({
   SecurityMonitoringFilter.JSON_PROPERTY_ACTION,
   SecurityMonitoringFilter.JSON_PROPERTY_QUERY

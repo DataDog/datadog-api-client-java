@@ -125,8 +125,9 @@ public class UsageAttributionBody {
 
   /**
    * The source of the usage attribution tag configuration and the selected tags in the format
-   * &#x60;&lt;source_org_name&gt;:&lt;selected tag 1&gt;-&lt;selected tag 2&gt;-&lt;selected tag
-   * 3&gt;&#x60;.
+   * <code>
+   * &lt;source_org_name&gt;:&lt;selected tag 1&gt;-&lt;selected tag 2&gt;-&lt;selected tag 3&gt;
+   * </code>.
    *
    * @return tagConfigSource
    */

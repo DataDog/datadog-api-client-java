@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** The S3 Archive&#39;s integration destination. */
+/** The S3 Archive's integration destination. */
 @JsonPropertyOrder({
   LogsArchiveIntegrationS3.JSON_PROPERTY_ACCOUNT_ID,
   LogsArchiveIntegrationS3.JSON_PROPERTY_ROLE_NAME

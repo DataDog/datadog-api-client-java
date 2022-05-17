@@ -46,7 +46,7 @@ public class IncidentTeamResponseData {
   }
 
   /**
-   * The incident team&#39;s attributes from a response.
+   * The incident team's attributes from a response.
    *
    * @return attributes
    */
@@ -67,7 +67,7 @@ public class IncidentTeamResponseData {
   }
 
   /**
-   * The incident team&#39;s ID.
+   * The incident team's ID.
    *
    * @return id
    */
@@ -83,7 +83,7 @@ public class IncidentTeamResponseData {
   }
 
   /**
-   * The incident team&#39;s relationships.
+   * The incident team's relationships.
    *
    * @return relationships
    */

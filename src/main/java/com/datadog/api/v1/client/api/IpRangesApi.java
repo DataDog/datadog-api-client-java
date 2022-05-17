@@ -27,7 +27,7 @@ public class IpRangesApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -36,7 +36,7 @@ public class IpRangesApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -45,7 +45,7 @@ public class IpRangesApi {
   }
 
   /**
-   * List IP Ranges
+   * List IP Ranges.
    *
    * <p>See {@link #getIPRangesWithHttpInfo}.
    *
@@ -57,7 +57,7 @@ public class IpRangesApi {
   }
 
   /**
-   * List IP Ranges
+   * List IP Ranges.
    *
    * <p>See {@link #getIPRangesWithHttpInfoAsync}.
    *
@@ -72,9 +72,7 @@ public class IpRangesApi {
   }
 
   /**
-   * List IP Ranges
-   *
-   * <p>Get information about Datadog IP ranges.
+   * Get information about Datadog IP ranges.
    *
    * @return ApiResponse&lt;IPRanges&gt;
    * @throws ApiException if fails to make API call
@@ -114,7 +112,7 @@ public class IpRangesApi {
   }
 
   /**
-   * List IP Ranges
+   * List IP Ranges.
    *
    * <p>See {@link #getIPRangesWithHttpInfo}.
    *

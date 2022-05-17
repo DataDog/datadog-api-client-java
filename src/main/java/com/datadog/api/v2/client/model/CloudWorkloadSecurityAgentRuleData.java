@@ -86,7 +86,7 @@ public class CloudWorkloadSecurityAgentRuleData {
   }
 
   /**
-   * The type of the resource. The value should always be &#x60;agent_rule&#x60;.
+   * The type of the resource. The value should always be <code>agent_rule</code>.
    *
    * @return type
    */

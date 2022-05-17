@@ -32,7 +32,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -41,7 +41,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -50,7 +50,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Create a new dashboard
+   * Create a new dashboard.
    *
    * <p>See {@link #createDashboardWithHttpInfo}.
    *
@@ -63,7 +63,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Create a new dashboard
+   * Create a new dashboard.
    *
    * <p>See {@link #createDashboardWithHttpInfoAsync}.
    *
@@ -79,12 +79,10 @@ public class DashboardsApi {
   }
 
   /**
-   * Create a new dashboard
-   *
-   * <p>Create a dashboard using the specified options. When defining queries in your widgets, take
-   * note of which queries should have the &#x60;as_count()&#x60; or &#x60;as_rate()&#x60; modifiers
-   * appended. Refer to the following
-   * [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab&#x3D;count#in-application-modifiers)
+   * Create a dashboard using the specified options. When defining queries in your widgets, take
+   * note of which queries should have the <code>as_count()</code> or <code>as_rate()</code>
+   * modifiers appended. Refer to the following <a
+   * href="https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers">documentation</a>
    * for more information on these modifiers.
    *
    * @param body Create a dashboard request body. (required)
@@ -134,7 +132,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Create a new dashboard
+   * Create a new dashboard.
    *
    * <p>See {@link #createDashboardWithHttpInfo}.
    *
@@ -186,7 +184,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete a dashboard
+   * Delete a dashboard.
    *
    * <p>See {@link #deleteDashboardWithHttpInfo}.
    *
@@ -199,7 +197,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete a dashboard
+   * Delete a dashboard.
    *
    * <p>See {@link #deleteDashboardWithHttpInfoAsync}.
    *
@@ -215,9 +213,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete a dashboard
-   *
-   * <p>Delete a dashboard using the specified ID.
+   * Delete a dashboard using the specified ID.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return ApiResponse&lt;DashboardDeleteResponse&gt;
@@ -270,7 +266,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete a dashboard
+   * Delete a dashboard.
    *
    * <p>See {@link #deleteDashboardWithHttpInfo}.
    *
@@ -325,7 +321,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete dashboards
+   * Delete dashboards.
    *
    * <p>See {@link #deleteDashboardsWithHttpInfo}.
    *
@@ -337,7 +333,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete dashboards
+   * Delete dashboards.
    *
    * <p>See {@link #deleteDashboardsWithHttpInfoAsync}.
    *
@@ -352,9 +348,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete dashboards
-   *
-   * <p>Delete dashboards using the specified IDs. If there are any failures, no dashboards will be
+   * Delete dashboards using the specified IDs. If there are any failures, no dashboards will be
    * deleted (partial success is not allowed).
    *
    * @param body Delete dashboards request body. (required)
@@ -406,7 +400,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Delete dashboards
+   * Delete dashboards.
    *
    * <p>See {@link #deleteDashboardsWithHttpInfo}.
    *
@@ -458,7 +452,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Get a dashboard
+   * Get a dashboard.
    *
    * <p>See {@link #getDashboardWithHttpInfo}.
    *
@@ -471,7 +465,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Get a dashboard
+   * Get a dashboard.
    *
    * <p>See {@link #getDashboardWithHttpInfoAsync}.
    *
@@ -487,9 +481,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Get a dashboard
-   *
-   * <p>Get a dashboard using the specified ID.
+   * Get a dashboard using the specified ID.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @return ApiResponse&lt;Dashboard&gt;
@@ -541,7 +533,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Get a dashboard
+   * Get a dashboard.
    *
    * <p>See {@link #getDashboardWithHttpInfo}.
    *
@@ -601,9 +593,9 @@ public class DashboardsApi {
     private Boolean filterDeleted;
 
     /**
-     * Set filterShared
+     * Set filterShared.
      *
-     * @param filterShared When &#x60;true&#x60;, this query only returns shared custom created or
+     * @param filterShared When <code>true</code>, this query only returns shared custom created or
      *     cloned dashboards. (optional)
      * @return ListDashboardsOptionalParameters
      */
@@ -613,10 +605,10 @@ public class DashboardsApi {
     }
 
     /**
-     * Set filterDeleted
+     * Set filterDeleted.
      *
-     * @param filterDeleted When &#x60;true&#x60;, this query returns only deleted custom-created or
-     *     cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;.
+     * @param filterDeleted When <code>true</code>, this query returns only deleted custom-created
+     *     or cloned dashboards. This parameter is incompatible with <code>filter[shared]</code>.
      *     (optional)
      * @return ListDashboardsOptionalParameters
      */
@@ -627,7 +619,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards
+   * Get all dashboards.
    *
    * <p>See {@link #listDashboardsWithHttpInfo}.
    *
@@ -639,7 +631,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards
+   * Get all dashboards.
    *
    * <p>See {@link #listDashboardsWithHttpInfoAsync}.
    *
@@ -654,7 +646,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards
+   * Get all dashboards.
    *
    * <p>See {@link #listDashboardsWithHttpInfo}.
    *
@@ -668,7 +660,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards
+   * Get all dashboards.
    *
    * <p>See {@link #listDashboardsWithHttpInfoAsync}.
    *
@@ -685,10 +677,10 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards
+   * Get all dashboards.
    *
-   * <p>Get all dashboards. **Note**: This query will only return custom created or cloned
-   * dashboards. This query will not return preset dashboards.
+   * <p><strong>Note</strong>: This query will only return custom created or cloned dashboards. This
+   * query will not return preset dashboards.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DashboardSummary&gt;
@@ -737,7 +729,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Get all dashboards
+   * Get all dashboards.
    *
    * <p>See {@link #listDashboardsWithHttpInfo}.
    *
@@ -786,7 +778,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Restore deleted dashboards
+   * Restore deleted dashboards.
    *
    * <p>See {@link #restoreDashboardsWithHttpInfo}.
    *
@@ -798,7 +790,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Restore deleted dashboards
+   * Restore deleted dashboards.
    *
    * <p>See {@link #restoreDashboardsWithHttpInfoAsync}.
    *
@@ -813,9 +805,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Restore deleted dashboards
-   *
-   * <p>Restore dashboards using the specified IDs. If there are any failures, no dashboards will be
+   * Restore dashboards using the specified IDs. If there are any failures, no dashboards will be
    * restored (partial success is not allowed).
    *
    * @param body Restore dashboards request body. (required)
@@ -867,7 +857,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Restore deleted dashboards
+   * Restore deleted dashboards.
    *
    * <p>See {@link #restoreDashboardsWithHttpInfo}.
    *
@@ -919,7 +909,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Update a dashboard
+   * Update a dashboard.
    *
    * <p>See {@link #updateDashboardWithHttpInfo}.
    *
@@ -933,7 +923,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Update a dashboard
+   * Update a dashboard.
    *
    * <p>See {@link #updateDashboardWithHttpInfoAsync}.
    *
@@ -950,9 +940,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Update a dashboard
-   *
-   * <p>Update a dashboard using the specified ID.
+   * Update a dashboard using the specified ID.
    *
    * @param dashboardId The ID of the dashboard. (required)
    * @param body Update Dashboard request body. (required)
@@ -1013,7 +1001,7 @@ public class DashboardsApi {
   }
 
   /**
-   * Update a dashboard
+   * Update a dashboard.
    *
    * <p>See {@link #updateDashboardWithHttpInfo}.
    *

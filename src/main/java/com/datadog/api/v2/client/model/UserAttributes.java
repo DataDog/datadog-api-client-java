@@ -159,7 +159,7 @@ public class UserAttributes {
   }
 
   /**
-   * URL of the user&#39;s icon.
+   * URL of the user's icon.
    *
    * @return icon
    */

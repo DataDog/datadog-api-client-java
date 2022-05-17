@@ -223,10 +223,10 @@ public class MonitorSearchResult {
   }
 
   /**
-   * The scope(s) to which the downtime applies, for example &#x60;host:app2&#x60;. Provide multiple
-   * scopes as a comma-separated list, for example &#x60;env:dev,env:prod&#x60;. The resulting
-   * downtime applies to sources that matches ALL provided scopes (that is &#x60;env:dev AND
-   * env:prod&#x60;), NOT any of them.
+   * The scope(s) to which the downtime applies, for example <code>host:app2</code>. Provide
+   * multiple scopes as a comma-separated list, for example <code>env:dev,env:prod</code>. The
+   * resulting downtime applies to sources that matches ALL provided scopes (that is <code>
+   * env:dev AND env:prod</code>), NOT any of them.
    *
    * @return scopes
    */
@@ -272,8 +272,8 @@ public class MonitorSearchResult {
   }
 
   /**
-   * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor
-   * options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
+   * The type of the monitor. For more information about <code>type</code>, see the <a
+   * href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.
    *
    * @return type
    */

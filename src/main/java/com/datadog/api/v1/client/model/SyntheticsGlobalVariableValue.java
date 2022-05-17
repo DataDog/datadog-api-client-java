@@ -59,7 +59,7 @@ public class SyntheticsGlobalVariableValue {
 
   /**
    * Value of the global variable. When reading a global variable, the value will not be present if
-   * the variable is hidden with the &#x60;secure&#x60; property.
+   * the variable is hidden with the <code>secure</code> property.
    *
    * @return value
    */

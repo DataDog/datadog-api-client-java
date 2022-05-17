@@ -24,8 +24,8 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro**
- * (read-only user).
+ * The access role of the user. Options are <strong>st</strong> (standard user),
+ * <strong>adm</strong> (admin user), or <strong>ro</strong> (read-only user).
  */
 @JsonSerialize(using = AccessRole.AccessRoleSerializer.class)
 public class AccessRole {

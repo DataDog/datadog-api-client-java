@@ -55,7 +55,7 @@ public class LogsListResponse {
   }
 
   /**
-   * Array of logs matching the request and the &#x60;nextLogId&#x60; if sent.
+   * Array of logs matching the request and the <code>nextLogId</code> if sent.
    *
    * @return logs
    */

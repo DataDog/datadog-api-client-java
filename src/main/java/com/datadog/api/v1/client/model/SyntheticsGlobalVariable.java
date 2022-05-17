@@ -157,7 +157,7 @@ public class SyntheticsGlobalVariable {
 
   /**
    * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used
-   * in conjunction with &#x60;parse_test_public_id&#x60;.
+   * in conjunction with <code>parse_test_public_id</code>.
    *
    * @return parseTestOptions
    */

@@ -32,7 +32,7 @@ public class AuditLogsResponsePage {
 
   /**
    * The cursor to use to get the next results, if any. To make the next request, use the same
-   * parameters with the addition of &#x60;page[cursor]&#x60;.
+   * parameters with the addition of <code>page[cursor]</code>.
    *
    * @return after
    */

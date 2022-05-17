@@ -58,9 +58,9 @@ public class SecurityMonitoringRuleCaseCreate {
   }
 
   /**
-   * A rule case contains logical operations (&#x60;&gt;&#x60;,&#x60;&gt;&#x3D;&#x60;,
-   * &#x60;&amp;&amp;&#x60;, &#x60;||&#x60;) to determine if a signal should be generated based on
-   * the event counts in the previously defined queries.
+   * A rule case contains logical operations (<code>&gt;</code>,<code>&gt;=</code>, <code>&amp;&amp;
+   * </code>, <code>||</code>) to determine if a signal should be generated based on the event
+   * counts in the previously defined queries.
    *
    * @return condition
    */

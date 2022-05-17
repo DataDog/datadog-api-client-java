@@ -135,8 +135,8 @@ public class SyntheticsAPITestResultShort {
   }
 
   /**
-   * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for
-   * triggered * &#x60;2&#x60; for no data
+   * The status of your Synthetic monitor. * <code>O</code> for not triggered * <code>1</code> for
+   * triggered * <code>2</code> for no data
    *
    * @return status
    */

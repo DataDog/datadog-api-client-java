@@ -18,9 +18,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /**
- * Event overlay control options. See the dedicated [Events JSON schema
- * documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema) to
- * learn how to build the &#x60;&lt;EVENTS_SCHEMA&gt;&#x60;.
+ * Event overlay control options.
+ *
+ * <p>See the dedicated <a
+ * href="https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema">Events JSON
+ * schema documentation</a> to learn how to build the <code>&lt;EVENTS_SCHEMA&gt;</code>.
  */
 @JsonPropertyOrder({WidgetEvent.JSON_PROPERTY_Q, WidgetEvent.JSON_PROPERTY_TAGS_EXECUTION})
 @javax.annotation.Generated(
