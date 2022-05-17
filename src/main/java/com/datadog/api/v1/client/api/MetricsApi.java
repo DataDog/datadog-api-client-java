@@ -800,7 +800,7 @@ public class MetricsApi {
    *
    * <ul>
    *   <li>64 bits for the timestamp
-   *   <li>32 bits for the value
+   *   <li>64 bits for the value
    *   <li>40 bytes for the metric names
    *   <li>50 bytes for the timeseries
    *   <li>The full payload is approximately 100 bytes. However, with the DogStatsD API, compression
