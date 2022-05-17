@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The incident&#39;s attributes from a response. */
+/** The incident's attributes from a response. */
 @JsonPropertyOrder({
   IncidentResponseAttributes.JSON_PROPERTY_CREATED,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_DURATION,
@@ -125,8 +125,8 @@ public class IncidentResponseAttributes {
   }
 
   /**
-   * Length of the incident&#39;s customer impact in seconds. Equals the difference between
-   * &#x60;customer_impact_start&#x60; and &#x60;customer_impact_end&#x60;.
+   * Length of the incident's customer impact in seconds. Equals the difference between <code>
+   * customer_impact_start</code> and <code>customer_impact_end</code>.
    *
    * @return customerImpactDuration
    */
@@ -421,7 +421,7 @@ public class IncidentResponseAttributes {
   }
 
   /**
-   * Timestamp when the incident&#39;s state was set to resolved.
+   * Timestamp when the incident's state was set to resolved.
    *
    * @return resolved
    */
@@ -447,8 +447,8 @@ public class IncidentResponseAttributes {
   }
 
   /**
-   * The amount of time in seconds to detect the incident. Equals the difference between
-   * &#x60;customer_impact_start&#x60; and &#x60;detected&#x60;.
+   * The amount of time in seconds to detect the incident. Equals the difference between <code>
+   * customer_impact_start</code> and <code>detected</code>.
    *
    * @return timeToDetect
    */
@@ -460,8 +460,8 @@ public class IncidentResponseAttributes {
   }
 
   /**
-   * The amount of time in seconds to call incident after detection. Equals the difference of
-   * &#x60;detected&#x60; and &#x60;created&#x60;.
+   * The amount of time in seconds to call incident after detection. Equals the difference of <code>
+   * detected</code> and <code>created</code>.
    *
    * @return timeToInternalResponse
    */
@@ -474,7 +474,7 @@ public class IncidentResponseAttributes {
 
   /**
    * The amount of time in seconds to resolve customer impact after detecting the issue. Equals the
-   * difference between &#x60;customer_impact_end&#x60; and &#x60;detected&#x60;.
+   * difference between <code>customer_impact_end</code> and <code>detected</code>.
    *
    * @return timeToRepair
    */
@@ -487,7 +487,7 @@ public class IncidentResponseAttributes {
 
   /**
    * The amount of time in seconds to resolve the incident after it was created. Equals the
-   * difference between &#x60;created&#x60; and &#x60;resolved&#x60;.
+   * difference between <code>created</code> and <code>resolved</code>.
    *
    * @return timeToResolve
    */

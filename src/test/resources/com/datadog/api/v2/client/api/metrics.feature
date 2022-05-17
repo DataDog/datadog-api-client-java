@@ -64,7 +64,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 201 Created
 
-  @replay-only @skip-typescript @team:DataDog/points-aggregation
+  @replay-only @team:DataDog/points-aggregation
   Scenario: Delete a tag configuration returns "No Content" response
     Given there is a valid "metric" in the system
     And there is a valid "metric_tag_configuration" in the system
@@ -81,6 +81,22 @@ Feature: Metrics
     And request contains "metric_name" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 404 Not found
+
+  @generated @skip @team:DataDog/points-aggregation
+  Scenario: Estimate Output Series - Public v2 API returns "API error response." response
+    Given new "EstimateMetricsOutputSeries" request
+    And request contains "metric_name" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 404 API error response.
+
+  @replay-only @team:DataDog/points-aggregation
+  Scenario: Estimate Output Series - Public v2 API returns "Success" response
+    Given new "EstimateMetricsOutputSeries" request
+    And request contains "metric_name" parameter with value "system.cpu.idle"
+    And request contains "filter[groups]" parameter with value "app,host"
+    And request contains "filter[num_aggregations]" parameter with value 4
+    When the request is sent
+    Then the response status is 200 Success
 
   @generated @skip @team:DataDog/points-aggregation
   Scenario: List distinct metric volumes by metric name returns "Bad Request" response

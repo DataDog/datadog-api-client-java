@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Schedule_a_monitor_downtime_returns_OK_response-1641829815\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"groupby_simple_monitor\": true, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notify_audit\": false, \"notify_no_data\": false, \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 24}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testscheduleamonitordowntimereturnsokresponse1641829815\", \"env:ci\"], \"type\": \"log alert\"}"
+        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Schedule_a_monitor_downtime_returns_OK_response-1652349001\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"groupby_simple_monitor\": true, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notify_audit\": false, \"notify_no_data\": false, \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 24}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testscheduleamonitordowntimereturnsokresponse1652349001\", \"env:ci\"], \"type\": \"log alert\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"restricted_roles\":null,\"tags\":[\"test:testscheduleamonitordowntimereturnsokresponse1641829815\",\"env:ci\"],\"deleted\":null,\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"message\":\"some message Notify: @hipchat-channel\",\"id\":60342515,\"multi\":true,\"name\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1641829815\",\"created\":\"2022-01-10T15:50:15.883215+00:00\",\"created_at\":1641829815000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2022-01-10T15:50:15.883215+00:00\",\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"log alert\",\"options\":{\"notify_audit\":false,\"locked\":false,\"timeout_h\":24,\"renotify_interval\":60,\"include_tags\":true,\"no_data_timeframe\":null,\"silenced\":{},\"new_host_delay\":600,\"require_full_window\":true,\"notify_no_data\":false,\"enable_logs_sample\":true,\"groupby_simple_monitor\":true,\"escalation_message\":\"the situation has escalated\",\"evaluation_delay\":700,\"thresholds\":{\"critical\":2.0,\"warning\":1.0}}}",
+      "body": "{\"restricted_roles\":null,\"tags\":[\"test:testscheduleamonitordowntimereturnsokresponse1652349001\",\"env:ci\"],\"deleted\":null,\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"message\":\"some message Notify: @hipchat-channel\",\"id\":71310133,\"multi\":true,\"name\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1652349001\",\"created\":\"2022-05-12T09:50:02.253161+00:00\",\"created_at\":1652349002000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2022-05-12T09:50:02.253161+00:00\",\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"log alert\",\"options\":{\"notify_audit\":false,\"locked\":false,\"timeout_h\":24,\"renotify_interval\":60,\"include_tags\":true,\"no_data_timeframe\":null,\"silenced\":{},\"new_host_delay\":600,\"require_full_window\":true,\"notify_no_data\":false,\"enable_logs_sample\":true,\"groupby_simple_monitor\":true,\"escalation_message\":\"the situation has escalated\",\"evaluation_delay\":700,\"thresholds\":{\"critical\":2.0,\"warning\":1.0}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6547741e-7cc2-a8cd-abe9-c3eddfe8bbdc"
+    "id": "ea2932cf-fb18-4019-0e4f-5e8851566922"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1641829815\",\"monitor_id\":60342515,\"scope\":[\"test:testscheduleamonitordowntimereturnsokresponse1641829815\"],\"start\":1641829815,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"message\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1652349001\",\"monitor_id\":71310133,\"scope\":[\"test:testscheduleamonitordowntimereturnsokresponse1652349001\"],\"start\":1652349001,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -50,7 +50,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":null,\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":60342515,\"created\":1641829816,\"org_id\":321813,\"modified\":1641829816,\"disabled\":false,\"start\":1641829815,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testscheduleamonitordowntimereturnsokresponse1641829815\"],\"message\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1641829815\",\"downtime_type\":2,\"id\":1672791314,\"updater_id\":null}",
+      "body": "{\"recurrence\":null,\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":71310133,\"mute_first_recovery_notification\":false,\"created\":1652349002,\"org_id\":321813,\"modified\":1652349002,\"disabled\":false,\"start\":1652349001,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testscheduleamonitordowntimereturnsokresponse1652349001\"],\"message\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1652349001\",\"downtime_type\":2,\"id\":1944162322,\"updater_id\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6626f104-2a02-a493-c3a9-7232a2a23b94"
+    "id": "b0f76ed1-0793-c97f-d0f6-639d6ea9cb2e"
   },
   {
     "httpRequest": {
@@ -75,7 +75,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/downtime/1672791314",
+      "path": "/api/v1/downtime/1944162322",
       "keepAlive": false,
       "secure": true
     },
@@ -90,7 +90,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ec0c638e-86b6-330f-69d7-e6d6ddec8789"
+    "id": "495dce5b-d753-3c29-ec60-f74b3710aff8"
   },
   {
     "httpRequest": {
@@ -100,12 +100,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/monitor/60342515",
+      "path": "/api/v1/monitor/71310133",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_monitor_id\":60342515}",
+      "body": "{\"deleted_monitor_id\":71310133}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -120,6 +120,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c35d506f-9981-0a83-f69e-448e7d2d83f8"
+    "id": "e3f3d003-158f-73ad-d591-c27a17af3fb8"
   }
 ]

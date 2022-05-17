@@ -20,10 +20,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Create custom grok rules to parse the full message or [a specific attribute of your raw
- * event](https://docs.datadoghq.com/logs/log_configuration/parsing/#advanced-settings). For more
- * information, see the [parsing
- * section](https://docs.datadoghq.com/logs/log_configuration/parsing).
+ * Create custom grok rules to parse the full message or <a
+ * href="https://docs.datadoghq.com/logs/log_configuration/parsing/#advanced-settings">a specific
+ * attribute of your raw event</a>. For more information, see the <a
+ * href="https://docs.datadoghq.com/logs/log_configuration/parsing">parsing section</a>.
  */
 @JsonPropertyOrder({
   LogsGrokParser.JSON_PROPERTY_GROK,

@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The incident&#39;s attributes for a create request. */
+/** The incident's attributes for a create request. */
 @JsonPropertyOrder({
   IncidentCreateAttributes.JSON_PROPERTY_CUSTOMER_IMPACTED,
   IncidentCreateAttributes.JSON_PROPERTY_FIELDS,

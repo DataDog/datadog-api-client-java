@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"is_secret\":false,\"name\":\"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1642429348\",\"value\":\"variable-value\"}"
+        "json": "{\"is_secret\":false,\"name\":\"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056\",\"value\":\"variable-value\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"is_secret\":false,\"name\":\"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1642429348\",\"value\":\"variable-value\"}",
+      "body": "{\"is_secret\":false,\"name\":\"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056\",\"value\":\"variable-value\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "53c25e35-58df-c429-e4aa-96cd8bb7262a"
+    "id": "78207d65-03a0-f842-ead6-a7461b25796b"
   },
   {
     "httpRequest": {
@@ -45,12 +45,12 @@
         ]
       },
       "method": "PUT",
-      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1642429348",
+      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"is_secret\":false,\"name\":\"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1642429348\",\"value\":\"variable-updated\"}",
+      "body": "{\"is_secret\":false,\"name\":\"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056\",\"value\":\"variable-updated\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a299d0bd-8f7e-9a30-7f4e-bb8b770e2e3d"
+    "id": "120e4f0f-b410-51e8-598e-c28ee0edc509"
   },
   {
     "httpRequest": {
@@ -75,7 +75,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1642429348",
+      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056",
       "keepAlive": false,
       "secure": true
     },
@@ -95,6 +95,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e478cf62-318b-a92a-afd5-2e87416badda"
+    "id": "a3c710c5-a73c-c9f6-f28c-05de30fb33b7"
   }
 ]

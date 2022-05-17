@@ -58,7 +58,7 @@ public class IncidentUpdateData {
   }
 
   /**
-   * The incident&#39;s attributes for an update request.
+   * The incident's attributes for an update request.
    *
    * @return attributes
    */
@@ -79,7 +79,7 @@ public class IncidentUpdateData {
   }
 
   /**
-   * The team&#39;s ID.
+   * The team's ID.
    *
    * @return id
    */
@@ -100,7 +100,7 @@ public class IncidentUpdateData {
   }
 
   /**
-   * The incident&#39;s relationships for an update request.
+   * The incident's relationships for an update request.
    *
    * @return relationships
    */

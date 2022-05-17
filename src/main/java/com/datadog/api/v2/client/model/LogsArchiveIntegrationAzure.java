@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** The Azure archive&#39;s integration destination. */
+/** The Azure archive's integration destination. */
 @JsonPropertyOrder({
   LogsArchiveIntegrationAzure.JSON_PROPERTY_CLIENT_ID,
   LogsArchiveIntegrationAzure.JSON_PROPERTY_TENANT_ID

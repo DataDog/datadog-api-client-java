@@ -31,8 +31,8 @@ public class SecurityMonitoringSignalsListResponseLinks {
   }
 
   /**
-   * The link for the next set of results. **Note**: The request can also be made using the POST
-   * endpoint.
+   * The link for the next set of results. <strong>Note</strong>: The request can also be made using
+   * the POST endpoint.
    *
    * @return next
    */

@@ -203,9 +203,9 @@ public class Downtime {
   }
 
   /**
-   * &#x60;0&#x60; for a downtime applied on &#x60;*&#x60; or all, &#x60;1&#x60; when the downtime
-   * is only scoped to hosts, or &#x60;2&#x60; when the downtime is scoped to anything but hosts.
-   * maximum: 2147483647
+   * <code>0</code> for a downtime applied on <code>*</code> or all, <code>1</code> when the
+   * downtime is only scoped to hosts, or <code>2</code> when the downtime is scoped to anything but
+   * hosts. maximum: 2147483647
    *
    * @return downtimeType
    */
@@ -267,7 +267,7 @@ public class Downtime {
 
   /**
    * A message to include with notifications for this downtime. Email notifications can be sent to
-   * specific users by using the same &#x60;@username&#x60; notation as events.
+   * specific users by using the same <code>@username</code> notation as events.
    *
    * @return message
    */
@@ -331,8 +331,8 @@ public class Downtime {
    * A comma-separated list of monitor tags. For example, tags that are applied directly to
    * monitors, not tags that are used in monitor queries (which are filtered by the scope
    * parameter), to which the downtime applies. The resulting downtime applies to monitors that
-   * match ALL provided monitor tags. For example, &#x60;service:postgres&#x60; **AND**
-   * &#x60;team:frontend&#x60;.
+   * match ALL provided monitor tags. For example, <code>service:postgres</code>
+   * <strong>AND</strong> <code>team:frontend</code>.
    *
    * @return monitorTags
    */
@@ -444,10 +444,10 @@ public class Downtime {
   }
 
   /**
-   * The scope(s) to which the downtime applies. For example, &#x60;host:app2&#x60;. Provide
-   * multiple scopes as a comma-separated list like &#x60;env:dev,env:prod&#x60;. The resulting
-   * downtime applies to sources that matches ALL provided scopes (&#x60;env:dev&#x60; **AND**
-   * &#x60;env:prod&#x60;).
+   * The scope(s) to which the downtime applies. For example, <code>host:app2</code>. Provide
+   * multiple scopes as a comma-separated list like <code>env:dev,env:prod</code>. The resulting
+   * downtime applies to sources that matches ALL provided scopes (<code>env:dev</code>
+   * <strong>AND</strong> <code>env:prod</code>).
    *
    * @return scope
    */
@@ -490,8 +490,7 @@ public class Downtime {
   }
 
   /**
-   * The timezone in which to display the downtime&#39;s start and end times in Datadog
-   * applications.
+   * The timezone in which to display the downtime's start and end times in Datadog applications.
    *
    * @return timezone
    */

@@ -116,7 +116,7 @@ public class LogsRetentionAggSumUsage {
   }
 
   /**
-   * The retention period in days or &quot;custom&quot; for all custom retention periods.
+   * The retention period in days or "custom" for all custom retention periods.
    *
    * @return retention
    */

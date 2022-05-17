@@ -74,7 +74,7 @@ public class SyntheticsStep {
   }
 
   /**
-   * A boolean to use in addition to &#x60;allowFailure&#x60; to determine if the test should be
+   * A boolean to use in addition to <code>allowFailure</code> to determine if the test should be
    * marked as failed when the step fails.
    *
    * @return isCritical

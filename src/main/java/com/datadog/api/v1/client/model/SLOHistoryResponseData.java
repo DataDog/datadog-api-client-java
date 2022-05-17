@@ -73,7 +73,7 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * The &#x60;from&#x60; timestamp in epoch seconds.
+   * The <code>from</code> timestamp in epoch seconds.
    *
    * @return fromTs
    */
@@ -102,9 +102,10 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * For &#x60;metric&#x60; based SLOs where the query includes a group-by clause, this represents
-   * the list of grouping parameters. This is not included in responses for &#x60;monitor&#x60;
-   * based SLOs.
+   * For <code>metric</code> based SLOs where the query includes a group-by clause, this represents
+   * the list of grouping parameters.
+   *
+   * <p>This is not included in responses for <code>monitor</code> based SLOs.
    *
    * @return groupBy
    */
@@ -137,8 +138,9 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * For grouped SLOs, this represents SLI data for specific groups. This is not included in the
-   * responses for &#x60;metric&#x60; based SLOs.
+   * For grouped SLOs, this represents SLI data for specific groups.
+   *
+   * <p>This is not included in the responses for <code>metric</code> based SLOs.
    *
    * @return groups
    */
@@ -171,8 +173,9 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * For multi-monitor SLOs, this represents SLI data for specific monitors. This is not included in
-   * the responses for &#x60;metric&#x60; based SLOs.
+   * For multi-monitor SLOs, this represents SLI data for specific monitors.
+   *
+   * <p>This is not included in the responses for <code>metric</code> based SLOs.
    *
    * @return monitors
    */
@@ -194,9 +197,9 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * An object that holds an SLI value and its associated data. It can represent an SLO&#39;s
-   * overall SLI value. This can also represent the SLI value for a specific monitor in
-   * multi-monitor SLOs, or a group in grouped SLOs.
+   * An object that holds an SLI value and its associated data. It can represent an SLO's overall
+   * SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs,
+   * or a group in grouped SLOs.
    *
    * @return overall
    */
@@ -218,8 +221,9 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * A &#x60;metric&#x60; based SLO history response. This is not included in responses for
-   * &#x60;monitor&#x60; based SLOs.
+   * A <code>metric</code> based SLO history response.
+   *
+   * <p>This is not included in responses for <code>monitor</code> based SLOs.
    *
    * @return series
    */
@@ -269,7 +273,7 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * The &#x60;to&#x60; timestamp in epoch seconds.
+   * The <code>to</code> timestamp in epoch seconds.
    *
    * @return toTs
    */
@@ -316,9 +320,9 @@ public class SLOHistoryResponseData {
   }
 
   /**
-   * A numeric representation of the type of the service level objective (&#x60;0&#x60; for monitor,
-   * &#x60;1&#x60; for metric). Always included in service level objective responses. Ignored in
-   * create/update requests.
+   * A numeric representation of the type of the service level objective (<code>0</code> for
+   * monitor, <code>1</code> for metric). Always included in service level objective responses.
+   * Ignored in create/update requests.
    *
    * @return typeId
    */

@@ -72,7 +72,7 @@ public class SyntheticsVariableParser {
   }
 
   /**
-   * Regex or JSON path used for the parser. Not used with type &#x60;raw&#x60;.
+   * Regex or JSON path used for the parser. Not used with type <code>raw</code>.
    *
    * @return value
    */

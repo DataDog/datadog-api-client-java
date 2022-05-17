@@ -24,8 +24,9 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;,
- * &#x60;dns&#x60;, &#x60;icmp&#x60;, &#x60;udp&#x60;, &#x60;websocket&#x60; or &#x60;multi&#x60;.
+ * The subtype of the Synthetic API test, <code>http</code>, <code>ssl</code>, <code>tcp</code>,
+ * <code>dns</code>, <code>icmp</code>, <code>udp</code>, <code>websocket</code> or <code>multi
+ * </code>.
  */
 @JsonSerialize(using = SyntheticsTestDetailsSubType.SyntheticsTestDetailsSubTypeSerializer.class)
 public class SyntheticsTestDetailsSubType {

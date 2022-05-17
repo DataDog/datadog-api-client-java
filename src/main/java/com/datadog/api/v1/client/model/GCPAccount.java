@@ -84,7 +84,7 @@ public class GCPAccount {
   }
 
   /**
-   * Should be &#x60;https://www.googleapis.com/oauth2/v1/certs&#x60;.
+   * Should be <code>https://www.googleapis.com/oauth2/v1/certs</code>.
    *
    * @return authProviderX509CertUrl
    */
@@ -105,7 +105,7 @@ public class GCPAccount {
   }
 
   /**
-   * Should be &#x60;https://accounts.google.com/o/oauth2/auth&#x60;.
+   * Should be <code>https://accounts.google.com/o/oauth2/auth</code>.
    *
    * @return authUri
    */
@@ -189,8 +189,8 @@ public class GCPAccount {
   }
 
   /**
-   * Should be &#x60;https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL&#x60; where
-   * &#x60;$CLIENT_EMAIL&#x60; is the email found in your JSON service account key.
+   * Should be <code>https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL</code> where
+   * <code>$CLIENT_EMAIL</code> is the email found in your JSON service account key.
    *
    * @return clientX509CertUrl
    */
@@ -325,7 +325,7 @@ public class GCPAccount {
   }
 
   /**
-   * Should be &#x60;https://accounts.google.com/o/oauth2/token&#x60;.
+   * Should be <code>https://accounts.google.com/o/oauth2/token</code>.
    *
    * @return tokenUri
    */

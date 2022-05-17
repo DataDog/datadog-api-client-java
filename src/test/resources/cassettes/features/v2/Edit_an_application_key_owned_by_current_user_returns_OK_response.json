@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1641829848\"},\"type\":\"application_keys\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1652349129\"},\"type\":\"application_keys\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"30b069a4-91b3-498e-8e51-e93610933fa9\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1641829848\",\"created_at\":\"2022-01-10T15:50:49.125111+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"30170613-5282-40db-83ae-232895165192\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1652349129\",\"created_at\":\"2022-05-12T09:52:10.475750+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"leak_information\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e1061175-eef1-968b-6364-abcb6ce8bab9"
+    "id": "0d6a19a0-9bde-df9b-b24b-8153ee2abed9"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1641829848-updated\"},\"id\":\"30b069a4-91b3-498e-8e51-e93610933fa9\",\"type\":\"application_keys\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1652349129-updated\"},\"id\":\"30170613-5282-40db-83ae-232895165192\",\"type\":\"application_keys\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -45,12 +45,12 @@
         ]
       },
       "method": "PATCH",
-      "path": "/api/v2/current_user/application_keys/30b069a4-91b3-498e-8e51-e93610933fa9",
+      "path": "/api/v2/current_user/application_keys/30170613-5282-40db-83ae-232895165192",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"30b069a4-91b3-498e-8e51-e93610933fa9\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1641829848-updated\",\"created_at\":\"2022-01-10T15:50:49.125111+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"30170613-5282-40db-83ae-232895165192\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1652349129-updated\",\"created_at\":\"2022-05-12T09:52:10.475750+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"leak_information\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3cd093f2-57e5-5db8-164e-9ccc0d2bb728"
+    "id": "52e741a9-011d-1e8d-f135-e278d4d8b056"
   },
   {
     "httpRequest": {
@@ -75,7 +75,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/current_user/application_keys/30b069a4-91b3-498e-8e51-e93610933fa9",
+      "path": "/api/v2/current_user/application_keys/30170613-5282-40db-83ae-232895165192",
       "keepAlive": false,
       "secure": true
     },
@@ -90,6 +90,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2f7f7f0a-2c64-4ef1-20c7-b85711036f27"
+    "id": "48808ce2-1317-6cd8-0316-98c66f3daa1b"
   }
 ]

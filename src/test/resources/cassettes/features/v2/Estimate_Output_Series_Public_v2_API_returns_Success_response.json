@@ -1,0 +1,40 @@
+[
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Estimate_Output_Series_Public_v2_API_returns_Success_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v2/metrics/system.cpu.idle/estimate",
+      "queryStringParameters": {
+        "filter[groups]": [
+          "app,host"
+        ],
+        "filter[num_aggregations]": [
+          "4"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"estimated_output_series\":68,\"estimate_type\":\"count_or_gauge\",\"estimated_at\":\"2022-05-14T09:31:28.108179Z\"},\"type\":\"metric_cardinality_estimate\",\"id\":\"system.cpu.idle\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6b4ad177-b207-bd70-887f-5dce5b0641f7"
+  }
+]

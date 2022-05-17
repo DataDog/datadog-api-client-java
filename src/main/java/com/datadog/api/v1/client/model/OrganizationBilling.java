@@ -36,7 +36,7 @@ public class OrganizationBilling {
   }
 
   /**
-   * The type of billing. Only &#x60;parent_billing&#x60; is supported.
+   * The type of billing. Only <code>parent_billing</code> is supported.
    *
    * @return type
    */

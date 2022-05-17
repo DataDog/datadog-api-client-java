@@ -133,9 +133,8 @@ public class AWSAccount {
   }
 
   /**
-   * An object, (in the form &#x60;{&quot;namespace1&quot;:true/false,
-   * &quot;namespace2&quot;:true/false}&#x60;), that enables or disables metric collection for
-   * specific AWS namespaces for this AWS account only.
+   * An object, (in the form <code>{"namespace1":true/false, "namespace2":true/false}</code>), that
+   * enables or disables metric collection for specific AWS namespaces for this AWS account only.
    *
    * @return accountSpecificNamespaceRules
    */
@@ -157,8 +156,8 @@ public class AWSAccount {
 
   /**
    * Whether Datadog collects cloud security posture management resources from your AWS account.
-   * This includes additional resources not covered under the general
-   * &#x60;resource_collection&#x60;.
+   * This includes additional resources not covered under the general <code>resource_collection
+   * </code>.
    *
    * @return cspmResourceCollectionEnabled
    */
@@ -216,12 +215,12 @@ public class AWSAccount {
   }
 
   /**
-   * The array of EC2 tags (in the form &#x60;key:value&#x60;) defines a filter that Datadog uses
-   * when collecting metrics from EC2. Wildcards, such as &#x60;?&#x60; (for single characters) and
-   * &#x60;*&#x60; (for multiple characters) can also be used. Only hosts that match one of the
+   * The array of EC2 tags (in the form <code>key:value</code>) defines a filter that Datadog uses
+   * when collecting metrics from EC2. Wildcards, such as <code>?</code> (for single characters) and
+   * <code>*</code> (for multiple characters) can also be used. Only hosts that match one of the
    * defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag
-   * can also be excluded by adding &#x60;!&#x60; before the tag. For example,
-   * &#x60;env:production,instance-type:c1.*,!region:us-east-1&#x60;
+   * can also be excluded by adding <code>!</code> before the tag. For example, <code>
+   * env:production,instance-type:c1.*,!region:us-east-1</code>
    *
    * @return filterTags
    */
@@ -250,7 +249,7 @@ public class AWSAccount {
   }
 
   /**
-   * Array of tags (in the form &#x60;key:value&#x60;) to add to all hosts and metrics reporting
+   * Array of tags (in the form <code>key:value</code>) to add to all hosts and metrics reporting
    * through this integration.
    *
    * @return hostTags

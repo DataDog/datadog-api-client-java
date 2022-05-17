@@ -110,9 +110,9 @@ public class EventCreateRequest {
   }
 
   /**
-   * If an alert event is enabled, set its type. For example, &#x60;error&#x60;,
-   * &#x60;warning&#x60;, &#x60;info&#x60;, &#x60;success&#x60;, &#x60;user_update&#x60;,
-   * &#x60;recommendation&#x60;, and &#x60;snapshot&#x60;.
+   * If an alert event is enabled, set its type. For example, <code>error</code>, <code>warning
+   * </code>, <code>info</code>, <code>success</code>, <code>user_update</code>, <code>
+   * recommendation</code>, and <code>snapshot</code>.
    *
    * @return alertType
    */
@@ -201,7 +201,7 @@ public class EventCreateRequest {
   }
 
   /**
-   * The priority of the event. For example, &#x60;normal&#x60; or &#x60;low&#x60;.
+   * The priority of the event. For example, <code>normal</code> or <code>low</code>.
    *
    * @return priority
    */
@@ -257,8 +257,9 @@ public class EventCreateRequest {
 
   /**
    * The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef,
-   * puppet, git, bitbucket, etc. A complete list of source attribute values [available
-   * here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+   * puppet, git, bitbucket, etc. A complete list of source attribute values <a
+   * href="https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value">available
+   * here</a>.
    *
    * @return sourceTypeName
    */
@@ -309,8 +310,8 @@ public class EventCreateRequest {
 
   /**
    * The body of the event. Limited to 4000 characters. The text supports markdown. To use markdown
-   * in the event text, start the text block with &#x60;%%% \\n&#x60; and end the text block with
-   * &#x60;\\n %%%&#x60;. Use &#x60;msg_text&#x60; with the Datadog Ruby library.
+   * in the event text, start the text block with <code>%%% \n</code> and end the text block with
+   * <code>\n %%%</code>. Use <code>msg_text</code> with the Datadog Ruby library.
    *
    * @return text
    */

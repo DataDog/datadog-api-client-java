@@ -128,7 +128,7 @@ public class Monitor {
   }
 
   /**
-   * Whether or not the monitor is deleted. (Always &#x60;null&#x60;)
+   * Whether or not the monitor is deleted. (Always <code>null</code>)
    *
    * @return deleted
    */
@@ -335,13 +335,14 @@ public class Monitor {
 
   /**
    * A list of unique role identifiers to define which roles are allowed to edit the monitor. The
-   * unique identifiers for all roles can be pulled from the [Roles
-   * API](https://docs.datadoghq.com/api/latest/roles/#list-roles) and are located in the
-   * &#x60;data.id&#x60; field. Editing a monitor includes any updates to the monitor configuration,
-   * monitor deletion, and muting of the monitor for any amount of time.
-   * &#x60;restricted_roles&#x60; is the successor of &#x60;locked&#x60;. For more information about
-   * &#x60;locked&#x60; and &#x60;restricted_roles&#x60;, see the [monitor options
-   * docs](https://docs.datadoghq.com/monitors/guide/monitor_api_options/#permissions-options).
+   * unique identifiers for all roles can be pulled from the <a
+   * href="https://docs.datadoghq.com/api/latest/roles/#list-roles">Roles API</a> and are located in
+   * the <code>data.id</code> field. Editing a monitor includes any updates to the monitor
+   * configuration, monitor deletion, and muting of the monitor for any amount of time. <code>
+   * restricted_roles</code> is the successor of <code>locked</code>. For more information about
+   * <code>locked</code> and <code>restricted_roles</code>, see the <a
+   * href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/#permissions-options">monitor
+   * options docs</a>.
    *
    * @return restrictedRoles
    */
@@ -414,8 +415,8 @@ public class Monitor {
   }
 
   /**
-   * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor
-   * options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
+   * The type of the monitor. For more information about <code>type</code>, see the <a
+   * href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.
    *
    * @return type
    */

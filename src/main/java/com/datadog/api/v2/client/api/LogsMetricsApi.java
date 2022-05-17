@@ -30,7 +30,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -39,7 +39,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -48,7 +48,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Create a log-based metric
+   * Create a log-based metric.
    *
    * <p>See {@link #createLogsMetricWithHttpInfo}.
    *
@@ -61,7 +61,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Create a log-based metric
+   * Create a log-based metric.
    *
    * <p>See {@link #createLogsMetricWithHttpInfoAsync}.
    *
@@ -77,10 +77,8 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Create a log-based metric
-   *
-   * <p>Create a metric based on your ingested logs in your organization. Returns the log-based
-   * metric object from the request body when the request is successful.
+   * Create a metric based on your ingested logs in your organization. Returns the log-based metric
+   * object from the request body when the request is successful.
    *
    * @param body The definition of the new log-based metric. (required)
    * @return ApiResponse&lt;LogsMetricResponse&gt;
@@ -131,7 +129,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Create a log-based metric
+   * Create a log-based metric.
    *
    * <p>See {@link #createLogsMetricWithHttpInfo}.
    *
@@ -183,7 +181,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Delete a log-based metric
+   * Delete a log-based metric.
    *
    * <p>See {@link #deleteLogsMetricWithHttpInfo}.
    *
@@ -195,7 +193,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Delete a log-based metric
+   * Delete a log-based metric.
    *
    * <p>See {@link #deleteLogsMetricWithHttpInfoAsync}.
    *
@@ -210,9 +208,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Delete a log-based metric
-   *
-   * <p>Delete a specific log-based metric from your organization.
+   * Delete a specific log-based metric from your organization.
    *
    * @param metricId The name of the log-based metric. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -263,7 +259,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Delete a log-based metric
+   * Delete a log-based metric.
    *
    * <p>See {@link #deleteLogsMetricWithHttpInfo}.
    *
@@ -316,7 +312,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Get a log-based metric
+   * Get a log-based metric.
    *
    * <p>See {@link #getLogsMetricWithHttpInfo}.
    *
@@ -329,7 +325,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Get a log-based metric
+   * Get a log-based metric.
    *
    * <p>See {@link #getLogsMetricWithHttpInfoAsync}.
    *
@@ -345,9 +341,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Get a log-based metric
-   *
-   * <p>Get a specific log-based metric from your organization.
+   * Get a specific log-based metric from your organization.
    *
    * @param metricId The name of the log-based metric. (required)
    * @return ApiResponse&lt;LogsMetricResponse&gt;
@@ -399,7 +393,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Get a log-based metric
+   * Get a log-based metric.
    *
    * <p>See {@link #getLogsMetricWithHttpInfo}.
    *
@@ -453,7 +447,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Get all log-based metrics
+   * Get all log-based metrics.
    *
    * <p>See {@link #listLogsMetricsWithHttpInfo}.
    *
@@ -465,7 +459,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Get all log-based metrics
+   * Get all log-based metrics.
    *
    * <p>See {@link #listLogsMetricsWithHttpInfoAsync}.
    *
@@ -480,9 +474,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Get all log-based metrics
-   *
-   * <p>Get the list of configured log-based metrics with their definitions.
+   * Get the list of configured log-based metrics with their definitions.
    *
    * @return ApiResponse&lt;LogsMetricsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -523,7 +515,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Get all log-based metrics
+   * Get all log-based metrics.
    *
    * <p>See {@link #listLogsMetricsWithHttpInfo}.
    *
@@ -564,7 +556,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Update a log-based metric
+   * Update a log-based metric.
    *
    * <p>See {@link #updateLogsMetricWithHttpInfo}.
    *
@@ -579,7 +571,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Update a log-based metric
+   * Update a log-based metric.
    *
    * <p>See {@link #updateLogsMetricWithHttpInfoAsync}.
    *
@@ -597,10 +589,8 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Update a log-based metric
-   *
-   * <p>Update a specific log-based metric from your organization. Returns the log-based metric
-   * object from the request body when the request is successful.
+   * Update a specific log-based metric from your organization. Returns the log-based metric object
+   * from the request body when the request is successful.
    *
    * @param metricId The name of the log-based metric. (required)
    * @param body New definition of the log-based metric. (required)
@@ -660,7 +650,7 @@ public class LogsMetricsApi {
   }
 
   /**
-   * Update a log-based metric
+   * Update a log-based metric.
    *
    * <p>See {@link #updateLogsMetricWithHttpInfo}.
    *

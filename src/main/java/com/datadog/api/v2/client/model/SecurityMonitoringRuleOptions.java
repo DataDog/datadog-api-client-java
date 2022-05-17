@@ -20,6 +20,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SecurityMonitoringRuleOptions.JSON_PROPERTY_DETECTION_METHOD,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_EVALUATION_WINDOW,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_HARDCODED_EVALUATOR_TYPE,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_KEEP_ALIVE,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
@@ -34,6 +35,9 @@ public class SecurityMonitoringRuleOptions {
 
   public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluationWindow";
   private SecurityMonitoringRuleEvaluationWindow evaluationWindow;
+
+  public static final String JSON_PROPERTY_HARDCODED_EVALUATOR_TYPE = "hardcodedEvaluatorType";
+  private SecurityMonitoringRuleHardcodedEvaluatorType hardcodedEvaluatorType;
 
   public static final String JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS = "impossibleTravelOptions";
   private SecurityMonitoringRuleImpossibleTravelOptions impossibleTravelOptions;
@@ -98,6 +102,33 @@ public class SecurityMonitoringRuleOptions {
       this.unparsed = true;
     }
     this.evaluationWindow = evaluationWindow;
+  }
+
+  public SecurityMonitoringRuleOptions hardcodedEvaluatorType(
+      SecurityMonitoringRuleHardcodedEvaluatorType hardcodedEvaluatorType) {
+    this.hardcodedEvaluatorType = hardcodedEvaluatorType;
+    this.unparsed |= !hardcodedEvaluatorType.isValid();
+    return this;
+  }
+
+  /**
+   * Hardcoded evaluator type.
+   *
+   * @return hardcodedEvaluatorType
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HARDCODED_EVALUATOR_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleHardcodedEvaluatorType getHardcodedEvaluatorType() {
+    return hardcodedEvaluatorType;
+  }
+
+  public void setHardcodedEvaluatorType(
+      SecurityMonitoringRuleHardcodedEvaluatorType hardcodedEvaluatorType) {
+    if (!hardcodedEvaluatorType.isValid()) {
+      this.unparsed = true;
+    }
+    this.hardcodedEvaluatorType = hardcodedEvaluatorType;
   }
 
   public SecurityMonitoringRuleOptions impossibleTravelOptions(
@@ -213,6 +244,8 @@ public class SecurityMonitoringRuleOptions {
     return Objects.equals(this.detectionMethod, securityMonitoringRuleOptions.detectionMethod)
         && Objects.equals(this.evaluationWindow, securityMonitoringRuleOptions.evaluationWindow)
         && Objects.equals(
+            this.hardcodedEvaluatorType, securityMonitoringRuleOptions.hardcodedEvaluatorType)
+        && Objects.equals(
             this.impossibleTravelOptions, securityMonitoringRuleOptions.impossibleTravelOptions)
         && Objects.equals(this.keepAlive, securityMonitoringRuleOptions.keepAlive)
         && Objects.equals(this.maxSignalDuration, securityMonitoringRuleOptions.maxSignalDuration)
@@ -224,6 +257,7 @@ public class SecurityMonitoringRuleOptions {
     return Objects.hash(
         detectionMethod,
         evaluationWindow,
+        hardcodedEvaluatorType,
         impossibleTravelOptions,
         keepAlive,
         maxSignalDuration,
@@ -236,6 +270,9 @@ public class SecurityMonitoringRuleOptions {
     sb.append("class SecurityMonitoringRuleOptions {\n");
     sb.append("    detectionMethod: ").append(toIndentedString(detectionMethod)).append("\n");
     sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
+    sb.append("    hardcodedEvaluatorType: ")
+        .append(toIndentedString(hardcodedEvaluatorType))
+        .append("\n");
     sb.append("    impossibleTravelOptions: ")
         .append(toIndentedString(impossibleTravelOptions))
         .append("\n");

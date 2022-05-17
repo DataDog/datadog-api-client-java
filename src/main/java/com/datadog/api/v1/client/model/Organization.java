@@ -135,7 +135,7 @@ public class Organization {
   }
 
   /**
-   * The &#x60;public_id&#x60; of the organization you are operating within.
+   * The <code>public_id</code> of the organization you are operating within.
    *
    * @return publicId
    */

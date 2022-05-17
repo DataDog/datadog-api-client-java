@@ -28,7 +28,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -37,7 +37,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -55,7 +55,7 @@ public class ProcessesApi {
     private String pageCursor;
 
     /**
-     * Set search
+     * Set search.
      *
      * @param search String to search processes by. (optional)
      * @return ListProcessesOptionalParameters
@@ -66,7 +66,7 @@ public class ProcessesApi {
     }
 
     /**
-     * Set tags
+     * Set tags.
      *
      * @param tags Comma-separated list of tags to filter processes by. (optional)
      * @return ListProcessesOptionalParameters
@@ -77,12 +77,12 @@ public class ProcessesApi {
     }
 
     /**
-     * Set from
+     * Set from.
      *
      * @param from Unix timestamp (number of seconds since epoch) of the start of the query window.
-     *     If not provided, the start of the query window will be 15 minutes before the
-     *     &#x60;to&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided,
-     *     the query window will be &#x60;[now - 15m, now]&#x60;. (optional)
+     *     If not provided, the start of the query window will be 15 minutes before the <code>to
+     *     </code> timestamp. If neither <code>from</code> nor <code>to</code> are provided, the
+     *     query window will be <code>[now - 15m, now]</code>. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters from(Long from) {
@@ -91,12 +91,12 @@ public class ProcessesApi {
     }
 
     /**
-     * Set to
+     * Set to.
      *
      * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If
-     *     not provided, the end of the query window will be 15 minutes after the &#x60;from&#x60;
-     *     timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window
-     *     will be &#x60;[now - 15m, now]&#x60;. (optional)
+     *     not provided, the end of the query window will be 15 minutes after the <code>from</code>
+     *     timestamp. If neither <code>from</code> nor <code>to</code> are provided, the query
+     *     window will be <code>[now - 15m, now]</code>. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters to(Long to) {
@@ -105,7 +105,7 @@ public class ProcessesApi {
     }
 
     /**
-     * Set pageLimit
+     * Set pageLimit.
      *
      * @param pageLimit Maximum number of results returned. (optional, default to 1000)
      * @return ListProcessesOptionalParameters
@@ -116,10 +116,10 @@ public class ProcessesApi {
     }
 
     /**
-     * Set pageCursor
+     * Set pageCursor.
      *
      * @param pageCursor String to query the next page of results. This key is provided with each
-     *     valid response from the API in &#x60;meta.page.after&#x60;. (optional)
+     *     valid response from the API in <code>meta.page.after</code>. (optional)
      * @return ListProcessesOptionalParameters
      */
     public ListProcessesOptionalParameters pageCursor(String pageCursor) {
@@ -129,7 +129,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
+   * Get all processes.
    *
    * <p>See {@link #listProcessesWithHttpInfo}.
    *
@@ -141,7 +141,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
+   * Get all processes.
    *
    * <p>See {@link #listProcessesWithHttpInfoAsync}.
    *
@@ -156,7 +156,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
+   * Get all processes.
    *
    * <p>See {@link #listProcessesWithHttpInfo}.
    *
@@ -170,7 +170,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
+   * Get all processes.
    *
    * <p>See {@link #listProcessesWithHttpInfoAsync}.
    *
@@ -187,9 +187,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
-   *
-   * <p>Get all processes for your organization.
+   * Get all processes for your organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ProcessSummariesResponse&gt;
@@ -247,7 +245,7 @@ public class ProcessesApi {
   }
 
   /**
-   * Get all processes
+   * Get all processes.
    *
    * <p>See {@link #listProcessesWithHttpInfo}.
    *

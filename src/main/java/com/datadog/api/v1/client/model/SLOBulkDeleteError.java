@@ -96,8 +96,8 @@ public class SLOBulkDeleteError {
   }
 
   /**
-   * The timeframe of the threshold associated with this error or &quot;all&quot; if all thresholds
-   * are affected.
+   * The timeframe of the threshold associated with this error or "all" if all thresholds are
+   * affected.
    *
    * @return timeframe
    */

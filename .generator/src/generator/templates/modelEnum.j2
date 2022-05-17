@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.HashSet;
 
 /**
- * {{ model.description|escape_html if model.description else "Gets or Sets " ~ name }}
+{{ model.description|docstring }}
  */
 @JsonSerialize(using = {{ name }}.{{ name }}Serializer.class)
 public class {{ name }} {

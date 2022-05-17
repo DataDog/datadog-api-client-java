@@ -32,7 +32,7 @@ public class EventsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -41,7 +41,7 @@ public class EventsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -50,7 +50,7 @@ public class EventsApi {
   }
 
   /**
-   * Post an event
+   * Post an event.
    *
    * <p>See {@link #createEventWithHttpInfo}.
    *
@@ -63,7 +63,7 @@ public class EventsApi {
   }
 
   /**
-   * Post an event
+   * Post an event.
    *
    * <p>See {@link #createEventWithHttpInfoAsync}.
    *
@@ -79,9 +79,7 @@ public class EventsApi {
   }
 
   /**
-   * Post an event
-   *
-   * <p>This endpoint allows you to post events to the stream. Tag them, set priority and event
+   * This endpoint allows you to post events to the stream. Tag them, set priority and event
    * aggregate them with other events.
    *
    * @param body Event request object (required)
@@ -130,7 +128,7 @@ public class EventsApi {
   }
 
   /**
-   * Post an event
+   * Post an event.
    *
    * <p>See {@link #createEventWithHttpInfo}.
    *
@@ -181,7 +179,7 @@ public class EventsApi {
   }
 
   /**
-   * Get an event
+   * Get an event.
    *
    * <p>See {@link #getEventWithHttpInfo}.
    *
@@ -194,7 +192,7 @@ public class EventsApi {
   }
 
   /**
-   * Get an event
+   * Get an event.
    *
    * <p>See {@link #getEventWithHttpInfoAsync}.
    *
@@ -210,11 +208,11 @@ public class EventsApi {
   }
 
   /**
-   * Get an event
+   * This endpoint allows you to query for event details.
    *
-   * <p>This endpoint allows you to query for event details. **Note**: If the event you’re querying
-   * contains markdown formatting of any kind, you may see characters such as
-   * &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.
+   * <p><strong>Note</strong>: If the event you’re querying contains markdown formatting of any
+   * kind, you may see characters such as <code>%</code>,<code>\</code>,<code>n</code> in your
+   * output.
    *
    * @param eventId The ID of the event. (required)
    * @return ApiResponse&lt;EventResponse&gt;
@@ -264,7 +262,7 @@ public class EventsApi {
   }
 
   /**
-   * Get an event
+   * Get an event.
    *
    * <p>See {@link #getEventWithHttpInfo}.
    *
@@ -325,9 +323,9 @@ public class EventsApi {
     private Integer page;
 
     /**
-     * Set priority
+     * Set priority.
      *
-     * @param priority Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;.
+     * @param priority Priority of your events, either <code>low</code> or <code>normal</code>.
      *     (optional)
      * @return ListEventsOptionalParameters
      */
@@ -337,7 +335,7 @@ public class EventsApi {
     }
 
     /**
-     * Set sources
+     * Set sources.
      *
      * @param sources A comma separated string of sources. (optional)
      * @return ListEventsOptionalParameters
@@ -348,7 +346,7 @@ public class EventsApi {
     }
 
     /**
-     * Set tags
+     * Set tags.
      *
      * @param tags A comma separated list indicating what tags, if any, should be used to filter the
      *     list of monitors by scope. (optional)
@@ -360,13 +358,13 @@ public class EventsApi {
     }
 
     /**
-     * Set unaggregated
+     * Set unaggregated.
      *
-     * @param unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the
-     *     specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is
-     *     aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be
-     *     available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the
-     *     response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60;
+     * @param unaggregated Set unaggregated to <code>true</code> to return all events within the
+     *     specified [<code>start</code>,<code>end</code>] timeframe. Otherwise if an event is
+     *     aggregated to a parent event with a timestamp outside of the timeframe, it won't be
+     *     available in the output. Aggregated events with <code>is_aggregate=true</code> in the
+     *     response will still be returned unless exclude_aggregate is set to <code>true.</code>
      *     (optional)
      * @return ListEventsOptionalParameters
      */
@@ -376,12 +374,12 @@ public class EventsApi {
     }
 
     /**
-     * Set excludeAggregate
+     * Set excludeAggregate.
      *
-     * @param excludeAggregate Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return
-     *     unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the
-     *     &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated
-     *     parameter is ignored and will be &#x60;true&#x60; by default. (optional)
+     * @param excludeAggregate Set <code>exclude_aggregate</code> to <code>true</code> to only
+     *     return unaggregated events where <code>is_aggregate=false</code> in the response. If the
+     *     <code>exclude_aggregate</code> parameter is set to <code>true</code>, then the
+     *     unaggregated parameter is ignored and will be <code>true</code> by default. (optional)
      * @return ListEventsOptionalParameters
      */
     public ListEventsOptionalParameters excludeAggregate(Boolean excludeAggregate) {
@@ -390,11 +388,12 @@ public class EventsApi {
     }
 
     /**
-     * Set page
+     * Set page.
      *
      * @param page By default 1000 results are returned per request. Set page to the number of the
-     *     page to return with &#x60;0&#x60; being the first page. The page parameter can only be
-     *     used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60; (optional)
+     *     page to return with <code>0</code> being the first page. The page parameter can only be
+     *     used when either unaggregated or exclude_aggregate is set to <code>true.</code>
+     *     (optional)
      * @return ListEventsOptionalParameters
      */
     public ListEventsOptionalParameters page(Integer page) {
@@ -404,7 +403,7 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream
+   * Query the event stream.
    *
    * <p>See {@link #listEventsWithHttpInfo}.
    *
@@ -418,7 +417,7 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream
+   * Query the event stream.
    *
    * <p>See {@link #listEventsWithHttpInfoAsync}.
    *
@@ -435,7 +434,7 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream
+   * Query the event stream.
    *
    * <p>See {@link #listEventsWithHttpInfo}.
    *
@@ -451,7 +450,7 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream
+   * Query the event stream.
    *
    * <p>See {@link #listEventsWithHttpInfoAsync}.
    *
@@ -470,15 +469,18 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream
+   * The event stream can be queried and filtered by time, priority, sources and tags.
    *
-   * <p>The event stream can be queried and filtered by time, priority, sources and tags. **Notes**:
-   * - If the event you’re querying contains markdown formatting of any kind, you may see characters
-   * such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. - This endpoint returns a
-   * maximum of &#x60;1000&#x60; most recent results. To return additional results, identify the
-   * last timestamp of the last result and set that as the &#x60;end&#x60; query time to paginate
-   * the results. You can also use the page parameter to specify which set of &#x60;1000&#x60;
-   * results to return.
+   * <p><strong>Notes</strong>: - If the event you’re querying contains markdown formatting of any
+   * kind, you may see characters such as <code>%</code>,<code>\</code>,<code>n</code> in your
+   * output.
+   *
+   * <ul>
+   *   <li>This endpoint returns a maximum of <code>1000</code> most recent results. To return
+   *       additional results, identify the last timestamp of the last result and set that as the
+   *       <code>end</code> query time to paginate the results. You can also use the page parameter
+   *       to specify which set of <code>1000</code> results to return.
+   * </ul>
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
@@ -551,7 +553,7 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream
+   * Query the event stream.
    *
    * <p>See {@link #listEventsWithHttpInfo}.
    *

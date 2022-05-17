@@ -54,7 +54,7 @@ public class MonitorThresholds {
   }
 
   /**
-   * The monitor &#x60;CRITICAL&#x60; threshold.
+   * The monitor <code>CRITICAL</code> threshold.
    *
    * @return critical
    */
@@ -75,7 +75,7 @@ public class MonitorThresholds {
   }
 
   /**
-   * The monitor &#x60;CRITICAL&#x60; recovery threshold.
+   * The monitor <code>CRITICAL</code> recovery threshold.
    *
    * @return criticalRecovery
    */
@@ -106,7 +106,7 @@ public class MonitorThresholds {
   }
 
   /**
-   * The monitor &#x60;OK&#x60; threshold.
+   * The monitor <code>OK</code> threshold.
    *
    * @return ok
    */
@@ -168,7 +168,7 @@ public class MonitorThresholds {
   }
 
   /**
-   * The monitor &#x60;WARNING&#x60; threshold.
+   * The monitor <code>WARNING</code> threshold.
    *
    * @return warning
    */
@@ -199,7 +199,7 @@ public class MonitorThresholds {
   }
 
   /**
-   * The monitor &#x60;WARNING&#x60; recovery threshold.
+   * The monitor <code>WARNING</code> recovery threshold.
    *
    * @return warningRecovery
    */

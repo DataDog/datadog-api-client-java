@@ -24,8 +24,8 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Size of the margins around the image. **Note**: &#x60;small&#x60; and &#x60;large&#x60; values
- * are deprecated.
+ * Size of the margins around the image. <strong>Note</strong>: <code>small</code> and <code>large
+ * </code> values are deprecated.
  */
 @JsonSerialize(using = WidgetMargin.WidgetMarginSerializer.class)
 public class WidgetMargin {

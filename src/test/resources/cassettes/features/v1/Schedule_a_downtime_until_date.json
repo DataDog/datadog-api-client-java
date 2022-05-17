@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"end\":1649333168,\"message\":\"Test-Schedule_a_downtime_until_date-1649329568\",\"mute_first_recovery_notification\":true,\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1651143968,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"*\"],\"start\":1649329568,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"end\":1652352599,\"message\":\"Test-Schedule_a_downtime_until_date-1652348999\",\"mute_first_recovery_notification\":true,\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1654163399,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"*\"],\"start\":1652348999,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":1651143968,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":1649333168,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":true,\"created\":1649329568,\"org_id\":321813,\"modified\":1649329568,\"disabled\":false,\"start\":1649329568,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"*\"],\"message\":\"Test-Schedule_a_downtime_until_date-1649329568\",\"downtime_type\":0,\"id\":1861906415,\"updater_id\":null}",
+      "body": "{\"recurrence\":{\"until_date\":1654163399,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":1652352599,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":true,\"created\":1652349000,\"org_id\":321813,\"modified\":1652349000,\"disabled\":false,\"start\":1652348999,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"*\"],\"message\":\"Test-Schedule_a_downtime_until_date-1652348999\",\"downtime_type\":0,\"id\":1944162290,\"updater_id\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3117e1c0-5bfe-0332-37f0-9636e7b74dba"
+    "id": "89d980dd-c3c8-6c39-eb38-aa3ddc65c174"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/downtime/1861906415",
+      "path": "/api/v1/downtime/1944162290",
       "keepAlive": false,
       "secure": true
     },
@@ -56,6 +56,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c707869d-1995-ea3c-665f-256bbfe368bc"
+    "id": "aacc3e9e-50bc-b71e-4993-02ab362cf01f"
   }
 ]

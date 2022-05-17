@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Object containing the definition of a metric&#39;s tags. */
+/** Object containing the definition of a metric's tags. */
 @JsonPropertyOrder({MetricAllTagsAttributes.JSON_PROPERTY_TAGS})
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

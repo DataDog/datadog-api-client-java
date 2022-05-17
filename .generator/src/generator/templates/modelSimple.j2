@@ -1,5 +1,5 @@
 /**
- * {{ model.description|escape_html if model.description else name }}
+{{ model.description|docstring }}
  {%- if model.deprecated %}
  * @deprecated
  {%- endif %}
@@ -183,7 +183,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- endif %}
 
   /**
-  * {{ schema.description|default("Get" ~ variableName)|escape_html }}
+{{ schema.description|default("Get" ~ variableName)|docstring }}
   {%- if schema.minimum is defined %}
    * minimum: {{ schema.minimum }}
   {%- endif %}

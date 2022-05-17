@@ -21,14 +21,27 @@ import java.util.Objects;
 
 /**
  * As Datadog receives logs, it timestamps them using the value(s) from any of these default
- * attributes. - &#x60;timestamp&#x60; - &#x60;date&#x60; - &#x60;_timestamp&#x60; -
- * &#x60;Timestamp&#x60; - &#x60;eventTime&#x60; - &#x60;published_date&#x60; If your logs put their
- * dates in an attribute not in this list, use the log date Remapper Processor to define their date
- * attribute as the official log timestamp. The recognized date formats are ISO8601, UNIX (the
- * milliseconds EPOCH format), and RFC3164. **Note:** If your logs don’t contain any of the default
- * attributes and you haven’t defined your own date attribute, Datadog timestamps the logs with the
- * date it received them. If multiple log date remapper processors can be applied to a given log,
- * only the first one (according to the pipelines order) is taken into account.
+ * attributes.
+ *
+ * <ul>
+ *   <li><code>timestamp</code>
+ *   <li><code>date</code>
+ *   <li><code>_timestamp</code>
+ *   <li><code>Timestamp</code>
+ *   <li><code>eventTime</code>
+ *   <li><code>published_date</code>
+ * </ul>
+ *
+ * <p>If your logs put their dates in an attribute not in this list, use the log date Remapper
+ * Processor to define their date attribute as the official log timestamp. The recognized date
+ * formats are ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.
+ *
+ * <p><strong>Note:</strong> If your logs don’t contain any of the default attributes and you
+ * haven’t defined your own date attribute, Datadog timestamps the logs with the date it received
+ * them.
+ *
+ * <p>If multiple log date remapper processors can be applied to a given log, only the first one
+ * (according to the pipelines order) is taken into account.
  */
 @JsonPropertyOrder({
   LogsDateRemapper.JSON_PROPERTY_IS_ENABLED,

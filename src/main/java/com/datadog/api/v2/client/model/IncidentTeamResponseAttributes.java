@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/** The incident team&#39;s attributes from a response. */
+/** The incident team's attributes from a response. */
 @JsonPropertyOrder({
   IncidentTeamResponseAttributes.JSON_PROPERTY_CREATED,
   IncidentTeamResponseAttributes.JSON_PROPERTY_MODIFIED,

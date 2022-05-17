@@ -20,8 +20,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The treemap visualization found on the Host Dashboards comes from the output of &#x60;ps
- * auxww&#x60;. This is not continuously run on your hosts. Instead, it’s run once on Agent
+ * The treemap visualization found on the Host Dashboards comes from the output of <code>ps auxww
+ * </code>. This is not continuously run on your hosts. Instead, it’s run once on Agent
  * start/restart. The treemap is only supported for process data on a single host dashboard — this
  * may not be reused in other dashboards or for other metrics.
  */

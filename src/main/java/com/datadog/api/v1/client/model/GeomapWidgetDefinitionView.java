@@ -40,7 +40,7 @@ public class GeomapWidgetDefinitionView {
   }
 
   /**
-   * The 2-letter ISO code of a country to focus the map on. Or &#x60;WORLD&#x60;.
+   * The 2-letter ISO code of a country to focus the map on. Or <code>WORLD</code>.
    *
    * @return focus
    */

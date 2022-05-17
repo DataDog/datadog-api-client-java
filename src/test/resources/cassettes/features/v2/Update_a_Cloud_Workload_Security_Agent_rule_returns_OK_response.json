@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1641924703\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1652349088\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1641924703\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"My Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":1,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1641924703522,\"creationDate\":1641924703522,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"q6i-5md-xld\"}}",
+      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1652349088\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"My Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":1,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1652349088786,\"creationDate\":1652349088786,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"ivl-0d3-hga\"}}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1692a1ce-438b-753d-3c22-e0edb9dd163e"
+    "id": "78e99f34-2256-18f3-34f8-c6da093eb75c"
   },
   {
     "httpRequest": {
@@ -45,12 +45,12 @@
         ]
       },
       "method": "PATCH",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/q6i-5md-xld",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ivl-0d3-hga",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1641924703\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"Test Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":2,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1641924703969,\"creationDate\":1641924703522,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"q6i-5md-xld\"}}",
+      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1652349088\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"Test Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":2,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1652349089262,\"creationDate\":1652349088786,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"ivl-0d3-hga\"}}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "abfc6df0-8bea-f5b4-3a8b-677fedc96cb9"
+    "id": "2570e226-7fbc-bb3b-1fad-4ca2b438f8c6"
   },
   {
     "httpRequest": {
@@ -75,12 +75,16 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/q6i-5md-xld",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ivl-0d3-hga",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
+      "headers": {
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ]
+      },
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -90,6 +94,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e9df26b7-618c-4d3b-8d0b-7b477df24c32"
+    "id": "f486b6bc-08e8-8eb3-13f7-6a308ab756d8"
   }
 ]

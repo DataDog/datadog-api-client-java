@@ -3,6 +3,8 @@ from functools import singledispatch
 import re
 import warnings
 
+import markdown
+
 from . import openapi
 
 KEYWORDS = {
@@ -217,6 +219,19 @@ def escape_html(text):
         return ""
     text = " ".join(text.splitlines())
     return "".join(HTML_ESCAPE_CHARACTERS.get(c, c) for c in text)
+
+
+def docstring(text, indent=3):
+    if not text:
+        return ""
+    blank = " " * indent
+    return "\n".join("{}* {}".format(blank, line) for line in markdown.markdown(text).splitlines())
+
+
+def inline_docstring(text):
+    if not text:
+        return ""
+    return markdown.markdown(text).replace("<p>", "").replace("</p>", "").replace("\n", " ")
 
 
 def format_parameters(kwargs, spec, replace_values=None, has_body=False):

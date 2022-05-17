@@ -20,8 +20,9 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A &#x60;metric&#x60; based SLO history response. This is not included in responses for
- * &#x60;monitor&#x60; based SLOs.
+ * A <code>metric</code> based SLO history response.
+ *
+ * <p>This is not included in responses for <code>monitor</code> based SLOs.
  */
 @JsonPropertyOrder({
   SLOHistoryMetrics.JSON_PROPERTY_DENOMINATOR,
@@ -92,8 +93,8 @@ public class SLOHistoryMetrics {
   }
 
   /**
-   * A representation of &#x60;metric&#x60; based SLO time series for the provided queries. This is
-   * the same response type from &#x60;batch_query&#x60; endpoint.
+   * A representation of <code>metric</code> based SLO time series for the provided queries. This is
+   * the same response type from <code>batch_query</code> endpoint.
    *
    * @return denominator
    */
@@ -113,7 +114,7 @@ public class SLOHistoryMetrics {
   }
 
   /**
-   * The aggregated query interval for the series data. It&#39;s implicit based on the query time
+   * The aggregated query interval for the series data. It's implicit based on the query time
    * window.
    *
    * @return interval
@@ -156,8 +157,8 @@ public class SLOHistoryMetrics {
   }
 
   /**
-   * A representation of &#x60;metric&#x60; based SLO time series for the provided queries. This is
-   * the same response type from &#x60;batch_query&#x60; endpoint.
+   * A representation of <code>metric</code> based SLO time series for the provided queries. This is
+   * the same response type from <code>batch_query</code> endpoint.
    *
    * @return numerator
    */
@@ -197,7 +198,7 @@ public class SLOHistoryMetrics {
   }
 
   /**
-   * The series result type. This mimics &#x60;batch_query&#x60; response type.
+   * The series result type. This mimics <code>batch_query</code> response type.
    *
    * @return resType
    */
@@ -217,7 +218,7 @@ public class SLOHistoryMetrics {
   }
 
   /**
-   * The series response version type. This mimics &#x60;batch_query&#x60; response type.
+   * The series response version type. This mimics <code>batch_query</code> response type.
    *
    * @return respVersion
    */

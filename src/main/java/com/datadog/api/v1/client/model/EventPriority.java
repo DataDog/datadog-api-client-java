@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The priority of the event. For example, &#x60;normal&#x60; or &#x60;low&#x60;. */
+/** The priority of the event. For example, <code>normal</code> or <code>low</code>. */
 @JsonSerialize(using = EventPriority.EventPrioritySerializer.class)
 public class EventPriority {
 

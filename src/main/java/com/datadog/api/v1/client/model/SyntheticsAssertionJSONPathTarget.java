@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** An assertion for the &#x60;validatesJSONPath&#x60; operator. */
+/** An assertion for the <code>validatesJSONPath</code> operator. */
 @JsonPropertyOrder({
   SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_OPERATOR,
   SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_PROPERTY,
@@ -105,7 +105,7 @@ public class SyntheticsAssertionJSONPathTarget {
   }
 
   /**
-   * Composed target for &#x60;validatesJSONPath&#x60; operator.
+   * Composed target for <code>validatesJSONPath</code> operator.
    *
    * @return target
    */

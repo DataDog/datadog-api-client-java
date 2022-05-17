@@ -103,7 +103,7 @@ public class SLOCorrectionUpdateRequestAttributes {
   }
 
   /**
-   * Length of time (in seconds) for a specified &#x60;rrule&#x60; recurring SLO correction.
+   * Length of time (in seconds) for a specified <code>rrule</code> recurring SLO correction.
    *
    * @return duration
    */
@@ -146,8 +146,8 @@ public class SLOCorrectionUpdateRequestAttributes {
 
   /**
    * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO
-   * corrections are &#x60;FREQ&#x60;, &#x60;INTERVAL&#x60;, &#x60;COUNT&#x60;, and
-   * &#x60;UNTIL&#x60;.
+   * corrections are <code>FREQ</code>, <code>INTERVAL</code>, <code>COUNT</code>, and <code>UNTIL
+   * </code>.
    *
    * @return rrule
    */
@@ -189,7 +189,7 @@ public class SLOCorrectionUpdateRequestAttributes {
   }
 
   /**
-   * The timezone to display in the UI for the correction times (defaults to &quot;UTC&quot;).
+   * The timezone to display in the UI for the correction times (defaults to "UTC").
    *
    * @return timezone
    */

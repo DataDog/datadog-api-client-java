@@ -70,7 +70,7 @@ public class LogsAggregateSort {
   }
 
   /**
-   * The metric to sort by (only used for &#x60;type&#x3D;measure&#x60;)
+   * The metric to sort by (only used for <code>type=measure</code>)
    *
    * @return metric
    */
