@@ -10,10 +10,15 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /** Logs that are sent over HTTP. */
@@ -42,6 +47,13 @@ public class HTTPLogItem {
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
+
+  public HTTPLogItem() {}
+
+  @JsonCreator
+  public HTTPLogItem(@JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message) {
+    this.message = message;
+  }
 
   public HTTPLogItem ddsource(String ddsource) {
     this.ddsource = ddsource;
@@ -124,9 +136,8 @@ public class HTTPLogItem {
    *
    * @return message
    */
-  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
     return message;
   }
@@ -159,6 +170,39 @@ public class HTTPLogItem {
     this.service = service;
   }
 
+  /**
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, String> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
+   */
+  @JsonAnySetter
+  public HTTPLogItem putAdditionalProperty(String key, String value) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, String>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /** Return the additional (undeclared) property. */
+  @JsonAnyGetter
+  public Map<String, String> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /** Return the additional (undeclared) property with the specified name. */
+  public String getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+      return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
   /** Return true if this HTTPLogItem object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -173,12 +217,13 @@ public class HTTPLogItem {
         && Objects.equals(this.ddtags, httpLogItem.ddtags)
         && Objects.equals(this.hostname, httpLogItem.hostname)
         && Objects.equals(this.message, httpLogItem.message)
-        && Objects.equals(this.service, httpLogItem.service);
+        && Objects.equals(this.service, httpLogItem.service)
+        && Objects.equals(this.additionalProperties, httpLogItem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ddsource, ddtags, hostname, message, service);
+    return Objects.hash(ddsource, ddtags, hostname, message, service, additionalProperties);
   }
 
   @Override
@@ -190,6 +235,9 @@ public class HTTPLogItem {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
+    sb.append("    additionalProperties: ")
+        .append(toIndentedString(additionalProperties))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
