@@ -9,6 +9,7 @@ import com.datadog.api.v2.client.model.MetricAllTagsResponse;
 import com.datadog.api.v2.client.model.MetricBulkTagConfigCreateRequest;
 import com.datadog.api.v2.client.model.MetricBulkTagConfigDeleteRequest;
 import com.datadog.api.v2.client.model.MetricBulkTagConfigResponse;
+import com.datadog.api.v2.client.model.MetricEstimateResponse;
 import com.datadog.api.v2.client.model.MetricTagConfigurationCreateRequest;
 import com.datadog.api.v2.client.model.MetricTagConfigurationMetricTypes;
 import com.datadog.api.v2.client.model.MetricTagConfigurationResponse;
@@ -644,6 +645,291 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /** Manage optional parameters to estimateMetricsOutputSeries. */
+  public static class EstimateMetricsOutputSeriesOptionalParameters {
+    private String filterGroups;
+    private Integer filterHoursAgo;
+    private Integer filterNumAggregations;
+    private Boolean filterPct;
+    private Integer filterTimespanH;
+
+    /**
+     * Set filterGroups
+     *
+     * @param filterGroups Filtered tag groups that the metric is configured to query with.
+     *     (optional)
+     * @return EstimateMetricsOutputSeriesOptionalParameters
+     */
+    public EstimateMetricsOutputSeriesOptionalParameters filterGroups(String filterGroups) {
+      this.filterGroups = filterGroups;
+      return this;
+    }
+
+    /**
+     * Set filterHoursAgo
+     *
+     * @param filterHoursAgo The number of hours of look back (from now) to estimate cardinality
+     *     with. (optional)
+     * @return EstimateMetricsOutputSeriesOptionalParameters
+     */
+    public EstimateMetricsOutputSeriesOptionalParameters filterHoursAgo(Integer filterHoursAgo) {
+      this.filterHoursAgo = filterHoursAgo;
+      return this;
+    }
+
+    /**
+     * Set filterNumAggregations
+     *
+     * @param filterNumAggregations The number of aggregations that a &#x60;count&#x60;,
+     *     &#x60;rate&#x60;, or &#x60;gauge&#x60; metric is configured to use. Max number of
+     *     aggregation combos is 9. (optional)
+     * @return EstimateMetricsOutputSeriesOptionalParameters
+     */
+    public EstimateMetricsOutputSeriesOptionalParameters filterNumAggregations(
+        Integer filterNumAggregations) {
+      this.filterNumAggregations = filterNumAggregations;
+      return this;
+    }
+
+    /**
+     * Set filterPct
+     *
+     * @param filterPct A boolean, for distribution metrics only, to estimate cardinality if the
+     *     metric includes additional percentile aggregators. (optional)
+     * @return EstimateMetricsOutputSeriesOptionalParameters
+     */
+    public EstimateMetricsOutputSeriesOptionalParameters filterPct(Boolean filterPct) {
+      this.filterPct = filterPct;
+      return this;
+    }
+
+    /**
+     * Set filterTimespanH
+     *
+     * @param filterTimespanH A window, in hours, from the look back to estimate cardinality with.
+     *     (optional)
+     * @return EstimateMetricsOutputSeriesOptionalParameters
+     */
+    public EstimateMetricsOutputSeriesOptionalParameters filterTimespanH(Integer filterTimespanH) {
+      this.filterTimespanH = filterTimespanH;
+      return this;
+    }
+  }
+
+  /**
+   * Estimate Output Series - Public v2 API
+   *
+   * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return MetricEstimateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MetricEstimateResponse estimateMetricsOutputSeries(String metricName) throws ApiException {
+    return estimateMetricsOutputSeriesWithHttpInfo(
+            metricName, new EstimateMetricsOutputSeriesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Estimate Output Series - Public v2 API
+   *
+   * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;MetricEstimateResponse&gt;
+   */
+  public CompletableFuture<MetricEstimateResponse> estimateMetricsOutputSeriesAsync(
+      String metricName) {
+    return estimateMetricsOutputSeriesWithHttpInfoAsync(
+            metricName, new EstimateMetricsOutputSeriesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Estimate Output Series - Public v2 API
+   *
+   * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return MetricEstimateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MetricEstimateResponse estimateMetricsOutputSeries(
+      String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters)
+      throws ApiException {
+    return estimateMetricsOutputSeriesWithHttpInfo(metricName, parameters).getData();
+  }
+
+  /**
+   * Estimate Output Series - Public v2 API
+   *
+   * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;MetricEstimateResponse&gt;
+   */
+  public CompletableFuture<MetricEstimateResponse> estimateMetricsOutputSeriesAsync(
+      String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters) {
+    return estimateMetricsOutputSeriesWithHttpInfoAsync(metricName, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Estimate Output Series - Public v2 API
+   *
+   * <p>Returns a cardinality estimate for a metric with a given tag, percentile, and number of
+   * aggregations configuration.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;MetricEstimateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MetricEstimateResponse> estimateMetricsOutputSeriesWithHttpInfo(
+      String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'metricName' when calling estimateMetricsOutputSeries");
+    }
+    String filterGroups = parameters.filterGroups;
+    Integer filterHoursAgo = parameters.filterHoursAgo;
+    Integer filterNumAggregations = parameters.filterNumAggregations;
+    Boolean filterPct = parameters.filterPct;
+    Integer filterTimespanH = parameters.filterTimespanH;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/estimate"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[groups]", filterGroups));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[hours_ago]", filterHoursAgo));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[num_aggregations]", filterNumAggregations));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[pct]", filterPct));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[timespan_h]", filterTimespanH));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "MetricsApi.estimateMetricsOutputSeries",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricEstimateResponse>() {});
+  }
+
+  /**
+   * Estimate Output Series - Public v2 API
+   *
+   * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricEstimateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MetricEstimateResponse>>
+      estimateMetricsOutputSeriesWithHttpInfoAsync(
+          String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<MetricEstimateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'metricName' when calling"
+                  + " estimateMetricsOutputSeries"));
+      return result;
+    }
+    String filterGroups = parameters.filterGroups;
+    Integer filterHoursAgo = parameters.filterHoursAgo;
+    Integer filterNumAggregations = parameters.filterNumAggregations;
+    Boolean filterPct = parameters.filterPct;
+    Integer filterTimespanH = parameters.filterTimespanH;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/estimate"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[groups]", filterGroups));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[hours_ago]", filterHoursAgo));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[num_aggregations]", filterNumAggregations));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[pct]", filterPct));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[timespan_h]", filterTimespanH));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "MetricsApi.estimateMetricsOutputSeries",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MetricEstimateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricEstimateResponse>() {});
   }
 
   /**
