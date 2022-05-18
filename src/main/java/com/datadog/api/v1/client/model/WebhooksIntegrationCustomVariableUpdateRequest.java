@@ -16,7 +16,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Update request of a custom variable object. *All properties are optional.* */
+/**
+ * Update request of a custom variable object.
+ *
+ * <p><em>All properties are optional.</em>
+ */
 @JsonPropertyOrder({
   WebhooksIntegrationCustomVariableUpdateRequest.JSON_PROPERTY_IS_SECRET,
   WebhooksIntegrationCustomVariableUpdateRequest.JSON_PROPERTY_NAME,
@@ -63,8 +67,8 @@ public class WebhooksIntegrationCustomVariableUpdateRequest {
   }
 
   /**
-   * The name of the variable. It corresponds with &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;. It must
-   * only contains upper-case characters, integers or underscores.
+   * The name of the variable. It corresponds with <code>&lt;CUSTOM_VARIABLE_NAME&gt;</code>. It
+   * must only contains upper-case characters, integers or underscores.
    *
    * @return name
    */

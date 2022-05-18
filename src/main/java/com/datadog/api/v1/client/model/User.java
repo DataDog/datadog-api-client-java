@@ -58,8 +58,8 @@ public class User {
   }
 
   /**
-   * The access role of the user. Options are **st** (standard user), **adm** (admin user), or
-   * **ro** (read-only user).
+   * The access role of the user. Options are <strong>st</strong> (standard user),
+   * <strong>adm</strong> (admin user), or <strong>ro</strong> (read-only user).
    *
    * @return accessRole
    */

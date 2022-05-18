@@ -22,9 +22,10 @@ import java.util.Objects;
 /**
  * The message is a key attribute in Datadog. It is displayed in the message column of the Log
  * Explorer and you can do full string search on it. Use this Processor to define one or more
- * attributes as the official log message. **Note:** If multiple log message remapper processors can
- * be applied to a given log, only the first one (according to the pipeline order) is taken into
- * account.
+ * attributes as the official log message.
+ *
+ * <p><strong>Note:</strong> If multiple log message remapper processors can be applied to a given
+ * log, only the first one (according to the pipeline order) is taken into account.
  */
 @JsonPropertyOrder({
   LogsMessageRemapper.JSON_PROPERTY_IS_ENABLED,

@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Object for a single metric&#39;s distinct volume. */
+/** Object for a single metric's distinct volume. */
 @JsonPropertyOrder({
   MetricDistinctVolume.JSON_PROPERTY_ATTRIBUTES,
   MetricDistinctVolume.JSON_PROPERTY_ID,
@@ -42,7 +42,7 @@ public class MetricDistinctVolume {
   }
 
   /**
-   * Object containing the definition of a metric&#39;s distinct volume.
+   * Object containing the definition of a metric's distinct volume.
    *
    * @return attributes
    */

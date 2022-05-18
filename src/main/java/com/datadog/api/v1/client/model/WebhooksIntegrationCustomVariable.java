@@ -75,7 +75,7 @@ public class WebhooksIntegrationCustomVariable {
   }
 
   /**
-   * The name of the variable. It corresponds with &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * The name of the variable. It corresponds with <code>&lt;CUSTOM_VARIABLE_NAME&gt;</code>.
    *
    * @return name
    */

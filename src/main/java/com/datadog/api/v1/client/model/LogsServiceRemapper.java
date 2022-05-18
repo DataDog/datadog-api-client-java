@@ -21,8 +21,9 @@ import java.util.Objects;
 
 /**
  * Use this processor if you want to assign one or more attributes as the official service.
- * **Note:** If multiple service remapper processors can be applied to a given log, only the first
- * one (according to the pipeline order) is taken into account.
+ *
+ * <p><strong>Note:</strong> If multiple service remapper processors can be applied to a given log,
+ * only the first one (according to the pipeline order) is taken into account.
  */
 @JsonPropertyOrder({
   LogsServiceRemapper.JSON_PROPERTY_IS_ENABLED,

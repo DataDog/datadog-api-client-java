@@ -71,8 +71,8 @@ public class UsageIncidentManagementHour {
   }
 
   /**
-   * Contains the total number monthly active users from the start of the given hour&#39;s month
-   * until the given hour.
+   * Contains the total number monthly active users from the start of the given hour's month until
+   * the given hour.
    *
    * @return monthlyActiveUsers
    */

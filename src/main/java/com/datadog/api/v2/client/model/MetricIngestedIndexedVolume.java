@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Object for a single metric&#39;s ingested and indexed volume. */
+/** Object for a single metric's ingested and indexed volume. */
 @JsonPropertyOrder({
   MetricIngestedIndexedVolume.JSON_PROPERTY_ATTRIBUTES,
   MetricIngestedIndexedVolume.JSON_PROPERTY_ID,
@@ -42,7 +42,7 @@ public class MetricIngestedIndexedVolume {
   }
 
   /**
-   * Object containing the definition of a metric&#39;s ingested and indexed volume.
+   * Object containing the definition of a metric's ingested and indexed volume.
    *
    * @return attributes
    */

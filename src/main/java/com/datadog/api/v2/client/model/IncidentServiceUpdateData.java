@@ -56,7 +56,7 @@ public class IncidentServiceUpdateData {
   }
 
   /**
-   * The incident service&#39;s attributes for an update request.
+   * The incident service's attributes for an update request.
    *
    * @return attributes
    */
@@ -77,7 +77,7 @@ public class IncidentServiceUpdateData {
   }
 
   /**
-   * The incident service&#39;s ID.
+   * The incident service's ID.
    *
    * @return id
    */
@@ -93,7 +93,7 @@ public class IncidentServiceUpdateData {
   }
 
   /**
-   * The incident service&#39;s relationships.
+   * The incident service's relationships.
    *
    * @return relationships
    */

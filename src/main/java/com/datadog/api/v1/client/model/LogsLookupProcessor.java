@@ -129,8 +129,7 @@ public class LogsLookupProcessor {
 
   /**
    * Mapping table of values for the source attribute and their associated target attribute values,
-   * formatted as &#x60;[&quot;source_key1,target_value1&quot;,
-   * &quot;source_key2,target_value2&quot;]&#x60;
+   * formatted as <code>["source_key1,target_value1", "source_key2,target_value2"]</code>
    *
    * @return lookupTable
    */
@@ -191,8 +190,8 @@ public class LogsLookupProcessor {
   }
 
   /**
-   * Name of the attribute that contains the corresponding value in the mapping list or the
-   * &#x60;default_lookup&#x60; if not found in the mapping list.
+   * Name of the attribute that contains the corresponding value in the mapping list or the <code>
+   * default_lookup</code> if not found in the mapping list.
    *
    * @return target
    */

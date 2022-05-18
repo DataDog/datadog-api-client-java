@@ -32,7 +32,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -41,7 +41,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -50,7 +50,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Create an incident
+   * Create an incident.
    *
    * <p>See {@link #createIncidentWithHttpInfo}.
    *
@@ -63,7 +63,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Create an incident
+   * Create an incident.
    *
    * <p>See {@link #createIncidentWithHttpInfoAsync}.
    *
@@ -79,9 +79,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Create an incident
-   *
-   * <p>Create an incident.
+   * Create an incident.
    *
    * @param body Incident payload. (required)
    * @return ApiResponse&lt;IncidentResponse&gt;
@@ -133,7 +131,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Create an incident
+   * Create an incident.
    *
    * <p>See {@link #createIncidentWithHttpInfo}.
    *
@@ -185,7 +183,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Delete an existing incident
+   * Delete an existing incident.
    *
    * <p>See {@link #deleteIncidentWithHttpInfo}.
    *
@@ -197,7 +195,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Delete an existing incident
+   * Delete an existing incident.
    *
    * <p>See {@link #deleteIncidentWithHttpInfoAsync}.
    *
@@ -212,9 +210,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Delete an existing incident
-   *
-   * <p>Deletes an existing incident from the users organization.
+   * Deletes an existing incident from the users organization.
    *
    * @param incidentId The UUID of the incident. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -268,7 +264,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Delete an existing incident
+   * Delete an existing incident.
    *
    * <p>See {@link #deleteIncidentWithHttpInfo}.
    *
@@ -326,7 +322,7 @@ public class IncidentsApi {
     private List<IncidentRelatedObject> include;
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Specifies which types of related objects should be included in the response.
      *     (optional)
@@ -339,7 +335,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the details of an incident
+   * Get the details of an incident.
    *
    * <p>See {@link #getIncidentWithHttpInfo}.
    *
@@ -352,7 +348,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the details of an incident
+   * Get the details of an incident.
    *
    * <p>See {@link #getIncidentWithHttpInfoAsync}.
    *
@@ -368,7 +364,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the details of an incident
+   * Get the details of an incident.
    *
    * <p>See {@link #getIncidentWithHttpInfo}.
    *
@@ -383,7 +379,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the details of an incident
+   * Get the details of an incident.
    *
    * <p>See {@link #getIncidentWithHttpInfoAsync}.
    *
@@ -401,9 +397,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the details of an incident
-   *
-   * <p>Get the details of an incident by &#x60;incident_id&#x60;.
+   * Get the details of an incident by <code>incident_id</code>.
    *
    * @param incidentId The UUID of the incident. (required)
    * @param parameters Optional parameters for the request.
@@ -463,7 +457,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get the details of an incident
+   * Get the details of an incident.
    *
    * <p>See {@link #getIncidentWithHttpInfo}.
    *
@@ -529,7 +523,7 @@ public class IncidentsApi {
     private Long pageOffset;
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Specifies which types of related objects should be included in the response.
      *     (optional)
@@ -541,7 +535,7 @@ public class IncidentsApi {
     }
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListIncidentsOptionalParameters
@@ -552,7 +546,7 @@ public class IncidentsApi {
     }
 
     /**
-     * Set pageOffset
+     * Set pageOffset.
      *
      * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
      *     default to 0)
@@ -565,7 +559,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get a list of incidents
+   * Get a list of incidents.
    *
    * <p>See {@link #listIncidentsWithHttpInfo}.
    *
@@ -577,7 +571,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get a list of incidents
+   * Get a list of incidents.
    *
    * <p>See {@link #listIncidentsWithHttpInfoAsync}.
    *
@@ -592,7 +586,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get a list of incidents
+   * Get a list of incidents.
    *
    * <p>See {@link #listIncidentsWithHttpInfo}.
    *
@@ -606,7 +600,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get a list of incidents
+   * Get a list of incidents.
    *
    * <p>See {@link #listIncidentsWithHttpInfoAsync}.
    *
@@ -623,9 +617,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get a list of incidents
-   *
-   * <p>Get all incidents for the user&#39;s organization.
+   * Get all incidents for the user's organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;IncidentsResponse&gt;
@@ -679,7 +671,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Get a list of incidents
+   * Get a list of incidents.
    *
    * <p>See {@link #listIncidentsWithHttpInfo}.
    *
@@ -734,7 +726,7 @@ public class IncidentsApi {
     private List<IncidentRelatedObject> include;
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Specifies which types of related objects should be included in the response.
      *     (optional)
@@ -747,7 +739,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Update an existing incident
+   * Update an existing incident.
    *
    * <p>See {@link #updateIncidentWithHttpInfo}.
    *
@@ -763,7 +755,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Update an existing incident
+   * Update an existing incident.
    *
    * <p>See {@link #updateIncidentWithHttpInfoAsync}.
    *
@@ -781,7 +773,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Update an existing incident
+   * Update an existing incident.
    *
    * <p>See {@link #updateIncidentWithHttpInfo}.
    *
@@ -798,7 +790,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Update an existing incident
+   * Update an existing incident.
    *
    * <p>See {@link #updateIncidentWithHttpInfoAsync}.
    *
@@ -817,9 +809,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Update an existing incident
-   *
-   * <p>Updates an incident. Provide only the attributes that should be updated as this request is a
+   * Updates an incident. Provide only the attributes that should be updated as this request is a
    * partial update.
    *
    * @param incidentId The UUID of the incident. (required)
@@ -888,7 +878,7 @@ public class IncidentsApi {
   }
 
   /**
-   * Update an existing incident
+   * Update an existing incident.
    *
    * <p>See {@link #updateIncidentWithHttpInfo}.
    *

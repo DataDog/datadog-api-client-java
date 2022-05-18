@@ -26,7 +26,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -35,7 +35,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -48,7 +48,7 @@ public class OrganizationsApi {
     private File idpFile;
 
     /**
-     * Set idpFile
+     * Set idpFile.
      *
      * @param idpFile The IdP metadata XML file (optional)
      * @return UploadIdPMetadataOptionalParameters
@@ -60,7 +60,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPMetadataWithHttpInfo}.
    *
@@ -71,7 +71,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPMetadataWithHttpInfoAsync}.
    */
@@ -84,7 +84,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPMetadataWithHttpInfo}.
    *
@@ -97,7 +97,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPMetadataWithHttpInfoAsync}.
    *
@@ -113,10 +113,9 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Endpoint for uploading IdP metadata for SAML setup.
    *
-   * <p>Endpoint for uploading IdP metadata for SAML setup. Use this endpoint to upload or replace
-   * IdP metadata for SAML login configuration.
+   * <p>Use this endpoint to upload or replace IdP metadata for SAML login configuration.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;Void&gt;
@@ -164,7 +163,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPMetadataWithHttpInfo}.
    *

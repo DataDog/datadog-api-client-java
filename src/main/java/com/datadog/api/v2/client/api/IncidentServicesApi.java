@@ -32,7 +32,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -41,7 +41,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -50,7 +50,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Create a new incident service
+   * Create a new incident service.
    *
    * <p>See {@link #createIncidentServiceWithHttpInfo}.
    *
@@ -64,7 +64,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Create a new incident service
+   * Create a new incident service.
    *
    * <p>See {@link #createIncidentServiceWithHttpInfoAsync}.
    *
@@ -81,9 +81,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Create a new incident service
-   *
-   * <p>Creates a new incident service.
+   * Creates a new incident service.
    *
    * @param body Incident Service Payload. (required)
    * @return ApiResponse&lt;IncidentServiceResponse&gt;
@@ -135,7 +133,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Create a new incident service
+   * Create a new incident service.
    *
    * <p>See {@link #createIncidentServiceWithHttpInfo}.
    *
@@ -187,7 +185,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Delete an existing incident service
+   * Delete an existing incident service.
    *
    * <p>See {@link #deleteIncidentServiceWithHttpInfo}.
    *
@@ -199,7 +197,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Delete an existing incident service
+   * Delete an existing incident service.
    *
    * <p>See {@link #deleteIncidentServiceWithHttpInfoAsync}.
    *
@@ -214,9 +212,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Delete an existing incident service
-   *
-   * <p>Deletes an existing incident service.
+   * Deletes an existing incident service.
    *
    * @param serviceId The ID of the incident service. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -269,7 +265,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Delete an existing incident service
+   * Delete an existing incident service.
    *
    * <p>See {@link #deleteIncidentServiceWithHttpInfo}.
    *
@@ -328,7 +324,7 @@ public class IncidentServicesApi {
     private IncidentRelatedObject include;
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Specifies which types of related objects should be included in the response.
      *     (optional)
@@ -341,7 +337,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get details of an incident service
+   * Get details of an incident service.
    *
    * <p>See {@link #getIncidentServiceWithHttpInfo}.
    *
@@ -355,7 +351,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get details of an incident service
+   * Get details of an incident service.
    *
    * <p>See {@link #getIncidentServiceWithHttpInfoAsync}.
    *
@@ -372,7 +368,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get details of an incident service
+   * Get details of an incident service.
    *
    * <p>See {@link #getIncidentServiceWithHttpInfo}.
    *
@@ -387,7 +383,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get details of an incident service
+   * Get details of an incident service.
    *
    * <p>See {@link #getIncidentServiceWithHttpInfoAsync}.
    *
@@ -405,9 +401,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get details of an incident service
-   *
-   * <p>Get details of an incident service. If the &#x60;include[users]&#x60; query parameter is
+   * Get details of an incident service. If the <code>include[users]</code> query parameter is
    * provided, the included attribute will contain the users related to these incident services.
    *
    * @param serviceId The ID of the incident service. (required)
@@ -467,7 +461,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get details of an incident service
+   * Get details of an incident service.
    *
    * <p>See {@link #getIncidentServiceWithHttpInfo}.
    *
@@ -534,7 +528,7 @@ public class IncidentServicesApi {
     private String filter;
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Specifies which types of related objects should be included in the response.
      *     (optional)
@@ -546,7 +540,7 @@ public class IncidentServicesApi {
     }
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListIncidentServicesOptionalParameters
@@ -557,7 +551,7 @@ public class IncidentServicesApi {
     }
 
     /**
-     * Set pageOffset
+     * Set pageOffset.
      *
      * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
      *     default to 0)
@@ -569,7 +563,7 @@ public class IncidentServicesApi {
     }
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter A search query that filters services by name. (optional)
      * @return ListIncidentServicesOptionalParameters
@@ -581,7 +575,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get a list of all incident services
+   * Get a list of all incident services.
    *
    * <p>See {@link #listIncidentServicesWithHttpInfo}.
    *
@@ -593,7 +587,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get a list of all incident services
+   * Get a list of all incident services.
    *
    * <p>See {@link #listIncidentServicesWithHttpInfoAsync}.
    *
@@ -608,7 +602,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get a list of all incident services
+   * Get a list of all incident services.
    *
    * <p>See {@link #listIncidentServicesWithHttpInfo}.
    *
@@ -622,7 +616,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get a list of all incident services
+   * Get a list of all incident services.
    *
    * <p>See {@link #listIncidentServicesWithHttpInfoAsync}.
    *
@@ -639,10 +633,8 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get a list of all incident services
-   *
-   * <p>Get all incident services uploaded for the requesting user&#39;s organization. If the
-   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
+   * Get all incident services uploaded for the requesting user's organization. If the <code>
+   * include[users]</code> query parameter is provided, the included attribute will contain the
    * users related to these incident services.
    *
    * @param parameters Optional parameters for the request.
@@ -699,7 +691,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Get a list of all incident services
+   * Get a list of all incident services.
    *
    * <p>See {@link #listIncidentServicesWithHttpInfo}.
    *
@@ -752,7 +744,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Update an existing incident service
+   * Update an existing incident service.
    *
    * <p>See {@link #updateIncidentServiceWithHttpInfo}.
    *
@@ -767,7 +759,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Update an existing incident service
+   * Update an existing incident service.
    *
    * <p>See {@link #updateIncidentServiceWithHttpInfoAsync}.
    *
@@ -785,9 +777,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Update an existing incident service
-   *
-   * <p>Updates an existing incident service. Only provide the attributes which should be updated as
+   * Updates an existing incident service. Only provide the attributes which should be updated as
    * this request is a partial update.
    *
    * @param serviceId The ID of the incident service. (required)
@@ -849,7 +839,7 @@ public class IncidentServicesApi {
   }
 
   /**
-   * Update an existing incident service
+   * Update an existing incident service.
    *
    * <p>See {@link #updateIncidentServiceWithHttpInfo}.
    *

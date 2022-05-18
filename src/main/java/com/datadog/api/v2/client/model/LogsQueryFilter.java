@@ -77,8 +77,8 @@ public class LogsQueryFilter {
   }
 
   /**
-   * For customers with multiple indexes, the indexes to search. Defaults to [&#39;*&#39;] which
-   * means all indexes.
+   * For customers with multiple indexes, the indexes to search. Defaults to ['*'] which means all
+   * indexes.
    *
    * @return indexes
    */

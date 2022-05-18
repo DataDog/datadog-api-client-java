@@ -24,7 +24,8 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * The subtype of the Synthetic multistep API test step, currently only supporting &#x60;http&#x60;.
+ * The subtype of the Synthetic multistep API test step, currently only supporting <code>http</code>
+ * .
  */
 @JsonSerialize(using = SyntheticsAPIStepSubtype.SyntheticsAPIStepSubtypeSerializer.class)
 public class SyntheticsAPIStepSubtype {

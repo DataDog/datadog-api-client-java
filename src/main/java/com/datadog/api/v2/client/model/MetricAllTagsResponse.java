@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Response object that includes a single metric&#39;s indexed tags. */
+/** Response object that includes a single metric's indexed tags. */
 @JsonPropertyOrder({MetricAllTagsResponse.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class MetricAllTagsResponse {
   }
 
   /**
-   * Object for a single metric&#39;s indexed tags.
+   * Object for a single metric's indexed tags.
    *
    * @return data
    */

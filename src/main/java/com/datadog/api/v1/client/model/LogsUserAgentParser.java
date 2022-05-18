@@ -160,8 +160,8 @@ public class LogsUserAgentParser {
   }
 
   /**
-   * Name of the parent attribute that contains all the extracted details from the
-   * &#x60;sources&#x60;.
+   * Name of the parent attribute that contains all the extracted details from the <code>sources
+   * </code>.
    *
    * @return target
    */

@@ -342,8 +342,9 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * If this steps include a sub-test. [Subtests
-   * documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
+   * If this steps include a sub-test. <a
+   * href="https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests">Subtests
+   * documentation</a>.
    *
    * @return subTestStepDetails
    */
@@ -497,7 +498,7 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * Warning collected that didn&#39;t failed the step.
+   * Warning collected that didn't failed the step.
    *
    * @return warnings
    */

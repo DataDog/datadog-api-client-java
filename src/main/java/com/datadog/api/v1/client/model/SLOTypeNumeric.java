@@ -24,8 +24,8 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * A numeric representation of the type of the service level objective (&#x60;0&#x60; for monitor,
- * &#x60;1&#x60; for metric). Always included in service level objective responses. Ignored in
+ * A numeric representation of the type of the service level objective (<code>0</code> for monitor,
+ * <code>1</code> for metric). Always included in service level objective responses. Ignored in
  * create/update requests.
  */
 @JsonSerialize(using = SLOTypeNumeric.SLOTypeNumericSerializer.class)

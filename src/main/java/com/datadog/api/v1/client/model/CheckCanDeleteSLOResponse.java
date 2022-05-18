@@ -69,7 +69,7 @@ public class CheckCanDeleteSLOResponse {
   }
 
   /**
-   * A mapping of SLO id to it&#39;s current usages.
+   * A mapping of SLO id to it's current usages.
    *
    * @return errors
    */

@@ -46,7 +46,7 @@ public class LogsExclusionFilter {
   }
 
   /**
-   * Default query is &#x60;*&#x60;, meaning all logs flowing in the index would be excluded. Scope
+   * Default query is <code>*</code>, meaning all logs flowing in the index would be excluded. Scope
    * down exclusion filter to only a subset of logs with a log query.
    *
    * @return query

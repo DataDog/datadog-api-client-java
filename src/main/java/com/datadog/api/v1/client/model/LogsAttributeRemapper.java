@@ -21,10 +21,10 @@ import java.util.Objects;
 
 /**
  * The remapper processor remaps any source attribute(s) or tag to another target attribute or tag.
- * Constraints on the tag/attribute name are explained in the [Tag Best Practice
- * documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice). Some additional
- * constraints are applied as &#x60;:&#x60; or &#x60;,&#x60; are not allowed in the target
- * tag/attribute name.
+ * Constraints on the tag/attribute name are explained in the <a
+ * href="https://docs.datadoghq.com/logs/guide/log-parsing-best-practice">Tag Best Practice
+ * documentation</a>. Some additional constraints are applied as <code>:</code> or <code>,</code>
+ * are not allowed in the target tag/attribute name.
  */
 @JsonPropertyOrder({
   LogsAttributeRemapper.JSON_PROPERTY_IS_ENABLED,
@@ -175,7 +175,7 @@ public class LogsAttributeRemapper {
   }
 
   /**
-   * Defines if the sources are from log &#x60;attribute&#x60; or &#x60;tag&#x60;.
+   * Defines if the sources are from log <code>attribute</code> or <code>tag</code>.
    *
    * @return sourceType
    */
@@ -242,10 +242,10 @@ public class LogsAttributeRemapper {
   }
 
   /**
-   * If the &#x60;target_type&#x60; of the remapper is &#x60;attribute&#x60;, try to cast the value
-   * to a new specific type. If the cast is not possible, the original type is kept.
-   * &#x60;string&#x60;, &#x60;integer&#x60;, or &#x60;double&#x60; are the possible types. If the
-   * &#x60;target_type&#x60; is &#x60;tag&#x60;, this parameter may not be specified.
+   * If the <code>target_type</code> of the remapper is <code>attribute</code>, try to cast the
+   * value to a new specific type. If the cast is not possible, the original type is kept. <code>
+   * string</code>, <code>integer</code>, or <code>double</code> are the possible types. If the
+   * <code>target_type</code> is <code>tag</code>, this parameter may not be specified.
    *
    * @return targetFormat
    */
@@ -269,8 +269,8 @@ public class LogsAttributeRemapper {
   }
 
   /**
-   * Defines if the final attribute or tag name is from log &#x60;attribute&#x60; or
-   * &#x60;tag&#x60;.
+   * Defines if the final attribute or tag name is from log <code>attribute</code> or <code>tag
+   * </code>.
    *
    * @return targetType
    */

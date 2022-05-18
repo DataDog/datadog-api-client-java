@@ -19,10 +19,11 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The bulk partial delete service level objective object endpoint response. This endpoint operates
- * on multiple service level objective objects, so it may be partially successful. In such cases,
- * the &quot;data&quot; and &quot;error&quot; fields in this response indicate which deletions
- * succeeded and failed.
+ * The bulk partial delete service level objective object endpoint response.
+ *
+ * <p>This endpoint operates on multiple service level objective objects, so it may be partially
+ * successful. In such cases, the "data" and "error" fields in this response indicate which
+ * deletions succeeded and failed.
  */
 @JsonPropertyOrder({
   SLOBulkDeleteResponse.JSON_PROPERTY_DATA,

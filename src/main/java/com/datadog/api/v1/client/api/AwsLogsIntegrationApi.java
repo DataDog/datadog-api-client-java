@@ -32,7 +32,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -41,7 +41,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -50,7 +50,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Check that an AWS Lambda Function exists
+   * Check that an AWS Lambda Function exists.
    *
    * <p>See {@link #checkAWSLogsLambdaAsyncWithHttpInfo}.
    *
@@ -64,7 +64,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Check that an AWS Lambda Function exists
+   * Check that an AWS Lambda Function exists.
    *
    * <p>See {@link #checkAWSLogsLambdaAsyncWithHttpInfoAsync}.
    *
@@ -81,15 +81,17 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Check that an AWS Lambda Function exists
+   * Test if permissions are present to add a log-forwarding triggers for the given services and AWS
+   * account. The input is the same as for Enable an AWS service log collection. Subsequent requests
+   * will always repeat the above, so this endpoint can be polled intermittently instead of
+   * blocking.
    *
-   * <p>Test if permissions are present to add a log-forwarding triggers for the given services and
-   * AWS account. The input is the same as for Enable an AWS service log collection. Subsequent
-   * requests will always repeat the above, so this endpoint can be polled intermittently instead of
-   * blocking. - Returns a status of &#39;created&#39; when it&#39;s checking if the Lambda exists
-   * in the account. - Returns a status of &#39;waiting&#39; while checking. - Returns a status of
-   * &#39;checked and ok&#39; if the Lambda exists. - Returns a status of &#39;error&#39; if the
-   * Lambda does not exist.
+   * <ul>
+   *   <li>Returns a status of 'created' when it's checking if the Lambda exists in the account.
+   *   <li>Returns a status of 'waiting' while checking.
+   *   <li>Returns a status of 'checked and ok' if the Lambda exists.
+   *   <li>Returns a status of 'error' if the Lambda does not exist.
+   * </ul>
    *
    * @param body Check AWS Log Lambda Async request body. (required)
    * @return ApiResponse&lt;AWSLogsAsyncResponse&gt;
@@ -139,7 +141,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Check that an AWS Lambda Function exists
+   * Check that an AWS Lambda Function exists.
    *
    * <p>See {@link #checkAWSLogsLambdaAsyncWithHttpInfo}.
    *
@@ -191,7 +193,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Check permissions for log services
+   * Check permissions for log services.
    *
    * <p>See {@link #checkAWSLogsServicesAsyncWithHttpInfo}.
    *
@@ -205,7 +207,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Check permissions for log services
+   * Check permissions for log services.
    *
    * <p>See {@link #checkAWSLogsServicesAsyncWithHttpInfoAsync}.
    *
@@ -222,15 +224,17 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Check permissions for log services
+   * Test if permissions are present to add log-forwarding triggers for the given services and AWS
+   * account. Input is the same as for <code>EnableAWSLogServices</code>. Done async, so can be
+   * repeatedly polled in a non-blocking fashion until the async request completes.
    *
-   * <p>Test if permissions are present to add log-forwarding triggers for the given services and
-   * AWS account. Input is the same as for &#x60;EnableAWSLogServices&#x60;. Done async, so can be
-   * repeatedly polled in a non-blocking fashion until the async request completes. - Returns a
-   * status of &#x60;created&#x60; when it&#39;s checking if the permissions exists in the AWS
-   * account. - Returns a status of &#x60;waiting&#x60; while checking. - Returns a status of
-   * &#x60;checked and ok&#x60; if the Lambda exists. - Returns a status of &#x60;error&#x60; if the
-   * Lambda does not exist.
+   * <ul>
+   *   <li>Returns a status of <code>created</code> when it's checking if the permissions exists in
+   *       the AWS account.
+   *   <li>Returns a status of <code>waiting</code> while checking.
+   *   <li>Returns a status of <code>checked and ok</code> if the Lambda exists.
+   *   <li>Returns a status of <code>error</code> if the Lambda does not exist.
+   * </ul>
    *
    * @param body Check AWS Logs Async Services request body. (required)
    * @return ApiResponse&lt;AWSLogsAsyncResponse&gt;
@@ -280,7 +284,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Check permissions for log services
+   * Check permissions for log services.
    *
    * <p>See {@link #checkAWSLogsServicesAsyncWithHttpInfo}.
    *
@@ -332,7 +336,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Add AWS Log Lambda ARN
+   * Add AWS Log Lambda ARN.
    *
    * <p>See {@link #createAWSLambdaARNWithHttpInfo}.
    *
@@ -345,7 +349,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Add AWS Log Lambda ARN
+   * Add AWS Log Lambda ARN.
    *
    * <p>See {@link #createAWSLambdaARNWithHttpInfoAsync}.
    *
@@ -361,9 +365,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Add AWS Log Lambda ARN
-   *
-   * <p>Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS
+   * Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS
    * account ID to enable log collection.
    *
    * @param body AWS Log Lambda Async request body. (required)
@@ -414,7 +416,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Add AWS Log Lambda ARN
+   * Add AWS Log Lambda ARN.
    *
    * <p>See {@link #createAWSLambdaARNWithHttpInfo}.
    *
@@ -466,7 +468,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Delete an AWS Logs integration
+   * Delete an AWS Logs integration.
    *
    * <p>See {@link #deleteAWSLambdaARNWithHttpInfo}.
    *
@@ -479,7 +481,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Delete an AWS Logs integration
+   * Delete an AWS Logs integration.
    *
    * <p>See {@link #deleteAWSLambdaARNWithHttpInfoAsync}.
    *
@@ -495,10 +497,8 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Delete an AWS Logs integration
-   *
-   * <p>Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with
-   * a given AWS account.
+   * Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a
+   * given AWS account.
    *
    * @param body Delete AWS Lambda ARN request body. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -548,7 +548,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Delete an AWS Logs integration
+   * Delete an AWS Logs integration.
    *
    * <p>See {@link #deleteAWSLambdaARNWithHttpInfo}.
    *
@@ -600,7 +600,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Enable an AWS Logs integration
+   * Enable an AWS Logs integration.
    *
    * <p>See {@link #enableAWSLogServicesWithHttpInfo}.
    *
@@ -613,7 +613,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Enable an AWS Logs integration
+   * Enable an AWS Logs integration.
    *
    * <p>See {@link #enableAWSLogServicesWithHttpInfoAsync}.
    *
@@ -629,10 +629,8 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Enable an AWS Logs integration
-   *
-   * <p>Enable automatic log collection for a list of services. This should be run after running
-   * &#x60;CreateAWSLambdaARN&#x60; to save the configuration.
+   * Enable automatic log collection for a list of services. This should be run after running <code>
+   * CreateAWSLambdaARN</code> to save the configuration.
    *
    * @param body Enable AWS Log Services request body. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -682,7 +680,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Enable an AWS Logs integration
+   * Enable an AWS Logs integration.
    *
    * <p>See {@link #enableAWSLogServicesWithHttpInfo}.
    *
@@ -734,7 +732,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * List all AWS Logs integrations
+   * List all AWS Logs integrations.
    *
    * <p>See {@link #listAWSLogsIntegrationsWithHttpInfo}.
    *
@@ -746,7 +744,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * List all AWS Logs integrations
+   * List all AWS Logs integrations.
    *
    * <p>See {@link #listAWSLogsIntegrationsWithHttpInfoAsync}.
    *
@@ -761,9 +759,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * List all AWS Logs integrations
-   *
-   * <p>List all Datadog-AWS Logs integrations configured in your Datadog account.
+   * List all Datadog-AWS Logs integrations configured in your Datadog account.
    *
    * @return ApiResponse&lt;List&lt;AWSLogsListResponse&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -806,7 +802,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * List all AWS Logs integrations
+   * List all AWS Logs integrations.
    *
    * <p>See {@link #listAWSLogsIntegrationsWithHttpInfo}.
    *
@@ -848,7 +844,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Get list of AWS log ready services
+   * Get list of AWS log ready services.
    *
    * <p>See {@link #listAWSLogsServicesWithHttpInfo}.
    *
@@ -860,7 +856,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Get list of AWS log ready services
+   * Get list of AWS log ready services.
    *
    * <p>See {@link #listAWSLogsServicesWithHttpInfoAsync}.
    *
@@ -875,11 +871,9 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Get list of AWS log ready services
-   *
-   * <p>Get the list of current AWS services that Datadog offers automatic log collection. Use
-   * returned service IDs with the services parameter for the Enable an AWS service log collection
-   * API endpoint.
+   * Get the list of current AWS services that Datadog offers automatic log collection. Use returned
+   * service IDs with the services parameter for the Enable an AWS service log collection API
+   * endpoint.
    *
    * @return ApiResponse&lt;List&lt;AWSLogsListServicesResponse&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -921,7 +915,7 @@ public class AwsLogsIntegrationApi {
   }
 
   /**
-   * Get list of AWS log ready services
+   * Get list of AWS log ready services.
    *
    * <p>See {@link #listAWSLogsServicesWithHttpInfo}.
    *

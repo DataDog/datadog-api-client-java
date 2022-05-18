@@ -24,10 +24,10 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * If the &#x60;target_type&#x60; of the remapper is &#x60;attribute&#x60;, try to cast the value to
- * a new specific type. If the cast is not possible, the original type is kept. &#x60;string&#x60;,
- * &#x60;integer&#x60;, or &#x60;double&#x60; are the possible types. If the &#x60;target_type&#x60;
- * is &#x60;tag&#x60;, this parameter may not be specified.
+ * If the <code>target_type</code> of the remapper is <code>attribute</code>, try to cast the value
+ * to a new specific type. If the cast is not possible, the original type is kept. <code>string
+ * </code>, <code>integer</code>, or <code>double</code> are the possible types. If the <code>
+ * target_type</code> is <code>tag</code>, this parameter may not be specified.
  */
 @JsonSerialize(using = TargetFormatType.TargetFormatTypeSerializer.class)
 public class TargetFormatType {

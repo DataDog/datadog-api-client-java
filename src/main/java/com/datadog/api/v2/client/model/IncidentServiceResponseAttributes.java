@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/** The incident service&#39;s attributes from a response. */
+/** The incident service's attributes from a response. */
 @JsonPropertyOrder({
   IncidentServiceResponseAttributes.JSON_PROPERTY_CREATED,
   IncidentServiceResponseAttributes.JSON_PROPERTY_MODIFIED,

@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The type of the resource. The value should always be &#x60;agent_rule&#x60;. */
+/** The type of the resource. The value should always be <code>agent_rule</code>. */
 @JsonSerialize(
     using = CloudWorkloadSecurityAgentRuleType.CloudWorkloadSecurityAgentRuleTypeSerializer.class)
 public class CloudWorkloadSecurityAgentRuleType {

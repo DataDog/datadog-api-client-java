@@ -201,7 +201,7 @@ public class NotebooksResponseDataAttributes {
   }
 
   /**
-   * Publication status of the notebook. For now, always &quot;published&quot;.
+   * Publication status of the notebook. For now, always "published".
    *
    * @return status
    */

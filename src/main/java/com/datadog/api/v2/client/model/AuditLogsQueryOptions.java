@@ -61,7 +61,7 @@ public class AuditLogsQueryOptions {
   }
 
   /**
-   * Timezone code. Can be specified as an offset, for example: &quot;UTC+03:00&quot;.
+   * Timezone code. Can be specified as an offset, for example: "UTC+03:00".
    *
    * @return timezone
    */

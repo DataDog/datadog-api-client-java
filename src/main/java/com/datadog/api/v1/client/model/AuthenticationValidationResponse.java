@@ -26,7 +26,7 @@ public class AuthenticationValidationResponse {
   private Boolean valid;
 
   /**
-   * Return &#x60;true&#x60; if the authentication response is valid.
+   * Return <code>true</code> if the authentication response is valid.
    *
    * @return valid
    */

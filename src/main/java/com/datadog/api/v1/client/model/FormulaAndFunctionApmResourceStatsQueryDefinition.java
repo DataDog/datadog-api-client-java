@@ -207,7 +207,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   }
 
   /**
-   * Name of the second primary tag used within APM. Required when &#x60;primary_tag_value&#x60; is
+   * Name of the second primary tag used within APM. Required when <code>primary_tag_value</code> is
    * specified. See
    * https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
    *
@@ -230,7 +230,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   }
 
   /**
-   * Value of the second primary tag by which to filter APM data. &#x60;primary_tag_name&#x60; must
+   * Value of the second primary tag by which to filter APM data. <code>primary_tag_name</code> must
    * also be specified.
    *
    * @return primaryTagValue

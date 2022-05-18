@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a notebook &#x60;toplist&#x60; cell. */
+/** The attributes of a notebook <code>toplist</code> cell. */
 @JsonPropertyOrder({
   NotebookToplistCellAttributes.JSON_PROPERTY_DEFINITION,
   NotebookToplistCellAttributes.JSON_PROPERTY_GRAPH_SIZE,
@@ -127,7 +127,7 @@ public class NotebookToplistCellAttributes {
   }
 
   /**
-   * Timeframe for the notebook cell. When &#39;null&#39;, the notebook global time is used.
+   * Timeframe for the notebook cell. When 'null', the notebook global time is used.
    *
    * @return time
    */

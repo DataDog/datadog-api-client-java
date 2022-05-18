@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Has two properties, &#x60;enabled&#x60; (boolean) and &#x60;domains&#x60;, which is a list of
+ * Has two properties, <code>enabled</code> (boolean) and <code>domains</code>, which is a list of
  * domains without the @ symbol.
  */
 @JsonPropertyOrder({

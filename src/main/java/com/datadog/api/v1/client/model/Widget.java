@@ -18,11 +18,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /**
- * Information about widget. **Note**: The &#x60;layout&#x60; property is required for widgets in
- * dashboards with &#x60;free&#x60; &#x60;layout_type&#x60;. For the **new dashboard layout**, the
- * &#x60;layout&#x60; property depends on the &#x60;reflow_type&#x60; of the dashboard. - If
- * &#x60;reflow_type&#x60; is &#x60;fixed&#x60;, &#x60;layout&#x60; is required. - If
- * &#x60;reflow_type&#x60; is &#x60;auto&#x60;, &#x60;layout&#x60; should not be set.
+ * Information about widget.
+ *
+ * <p><strong>Note</strong>: The <code>layout</code> property is required for widgets in dashboards
+ * with <code>free</code> <code>layout_type</code>. For the <strong>new dashboard layout</strong>,
+ * the <code>layout</code> property depends on the <code>reflow_type</code> of the dashboard. - If
+ * <code>reflow_type</code> is <code>fixed</code>, <code>layout</code> is required. - If <code>
+ * reflow_type</code> is <code>auto</code>, <code>layout</code> should not be set.
  */
 @JsonPropertyOrder({
   Widget.JSON_PROPERTY_DEFINITION,
@@ -59,7 +61,7 @@ public class Widget {
   }
 
   /**
-   * [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
+   * <a href="https://docs.datadoghq.com/dashboards/widgets/">Definition of the widget</a>.
    *
    * @return definition
    */
@@ -101,7 +103,8 @@ public class Widget {
   }
 
   /**
-   * The layout for a widget on a &#x60;free&#x60; or **new dashboard layout** dashboard.
+   * The layout for a widget on a <code>free</code> or <strong>new dashboard layout</strong>
+   * dashboard.
    *
    * @return layout
    */

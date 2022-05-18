@@ -28,7 +28,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -37,7 +37,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -46,7 +46,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Create a GCP integration
+   * Create a GCP integration.
    *
    * <p>See {@link #createGCPIntegrationWithHttpInfo}.
    *
@@ -59,7 +59,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Create a GCP integration
+   * Create a GCP integration.
    *
    * <p>See {@link #createGCPIntegrationWithHttpInfoAsync}.
    *
@@ -75,9 +75,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Create a GCP integration
-   *
-   * <p>Create a Datadog-GCP integration.
+   * Create a Datadog-GCP integration.
    *
    * @param body Create a Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -126,7 +124,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Create a GCP integration
+   * Create a GCP integration.
    *
    * <p>See {@link #createGCPIntegrationWithHttpInfo}.
    *
@@ -178,7 +176,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Delete a GCP integration
+   * Delete a GCP integration.
    *
    * <p>See {@link #deleteGCPIntegrationWithHttpInfo}.
    *
@@ -191,7 +189,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Delete a GCP integration
+   * Delete a GCP integration.
    *
    * <p>See {@link #deleteGCPIntegrationWithHttpInfoAsync}.
    *
@@ -207,9 +205,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Delete a GCP integration
-   *
-   * <p>Delete a given Datadog-GCP integration.
+   * Delete a given Datadog-GCP integration.
    *
    * @param body Delete a given Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -258,7 +254,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Delete a GCP integration
+   * Delete a GCP integration.
    *
    * <p>See {@link #deleteGCPIntegrationWithHttpInfo}.
    *
@@ -310,7 +306,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * List all GCP integrations
+   * List all GCP integrations.
    *
    * <p>See {@link #listGCPIntegrationWithHttpInfo}.
    *
@@ -322,7 +318,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * List all GCP integrations
+   * List all GCP integrations.
    *
    * <p>See {@link #listGCPIntegrationWithHttpInfoAsync}.
    *
@@ -337,9 +333,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * List all GCP integrations
-   *
-   * <p>List all Datadog-GCP integrations configured in your Datadog account.
+   * List all Datadog-GCP integrations configured in your Datadog account.
    *
    * @return ApiResponse&lt;List&lt;GCPAccount&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -381,7 +375,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * List all GCP integrations
+   * List all GCP integrations.
    *
    * <p>See {@link #listGCPIntegrationWithHttpInfo}.
    *
@@ -422,7 +416,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Update a GCP integration
+   * Update a GCP integration.
    *
    * <p>See {@link #updateGCPIntegrationWithHttpInfo}.
    *
@@ -435,7 +429,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Update a GCP integration
+   * Update a GCP integration.
    *
    * <p>See {@link #updateGCPIntegrationWithHttpInfoAsync}.
    *
@@ -451,12 +445,10 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Update a GCP integration
-   *
-   * <p>Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a
-   * &#x60;project_id&#x60; and &#x60;client_email&#x60;, however these fields cannot be updated. If
-   * you need to update these fields, delete and use the create (&#x60;POST&#x60;) endpoint. The
-   * unspecified fields will keep their original values.
+   * Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a <code>project_id
+   * </code> and <code>client_email</code>, however these fields cannot be updated. If you need to
+   * update these fields, delete and use the create (<code>POST</code>) endpoint. The unspecified
+   * fields will keep their original values.
    *
    * @param body Update a Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -505,7 +497,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * Update a GCP integration
+   * Update a GCP integration.
    *
    * <p>See {@link #updateGCPIntegrationWithHttpInfo}.
    *

@@ -34,7 +34,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -43,7 +43,7 @@ public class MetricsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -52,7 +52,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get metric metadata
+   * Get metric metadata.
    *
    * <p>See {@link #getMetricMetadataWithHttpInfo}.
    *
@@ -65,7 +65,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get metric metadata
+   * Get metric metadata.
    *
    * <p>See {@link #getMetricMetadataWithHttpInfoAsync}.
    *
@@ -81,9 +81,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get metric metadata
-   *
-   * <p>Get metadata about a specific metric.
+   * Get metadata about a specific metric.
    *
    * @param metricName Name of the metric for which to get metadata. (required)
    * @return ApiResponse&lt;MetricMetadata&gt;
@@ -136,7 +134,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get metric metadata
+   * Get metric metadata.
    *
    * <p>See {@link #getMetricMetadataWithHttpInfo}.
    *
@@ -196,7 +194,7 @@ public class MetricsApi {
     private String tagFilter;
 
     /**
-     * Set host
+     * Set host.
      *
      * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved
      *     are those with the corresponding hostname tag. (optional)
@@ -208,7 +206,7 @@ public class MetricsApi {
     }
 
     /**
-     * Set tagFilter
+     * Set tagFilter.
      *
      * @param tagFilter Filter metrics that have been submitted with the given tags. Supports
      *     boolean and wildcard expressions. Cannot be combined with other filters. (optional)
@@ -221,7 +219,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get active metrics list
+   * Get active metrics list.
    *
    * <p>See {@link #listActiveMetricsWithHttpInfo}.
    *
@@ -234,7 +232,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get active metrics list
+   * Get active metrics list.
    *
    * <p>See {@link #listActiveMetricsWithHttpInfoAsync}.
    *
@@ -250,7 +248,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get active metrics list
+   * Get active metrics list.
    *
    * <p>See {@link #listActiveMetricsWithHttpInfo}.
    *
@@ -265,7 +263,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get active metrics list
+   * Get active metrics list.
    *
    * <p>See {@link #listActiveMetricsWithHttpInfoAsync}.
    *
@@ -283,9 +281,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get active metrics list
-   *
-   * <p>Get the list of actively reporting metrics from a given time until now.
+   * Get the list of actively reporting metrics from a given time until now.
    *
    * @param from Seconds since the Unix epoch. (required)
    * @param parameters Optional parameters for the request.
@@ -343,7 +339,7 @@ public class MetricsApi {
   }
 
   /**
-   * Get active metrics list
+   * Get active metrics list.
    *
    * <p>See {@link #listActiveMetricsWithHttpInfo}.
    *
@@ -403,12 +399,12 @@ public class MetricsApi {
   }
 
   /**
-   * Search metrics
+   * Search metrics.
    *
    * <p>See {@link #listMetricsWithHttpInfo}.
    *
-   * @param q Query string to search metrics upon. Can optionally be prefixed with
-   *     &#x60;metrics:&#x60;. (required)
+   * @param q Query string to search metrics upon. Can optionally be prefixed with <code>metrics:
+   *     </code>. (required)
    * @return MetricSearchResponse
    * @throws ApiException if fails to make API call
    */
@@ -417,12 +413,12 @@ public class MetricsApi {
   }
 
   /**
-   * Search metrics
+   * Search metrics.
    *
    * <p>See {@link #listMetricsWithHttpInfoAsync}.
    *
-   * @param q Query string to search metrics upon. Can optionally be prefixed with
-   *     &#x60;metrics:&#x60;. (required)
+   * @param q Query string to search metrics upon. Can optionally be prefixed with <code>metrics:
+   *     </code>. (required)
    * @return CompletableFuture&lt;MetricSearchResponse&gt;
    */
   public CompletableFuture<MetricSearchResponse> listMetricsAsync(String q) {
@@ -434,12 +430,10 @@ public class MetricsApi {
   }
 
   /**
-   * Search metrics
+   * Search for metrics from the last 24 hours in Datadog.
    *
-   * <p>Search for metrics from the last 24 hours in Datadog.
-   *
-   * @param q Query string to search metrics upon. Can optionally be prefixed with
-   *     &#x60;metrics:&#x60;. (required)
+   * @param q Query string to search metrics upon. Can optionally be prefixed with <code>metrics:
+   *     </code>. (required)
    * @return ApiResponse&lt;MetricSearchResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -488,12 +482,12 @@ public class MetricsApi {
   }
 
   /**
-   * Search metrics
+   * Search metrics.
    *
    * <p>See {@link #listMetricsWithHttpInfo}.
    *
-   * @param q Query string to search metrics upon. Can optionally be prefixed with
-   *     &#x60;metrics:&#x60;. (required)
+   * @param q Query string to search metrics upon. Can optionally be prefixed with <code>metrics:
+   *     </code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricSearchResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MetricSearchResponse>> listMetricsWithHttpInfoAsync(
@@ -543,7 +537,7 @@ public class MetricsApi {
   }
 
   /**
-   * Query timeseries points
+   * Query timeseries points.
    *
    * <p>See {@link #queryMetricsWithHttpInfo}.
    *
@@ -558,7 +552,7 @@ public class MetricsApi {
   }
 
   /**
-   * Query timeseries points
+   * Query timeseries points.
    *
    * <p>See {@link #queryMetricsWithHttpInfoAsync}.
    *
@@ -577,9 +571,7 @@ public class MetricsApi {
   }
 
   /**
-   * Query timeseries points
-   *
-   * <p>Query timeseries points.
+   * Query timeseries points.
    *
    * @param from Start of the queried time period, seconds since the Unix epoch. (required)
    * @param to End of the queried time period, seconds since the Unix epoch. (required)
@@ -647,7 +639,7 @@ public class MetricsApi {
   }
 
   /**
-   * Query timeseries points
+   * Query timeseries points.
    *
    * <p>See {@link #queryMetricsWithHttpInfo}.
    *
@@ -726,7 +718,7 @@ public class MetricsApi {
     private MetricContentEncoding contentEncoding;
 
     /**
-     * Set contentEncoding
+     * Set contentEncoding.
      *
      * @param contentEncoding HTTP header used to compress the media-type. (optional)
      * @return SubmitMetricsOptionalParameters
@@ -738,7 +730,7 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics
+   * Submit metrics.
    *
    * <p>See {@link #submitMetricsWithHttpInfo}.
    *
@@ -751,7 +743,7 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics
+   * Submit metrics.
    *
    * <p>See {@link #submitMetricsWithHttpInfoAsync}.
    *
@@ -767,7 +759,7 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics
+   * Submit metrics.
    *
    * <p>See {@link #submitMetricsWithHttpInfo}.
    *
@@ -782,7 +774,7 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics
+   * Submit metrics.
    *
    * <p>See {@link #submitMetricsWithHttpInfoAsync}.
    *
@@ -800,15 +792,20 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics
-   *
-   * <p>The metrics end-point allows you to post time-series data that can be graphed on Datadog’s
+   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s
    * dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must
-   * have a decompressed size of less than 62 megabytes (62914560 bytes). If you’re submitting
-   * metrics directly to the Datadog API without using DogStatsD, expect: - 64 bits for the
-   * timestamp - 32 bits for the value - 40 bytes for the metric names - 50 bytes for the timeseries
-   * - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is
-   * applied, which reduces the payload size.
+   * have a decompressed size of less than 62 megabytes (62914560 bytes).
+   *
+   * <p>If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
+   *
+   * <ul>
+   *   <li>64 bits for the timestamp
+   *   <li>64 bits for the value
+   *   <li>40 bytes for the metric names
+   *   <li>50 bytes for the timeseries
+   *   <li>The full payload is approximately 100 bytes. However, with the DogStatsD API, compression
+   *       is applied, which reduces the payload size.
+   * </ul>
    *
    * @param body (required)
    * @param parameters Optional parameters for the request.
@@ -865,7 +862,7 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics
+   * Submit metrics.
    *
    * <p>See {@link #submitMetricsWithHttpInfo}.
    *
@@ -922,7 +919,7 @@ public class MetricsApi {
   }
 
   /**
-   * Edit metric metadata
+   * Edit metric metadata.
    *
    * <p>See {@link #updateMetricMetadataWithHttpInfo}.
    *
@@ -937,7 +934,7 @@ public class MetricsApi {
   }
 
   /**
-   * Edit metric metadata
+   * Edit metric metadata.
    *
    * <p>See {@link #updateMetricMetadataWithHttpInfoAsync}.
    *
@@ -955,10 +952,8 @@ public class MetricsApi {
   }
 
   /**
-   * Edit metric metadata
-   *
-   * <p>Edit metadata of a specific metric. Find out more about [supported
-   * types](https://docs.datadoghq.com/developers/metrics).
+   * Edit metadata of a specific metric. Find out more about <a
+   * href="https://docs.datadoghq.com/developers/metrics">supported types</a>.
    *
    * @param metricName Name of the metric for which to edit metadata. (required)
    * @param body New metadata. (required)
@@ -1019,7 +1014,7 @@ public class MetricsApi {
   }
 
   /**
-   * Edit metric metadata
+   * Edit metric metadata.
    *
    * <p>See {@link #updateMetricMetadataWithHttpInfo}.
    *

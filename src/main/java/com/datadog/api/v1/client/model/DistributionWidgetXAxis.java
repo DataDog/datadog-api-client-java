@@ -66,8 +66,8 @@ public class DistributionWidgetXAxis {
   }
 
   /**
-   * Specifies maximum value to show on the x-axis. It takes a number, percentile (p90
-   * &#x3D;&#x3D;&#x3D; 90th percentile), or auto for default behavior.
+   * Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th
+   * percentile), or auto for default behavior.
    *
    * @return max
    */
@@ -88,8 +88,8 @@ public class DistributionWidgetXAxis {
   }
 
   /**
-   * Specifies minimum value to show on the x-axis. It takes a number, percentile (p90
-   * &#x3D;&#x3D;&#x3D; 90th percentile), or auto for default behavior.
+   * Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th
+   * percentile), or auto for default behavior.
    *
    * @return min
    */
@@ -110,7 +110,7 @@ public class DistributionWidgetXAxis {
   }
 
   /**
-   * Specifies the scale type. Possible values are &#x60;linear&#x60;.
+   * Specifies the scale type. Possible values are <code>linear</code>.
    *
    * @return scale
    */

@@ -54,8 +54,8 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
   }
 
   /**
-   * The family of metric unit, for example &#x60;bytes&#x60; is the family for
-   * &#x60;kibibyte&#x60;, &#x60;byte&#x60;, and &#x60;bit&#x60; units.
+   * The family of metric unit, for example <code>bytes</code> is the family for <code>kibibyte
+   * </code>, <code>byte</code>, and <code>bit</code> units.
    *
    * @return family
    */
@@ -97,7 +97,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
   }
 
   /**
-   * The unit of the metric, for instance &#x60;byte&#x60;.
+   * The unit of the metric, for instance <code>byte</code>.
    *
    * @return name
    */
@@ -118,7 +118,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
   }
 
   /**
-   * The plural Unit of metric, for instance &#x60;bytes&#x60;.
+   * The plural Unit of metric, for instance <code>bytes</code>.
    *
    * @return plural
    */
@@ -149,7 +149,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
   }
 
   /**
-   * The scale factor of metric unit, for instance &#x60;1.0&#x60;.
+   * The scale factor of metric unit, for instance <code>1.0</code>.
    *
    * @return scaleFactor
    */
@@ -170,7 +170,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
   }
 
   /**
-   * A shorter and abbreviated version of the metric unit, for instance &#x60;B&#x60;.
+   * A shorter and abbreviated version of the metric unit, for instance <code>B</code>.
    *
    * @return shortName
    */

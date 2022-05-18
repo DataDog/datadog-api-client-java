@@ -24,7 +24,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
+ * Define whether you want to start (<code>live</code>) or pause (<code>paused</code>) a Synthetic
  * test.
  */
 @JsonSerialize(using = SyntheticsTestPauseStatus.SyntheticsTestPauseStatusSerializer.class)

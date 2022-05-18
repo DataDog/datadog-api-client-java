@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** The incident service&#39;s attributes for a create request. */
+/** The incident service's attributes for a create request. */
 @JsonPropertyOrder({IncidentServiceCreateAttributes.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

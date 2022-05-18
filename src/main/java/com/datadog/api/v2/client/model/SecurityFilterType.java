@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The type of the resource. The value should always be &#x60;security_filters&#x60;. */
+/** The type of the resource. The value should always be <code>security_filters</code>. */
 @JsonSerialize(using = SecurityFilterType.SecurityFilterTypeSerializer.class)
 public class SecurityFilterType {
 

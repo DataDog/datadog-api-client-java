@@ -52,7 +52,7 @@ public class IncidentTeamCreateData {
   }
 
   /**
-   * The incident team&#39;s attributes for a create request.
+   * The incident team's attributes for a create request.
    *
    * @return attributes
    */
@@ -68,7 +68,7 @@ public class IncidentTeamCreateData {
   }
 
   /**
-   * The incident team&#39;s relationships.
+   * The incident team's relationships.
    *
    * @return relationships
    */

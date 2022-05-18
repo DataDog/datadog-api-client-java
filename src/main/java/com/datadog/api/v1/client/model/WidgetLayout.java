@@ -17,7 +17,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** The layout for a widget on a &#x60;free&#x60; or **new dashboard layout** dashboard. */
+/**
+ * The layout for a widget on a <code>free</code> or <strong>new dashboard layout</strong>
+ * dashboard.
+ */
 @JsonPropertyOrder({
   WidgetLayout.JSON_PROPERTY_HEIGHT,
   WidgetLayout.JSON_PROPERTY_IS_COLUMN_BREAK,
@@ -85,8 +88,8 @@ public class WidgetLayout {
 
   /**
    * Whether the widget should be the first one on the second column in high density or not.
-   * **Note**: Only for the **new dashboard layout** and only one widget in the dashboard should
-   * have this property set to &#x60;true&#x60;.
+   * <strong>Note</strong>: Only for the <strong>new dashboard layout</strong> and only one widget
+   * in the dashboard should have this property set to <code>true</code>.
    *
    * @return isColumnBreak
    */
