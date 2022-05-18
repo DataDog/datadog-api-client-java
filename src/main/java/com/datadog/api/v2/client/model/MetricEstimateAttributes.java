@@ -10,10 +10,12 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -31,6 +33,8 @@ public class MetricEstimateAttributes {
   private MetricEstimateType estimateType = MetricEstimateType.COUNT_OR_GAUGE;
 
   public static final String JSON_PROPERTY_ESTIMATED_AT = "estimated_at";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime estimatedAt;
 
   public static final String JSON_PROPERTY_ESTIMATED_OUTPUT_SERIES = "estimated_output_series";
