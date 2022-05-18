@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"series\": [{\"metric\": \"system.load.1\", \"points\": [{\"timestamp\": 1650641018, \"value\": 0.7}], \"type\": 0}]}"
+        "json": "{\"series\": [{\"metric\": \"system.load.1\", \"points\": [{\"timestamp\": 1652867372, \"value\": 0.7}], \"type\": 0}]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0a2ac212-c4d1-6921-d277-324283be1580"
+    "id": "95b5000a-a4fd-6c13-9ef5-d23f77a3b4c4"
   }
 ]
