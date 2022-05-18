@@ -24,6 +24,10 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- set isNullable = schema.nullable %}
   {%- set defaultValue = schema.get("default", None) %}
   public static final String JSON_PROPERTY_{{ attr|snake_case|upper }} = "{{ attr }}";
+
+  {%- if schema.format == "date-time" %}
+  @JsonSerialize(using = JsonTimeSerializer.class)
+  {%- endif %}
   {%- if not isRequired and isNullable %}
     {%- if "items" in schema or schema.additionalProperties is defined or (schema.type is not defined and "oneOf" not in schema) %}
   private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>undefined();

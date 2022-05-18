@@ -10,10 +10,12 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -38,6 +40,8 @@ public class UsageLogsHour {
   private Long billableIngestedBytes;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT = "indexed_events_count";

@@ -10,10 +10,12 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -182,6 +184,8 @@ public class UsageSummaryDate {
   private Long cwsHostTop99p;
 
   public static final String JSON_PROPERTY_DATE = "date";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime date;
 
   public static final String JSON_PROPERTY_DBM_HOST_TOP99P = "dbm_host_top99p";

@@ -10,10 +10,12 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,12 +46,16 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class MonitorUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED = "created";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_CREATOR = "creator";
   private Creator creator;
 
   public static final String JSON_PROPERTY_DELETED = "deleted";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private JsonNullable<OffsetDateTime> deleted = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_ID = "id";
@@ -59,6 +65,8 @@ public class MonitorUpdateRequest {
   private String message;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_MULTI = "multi";

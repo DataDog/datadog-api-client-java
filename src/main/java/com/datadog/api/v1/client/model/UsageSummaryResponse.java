@@ -10,10 +10,12 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -206,6 +208,8 @@ public class UsageSummaryResponse {
   private Long dbmQueriesAvgSum;
 
   public static final String JSON_PROPERTY_END_DATE = "end_date";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime endDate;
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM =
@@ -244,6 +248,8 @@ public class UsageSummaryResponse {
   private Long iotDeviceTop99pSum;
 
   public static final String JSON_PROPERTY_LAST_UPDATED = "last_updated";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime lastUpdated;
 
   public static final String JSON_PROPERTY_LIVE_INDEXED_EVENTS_AGG_SUM =
@@ -338,6 +344,8 @@ public class UsageSummaryResponse {
   private Long sdsTotalScannedBytesSum;
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime startDate;
 
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_AGG_SUM =
