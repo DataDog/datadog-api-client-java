@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Configure_tags_for_multiple_metrics_returns_Accepted_response-1648572650@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Configure_tags_for_multiple_metrics_returns_Accepted_response-1652349149@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"users\",\"id\":\"644595b6-af80-11ec-9083-da7ad0900002\",\"attributes\":{\"name\":null,\"handle\":\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1648572650@datadoghq.com\",\"created_at\":\"2022-03-29T16:50:51.458189+00:00\",\"modified_at\":\"2022-03-29T16:50:51.505052+00:00\",\"email\":\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1648572650@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/89de541493f01f9349b107331dc8148f?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}",
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"3cf23548-d1d9-11ec-ad3d-da7ad0900002\",\"attributes\":{\"name\":null,\"handle\":\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\",\"created_at\":\"2022-05-12T09:52:30.224025+00:00\",\"modified_at\":\"2022-05-12T09:52:30.279356+00:00\",\"email\":\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/37b97ed3403eaebb504eab5b74a44f2a?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9cfe088d-47bb-fd1c-908d-b926ecb7ef03"
+    "id": "5e8f10c1-1e38-683f-fead-42840172698c"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1648572650@datadoghq.com\"],\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1648572650\"]},\"id\":\"system.load.1\",\"type\":\"metric_bulk_configure_tags\"}}"
+        "json": "{\"data\":{\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\"],\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1652349149\"]},\"id\":\"system.load.1\",\"type\":\"metric_bulk_configure_tags\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -50,7 +50,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"metric_bulk_configure_tags\",\"id\":\"system.load.1\",\"attributes\":{\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1648572650\"],\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1648572650@datadoghq.com\"],\"status\":\"Accepted\"}}}",
+      "body": "{\"data\":{\"type\":\"metric_bulk_configure_tags\",\"id\":\"system.load.1\",\"attributes\":{\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1652349149\"],\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\"],\"status\":\"Accepted\"}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,13 +65,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "eddacd53-5a02-bfd7-6488-f2caa68b898f"
+    "id": "6feeb9d2-023a-c133-5ddc-969d4b3c867c"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1648572650@datadoghq.com\"],\"status\":\"Accepted\",\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1648572650\"]},\"id\":\"system.load.1\",\"type\":\"metric_bulk_configure_tags\"}}"
+        "json": "{\"data\":{\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\"],\"status\":\"Accepted\",\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1652349149\"]},\"id\":\"system.load.1\",\"type\":\"metric_bulk_configure_tags\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -84,7 +84,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"metric_bulk_configure_tags\",\"id\":\"system.load.1\",\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1648572650@datadoghq.com\"],\"status\":\"Accepted\"}}}",
+      "body": "{\"data\":{\"type\":\"metric_bulk_configure_tags\",\"id\":\"system.load.1\",\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\"],\"status\":\"Accepted\"}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -99,7 +99,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b7588758-3db6-e23f-ee9c-aa6bf8bf5900"
+    "id": "3b16793a-2d9d-8f18-71ef-c3857c833d0a"
   },
   {
     "httpRequest": {
@@ -109,7 +109,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/users/644595b6-af80-11ec-9083-da7ad0900002",
+      "path": "/api/v2/users/3cf23548-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -124,6 +124,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "78881ac3-5125-a5e2-c2d0-68b6a8a7d83c"
+    "id": "8e357689-c2f7-cbe5-5246-a4ba33c638d8"
   }
 ]

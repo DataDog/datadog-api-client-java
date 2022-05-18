@@ -24,8 +24,8 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor
- * options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
+ * The type of the monitor. For more information about <code>type</code>, see the <a
+ * href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.
  */
 @JsonSerialize(using = MonitorType.MonitorTypeSerializer.class)
 public class MonitorType {

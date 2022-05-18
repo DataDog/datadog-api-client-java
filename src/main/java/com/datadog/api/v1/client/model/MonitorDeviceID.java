@@ -24,7 +24,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * ID of the device the Synthetics monitor is running on. Same as &#x60;SyntheticsDeviceID&#x60;.
+ * ID of the device the Synthetics monitor is running on. Same as <code>SyntheticsDeviceID</code>.
  */
 @JsonSerialize(using = MonitorDeviceID.MonitorDeviceIDSerializer.class)
 public class MonitorDeviceID {

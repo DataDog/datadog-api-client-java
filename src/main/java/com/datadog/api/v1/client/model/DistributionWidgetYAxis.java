@@ -134,7 +134,7 @@ public class DistributionWidgetYAxis {
   }
 
   /**
-   * Specifies the scale type. Possible values are &#x60;linear&#x60; or &#x60;log&#x60;.
+   * Specifies the scale type. Possible values are <code>linear</code> or <code>log</code>.
    *
    * @return scale
    */

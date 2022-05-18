@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"series\": [{\"metric\": \"TestDeleteatagconfigurationreturnsNoContentresponse1648560542\", \"points\": [[1648560542.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
+        "json": "{\"series\": [{\"metric\": \"TestDeleteatagconfigurationreturnsNoContentresponse1652354788\", \"points\": [[1652354788.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6cb63514-9edf-3d5f-ec70-2fb3c2418546"
+    "id": "06c6a3e5-9da2-bc9f-1ea0-1a552ed9b813"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestDeleteatagconfigurationreturnsNoContentresponse1648560542\"]},\"id\":\"TestDeleteatagconfigurationreturnsNoContentresponse1648560542\",\"type\":\"manage_tags\"}}"
+        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestDeleteatagconfigurationreturnsNoContentresponse1652354788\"]},\"id\":\"TestDeleteatagconfigurationreturnsNoContentresponse1652354788\",\"type\":\"manage_tags\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -45,12 +45,12 @@
         ]
       },
       "method": "POST",
-      "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1648560542/tags",
+      "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1652354788/tags",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestDeleteatagconfigurationreturnsNoContentresponse1648560542\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"TestDeleteatagconfigurationreturnsNoContentresponse1648560542\"],\"created_at\":\"2022-03-29T13:29:03.991675+00:00\",\"modified_at\":\"2022-03-29T13:29:03.991675+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
+      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestDeleteatagconfigurationreturnsNoContentresponse1652354788\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"TestDeleteatagconfigurationreturnsNoContentresponse1652354788\"],\"created_at\":\"2022-05-12T11:26:33.849417+00:00\",\"modified_at\":\"2022-05-12T11:26:33.849417+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1b6d45a4-0b6d-dc9b-4a9e-1656eb362d43"
+    "id": "5d3e4d9c-2228-4f0b-e2ac-c0cd68f699bd"
   },
   {
     "httpRequest": {
@@ -75,7 +75,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1648560542/tags",
+      "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1652354788/tags",
       "keepAlive": false,
       "secure": true
     },
@@ -90,7 +90,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e80e3df0-008d-c04e-a69e-70d93ada3107"
+    "id": "863ae215-c206-44cd-996d-5ab5bbb932d3"
   },
   {
     "httpRequest": {
@@ -100,12 +100,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1648560542/tags",
+      "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1652354788/tags",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"TestDeleteatagconfigurationreturnsNoContentresponse1648560542 not found\"]}",
+      "body": "{\"errors\": [\"TestDeleteatagconfigurationreturnsNoContentresponse1652354788 not found\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -120,6 +120,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e80e3df0-008d-c04e-a69e-70d93ada3108"
+    "id": "863ae215-c206-44cd-996d-5ab5bbb932d4"
   }
 ]

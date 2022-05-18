@@ -228,7 +228,7 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
+   * Define whether you want to start (<code>live</code>) or pause (<code>paused</code>) a Synthetic
    * test.
    *
    * @return status
@@ -254,8 +254,9 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;,
-   * &#x60;dns&#x60;, &#x60;icmp&#x60;, &#x60;udp&#x60;, &#x60;websocket&#x60; or &#x60;multi&#x60;.
+   * The subtype of the Synthetic API test, <code>http</code>, <code>ssl</code>, <code>tcp</code>,
+   * <code>dns</code>, <code>icmp</code>, <code>udp</code>, <code>websocket</code> or <code>multi
+   * </code>.
    *
    * @return subtype
    */
@@ -309,7 +310,7 @@ public class SyntheticsAPITest {
   }
 
   /**
-   * Type of the Synthetic test, &#x60;api&#x60;.
+   * Type of the Synthetic test, <code>api</code>.
    *
    * @return type
    */

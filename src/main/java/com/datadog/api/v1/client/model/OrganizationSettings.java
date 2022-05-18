@@ -117,8 +117,8 @@ public class OrganizationSettings {
   }
 
   /**
-   * The access role of the user. Options are **st** (standard user), **adm** (admin user), or
-   * **ro** (read-only user).
+   * The access role of the user. Options are <strong>st</strong> (standard user),
+   * <strong>adm</strong> (admin user), or <strong>ro</strong> (read-only user).
    *
    * @return samlAutocreateAccessRole
    */
@@ -144,7 +144,7 @@ public class OrganizationSettings {
   }
 
   /**
-   * Has two properties, &#x60;enabled&#x60; (boolean) and &#x60;domains&#x60;, which is a list of
+   * Has two properties, <code>enabled</code> (boolean) and <code>domains</code>, which is a list of
    * domains without the @ symbol.
    *
    * @return samlAutocreateUsersDomains

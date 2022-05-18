@@ -88,8 +88,8 @@ public class WidgetCustomLink {
   }
 
   /**
-   * The URL of the custom link. URL must include &#x60;http&#x60; or &#x60;https&#x60;. A relative
-   * URL must start with &#x60;/&#x60;.
+   * The URL of the custom link. URL must include <code>http</code> or <code>https</code>. A
+   * relative URL must start with <code>/</code>.
    *
    * @return link
    */
@@ -110,9 +110,9 @@ public class WidgetCustomLink {
   }
 
   /**
-   * The label ID that refers to a context menu link. Can be &#x60;logs&#x60;, &#x60;hosts&#x60;,
-   * &#x60;traces&#x60;, &#x60;profiles&#x60;, &#x60;processes&#x60;, &#x60;containers&#x60;, or
-   * &#x60;rum&#x60;.
+   * The label ID that refers to a context menu link. Can be <code>logs</code>, <code>hosts</code>,
+   * <code>traces</code>, <code>profiles</code>, <code>processes</code>, <code>containers</code>, or
+   * <code>rum</code>.
    *
    * @return overrideLabel
    */

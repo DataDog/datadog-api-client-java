@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1641829886\",\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1641829886\"},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1652349190\",\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1652349190\"},\"type\":\"security_filters\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1641829886\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude staging\"}],\"version\":1,\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1641829886\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"l4b-4zi-o7l\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1652349190\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude staging\"}],\"version\":1,\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1652349190\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"2co-379-ngs\"}}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3d559fa9-87ae-923c-9d7d-ff4970ca7104"
+    "id": "fcab5d50-7493-5a83-fd79-c349a5cc172d"
   },
   {
     "httpRequest": {
@@ -41,12 +41,16 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/l4b-4zi-o7l",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/2co-379-ngs",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
+      "headers": {
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ]
+      },
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -56,6 +60,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "eed5a065-3be9-6153-956f-9cf35a9ec18e"
+    "id": "84d7c7dc-43ca-343e-4edd-a64cc510911b"
   }
 ]

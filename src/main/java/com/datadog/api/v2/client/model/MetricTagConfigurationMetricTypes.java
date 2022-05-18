@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The metric&#39;s type. */
+/** The metric's type. */
 @JsonSerialize(
     using = MetricTagConfigurationMetricTypes.MetricTagConfigurationMetricTypesSerializer.class)
 public class MetricTagConfigurationMetricTypes {

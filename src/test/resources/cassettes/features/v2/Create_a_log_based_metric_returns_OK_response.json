@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"}},\"id\":\"Test-Create_a_log_based_metric_returns_OK_response-1642429300\",\"type\":\"logs_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"}},\"id\":\"Test-Create_a_log_based_metric_returns_OK_response-1652349142\",\"type\":\"logs_metrics\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"*\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Create_a_log_based_metric_returns_OK_response_1642429300\"}}",
+      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"*\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Create_a_log_based_metric_returns_OK_response_1652349142\"}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "951c572a-b5d6-a240-b4e3-68846e06973d"
+    "id": "7a675346-94e9-4694-283c-0d44987ec332"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/logs/config/metrics/Test_Create_a_log_based_metric_returns_OK_response_1642429300",
+      "path": "/api/v2/logs/config/metrics/Test_Create_a_log_based_metric_returns_OK_response_1652349142",
       "keepAlive": false,
       "secure": true
     },
@@ -61,6 +61,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e0cb6253-0f9e-3486-6431-dc6aa345a9a4"
+    "id": "bba84067-fccc-33a3-9ff7-5f3414ad5e36"
   }
 ]

@@ -21,9 +21,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * An object that holds an SLI value and its associated data. It can represent an SLO&#39;s overall
- * SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or
- * a group in grouped SLOs.
+ * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI
+ * value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a
+ * group in grouped SLOs.
  */
 @JsonPropertyOrder({
   SLOHistorySLIData.JSON_PROPERTY_ERROR_BUDGET_REMAINING,
@@ -94,7 +94,7 @@ public class SLOHistorySLIData {
   }
 
   /**
-   * A mapping of threshold &#x60;timeframe&#x60; to the remaining error budget.
+   * A mapping of threshold <code>timeframe</code> to the remaining error budget.
    *
    * @return errorBudgetRemaining
    */
@@ -178,9 +178,9 @@ public class SLOHistorySLIData {
   }
 
   /**
-   * For &#x60;monitor&#x60; based SLOs, this includes the aggregated history as arrays that include
-   * time series and uptime data where &#x60;0&#x3D;monitor&#x60; is in &#x60;OK&#x60; state and
-   * &#x60;1&#x3D;monitor&#x60; is in &#x60;alert&#x60; state.
+   * For <code>monitor</code> based SLOs, this includes the aggregated history as arrays that
+   * include time series and uptime data where <code>0=monitor</code> is in <code>OK</code> state
+   * and <code>1=monitor</code> is in <code>alert</code> state.
    *
    * @return history
    */
@@ -201,8 +201,8 @@ public class SLOHistorySLIData {
   }
 
   /**
-   * For &#x60;monitor&#x60; based SLOs, this is the last modified timestamp in epoch seconds of the
-   * monitor.
+   * For <code>monitor</code> based SLOs, this is the last modified timestamp in epoch seconds of
+   * the monitor.
    *
    * @return monitorModified
    */
@@ -223,7 +223,7 @@ public class SLOHistorySLIData {
   }
 
   /**
-   * For &#x60;monitor&#x60; based SLOs, this describes the type of monitor.
+   * For <code>monitor</code> based SLOs, this describes the type of monitor.
    *
    * @return monitorType
    */
@@ -274,7 +274,7 @@ public class SLOHistorySLIData {
   }
 
   /**
-   * A mapping of threshold &#x60;timeframe&#x60; to number of accurate decimals, regardless of the
+   * A mapping of threshold <code>timeframe</code> to number of accurate decimals, regardless of the
    * from &amp;&amp; to timestamp.
    *
    * @return precision
@@ -296,7 +296,7 @@ public class SLOHistorySLIData {
   }
 
   /**
-   * For &#x60;monitor&#x60; based SLOs, when &#x60;true&#x60; this indicates that a replay is in
+   * For <code>monitor</code> based SLOs, when <code>true</code> this indicates that a replay is in
    * progress to give an accurate uptime calculation.
    *
    * @return preview
@@ -339,8 +339,8 @@ public class SLOHistorySLIData {
   }
 
   /**
-   * The amount of decimal places the SLI value is accurate to for the given from
-   * &#x60;&amp;&amp;&#x60; to timestamp.
+   * The amount of decimal places the SLI value is accurate to for the given from <code>&amp;&amp;
+   * </code> to timestamp.
    *
    * @return spanPrecision
    */
@@ -361,7 +361,7 @@ public class SLOHistorySLIData {
   }
 
   /**
-   * Use &#x60;sli_value&#x60; instead.
+   * Use <code>sli_value</code> instead.
    *
    * @return uptime
    * @deprecated

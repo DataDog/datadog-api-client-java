@@ -10,11 +10,13 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +25,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The incident&#39;s attributes from a response. */
+/** The incident's attributes from a response. */
 @JsonPropertyOrder({
   IncidentResponseAttributes.JSON_PROPERTY_CREATED,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_DURATION,
@@ -49,18 +51,24 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class IncidentResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED = "created";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_DURATION = "customer_impact_duration";
   private Long customerImpactDuration;
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_END = "customer_impact_end";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private JsonNullable<OffsetDateTime> customerImpactEnd = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE = "customer_impact_scope";
   private JsonNullable<String> customerImpactScope = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_START = "customer_impact_start";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private JsonNullable<OffsetDateTime> customerImpactStart =
       JsonNullable.<OffsetDateTime>undefined();
 
@@ -68,12 +76,16 @@ public class IncidentResponseAttributes {
   private Boolean customerImpacted;
 
   public static final String JSON_PROPERTY_DETECTED = "detected";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private JsonNullable<OffsetDateTime> detected = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private Map<String, IncidentFieldAttributes> fields = null;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_NOTIFICATION_HANDLES = "notification_handles";
@@ -87,6 +99,8 @@ public class IncidentResponseAttributes {
   private Long publicId;
 
   public static final String JSON_PROPERTY_RESOLVED = "resolved";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private JsonNullable<OffsetDateTime> resolved = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_TIME_TO_DETECT = "time_to_detect";
@@ -125,8 +139,8 @@ public class IncidentResponseAttributes {
   }
 
   /**
-   * Length of the incident&#39;s customer impact in seconds. Equals the difference between
-   * &#x60;customer_impact_start&#x60; and &#x60;customer_impact_end&#x60;.
+   * Length of the incident's customer impact in seconds. Equals the difference between <code>
+   * customer_impact_start</code> and <code>customer_impact_end</code>.
    *
    * @return customerImpactDuration
    */
@@ -421,7 +435,7 @@ public class IncidentResponseAttributes {
   }
 
   /**
-   * Timestamp when the incident&#39;s state was set to resolved.
+   * Timestamp when the incident's state was set to resolved.
    *
    * @return resolved
    */
@@ -447,8 +461,8 @@ public class IncidentResponseAttributes {
   }
 
   /**
-   * The amount of time in seconds to detect the incident. Equals the difference between
-   * &#x60;customer_impact_start&#x60; and &#x60;detected&#x60;.
+   * The amount of time in seconds to detect the incident. Equals the difference between <code>
+   * customer_impact_start</code> and <code>detected</code>.
    *
    * @return timeToDetect
    */
@@ -460,8 +474,8 @@ public class IncidentResponseAttributes {
   }
 
   /**
-   * The amount of time in seconds to call incident after detection. Equals the difference of
-   * &#x60;detected&#x60; and &#x60;created&#x60;.
+   * The amount of time in seconds to call incident after detection. Equals the difference of <code>
+   * detected</code> and <code>created</code>.
    *
    * @return timeToInternalResponse
    */
@@ -474,7 +488,7 @@ public class IncidentResponseAttributes {
 
   /**
    * The amount of time in seconds to resolve customer impact after detecting the issue. Equals the
-   * difference between &#x60;customer_impact_end&#x60; and &#x60;detected&#x60;.
+   * difference between <code>customer_impact_end</code> and <code>detected</code>.
    *
    * @return timeToRepair
    */
@@ -487,7 +501,7 @@ public class IncidentResponseAttributes {
 
   /**
    * The amount of time in seconds to resolve the incident after it was created. Equals the
-   * difference between &#x60;created&#x60; and &#x60;resolved&#x60;.
+   * difference between <code>created</code> and <code>resolved</code>.
    *
    * @return timeToResolve
    */

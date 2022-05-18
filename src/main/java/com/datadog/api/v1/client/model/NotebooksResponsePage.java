@@ -37,8 +37,8 @@ public class NotebooksResponsePage {
   }
 
   /**
-   * The total number of notebooks that would be returned if the request was not filtered by
-   * &#x60;start&#x60; and &#x60;count&#x60; parameters.
+   * The total number of notebooks that would be returned if the request was not filtered by <code>
+   * start</code> and <code>count</code> parameters.
    *
    * @return totalCount
    */

@@ -10,10 +10,12 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -36,9 +38,13 @@ public class AuthNMappingAttributes {
   private String attributeValue;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modifiedAt;
 
   public static final String JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE_ID =

@@ -10,10 +10,12 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +37,8 @@ import java.util.Objects;
 public class UsageAttributionBody {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MONTH = "month";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime month;
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
@@ -125,8 +129,9 @@ public class UsageAttributionBody {
 
   /**
    * The source of the usage attribution tag configuration and the selected tags in the format
-   * &#x60;&lt;source_org_name&gt;:&lt;selected tag 1&gt;-&lt;selected tag 2&gt;-&lt;selected tag
-   * 3&gt;&#x60;.
+   * <code>
+   * &lt;source_org_name&gt;:&lt;selected tag 1&gt;-&lt;selected tag 2&gt;-&lt;selected tag 3&gt;
+   * </code>.
    *
    * @return tagConfigSource
    */

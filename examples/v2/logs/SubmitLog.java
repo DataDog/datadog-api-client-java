@@ -20,7 +20,8 @@ public class Example {
                 .ddtags("env:staging,version:5.1")
                 .hostname("i-012345678")
                 .message("2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World")
-                .service("payment"));
+                .service("payment")
+                .putAdditionalProperty("status", "error"));
 
     try {
       apiInstance.submitLog(body);

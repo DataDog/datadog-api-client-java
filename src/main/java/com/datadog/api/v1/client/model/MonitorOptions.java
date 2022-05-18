@@ -182,11 +182,11 @@ public class MonitorOptions {
   }
 
   /**
-   * We recommend using the
-   * [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab&#x3D;is_alert#renotify), block in
-   * the original message instead. A message to include with a re-notification. Supports the
-   * &#x60;@username&#x60; notification we allow elsewhere. Not applicable if
-   * &#x60;renotify_interval&#x60; is &#x60;None&#x60;.
+   * We recommend using the <a
+   * href="https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify">is_renotify</a>, block
+   * in the original message instead. A message to include with a re-notification. Supports the
+   * <code>@username</code> notification we allow elsewhere. Not applicable if <code>
+   * renotify_interval</code> is <code>None</code>.
    *
    * @return escalationMessage
    */
@@ -208,7 +208,7 @@ public class MonitorOptions {
 
   /**
    * Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is
-   * set to &#x60;300&#x60; (5min), the timeframe is set to &#x60;last_5m&#x60; and the time is
+   * set to <code>300</code> (5min), the timeframe is set to <code>last_5m</code> and the time is
    * 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other
    * backfilled metrics to ensure the monitor always has data during evaluation.
    *
@@ -264,8 +264,11 @@ public class MonitorOptions {
 
   /**
    * A Boolean indicating whether notifications from this monitor automatically inserts its
-   * triggering tags into the title. **Examples** - If &#x60;True&#x60;, &#x60;[Triggered on
-   * {host:h1}] Monitor Title&#x60; - If &#x60;False&#x60;, &#x60;[Triggered] Monitor Title&#x60;
+   * triggering tags into the title.
+   *
+   * <p><strong>Examples</strong> - If <code>True</code>, <code>
+   * [Triggered on {host:h1}] Monitor Title</code> - If <code>False</code>, <code>
+   * [Triggered] Monitor Title</code>
    *
    * @return includeTags
    */
@@ -286,8 +289,8 @@ public class MonitorOptions {
   }
 
   /**
-   * Whether or not the monitor is locked (only editable by creator and admins). Use
-   * &#x60;restricted_roles&#x60; instead.
+   * Whether or not the monitor is locked (only editable by creator and admins). Use <code>
+   * restricted_roles</code> instead.
    *
    * @return locked
    * @deprecated
@@ -343,9 +346,8 @@ public class MonitorOptions {
 
   /**
    * The minimum number of locations in failure at the same time during at least one moment in the
-   * &#x60;min_failure_duration&#x60; period (&#x60;min_location_failed&#x60; and
-   * &#x60;min_failure_duration&#x60; are part of the advanced alerting rules - integer, &gt;&#x3D;
-   * 1).
+   * <code>min_failure_duration</code> period (<code>min_location_failed</code> and <code>
+   * min_failure_duration</code> are part of the advanced alerting rules - integer, &gt;= 1).
    *
    * @return minLocationFailed
    */
@@ -376,8 +378,12 @@ public class MonitorOptions {
   }
 
   /**
-   * Time (in seconds) to skip evaluations for new groups. For example, this option can be used to
-   * skip evaluations for new hosts while they initialize. Must be a non negative integer.
+   * Time (in seconds) to skip evaluations for new groups.
+   *
+   * <p>For example, this option can be used to skip evaluations for new hosts while they
+   * initialize.
+   *
+   * <p>Must be a non negative integer.
    *
    * @return newGroupDelay
    */
@@ -409,7 +415,9 @@ public class MonitorOptions {
 
   /**
    * Time (in seconds) to allow a host to boot and applications to fully start before starting the
-   * evaluation of monitor results. Should be a non negative integer. Use new_group_delay instead.
+   * evaluation of monitor results. Should be a non negative integer.
+   *
+   * <p>Use new_group_delay instead.
    *
    * @return newHostDelay
    * @deprecated
@@ -626,7 +634,7 @@ public class MonitorOptions {
 
   /**
    * A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We
-   * highly recommend you set this to &#x60;false&#x60; for sparse metrics, otherwise some
+   * highly recommend you set this to <code>false</code> for sparse metrics, otherwise some
    * evaluations are skipped. Default is false.
    *
    * @return requireFullWindow
@@ -800,7 +808,8 @@ public class MonitorOptions {
   }
 
   /**
-   * List of requests that can be used in the monitor query. **This feature is currently in beta.**
+   * List of requests that can be used in the monitor query. <strong>This feature is currently in
+   * beta.</strong>
    *
    * @return variables
    */

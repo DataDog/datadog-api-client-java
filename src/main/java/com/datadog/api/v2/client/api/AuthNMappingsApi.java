@@ -32,7 +32,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -41,7 +41,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -50,7 +50,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Create an AuthN Mapping
+   * Create an AuthN Mapping.
    *
    * <p>See {@link #createAuthNMappingWithHttpInfo}.
    *
@@ -64,7 +64,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Create an AuthN Mapping
+   * Create an AuthN Mapping.
    *
    * <p>See {@link #createAuthNMappingWithHttpInfoAsync}.
    *
@@ -81,9 +81,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Create an AuthN Mapping
-   *
-   * <p>Create an AuthN Mapping.
+   * Create an AuthN Mapping.
    *
    * @param body (required)
    * @return ApiResponse&lt;AuthNMappingResponse&gt;
@@ -134,7 +132,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Create an AuthN Mapping
+   * Create an AuthN Mapping.
    *
    * <p>See {@link #createAuthNMappingWithHttpInfo}.
    *
@@ -186,7 +184,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Delete an AuthN Mapping
+   * Delete an AuthN Mapping.
    *
    * <p>See {@link #deleteAuthNMappingWithHttpInfo}.
    *
@@ -198,7 +196,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Delete an AuthN Mapping
+   * Delete an AuthN Mapping.
    *
    * <p>See {@link #deleteAuthNMappingWithHttpInfoAsync}.
    *
@@ -213,9 +211,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Delete an AuthN Mapping
-   *
-   * <p>Delete an AuthN Mapping specified by AuthN Mapping UUID.
+   * Delete an AuthN Mapping specified by AuthN Mapping UUID.
    *
    * @param authnMappingId The UUID of the AuthN Mapping. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -269,7 +265,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Delete an AuthN Mapping
+   * Delete an AuthN Mapping.
    *
    * <p>See {@link #deleteAuthNMappingWithHttpInfo}.
    *
@@ -326,7 +322,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Get an AuthN Mapping by UUID
+   * Get an AuthN Mapping by UUID.
    *
    * <p>See {@link #getAuthNMappingWithHttpInfo}.
    *
@@ -339,7 +335,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Get an AuthN Mapping by UUID
+   * Get an AuthN Mapping by UUID.
    *
    * <p>See {@link #getAuthNMappingWithHttpInfoAsync}.
    *
@@ -355,9 +351,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Get an AuthN Mapping by UUID
-   *
-   * <p>Get an AuthN Mapping specified by the AuthN Mapping UUID.
+   * Get an AuthN Mapping specified by the AuthN Mapping UUID.
    *
    * @param authnMappingId The UUID of the AuthN Mapping. (required)
    * @return ApiResponse&lt;AuthNMappingResponse&gt;
@@ -411,7 +405,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Get an AuthN Mapping by UUID
+   * Get an AuthN Mapping by UUID.
    *
    * <p>See {@link #getAuthNMappingWithHttpInfo}.
    *
@@ -474,7 +468,7 @@ public class AuthNMappingsApi {
     private String filter;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListAuthNMappingsOptionalParameters
@@ -485,7 +479,7 @@ public class AuthNMappingsApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return ListAuthNMappingsOptionalParameters
@@ -496,7 +490,7 @@ public class AuthNMappingsApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort Sort AuthN Mappings depending on the given field. (optional)
      * @return ListAuthNMappingsOptionalParameters
@@ -507,7 +501,7 @@ public class AuthNMappingsApi {
     }
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter Filter all mappings by the given string. (optional)
      * @return ListAuthNMappingsOptionalParameters
@@ -519,7 +513,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * List all AuthN Mappings
+   * List all AuthN Mappings.
    *
    * <p>See {@link #listAuthNMappingsWithHttpInfo}.
    *
@@ -531,7 +525,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * List all AuthN Mappings
+   * List all AuthN Mappings.
    *
    * <p>See {@link #listAuthNMappingsWithHttpInfoAsync}.
    *
@@ -546,7 +540,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * List all AuthN Mappings
+   * List all AuthN Mappings.
    *
    * <p>See {@link #listAuthNMappingsWithHttpInfo}.
    *
@@ -560,7 +554,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * List all AuthN Mappings
+   * List all AuthN Mappings.
    *
    * <p>See {@link #listAuthNMappingsWithHttpInfoAsync}.
    *
@@ -577,9 +571,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * List all AuthN Mappings
-   *
-   * <p>List all AuthN Mappings in the org.
+   * List all AuthN Mappings in the org.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;AuthNMappingsResponse&gt;
@@ -632,7 +624,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * List all AuthN Mappings
+   * List all AuthN Mappings.
    *
    * <p>See {@link #listAuthNMappingsWithHttpInfo}.
    *
@@ -685,7 +677,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Edit an AuthN Mapping
+   * Edit an AuthN Mapping.
    *
    * <p>See {@link #updateAuthNMappingWithHttpInfo}.
    *
@@ -700,7 +692,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Edit an AuthN Mapping
+   * Edit an AuthN Mapping.
    *
    * <p>See {@link #updateAuthNMappingWithHttpInfoAsync}.
    *
@@ -718,9 +710,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Edit an AuthN Mapping
-   *
-   * <p>Edit an AuthN Mapping.
+   * Edit an AuthN Mapping.
    *
    * @param authnMappingId The UUID of the AuthN Mapping. (required)
    * @param body (required)
@@ -784,7 +774,7 @@ public class AuthNMappingsApi {
   }
 
   /**
-   * Edit an AuthN Mapping
+   * Edit an AuthN Mapping.
    *
    * <p>See {@link #updateAuthNMappingWithHttpInfo}.
    *

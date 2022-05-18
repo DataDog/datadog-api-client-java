@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1641829887\",\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1641829887\"},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1652349195\",\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1652349195\"},\"type\":\"security_filters\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1641829887\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1641829887\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"ixg-a5r-3st\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1652349195\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1652349195\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"lgh-q3c-xlh\"}}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "718538f4-dff2-d3a6-3bde-534fc8c14d45"
+    "id": "1b6a287e-4ed9-5daf-e7e9-a7202bcafd50"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "GET",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/ixg-a5r-3st",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/lgh-q3c-xlh",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1641829887\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1641829887\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"ixg-a5r-3st\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1652349195\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1652349195\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"lgh-q3c-xlh\"}}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -61,7 +61,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2bccd6cb-b4af-11d0-18bb-3a45c565483d"
+    "id": "e580e470-7e8a-72ad-9591-ac3b7ad619ef"
   },
   {
     "httpRequest": {
@@ -71,12 +71,16 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/ixg-a5r-3st",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/lgh-q3c-xlh",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
+      "headers": {
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ]
+      },
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -86,6 +90,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "728f2134-be2b-f17c-7660-6ce3d30a3094"
+    "id": "66069e37-67e4-def4-7922-4be266ae8ec8"
   }
 ]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1641924698\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1652349083\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1641924698\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"My Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":1,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1641924699059,\"creationDate\":1641924699059,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"ves-zq4-ukf\"}}",
+      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1652349083\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"My Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":1,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1652349083546,\"creationDate\":1652349083546,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"xnm-bjf-tfb\"}}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5d770f40-0d40-b2a7-a264-d4d21e6065c4"
+    "id": "86758ad9-8c59-5275-4913-efcc94308b96"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "GET",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ves-zq4-ukf",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/xnm-bjf-tfb",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1641924698\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"My Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":1,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1641924699059,\"creationDate\":1641924699059,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"ves-zq4-ukf\"}}",
+      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1652349083\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"My Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":1,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1652349083546,\"creationDate\":1652349083546,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"xnm-bjf-tfb\"}}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -61,7 +61,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cbba29db-d8d8-87bd-6372-f8a2e07d3d45"
+    "id": "85a61811-cce9-371b-6c68-fe0882a104e0"
   },
   {
     "httpRequest": {
@@ -71,12 +71,16 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ves-zq4-ukf",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/xnm-bjf-tfb",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
+      "headers": {
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ]
+      },
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -86,6 +90,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f9c16d91-d69c-17ca-cc8d-1cdeb0d40ea8"
+    "id": "6ad0b775-4a78-c847-6c2d-d9f9497872c6"
   }
 ]

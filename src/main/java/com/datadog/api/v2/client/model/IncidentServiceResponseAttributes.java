@@ -10,14 +10,16 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-/** The incident service&#39;s attributes from a response. */
+/** The incident service's attributes from a response. */
 @JsonPropertyOrder({
   IncidentServiceResponseAttributes.JSON_PROPERTY_CREATED,
   IncidentServiceResponseAttributes.JSON_PROPERTY_MODIFIED,
@@ -28,9 +30,13 @@ import java.util.Objects;
 public class IncidentServiceResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED = "created";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_NAME = "name";

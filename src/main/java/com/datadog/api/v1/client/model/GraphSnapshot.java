@@ -41,10 +41,10 @@ public class GraphSnapshot {
   }
 
   /**
-   * A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of
-   * &#x60;metric_query&#x60;. The JSON document uses the [grammar defined
-   * here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a
-   * single line then URL encoded.
+   * A JSON document defining the graph. <code>graph_def</code> can be used instead of <code>
+   * metric_query</code>. The JSON document uses the <a
+   * href="https://docs.datadoghq.com/graphing/graphing_json/#grammar">grammar defined here</a> and
+   * should be formatted to a single line then URL encoded.
    *
    * @return graphDef
    */
@@ -65,7 +65,7 @@ public class GraphSnapshot {
   }
 
   /**
-   * The metric query. One of &#x60;metric_query&#x60; or &#x60;graph_def&#x60; is required.
+   * The metric query. One of <code>metric_query</code> or <code>graph_def</code> is required.
    *
    * @return metricQuery
    */
@@ -86,7 +86,7 @@ public class GraphSnapshot {
   }
 
   /**
-   * URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot).
+   * URL of your <a href="https://docs.datadoghq.com/metrics/explorer/#snapshot">graph snapshot</a>.
    *
    * @return snapshotUrl
    */

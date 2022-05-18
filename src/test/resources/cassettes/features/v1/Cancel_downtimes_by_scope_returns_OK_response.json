@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\":\"Test-Cancel_downtimes_by_scope_returns_OK_response-1641829809\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1643644209,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testcanceldowntimesbyscopereturnsokresponse1641829809\"],\"start\":1641829809,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"message\":\"Test-Cancel_downtimes_by_scope_returns_OK_response-1652348995\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1654163395,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testcanceldowntimesbyscopereturnsokresponse1652348995\"],\"start\":1652348995,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":1643644209,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"created\":1641829810,\"org_id\":321813,\"modified\":1641829810,\"disabled\":false,\"start\":1641829809,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testcanceldowntimesbyscopereturnsokresponse1641829809\"],\"message\":\"Test-Cancel_downtimes_by_scope_returns_OK_response-1641829809\",\"downtime_type\":2,\"id\":1672791217,\"updater_id\":null}",
+      "body": "{\"recurrence\":{\"until_date\":1654163395,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1652348995,\"org_id\":321813,\"modified\":1652348995,\"disabled\":false,\"start\":1652348995,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testcanceldowntimesbyscopereturnsokresponse1652348995\"],\"message\":\"Test-Cancel_downtimes_by_scope_returns_OK_response-1652348995\",\"downtime_type\":2,\"id\":1944162243,\"updater_id\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "bf59ccaa-33ae-8ebd-d627-005a302d080a"
+    "id": "00345907-7783-3721-fba6-0477f8d51005"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"scope\":\"test:testcanceldowntimesbyscopereturnsokresponse1641829809\"}"
+        "json": "{\"scope\":\"test:testcanceldowntimesbyscopereturnsokresponse1652348995\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -50,7 +50,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"cancelled_ids\":[1672791217]}",
+      "body": "{\"cancelled_ids\":[1944162243]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "529f9882-971d-2ab6-2185-66f974c0df55"
+    "id": "16aef51d-d3aa-3b8f-a6e5-1008da84330b"
   },
   {
     "httpRequest": {
@@ -75,7 +75,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/downtime/1672791217",
+      "path": "/api/v1/downtime/1944162243",
       "keepAlive": false,
       "secure": true
     },
@@ -90,6 +90,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e5c985d1-f4ca-a7c0-ddba-5456630b1e4b"
+    "id": "3ed9cb4d-5e9e-90e7-bdce-573cde140a5f"
   }
 ]

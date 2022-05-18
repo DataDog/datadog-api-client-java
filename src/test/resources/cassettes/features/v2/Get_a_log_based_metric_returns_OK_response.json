@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"filter\":{\"query\":\"source:Test-Get_a_log_based_metric_returns_OK_response-1642429278\"}},\"id\":\"Test-Get_a_log_based_metric_returns_OK_response-1642429278\",\"type\":\"logs_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"filter\":{\"query\":\"source:Test-Get_a_log_based_metric_returns_OK_response-1652349145\"}},\"id\":\"Test-Get_a_log_based_metric_returns_OK_response-1652349145\",\"type\":\"logs_metrics\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_a_log_based_metric_returns_OK_response-1642429278\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Get_a_log_based_metric_returns_OK_response_1642429278\"}}",
+      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_a_log_based_metric_returns_OK_response-1652349145\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Get_a_log_based_metric_returns_OK_response_1652349145\"}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2faf0c0d-f102-1db6-0586-13e3ef29325a"
+    "id": "2fb8bdbb-1622-9777-8012-76a1de78f9d5"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "GET",
-      "path": "/api/v2/logs/config/metrics/Test_Get_a_log_based_metric_returns_OK_response_1642429278",
+      "path": "/api/v2/logs/config/metrics/Test_Get_a_log_based_metric_returns_OK_response_1652349145",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_a_log_based_metric_returns_OK_response-1642429278\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Get_a_log_based_metric_returns_OK_response_1642429278\"}}",
+      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_a_log_based_metric_returns_OK_response-1652349145\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Get_a_log_based_metric_returns_OK_response_1652349145\"}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -61,7 +61,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "01d0b674-aeae-36d8-e5b4-115839308589"
+    "id": "950a9976-0128-94ff-df3a-9138069c1709"
   },
   {
     "httpRequest": {
@@ -71,7 +71,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/logs/config/metrics/Test_Get_a_log_based_metric_returns_OK_response_1642429278",
+      "path": "/api/v2/logs/config/metrics/Test_Get_a_log_based_metric_returns_OK_response_1652349145",
       "keepAlive": false,
       "secure": true
     },
@@ -91,6 +91,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6871c160-b6c8-7fda-d811-f68d5a8b04c7"
+    "id": "815125a5-3a5f-dc81-adde-4f98ef9d0a02"
   }
 ]

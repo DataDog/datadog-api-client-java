@@ -188,7 +188,7 @@ public class MetricsQueryMetadata {
   }
 
   /**
-   * The index of the series&#39; query within the request.
+   * The index of the series' query within the request.
    *
    * @return queryIndex
    */
@@ -236,9 +236,9 @@ public class MetricsQueryMetadata {
   }
 
   /**
-   * Detailed information about the metric unit. First element describes the &quot;primary
-   * unit&quot; (for example, &#x60;bytes&#x60; in &#x60;bytes per second&#x60;), second describes
-   * the &quot;per unit&quot; (for example, &#x60;second&#x60; in &#x60;bytes per second&#x60;).
+   * Detailed information about the metric unit. First element describes the "primary unit" (for
+   * example, <code>bytes</code> in <code>bytes per second</code>), second describes the "per unit"
+   * (for example, <code>second</code> in <code>bytes per second</code>).
    *
    * @return unit
    */

@@ -21,8 +21,9 @@ import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
- * A metric to submit to Datadog. See [Datadog
- * metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
+ * A metric to submit to Datadog. See <a
+ * href="https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties">Datadog
+ * metrics</a>.
  */
 @JsonPropertyOrder({
   Series.JSON_PROPERTY_HOST,
@@ -52,7 +53,7 @@ public class Series {
   private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "gauge";
+  private String type = "";
 
   public Series() {}
 
@@ -198,7 +199,8 @@ public class Series {
   }
 
   /**
-   * The type of the metric either &#x60;count&#x60;, &#x60;gauge&#x60;, or &#x60;rate&#x60;.
+   * The type of the metric. Valid types are "",<code>count</code>, <code>gauge</code>, and <code>
+   * rate</code>.
    *
    * @return type
    */

@@ -10,10 +10,12 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,8 @@ public class MetricTagConfigurationAttributes {
   private List<MetricCustomAggregation> aggregations = null;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_INCLUDE_PERCENTILES = "include_percentiles";
@@ -45,6 +49,8 @@ public class MetricTagConfigurationAttributes {
   private MetricTagConfigurationMetricTypes metricType = MetricTagConfigurationMetricTypes.GAUGE;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modifiedAt;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
@@ -72,10 +78,22 @@ public class MetricTagConfigurationAttributes {
    * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default,
    * count and rate metrics require the (time: sum, space: sum) aggregation and Gauge metrics
    * require the (time: avg, space: avg) aggregation. Additional time &amp; space combinations are
-   * also available: - time: avg, space: avg - time: avg, space: max - time: avg, space: min - time:
-   * avg, space: sum - time: count, space: sum - time: max, space: max - time: min, space: min -
-   * time: sum, space: avg - time: sum, space: sum Can only be applied to metrics that have a
-   * &#x60;metric_type&#x60; of &#x60;count&#x60;, &#x60;rate&#x60;, or &#x60;gauge&#x60;.
+   * also available:
+   *
+   * <ul>
+   *   <li>time: avg, space: avg
+   *   <li>time: avg, space: max
+   *   <li>time: avg, space: min
+   *   <li>time: avg, space: sum
+   *   <li>time: count, space: sum
+   *   <li>time: max, space: max
+   *   <li>time: min, space: min
+   *   <li>time: sum, space: avg
+   *   <li>time: sum, space: sum
+   * </ul>
+   *
+   * <p>Can only be applied to metrics that have a <code>metric_type</code> of <code>count</code>,
+   * <code>rate</code>, or <code>gauge</code>.
    *
    * @return aggregations
    */
@@ -118,7 +136,7 @@ public class MetricTagConfigurationAttributes {
 
   /**
    * Toggle to turn on/off percentile aggregations for distribution metrics. Only present when the
-   * &#x60;metric_type&#x60; is &#x60;distribution&#x60;.
+   * <code>metric_type</code> is <code>distribution</code>.
    *
    * @return includePercentiles
    */
@@ -140,7 +158,7 @@ public class MetricTagConfigurationAttributes {
   }
 
   /**
-   * The metric&#39;s type.
+   * The metric's type.
    *
    * @return metricType
    */

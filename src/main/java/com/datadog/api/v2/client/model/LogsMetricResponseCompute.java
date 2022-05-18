@@ -64,7 +64,7 @@ public class LogsMetricResponseCompute {
 
   /**
    * The path to the value the log-based metric will aggregate on (only used if the aggregation type
-   * is a &quot;distribution&quot;).
+   * is a "distribution").
    *
    * @return path
    */

@@ -47,7 +47,7 @@ public class LogsArchiveOrderAttributes {
   }
 
   /**
-   * An ordered array of &#x60;&lt;ARCHIVE_ID&gt;&#x60; strings, the order of archive IDs in the
+   * An ordered array of <code>&lt;ARCHIVE_ID&gt;</code> strings, the order of archive IDs in the
    * array define the overall archives order for Datadog.
    *
    * @return archiveIds

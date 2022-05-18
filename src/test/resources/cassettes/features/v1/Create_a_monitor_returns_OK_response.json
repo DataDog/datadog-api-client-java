@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_monitor_returns_OK_response-1641829818\"},\"type\":\"roles\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_monitor_returns_OK_response-1652348780\"},\"type\":\"roles\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"032d0cea-722d-11ec-b5d6-da7ad0900002\",\"attributes\":{\"name\":\"Test-Create_a_monitor_returns_OK_response-1641829818\",\"created_at\":\"2022-01-10T15:50:19.400967+00:00\",\"modified_at\":\"2022-01-10T15:50:19.459041+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}}",
+      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"61162af2-d1d8-11ec-ad3d-da7ad0900002\",\"attributes\":{\"name\":\"Test-Create_a_monitor_returns_OK_response-1652348780\",\"created_at\":\"2022-05-12T09:46:21.361812+00:00\",\"modified_at\":\"2022-05-12T09:46:21.408035+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"b6bf9ac6-9a59-11ec-8480-da7ad0900002\"}]}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5dcfad0b-3d82-df16-188b-37a0e5d9694c"
+    "id": "370414bb-1d17-e3c1-0177-e6f912b30dbd"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\":\"some message Notify: @hipchat-channel\",\"name\":\"Test-Create_a_monitor_returns_OK_response-1641829818\",\"priority\":3,\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"restricted_roles\":[\"032d0cea-722d-11ec-b5d6-da7ad0900002\"],\"tags\":[\"test:testcreateamonitorreturnsokresponse1641829818\",\"env:ci\"],\"type\":\"log alert\"}"
+        "json": "{\"message\":\"some message Notify: @hipchat-channel\",\"name\":\"Test-Create_a_monitor_returns_OK_response-1652348780\",\"priority\":3,\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"restricted_roles\":[\"61162af2-d1d8-11ec-ad3d-da7ad0900002\"],\"tags\":[\"test:testcreateamonitorreturnsokresponse1652348780\",\"env:ci\"],\"type\":\"log alert\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -50,7 +50,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"restricted_roles\":[\"032d0cea-722d-11ec-b5d6-da7ad0900002\"],\"tags\":[\"test:testcreateamonitorreturnsokresponse1641829818\",\"env:ci\"],\"deleted\":null,\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"message\":\"some message Notify: @hipchat-channel\",\"id\":60342516,\"multi\":true,\"name\":\"Test-Create_a_monitor_returns_OK_response-1641829818\",\"created\":\"2022-01-10T15:50:19.917167+00:00\",\"created_at\":1641829819000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2022-01-10T15:50:19.917167+00:00\",\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"log alert\",\"options\":{\"notify_audit\":false,\"locked\":true,\"silenced\":{},\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false,\"groupby_simple_monitor\":false}}",
+      "body": "{\"restricted_roles\":[\"61162af2-d1d8-11ec-ad3d-da7ad0900002\"],\"tags\":[\"test:testcreateamonitorreturnsokresponse1652348780\",\"env:ci\"],\"deleted\":null,\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"message\":\"some message Notify: @hipchat-channel\",\"id\":71310040,\"multi\":true,\"name\":\"Test-Create_a_monitor_returns_OK_response-1652348780\",\"created\":\"2022-05-12T09:46:21.924878+00:00\",\"created_at\":1652348781000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2022-05-12T09:46:21.924878+00:00\",\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"log alert\",\"options\":{\"notify_audit\":false,\"silenced\":{},\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false,\"groupby_simple_monitor\":false}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dc6e19b9-252a-e4ad-b3d5-b5d61177f41b"
+    "id": "40b8a318-b871-f557-c57b-c835c72eb88f"
   },
   {
     "httpRequest": {
@@ -75,12 +75,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/monitor/60342516",
+      "path": "/api/v1/monitor/71310040",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_monitor_id\":60342516}",
+      "body": "{\"deleted_monitor_id\":71310040}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -95,7 +95,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "354dfb64-b694-16ff-1d7a-1b5a2b020d49"
+    "id": "3ae6016a-430c-1897-919e-23207bf42217"
   },
   {
     "httpRequest": {
@@ -105,7 +105,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/roles/032d0cea-722d-11ec-b5d6-da7ad0900002",
+      "path": "/api/v2/roles/61162af2-d1d8-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -120,6 +120,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "65b6543e-a319-06ea-86b0-d15af1778672"
+    "id": "58423f11-3d73-f5d7-071c-aba77765297e"
   }
 ]

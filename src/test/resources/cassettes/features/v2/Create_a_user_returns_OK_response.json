@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Create_a_user_returns_OK_response-1641829905@datadoghq.com\",\"name\":\"Datadog API Client Python\"},\"type\":\"users\"}}"
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Create_a_user_returns_OK_response-1652349215@datadoghq.com\",\"name\":\"Datadog API Client Python\"},\"type\":\"users\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"users\",\"id\":\"36d7b6bc-722d-11ec-b5d7-da7ad0900002\",\"attributes\":{\"name\":\"Datadog API Client Python\",\"handle\":\"test-create_a_user_returns_ok_response-1641829905@datadoghq.com\",\"created_at\":\"2022-01-10T15:51:46.083118+00:00\",\"modified_at\":\"2022-01-10T15:51:46.099179+00:00\",\"email\":\"test-create_a_user_returns_ok_response-1641829905@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/2600d8773e2e8594a02021d9e03518ee?s=48&d=retro\",\"title\":null,\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}",
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"6409ce70-d1d9-11ec-ad3d-da7ad0900002\",\"attributes\":{\"name\":\"Datadog API Client Python\",\"handle\":\"test-create_a_user_returns_ok_response-1652349215@datadoghq.com\",\"created_at\":\"2022-05-12T09:53:35.809381+00:00\",\"modified_at\":\"2022-05-12T09:53:35.827707+00:00\",\"email\":\"test-create_a_user_returns_ok_response-1652349215@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/ae2bdc16fa2261f6d4aec640077b332f?s=48&d=retro\",\"title\":null,\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9485a9f3-692d-c689-fcf0-f4a478162082"
+    "id": "769e4c00-3ac2-5752-74db-43fa8cabd0b1"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/users/36d7b6bc-722d-11ec-b5d7-da7ad0900002",
+      "path": "/api/v2/users/6409ce70-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -56,6 +56,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "39a2c758-a5af-c4b8-cb97-a54d0547ca1c"
+    "id": "9e424e19-9cf1-afb9-4fa2-8e9333ed5167"
   }
 ]

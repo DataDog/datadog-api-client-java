@@ -39,7 +39,7 @@ public class LogsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -48,7 +48,7 @@ public class LogsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -57,7 +57,7 @@ public class LogsApi {
   }
 
   /**
-   * Aggregate events
+   * Aggregate events.
    *
    * <p>See {@link #aggregateLogsWithHttpInfo}.
    *
@@ -70,7 +70,7 @@ public class LogsApi {
   }
 
   /**
-   * Aggregate events
+   * Aggregate events.
    *
    * <p>See {@link #aggregateLogsWithHttpInfoAsync}.
    *
@@ -86,9 +86,7 @@ public class LogsApi {
   }
 
   /**
-   * Aggregate events
-   *
-   * <p>The API endpoint to aggregate events into buckets and compute metrics and timeseries.
+   * The API endpoint to aggregate events into buckets and compute metrics and timeseries.
    *
    * @param body (required)
    * @return ApiResponse&lt;LogsAggregateResponse&gt;
@@ -138,7 +136,7 @@ public class LogsApi {
   }
 
   /**
-   * Aggregate events
+   * Aggregate events.
    *
    * <p>See {@link #aggregateLogsWithHttpInfo}.
    *
@@ -194,7 +192,7 @@ public class LogsApi {
     private LogsListRequest body;
 
     /**
-     * Set body
+     * Set body.
      *
      * @param body (optional)
      * @return ListLogsOptionalParameters
@@ -206,7 +204,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs
+   * Search logs.
    *
    * <p>See {@link #listLogsWithHttpInfo}.
    *
@@ -218,7 +216,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs
+   * Search logs.
    *
    * <p>See {@link #listLogsWithHttpInfoAsync}.
    *
@@ -233,7 +231,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs
+   * Search logs.
    *
    * <p>See {@link #listLogsWithHttpInfo}.
    *
@@ -246,7 +244,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs
+   * Search logs.
    *
    * <p>See {@link #listLogsWithHttpInfoAsync}.
    *
@@ -342,13 +340,15 @@ public class LogsApi {
   }
 
   /**
-   * Search logs
+   * List endpoint returns logs that match a log search query. <a
+   * href="/logs/guide/collect-multiple-logs-with-pagination">Results are paginated</a>.
    *
-   * <p>List endpoint returns logs that match a log search query. [Results are paginated][1]. Use
-   * this endpoint to build complex logs filtering and search. **If you are considering archiving
-   * logs for your organization, consider use of the Datadog archive capabilities instead of the log
-   * list API. See [Datadog Logs Archive documentation][2].** [1]:
-   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+   * <p>Use this endpoint to build complex logs filtering and search.
+   *
+   * <p><strong>If you are considering archiving logs for your organization, consider use of the
+   * Datadog archive capabilities instead of the log list API. See <a
+   * href="https://docs.datadoghq.com/logs/archives">Datadog Logs Archive
+   * documentation</a>.</strong>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LogsListResponse&gt;
@@ -392,7 +392,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs
+   * Search logs.
    *
    * <p>See {@link #listLogsWithHttpInfo}.
    *
@@ -445,7 +445,7 @@ public class LogsApi {
     private Integer pageLimit;
 
     /**
-     * Set filterQuery
+     * Set filterQuery.
      *
      * @param filterQuery Search query following logs syntax. (optional)
      * @return ListLogsGetOptionalParameters
@@ -456,10 +456,10 @@ public class LogsApi {
     }
 
     /**
-     * Set filterIndex
+     * Set filterIndex.
      *
-     * @param filterIndex For customers with multiple indexes, the indexes to search Defaults to
-     *     &#39;*&#39; which means all indexes (optional)
+     * @param filterIndex For customers with multiple indexes, the indexes to search Defaults to '*'
+     *     which means all indexes (optional)
      * @return ListLogsGetOptionalParameters
      */
     public ListLogsGetOptionalParameters filterIndex(String filterIndex) {
@@ -468,7 +468,7 @@ public class LogsApi {
     }
 
     /**
-     * Set filterFrom
+     * Set filterFrom.
      *
      * @param filterFrom Minimum timestamp for requested logs. (optional)
      * @return ListLogsGetOptionalParameters
@@ -479,7 +479,7 @@ public class LogsApi {
     }
 
     /**
-     * Set filterTo
+     * Set filterTo.
      *
      * @param filterTo Maximum timestamp for requested logs. (optional)
      * @return ListLogsGetOptionalParameters
@@ -490,7 +490,7 @@ public class LogsApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort Order of logs in results. (optional)
      * @return ListLogsGetOptionalParameters
@@ -501,7 +501,7 @@ public class LogsApi {
     }
 
     /**
-     * Set pageCursor
+     * Set pageCursor.
      *
      * @param pageCursor List following results with a cursor provided in the previous query.
      *     (optional)
@@ -513,7 +513,7 @@ public class LogsApi {
     }
 
     /**
-     * Set pageLimit
+     * Set pageLimit.
      *
      * @param pageLimit Maximum number of logs in the response. (optional, default to 10)
      * @return ListLogsGetOptionalParameters
@@ -525,7 +525,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs
+   * Get a list of logs.
    *
    * <p>See {@link #listLogsGetWithHttpInfo}.
    *
@@ -537,7 +537,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs
+   * Get a list of logs.
    *
    * <p>See {@link #listLogsGetWithHttpInfoAsync}.
    *
@@ -552,7 +552,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs
+   * Get a list of logs.
    *
    * <p>See {@link #listLogsGetWithHttpInfo}.
    *
@@ -566,7 +566,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs
+   * Get a list of logs.
    *
    * <p>See {@link #listLogsGetWithHttpInfoAsync}.
    *
@@ -647,13 +647,15 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs
+   * List endpoint returns logs that match a log search query. <a
+   * href="/logs/guide/collect-multiple-logs-with-pagination">Results are paginated</a>.
    *
-   * <p>List endpoint returns logs that match a log search query. [Results are paginated][1]. Use
-   * this endpoint to see your latest logs. **If you are considering archiving logs for your
-   * organization, consider use of the Datadog archive capabilities instead of the log list API. See
-   * [Datadog Logs Archive documentation][2].** [1]:
-   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+   * <p>Use this endpoint to see your latest logs.
+   *
+   * <p><strong>If you are considering archiving logs for your organization, consider use of the
+   * Datadog archive capabilities instead of the log list API. See <a
+   * href="https://docs.datadoghq.com/logs/archives">Datadog Logs Archive
+   * documentation</a>.</strong>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;LogsListResponse&gt;
@@ -713,7 +715,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs
+   * Get a list of logs.
    *
    * <p>See {@link #listLogsGetWithHttpInfo}.
    *
@@ -777,7 +779,7 @@ public class LogsApi {
     private String ddtags;
 
     /**
-     * Set contentEncoding
+     * Set contentEncoding.
      *
      * @param contentEncoding HTTP header used to compress the media-type. (optional)
      * @return SubmitLogOptionalParameters
@@ -788,9 +790,9 @@ public class LogsApi {
     }
 
     /**
-     * Set ddtags
+     * Set ddtags.
      *
-     * @param ddtags Log tags can be passed as query parameters with &#x60;text/plain&#x60; content
+     * @param ddtags Log tags can be passed as query parameters with <code>text/plain</code> content
      *     type. (optional)
      * @return SubmitLogOptionalParameters
      */
@@ -801,7 +803,7 @@ public class LogsApi {
   }
 
   /**
-   * Send logs
+   * Send logs.
    *
    * <p>See {@link #submitLogWithHttpInfo}.
    *
@@ -814,7 +816,7 @@ public class LogsApi {
   }
 
   /**
-   * Send logs
+   * Send logs.
    *
    * <p>See {@link #submitLogWithHttpInfoAsync}.
    *
@@ -830,7 +832,7 @@ public class LogsApi {
   }
 
   /**
-   * Send logs
+   * Send logs.
    *
    * <p>See {@link #submitLogWithHttpInfo}.
    *
@@ -845,7 +847,7 @@ public class LogsApi {
   }
 
   /**
-   * Send logs
+   * Send logs.
    *
    * <p>See {@link #submitLogWithHttpInfoAsync}.
    *
@@ -863,24 +865,30 @@ public class LogsApi {
   }
 
   /**
-   * Send logs
+   * Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:
    *
-   * <p>Send your logs to your Datadog platform over HTTP. Limits per HTTP request are: - Maximum
-   * content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum
-   * array size if sending multiple logs in an array: 1000 entries Any log exceeding 1MB is accepted
-   * and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and
-   * returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs
-   * larger than 1MB, and returns a 2xx. Datadog recommends sending your logs compressed. Add the
-   * &#x60;Content-Encoding: gzip&#x60; header to the request when sending compressed logs. The
-   * status codes answered by the HTTP API are: - 202: Accepted: the request has been accepted for
-   * processing - 400: Bad request (likely an issue in the payload formatting) - 401: Unauthorized
-   * (likely a missing API Key) - 403: Permission issue (likely using an invalid API Key) - 408:
-   * Request Timeout, request should be retried after some time - 413: Payload too large (batch is
-   * above 5MB uncompressed) - 429: Too Many Requests, request should be retried after some time -
-   * 500: Internal Server Error, the server encountered an unexpected condition that prevented it
-   * from fulfilling the request, request should be retried after some time - 503: Service
-   * Unavailable, the server is not ready to handle the request probably because it is overloaded,
-   * request should be retried after some time
+   * <ul>
+   *   <li>Maximum content size per payload (uncompressed): 5MB
+   *   <li>Maximum size for a single log: 1MB
+   *   <li>Maximum array size if sending multiple logs in an array: 1000 entries
+   * </ul>
+   *
+   * <p>Any log exceeding 1MB is accepted and truncated by Datadog: - For a single log request, the
+   * API truncates the log at 1MB and returns a 2xx. - For a multi-logs request, the API processes
+   * all logs, truncates only logs larger than 1MB, and returns a 2xx.
+   *
+   * <p>Datadog recommends sending your logs compressed. Add the <code>Content-Encoding: gzip</code>
+   * header to the request when sending compressed logs.
+   *
+   * <p>The status codes answered by the HTTP API are: - 202: Accepted: the request has been
+   * accepted for processing - 400: Bad request (likely an issue in the payload formatting) - 401:
+   * Unauthorized (likely a missing API Key) - 403: Permission issue (likely using an invalid API
+   * Key) - 408: Request Timeout, request should be retried after some time - 413: Payload too large
+   * (batch is above 5MB uncompressed) - 429: Too Many Requests, request should be retried after
+   * some time - 500: Internal Server Error, the server encountered an unexpected condition that
+   * prevented it from fulfilling the request, request should be retried after some time - 503:
+   * Service Unavailable, the server is not ready to handle the request probably because it is
+   * overloaded, request should be retried after some time
    *
    * @param body Log to send (JSON format). (required)
    * @param parameters Optional parameters for the request.
@@ -942,7 +950,7 @@ public class LogsApi {
   }
 
   /**
-   * Send logs
+   * Send logs.
    *
    * <p>See {@link #submitLogWithHttpInfo}.
    *

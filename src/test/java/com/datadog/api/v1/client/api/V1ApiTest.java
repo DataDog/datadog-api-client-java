@@ -16,6 +16,7 @@ import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.Pair;
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.ws.rs.client.Invocation;
@@ -159,11 +160,17 @@ public abstract class V1ApiTest extends TestUtils.APITest {
     String originalBasePath = generalApiClient.getBasePath();
     Integer originalServerIndex = generalApiClient.getServerIndex();
     if (url.startsWith("https://")) {
-      // if we got full URL, ensure that invokeAPI method doesn't use builtin operation servers
-      // but rather falls back to basePath, which is empty => we'll get precisely the URL we want as
-      // result
-      generalApiClient.setBasePath("");
-      generalApiClient.setServerIndex(null);
+      try {
+        URL parsedUrl = new URL(url);
+        HashMap<String, String> serverVariables = new HashMap<>();
+        serverVariables.put("name", parsedUrl.getHost());
+        serverVariables.put("protocol", parsedUrl.getProtocol());
+        url = parsedUrl.getPath();
+        generalApiClient.setServerIndex(1);
+        generalApiClient.setServerVariables(serverVariables);
+      } catch (Exception e) {
+        throw new RuntimeException("Malformed url", e);
+      }
     }
     try {
       Invocation.Builder builder =

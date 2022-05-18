@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** The incident&#39;s relationships from a response. */
+/** The incident's relationships from a response. */
 @JsonPropertyOrder({
   IncidentResponseRelationships.JSON_PROPERTY_COMMANDER_USER,
   IncidentResponseRelationships.JSON_PROPERTY_CREATED_BY_USER,

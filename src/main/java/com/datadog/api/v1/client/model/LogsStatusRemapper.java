@@ -20,20 +20,29 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Use this Processor if you want to assign some attributes as the official status. Each incoming
- * status value is mapped as follows. - Integers from 0 to 7 map to the Syslog severity standards -
- * Strings beginning with &#x60;emerg&#x60; or f (case-insensitive) map to &#x60;emerg&#x60; (0) -
- * Strings beginning with &#x60;a&#x60; (case-insensitive) map to &#x60;alert&#x60; (1) - Strings
- * beginning with &#x60;c&#x60; (case-insensitive) map to &#x60;critical&#x60; (2) - Strings
- * beginning with &#x60;err&#x60; (case-insensitive) map to &#x60;error&#x60; (3) - Strings
- * beginning with &#x60;w&#x60; (case-insensitive) map to &#x60;warning&#x60; (4) - Strings
- * beginning with &#x60;n&#x60; (case-insensitive) map to &#x60;notice&#x60; (5) - Strings beginning
- * with &#x60;i&#x60; (case-insensitive) map to &#x60;info&#x60; (6) - Strings beginning with
- * &#x60;d&#x60;, &#x60;trace&#x60; or &#x60;verbose&#x60; (case-insensitive) map to
- * &#x60;debug&#x60; (7) - Strings beginning with &#x60;o&#x60; or matching &#x60;OK&#x60; or
- * &#x60;Success&#x60; (case-insensitive) map to OK - All others map to &#x60;info&#x60; (6)
- * **Note:** If multiple log status remapper processors can be applied to a given log, only the
- * first one (according to the pipelines order) is taken into account.
+ * Use this Processor if you want to assign some attributes as the official status.
+ *
+ * <p>Each incoming status value is mapped as follows.
+ *
+ * <ul>
+ *   <li>Integers from 0 to 7 map to the Syslog severity standards
+ *   <li>Strings beginning with <code>emerg</code> or f (case-insensitive) map to <code>emerg</code>
+ *       (0)
+ *   <li>Strings beginning with <code>a</code> (case-insensitive) map to <code>alert</code> (1)
+ *   <li>Strings beginning with <code>c</code> (case-insensitive) map to <code>critical</code> (2)
+ *   <li>Strings beginning with <code>err</code> (case-insensitive) map to <code>error</code> (3)
+ *   <li>Strings beginning with <code>w</code> (case-insensitive) map to <code>warning</code> (4)
+ *   <li>Strings beginning with <code>n</code> (case-insensitive) map to <code>notice</code> (5)
+ *   <li>Strings beginning with <code>i</code> (case-insensitive) map to <code>info</code> (6)
+ *   <li>Strings beginning with <code>d</code>, <code>trace</code> or <code>verbose</code>
+ *       (case-insensitive) map to <code>debug</code> (7)
+ *   <li>Strings beginning with <code>o</code> or matching <code>OK</code> or <code>Success</code>
+ *       (case-insensitive) map to OK
+ *   <li>All others map to <code>info</code> (6)
+ * </ul>
+ *
+ * <p><strong>Note:</strong> If multiple log status remapper processors can be applied to a given
+ * log, only the first one (according to the pipelines order) is taken into account.
  */
 @JsonPropertyOrder({
   LogsStatusRemapper.JSON_PROPERTY_IS_ENABLED,

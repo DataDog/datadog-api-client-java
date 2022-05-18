@@ -162,8 +162,8 @@ public class FormulaAndFunctionEventQueryDefinition {
   }
 
   /**
-   * An array of index names to query in the stream. Omit or use &#x60;[]&#x60; to query all indexes
-   * at once.
+   * An array of index names to query in the stream. Omit or use <code>[]</code> to query all
+   * indexes at once.
    *
    * @return indexes
    */

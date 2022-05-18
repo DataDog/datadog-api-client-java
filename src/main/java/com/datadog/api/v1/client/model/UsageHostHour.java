@@ -10,10 +10,12 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -72,6 +74,8 @@ public class UsageHostHour {
   private Long hostCount;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_INFRA_AZURE_APP_SERVICE = "infra_azure_app_service";
@@ -291,8 +295,8 @@ public class UsageHostHour {
 
   /**
    * Contains the total number of billable infrastructure hosts reporting during a given hour. This
-   * is the sum of &#x60;agent_host_count&#x60;, &#x60;aws_host_count&#x60;, and
-   * &#x60;gcp_host_count&#x60;.
+   * is the sum of <code>agent_host_count</code>, <code>aws_host_count</code>, and <code>
+   * gcp_host_count</code>.
    *
    * @return hostCount
    */

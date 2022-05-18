@@ -10,10 +10,12 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,6 +52,8 @@ public class LogContent {
   private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime timestamp;
 
   public LogContent attributes(Map<String, Object> attributes) {
@@ -108,11 +112,11 @@ public class LogContent {
   }
 
   /**
-   * The message [reserved
-   * attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By
-   * default, Datadog ingests the value of the message attribute as the body of the log entry. That
-   * value is then highlighted and displayed in the Logstream, where it is indexed for full text
-   * search.
+   * The message <a
+   * href="https://docs.datadoghq.com/logs/log_collection/#reserved-attributes">reserved
+   * attribute</a> of your log. By default, Datadog ingests the value of the message attribute as
+   * the body of the log entry. That value is then highlighted and displayed in the Logstream, where
+   * it is indexed for full text search.
    *
    * @return message
    */

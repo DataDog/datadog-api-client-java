@@ -61,8 +61,8 @@ public class WebhooksIntegration {
   }
 
   /**
-   * If &#x60;null&#x60;, uses no header. If given a JSON payload, these will be headers attached to
-   * your webhook.
+   * If <code>null</code>, uses no header. If given a JSON payload, these will be headers attached
+   * to your webhook.
    *
    * @return customHeaders
    */
@@ -94,7 +94,7 @@ public class WebhooksIntegration {
   }
 
   /**
-   * Encoding type. Can be given either &#x60;json&#x60; or &#x60;form&#x60;.
+   * Encoding type. Can be given either <code>json</code> or <code>form</code>.
    *
    * @return encodeAs
    */
@@ -118,8 +118,9 @@ public class WebhooksIntegration {
   }
 
   /**
-   * The name of the webhook. It corresponds with &#x60;&lt;WEBHOOK_NAME&gt;&#x60;. Learn more on
-   * how to use it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).
+   * The name of the webhook. It corresponds with <code>&lt;WEBHOOK_NAME&gt;</code>. Learn more on
+   * how to use it in <a href="https://docs.datadoghq.com/monitors/notify">monitor
+   * notifications</a>.
    *
    * @return name
    */
@@ -139,9 +140,9 @@ public class WebhooksIntegration {
   }
 
   /**
-   * If &#x60;null&#x60;, uses the default payload. If given a JSON payload, the webhook returns the
-   * payload specified by the given payload. [Webhooks variable
-   * usage](https://docs.datadoghq.com/integrations/webhooks/#usage).
+   * If <code>null</code>, uses the default payload. If given a JSON payload, the webhook returns
+   * the payload specified by the given payload. <a
+   * href="https://docs.datadoghq.com/integrations/webhooks/#usage">Webhooks variable usage</a>.
    *
    * @return payload
    */

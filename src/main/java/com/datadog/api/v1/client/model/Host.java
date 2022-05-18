@@ -396,7 +396,7 @@ public class Host {
   }
 
   /**
-   * Displays UP when the expected metrics are received and displays &#x60;???&#x60; if no metrics
+   * Displays UP when the expected metrics are received and displays <code>???</code> if no metrics
    * are received.
    *
    * @return up

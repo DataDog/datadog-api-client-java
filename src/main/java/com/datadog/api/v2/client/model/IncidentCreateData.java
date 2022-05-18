@@ -56,7 +56,7 @@ public class IncidentCreateData {
   }
 
   /**
-   * The incident&#39;s attributes for a create request.
+   * The incident's attributes for a create request.
    *
    * @return attributes
    */

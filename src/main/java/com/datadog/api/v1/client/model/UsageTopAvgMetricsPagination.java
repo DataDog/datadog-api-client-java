@@ -64,7 +64,7 @@ public class UsageTopAvgMetricsPagination {
 
   /**
    * The cursor to get the next results (if any). To make the next request, use the same parameters
-   * and add &#x60;next_record_id&#x60;.
+   * and add <code>next_record_id</code>.
    *
    * @return nextRecordId
    */

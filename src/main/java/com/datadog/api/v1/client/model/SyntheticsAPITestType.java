@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Type of the Synthetic test, &#x60;api&#x60;. */
+/** Type of the Synthetic test, <code>api</code>. */
 @JsonSerialize(using = SyntheticsAPITestType.SyntheticsAPITestTypeSerializer.class)
 public class SyntheticsAPITestType {
 

@@ -20,8 +20,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A representation of &#x60;metric&#x60; based SLO time series for the provided queries. This is
- * the same response type from &#x60;batch_query&#x60; endpoint.
+ * A representation of <code>metric</code> based SLO time series for the provided queries. This is
+ * the same response type from <code>batch_query</code> endpoint.
  */
 @JsonPropertyOrder({
   SLOHistoryMetricsSeries.JSON_PROPERTY_COUNT,

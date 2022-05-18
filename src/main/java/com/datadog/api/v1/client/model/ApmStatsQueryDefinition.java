@@ -150,7 +150,7 @@ public class ApmStatsQueryDefinition {
   }
 
   /**
-   * The organization&#39;s host group name and value.
+   * The organization's host group name and value.
    *
    * @return primaryTag
    */

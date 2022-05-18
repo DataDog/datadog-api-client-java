@@ -166,7 +166,7 @@ public class SyntheticsAPIStep {
 
   /**
    * Determines whether or not to consider the entire test as failed if this step fails. Can be used
-   * only if &#x60;allowFailure&#x60; is &#x60;true&#x60;.
+   * only if <code>allowFailure</code> is <code>true</code>.
    *
    * @return isCritical
    */
@@ -251,8 +251,8 @@ public class SyntheticsAPIStep {
   }
 
   /**
-   * The subtype of the Synthetic multistep API test step, currently only supporting
-   * &#x60;http&#x60;.
+   * The subtype of the Synthetic multistep API test step, currently only supporting <code>http
+   * </code>.
    *
    * @return subtype
    */

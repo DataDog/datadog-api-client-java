@@ -9,6 +9,7 @@ import com.datadog.api.v2.client.model.SecurityMonitoringFilterAction;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCase;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleDetectionMethod;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleEvaluationWindow;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuleHardcodedEvaluatorType;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleImpossibleTravelOptions;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleKeepAlive;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleMaxSignalDuration;
@@ -42,6 +43,7 @@ public class Example {
                 new SecurityMonitoringRuleOptions()
                     .detectionMethod(SecurityMonitoringRuleDetectionMethod.THRESHOLD)
                     .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.ZERO_MINUTES)
+                    .hardcodedEvaluatorType(SecurityMonitoringRuleHardcodedEvaluatorType.LOG4SHELL)
                     .impossibleTravelOptions(
                         new SecurityMonitoringRuleImpossibleTravelOptions()
                             .baselineUserLocations(true))

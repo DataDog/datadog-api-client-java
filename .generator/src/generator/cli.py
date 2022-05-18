@@ -1,4 +1,3 @@
-import json
 import pathlib
 
 import click
@@ -50,6 +49,8 @@ def cli(input, output):
     env.filters["is_model"] = openapi.is_model
     env.filters["get_required_attributes"] = openapi.get_required_attributes
     env.filters["escape_html"] = formatter.escape_html
+    env.filters["docstring"] = formatter.docstring
+    env.filters["inline_docstring"] = formatter.inline_docstring
 
     env.globals["enumerate"] = enumerate
     env.globals["get_name"] = openapi.get_name
@@ -78,6 +79,7 @@ def cli(input, output):
         "Configuration.java": env.get_template("Configuration.j2"),
         "JSON.java": env.get_template("JSON.j2"),
         "JavaTimeFormatter.java": env.get_template("JavaTimeFormatter.j2"),
+        "JsonTimeSerializer.java": env.get_template("JsonTimeSerializer.j2"),
         "Pair.java": env.get_template("Pair.j2"),
         "RFC3339DateFormat.java": env.get_template("RFC3339DateFormat.j2"),
         "ServerConfiguration.java": env.get_template("ServerConfiguration.j2"),

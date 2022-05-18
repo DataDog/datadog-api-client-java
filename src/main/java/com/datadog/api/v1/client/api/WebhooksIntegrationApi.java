@@ -31,7 +31,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -40,7 +40,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -49,7 +49,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a webhooks integration
+   * Create a webhooks integration.
    *
    * <p>See {@link #createWebhooksIntegrationWithHttpInfo}.
    *
@@ -63,7 +63,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a webhooks integration
+   * Create a webhooks integration.
    *
    * <p>See {@link #createWebhooksIntegrationWithHttpInfoAsync}.
    *
@@ -80,9 +80,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a webhooks integration
-   *
-   * <p>Creates an endpoint with the name &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Creates an endpoint with the name <code>&lt;WEBHOOK_NAME&gt;</code>.
    *
    * @param body Create a webhooks integration request body. (required)
    * @return ApiResponse&lt;WebhooksIntegration&gt;
@@ -132,7 +130,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a webhooks integration
+   * Create a webhooks integration.
    *
    * <p>See {@link #createWebhooksIntegrationWithHttpInfo}.
    *
@@ -184,7 +182,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a custom variable
+   * Create a custom variable.
    *
    * <p>See {@link #createWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
@@ -198,7 +196,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a custom variable
+   * Create a custom variable.
    *
    * <p>See {@link #createWebhooksIntegrationCustomVariableWithHttpInfoAsync}.
    *
@@ -215,9 +213,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a custom variable
-   *
-   * <p>Creates an endpoint with the name &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Creates an endpoint with the name <code>&lt;CUSTOM_VARIABLE_NAME&gt;</code>.
    *
    * @param body Define a custom variable request body. (required)
    * @return ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;
@@ -270,7 +266,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Create a custom variable
+   * Create a custom variable.
    *
    * <p>See {@link #createWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
@@ -327,7 +323,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a webhook
+   * Delete a webhook.
    *
    * <p>See {@link #deleteWebhooksIntegrationWithHttpInfo}.
    *
@@ -339,7 +335,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a webhook
+   * Delete a webhook.
    *
    * <p>See {@link #deleteWebhooksIntegrationWithHttpInfoAsync}.
    *
@@ -354,9 +350,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a webhook
-   *
-   * <p>Deletes the endpoint with the name &#x60;&lt;WEBHOOK NAME&gt;&#x60;.
+   * Deletes the endpoint with the name <code>&lt;WEBHOOK NAME&gt;</code>.
    *
    * @param webhookName The name of the webhook. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -410,7 +404,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a webhook
+   * Delete a webhook.
    *
    * <p>See {@link #deleteWebhooksIntegrationWithHttpInfo}.
    *
@@ -467,7 +461,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a custom variable
+   * Delete a custom variable.
    *
    * <p>See {@link #deleteWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
@@ -480,7 +474,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a custom variable
+   * Delete a custom variable.
    *
    * <p>See {@link #deleteWebhooksIntegrationCustomVariableWithHttpInfoAsync}.
    *
@@ -496,9 +490,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a custom variable
-   *
-   * <p>Deletes the endpoint with the name &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Deletes the endpoint with the name <code>&lt;CUSTOM_VARIABLE_NAME&gt;</code>.
    *
    * @param customVariableName The name of the custom variable. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -554,7 +546,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Delete a custom variable
+   * Delete a custom variable.
    *
    * <p>See {@link #deleteWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
@@ -612,7 +604,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a webhook integration
+   * Get a webhook integration.
    *
    * <p>See {@link #getWebhooksIntegrationWithHttpInfo}.
    *
@@ -625,7 +617,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a webhook integration
+   * Get a webhook integration.
    *
    * <p>See {@link #getWebhooksIntegrationWithHttpInfoAsync}.
    *
@@ -641,9 +633,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a webhook integration
-   *
-   * <p>Gets the content of the webhook with the name &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Gets the content of the webhook with the name <code>&lt;WEBHOOK_NAME&gt;</code>.
    *
    * @param webhookName The name of the webhook. (required)
    * @return ApiResponse&lt;WebhooksIntegration&gt;
@@ -697,7 +687,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a webhook integration
+   * Get a webhook integration.
    *
    * <p>See {@link #getWebhooksIntegrationWithHttpInfo}.
    *
@@ -753,7 +743,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a custom variable
+   * Get a custom variable.
    *
    * <p>See {@link #getWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
@@ -767,7 +757,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a custom variable
+   * Get a custom variable.
    *
    * <p>See {@link #getWebhooksIntegrationCustomVariableWithHttpInfoAsync}.
    *
@@ -784,11 +774,10 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a custom variable
+   * Shows the content of the custom variable with the name <code>&lt;CUSTOM_VARIABLE_NAME&gt;
+   * </code>.
    *
-   * <p>Shows the content of the custom variable with the name
-   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;. If the custom variable is secret, the value does not
-   * return in the response payload.
+   * <p>If the custom variable is secret, the value does not return in the response payload.
    *
    * @param customVariableName The name of the custom variable. (required)
    * @return ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;
@@ -846,7 +835,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Get a custom variable
+   * Get a custom variable.
    *
    * <p>See {@link #getWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
@@ -906,7 +895,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a webhook
+   * Update a webhook.
    *
    * <p>See {@link #updateWebhooksIntegrationWithHttpInfo}.
    *
@@ -921,7 +910,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a webhook
+   * Update a webhook.
    *
    * <p>See {@link #updateWebhooksIntegrationWithHttpInfoAsync}.
    *
@@ -939,9 +928,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a webhook
-   *
-   * <p>Updates the endpoint with the name &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   * Updates the endpoint with the name <code>&lt;WEBHOOK_NAME&gt;</code>.
    *
    * @param webhookName The name of the webhook. (required)
    * @param body Update an existing Datadog-Webhooks integration. (required)
@@ -1003,7 +990,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a webhook
+   * Update a webhook.
    *
    * <p>See {@link #updateWebhooksIntegrationWithHttpInfo}.
    *
@@ -1071,7 +1058,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a custom variable
+   * Update a custom variable.
    *
    * <p>See {@link #updateWebhooksIntegrationCustomVariableWithHttpInfo}.
    *
@@ -1087,7 +1074,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a custom variable
+   * Update a custom variable.
    *
    * <p>See {@link #updateWebhooksIntegrationCustomVariableWithHttpInfoAsync}.
    *
@@ -1106,9 +1093,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a custom variable
-   *
-   * <p>Updates the endpoint with the name &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   * Updates the endpoint with the name <code>&lt;CUSTOM_VARIABLE_NAME&gt;</code>.
    *
    * @param customVariableName The name of the custom variable. (required)
    * @param body Update an existing custom variable request body. (required)
@@ -1176,7 +1161,7 @@ public class WebhooksIntegrationApi {
   }
 
   /**
-   * Update a custom variable
+   * Update a custom variable.
    *
    * <p>See {@link #updateWebhooksIntegrationCustomVariableWithHttpInfo}.
    *

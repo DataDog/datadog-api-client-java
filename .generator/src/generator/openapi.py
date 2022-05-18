@@ -40,6 +40,10 @@ def get_required_attributes(schema):
     return {k: v for k, v in properties.items() if k in required_attr_list}
 
 
+def has_additional_properties(schema):
+    return schema.get("additionalProperties") not in (None, False)
+
+
 def get_api_models(operations):
     seen = set()
     for _, _, operation in operations:
@@ -74,7 +78,7 @@ def get_api_models(operations):
                 if (
                     "schema" in content
                     and "items" not in content["schema"]
-                    and "additionalProperties" not in content["schema"]
+                    and (not has_additional_properties(content["schema"]) or "properties" in content["schema"])
                 ):
                     name = formatter.schema_name(content["schema"])
                     if name and name not in seen:
@@ -112,7 +116,10 @@ def type_to_java(schema, alternative_name=None):
     if name:
         if "enum" in schema:
             return prefix + name
-        if not schema.get("additionalProperties") and schema.get("type", "object") == "object":
+        if (
+            not (has_additional_properties(schema) and not schema.get("properties"))
+            and schema.get("type", "object") == "object"
+        ):
             return prefix + name
 
     type_ = schema.get("type")
@@ -133,7 +140,7 @@ def type_to_java(schema, alternative_name=None):
         name = type_to_java(schema["items"], alternative_name=alternative_name)
         return "List<{}>".format(name)
     elif type_ == "object":
-        if "additionalProperties" in schema:
+        if has_additional_properties(schema) and not schema.get("properties"):
             return "Map<String, {}>".format(type_to_java(schema["additionalProperties"]))
 
         if schema.get("parent") and not alternative_name:
@@ -223,7 +230,7 @@ def child_models(schema, alternative_name=None, seen=None, parent=None):
         )
 
     if (schema.get("type") == "object" or "properties" in schema or has_sub_models) and (
-        "additionalProperties" not in schema or schema["additionalProperties"] is False
+        not (has_additional_properties(schema) and not schema.get("properties"))
     ):
         if not has_sub_models and name is None:
             # this is a basic map object so we don't need a type
@@ -257,7 +264,7 @@ def child_models(schema, alternative_name=None, seen=None, parent=None):
         seen.add(name)
         yield name, schema
 
-    if "additionalProperties" in schema:
+    if has_additional_properties(schema):
         nested_name = get_name(schema["additionalProperties"])
         if nested_name:
             yield from child_models(

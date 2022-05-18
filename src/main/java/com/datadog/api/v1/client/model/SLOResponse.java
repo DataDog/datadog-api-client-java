@@ -38,7 +38,8 @@ public class SLOResponse {
 
   /**
    * A service level objective object includes a service level indicator, thresholds for one or more
-   * timeframes, and metadata (&#x60;name&#x60;, &#x60;description&#x60;, &#x60;tags&#x60;, etc.).
+   * timeframes, and metadata (<code>name</code>, <code>description</code>, <code>tags</code>,
+   * etc.).
    *
    * @return data
    */

@@ -10,11 +10,13 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +56,8 @@ public class Dashboard {
   private JsonNullable<String> authorName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -69,6 +73,8 @@ public class Dashboard {
   private DashboardLayoutType layoutType;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modifiedAt;
 
   public static final String JSON_PROPERTY_NOTIFY_LIST = "notify_list";
@@ -211,7 +217,7 @@ public class Dashboard {
 
   /**
    * Whether this dashboard is read-only. If True, only the author and admins can make changes to
-   * it. Prefer using &#x60;restricted_roles&#x60; to manage write authorization.
+   * it. Prefer using <code>restricted_roles</code> to manage write authorization.
    *
    * @return isReadOnly
    * @deprecated
@@ -314,9 +320,9 @@ public class Dashboard {
   }
 
   /**
-   * Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is
-   * &#39;ordered&#39;. If set to &#39;fixed&#39;, the dashboard expects all widgets to have a
-   * layout, and if it&#39;s set to &#39;auto&#39;, widgets should not have layouts.
+   * Reflow type for a <strong>new dashboard layout</strong> dashboard. Set this only when layout
+   * type is 'ordered'. If set to 'fixed', the dashboard expects all widgets to have a layout, and
+   * if it's set to 'auto', widgets should not have layouts.
    *
    * @return reflowType
    */

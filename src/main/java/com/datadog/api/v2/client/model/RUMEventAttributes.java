@@ -10,10 +10,12 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,6 +44,8 @@ public class RUMEventAttributes {
   private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime timestamp;
 
   public RUMEventAttributes attributes(Map<String, Object> attributes) {

@@ -35,7 +35,7 @@ public class AuditApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -44,7 +44,7 @@ public class AuditApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -62,7 +62,7 @@ public class AuditApi {
     private Integer pageLimit;
 
     /**
-     * Set filterQuery
+     * Set filterQuery.
      *
      * @param filterQuery Search query following Audit Logs syntax. (optional)
      * @return ListAuditLogsOptionalParameters
@@ -73,7 +73,7 @@ public class AuditApi {
     }
 
     /**
-     * Set filterFrom
+     * Set filterFrom.
      *
      * @param filterFrom Minimum timestamp for requested events. (optional)
      * @return ListAuditLogsOptionalParameters
@@ -84,7 +84,7 @@ public class AuditApi {
     }
 
     /**
-     * Set filterTo
+     * Set filterTo.
      *
      * @param filterTo Maximum timestamp for requested events. (optional)
      * @return ListAuditLogsOptionalParameters
@@ -95,7 +95,7 @@ public class AuditApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort Order of events in results. (optional)
      * @return ListAuditLogsOptionalParameters
@@ -106,7 +106,7 @@ public class AuditApi {
     }
 
     /**
-     * Set pageCursor
+     * Set pageCursor.
      *
      * @param pageCursor List following results with a cursor provided in the previous query.
      *     (optional)
@@ -118,7 +118,7 @@ public class AuditApi {
     }
 
     /**
-     * Set pageLimit
+     * Set pageLimit.
      *
      * @param pageLimit Maximum number of events in the response. (optional, default to 10)
      * @return ListAuditLogsOptionalParameters
@@ -130,7 +130,7 @@ public class AuditApi {
   }
 
   /**
-   * Get a list of Audit Logs events
+   * Get a list of Audit Logs events.
    *
    * <p>See {@link #listAuditLogsWithHttpInfo}.
    *
@@ -142,7 +142,7 @@ public class AuditApi {
   }
 
   /**
-   * Get a list of Audit Logs events
+   * Get a list of Audit Logs events.
    *
    * <p>See {@link #listAuditLogsWithHttpInfoAsync}.
    *
@@ -157,7 +157,7 @@ public class AuditApi {
   }
 
   /**
-   * Get a list of Audit Logs events
+   * Get a list of Audit Logs events.
    *
    * <p>See {@link #listAuditLogsWithHttpInfo}.
    *
@@ -171,7 +171,7 @@ public class AuditApi {
   }
 
   /**
-   * Get a list of Audit Logs events
+   * Get a list of Audit Logs events.
    *
    * <p>See {@link #listAuditLogsWithHttpInfoAsync}.
    *
@@ -252,11 +252,11 @@ public class AuditApi {
   }
 
   /**
-   * Get a list of Audit Logs events
+   * List endpoint returns events that match a Audit Logs search query. <a
+   * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
+   * paginated</a>.
    *
-   * <p>List endpoint returns events that match a Audit Logs search query. [Results are
-   * paginated][1]. Use this endpoint to see your latest Audit Logs events. [1]:
-   * https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * <p>Use this endpoint to see your latest Audit Logs events.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;AuditLogsEventsResponse&gt;
@@ -314,7 +314,7 @@ public class AuditApi {
   }
 
   /**
-   * Get a list of Audit Logs events
+   * Get a list of Audit Logs events.
    *
    * <p>See {@link #listAuditLogsWithHttpInfo}.
    *
@@ -375,7 +375,7 @@ public class AuditApi {
     private AuditLogsSearchEventsRequest body;
 
     /**
-     * Set body
+     * Set body.
      *
      * @param body (optional)
      * @return SearchAuditLogsOptionalParameters
@@ -387,7 +387,7 @@ public class AuditApi {
   }
 
   /**
-   * Search Audit Logs events
+   * Search Audit Logs events.
    *
    * <p>See {@link #searchAuditLogsWithHttpInfo}.
    *
@@ -399,7 +399,7 @@ public class AuditApi {
   }
 
   /**
-   * Search Audit Logs events
+   * Search Audit Logs events.
    *
    * <p>See {@link #searchAuditLogsWithHttpInfoAsync}.
    *
@@ -414,7 +414,7 @@ public class AuditApi {
   }
 
   /**
-   * Search Audit Logs events
+   * Search Audit Logs events.
    *
    * <p>See {@link #searchAuditLogsWithHttpInfo}.
    *
@@ -428,7 +428,7 @@ public class AuditApi {
   }
 
   /**
-   * Search Audit Logs events
+   * Search Audit Logs events.
    *
    * <p>See {@link #searchAuditLogsWithHttpInfoAsync}.
    *
@@ -525,11 +525,11 @@ public class AuditApi {
   }
 
   /**
-   * Search Audit Logs events
+   * List endpoint returns Audit Logs events that match an Audit search query. <a
+   * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
+   * paginated</a>.
    *
-   * <p>List endpoint returns Audit Logs events that match an Audit search query. [Results are
-   * paginated][1]. Use this endpoint to build complex Audit Logs events filtering and search. [1]:
-   * https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * <p>Use this endpoint to build complex Audit Logs events filtering and search.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;AuditLogsEventsResponse&gt;
@@ -573,7 +573,7 @@ public class AuditApi {
   }
 
   /**
-   * Search Audit Logs events
+   * Search Audit Logs events.
    *
    * <p>See {@link #searchAuditLogsWithHttpInfo}.
    *

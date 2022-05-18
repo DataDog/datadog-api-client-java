@@ -148,7 +148,7 @@ public class SyntheticsAPITestConfig {
   }
 
   /**
-   * When the test subtype is &#x60;multi&#x60;, the steps of the test.
+   * When the test subtype is <code>multi</code>, the steps of the test.
    *
    * @return steps
    */

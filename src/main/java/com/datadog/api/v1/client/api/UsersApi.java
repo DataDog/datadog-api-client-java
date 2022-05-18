@@ -30,7 +30,7 @@ public class UsersApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -39,7 +39,7 @@ public class UsersApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -48,7 +48,7 @@ public class UsersApi {
   }
 
   /**
-   * Create a user
+   * Create a user.
    *
    * <p>See {@link #createUserWithHttpInfo}.
    *
@@ -61,7 +61,7 @@ public class UsersApi {
   }
 
   /**
-   * Create a user
+   * Create a user.
    *
    * <p>See {@link #createUserWithHttpInfoAsync}.
    *
@@ -77,10 +77,10 @@ public class UsersApi {
   }
 
   /**
-   * Create a user
+   * Create a user for your organization.
    *
-   * <p>Create a user for your organization. **Note**: Users can only be created with the admin
-   * access role if application keys belong to administrators.
+   * <p><strong>Note</strong>: Users can only be created with the admin access role if application
+   * keys belong to administrators.
    *
    * @param body User object that needs to be created. (required)
    * @return ApiResponse&lt;UserResponse&gt;
@@ -129,7 +129,7 @@ public class UsersApi {
   }
 
   /**
-   * Create a user
+   * Create a user.
    *
    * <p>See {@link #createUserWithHttpInfo}.
    *
@@ -179,7 +179,7 @@ public class UsersApi {
   }
 
   /**
-   * Disable a user
+   * Disable a user.
    *
    * <p>See {@link #disableUserWithHttpInfo}.
    *
@@ -192,7 +192,7 @@ public class UsersApi {
   }
 
   /**
-   * Disable a user
+   * Disable a user.
    *
    * <p>See {@link #disableUserWithHttpInfoAsync}.
    *
@@ -208,10 +208,10 @@ public class UsersApi {
   }
 
   /**
-   * Disable a user
+   * Delete a user from an organization.
    *
-   * <p>Delete a user from an organization. **Note**: This endpoint can only be used with
-   * application keys belonging to administrators.
+   * <p><strong>Note</strong>: This endpoint can only be used with application keys belonging to
+   * administrators.
    *
    * @param userHandle The handle of the user. (required)
    * @return ApiResponse&lt;UserDisableResponse&gt;
@@ -265,7 +265,7 @@ public class UsersApi {
   }
 
   /**
-   * Disable a user
+   * Disable a user.
    *
    * <p>See {@link #disableUserWithHttpInfo}.
    *
@@ -320,7 +320,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user details
+   * Get user details.
    *
    * <p>See {@link #getUserWithHttpInfo}.
    *
@@ -333,7 +333,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user details
+   * Get user details.
    *
    * <p>See {@link #getUserWithHttpInfoAsync}.
    *
@@ -349,9 +349,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user details
-   *
-   * <p>Get a user&#39;s details.
+   * Get a user's details.
    *
    * @param userHandle The ID of the user. (required)
    * @return ApiResponse&lt;UserResponse&gt;
@@ -403,7 +401,7 @@ public class UsersApi {
   }
 
   /**
-   * Get user details
+   * Get user details.
    *
    * <p>See {@link #getUserWithHttpInfo}.
    *
@@ -457,7 +455,7 @@ public class UsersApi {
   }
 
   /**
-   * List all users
+   * List all users.
    *
    * <p>See {@link #listUsersWithHttpInfo}.
    *
@@ -469,7 +467,7 @@ public class UsersApi {
   }
 
   /**
-   * List all users
+   * List all users.
    *
    * <p>See {@link #listUsersWithHttpInfoAsync}.
    *
@@ -484,9 +482,7 @@ public class UsersApi {
   }
 
   /**
-   * List all users
-   *
-   * <p>List all users for your organization.
+   * List all users for your organization.
    *
    * @return ApiResponse&lt;UserListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -527,7 +523,7 @@ public class UsersApi {
   }
 
   /**
-   * List all users
+   * List all users.
    *
    * <p>See {@link #listUsersWithHttpInfo}.
    *
@@ -568,7 +564,7 @@ public class UsersApi {
   }
 
   /**
-   * Update a user
+   * Update a user.
    *
    * <p>See {@link #updateUserWithHttpInfo}.
    *
@@ -582,7 +578,7 @@ public class UsersApi {
   }
 
   /**
-   * Update a user
+   * Update a user.
    *
    * <p>See {@link #updateUserWithHttpInfoAsync}.
    *
@@ -599,9 +595,9 @@ public class UsersApi {
   }
 
   /**
-   * Update a user
+   * Update a user information.
    *
-   * <p>Update a user information. **Note**: It can only be used with application keys belonging to
+   * <p><strong>Note</strong>: It can only be used with application keys belonging to
    * administrators.
    *
    * @param userHandle The ID of the user. (required)
@@ -662,7 +658,7 @@ public class UsersApi {
   }
 
   /**
-   * Update a user
+   * Update a user.
    *
    * <p>See {@link #updateUserWithHttpInfo}.
    *

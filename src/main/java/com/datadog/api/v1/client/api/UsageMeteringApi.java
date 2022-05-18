@@ -70,7 +70,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -79,7 +79,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -95,9 +95,9 @@ public class UsageMeteringApi {
     private UsageSort sort;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
-     * @param pageSize The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;.
+     * @param pageSize The number of files to return in the response. <code>[default=60]</code>.
      *     (optional)
      * @return GetDailyCustomReportsOptionalParameters
      */
@@ -107,10 +107,10 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber The identifier of the first page to return. This parameter is used for the
-     *     pagination feature &#x60;[default&#x3D;0]&#x60;. (optional)
+     *     pagination feature <code>[default=0]</code>. (optional)
      * @return GetDailyCustomReportsOptionalParameters
      */
     public GetDailyCustomReportsOptionalParameters pageNumber(Long pageNumber) {
@@ -119,9 +119,9 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortDir
+     * Set sortDir.
      *
-     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to
+     * @param sortDir The direction to sort by: <code>[desc, asc]</code>. (optional, default to
      *     "desc")
      * @return GetDailyCustomReportsOptionalParameters
      */
@@ -131,9 +131,9 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
-     * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
+     * @param sort The field to sort by: <code>[computed_on, size, start_date, end_date]</code>.
      *     (optional, default to "start_date")
      * @return GetDailyCustomReportsOptionalParameters
      */
@@ -144,25 +144,29 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available daily custom reports
+   * Get the list of available daily custom reports.
    *
    * <p>See {@link #getDailyCustomReportsWithHttpInfo}.
    *
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageCustomReportsResponse getDailyCustomReports() throws ApiException {
     return getDailyCustomReportsWithHttpInfo(new GetDailyCustomReportsOptionalParameters())
         .getData();
   }
 
   /**
-   * Get the list of available daily custom reports
+   * Get the list of available daily custom reports.
    *
    * <p>See {@link #getDailyCustomReportsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageCustomReportsResponse> getDailyCustomReportsAsync() {
     return getDailyCustomReportsWithHttpInfoAsync(new GetDailyCustomReportsOptionalParameters())
         .thenApply(
@@ -172,27 +176,31 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available daily custom reports
+   * Get the list of available daily custom reports.
    *
    * <p>See {@link #getDailyCustomReportsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageCustomReportsResponse getDailyCustomReports(
       GetDailyCustomReportsOptionalParameters parameters) throws ApiException {
     return getDailyCustomReportsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get the list of available daily custom reports
+   * Get the list of available daily custom reports.
    *
    * <p>See {@link #getDailyCustomReportsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageCustomReportsResponse> getDailyCustomReportsAsync(
       GetDailyCustomReportsOptionalParameters parameters) {
     return getDailyCustomReportsWithHttpInfoAsync(parameters)
@@ -203,9 +211,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available daily custom reports
-   *
-   * <p>Get daily custom reports.
+   * Get daily custom reports.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
@@ -218,7 +224,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageCustomReportsResponse> getDailyCustomReportsWithHttpInfo(
       GetDailyCustomReportsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
@@ -258,13 +267,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available daily custom reports
+   * Get the list of available daily custom reports.
    *
    * <p>See {@link #getDailyCustomReportsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageCustomReportsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageCustomReportsResponse>>
       getDailyCustomReportsWithHttpInfoAsync(GetDailyCustomReportsOptionalParameters parameters) {
     Object localVarPostBody = null;
@@ -317,10 +328,10 @@ public class UsageMeteringApi {
     private String tagBreakdownKeys;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetHourlyUsageAttributionOptionalParameters
      */
     public GetHourlyUsageAttributionOptionalParameters endHr(OffsetDateTime endHr) {
@@ -329,7 +340,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set nextRecordId
+     * Set nextRecordId.
      *
      * @param nextRecordId List following results with a next_record_id provided in the previous
      *     query. (optional)
@@ -341,11 +352,11 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set tagBreakdownKeys
+     * Set tagBreakdownKeys.
      *
      * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is
      *     provided the usage will not be broken down by tags. To see which tags are available, look
-     *     for the value of &#x60;tag_config_source&#x60; in the API response. (optional)
+     *     for the value of <code>tag_config_source</code> in the API response. (optional)
      * @return GetHourlyUsageAttributionOptionalParameters
      */
     public GetHourlyUsageAttributionOptionalParameters tagBreakdownKeys(String tagBreakdownKeys) {
@@ -355,11 +366,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution
+   * Get Hourly Usage Attribution.
    *
    * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param usageType Usage type to retrieve. (required)
    * @return HourlyUsageAttributionResponse
@@ -373,11 +384,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution
+   * Get Hourly Usage Attribution.
    *
    * <p>See {@link #getHourlyUsageAttributionWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param usageType Usage type to retrieve. (required)
    * @return CompletableFuture&lt;HourlyUsageAttributionResponse&gt;
@@ -393,11 +404,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution
+   * Get Hourly Usage Attribution.
    *
    * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param usageType Usage type to retrieve. (required)
    * @param parameters Optional parameters for the request.
@@ -413,11 +424,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution
+   * Get Hourly Usage Attribution.
    *
    * <p>See {@link #getHourlyUsageAttributionWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param usageType Usage type to retrieve. (required)
    * @param parameters Optional parameters for the request.
@@ -435,18 +446,21 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution
+   * Get Hourly Usage Attribution.
    *
-   * <p>Get Hourly Usage Attribution. This API endpoint is paginated. To make sure you receive all
-   * records, check if the value of &#x60;next_record_id&#x60; is set in the response. If it is,
-   * make another request and pass &#x60;next_record_id&#x60; as a parameter. Pseudo code example:
-   * &#x60;&#x60;&#x60; response :&#x3D; GetHourlyUsageAttribution(start_month) cursor :&#x3D;
-   * response.metadata.pagination.next_record_id WHILE cursor !&#x3D; null BEGIN sleep(5 seconds) #
-   * Avoid running into rate limit response :&#x3D; GetHourlyUsageAttribution(start_month,
-   * next_record_id&#x3D;cursor) cursor :&#x3D; response.metadata.pagination.next_record_id END
-   * &#x60;&#x60;&#x60;
+   * <p>This API endpoint is paginated. To make sure you receive all records, check if the value of
+   * <code>next_record_id</code> is set in the response. If it is, make another request and pass
+   * <code>next_record_id</code> as a parameter. Pseudo code example:
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * <p><code>response := GetHourlyUsageAttribution(start_month)
+   * cursor := response.metadata.pagination.next_record_id
+   * WHILE cursor != null BEGIN
+   *   sleep(5 seconds)  # Avoid running into rate limit
+   *   response := GetHourlyUsageAttribution(start_month, next_record_id=cursor)
+   *   cursor := response.metadata.pagination.next_record_id
+   * END</code>
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param usageType Usage type to retrieve. (required)
    * @param parameters Optional parameters for the request.
@@ -516,11 +530,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution
+   * Get Hourly Usage Attribution.
    *
    * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param usageType Usage type to retrieve. (required)
    * @param parameters Optional parameters for the request.
@@ -603,10 +617,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetIncidentManagementOptionalParameters
      */
     public GetIncidentManagementOptionalParameters endHr(OffsetDateTime endHr) {
@@ -616,11 +630,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management
+   * Get hourly usage for incident management.
    *
    * <p>See {@link #getIncidentManagementWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageIncidentManagementResponse
    * @throws ApiException if fails to make API call
@@ -632,11 +646,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management
+   * Get hourly usage for incident management.
    *
    * <p>See {@link #getIncidentManagementWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageIncidentManagementResponse&gt;
    */
@@ -651,11 +665,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management
+   * Get hourly usage for incident management.
    *
    * <p>See {@link #getIncidentManagementWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageIncidentManagementResponse
@@ -668,11 +682,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management
+   * Get hourly usage for incident management.
    *
    * <p>See {@link #getIncidentManagementWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageIncidentManagementResponse&gt;
@@ -687,11 +701,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management
+   * Get hourly usage for incident management.
    *
-   * <p>Get hourly usage for incident management.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageIncidentManagementResponse&gt;
@@ -747,11 +759,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management
+   * Get hourly usage for incident management.
    *
    * <p>See {@link #getIncidentManagementWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageIncidentManagementResponse&gt;&gt;
@@ -813,10 +825,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetIngestedSpansOptionalParameters
      */
     public GetIngestedSpansOptionalParameters endHr(OffsetDateTime endHr) {
@@ -826,11 +838,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans
+   * Get hourly usage for ingested spans.
    *
    * <p>See {@link #getIngestedSpansWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageIngestedSpansResponse
    * @throws ApiException if fails to make API call
@@ -841,11 +853,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans
+   * Get hourly usage for ingested spans.
    *
    * <p>See {@link #getIngestedSpansWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageIngestedSpansResponse&gt;
    */
@@ -859,11 +871,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans
+   * Get hourly usage for ingested spans.
    *
    * <p>See {@link #getIngestedSpansWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageIngestedSpansResponse
@@ -875,11 +887,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans
+   * Get hourly usage for ingested spans.
    *
    * <p>See {@link #getIngestedSpansWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageIngestedSpansResponse&gt;
@@ -894,11 +906,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans
+   * Get hourly usage for ingested spans.
    *
-   * <p>Get hourly usage for ingested spans.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageIngestedSpansResponse&gt;
@@ -953,11 +963,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans
+   * Get hourly usage for ingested spans.
    *
    * <p>See {@link #getIngestedSpansWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageIngestedSpansResponse&gt;&gt;
@@ -1020,9 +1030,9 @@ public class UsageMeteringApi {
     private UsageSort sort;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
-     * @param pageSize The number of files to return in the response &#x60;[default&#x3D;60].&#x60;
+     * @param pageSize The number of files to return in the response <code>[default=60].</code>
      *     (optional)
      * @return GetMonthlyCustomReportsOptionalParameters
      */
@@ -1032,10 +1042,10 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber The identifier of the first page to return. This parameter is used for the
-     *     pagination feature &#x60;[default&#x3D;0]&#x60;. (optional)
+     *     pagination feature <code>[default=0]</code>. (optional)
      * @return GetMonthlyCustomReportsOptionalParameters
      */
     public GetMonthlyCustomReportsOptionalParameters pageNumber(Long pageNumber) {
@@ -1044,9 +1054,9 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortDir
+     * Set sortDir.
      *
-     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to
+     * @param sortDir The direction to sort by: <code>[desc, asc]</code>. (optional, default to
      *     "desc")
      * @return GetMonthlyCustomReportsOptionalParameters
      */
@@ -1056,9 +1066,9 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
-     * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
+     * @param sort The field to sort by: <code>[computed_on, size, start_date, end_date]</code>.
      *     (optional, default to "start_date")
      * @return GetMonthlyCustomReportsOptionalParameters
      */
@@ -1069,25 +1079,29 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available monthly custom reports
+   * Get the list of available monthly custom reports.
    *
    * <p>See {@link #getMonthlyCustomReportsWithHttpInfo}.
    *
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageCustomReportsResponse getMonthlyCustomReports() throws ApiException {
     return getMonthlyCustomReportsWithHttpInfo(new GetMonthlyCustomReportsOptionalParameters())
         .getData();
   }
 
   /**
-   * Get the list of available monthly custom reports
+   * Get the list of available monthly custom reports.
    *
    * <p>See {@link #getMonthlyCustomReportsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageCustomReportsResponse> getMonthlyCustomReportsAsync() {
     return getMonthlyCustomReportsWithHttpInfoAsync(new GetMonthlyCustomReportsOptionalParameters())
         .thenApply(
@@ -1097,27 +1111,31 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available monthly custom reports
+   * Get the list of available monthly custom reports.
    *
    * <p>See {@link #getMonthlyCustomReportsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageCustomReportsResponse getMonthlyCustomReports(
       GetMonthlyCustomReportsOptionalParameters parameters) throws ApiException {
     return getMonthlyCustomReportsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get the list of available monthly custom reports
+   * Get the list of available monthly custom reports.
    *
    * <p>See {@link #getMonthlyCustomReportsWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageCustomReportsResponse> getMonthlyCustomReportsAsync(
       GetMonthlyCustomReportsOptionalParameters parameters) {
     return getMonthlyCustomReportsWithHttpInfoAsync(parameters)
@@ -1128,9 +1146,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available monthly custom reports
-   *
-   * <p>Get monthly custom reports.
+   * Get monthly custom reports.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
@@ -1143,7 +1159,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageCustomReportsResponse> getMonthlyCustomReportsWithHttpInfo(
       GetMonthlyCustomReportsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
@@ -1183,13 +1202,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get the list of available monthly custom reports
+   * Get the list of available monthly custom reports.
    *
    * <p>See {@link #getMonthlyCustomReportsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageCustomReportsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageCustomReportsResponse>>
       getMonthlyCustomReportsWithHttpInfoAsync(
           GetMonthlyCustomReportsOptionalParameters parameters) {
@@ -1245,10 +1266,10 @@ public class UsageMeteringApi {
     private String nextRecordId;
 
     /**
-     * Set endMonth
+     * Set endMonth.
      *
-     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-     *     usage ending this month. (optional)
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+     *     for usage ending this month. (optional)
      * @return GetMonthlyUsageAttributionOptionalParameters
      */
     public GetMonthlyUsageAttributionOptionalParameters endMonth(OffsetDateTime endMonth) {
@@ -1257,10 +1278,10 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortDirection
+     * Set sortDirection.
      *
-     * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to
-     *     "desc")
+     * @param sortDirection The direction to sort by: <code>[desc, asc]</code>. (optional, default
+     *     to "desc")
      * @return GetMonthlyUsageAttributionOptionalParameters
      */
     public GetMonthlyUsageAttributionOptionalParameters sortDirection(
@@ -1270,7 +1291,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortName
+     * Set sortName.
      *
      * @param sortName The field to sort by. (optional)
      * @return GetMonthlyUsageAttributionOptionalParameters
@@ -1282,11 +1303,11 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set tagBreakdownKeys
+     * Set tagBreakdownKeys.
      *
      * @param tagBreakdownKeys Comma separated list of tag keys used to group usage. If no value is
      *     provided the usage will not be broken down by tags. To see which tags are available, look
-     *     for the value of &#x60;tag_config_source&#x60; in the API response. (optional)
+     *     for the value of <code>tag_config_source</code> in the API response. (optional)
      * @return GetMonthlyUsageAttributionOptionalParameters
      */
     public GetMonthlyUsageAttributionOptionalParameters tagBreakdownKeys(String tagBreakdownKeys) {
@@ -1295,7 +1316,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set nextRecordId
+     * Set nextRecordId.
      *
      * @param nextRecordId List following results with a next_record_id provided in the previous
      *     query. (optional)
@@ -1308,13 +1329,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution
+   * Get Monthly Usage Attribution.
    *
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @return MonthlyUsageAttributionResponse
    * @throws ApiException if fails to make API call
@@ -1328,13 +1349,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution
+   * Get Monthly Usage Attribution.
    *
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfoAsync}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @return CompletableFuture&lt;MonthlyUsageAttributionResponse&gt;
    */
@@ -1349,13 +1370,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution
+   * Get Monthly Usage Attribution.
    *
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return MonthlyUsageAttributionResponse
@@ -1370,13 +1391,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution
+   * Get Monthly Usage Attribution.
    *
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfoAsync}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;MonthlyUsageAttributionResponse&gt;
@@ -1393,20 +1414,23 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution
+   * Get Monthly Usage Attribution.
    *
-   * <p>Get Monthly Usage Attribution. This API endpoint is paginated. To make sure you receive all
-   * records, check if the value of &#x60;next_record_id&#x60; is set in the response. If it is,
-   * make another request and pass &#x60;next_record_id&#x60; as a parameter. Pseudo code example:
-   * &#x60;&#x60;&#x60; response :&#x3D; GetMonthlyUsageAttribution(start_month) cursor :&#x3D;
-   * response.metadata.pagination.next_record_id WHILE cursor !&#x3D; null BEGIN sleep(5 seconds) #
-   * Avoid running into rate limit response :&#x3D; GetMonthlyUsageAttribution(start_month,
-   * next_record_id&#x3D;cursor) cursor :&#x3D; response.metadata.pagination.next_record_id END
-   * &#x60;&#x60;&#x60;
+   * <p>This API endpoint is paginated. To make sure you receive all records, check if the value of
+   * <code>next_record_id</code> is set in the response. If it is, make another request and pass
+   * <code>next_record_id</code> as a parameter. Pseudo code example:
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * <p><code>response := GetMonthlyUsageAttribution(start_month)
+   * cursor := response.metadata.pagination.next_record_id
+   * WHILE cursor != null BEGIN
+   *   sleep(5 seconds)  # Avoid running into rate limit
+   *   response := GetMonthlyUsageAttribution(start_month, next_record_id=cursor)
+   *   cursor := response.metadata.pagination.next_record_id
+   * END</code>
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MonthlyUsageAttributionResponse&gt;
@@ -1480,13 +1504,13 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution
+   * Get Monthly Usage Attribution.
    *
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MonthlyUsageAttributionResponse&gt;&gt;
@@ -1569,27 +1593,31 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified daily custom reports
+   * Get specified daily custom reports.
    *
    * <p>See {@link #getSpecifiedDailyCustomReportsWithHttpInfo}.
    *
-   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
+   * @param reportId Date of the report in the format <code>YYYY-MM-DD</code>. (required)
    * @return UsageSpecifiedCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageSpecifiedCustomReportsResponse getSpecifiedDailyCustomReports(String reportId)
       throws ApiException {
     return getSpecifiedDailyCustomReportsWithHttpInfo(reportId).getData();
   }
 
   /**
-   * Get specified daily custom reports
+   * Get specified daily custom reports.
    *
    * <p>See {@link #getSpecifiedDailyCustomReportsWithHttpInfoAsync}.
    *
-   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
+   * @param reportId Date of the report in the format <code>YYYY-MM-DD</code>. (required)
    * @return CompletableFuture&lt;UsageSpecifiedCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageSpecifiedCustomReportsResponse> getSpecifiedDailyCustomReportsAsync(
       String reportId) {
     return getSpecifiedDailyCustomReportsWithHttpInfoAsync(reportId)
@@ -1600,11 +1628,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified daily custom reports
+   * Get specified daily custom reports.
    *
-   * <p>Get specified daily custom reports.
-   *
-   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
+   * @param reportId Date of the report in the format <code>YYYY-MM-DD</code>. (required)
    * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1616,7 +1642,10 @@ public class UsageMeteringApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageSpecifiedCustomReportsResponse>
       getSpecifiedDailyCustomReportsWithHttpInfo(String reportId) throws ApiException {
     Object localVarPostBody = null;
@@ -1655,13 +1684,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified daily custom reports
+   * Get specified daily custom reports.
    *
    * <p>See {@link #getSpecifiedDailyCustomReportsWithHttpInfo}.
    *
-   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
+   * @param reportId Date of the report in the format <code>YYYY-MM-DD</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>>
       getSpecifiedDailyCustomReportsWithHttpInfoAsync(String reportId) {
     Object localVarPostBody = null;
@@ -1713,27 +1744,31 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified monthly custom reports
+   * Get specified monthly custom reports.
    *
    * <p>See {@link #getSpecifiedMonthlyCustomReportsWithHttpInfo}.
    *
-   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
+   * @param reportId Date of the report in the format <code>YYYY-MM-DD</code>. (required)
    * @return UsageSpecifiedCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageSpecifiedCustomReportsResponse getSpecifiedMonthlyCustomReports(String reportId)
       throws ApiException {
     return getSpecifiedMonthlyCustomReportsWithHttpInfo(reportId).getData();
   }
 
   /**
-   * Get specified monthly custom reports
+   * Get specified monthly custom reports.
    *
    * <p>See {@link #getSpecifiedMonthlyCustomReportsWithHttpInfoAsync}.
    *
-   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
+   * @param reportId Date of the report in the format <code>YYYY-MM-DD</code>. (required)
    * @return CompletableFuture&lt;UsageSpecifiedCustomReportsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageSpecifiedCustomReportsResponse>
       getSpecifiedMonthlyCustomReportsAsync(String reportId) {
     return getSpecifiedMonthlyCustomReportsWithHttpInfoAsync(reportId)
@@ -1744,11 +1779,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified monthly custom reports
+   * Get specified monthly custom reports.
    *
-   * <p>Get specified monthly custom reports.
-   *
-   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
+   * @param reportId Date of the report in the format <code>YYYY-MM-DD</code>. (required)
    * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1761,7 +1794,10 @@ public class UsageMeteringApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageSpecifiedCustomReportsResponse>
       getSpecifiedMonthlyCustomReportsWithHttpInfo(String reportId) throws ApiException {
     Object localVarPostBody = null;
@@ -1801,13 +1837,15 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified monthly custom reports
+   * Get specified monthly custom reports.
    *
    * <p>See {@link #getSpecifiedMonthlyCustomReportsWithHttpInfo}.
    *
-   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
+   * @param reportId Date of the report in the format <code>YYYY-MM-DD</code>. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>>
       getSpecifiedMonthlyCustomReportsWithHttpInfoAsync(String reportId) {
     Object localVarPostBody = null;
@@ -1863,10 +1901,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageAnalyzedLogsOptionalParameters
      */
     public GetUsageAnalyzedLogsOptionalParameters endHr(OffsetDateTime endHr) {
@@ -1876,11 +1914,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs
+   * Get hourly usage for analyzed logs.
    *
    * <p>See {@link #getUsageAnalyzedLogsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageAnalyzedLogsResponse
    * @throws ApiException if fails to make API call
@@ -1892,11 +1930,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs
+   * Get hourly usage for analyzed logs.
    *
    * <p>See {@link #getUsageAnalyzedLogsWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageAnalyzedLogsResponse&gt;
    */
@@ -1911,11 +1949,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs
+   * Get hourly usage for analyzed logs.
    *
    * <p>See {@link #getUsageAnalyzedLogsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageAnalyzedLogsResponse
@@ -1928,11 +1966,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs
+   * Get hourly usage for analyzed logs.
    *
    * <p>See {@link #getUsageAnalyzedLogsWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageAnalyzedLogsResponse&gt;
@@ -1947,11 +1985,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs
+   * Get hourly usage for analyzed logs (Security Monitoring).
    *
-   * <p>Get hourly usage for analyzed logs (Security Monitoring).
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageAnalyzedLogsResponse&gt;
@@ -2007,11 +2043,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs
+   * Get hourly usage for analyzed logs.
    *
    * <p>See {@link #getUsageAnalyzedLogsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageAnalyzedLogsResponse&gt;&gt;
@@ -2076,10 +2112,10 @@ public class UsageMeteringApi {
     private Long limit;
 
     /**
-     * Set endMonth
+     * Set endMonth.
      *
-     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-     *     usage ending this month. (optional)
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+     *     for usage ending this month. (optional)
      * @return GetUsageAttributionOptionalParameters
      */
     public GetUsageAttributionOptionalParameters endMonth(OffsetDateTime endMonth) {
@@ -2088,10 +2124,10 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortDirection
+     * Set sortDirection.
      *
-     * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to
-     *     "desc")
+     * @param sortDirection The direction to sort by: <code>[desc, asc]</code>. (optional, default
+     *     to "desc")
      * @return GetUsageAttributionOptionalParameters
      */
     public GetUsageAttributionOptionalParameters sortDirection(UsageSortDirection sortDirection) {
@@ -2100,7 +2136,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set sortName
+     * Set sortName.
      *
      * @param sortName The field to sort by. (optional, default to "custom_timeseries_usage")
      * @return GetUsageAttributionOptionalParameters
@@ -2111,7 +2147,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set includeDescendants
+     * Set includeDescendants.
      *
      * @param includeDescendants Include child org usage in the response. Defaults to false.
      *     (optional, default to false)
@@ -2123,7 +2159,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set offset
+     * Set offset.
      *
      * @param offset Number of records to skip before beginning to return. (optional, default to 0)
      * @return GetUsageAttributionOptionalParameters
@@ -2134,7 +2170,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set limit
+     * Set limit.
      *
      * @param limit Maximum number of records to be returned. (optional, default to 5000)
      * @return GetUsageAttributionOptionalParameters
@@ -2146,17 +2182,19 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution
+   * Get Usage Attribution.
    *
    * <p>See {@link #getUsageAttributionWithHttpInfo}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @return UsageAttributionResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageAttributionResponse getUsageAttribution(
       OffsetDateTime startMonth, UsageAttributionSupportedMetrics fields) throws ApiException {
     return getUsageAttributionWithHttpInfo(
@@ -2165,16 +2203,18 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution
+   * Get Usage Attribution.
    *
    * <p>See {@link #getUsageAttributionWithHttpInfoAsync}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @return CompletableFuture&lt;UsageAttributionResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageAttributionResponse> getUsageAttributionAsync(
       OffsetDateTime startMonth, UsageAttributionSupportedMetrics fields) {
     return getUsageAttributionWithHttpInfoAsync(
@@ -2186,18 +2226,20 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution
+   * Get Usage Attribution.
    *
    * <p>See {@link #getUsageAttributionWithHttpInfo}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageAttributionResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageAttributionResponse getUsageAttribution(
       OffsetDateTime startMonth,
       UsageAttributionSupportedMetrics fields,
@@ -2207,17 +2249,19 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution
+   * Get Usage Attribution.
    *
    * <p>See {@link #getUsageAttributionWithHttpInfoAsync}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageAttributionResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageAttributionResponse> getUsageAttributionAsync(
       OffsetDateTime startMonth,
       UsageAttributionSupportedMetrics fields,
@@ -2230,13 +2274,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution
+   * Get Usage Attribution.
    *
-   * <p>Get Usage Attribution.
-   *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageAttributionResponse&gt;
@@ -2249,7 +2291,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(
       OffsetDateTime startMonth,
       UsageAttributionSupportedMetrics fields,
@@ -2311,17 +2356,19 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution
+   * Get Usage Attribution.
    *
    * <p>See {@link #getUsageAttributionWithHttpInfo}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or <code>*</code> for all usage
    *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageAttributionResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageAttributionResponse>>
       getUsageAttributionWithHttpInfoAsync(
           OffsetDateTime startMonth,
@@ -2400,10 +2447,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageAuditLogsOptionalParameters
      */
     public GetUsageAuditLogsOptionalParameters endHr(OffsetDateTime endHr) {
@@ -2413,11 +2460,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs
+   * Get hourly usage for audit logs.
    *
    * <p>See {@link #getUsageAuditLogsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageAuditLogsResponse
    * @throws ApiException if fails to make API call
@@ -2428,11 +2475,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs
+   * Get hourly usage for audit logs.
    *
    * <p>See {@link #getUsageAuditLogsWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageAuditLogsResponse&gt;
    */
@@ -2445,11 +2492,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs
+   * Get hourly usage for audit logs.
    *
    * <p>See {@link #getUsageAuditLogsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageAuditLogsResponse
@@ -2461,11 +2508,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs
+   * Get hourly usage for audit logs.
    *
    * <p>See {@link #getUsageAuditLogsWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageAuditLogsResponse&gt;
@@ -2480,11 +2527,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs
+   * Get hourly usage for audit logs.
    *
-   * <p>Get hourly usage for audit logs.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageAuditLogsResponse&gt;
@@ -2539,11 +2584,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs
+   * Get hourly usage for audit logs.
    *
    * <p>See {@link #getUsageAuditLogsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageAuditLogsResponse&gt;&gt;
@@ -2602,9 +2647,9 @@ public class UsageMeteringApi {
     private OffsetDateTime month;
 
     /**
-     * Set month
+     * Set month.
      *
-     * @param month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+     * @param month Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
      *     usage starting this month. (optional)
      * @return GetUsageBillableSummaryOptionalParameters
      */
@@ -2615,7 +2660,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account
+   * Get billable usage across your account.
    *
    * <p>See {@link #getUsageBillableSummaryWithHttpInfo}.
    *
@@ -2628,7 +2673,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account
+   * Get billable usage across your account.
    *
    * <p>See {@link #getUsageBillableSummaryWithHttpInfoAsync}.
    *
@@ -2643,7 +2688,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account
+   * Get billable usage across your account.
    *
    * <p>See {@link #getUsageBillableSummaryWithHttpInfo}.
    *
@@ -2657,7 +2702,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account
+   * Get billable usage across your account.
    *
    * <p>See {@link #getUsageBillableSummaryWithHttpInfoAsync}.
    *
@@ -2674,9 +2719,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account
-   *
-   * <p>Get billable usage across your account.
+   * Get billable usage across your account.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageBillableSummaryResponse&gt;
@@ -2724,7 +2767,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get billable usage across your account
+   * Get billable usage across your account.
    *
    * <p>See {@link #getUsageBillableSummaryWithHttpInfo}.
    *
@@ -2777,10 +2820,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageCIAppOptionalParameters
      */
     public GetUsageCIAppOptionalParameters endHr(OffsetDateTime endHr) {
@@ -2790,11 +2833,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility
+   * Get hourly usage for CI Visibility.
    *
    * <p>See {@link #getUsageCIAppWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageCIVisibilityResponse
    * @throws ApiException if fails to make API call
@@ -2804,11 +2847,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility
+   * Get hourly usage for CI Visibility.
    *
    * <p>See {@link #getUsageCIAppWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageCIVisibilityResponse&gt;
    */
@@ -2821,11 +2864,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility
+   * Get hourly usage for CI Visibility.
    *
    * <p>See {@link #getUsageCIAppWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageCIVisibilityResponse
@@ -2837,11 +2880,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility
+   * Get hourly usage for CI Visibility.
    *
    * <p>See {@link #getUsageCIAppWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageCIVisibilityResponse&gt;
@@ -2856,11 +2899,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility
+   * Get hourly usage for CI Visibility (Tests, Pipeline, and Spans).
    *
-   * <p>Get hourly usage for CI Visibility (Tests, Pipeline, and Spans).
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageCIVisibilityResponse&gt;
@@ -2915,11 +2956,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility
+   * Get hourly usage for CI Visibility.
    *
    * <p>See {@link #getUsageCIAppWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageCIVisibilityResponse&gt;&gt;
@@ -2978,10 +3019,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageCloudSecurityPostureManagementOptionalParameters
      */
     public GetUsageCloudSecurityPostureManagementOptionalParameters endHr(OffsetDateTime endHr) {
@@ -2991,11 +3032,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM
+   * Get hourly usage for CSPM.
    *
    * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageCloudSecurityPostureManagementResponse
    * @throws ApiException if fails to make API call
@@ -3008,11 +3049,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM
+   * Get hourly usage for CSPM.
    *
    * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageCloudSecurityPostureManagementResponse&gt;
    */
@@ -3027,11 +3068,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM
+   * Get hourly usage for CSPM.
    *
    * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageCloudSecurityPostureManagementResponse
@@ -3044,11 +3085,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM
+   * Get hourly usage for CSPM.
    *
    * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageCloudSecurityPostureManagementResponse&gt;
@@ -3065,11 +3106,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM
+   * Get hourly usage for Cloud Security Posture Management (CSPM).
    *
-   * <p>Get hourly usage for Cloud Security Posture Management (CSPM).
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageCloudSecurityPostureManagementResponse&gt;
@@ -3129,11 +3168,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM
+   * Get hourly usage for CSPM.
    *
    * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageCloudSecurityPostureManagementResponse&gt;&gt;
@@ -3198,10 +3237,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageCWSOptionalParameters
      */
     public GetUsageCWSOptionalParameters endHr(OffsetDateTime endHr) {
@@ -3211,11 +3250,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security
+   * Get hourly usage for Cloud Workload Security.
    *
    * <p>See {@link #getUsageCWSWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageCWSResponse
    * @throws ApiException if fails to make API call
@@ -3225,11 +3264,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security
+   * Get hourly usage for Cloud Workload Security.
    *
    * <p>See {@link #getUsageCWSWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageCWSResponse&gt;
    */
@@ -3242,11 +3281,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security
+   * Get hourly usage for Cloud Workload Security.
    *
    * <p>See {@link #getUsageCWSWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageCWSResponse
@@ -3258,11 +3297,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security
+   * Get hourly usage for Cloud Workload Security.
    *
    * <p>See {@link #getUsageCWSWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageCWSResponse&gt;
@@ -3277,11 +3316,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security
+   * Get hourly usage for Cloud Workload Security.
    *
-   * <p>Get hourly usage for Cloud Workload Security.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageCWSResponse&gt;
@@ -3336,11 +3373,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security
+   * Get hourly usage for Cloud Workload Security.
    *
    * <p>See {@link #getUsageCWSWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageCWSResponse&gt;&gt;
@@ -3399,10 +3436,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageDBMOptionalParameters
      */
     public GetUsageDBMOptionalParameters endHr(OffsetDateTime endHr) {
@@ -3412,11 +3449,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring.
    *
    * <p>See {@link #getUsageDBMWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageDBMResponse
    * @throws ApiException if fails to make API call
@@ -3426,11 +3463,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring.
    *
    * <p>See {@link #getUsageDBMWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageDBMResponse&gt;
    */
@@ -3443,11 +3480,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring.
    *
    * <p>See {@link #getUsageDBMWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageDBMResponse
@@ -3459,11 +3496,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring.
    *
    * <p>See {@link #getUsageDBMWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageDBMResponse&gt;
@@ -3480,9 +3517,7 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for Database Monitoring
    *
-   * <p>Get hourly usage for Database Monitoring
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageDBMResponse&gt;
@@ -3537,11 +3572,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring
+   * Get hourly usage for Database Monitoring.
    *
    * <p>See {@link #getUsageDBMWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageDBMResponse&gt;&gt;
@@ -3600,10 +3635,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageFargateOptionalParameters
      */
     public GetUsageFargateOptionalParameters endHr(OffsetDateTime endHr) {
@@ -3613,7 +3648,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Fargate
+   * Get hourly usage for Fargate.
    *
    * <p>See {@link #getUsageFargateWithHttpInfo}.
    *
@@ -3627,7 +3662,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Fargate
+   * Get hourly usage for Fargate.
    *
    * <p>See {@link #getUsageFargateWithHttpInfoAsync}.
    *
@@ -3644,7 +3679,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Fargate
+   * Get hourly usage for Fargate.
    *
    * <p>See {@link #getUsageFargateWithHttpInfo}.
    *
@@ -3660,7 +3695,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Fargate
+   * Get hourly usage for Fargate.
    *
    * <p>See {@link #getUsageFargateWithHttpInfoAsync}.
    *
@@ -3679,9 +3714,8 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Fargate
-   *
-   * <p>Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+   * Get hourly usage for <a
+   * href="https://docs.datadoghq.com/integrations/ecs_fargate/">Fargate</a>.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -3738,7 +3772,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Fargate
+   * Get hourly usage for Fargate.
    *
    * <p>See {@link #getUsageFargateWithHttpInfo}.
    *
@@ -3801,10 +3835,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageHostsOptionalParameters
      */
     public GetUsageHostsOptionalParameters endHr(OffsetDateTime endHr) {
@@ -3814,7 +3848,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers
+   * Get hourly usage for hosts and containers.
    *
    * <p>See {@link #getUsageHostsWithHttpInfo}.
    *
@@ -3828,7 +3862,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers
+   * Get hourly usage for hosts and containers.
    *
    * <p>See {@link #getUsageHostsWithHttpInfoAsync}.
    *
@@ -3845,7 +3879,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers
+   * Get hourly usage for hosts and containers.
    *
    * <p>See {@link #getUsageHostsWithHttpInfo}.
    *
@@ -3861,7 +3895,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers
+   * Get hourly usage for hosts and containers.
    *
    * <p>See {@link #getUsageHostsWithHttpInfoAsync}.
    *
@@ -3880,9 +3914,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers
-   *
-   * <p>Get hourly usage for hosts and containers.
+   * Get hourly usage for hosts and containers.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -3939,7 +3971,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers
+   * Get hourly usage for hosts and containers.
    *
    * <p>See {@link #getUsageHostsWithHttpInfo}.
    *
@@ -4002,10 +4034,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageIndexedSpansOptionalParameters
      */
     public GetUsageIndexedSpansOptionalParameters endHr(OffsetDateTime endHr) {
@@ -4015,11 +4047,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans
+   * Get hourly usage for indexed spans.
    *
    * <p>See {@link #getUsageIndexedSpansWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageIndexedSpansResponse
    * @throws ApiException if fails to make API call
@@ -4031,11 +4063,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans
+   * Get hourly usage for indexed spans.
    *
    * <p>See {@link #getUsageIndexedSpansWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageIndexedSpansResponse&gt;
    */
@@ -4050,11 +4082,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans
+   * Get hourly usage for indexed spans.
    *
    * <p>See {@link #getUsageIndexedSpansWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageIndexedSpansResponse
@@ -4067,11 +4099,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans
+   * Get hourly usage for indexed spans.
    *
    * <p>See {@link #getUsageIndexedSpansWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageIndexedSpansResponse&gt;
@@ -4086,11 +4118,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans
+   * Get hourly usage for indexed spans.
    *
-   * <p>Get hourly usage for indexed spans.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageIndexedSpansResponse&gt;
@@ -4146,11 +4176,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans
+   * Get hourly usage for indexed spans.
    *
    * <p>See {@link #getUsageIndexedSpansWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageIndexedSpansResponse&gt;&gt;
@@ -4210,10 +4240,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageInternetOfThingsOptionalParameters
      */
     public GetUsageInternetOfThingsOptionalParameters endHr(OffsetDateTime endHr) {
@@ -4223,11 +4253,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT
+   * Get hourly usage for IoT.
    *
    * <p>See {@link #getUsageInternetOfThingsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageIoTResponse
    * @throws ApiException if fails to make API call
@@ -4239,11 +4269,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT
+   * Get hourly usage for IoT.
    *
    * <p>See {@link #getUsageInternetOfThingsWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageIoTResponse&gt;
    */
@@ -4257,11 +4287,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT
+   * Get hourly usage for IoT.
    *
    * <p>See {@link #getUsageInternetOfThingsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageIoTResponse
@@ -4274,11 +4304,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT
+   * Get hourly usage for IoT.
    *
    * <p>See {@link #getUsageInternetOfThingsWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageIoTResponse&gt;
@@ -4293,11 +4323,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT
+   * Get hourly usage for IoT.
    *
-   * <p>Get hourly usage for IoT.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageIoTResponse&gt;
@@ -4353,11 +4381,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT
+   * Get hourly usage for IoT.
    *
    * <p>See {@link #getUsageInternetOfThingsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageIoTResponse&gt;&gt;
@@ -4417,10 +4445,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageLambdaOptionalParameters
      */
     public GetUsageLambdaOptionalParameters endHr(OffsetDateTime endHr) {
@@ -4430,7 +4458,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda
+   * Get hourly usage for Lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
@@ -4444,7 +4472,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda
+   * Get hourly usage for Lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfoAsync}.
    *
@@ -4461,7 +4489,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda
+   * Get hourly usage for Lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
@@ -4477,7 +4505,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda
+   * Get hourly usage for Lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfoAsync}.
    *
@@ -4496,9 +4524,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda
-   *
-   * <p>Get hourly usage for lambda.
+   * Get hourly usage for lambda.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4555,7 +4581,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda
+   * Get hourly usage for Lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
@@ -4618,10 +4644,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageLogsOptionalParameters
      */
     public GetUsageLogsOptionalParameters endHr(OffsetDateTime endHr) {
@@ -4631,7 +4657,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs
+   * Get hourly usage for Logs.
    *
    * <p>See {@link #getUsageLogsWithHttpInfo}.
    *
@@ -4645,7 +4671,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs
+   * Get hourly usage for Logs.
    *
    * <p>See {@link #getUsageLogsWithHttpInfoAsync}.
    *
@@ -4662,7 +4688,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs
+   * Get hourly usage for Logs.
    *
    * <p>See {@link #getUsageLogsWithHttpInfo}.
    *
@@ -4678,7 +4704,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs
+   * Get hourly usage for Logs.
    *
    * <p>See {@link #getUsageLogsWithHttpInfoAsync}.
    *
@@ -4697,9 +4723,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs
-   *
-   * <p>Get hourly usage for logs.
+   * Get hourly usage for logs.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4756,7 +4780,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs
+   * Get hourly usage for Logs.
    *
    * <p>See {@link #getUsageLogsWithHttpInfo}.
    *
@@ -4820,10 +4844,10 @@ public class UsageMeteringApi {
     private List<String> indexName;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageLogsByIndexOptionalParameters
      */
     public GetUsageLogsByIndexOptionalParameters endHr(OffsetDateTime endHr) {
@@ -4832,7 +4856,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set indexName
+     * Set indexName.
      *
      * @param indexName Comma-separated list of log index names. (optional)
      * @return GetUsageLogsByIndexOptionalParameters
@@ -4844,7 +4868,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index
+   * Get hourly usage for Logs by Index.
    *
    * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
    *
@@ -4859,7 +4883,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index
+   * Get hourly usage for Logs by Index.
    *
    * <p>See {@link #getUsageLogsByIndexWithHttpInfoAsync}.
    *
@@ -4878,7 +4902,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index
+   * Get hourly usage for Logs by Index.
    *
    * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
    *
@@ -4895,7 +4919,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index
+   * Get hourly usage for Logs by Index.
    *
    * <p>See {@link #getUsageLogsByIndexWithHttpInfoAsync}.
    *
@@ -4914,9 +4938,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index
-   *
-   * <p>Get hourly usage for logs by index.
+   * Get hourly usage for logs by index.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4976,7 +4998,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index
+   * Get hourly usage for Logs by Index.
    *
    * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
    *
@@ -5042,10 +5064,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageLogsByRetentionOptionalParameters
      */
     public GetUsageLogsByRetentionOptionalParameters endHr(OffsetDateTime endHr) {
@@ -5055,11 +5077,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention
+   * Get hourly logs usage by retention.
    *
    * <p>See {@link #getUsageLogsByRetentionWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageLogsByRetentionResponse
    * @throws ApiException if fails to make API call
@@ -5072,11 +5094,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention
+   * Get hourly logs usage by retention.
    *
    * <p>See {@link #getUsageLogsByRetentionWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageLogsByRetentionResponse&gt;
    */
@@ -5091,11 +5113,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention
+   * Get hourly logs usage by retention.
    *
    * <p>See {@link #getUsageLogsByRetentionWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageLogsByRetentionResponse
@@ -5108,11 +5130,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention
+   * Get hourly logs usage by retention.
    *
    * <p>See {@link #getUsageLogsByRetentionWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageLogsByRetentionResponse&gt;
@@ -5127,11 +5149,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention
+   * Get hourly usage for indexed logs by retention period.
    *
-   * <p>Get hourly usage for indexed logs by retention period.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageLogsByRetentionResponse&gt;
@@ -5187,11 +5207,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly logs usage by retention
+   * Get hourly logs usage by retention.
    *
    * <p>See {@link #getUsageLogsByRetentionWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageLogsByRetentionResponse&gt;&gt;
@@ -5254,10 +5274,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageNetworkFlowsOptionalParameters
      */
     public GetUsageNetworkFlowsOptionalParameters endHr(OffsetDateTime endHr) {
@@ -5267,11 +5287,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows
+   * Get hourly usage for Network Flows.
    *
    * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageNetworkFlowsResponse
    * @throws ApiException if fails to make API call
@@ -5283,11 +5303,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows
+   * Get hourly usage for Network Flows.
    *
    * <p>See {@link #getUsageNetworkFlowsWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageNetworkFlowsResponse&gt;
    */
@@ -5302,11 +5322,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows
+   * Get hourly usage for Network Flows.
    *
    * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageNetworkFlowsResponse
@@ -5319,11 +5339,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows
+   * Get hourly usage for Network Flows.
    *
    * <p>See {@link #getUsageNetworkFlowsWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageNetworkFlowsResponse&gt;
@@ -5338,11 +5358,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows
+   * Get hourly usage for network flows.
    *
-   * <p>Get hourly usage for network flows.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageNetworkFlowsResponse&gt;
@@ -5398,11 +5416,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows
+   * Get hourly usage for Network Flows.
    *
    * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageNetworkFlowsResponse&gt;&gt;
@@ -5462,10 +5480,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageNetworkHostsOptionalParameters
      */
     public GetUsageNetworkHostsOptionalParameters endHr(OffsetDateTime endHr) {
@@ -5475,7 +5493,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts
+   * Get hourly usage for Network Hosts.
    *
    * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
    *
@@ -5491,7 +5509,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts
+   * Get hourly usage for Network Hosts.
    *
    * <p>See {@link #getUsageNetworkHostsWithHttpInfoAsync}.
    *
@@ -5510,7 +5528,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts
+   * Get hourly usage for Network Hosts.
    *
    * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
    *
@@ -5527,7 +5545,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts
+   * Get hourly usage for Network Hosts.
    *
    * <p>See {@link #getUsageNetworkHostsWithHttpInfoAsync}.
    *
@@ -5546,9 +5564,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts
-   *
-   * <p>Get hourly usage for network hosts.
+   * Get hourly usage for network hosts.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -5606,7 +5622,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts
+   * Get hourly usage for Network Hosts.
    *
    * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
    *
@@ -5670,10 +5686,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageOnlineArchiveOptionalParameters
      */
     public GetUsageOnlineArchiveOptionalParameters endHr(OffsetDateTime endHr) {
@@ -5683,11 +5699,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive
+   * Get hourly usage for Online Archive.
    *
    * <p>See {@link #getUsageOnlineArchiveWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageOnlineArchiveResponse
    * @throws ApiException if fails to make API call
@@ -5699,11 +5715,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive
+   * Get hourly usage for Online Archive.
    *
    * <p>See {@link #getUsageOnlineArchiveWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageOnlineArchiveResponse&gt;
    */
@@ -5718,11 +5734,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive
+   * Get hourly usage for Online Archive.
    *
    * <p>See {@link #getUsageOnlineArchiveWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageOnlineArchiveResponse
@@ -5735,11 +5751,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive
+   * Get hourly usage for Online Archive.
    *
    * <p>See {@link #getUsageOnlineArchiveWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageOnlineArchiveResponse&gt;
@@ -5754,11 +5770,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive
+   * Get hourly usage for Online Archive.
    *
-   * <p>Get hourly usage for Online Archive.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageOnlineArchiveResponse&gt;
@@ -5814,11 +5828,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive
+   * Get hourly usage for Online Archive.
    *
    * <p>See {@link #getUsageOnlineArchiveWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageOnlineArchiveResponse&gt;&gt;
@@ -5878,10 +5892,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageProfilingOptionalParameters
      */
     public GetUsageProfilingOptionalParameters endHr(OffsetDateTime endHr) {
@@ -5891,11 +5905,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts
+   * Get hourly usage for profiled hosts.
    *
    * <p>See {@link #getUsageProfilingWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageProfilingResponse
    * @throws ApiException if fails to make API call
@@ -5906,11 +5920,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts
+   * Get hourly usage for profiled hosts.
    *
    * <p>See {@link #getUsageProfilingWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageProfilingResponse&gt;
    */
@@ -5923,11 +5937,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts
+   * Get hourly usage for profiled hosts.
    *
    * <p>See {@link #getUsageProfilingWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageProfilingResponse
@@ -5939,11 +5953,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts
+   * Get hourly usage for profiled hosts.
    *
    * <p>See {@link #getUsageProfilingWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageProfilingResponse&gt;
@@ -5958,11 +5972,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts
+   * Get hourly usage for profiled hosts.
    *
-   * <p>Get hourly usage for profiled hosts.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageProfilingResponse&gt;
@@ -6017,11 +6029,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts
+   * Get hourly usage for profiled hosts.
    *
    * <p>See {@link #getUsageProfilingWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageProfilingResponse&gt;&gt;
@@ -6081,10 +6093,10 @@ public class UsageMeteringApi {
     private String type;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageRumSessionsOptionalParameters
      */
     public GetUsageRumSessionsOptionalParameters endHr(OffsetDateTime endHr) {
@@ -6093,9 +6105,9 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set type
+     * Set type.
      *
-     * @param type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
+     * @param type RUM type: <code>[browser, mobile]</code>. Defaults to <code>browser</code>.
      *     (optional)
      * @return GetUsageRumSessionsOptionalParameters
      */
@@ -6106,7 +6118,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions
+   * Get hourly usage for RUM Sessions.
    *
    * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
    *
@@ -6121,7 +6133,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions
+   * Get hourly usage for RUM Sessions.
    *
    * <p>See {@link #getUsageRumSessionsWithHttpInfoAsync}.
    *
@@ -6140,7 +6152,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions
+   * Get hourly usage for RUM Sessions.
    *
    * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
    *
@@ -6157,7 +6169,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions
+   * Get hourly usage for RUM Sessions.
    *
    * <p>See {@link #getUsageRumSessionsWithHttpInfoAsync}.
    *
@@ -6176,9 +6188,8 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions
-   *
-   * <p>Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
+   * Get hourly usage for <a href="https://docs.datadoghq.com/real_user_monitoring/">RUM</a>
+   * Sessions.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -6238,7 +6249,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions
+   * Get hourly usage for RUM Sessions.
    *
    * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
    *
@@ -6304,10 +6315,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageRumUnitsOptionalParameters
      */
     public GetUsageRumUnitsOptionalParameters endHr(OffsetDateTime endHr) {
@@ -6317,7 +6328,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units
+   * Get hourly usage for RUM Units.
    *
    * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
    *
@@ -6332,7 +6343,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units
+   * Get hourly usage for RUM Units.
    *
    * <p>See {@link #getUsageRumUnitsWithHttpInfoAsync}.
    *
@@ -6349,7 +6360,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units
+   * Get hourly usage for RUM Units.
    *
    * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
    *
@@ -6365,7 +6376,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units
+   * Get hourly usage for RUM Units.
    *
    * <p>See {@link #getUsageRumUnitsWithHttpInfoAsync}.
    *
@@ -6384,9 +6395,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units
-   *
-   * <p>Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   * Get hourly usage for <a href="https://docs.datadoghq.com/real_user_monitoring/">RUM</a> Units.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -6443,7 +6452,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units
+   * Get hourly usage for RUM Units.
    *
    * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
    *
@@ -6506,10 +6515,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageSDSOptionalParameters
      */
     public GetUsageSDSOptionalParameters endHr(OffsetDateTime endHr) {
@@ -6519,11 +6528,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner
+   * Get hourly usage for Sensitive Data Scanner.
    *
    * <p>See {@link #getUsageSDSWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageSDSResponse
    * @throws ApiException if fails to make API call
@@ -6533,11 +6542,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner
+   * Get hourly usage for Sensitive Data Scanner.
    *
    * <p>See {@link #getUsageSDSWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageSDSResponse&gt;
    */
@@ -6550,11 +6559,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner
+   * Get hourly usage for Sensitive Data Scanner.
    *
    * <p>See {@link #getUsageSDSWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageSDSResponse
@@ -6566,11 +6575,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner
+   * Get hourly usage for Sensitive Data Scanner.
    *
    * <p>See {@link #getUsageSDSWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageSDSResponse&gt;
@@ -6585,11 +6594,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner
+   * Get hourly usage for Sensitive Data Scanner.
    *
-   * <p>Get hourly usage for Sensitive Data Scanner.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageSDSResponse&gt;
@@ -6644,11 +6651,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner
+   * Get hourly usage for Sensitive Data Scanner.
    *
    * <p>See {@link #getUsageSDSWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageSDSResponse&gt;&gt;
@@ -6707,10 +6714,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
      * @return GetUsageSNMPOptionalParameters
      */
     public GetUsageSNMPOptionalParameters endHr(OffsetDateTime endHr) {
@@ -6720,11 +6727,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices
+   * Get hourly usage for SNMP devices.
    *
    * <p>See {@link #getUsageSNMPWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return UsageSNMPResponse
    * @throws ApiException if fails to make API call
@@ -6734,11 +6741,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices
+   * Get hourly usage for SNMP devices.
    *
    * <p>See {@link #getUsageSNMPWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageSNMPResponse&gt;
    */
@@ -6751,11 +6758,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices
+   * Get hourly usage for SNMP devices.
    *
    * <p>See {@link #getUsageSNMPWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageSNMPResponse
@@ -6767,11 +6774,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices
+   * Get hourly usage for SNMP devices.
    *
    * <p>See {@link #getUsageSNMPWithHttpInfoAsync}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageSNMPResponse&gt;
@@ -6786,11 +6793,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices
+   * Get hourly usage for SNMP devices.
    *
-   * <p>Get hourly usage for SNMP devices.
-   *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageSNMPResponse&gt;
@@ -6845,11 +6850,11 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices
+   * Get hourly usage for SNMP devices.
    *
    * <p>See {@link #getUsageSNMPWithHttpInfo}.
    *
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageSNMPResponse&gt;&gt;
@@ -6909,10 +6914,10 @@ public class UsageMeteringApi {
     private Boolean includeOrgDetails;
 
     /**
-     * Set endMonth
+     * Set endMonth.
      *
-     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-     *     usage ending this month. (optional)
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+     *     for usage ending this month. (optional)
      * @return GetUsageSummaryOptionalParameters
      */
     public GetUsageSummaryOptionalParameters endMonth(OffsetDateTime endMonth) {
@@ -6921,7 +6926,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set includeOrgDetails
+     * Set includeOrgDetails.
      *
      * @param includeOrgDetails Include usage summaries for each sub-org. (optional)
      * @return GetUsageSummaryOptionalParameters
@@ -6933,12 +6938,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account
+   * Get usage across your multi-org account.
    *
    * <p>See {@link #getUsageSummaryWithHttpInfo}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @return UsageSummaryResponse
    * @throws ApiException if fails to make API call
    */
@@ -6948,12 +6953,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account
+   * Get usage across your multi-org account.
    *
    * <p>See {@link #getUsageSummaryWithHttpInfoAsync}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @return CompletableFuture&lt;UsageSummaryResponse&gt;
    */
   public CompletableFuture<UsageSummaryResponse> getUsageSummaryAsync(OffsetDateTime startMonth) {
@@ -6965,12 +6970,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account
+   * Get usage across your multi-org account.
    *
    * <p>See {@link #getUsageSummaryWithHttpInfo}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageSummaryResponse
    * @throws ApiException if fails to make API call
@@ -6981,12 +6986,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account
+   * Get usage across your multi-org account.
    *
    * <p>See {@link #getUsageSummaryWithHttpInfoAsync}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageSummaryResponse&gt;
    */
@@ -7000,12 +7005,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account
+   * Get usage across your multi-org account. You must have the multi-org feature enabled.
    *
-   * <p>Get usage across your multi-org account. You must have the multi-org feature enabled.
-   *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageSummaryResponse&gt;
    * @throws ApiException if fails to make API call
@@ -7062,12 +7065,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account
+   * Get usage across your multi-org account.
    *
    * <p>See {@link #getUsageSummaryWithHttpInfo}.
    *
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for usage beginning in this month. Maximum of 15 months ago. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageSummaryResponse&gt;&gt;
    */
@@ -7128,10 +7131,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageSyntheticsOptionalParameters
      */
     public GetUsageSyntheticsOptionalParameters endHr(OffsetDateTime endHr) {
@@ -7141,7 +7144,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks
+   * Get hourly usage for Synthetics Checks.
    *
    * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
    *
@@ -7158,7 +7161,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks
+   * Get hourly usage for Synthetics Checks.
    *
    * <p>See {@link #getUsageSyntheticsWithHttpInfoAsync}.
    *
@@ -7178,7 +7181,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks
+   * Get hourly usage for Synthetics Checks.
    *
    * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
    *
@@ -7196,7 +7199,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks
+   * Get hourly usage for Synthetics Checks.
    *
    * <p>See {@link #getUsageSyntheticsWithHttpInfoAsync}.
    *
@@ -7217,9 +7220,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks
-   *
-   * <p>Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for <a href="https://docs.datadoghq.com/synthetics/">Synthetics checks</a>.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7279,7 +7280,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks
+   * Get hourly usage for Synthetics Checks.
    *
    * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
    *
@@ -7345,10 +7346,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageSyntheticsAPIOptionalParameters
      */
     public GetUsageSyntheticsAPIOptionalParameters endHr(OffsetDateTime endHr) {
@@ -7358,7 +7359,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks
+   * Get hourly usage for Synthetics API Checks.
    *
    * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
    *
@@ -7374,7 +7375,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks
+   * Get hourly usage for Synthetics API Checks.
    *
    * <p>See {@link #getUsageSyntheticsAPIWithHttpInfoAsync}.
    *
@@ -7393,7 +7394,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks
+   * Get hourly usage for Synthetics API Checks.
    *
    * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
    *
@@ -7410,7 +7411,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks
+   * Get hourly usage for Synthetics API Checks.
    *
    * <p>See {@link #getUsageSyntheticsAPIWithHttpInfoAsync}.
    *
@@ -7429,9 +7430,8 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks
-   *
-   * <p>Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for <a href="https://docs.datadoghq.com/synthetics/">synthetics API
+   * checks</a>.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7489,7 +7489,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks
+   * Get hourly usage for Synthetics API Checks.
    *
    * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
    *
@@ -7553,10 +7553,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageSyntheticsBrowserOptionalParameters
      */
     public GetUsageSyntheticsBrowserOptionalParameters endHr(OffsetDateTime endHr) {
@@ -7566,7 +7566,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks
+   * Get hourly usage for Synthetics Browser Checks.
    *
    * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
    *
@@ -7583,7 +7583,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks
+   * Get hourly usage for Synthetics Browser Checks.
    *
    * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfoAsync}.
    *
@@ -7602,7 +7602,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks
+   * Get hourly usage for Synthetics Browser Checks.
    *
    * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
    *
@@ -7619,7 +7619,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks
+   * Get hourly usage for Synthetics Browser Checks.
    *
    * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfoAsync}.
    *
@@ -7638,9 +7638,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks
-   *
-   * <p>Get hourly usage for synthetics browser checks.
+   * Get hourly usage for synthetics browser checks.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7698,7 +7696,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks
+   * Get hourly usage for Synthetics Browser Checks.
    *
    * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
    *
@@ -7765,10 +7763,10 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
 
     /**
-     * Set endHr
+     * Set endHr.
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
+     *     ending <strong>before</strong> this hour. (optional)
      * @return GetUsageTimeseriesOptionalParameters
      */
     public GetUsageTimeseriesOptionalParameters endHr(OffsetDateTime endHr) {
@@ -7778,7 +7776,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics
+   * Get hourly usage for custom metrics.
    *
    * <p>See {@link #getUsageTimeseriesWithHttpInfo}.
    *
@@ -7793,7 +7791,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics
+   * Get hourly usage for custom metrics.
    *
    * <p>See {@link #getUsageTimeseriesWithHttpInfoAsync}.
    *
@@ -7811,7 +7809,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics
+   * Get hourly usage for custom metrics.
    *
    * <p>See {@link #getUsageTimeseriesWithHttpInfo}.
    *
@@ -7827,7 +7825,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics
+   * Get hourly usage for custom metrics.
    *
    * <p>See {@link #getUsageTimeseriesWithHttpInfoAsync}.
    *
@@ -7846,10 +7844,8 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics
-   *
-   * <p>Get hourly usage for [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
+   * Get hourly usage for <a
+   * href="https://docs.datadoghq.com/developers/metrics/custom_metrics/">custom metrics</a>.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7906,7 +7902,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for custom metrics
+   * Get hourly usage for custom metrics.
    *
    * <p>See {@link #getUsageTimeseriesWithHttpInfo}.
    *
@@ -7974,7 +7970,7 @@ public class UsageMeteringApi {
     private String nextRecordId;
 
     /**
-     * Set month
+     * Set month.
      *
      * @param month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage
      *     beginning at this hour. (Either month or day should be specified, but not both)
@@ -7987,7 +7983,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set day
+     * Set day.
      *
      * @param day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning
      *     at this hour. (Either month or day should be specified, but not both) (optional)
@@ -7999,7 +7995,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set names
+     * Set names.
      *
      * @param names Comma-separated list of metric names. (optional)
      * @return GetUsageTopAvgMetricsOptionalParameters
@@ -8010,7 +8006,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set limit
+     * Set limit.
      *
      * @param limit Maximum number of results to return (between 1 and 5000) - defaults to 500
      *     results if limit not specified. (optional, default to 500)
@@ -8022,7 +8018,7 @@ public class UsageMeteringApi {
     }
 
     /**
-     * Set nextRecordId
+     * Set nextRecordId.
      *
      * @param nextRecordId List following results with a next_record_id provided in the previous
      *     query. (optional)
@@ -8035,7 +8031,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average
+   * Get all custom metrics by hourly average.
    *
    * <p>See {@link #getUsageTopAvgMetricsWithHttpInfo}.
    *
@@ -8048,7 +8044,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average
+   * Get all custom metrics by hourly average.
    *
    * <p>See {@link #getUsageTopAvgMetricsWithHttpInfoAsync}.
    *
@@ -8063,7 +8059,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average
+   * Get all custom metrics by hourly average.
    *
    * <p>See {@link #getUsageTopAvgMetricsWithHttpInfo}.
    *
@@ -8077,7 +8073,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average
+   * Get all custom metrics by hourly average.
    *
    * <p>See {@link #getUsageTopAvgMetricsWithHttpInfoAsync}.
    *
@@ -8094,12 +8090,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average
-   *
-   * <p>Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by
-   * hourly average. Use the month parameter to get a month-to-date data resolution or use the day
-   * parameter to get a daily resolution. One of the two is required, and only one of the two is
-   * allowed.
+   * Get all <a href="https://docs.datadoghq.com/developers/metrics/custom_metrics/">custom
+   * metrics</a> by hourly average. Use the month parameter to get a month-to-date data resolution
+   * or use the day parameter to get a daily resolution. One of the two is required, and only one of
+   * the two is allowed.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageTopAvgMetricsResponse&gt;
@@ -8155,7 +8149,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get all custom metrics by hourly average
+   * Get all custom metrics by hourly average.
    *
    * <p>See {@link #getUsageTopAvgMetricsWithHttpInfo}.
    *

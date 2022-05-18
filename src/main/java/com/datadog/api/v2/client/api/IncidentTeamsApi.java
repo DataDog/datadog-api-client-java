@@ -32,7 +32,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -41,7 +41,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -50,7 +50,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Create a new incident team
+   * Create a new incident team.
    *
    * <p>See {@link #createIncidentTeamWithHttpInfo}.
    *
@@ -64,7 +64,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Create a new incident team
+   * Create a new incident team.
    *
    * <p>See {@link #createIncidentTeamWithHttpInfoAsync}.
    *
@@ -81,9 +81,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Create a new incident team
-   *
-   * <p>Creates a new incident team.
+   * Creates a new incident team.
    *
    * @param body Incident Team Payload. (required)
    * @return ApiResponse&lt;IncidentTeamResponse&gt;
@@ -135,7 +133,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Create a new incident team
+   * Create a new incident team.
    *
    * <p>See {@link #createIncidentTeamWithHttpInfo}.
    *
@@ -187,7 +185,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Delete an existing incident team
+   * Delete an existing incident team.
    *
    * <p>See {@link #deleteIncidentTeamWithHttpInfo}.
    *
@@ -199,7 +197,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Delete an existing incident team
+   * Delete an existing incident team.
    *
    * <p>See {@link #deleteIncidentTeamWithHttpInfoAsync}.
    *
@@ -214,9 +212,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Delete an existing incident team
-   *
-   * <p>Deletes an existing incident team.
+   * Deletes an existing incident team.
    *
    * @param teamId The ID of the incident team. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -269,7 +265,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Delete an existing incident team
+   * Delete an existing incident team.
    *
    * <p>See {@link #deleteIncidentTeamWithHttpInfo}.
    *
@@ -326,7 +322,7 @@ public class IncidentTeamsApi {
     private IncidentRelatedObject include;
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Specifies which types of related objects should be included in the response.
      *     (optional)
@@ -339,7 +335,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team
+   * Get details of an incident team.
    *
    * <p>See {@link #getIncidentTeamWithHttpInfo}.
    *
@@ -352,7 +348,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team
+   * Get details of an incident team.
    *
    * <p>See {@link #getIncidentTeamWithHttpInfoAsync}.
    *
@@ -368,7 +364,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team
+   * Get details of an incident team.
    *
    * <p>See {@link #getIncidentTeamWithHttpInfo}.
    *
@@ -383,7 +379,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team
+   * Get details of an incident team.
    *
    * <p>See {@link #getIncidentTeamWithHttpInfoAsync}.
    *
@@ -401,9 +397,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team
-   *
-   * <p>Get details of an incident team. If the &#x60;include[users]&#x60; query parameter is
+   * Get details of an incident team. If the <code>include[users]</code> query parameter is
    * provided, the included attribute will contain the users related to these incident teams.
    *
    * @param teamId The ID of the incident team. (required)
@@ -463,7 +457,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team
+   * Get details of an incident team.
    *
    * <p>See {@link #getIncidentTeamWithHttpInfo}.
    *
@@ -529,7 +523,7 @@ public class IncidentTeamsApi {
     private String filter;
 
     /**
-     * Set include
+     * Set include.
      *
      * @param include Specifies which types of related objects should be included in the response.
      *     (optional)
@@ -541,7 +535,7 @@ public class IncidentTeamsApi {
     }
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListIncidentTeamsOptionalParameters
@@ -552,7 +546,7 @@ public class IncidentTeamsApi {
     }
 
     /**
-     * Set pageOffset
+     * Set pageOffset.
      *
      * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
      *     default to 0)
@@ -564,7 +558,7 @@ public class IncidentTeamsApi {
     }
 
     /**
-     * Set filter
+     * Set filter.
      *
      * @param filter A search query that filters teams by name. (optional)
      * @return ListIncidentTeamsOptionalParameters
@@ -576,7 +570,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get a list of all incident teams
+   * Get a list of all incident teams.
    *
    * <p>See {@link #listIncidentTeamsWithHttpInfo}.
    *
@@ -588,7 +582,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get a list of all incident teams
+   * Get a list of all incident teams.
    *
    * <p>See {@link #listIncidentTeamsWithHttpInfoAsync}.
    *
@@ -603,7 +597,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get a list of all incident teams
+   * Get a list of all incident teams.
    *
    * <p>See {@link #listIncidentTeamsWithHttpInfo}.
    *
@@ -617,7 +611,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get a list of all incident teams
+   * Get a list of all incident teams.
    *
    * <p>See {@link #listIncidentTeamsWithHttpInfoAsync}.
    *
@@ -634,11 +628,9 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get a list of all incident teams
-   *
-   * <p>Get all incident teams for the requesting user&#39;s organization. If the
-   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
-   * users related to these incident teams.
+   * Get all incident teams for the requesting user's organization. If the <code>include[users]
+   * </code> query parameter is provided, the included attribute will contain the users related to
+   * these incident teams.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;IncidentTeamsResponse&gt;
@@ -694,7 +686,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Get a list of all incident teams
+   * Get a list of all incident teams.
    *
    * <p>See {@link #listIncidentTeamsWithHttpInfo}.
    *
@@ -747,7 +739,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Update an existing incident team
+   * Update an existing incident team.
    *
    * <p>See {@link #updateIncidentTeamWithHttpInfo}.
    *
@@ -762,7 +754,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Update an existing incident team
+   * Update an existing incident team.
    *
    * <p>See {@link #updateIncidentTeamWithHttpInfoAsync}.
    *
@@ -780,10 +772,8 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Update an existing incident team
-   *
-   * <p>Updates an existing incident team. Only provide the attributes which should be updated as
-   * this request is a partial update.
+   * Updates an existing incident team. Only provide the attributes which should be updated as this
+   * request is a partial update.
    *
    * @param teamId The ID of the incident team. (required)
    * @param body Incident Team Payload. (required)
@@ -844,7 +834,7 @@ public class IncidentTeamsApi {
   }
 
   /**
-   * Update an existing incident team
+   * Update an existing incident team.
    *
    * <p>See {@link #updateIncidentTeamWithHttpInfo}.
    *

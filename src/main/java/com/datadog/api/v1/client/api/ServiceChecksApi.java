@@ -29,7 +29,7 @@ public class ServiceChecksApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -38,7 +38,7 @@ public class ServiceChecksApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -47,7 +47,7 @@ public class ServiceChecksApi {
   }
 
   /**
-   * Submit a Service Check
+   * Submit a Service Check.
    *
    * <p>See {@link #submitServiceCheckWithHttpInfo}.
    *
@@ -60,7 +60,7 @@ public class ServiceChecksApi {
   }
 
   /**
-   * Submit a Service Check
+   * Submit a Service Check.
    *
    * <p>See {@link #submitServiceCheckWithHttpInfoAsync}.
    *
@@ -76,10 +76,10 @@ public class ServiceChecksApi {
   }
 
   /**
-   * Submit a Service Check
+   * Submit a list of Service Checks.
    *
-   * <p>Submit a list of Service Checks. **Notes**: - A valid API key is required. - Service checks
-   * can be submitted up to 10 minutes in the past.
+   * <p><strong>Notes</strong>: - A valid API key is required. - Service checks can be submitted up
+   * to 10 minutes in the past.
    *
    * @param body Service Check request body. (required)
    * @return ApiResponse&lt;IntakePayloadAccepted&gt;
@@ -131,7 +131,7 @@ public class ServiceChecksApi {
   }
 
   /**
-   * Submit a Service Check
+   * Submit a Service Check.
    *
    * <p>See {@link #submitServiceCheckWithHttpInfo}.
    *

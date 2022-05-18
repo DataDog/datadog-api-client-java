@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Type of the Synthetic test, either &#x60;api&#x60; or &#x60;browser&#x60;. */
+/** Type of the Synthetic test, either <code>api</code> or <code>browser</code>. */
 @JsonSerialize(using = SyntheticsTestDetailsType.SyntheticsTestDetailsTypeSerializer.class)
 public class SyntheticsTestDetailsType {
 

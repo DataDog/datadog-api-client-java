@@ -271,7 +271,7 @@ public class SyntheticsBatchResult {
   }
 
   /**
-   * Type of the Synthetic test, either &#x60;api&#x60; or &#x60;browser&#x60;.
+   * Type of the Synthetic test, either <code>api</code> or <code>browser</code>.
    *
    * @return testType
    */

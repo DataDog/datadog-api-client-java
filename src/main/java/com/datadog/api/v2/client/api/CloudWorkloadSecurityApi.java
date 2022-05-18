@@ -31,7 +31,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -40,7 +40,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -49,7 +49,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Create a Cloud Workload Security Agent rule
+   * Create a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #createCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
@@ -63,7 +63,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Create a Cloud Workload Security Agent rule
+   * Create a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #createCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
    *
@@ -80,9 +80,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Create a Cloud Workload Security Agent rule
-   *
-   * <p>Create a new Agent rule with the given parameters.
+   * Create a new Agent rule with the given parameters.
    *
    * @param body The definition of the new Agent rule. (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
@@ -136,7 +134,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Create a Cloud Workload Security Agent rule
+   * Create a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #createCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
@@ -193,7 +191,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Delete a Cloud Workload Security Agent rule
+   * Delete a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #deleteCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
@@ -205,7 +203,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Delete a Cloud Workload Security Agent rule
+   * Delete a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #deleteCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
    *
@@ -220,9 +218,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Delete a Cloud Workload Security Agent rule
-   *
-   * <p>Delete a specific Agent rule.
+   * Delete a specific Agent rule.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -277,7 +273,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Delete a Cloud Workload Security Agent rule
+   * Delete a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #deleteCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
@@ -334,7 +330,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get the latest Cloud Workload Security policy
+   * Get the latest Cloud Workload Security policy.
    *
    * <p>See {@link #downloadCloudWorkloadPolicyFileWithHttpInfo}.
    *
@@ -346,7 +342,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get the latest Cloud Workload Security policy
+   * Get the latest Cloud Workload Security policy.
    *
    * <p>See {@link #downloadCloudWorkloadPolicyFileWithHttpInfoAsync}.
    *
@@ -361,9 +357,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get the latest Cloud Workload Security policy
-   *
-   * <p>The download endpoint generates a Cloud Workload Security policy file from your currently
+   * The download endpoint generates a Cloud Workload Security policy file from your currently
    * active Cloud Workload Security rules, and downloads them as a .policy file. This file can then
    * be deployed to your agents to update the policy running in your environment.
    *
@@ -406,7 +400,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get the latest Cloud Workload Security policy
+   * Get the latest Cloud Workload Security policy.
    *
    * <p>See {@link #downloadCloudWorkloadPolicyFileWithHttpInfo}.
    *
@@ -447,7 +441,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get a Cloud Workload Security Agent rule
+   * Get a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #getCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
@@ -461,7 +455,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get a Cloud Workload Security Agent rule
+   * Get a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #getCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
    *
@@ -478,9 +472,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get a Cloud Workload Security Agent rule
-   *
-   * <p>Get the details of a specific Agent rule.
+   * Get the details of a specific Agent rule.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
@@ -535,7 +527,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get a Cloud Workload Security Agent rule
+   * Get a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #getCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
@@ -594,7 +586,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get all Cloud Workload Security Agent rules
+   * Get all Cloud Workload Security Agent rules.
    *
    * <p>See {@link #listCloudWorkloadSecurityAgentRulesWithHttpInfo}.
    *
@@ -607,7 +599,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get all Cloud Workload Security Agent rules
+   * Get all Cloud Workload Security Agent rules.
    *
    * <p>See {@link #listCloudWorkloadSecurityAgentRulesWithHttpInfoAsync}.
    *
@@ -623,9 +615,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get all Cloud Workload Security Agent rules
-   *
-   * <p>Get the list of Agent rules.
+   * Get the list of Agent rules.
    *
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRulesListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -667,7 +657,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Get all Cloud Workload Security Agent rules
+   * Get all Cloud Workload Security Agent rules.
    *
    * <p>See {@link #listCloudWorkloadSecurityAgentRulesWithHttpInfo}.
    *
@@ -710,7 +700,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Update a Cloud Workload Security Agent rule
+   * Update a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #updateCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
@@ -725,7 +715,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Update a Cloud Workload Security Agent rule
+   * Update a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #updateCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
    *
@@ -744,9 +734,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Update a Cloud Workload Security Agent rule
-   *
-   * <p>Update a specific Agent rule. Returns the Agent rule object when the request is successful.
+   * Update a specific Agent rule. Returns the Agent rule object when the request is successful.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
    * @param body New definition of the Agent rule. (required)
@@ -814,7 +802,7 @@ public class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Update a Cloud Workload Security Agent rule
+   * Update a Cloud Workload Security Agent rule.
    *
    * <p>See {@link #updateCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *

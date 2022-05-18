@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /**
  * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in
- * conjunction with &#x60;parse_test_public_id&#x60;.
+ * conjunction with <code>parse_test_public_id</code>.
  */
 @JsonPropertyOrder({
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_FIELD,
@@ -58,7 +58,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
   }
 
   /**
-   * When type is &#x60;http_header&#x60;, name of the header to use to extract the value.
+   * When type is <code>http_header</code>, name of the header to use to extract the value.
    *
    * @return field
    */

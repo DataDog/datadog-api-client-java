@@ -260,8 +260,8 @@ public class SyntheticsAPITestResultData {
 
   /**
    * Object containing all metrics and their values collected for a Synthetic API test. Learn more
-   * about those metrics in [Synthetics
-   * documentation](https://docs.datadoghq.com/synthetics/#metrics).
+   * about those metrics in <a href="https://docs.datadoghq.com/synthetics/#metrics">Synthetics
+   * documentation</a>.
    *
    * @return timings
    */

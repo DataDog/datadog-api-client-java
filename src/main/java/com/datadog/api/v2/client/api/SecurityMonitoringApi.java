@@ -43,7 +43,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -52,7 +52,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -61,7 +61,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a security filter
+   * Create a security filter.
    *
    * <p>See {@link #createSecurityFilterWithHttpInfo}.
    *
@@ -75,7 +75,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a security filter
+   * Create a security filter.
    *
    * <p>See {@link #createSecurityFilterWithHttpInfoAsync}.
    *
@@ -92,11 +92,11 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a security filter
+   * Create a security filter.
    *
-   * <p>Create a security filter. See the [security filter
-   * guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
-   * for more examples.
+   * <p>See the <a
+   * href="https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/">security
+   * filter guide</a> for more examples.
    *
    * @param body The definition of the new security filter. (required)
    * @return ApiResponse&lt;SecurityFilterResponse&gt;
@@ -147,7 +147,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a security filter
+   * Create a security filter.
    *
    * <p>See {@link #createSecurityFilterWithHttpInfo}.
    *
@@ -199,7 +199,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a detection rule
+   * Create a detection rule.
    *
    * <p>See {@link #createSecurityMonitoringRuleWithHttpInfo}.
    *
@@ -213,7 +213,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a detection rule
+   * Create a detection rule.
    *
    * <p>See {@link #createSecurityMonitoringRuleWithHttpInfoAsync}.
    *
@@ -230,9 +230,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a detection rule
-   *
-   * <p>Create a detection rule.
+   * Create a detection rule.
    *
    * @param body (required)
    * @return ApiResponse&lt;SecurityMonitoringRuleResponse&gt;
@@ -282,7 +280,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a detection rule
+   * Create a detection rule.
    *
    * <p>See {@link #createSecurityMonitoringRuleWithHttpInfo}.
    *
@@ -337,7 +335,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a security filter
+   * Delete a security filter.
    *
    * <p>See {@link #deleteSecurityFilterWithHttpInfo}.
    *
@@ -349,7 +347,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a security filter
+   * Delete a security filter.
    *
    * <p>See {@link #deleteSecurityFilterWithHttpInfoAsync}.
    *
@@ -364,9 +362,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a security filter
-   *
-   * <p>Delete a specific security filter.
+   * Delete a specific security filter.
    *
    * @param securityFilterId The ID of the security filter. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -421,7 +417,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a security filter
+   * Delete a security filter.
    *
    * <p>See {@link #deleteSecurityFilterWithHttpInfo}.
    *
@@ -479,7 +475,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing rule
+   * Delete an existing rule.
    *
    * <p>See {@link #deleteSecurityMonitoringRuleWithHttpInfo}.
    *
@@ -491,7 +487,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing rule
+   * Delete an existing rule.
    *
    * <p>See {@link #deleteSecurityMonitoringRuleWithHttpInfoAsync}.
    *
@@ -506,9 +502,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing rule
-   *
-   * <p>Delete an existing rule. Default rules cannot be deleted.
+   * Delete an existing rule. Default rules cannot be deleted.
    *
    * @param ruleId The ID of the rule. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -560,7 +554,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing rule
+   * Delete an existing rule.
    *
    * <p>See {@link #deleteSecurityMonitoringRuleWithHttpInfo}.
    *
@@ -615,7 +609,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a security filter
+   * Get a security filter.
    *
    * <p>See {@link #getSecurityFilterWithHttpInfo}.
    *
@@ -628,7 +622,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a security filter
+   * Get a security filter.
    *
    * <p>See {@link #getSecurityFilterWithHttpInfoAsync}.
    *
@@ -644,11 +638,11 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a security filter
+   * Get the details of a specific security filter.
    *
-   * <p>Get the details of a specific security filter. See the [security filter
-   * guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
-   * for more examples.
+   * <p>See the <a
+   * href="https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/">security
+   * filter guide</a> for more examples.
    *
    * @param securityFilterId The ID of the security filter. (required)
    * @return ApiResponse&lt;SecurityFilterResponse&gt;
@@ -702,7 +696,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a security filter
+   * Get a security filter.
    *
    * <p>See {@link #getSecurityFilterWithHttpInfo}.
    *
@@ -759,7 +753,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a rule&#39;s details
+   * Get a rule&#39;s details.
    *
    * <p>See {@link #getSecurityMonitoringRuleWithHttpInfo}.
    *
@@ -773,7 +767,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a rule&#39;s details
+   * Get a rule&#39;s details.
    *
    * <p>See {@link #getSecurityMonitoringRuleWithHttpInfoAsync}.
    *
@@ -790,9 +784,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a rule&#39;s details
-   *
-   * <p>Get a rule&#39;s details.
+   * Get a rule's details.
    *
    * @param ruleId The ID of the rule. (required)
    * @return ApiResponse&lt;SecurityMonitoringRuleResponse&gt;
@@ -843,7 +835,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a rule&#39;s details
+   * Get a rule&#39;s details.
    *
    * <p>See {@link #getSecurityMonitoringRuleWithHttpInfo}.
    *
@@ -900,7 +892,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all security filters
+   * Get all security filters.
    *
    * <p>See {@link #listSecurityFiltersWithHttpInfo}.
    *
@@ -912,7 +904,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all security filters
+   * Get all security filters.
    *
    * <p>See {@link #listSecurityFiltersWithHttpInfoAsync}.
    *
@@ -927,9 +919,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all security filters
-   *
-   * <p>Get the list of configured security filters with their definitions.
+   * Get the list of configured security filters with their definitions.
    *
    * @return ApiResponse&lt;SecurityFiltersResponse&gt;
    * @throws ApiException if fails to make API call
@@ -971,7 +961,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all security filters
+   * Get all security filters.
    *
    * <p>See {@link #listSecurityFiltersWithHttpInfo}.
    *
@@ -1018,7 +1008,7 @@ public class SecurityMonitoringApi {
     private Long pageNumber;
 
     /**
-     * Set pageSize
+     * Set pageSize.
      *
      * @param pageSize Size for a given page. (optional, default to 10)
      * @return ListSecurityMonitoringRulesOptionalParameters
@@ -1029,7 +1019,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set pageNumber
+     * Set pageNumber.
      *
      * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return ListSecurityMonitoringRulesOptionalParameters
@@ -1041,7 +1031,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * List rules
+   * List rules.
    *
    * <p>See {@link #listSecurityMonitoringRulesWithHttpInfo}.
    *
@@ -1055,7 +1045,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * List rules
+   * List rules.
    *
    * <p>See {@link #listSecurityMonitoringRulesWithHttpInfoAsync}.
    *
@@ -1071,7 +1061,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * List rules
+   * List rules.
    *
    * <p>See {@link #listSecurityMonitoringRulesWithHttpInfo}.
    *
@@ -1085,7 +1075,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * List rules
+   * List rules.
    *
    * <p>See {@link #listSecurityMonitoringRulesWithHttpInfoAsync}.
    *
@@ -1102,9 +1092,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * List rules
-   *
-   * <p>List rules.
+   * List rules.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SecurityMonitoringListRulesResponse&gt;
@@ -1153,7 +1141,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * List rules
+   * List rules.
    *
    * <p>See {@link #listSecurityMonitoringRulesWithHttpInfo}.
    *
@@ -1213,7 +1201,7 @@ public class SecurityMonitoringApi {
     private Integer pageLimit;
 
     /**
-     * Set filterQuery
+     * Set filterQuery.
      *
      * @param filterQuery The search query for security signals. (optional)
      * @return ListSecurityMonitoringSignalsOptionalParameters
@@ -1224,7 +1212,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set filterFrom
+     * Set filterFrom.
      *
      * @param filterFrom The minimum timestamp for requested security signals. (optional)
      * @return ListSecurityMonitoringSignalsOptionalParameters
@@ -1235,7 +1223,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set filterTo
+     * Set filterTo.
      *
      * @param filterTo The maximum timestamp for requested security signals. (optional)
      * @return ListSecurityMonitoringSignalsOptionalParameters
@@ -1246,7 +1234,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set sort
+     * Set sort.
      *
      * @param sort The order of the security signals in results. (optional)
      * @return ListSecurityMonitoringSignalsOptionalParameters
@@ -1258,7 +1246,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set pageCursor
+     * Set pageCursor.
      *
      * @param pageCursor A list of results using the cursor provided in the previous query.
      *     (optional)
@@ -1270,7 +1258,7 @@ public class SecurityMonitoringApi {
     }
 
     /**
-     * Set pageLimit
+     * Set pageLimit.
      *
      * @param pageLimit The maximum number of security signals in the response. (optional, default
      *     to 10)
@@ -1283,7 +1271,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a quick list of security signals
+   * Get a quick list of security signals.
    *
    * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfo}.
    *
@@ -1297,7 +1285,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a quick list of security signals
+   * Get a quick list of security signals.
    *
    * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfoAsync}.
    *
@@ -1314,7 +1302,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a quick list of security signals
+   * Get a quick list of security signals.
    *
    * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfo}.
    *
@@ -1328,7 +1316,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a quick list of security signals
+   * Get a quick list of security signals.
    *
    * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfoAsync}.
    *
@@ -1412,9 +1400,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a quick list of security signals
-   *
-   * <p>The list endpoint returns security signals that match a search query. Both this endpoint and
+   * The list endpoint returns security signals that match a search query. Both this endpoint and
    * the POST endpoint can be used interchangeably when listing security signals.
    *
    * @param parameters Optional parameters for the request.
@@ -1474,7 +1460,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a quick list of security signals
+   * Get a quick list of security signals.
    *
    * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfo}.
    *
@@ -1537,7 +1523,7 @@ public class SecurityMonitoringApi {
     private SecurityMonitoringSignalListRequest body;
 
     /**
-     * Set body
+     * Set body.
      *
      * @param body (optional)
      * @return SearchSecurityMonitoringSignalsOptionalParameters
@@ -1550,7 +1536,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a list of security signals
+   * Get a list of security signals.
    *
    * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfo}.
    *
@@ -1565,7 +1551,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a list of security signals
+   * Get a list of security signals.
    *
    * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfoAsync}.
    *
@@ -1582,7 +1568,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a list of security signals
+   * Get a list of security signals.
    *
    * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfo}.
    *
@@ -1596,7 +1582,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a list of security signals
+   * Get a list of security signals.
    *
    * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfoAsync}.
    *
@@ -1696,10 +1682,8 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a list of security signals
-   *
-   * <p>Returns security signals that match a search query. Both this endpoint and the GET endpoint
-   * can be used interchangeably for listing security signals.
+   * Returns security signals that match a search query. Both this endpoint and the GET endpoint can
+   * be used interchangeably for listing security signals.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SecurityMonitoringSignalsListResponse&gt;
@@ -1744,7 +1728,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a list of security signals
+   * Get a list of security signals.
    *
    * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfo}.
    *
@@ -1789,7 +1773,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update a security filter
+   * Update a security filter.
    *
    * <p>See {@link #updateSecurityFilterWithHttpInfo}.
    *
@@ -1804,7 +1788,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update a security filter
+   * Update a security filter.
    *
    * <p>See {@link #updateSecurityFilterWithHttpInfoAsync}.
    *
@@ -1822,9 +1806,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update a security filter
-   *
-   * <p>Update a specific security filter. Returns the security filter object when the request is
+   * Update a specific security filter. Returns the security filter object when the request is
    * successful.
    *
    * @param securityFilterId The ID of the security filter. (required)
@@ -1889,7 +1871,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update a security filter
+   * Update a security filter.
    *
    * <p>See {@link #updateSecurityFilterWithHttpInfo}.
    *
@@ -1958,7 +1940,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing rule
+   * Update an existing rule.
    *
    * <p>See {@link #updateSecurityMonitoringRuleWithHttpInfo}.
    *
@@ -1973,7 +1955,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing rule
+   * Update an existing rule.
    *
    * <p>See {@link #updateSecurityMonitoringRuleWithHttpInfoAsync}.
    *
@@ -1991,10 +1973,8 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing rule
-   *
-   * <p>Update an existing rule. When updating &#x60;cases&#x60;, &#x60;queries&#x60; or
-   * &#x60;options&#x60;, the whole field must be included. For example, when modifying a query all
+   * Update an existing rule. When updating <code>cases</code>, <code>queries</code> or <code>
+   * options</code>, the whole field must be included. For example, when modifying a query all
    * queries must be included. Default rules can only be updated to be enabled and to change
    * notifications.
    *
@@ -2057,7 +2037,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing rule
+   * Update an existing rule.
    *
    * <p>See {@link #updateSecurityMonitoringRuleWithHttpInfo}.
    *

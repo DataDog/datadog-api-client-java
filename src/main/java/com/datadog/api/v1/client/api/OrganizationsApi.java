@@ -33,7 +33,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Get the API client
+   * Get the API client.
    *
    * @return API client
    */
@@ -42,7 +42,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Set the API client
+   * Set the API client.
    *
    * @param apiClient an instance of API client
    */
@@ -51,7 +51,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Create a child organization
+   * Create a child organization.
    *
    * <p>See {@link #createChildOrgWithHttpInfo}.
    *
@@ -65,7 +65,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Create a child organization
+   * Create a child organization.
    *
    * <p>See {@link #createChildOrgWithHttpInfoAsync}.
    *
@@ -82,13 +82,16 @@ public class OrganizationsApi {
   }
 
   /**
-   * Create a child organization
+   * Create a child organization.
    *
-   * <p>Create a child organization. This endpoint requires the [multi-organization
-   * account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be
-   * enabled by [contacting support](https://docs.datadoghq.com/help/). Once a new child
-   * organization is created, you can interact with it by using the &#x60;org.public_id&#x60;,
-   * &#x60;api_key.key&#x60;, and &#x60;application_key.hash&#x60; provided in the response.
+   * <p>This endpoint requires the <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">multi-organization
+   * account</a> feature and must be enabled by <a
+   * href="https://docs.datadoghq.com/help/">contacting support</a>.
+   *
+   * <p>Once a new child organization is created, you can interact with it by using the <code>
+   * org.public_id</code>, <code>api_key.key</code>, and <code>application_key.hash</code> provided
+   * in the response.
    *
    * @param body Organization object that needs to be created (required)
    * @return ApiResponse&lt;OrganizationCreateResponse&gt;
@@ -138,7 +141,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * Create a child organization
+   * Create a child organization.
    *
    * <p>See {@link #createChildOrgWithHttpInfo}.
    *
@@ -190,11 +193,11 @@ public class OrganizationsApi {
   }
 
   /**
-   * Get organization information
+   * Get organization information.
    *
    * <p>See {@link #getOrgWithHttpInfo}.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
    *     (required)
    * @return OrganizationResponse
    * @throws ApiException if fails to make API call
@@ -204,11 +207,11 @@ public class OrganizationsApi {
   }
 
   /**
-   * Get organization information
+   * Get organization information.
    *
    * <p>See {@link #getOrgWithHttpInfoAsync}.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
    *     (required)
    * @return CompletableFuture&lt;OrganizationResponse&gt;
    */
@@ -221,11 +224,9 @@ public class OrganizationsApi {
   }
 
   /**
-   * Get organization information
+   * Get organization information.
    *
-   * <p>Get organization information.
-   *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
    *     (required)
    * @return ApiResponse&lt;OrganizationResponse&gt;
    * @throws ApiException if fails to make API call
@@ -274,11 +275,11 @@ public class OrganizationsApi {
   }
 
   /**
-   * Get organization information
+   * Get organization information.
    *
    * <p>See {@link #getOrgWithHttpInfo}.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
    *     (required)
    * @return CompletableFuture&lt;ApiResponse&lt;OrganizationResponse&gt;&gt;
    */
@@ -328,7 +329,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * List your managed organizations
+   * List your managed organizations.
    *
    * <p>See {@link #listOrgsWithHttpInfo}.
    *
@@ -340,7 +341,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * List your managed organizations
+   * List your managed organizations.
    *
    * <p>See {@link #listOrgsWithHttpInfoAsync}.
    *
@@ -355,9 +356,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * List your managed organizations
-   *
-   * <p>List your managed organizations.
+   * List your managed organizations.
    *
    * @return ApiResponse&lt;OrganizationListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -398,7 +397,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * List your managed organizations
+   * List your managed organizations.
    *
    * <p>See {@link #listOrgsWithHttpInfo}.
    *
@@ -439,11 +438,11 @@ public class OrganizationsApi {
   }
 
   /**
-   * Update your organization
+   * Update your organization.
    *
    * <p>See {@link #updateOrgWithHttpInfo}.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
    *     (required)
    * @param body (required)
    * @return OrganizationResponse
@@ -454,11 +453,11 @@ public class OrganizationsApi {
   }
 
   /**
-   * Update your organization
+   * Update your organization.
    *
    * <p>See {@link #updateOrgWithHttpInfoAsync}.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
    *     (required)
    * @param body (required)
    * @return CompletableFuture&lt;OrganizationResponse&gt;
@@ -473,11 +472,9 @@ public class OrganizationsApi {
   }
 
   /**
-   * Update your organization
+   * Update your organization.
    *
-   * <p>Update your organization.
-   *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
    *     (required)
    * @param body (required)
    * @return ApiResponse&lt;OrganizationResponse&gt;
@@ -534,11 +531,11 @@ public class OrganizationsApi {
   }
 
   /**
-   * Update your organization
+   * Update your organization.
    *
    * <p>See {@link #updateOrgWithHttpInfo}.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
    *     (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;OrganizationResponse&gt;&gt;
@@ -598,11 +595,12 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPForOrgWithHttpInfo}.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
+   * @param publicId The <code>public_id</code> of the organization you are operating with
+   *     (required)
    * @param idpFile The path to the XML metadata file you wish to upload. (required)
    * @return IdpResponse
    * @throws ApiException if fails to make API call
@@ -612,11 +610,12 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPForOrgWithHttpInfoAsync}.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
+   * @param publicId The <code>public_id</code> of the organization you are operating with
+   *     (required)
    * @param idpFile The path to the XML metadata file you wish to upload. (required)
    * @return CompletableFuture&lt;IdpResponse&gt;
    */
@@ -629,13 +628,18 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML
+   * IdP.
    *
-   * <p>There are a couple of options for updating the Identity Provider (IdP) metadata from your
-   * SAML IdP. * **Multipart Form-Data**: Post the IdP metadata file using a form post. * **XML
-   * Body:** Post the IdP metadata file as the body of the request.
+   * <ul>
+   *   <li>
+   *       <p><strong>Multipart Form-Data</strong>: Post the IdP metadata file using a form post.
+   *   <li>
+   *       <p><strong>XML Body:</strong> Post the IdP metadata file as the body of the request.
+   * </ul>
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
+   * @param publicId The <code>public_id</code> of the organization you are operating with
+   *     (required)
    * @param idpFile The path to the XML metadata file you wish to upload. (required)
    * @return ApiResponse&lt;IdpResponse&gt;
    * @throws ApiException if fails to make API call
@@ -696,11 +700,12 @@ public class OrganizationsApi {
   }
 
   /**
-   * Upload IdP metadata
+   * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPForOrgWithHttpInfo}.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
+   * @param publicId The <code>public_id</code> of the organization you are operating with
+   *     (required)
    * @param idpFile The path to the XML metadata file you wish to upload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;IdpResponse&gt;&gt;
    */

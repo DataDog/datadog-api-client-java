@@ -87,7 +87,7 @@ public class SlackIntegrationChannelDisplay {
   }
 
   /**
-   * Show the alert event&#39;s snapshot image.
+   * Show the alert event's snapshot image.
    *
    * @return snapshot
    */
