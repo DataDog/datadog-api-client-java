@@ -519,12 +519,8 @@ def get_accessors(param_path, schema={}):
     getter, setter = [], []
     if schema:
         optional = not schema.get("required", True)
-        if optional:
-            param_name = formatter.variable_name(param_path.pop(0))
-            getter, setter = [param_name], [param_name]
-        else:
-            param_name = formatter.variable_name(param_path.pop(0))
-            getter, setter = [param_name], [param_name]
+        param_name = formatter.variable_name(param_path.pop(0))
+        getter, setter = [param_name], [param_name]
 
     for part in param_path:
         getter.append(f"get{formatter.attribute_name(part)}")

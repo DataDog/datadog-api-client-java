@@ -31,10 +31,15 @@ public class PaginationIterable<T> implements Iterable<T> {
       Boolean valueSetterParamOptional,
       Object limit,
       LinkedHashMap<String, Object> args) {
+
     this.requestClass = requestClass;
     this.requestName = requestName;
     this.resultsPath = resultsPath.split("\\.");
-    this.valueGetterPath = valueGetterPath.split("\\.");
+    if (!valueGetterPath.isEmpty()) {
+      this.valueGetterPath = valueGetterPath.split("\\.");
+    } else {
+      this.valueGetterPath = new String[0];
+    }
     this.valueSetterPath = valueSetterPath.split("\\.");
     this.valueSetterParamOptional = valueSetterParamOptional;
     this.limit = limit;

@@ -32,20 +32,6 @@ public class PaginationIterator<T> implements Iterator<T> {
     getNextPage();
   }
 
-  private static int converToInt(Object arg) {
-    switch (arg.toString()) {
-      case "java.lang.Long":
-        Long value;
-        value = Long.parseLong(arg.toString());
-        return value.intValue();
-      case "string":
-      case "java.lang.String":
-        return Integer.parseInt(arg.toString());
-      default:
-        return (int) arg;
-    }
-  }
-
   private Method buildRequestMethod() {
     Method[] methods = this.iterable.requestClass.getClass().getDeclaredMethods();
     for (Method m : methods) {
@@ -64,21 +50,13 @@ public class PaginationIterator<T> implements Iterator<T> {
       throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
     Object value = response;
 
-    if (this.iterable.valueGetterPath.length > 0) {
-      for (String path : this.iterable.valueGetterPath) {
-        value = value.getClass().getMethod(path).invoke(value);
-      }
-    } else {
-      // will fallback to pageOffset = totalCount;
-      value = null;
-    }
-
     Object temp;
     int i;
     if (this.iterable.valueSetterParamOptional) {
       temp = this.iterable.args.get("optionalParams");
       i = 0;
     } else {
+      // First accessor is the arg. Skip the first item in list.
       temp = this.iterable.args.get(this.iterable.valueSetterPath[0]);
       i = 1;
     }
@@ -95,40 +73,34 @@ public class PaginationIterator<T> implements Iterator<T> {
       }
     }
 
-    // Set the fallback pageOffset value
-    // We cast the type based on the setterMethod parameter type
-    if (value == null) {
-      Method[] methods = temp.getClass().getDeclaredMethods();
-      Method setterMethod = null;
-      for (Method m : methods) {
-        if (m.getName().equals(this.iterable.valueSetterPath[i])) {
-          setterMethod = m;
-          break;
-        }
+    // Get setter method.
+    Method setterMethod = null;
+    for (Method m : temp.getClass().getDeclaredMethods()) {
+      if (m.getName().equals(this.iterable.valueSetterPath[i])) {
+        setterMethod = m;
+        break;
       }
+    }
 
-      assert setterMethod != null;
-      String pType = setterMethod.getParameterTypes()[0].toString();
-      switch (pType) {
-        case "long":
-        case "java.lang.Long":
-          value = (long) this.totalCount;
-          break;
-        case "string":
-        case "java.lang.String":
-          value = String.valueOf(this.totalCount);
-          break;
-        default:
-          value = this.totalCount;
+    assert setterMethod != null;
+
+    if (this.iterable.valueGetterPath.length > 0) {
+      for (String path : this.iterable.valueGetterPath) {
+        value = value.getClass().getMethod(path).invoke(value);
+      }
+    } else {
+      // fallback to pageOffset = totalCount;
+      // We cast the type based on the setterMethod parameter type
+      String pType = setterMethod.getParameterTypes()[0].getSimpleName();
+      if ("Long".equals(pType)) {
+        value = (long) this.totalCount;
+      } else {
+        value = this.totalCount;
       }
     }
 
     // Set the value
-    temp.getClass()
-        .getMethod(
-            this.iterable.valueSetterPath[this.iterable.valueSetterPath.length - 1],
-            value.getClass())
-        .invoke(temp, value);
+    setterMethod.invoke(temp, value);
 
     this.hasNextPage = true;
   }
@@ -158,13 +130,22 @@ public class PaginationIterator<T> implements Iterator<T> {
     }
   }
 
+  private static int convertToInt(Object arg) {
+    if ("Long".equals(arg.getClass().getSimpleName())) {
+      long value;
+      value = Long.parseLong(arg.toString());
+      return (int) value;
+    }
+    return (int) arg;
+  }
+
   @Override
   public boolean hasNext() {
     if (this.currentIndex < this.data.size()) {
       return true;
     }
 
-    if (this.data.size() < converToInt(this.iterable.limit)) {
+    if (this.data.size() < convertToInt(this.iterable.limit)) {
       return false;
     }
 
