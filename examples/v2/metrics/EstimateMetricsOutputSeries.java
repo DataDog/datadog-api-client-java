@@ -1,4 +1,4 @@
-// Estimate Output Series - Public v2 API returns "Success" response
+// Tag Configuration Cardinality Estimator returns "Success" response
 
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;

@@ -661,8 +661,7 @@ public class MetricsApi {
     /**
      * Set filterGroups.
      *
-     * @param filterGroups Filtered tag groups that the metric is configured to query with.
-     *     (optional)
+     * @param filterGroups Filtered tag keys that the metric is configured to query with. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterGroups(String filterGroups) {
@@ -722,7 +721,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API.
+   * Tag Configuration Cardinality Estimator.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
    *
@@ -737,7 +736,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API.
+   * Tag Configuration Cardinality Estimator.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
    *
@@ -755,7 +754,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API.
+   * Tag Configuration Cardinality Estimator.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
    *
@@ -771,7 +770,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API.
+   * Tag Configuration Cardinality Estimator.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
    *
@@ -789,8 +788,8 @@ public class MetricsApi {
   }
 
   /**
-   * Returns a cardinality estimate for a metric with a given tag, percentile, and number of
-   * aggregations configuration.
+   * Returns the estimated cardinality for a metric with a given tag, percentile and number of
+   * aggregations configuration using Metrics without Limits&trade;.
    *
    * @param metricName The name of the metric. (required)
    * @param parameters Optional parameters for the request.
@@ -861,7 +860,7 @@ public class MetricsApi {
   }
 
   /**
-   * Estimate Output Series - Public v2 API.
+   * Tag Configuration Cardinality Estimator.
    *
    * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
    *
