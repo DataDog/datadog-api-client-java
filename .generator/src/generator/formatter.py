@@ -328,7 +328,6 @@ def format_data_with_schema(
     default_name=None,
 ):
     name, imports = get_name_and_imports(schema)
-
     if "enum" in schema and data not in schema["enum"]:
         raise ValueError(f"{data} is not valid enum value {schema['enum']}")
 
@@ -398,11 +397,12 @@ def format_data_with_schema(
         return name, parameters, imports
 
     if "oneOf" in schema:
-        assert name is not None
         matched = 0
         extra_imports = one_of_imports = set()
         for sub_schema in schema["oneOf"]:
             try:
+                if "items" in sub_schema and not isinstance(data, list):
+                    continue
                 if sub_schema.get("nullable") and data is None:
                     # only one schema can be nullable
                     value = "null"
@@ -428,7 +428,10 @@ def format_data_with_schema(
             warnings.warn(f"[{matched}] {data} is not valid for schema {name}")
 
         imports |= extra_imports
-        return name, f"new {name}(\n{parameters})", imports
+        if name:
+            return name, f"new {name}(\n{parameters})", imports
+        else:
+            return name, parameters, imports
 
     return name, parameters, imports
 
@@ -441,6 +444,19 @@ def format_data_with_schema_list(
     default_name=None,
 ):
     name, imports = get_name_and_imports(schema)
+
+    if "oneOf" in schema:
+        for sub_schema in schema["oneOf"]:
+            try:
+                named, value, one_of_imports = format_data_with_schema(
+                    data,
+                    sub_schema,
+                    replace_values=replace_values,
+                )
+            except (KeyError, ValueError) as e:
+                continue
+            return name, value, one_of_imports
+        raise ValueError(f"{data} is not valid oneOf {schema}")
 
     parameters = ""
     param_count = 0
