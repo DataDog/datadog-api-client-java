@@ -17,8 +17,11 @@ import static org.junit.Assert.assertTrue;
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.PaginationIterable;
-import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.model.LogsListRequest;
+import com.datadog.api.v2.client.model.LogsListRequestPage;
+import com.datadog.api.v2.client.model.LogsListResponse;
+import com.datadog.api.v2.client.model.LogsQueryFilter;
+import com.datadog.api.v2.client.model.LogsSort;
 import java.net.MalformedURLException;
 import java.net.URLEncoder;
 import java.time.Duration;
@@ -88,22 +91,6 @@ public class LogsApiTest extends V2APITest {
           }
         });
     sendRequest("POST", intakeURL, payload, new GenericType<String>(String.class));
-  }
-
-  @Test
-  public void listLogsWithPaginationTest() throws ApiException {
-    PaginationIterable<Log> iterable = api.listLogsWithPagination();
-
-    //        iterator.forEachRemaining(System.out::println);
-
-    for (Log item : iterable) {
-      System.out.println("res::::: " + item);
-    }
-
-    //        while (iterator.hasNext()) {
-    //            Object res = iterator.next();
-    //            System.out.println("res:::::" + res);
-    //        }
   }
 
   @Test
