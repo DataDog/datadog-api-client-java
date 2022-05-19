@@ -81,6 +81,8 @@ PATTERN_LEADING_ALPHA = re.compile(r"(.)([A-Z][a-z0-9]+)")
 PATTERN_FOLLOWING_ALPHA = re.compile(r"([a-z0-9])([A-Z])")
 PATTERN_WHITESPACE = re.compile(r"\W")
 
+UN_PARAMETERIZE = re.compile(r"<[^>]+>")
+
 
 # TODO: revisit this and find permanent solution
 # Edge cases to maintain backward compatibility with Openapi generator
@@ -150,6 +152,10 @@ def attribute_name(attribute):
 
 def variable_name(attribute):
     return escape_reserved_keyword((camel_case(attribute)))
+
+
+def un_parameterize_type(type):
+    return UN_PARAMETERIZE.sub("", type)
 
 
 def format_value(value, quotes='"', schema=None, default_value=False, type_=None):
