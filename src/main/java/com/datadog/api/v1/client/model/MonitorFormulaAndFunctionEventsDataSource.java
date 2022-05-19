@@ -34,9 +34,11 @@ public class MonitorFormulaAndFunctionEventsDataSource {
       new MonitorFormulaAndFunctionEventsDataSource("rum");
   public static final MonitorFormulaAndFunctionEventsDataSource CI_PIPELINES =
       new MonitorFormulaAndFunctionEventsDataSource("ci_pipelines");
+  public static final MonitorFormulaAndFunctionEventsDataSource CI_TESTS =
+      new MonitorFormulaAndFunctionEventsDataSource("ci_tests");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("rum", "ci_pipelines"));
+      new HashSet<String>(Arrays.asList("rum", "ci_pipelines", "ci_tests"));
 
   private String value;
 

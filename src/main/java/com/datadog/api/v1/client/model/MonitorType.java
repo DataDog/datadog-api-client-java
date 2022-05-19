@@ -44,6 +44,7 @@ public class MonitorType {
   public static final MonitorType EVENT_V2_ALERT = new MonitorType("event-v2 alert");
   public static final MonitorType AUDIT_ALERT = new MonitorType("audit alert");
   public static final MonitorType CI_PIPELINES_ALERT = new MonitorType("ci-pipelines alert");
+  public static final MonitorType CI_TESTS_ALERT = new MonitorType("ci-tests alert");
   public static final MonitorType ERROR_TRACKING_ALERT = new MonitorType("error-tracking alert");
 
   private static final Set<String> allowedValues =
@@ -63,6 +64,7 @@ public class MonitorType {
               "event-v2 alert",
               "audit alert",
               "ci-pipelines alert",
+              "ci-tests alert",
               "error-tracking alert"));
 
   private String value;

@@ -467,6 +467,27 @@ public class MonitorsApi {
    *
    * <p><strong>NOTE</strong> CI Pipeline monitors are in alpha on US1, EU, US3 and US5.
    *
+   * <p><strong>CI Tests Alert Query</strong>
+   *
+   * <p>Example: <code>ci-tests(query).rollup(rollup_method[, measure]).last(time_window) operator #
+   * </code>
+   *
+   * <ul>
+   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
+   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
+   *       count</code>, <code>avg</code>, and <code>cardinality</code>.
+   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
+   *       rollup_method</code> - specify the measure or the facet name you want to use.
+   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
+   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   * </ul>
+   *
+   * <p><strong>NOTE</strong> CI Test monitors are available only in closed beta on US1, EU, US3 and
+   * US5.
+   *
    * <p><strong>Error Tracking Alert Query</strong>
    *
    * <p>Example(RUM): <code>
