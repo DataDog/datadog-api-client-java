@@ -4,6 +4,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
+import com.datadog.api.v1.client.api.AwsIntegrationApi.UpdateAWSAccountOptionalParameters;
 import com.datadog.api.v1.client.model.AWSAccount;
 import java.util.Arrays;
 import java.util.Collections;
@@ -16,19 +17,22 @@ public class Example {
 
     AWSAccount body =
         new AWSAccount()
-            .accountId("1234567")
-            .accountSpecificNamespaceRules(
-                Map.ofEntries(Map.entry("auto_scaling", false), Map.entry("opswork", false)))
+            .accountId("123456789012")
+            .accountSpecificNamespaceRules(Map.ofEntries(Map.entry("auto_scaling", false)))
             .cspmResourceCollectionEnabled(true)
             .excludedRegions(Arrays.asList("us-east-1", "us-west-2"))
             .filterTags(Collections.singletonList("$KEY:$VALUE"))
             .hostTags(Collections.singletonList("$KEY:$VALUE"))
             .metricsCollectionEnabled(false)
             .resourceCollectionEnabled(true)
-            .roleName("DatadogAWSIntegrationRole");
+            .roleName("datadog-role");
 
     try {
-      apiInstance.updateAWSAccount(body);
+      apiInstance.updateAWSAccount(
+          body,
+          new UpdateAWSAccountOptionalParameters()
+              .accountId("123456789012")
+              .roleName("datadog-role"));
     } catch (ApiException e) {
       System.err.println("Exception when calling AwsIntegrationApi#updateAWSAccount");
       System.err.println("Status code: " + e.getCode());
