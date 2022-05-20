@@ -10,6 +10,7 @@ import com.datadog.api.v1.client.model.SyntheticsBasicAuthWeb;
 import com.datadog.api.v1.client.model.SyntheticsBasicAuthWebType;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTest;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestConfig;
+import com.datadog.api.v1.client.model.SyntheticsBrowserTestRumSettings;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestType;
 import com.datadog.api.v1.client.model.SyntheticsBrowserVariable;
 import com.datadog.api.v1.client.model.SyntheticsBrowserVariableType;
@@ -71,7 +72,12 @@ public class Example {
                     .monitorOptions(new SyntheticsTestOptionsMonitorOptions())
                     .restrictedRoles(
                         Collections.singletonList("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"))
-                    .retry(new SyntheticsTestOptionsRetry()))
+                    .retry(new SyntheticsTestOptionsRetry())
+                    .rumSettings(
+                        new SyntheticsBrowserTestRumSettings()
+                            .applicationId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+                            .clientTokenId(12345L)
+                            .isEnabled(true)))
             .status(SyntheticsTestPauseStatus.LIVE)
             .steps(
                 Collections.singletonList(

@@ -12,6 +12,7 @@ import com.datadog.api.v1.client.model.SyntheticsAssertion;
 import com.datadog.api.v1.client.model.SyntheticsAssertionOperator;
 import com.datadog.api.v1.client.model.SyntheticsAssertionTarget;
 import com.datadog.api.v1.client.model.SyntheticsAssertionType;
+import com.datadog.api.v1.client.model.SyntheticsBrowserTestRumSettings;
 import com.datadog.api.v1.client.model.SyntheticsDeviceID;
 import com.datadog.api.v1.client.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.v1.client.model.SyntheticsTestOptions;
@@ -50,7 +51,12 @@ public class Example {
                     .monitorOptions(new SyntheticsTestOptionsMonitorOptions())
                     .restrictedRoles(
                         Collections.singletonList("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"))
-                    .retry(new SyntheticsTestOptionsRetry()))
+                    .retry(new SyntheticsTestOptionsRetry())
+                    .rumSettings(
+                        new SyntheticsBrowserTestRumSettings()
+                            .applicationId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+                            .clientTokenId(12345L)
+                            .isEnabled(true)))
             .status(SyntheticsTestPauseStatus.LIVE)
             .subtype(SyntheticsTestDetailsSubType.HTTP)
             .tags(Collections.singletonList("env:production"))

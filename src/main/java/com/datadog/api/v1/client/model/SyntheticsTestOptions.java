@@ -34,6 +34,7 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_NO_SCREENSHOT,
   SyntheticsTestOptions.JSON_PROPERTY_RESTRICTED_ROLES,
   SyntheticsTestOptions.JSON_PROPERTY_RETRY,
+  SyntheticsTestOptions.JSON_PROPERTY_RUM_SETTINGS,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
 })
 @javax.annotation.Generated(
@@ -82,6 +83,9 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_RETRY = "retry";
   private SyntheticsTestOptionsRetry retry;
+
+  public static final String JSON_PROPERTY_RUM_SETTINGS = "rumSettings";
+  private SyntheticsBrowserTestRumSettings rumSettings;
 
   public static final String JSON_PROPERTY_TICK_EVERY = "tick_every";
   private Long tickEvery;
@@ -401,6 +405,38 @@ public class SyntheticsTestOptions {
     this.retry = retry;
   }
 
+  public SyntheticsTestOptions rumSettings(SyntheticsBrowserTestRumSettings rumSettings) {
+    this.rumSettings = rumSettings;
+    this.unparsed |= rumSettings.unparsed;
+    return this;
+  }
+
+  /**
+   * The RUM data collection settings for the Synthetic browser test. <strong>Note:</strong> There
+   * are 3 ways to format RUM settings:
+   *
+   * <p><code>{ isEnabled: false }</code> RUM data is not collected.
+   *
+   * <p><code>{ isEnabled: true }</code> RUM data is collected from the Synthetic test's default
+   * application.
+   *
+   * <p><code>
+   * { isEnabled: true, applicationId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", clientTokenId: 12345 }
+   * </code> RUM data is collected using the specified application.
+   *
+   * @return rumSettings
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsBrowserTestRumSettings getRumSettings() {
+    return rumSettings;
+  }
+
+  public void setRumSettings(SyntheticsBrowserTestRumSettings rumSettings) {
+    this.rumSettings = rumSettings;
+  }
+
   public SyntheticsTestOptions tickEvery(Long tickEvery) {
     this.tickEvery = tickEvery;
     return this;
@@ -447,6 +483,7 @@ public class SyntheticsTestOptions {
         && Objects.equals(this.noScreenshot, syntheticsTestOptions.noScreenshot)
         && Objects.equals(this.restrictedRoles, syntheticsTestOptions.restrictedRoles)
         && Objects.equals(this.retry, syntheticsTestOptions.retry)
+        && Objects.equals(this.rumSettings, syntheticsTestOptions.rumSettings)
         && Objects.equals(this.tickEvery, syntheticsTestOptions.tickEvery);
   }
 
@@ -467,6 +504,7 @@ public class SyntheticsTestOptions {
         noScreenshot,
         restrictedRoles,
         retry,
+        rumSettings,
         tickEvery);
   }
 
@@ -490,6 +528,7 @@ public class SyntheticsTestOptions {
     sb.append("    noScreenshot: ").append(toIndentedString(noScreenshot)).append("\n");
     sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
+    sb.append("    rumSettings: ").append(toIndentedString(rumSettings)).append("\n");
     sb.append("    tickEvery: ").append(toIndentedString(tickEvery)).append("\n");
     sb.append("}");
     return sb.toString();
