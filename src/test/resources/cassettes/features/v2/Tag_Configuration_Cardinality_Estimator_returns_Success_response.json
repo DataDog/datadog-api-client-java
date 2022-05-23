@@ -3,7 +3,7 @@
     "httpRequest": {
       "headers": {
         "JAVA-TEST-NAME": [
-          "Estimate_Output_Series_Public_v2_API_returns_Success_response"
+          "Tag_Configuration_Cardinality_Estimator_returns_Success_response"
         ]
       },
       "method": "GET",

@@ -23,22 +23,20 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Data source for event platform-based queries. */
-@JsonSerialize(
-    using =
-        MonitorFormulaAndFunctionEventsDataSource
-            .MonitorFormulaAndFunctionEventsDataSourceSerializer.class)
-public class MonitorFormulaAndFunctionEventsDataSource {
+/** Reason why a signal has been archived. */
+@JsonSerialize(using = SignalArchiveReason.SignalArchiveReasonSerializer.class)
+public class SignalArchiveReason {
 
-  public static final MonitorFormulaAndFunctionEventsDataSource RUM =
-      new MonitorFormulaAndFunctionEventsDataSource("rum");
-  public static final MonitorFormulaAndFunctionEventsDataSource CI_PIPELINES =
-      new MonitorFormulaAndFunctionEventsDataSource("ci_pipelines");
-  public static final MonitorFormulaAndFunctionEventsDataSource CI_TESTS =
-      new MonitorFormulaAndFunctionEventsDataSource("ci_tests");
+  public static final SignalArchiveReason NONE = new SignalArchiveReason("none");
+  public static final SignalArchiveReason FALSE_POSITIVE =
+      new SignalArchiveReason("false_positive");
+  public static final SignalArchiveReason TESTING_OR_MAINTENANCE =
+      new SignalArchiveReason("testing_or_maintenance");
+  public static final SignalArchiveReason OTHER = new SignalArchiveReason("other");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("rum", "ci_pipelines", "ci_tests"));
+      new HashSet<String>(
+          Arrays.asList("none", "false_positive", "testing_or_maintenance", "other"));
 
   private String value;
 
@@ -46,26 +44,22 @@ public class MonitorFormulaAndFunctionEventsDataSource {
     return allowedValues.contains(this.value);
   }
 
-  MonitorFormulaAndFunctionEventsDataSource(String value) {
+  SignalArchiveReason(String value) {
     this.value = value;
   }
 
-  public static class MonitorFormulaAndFunctionEventsDataSourceSerializer
-      extends StdSerializer<MonitorFormulaAndFunctionEventsDataSource> {
-    public MonitorFormulaAndFunctionEventsDataSourceSerializer(
-        Class<MonitorFormulaAndFunctionEventsDataSource> t) {
+  public static class SignalArchiveReasonSerializer extends StdSerializer<SignalArchiveReason> {
+    public SignalArchiveReasonSerializer(Class<SignalArchiveReason> t) {
       super(t);
     }
 
-    public MonitorFormulaAndFunctionEventsDataSourceSerializer() {
+    public SignalArchiveReasonSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        MonitorFormulaAndFunctionEventsDataSource value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
+        SignalArchiveReason value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -80,7 +74,7 @@ public class MonitorFormulaAndFunctionEventsDataSource {
     this.value = value;
   }
 
-  /** Return true if this MonitorFormulaAndFunctionEventsDataSource object is equal to o. */
+  /** Return true if this SignalArchiveReason object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -89,7 +83,7 @@ public class MonitorFormulaAndFunctionEventsDataSource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((MonitorFormulaAndFunctionEventsDataSource) o).value);
+    return this.value.equals(((SignalArchiveReason) o).value);
   }
 
   @Override
@@ -103,7 +97,7 @@ public class MonitorFormulaAndFunctionEventsDataSource {
   }
 
   @JsonCreator
-  public static MonitorFormulaAndFunctionEventsDataSource fromValue(String value) {
-    return new MonitorFormulaAndFunctionEventsDataSource(value);
+  public static SignalArchiveReason fromValue(String value) {
+    return new SignalArchiveReason(value);
   }
 }

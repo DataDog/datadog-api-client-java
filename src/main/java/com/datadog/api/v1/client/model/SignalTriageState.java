@@ -23,22 +23,16 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Data source for event platform-based queries. */
-@JsonSerialize(
-    using =
-        MonitorFormulaAndFunctionEventsDataSource
-            .MonitorFormulaAndFunctionEventsDataSourceSerializer.class)
-public class MonitorFormulaAndFunctionEventsDataSource {
+/** The new triage state of the signal. */
+@JsonSerialize(using = SignalTriageState.SignalTriageStateSerializer.class)
+public class SignalTriageState {
 
-  public static final MonitorFormulaAndFunctionEventsDataSource RUM =
-      new MonitorFormulaAndFunctionEventsDataSource("rum");
-  public static final MonitorFormulaAndFunctionEventsDataSource CI_PIPELINES =
-      new MonitorFormulaAndFunctionEventsDataSource("ci_pipelines");
-  public static final MonitorFormulaAndFunctionEventsDataSource CI_TESTS =
-      new MonitorFormulaAndFunctionEventsDataSource("ci_tests");
+  public static final SignalTriageState OPEN = new SignalTriageState("open");
+  public static final SignalTriageState ARCHIVED = new SignalTriageState("archived");
+  public static final SignalTriageState UNDER_REVIEW = new SignalTriageState("under_review");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("rum", "ci_pipelines", "ci_tests"));
+      new HashSet<String>(Arrays.asList("open", "archived", "under_review"));
 
   private String value;
 
@@ -46,26 +40,21 @@ public class MonitorFormulaAndFunctionEventsDataSource {
     return allowedValues.contains(this.value);
   }
 
-  MonitorFormulaAndFunctionEventsDataSource(String value) {
+  SignalTriageState(String value) {
     this.value = value;
   }
 
-  public static class MonitorFormulaAndFunctionEventsDataSourceSerializer
-      extends StdSerializer<MonitorFormulaAndFunctionEventsDataSource> {
-    public MonitorFormulaAndFunctionEventsDataSourceSerializer(
-        Class<MonitorFormulaAndFunctionEventsDataSource> t) {
+  public static class SignalTriageStateSerializer extends StdSerializer<SignalTriageState> {
+    public SignalTriageStateSerializer(Class<SignalTriageState> t) {
       super(t);
     }
 
-    public MonitorFormulaAndFunctionEventsDataSourceSerializer() {
+    public SignalTriageStateSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(
-        MonitorFormulaAndFunctionEventsDataSource value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
+    public void serialize(SignalTriageState value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -80,7 +69,7 @@ public class MonitorFormulaAndFunctionEventsDataSource {
     this.value = value;
   }
 
-  /** Return true if this MonitorFormulaAndFunctionEventsDataSource object is equal to o. */
+  /** Return true if this SignalTriageState object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -89,7 +78,7 @@ public class MonitorFormulaAndFunctionEventsDataSource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((MonitorFormulaAndFunctionEventsDataSource) o).value);
+    return this.value.equals(((SignalTriageState) o).value);
   }
 
   @Override
@@ -103,7 +92,7 @@ public class MonitorFormulaAndFunctionEventsDataSource {
   }
 
   @JsonCreator
-  public static MonitorFormulaAndFunctionEventsDataSource fromValue(String value) {
-    return new MonitorFormulaAndFunctionEventsDataSource(value);
+  public static SignalTriageState fromValue(String value) {
+    return new SignalTriageState(value);
   }
 }

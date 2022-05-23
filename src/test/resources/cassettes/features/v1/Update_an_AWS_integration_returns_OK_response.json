@@ -1,0 +1,44 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"account_id\":\"123456789012\",\"account_specific_namespace_rules\":{\"auto_scaling\":false},\"cspm_resource_collection_enabled\":true,\"excluded_regions\":[\"us-east-1\",\"us-west-2\"],\"filter_tags\":[\"$KEY:$VALUE\"],\"host_tags\":[\"$KEY:$VALUE\"],\"metrics_collection_enabled\":false,\"resource_collection_enabled\":true,\"role_name\":\"datadog-role\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_an_AWS_integration_returns_OK_response"
+        ]
+      },
+      "method": "PUT",
+      "path": "/api/v1/integration/aws",
+      "queryStringParameters": {
+        "account_id": [
+          "123456789012"
+        ],
+        "role_name": [
+          "datadog-role"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}",
+      "headers": {
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0332334d-bc51-d14a-b3a1-f528cc205e1a"
+  }
+]
