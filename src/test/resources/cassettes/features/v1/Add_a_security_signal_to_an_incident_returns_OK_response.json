@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"incident_id\":2609}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Add_a_security_signal_to_an_incident_returns_OK_response"
+        ]
+      },
+      "method": "PATCH",
+      "path": "/api/v1/security_analytics/signals/AQAAAYDiB_Ol8PbzFAAAAABBWURpQl9PbEFBQU0yeXhGTG9ZV2JnQUE/add_to_incident",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"status\":\"done\",\"elapsed\":4,\"hitCount\":1,\"type\":\"status\",\"requestId\":\"pddv1ChZVSG9rS0xiLVROR0UzaExkSVRnaTZBIisKG6tMRhR9fRc0eaDfripyLqgONwbpcw5WGKATXBIMaeO6PoTCinH6lG0J\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b5ee5134-472e-74f1-c165-3f50923686d8"
+  }
+]
