@@ -366,7 +366,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution.
+   * Get hourly usage attribution.
    *
    * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
    *
@@ -384,7 +384,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution.
+   * Get hourly usage attribution.
    *
    * <p>See {@link #getHourlyUsageAttributionWithHttpInfoAsync}.
    *
@@ -404,7 +404,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution.
+   * Get hourly usage attribution.
    *
    * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
    *
@@ -424,7 +424,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution.
+   * Get hourly usage attribution.
    *
    * <p>See {@link #getHourlyUsageAttributionWithHttpInfoAsync}.
    *
@@ -446,7 +446,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution.
+   * Get hourly usage attribution.
    *
    * <p>This API endpoint is paginated. To make sure you receive all records, check if the value of
    * <code>next_record_id</code> is set in the response. If it is, make another request and pass
@@ -530,7 +530,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution.
+   * Get hourly usage attribution.
    *
    * <p>See {@link #getHourlyUsageAttributionWithHttpInfo}.
    *
@@ -1329,7 +1329,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution.
+   * Get monthly usage attribution.
    *
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
@@ -1349,7 +1349,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution.
+   * Get monthly usage attribution.
    *
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfoAsync}.
    *
@@ -1370,7 +1370,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution.
+   * Get monthly usage attribution.
    *
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
@@ -1391,7 +1391,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution.
+   * Get monthly usage attribution.
    *
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfoAsync}.
    *
@@ -1414,7 +1414,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution.
+   * Get monthly usage attribution.
    *
    * <p>This API endpoint is paginated. To make sure you receive all records, check if the value of
    * <code>next_record_id</code> is set in the response. If it is, make another request and pass
@@ -1504,7 +1504,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution.
+   * Get monthly usage attribution.
    *
    * <p>See {@link #getMonthlyUsageAttributionWithHttpInfo}.
    *
@@ -2182,7 +2182,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution.
+   * Get usage attribution.
    *
    * <p>See {@link #getUsageAttributionWithHttpInfo}.
    *
@@ -2203,7 +2203,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution.
+   * Get usage attribution.
    *
    * <p>See {@link #getUsageAttributionWithHttpInfoAsync}.
    *
@@ -2226,7 +2226,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution.
+   * Get usage attribution.
    *
    * <p>See {@link #getUsageAttributionWithHttpInfo}.
    *
@@ -2249,7 +2249,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution.
+   * Get usage attribution.
    *
    * <p>See {@link #getUsageAttributionWithHttpInfoAsync}.
    *
@@ -2274,7 +2274,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution.
+   * Get usage attribution.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
@@ -2356,7 +2356,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution.
+   * Get usage attribution.
    *
    * <p>See {@link #getUsageAttributionWithHttpInfo}.
    *
