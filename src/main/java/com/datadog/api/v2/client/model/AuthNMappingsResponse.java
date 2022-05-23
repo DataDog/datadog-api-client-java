@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Array of AuthN Mappings response. */
 @JsonPropertyOrder({
   AuthNMappingsResponse.JSON_PROPERTY_DATA,
+  AuthNMappingsResponse.JSON_PROPERTY_INCLUDED,
   AuthNMappingsResponse.JSON_PROPERTY_META
 })
 @javax.annotation.Generated(
@@ -29,6 +30,9 @@ public class AuthNMappingsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<AuthNMapping> data = null;
+
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<AuthNMappingIncluded> included = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private ResponseMetaAttributes meta;
@@ -66,6 +70,39 @@ public class AuthNMappingsResponse {
     this.data = data;
   }
 
+  public AuthNMappingsResponse included(List<AuthNMappingIncluded> included) {
+    this.included = included;
+    for (AuthNMappingIncluded item : included) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public AuthNMappingsResponse addIncludedItem(AuthNMappingIncluded includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Included data in the AuthN Mapping response.
+   *
+   * @return included
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AuthNMappingIncluded> getIncluded() {
+    return included;
+  }
+
+  public void setIncluded(List<AuthNMappingIncluded> included) {
+    this.included = included;
+  }
+
   public AuthNMappingsResponse meta(ResponseMetaAttributes meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -99,12 +136,13 @@ public class AuthNMappingsResponse {
     }
     AuthNMappingsResponse authNMappingsResponse = (AuthNMappingsResponse) o;
     return Objects.equals(this.data, authNMappingsResponse.data)
+        && Objects.equals(this.included, authNMappingsResponse.included)
         && Objects.equals(this.meta, authNMappingsResponse.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta);
+    return Objects.hash(data, included, meta);
   }
 
   @Override
@@ -112,6 +150,7 @@ public class AuthNMappingsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthNMappingsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
