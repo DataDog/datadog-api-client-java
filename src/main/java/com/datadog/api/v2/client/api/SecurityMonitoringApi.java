@@ -1333,6 +1333,13 @@ public class SecurityMonitoringApi {
             });
   }
 
+  /**
+   * Get a quick list of security signals.
+   *
+   * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfo}.
+   *
+   * @return PaginationIterable<SecurityMonitoringSignal>
+   */
   public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination()
       throws ApiException {
     ListSecurityMonitoringSignalsOptionalParameters parameters =
@@ -1340,6 +1347,13 @@ public class SecurityMonitoringApi {
     return listSecurityMonitoringSignalsWithPagination(parameters);
   }
 
+  /**
+   * Get a quick list of security signals.
+   *
+   * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringSignalsListResponse
+   */
   public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination(
       ListSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
     String resultsPath = "getData";
@@ -1572,6 +1586,13 @@ public class SecurityMonitoringApi {
             });
   }
 
+  /**
+   * Get a list of security signals.
+   *
+   * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfo}.
+   *
+   * @return PaginationIterable<SecurityMonitoringSignal>
+   */
   public PaginationIterable<SecurityMonitoringSignal>
       searchSecurityMonitoringSignalsWithPagination() throws ApiException {
     SearchSecurityMonitoringSignalsOptionalParameters parameters =
@@ -1579,6 +1600,13 @@ public class SecurityMonitoringApi {
     return searchSecurityMonitoringSignalsWithPagination(parameters);
   }
 
+  /**
+   * Get a list of security signals.
+   *
+   * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringSignalsListResponse
+   */
   public PaginationIterable<SecurityMonitoringSignal> searchSecurityMonitoringSignalsWithPagination(
       SearchSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
     String resultsPath = "getData";

@@ -189,11 +189,25 @@ public class ProcessesApi {
             });
   }
 
+  /**
+   * Get all processes.
+   *
+   * <p>See {@link #listProcessesWithHttpInfo}.
+   *
+   * @return PaginationIterable<ProcessSummary>
+   */
   public PaginationIterable<ProcessSummary> listProcessesWithPagination() throws ApiException {
     ListProcessesOptionalParameters parameters = new ListProcessesOptionalParameters();
     return listProcessesWithPagination(parameters);
   }
 
+  /**
+   * Get all processes.
+   *
+   * <p>See {@link #listProcessesWithHttpInfo}.
+   *
+   * @return ProcessSummariesResponse
+   */
   public PaginationIterable<ProcessSummary> listProcessesWithPagination(
       ListProcessesOptionalParameters parameters) throws ApiException {
     String resultsPath = "getData";

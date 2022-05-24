@@ -259,11 +259,25 @@ public class LogsApi {
             });
   }
 
+  /**
+   * Search logs.
+   *
+   * <p>See {@link #listLogsWithHttpInfo}.
+   *
+   * @return PaginationIterable<Log>
+   */
   public PaginationIterable<Log> listLogsWithPagination() throws ApiException {
     ListLogsOptionalParameters parameters = new ListLogsOptionalParameters();
     return listLogsWithPagination(parameters);
   }
 
+  /**
+   * Search logs.
+   *
+   * <p>See {@link #listLogsWithHttpInfo}.
+   *
+   * @return LogsListResponse
+   */
   public PaginationIterable<Log> listLogsWithPagination(ListLogsOptionalParameters parameters)
       throws ApiException {
     String resultsPath = "getData";
@@ -547,11 +561,25 @@ public class LogsApi {
             });
   }
 
+  /**
+   * Get a list of logs.
+   *
+   * <p>See {@link #listLogsGetWithHttpInfo}.
+   *
+   * @return PaginationIterable<Log>
+   */
   public PaginationIterable<Log> listLogsGetWithPagination() throws ApiException {
     ListLogsGetOptionalParameters parameters = new ListLogsGetOptionalParameters();
     return listLogsGetWithPagination(parameters);
   }
 
+  /**
+   * Get a list of logs.
+   *
+   * <p>See {@link #listLogsGetWithHttpInfo}.
+   *
+   * @return LogsListResponse
+   */
   public PaginationIterable<Log> listLogsGetWithPagination(ListLogsGetOptionalParameters parameters)
       throws ApiException {
     String resultsPath = "getData";

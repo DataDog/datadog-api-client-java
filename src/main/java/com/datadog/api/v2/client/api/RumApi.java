@@ -324,11 +324,25 @@ public class RumApi {
             });
   }
 
+  /**
+   * Get a list of RUM events.
+   *
+   * <p>See {@link #listRUMEventsWithHttpInfo}.
+   *
+   * @return PaginationIterable<RUMEvent>
+   */
   public PaginationIterable<RUMEvent> listRUMEventsWithPagination() throws ApiException {
     ListRUMEventsOptionalParameters parameters = new ListRUMEventsOptionalParameters();
     return listRUMEventsWithPagination(parameters);
   }
 
+  /**
+   * Get a list of RUM events.
+   *
+   * <p>See {@link #listRUMEventsWithHttpInfo}.
+   *
+   * @return RUMEventsResponse
+   */
   public PaginationIterable<RUMEvent> listRUMEventsWithPagination(
       ListRUMEventsOptionalParameters parameters) throws ApiException {
     String resultsPath = "getData";
@@ -509,6 +523,14 @@ public class RumApi {
             });
   }
 
+  /**
+   * Search RUM events.
+   *
+   * <p>See {@link #searchRUMEventsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return PaginationIterable<RUMEvent>
+   */
   public PaginationIterable<RUMEvent> searchRUMEventsWithPagination(RUMSearchEventsRequest body)
       throws ApiException {
     String resultsPath = "getData";

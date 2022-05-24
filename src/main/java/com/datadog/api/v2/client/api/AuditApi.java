@@ -187,11 +187,25 @@ public class AuditApi {
             });
   }
 
+  /**
+   * Get a list of Audit Logs events.
+   *
+   * <p>See {@link #listAuditLogsWithHttpInfo}.
+   *
+   * @return PaginationIterable<AuditLogsEvent>
+   */
   public PaginationIterable<AuditLogsEvent> listAuditLogsWithPagination() throws ApiException {
     ListAuditLogsOptionalParameters parameters = new ListAuditLogsOptionalParameters();
     return listAuditLogsWithPagination(parameters);
   }
 
+  /**
+   * Get a list of Audit Logs events.
+   *
+   * <p>See {@link #listAuditLogsWithHttpInfo}.
+   *
+   * @return AuditLogsEventsResponse
+   */
   public PaginationIterable<AuditLogsEvent> listAuditLogsWithPagination(
       ListAuditLogsOptionalParameters parameters) throws ApiException {
     String resultsPath = "getData";
@@ -417,11 +431,25 @@ public class AuditApi {
             });
   }
 
+  /**
+   * Search Audit Logs events.
+   *
+   * <p>See {@link #searchAuditLogsWithHttpInfo}.
+   *
+   * @return PaginationIterable<AuditLogsEvent>
+   */
   public PaginationIterable<AuditLogsEvent> searchAuditLogsWithPagination() throws ApiException {
     SearchAuditLogsOptionalParameters parameters = new SearchAuditLogsOptionalParameters();
     return searchAuditLogsWithPagination(parameters);
   }
 
+  /**
+   * Search Audit Logs events.
+   *
+   * <p>See {@link #searchAuditLogsWithHttpInfo}.
+   *
+   * @return AuditLogsEventsResponse
+   */
   public PaginationIterable<AuditLogsEvent> searchAuditLogsWithPagination(
       SearchAuditLogsOptionalParameters parameters) throws ApiException {
     String resultsPath = "getData";

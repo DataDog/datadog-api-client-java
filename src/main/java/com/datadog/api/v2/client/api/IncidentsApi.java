@@ -619,12 +619,26 @@ public class IncidentsApi {
             });
   }
 
+  /**
+   * Get a list of incidents.
+   *
+   * <p>See {@link #listIncidentsWithHttpInfo}.
+   *
+   * @return PaginationIterable<IncidentResponseData>
+   */
   public PaginationIterable<IncidentResponseData> listIncidentsWithPagination()
       throws ApiException {
     ListIncidentsOptionalParameters parameters = new ListIncidentsOptionalParameters();
     return listIncidentsWithPagination(parameters);
   }
 
+  /**
+   * Get a list of incidents.
+   *
+   * <p>See {@link #listIncidentsWithHttpInfo}.
+   *
+   * @return IncidentsResponse
+   */
   public PaginationIterable<IncidentResponseData> listIncidentsWithPagination(
       ListIncidentsOptionalParameters parameters) throws ApiException {
     String resultsPath = "getData";

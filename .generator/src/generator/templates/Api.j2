@@ -80,7 +80,7 @@ public class {{ name }} {
   {%- set operationId = operation.operationId|untitle_case %}
   {%- set bodyParamName = operation.get("x-codegen-request-body-name", "body") %}
 
-{%- macro endpointDocAndAnnotation(async=False, showRequired=True, showOptional=False, optionalParameterArg=False, throwsApiException=True) -%}
+{%- macro endpointDocAndAnnotation(async=False, showRequired=True, showOptional=False, optionalParameterArg=False, throwsApiException=True, overrideReturn=False) -%}
 /**
  * {{ operation.summary|escape_html }}.
  *
@@ -96,8 +96,12 @@ public class {{ name }} {
  {%- if optionalParameterArg %}
  * @param parameters Optional parameters for the request.
  {%- endif %}
+ {%- if overrideReturn %}
+ * @return {{ overrideReturn }}
+ {%- else %}
  {%- if returnType %}
  * @return {% if async %}CompletableFuture&lt;{{ returnType|escape_html }}&gt;{% else%}{{ returnType|escape_html }}{%endif %}
+ {%- endif %}
  {%- endif %}
  {%- if throwsApiException %}
  * @throws ApiException if fails to make API call
@@ -258,8 +262,10 @@ public class {{ name }} {
 
   {%- if operation["x-pagination"] %}
   {%- set pagination = operation["x-pagination"] %}
+  {%- set paginationReturnType = "PaginationIterable<" ~  get_pagintion_return_item_type(operation, pagination["resultsPath"]) ~ ">" %}
 
-  public PaginationIterable<{{ get_pagintion_return_item_type(operation, pagination["resultsPath"]) }}> {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
+  {{ endpointDocAndAnnotation(throwsApiException=False, overrideReturn=paginationReturnType) }}
+  public {{ paginationReturnType }} {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
     {%- if optionalParams %}
     {{ operationId|upperfirst }}OptionalParameters parameters = new {{ operationId|upperfirst }}OptionalParameters();
     return {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ name|variable_name }}, {% endfor %}parameters);
@@ -270,7 +276,8 @@ public class {{ name }} {
 
   {%- if optionalParams %}
 
-  public PaginationIterable<{{ get_pagintion_return_item_type(operation, pagination["resultsPath"]) }}> {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) throws ApiException {
+  {{ endpointDocAndAnnotation(throwsApiException=False, overrideReturn=returnType) }}
+  public {{ paginationReturnType }} {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) throws ApiException {
     {{- paginatedEndpointMacro(pagination) }}
   }
   {%- endif %}
