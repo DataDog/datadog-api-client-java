@@ -188,35 +188,8 @@ public class AuditApi {
   }
 
   public PaginationIterable<AuditLogsEvent> listAuditLogsWithPagination() throws ApiException {
-    String resultsPath = "getData";
-    String valueGetterPath = "getMeta.getPage.getAfter";
-    String valueSetterPath = "pageCursor";
-    Boolean valueSetterParamOptional = true;
-    Integer limit;
     ListAuditLogsOptionalParameters parameters = new ListAuditLogsOptionalParameters();
-
-    if (parameters.pageLimit == null) {
-      limit = 10;
-      parameters.pageLimit(limit);
-    } else {
-      limit = parameters.pageLimit;
-    }
-
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
-
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "listAuditLogs",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            limit,
-            args);
-
-    return iterator;
+    return listAuditLogsWithPagination(parameters);
   }
 
   public PaginationIterable<AuditLogsEvent> listAuditLogsWithPagination(
@@ -445,43 +418,8 @@ public class AuditApi {
   }
 
   public PaginationIterable<AuditLogsEvent> searchAuditLogsWithPagination() throws ApiException {
-    String resultsPath = "getData";
-    String valueGetterPath = "getMeta.getPage.getAfter";
-    String valueSetterPath = "body.getPage.setCursor";
-    Boolean valueSetterParamOptional = true;
-    Integer limit;
     SearchAuditLogsOptionalParameters parameters = new SearchAuditLogsOptionalParameters();
-
-    if (parameters.body == null) {
-      parameters.body(new AuditLogsSearchEventsRequest());
-    }
-
-    if (parameters.body.getPage() == null) {
-      parameters.body.setPage(new AuditLogsQueryPageOptions());
-    }
-
-    if (parameters.body.getPage().getLimit() == null) {
-      limit = 10;
-      parameters.body.getPage().setLimit(limit);
-    } else {
-      limit = parameters.body.getPage().getLimit();
-    }
-
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
-
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "searchAuditLogs",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            limit,
-            args);
-
-    return iterator;
+    return searchAuditLogsWithPagination(parameters);
   }
 
   public PaginationIterable<AuditLogsEvent> searchAuditLogsWithPagination(

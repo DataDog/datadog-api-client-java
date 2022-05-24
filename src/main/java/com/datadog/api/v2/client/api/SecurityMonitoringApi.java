@@ -1335,36 +1335,9 @@ public class SecurityMonitoringApi {
 
   public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination()
       throws ApiException {
-    String resultsPath = "getData";
-    String valueGetterPath = "getMeta.getPage.getAfter";
-    String valueSetterPath = "pageCursor";
-    Boolean valueSetterParamOptional = true;
-    Integer limit;
     ListSecurityMonitoringSignalsOptionalParameters parameters =
         new ListSecurityMonitoringSignalsOptionalParameters();
-
-    if (parameters.pageLimit == null) {
-      limit = 10;
-      parameters.pageLimit(limit);
-    } else {
-      limit = parameters.pageLimit;
-    }
-
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
-
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "listSecurityMonitoringSignals",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            limit,
-            args);
-
-    return iterator;
+    return listSecurityMonitoringSignalsWithPagination(parameters);
   }
 
   public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination(
@@ -1601,44 +1574,9 @@ public class SecurityMonitoringApi {
 
   public PaginationIterable<SecurityMonitoringSignal>
       searchSecurityMonitoringSignalsWithPagination() throws ApiException {
-    String resultsPath = "getData";
-    String valueGetterPath = "getMeta.getPage.getAfter";
-    String valueSetterPath = "body.getPage.setCursor";
-    Boolean valueSetterParamOptional = true;
-    Integer limit;
     SearchSecurityMonitoringSignalsOptionalParameters parameters =
         new SearchSecurityMonitoringSignalsOptionalParameters();
-
-    if (parameters.body == null) {
-      parameters.body(new SecurityMonitoringSignalListRequest());
-    }
-
-    if (parameters.body.getPage() == null) {
-      parameters.body.setPage(new SecurityMonitoringSignalListRequestPage());
-    }
-
-    if (parameters.body.getPage().getLimit() == null) {
-      limit = 10;
-      parameters.body.getPage().setLimit(limit);
-    } else {
-      limit = parameters.body.getPage().getLimit();
-    }
-
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
-
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "searchSecurityMonitoringSignals",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            limit,
-            args);
-
-    return iterator;
+    return searchSecurityMonitoringSignalsWithPagination(parameters);
   }
 
   public PaginationIterable<SecurityMonitoringSignal> searchSecurityMonitoringSignalsWithPagination(

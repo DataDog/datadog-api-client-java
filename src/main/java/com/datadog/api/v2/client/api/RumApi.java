@@ -325,35 +325,8 @@ public class RumApi {
   }
 
   public PaginationIterable<RUMEvent> listRUMEventsWithPagination() throws ApiException {
-    String resultsPath = "getData";
-    String valueGetterPath = "getMeta.getPage.getAfter";
-    String valueSetterPath = "pageCursor";
-    Boolean valueSetterParamOptional = true;
-    Integer limit;
     ListRUMEventsOptionalParameters parameters = new ListRUMEventsOptionalParameters();
-
-    if (parameters.pageLimit == null) {
-      limit = 10;
-      parameters.pageLimit(limit);
-    } else {
-      limit = parameters.pageLimit;
-    }
-
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
-
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "listRUMEvents",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            limit,
-            args);
-
-    return iterator;
+    return listRUMEventsWithPagination(parameters);
   }
 
   public PaginationIterable<RUMEvent> listRUMEventsWithPagination(

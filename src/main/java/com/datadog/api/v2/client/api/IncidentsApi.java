@@ -621,35 +621,8 @@ public class IncidentsApi {
 
   public PaginationIterable<IncidentResponseData> listIncidentsWithPagination()
       throws ApiException {
-    String resultsPath = "getData";
-    String valueGetterPath = "";
-    String valueSetterPath = "pageOffset";
-    Boolean valueSetterParamOptional = true;
-    Long limit;
     ListIncidentsOptionalParameters parameters = new ListIncidentsOptionalParameters();
-
-    if (parameters.pageSize == null) {
-      limit = 10l;
-      parameters.pageSize(limit);
-    } else {
-      limit = parameters.pageSize;
-    }
-
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
-
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "listIncidents",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            limit,
-            args);
-
-    return iterator;
+    return listIncidentsWithPagination(parameters);
   }
 
   public PaginationIterable<IncidentResponseData> listIncidentsWithPagination(
