@@ -255,8 +255,8 @@ public class SyntheticsAPITest {
 
   /**
    * The subtype of the Synthetic API test, <code>http</code>, <code>ssl</code>, <code>tcp</code>,
-   * <code>dns</code>, <code>icmp</code>, <code>udp</code>, <code>websocket</code> or <code>multi
-   * </code>.
+   * <code>dns</code>, <code>icmp</code>, <code>udp</code>, <code>websocket</code>, <code>grpc
+   * </code> or <code>multi</code>.
    *
    * @return subtype
    */
