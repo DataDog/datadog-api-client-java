@@ -3,14 +3,14 @@
     "httpRequest": {
       "headers": {
         "JAVA-TEST-NAME": [
-          "Get_Monthly_Usage_Attribution_returns_OK_response"
+          "Get_monthly_usage_attribution_returns_OK_response"
         ]
       },
       "method": "GET",
       "path": "/api/v1/usage/monthly-attribution",
       "queryStringParameters": {
         "start_month": [
-          "2022-01-08T16:02:34.958Z"
+          "2022-05-20T08:46:27.028Z"
         ],
         "fields": [
           "infra_host_usage"
@@ -20,7 +20,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"usage\":[{\"org_name\":\"DD Integration Tests (321813)\",\"public_id\":\"fasjyydbcgwwc2uc\",\"tag_config_source\":\"DD Integration Tests (321813):::project\",\"tags\":null,\"updated_at\":\"2022-01-11T14:35:29Z\",\"month\":\"2022-01-01T00:00:00+00:00\",\"values\":{\"infra_host_usage\":18}}],\"metadata\":{\"pagination\":{\"next_record_id\":null},\"aggregates\":[{\"field\":\"infra_host_usage\",\"value\":18.0,\"agg_type\":\"sum\"}]}}",
+      "body": "{\"usage\":[{\"org_name\":\"DD Integration Tests (321813)\",\"public_id\":\"fasjyydbcgwwc2uc\",\"tag_config_source\":\"DD Integration Tests (321813):::project\",\"tags\":null,\"updated_at\":\"2022-05-22T09:05:00Z\",\"month\":\"2022-05-01T00:00:00+00:00\",\"values\":{\"infra_host_usage\":19}}],\"metadata\":{\"pagination\":{\"next_record_id\":null},\"aggregates\":[{\"field\":\"infra_host_usage\",\"value\":19.0,\"agg_type\":\"sum\"}]}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -35,6 +35,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "120f11a4-8647-0e0e-5665-be9b1ea080bf"
+    "id": "236c5606-1411-c26b-ddfb-88e0e5b54fb1"
   }
 ]
