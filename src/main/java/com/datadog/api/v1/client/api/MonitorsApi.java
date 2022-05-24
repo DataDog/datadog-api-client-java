@@ -294,21 +294,18 @@ public class MonitorsApi {
    * <p>Example: <code>"check".over(tags).last(count).by(group).count_by_status()</code>
    *
    * <ul>
-   *   <li><strong><code>check</code></strong> name of the check, for example <code>datadog.agent.up
-   *       </code>
-   *   <li><strong><code>tags</code></strong> one or more quoted tags (comma-separated), or "<em>".
-   *       for example: <code>.over("env:prod", "role:db")</code>; </em><em><code>over</code></em>*
-   *       cannot be blank.
-   *   <li><strong><code>count</code></strong> must be at greater than or equal to your max
-   *       threshold (defined in the <code>options</code>). It is limited to 100. For example, if
-   *       you've specified to notify on 1 critical, 3 ok, and 2 warn statuses, <code>count</code>
-   *       should be at least 3.
-   *   <li><strong><code>group</code></strong> must be specified for check monitors. Per-check
-   *       grouping is already explicitly known for some service checks. For example, Postgres
-   *       integration monitors are tagged by <code>db</code>, <code>host</code>, and <code>port
-   *       </code>, and Network monitors by <code>host</code>, <code>instance</code>, and <code>url
-   *       </code>. See <a href="https://docs.datadoghq.com/api/latest/service-checks/">Service
-   *       Checks</a> documentation for more information.
+   *   <li><code>check</code> name of the check, for example <code>datadog.agent.up</code>
+   *   <li><code>tags</code> one or more quoted tags (comma-separated), or "*". for example: <code>
+   *       .over("env:prod", "role:db")</code>; <code>over</code> cannot be blank.
+   *   <li><code>count</code> must be at greater than or equal to your max threshold (defined in the
+   *       <code>options</code>). It is limited to 100. For example, if you've specified to notify
+   *       on 1 critical, 3 ok, and 2 warn statuses, <code>count</code> should be at least 3.
+   *   <li><code>group</code> must be specified for check monitors. Per-check grouping is already
+   *       explicitly known for some service checks. For example, Postgres integration monitors are
+   *       tagged by <code>db</code>, <code>host</code>, and <code>port</code>, and Network monitors
+   *       by <code>host</code>, <code>instance</code>, and <code>url</code>. See <a
+   *       href="https://docs.datadoghq.com/api/latest/service-checks/">Service Checks</a>
+   *       documentation for more information.
    * </ul>
    *
    * <p><strong>Event Alert Query</strong>
@@ -318,21 +315,20 @@ public class MonitorsApi {
    * </code>
    *
    * <ul>
-   *   <li><strong><code>event</code></strong>, the event query string:
-   *   <li><strong><code>string_query</code></strong> free text query to match against event title
-   *       and text.
-   *   <li><strong><code>sources</code></strong> event sources (comma-separated).
-   *   <li><strong><code>status</code></strong> event statuses (comma-separated). Valid options:
-   *       error, warn, and info.
-   *   <li><strong><code>priority</code></strong> event priorities (comma-separated). Valid options:
-   *       low, normal, all.
-   *   <li><strong><code>host</code></strong> event reporting host (comma-separated).
-   *   <li><strong><code>tags</code></strong> event tags (comma-separated).
-   *   <li><strong><code>excluded_tags</code></strong> excluded event tags (comma-separated).
-   *   <li><strong><code>rollup</code></strong> the stats roll-up method. <code>count</code> is the
-   *       only supported method now.
-   *   <li><strong><code>last</code></strong> the timeframe to roll up the counts. Examples: 45m,
-   *       4h. Supported timeframes: m, h and d. This value should not exceed 48 hours.
+   *   <li><code>event</code>, the event query string:
+   *   <li><code>string_query</code> free text query to match against event title and text.
+   *   <li><code>sources</code> event sources (comma-separated).
+   *   <li><code>status</code> event statuses (comma-separated). Valid options: error, warn, and
+   *       info.
+   *   <li><code>priority</code> event priorities (comma-separated). Valid options: low, normal,
+   *       all.
+   *   <li><code>host</code> event reporting host (comma-separated).
+   *   <li><code>tags</code> event tags (comma-separated).
+   *   <li><code>excluded_tags</code> excluded event tags (comma-separated).
+   *   <li><code>rollup</code> the stats roll-up method. <code>count</code> is the only supported
+   *       method now.
+   *   <li><code>last</code> the timeframe to roll up the counts. Examples: 45m, 4h. Supported
+   *       timeframes: m, h and d. This value should not exceed 48 hours.
    * </ul>
    *
    * <p><strong>NOTE</strong> The Event Alert Query is being deprecated and replaced by the Event V2
@@ -346,16 +342,16 @@ public class MonitorsApi {
    * </code>
    *
    * <ul>
-   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *   <li><code>query</code> The search query - following the <a
    *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
-   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
-   *       count</code>, <code>avg</code> and <code>cardinality</code>.
-   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
-   *       rollup_method</code> - specify the measure or the facet name you want to use.
-   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
-   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
-   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
-   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   *   <li><code>rollup_method</code> The stats roll-up method - supports <code>count</code>, <code>
+   *       avg</code> and <code>cardinality</code>.
+   *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
+   *       specify the measure or the facet name you want to use.
+   *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
+   *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
    * <p><strong>Process Alert Query</strong>
@@ -364,15 +360,15 @@ public class MonitorsApi {
    * </code>
    *
    * <ul>
-   *   <li><strong><code>search</code></strong> free text search string for querying processes.
-   *       Matching processes match results on the <a
+   *   <li><code>search</code> free text search string for querying processes. Matching processes
+   *       match results on the <a
    *       href="https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows">Live
    *       Processes</a> page.
-   *   <li><strong><code>tags</code></strong> one or more tags (comma-separated)
-   *   <li><strong><code>timeframe</code></strong> the timeframe to roll up the counts. Examples:
-   *       10m, 4h. Supported timeframes: s, m, h and d
-   *   <li><strong><code>operator</code></strong> &lt;, &lt;=, &gt;, &gt;=, ==, or !=
-   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold
+   *   <li><code>tags</code> one or more tags (comma-separated)
+   *   <li><code>timeframe</code> the timeframe to roll up the counts. Examples: 10m, 4h. Supported
+   *       timeframes: s, m, h and d
+   *   <li><code>operator</code> &lt;, &lt;=, &gt;, &gt;=, ==, or !=
+   *   <li><code>#</code> an integer or decimal number used to set the threshold
    * </ul>
    *
    * <p><strong>Logs Alert Query</strong>
@@ -382,18 +378,18 @@ public class MonitorsApi {
    * </code>
    *
    * <ul>
-   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *   <li><code>query</code> The search query - following the <a
    *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
-   *   <li><strong><code>index_name</code></strong> For multi-index organizations, the log index in
-   *       which the request is performed.
-   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
-   *       count</code>, <code>avg</code> and <code>cardinality</code>.
-   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
-   *       rollup_method</code> - specify the measure or the facet name you want to use.
-   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
-   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
-   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
-   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   *   <li><code>index_name</code> For multi-index organizations, the log index in which the request
+   *       is performed.
+   *   <li><code>rollup_method</code> The stats roll-up method - supports <code>count</code>, <code>
+   *       avg</code> and <code>cardinality</code>.
+   *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
+   *       specify the measure or the facet name you want to use.
+   *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
+   *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
    * <p><strong>Composite Query</strong>
@@ -402,17 +398,16 @@ public class MonitorsApi {
    * </code> are the IDs of non-composite monitors
    *
    * <ul>
-   *   <li><strong><code>name</code></strong> [<em>required</em>, <em>default</em> =
-   *       <strong>dynamic, based on query</strong>]: The name of the alert.
-   *   <li><strong><code>message</code></strong> [<em>required</em>, <em>default</em> =
-   *       <strong>dynamic, based on query</strong>]: A message to include with notifications for
-   *       this monitor. Email notifications can be sent to specific users by using the same
-   *       '@username' notation as events.
-   *   <li><strong><code>tags</code></strong> [<em>optional</em>, <em>default</em> = <strong>empty
-   *       list</strong>]: A list of tags to associate with your monitor. When getting all monitor
-   *       details via the API, use the <code>monitor_tags</code> argument to filter results by
-   *       these tags. It is only available via the API and isn't visible or editable in the Datadog
-   *       UI.
+   *   <li><code>name</code> [<em>required</em>, <em>default</em> = <strong>dynamic, based on
+   *       query</strong>]: The name of the alert.
+   *   <li><code>message</code> [<em>required</em>, <em>default</em> = <strong>dynamic, based on
+   *       query</strong>]: A message to include with notifications for this monitor. Email
+   *       notifications can be sent to specific users by using the same '@username' notation as
+   *       events.
+   *   <li><code>tags</code> [<em>optional</em>, <em>default</em> = <strong>empty list</strong>]: A
+   *       list of tags to associate with your monitor. When getting all monitor details via the
+   *       API, use the <code>monitor_tags</code> argument to filter results by these tags. It is
+   *       only available via the API and isn't visible or editable in the Datadog UI.
    * </ul>
    *
    * <p><strong>SLO Alert Query</strong>
@@ -420,11 +415,11 @@ public class MonitorsApi {
    * <p>Example: <code>error_budget("slo_id").over("time_window") operator #</code>
    *
    * <ul>
-   *   <li><strong><code>slo_id</code></strong>: The alphanumeric SLO ID of the SLO you are
-   *       configuring the alert for.
-   *   <li><strong><code>time_window</code></strong>: The time window of the SLO target you wish to
-   *       alert on. Valid options: <code>7d</code>, <code>30d</code>, <code>90d</code>.
-   *   <li><strong><code>operator</code></strong>: <code>&gt;=</code> or <code>&gt;</code>
+   *   <li><code>slo_id</code>: The alphanumeric SLO ID of the SLO you are configuring the alert
+   *       for.
+   *   <li><code>time_window</code>: The time window of the SLO target you wish to alert on. Valid
+   *       options: <code>7d</code>, <code>30d</code>, <code>90d</code>.
+   *   <li><code>operator</code>: <code>&gt;=</code> or <code>&gt;</code>
    * </ul>
    *
    * <p><strong>Audit Alert Query</strong>
@@ -433,16 +428,16 @@ public class MonitorsApi {
    * </code>
    *
    * <ul>
-   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *   <li><code>query</code> The search query - following the <a
    *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
-   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
-   *       count</code>, <code>avg</code> and <code>cardinality</code>.
-   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
-   *       rollup_method</code> - specify the measure or the facet name you want to use.
-   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
-   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
-   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
-   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   *   <li><code>rollup_method</code> The stats roll-up method - supports <code>count</code>, <code>
+   *       avg</code> and <code>cardinality</code>.
+   *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
+   *       specify the measure or the facet name you want to use.
+   *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
+   *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
    * <p><strong>NOTE</strong> Only available on US1-FED and in closed beta on US1, EU, US3, and US5.
@@ -453,16 +448,16 @@ public class MonitorsApi {
    * ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #</code>
    *
    * <ul>
-   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *   <li><code>query</code> The search query - following the <a
    *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
-   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
-   *       count</code>, <code>avg</code>, and <code>cardinality</code>.
-   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
-   *       rollup_method</code> - specify the measure or the facet name you want to use.
-   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
-   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
-   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
-   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   *   <li><code>rollup_method</code> The stats roll-up method - supports <code>count</code>, <code>
+   *       avg</code>, and <code>cardinality</code>.
+   *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
+   *       specify the measure or the facet name you want to use.
+   *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
+   *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
    * <p><strong>NOTE</strong> CI Pipeline monitors are in alpha on US1, EU, US3 and US5.
@@ -473,16 +468,16 @@ public class MonitorsApi {
    * </code>
    *
    * <ul>
-   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *   <li><code>query</code> The search query - following the <a
    *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
-   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
-   *       count</code>, <code>avg</code>, and <code>cardinality</code>.
-   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
-   *       rollup_method</code> - specify the measure or the facet name you want to use.
-   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
-   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
-   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
-   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   *   <li><code>rollup_method</code> The stats roll-up method - supports <code>count</code>, <code>
+   *       avg</code>, and <code>cardinality</code>.
+   *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
+   *       specify the measure or the facet name you want to use.
+   *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
+   *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
    * <p><strong>NOTE</strong> CI Test monitors are available only in closed beta on US1, EU, US3 and
@@ -497,16 +492,16 @@ public class MonitorsApi {
    * </code>
    *
    * <ul>
-   *   <li><strong><code>query</code></strong> The search query - following the <a
+   *   <li><code>query</code> The search query - following the <a
    *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
-   *   <li><strong><code>rollup_method</code></strong> The stats roll-up method - supports <code>
-   *       count</code>, <code>avg</code>, and <code>cardinality</code>.
-   *   <li><strong><code>measure</code></strong> For <code>avg</code> and cardinality <code>
-   *       rollup_method</code> - specify the measure or the facet name you want to use.
-   *   <li><strong><code>time_window</code></strong> #m (between 1 and 2880), #h (between 1 and 48).
-   *   <li><strong><code>operator</code></strong> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;
-   *       </code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>.
-   *   <li><strong><code>#</code></strong> an integer or decimal number used to set the threshold.
+   *   <li><code>rollup_method</code> The stats roll-up method - supports <code>count</code>, <code>
+   *       avg</code>, and <code>cardinality</code>.
+   *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
+   *       specify the measure or the facet name you want to use.
+   *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
+   *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
+   *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
+   *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
    * @param body Create a monitor request body. (required)
