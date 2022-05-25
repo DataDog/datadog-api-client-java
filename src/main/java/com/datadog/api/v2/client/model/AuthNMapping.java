@@ -15,12 +15,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /** The AuthN Mapping object returned by API. */
 @JsonPropertyOrder({
   AuthNMapping.JSON_PROPERTY_ATTRIBUTES,
   AuthNMapping.JSON_PROPERTY_ID,
+  AuthNMapping.JSON_PROPERTY_INCLUDED,
   AuthNMapping.JSON_PROPERTY_RELATIONSHIPS,
   AuthNMapping.JSON_PROPERTY_TYPE
 })
@@ -33,6 +36,9 @@ public class AuthNMapping {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<AuthNMappingIncluded> included = null;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
   private AuthNMappingRelationships relationships;
@@ -93,6 +99,39 @@ public class AuthNMapping {
     this.id = id;
   }
 
+  public AuthNMapping included(List<AuthNMappingIncluded> included) {
+    this.included = included;
+    for (AuthNMappingIncluded item : included) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public AuthNMapping addIncludedItem(AuthNMappingIncluded includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Included data in the AuthN Mapping response.
+   *
+   * @return included
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AuthNMappingIncluded> getIncluded() {
+    return included;
+  }
+
+  public void setIncluded(List<AuthNMappingIncluded> included) {
+    this.included = included;
+  }
+
   public AuthNMapping relationships(AuthNMappingRelationships relationships) {
     this.relationships = relationships;
     this.unparsed |= relationships.unparsed;
@@ -151,13 +190,14 @@ public class AuthNMapping {
     AuthNMapping authNMapping = (AuthNMapping) o;
     return Objects.equals(this.attributes, authNMapping.attributes)
         && Objects.equals(this.id, authNMapping.id)
+        && Objects.equals(this.included, authNMapping.included)
         && Objects.equals(this.relationships, authNMapping.relationships)
         && Objects.equals(this.type, authNMapping.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type);
+    return Objects.hash(attributes, id, included, relationships, type);
   }
 
   @Override
@@ -166,6 +206,7 @@ public class AuthNMapping {
     sb.append("class AuthNMapping {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

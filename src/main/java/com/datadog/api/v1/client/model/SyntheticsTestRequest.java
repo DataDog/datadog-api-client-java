@@ -30,7 +30,6 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
   SyntheticsTestRequest.JSON_PROPERTY_MESSAGE,
-  SyntheticsTestRequest.JSON_PROPERTY_METADATA,
   SyntheticsTestRequest.JSON_PROPERTY_METHOD,
   SyntheticsTestRequest.JSON_PROPERTY_NO_SAVING_RESPONSE_BODY,
   SyntheticsTestRequest.JSON_PROPERTY_NUMBER_OF_PACKETS,
@@ -38,7 +37,6 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_PROXY,
   SyntheticsTestRequest.JSON_PROPERTY_QUERY,
   SyntheticsTestRequest.JSON_PROPERTY_SERVERNAME,
-  SyntheticsTestRequest.JSON_PROPERTY_SERVICE,
   SyntheticsTestRequest.JSON_PROPERTY_SHOULD_TRACK_HOPS,
   SyntheticsTestRequest.JSON_PROPERTY_TIMEOUT,
   SyntheticsTestRequest.JSON_PROPERTY_URL
@@ -77,9 +75,6 @@ public class SyntheticsTestRequest {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-  public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, String> metadata = null;
-
   public static final String JSON_PROPERTY_METHOD = "method";
   private HTTPMethod method;
 
@@ -100,9 +95,6 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_SERVERNAME = "servername";
   private String servername;
-
-  public static final String JSON_PROPERTY_SERVICE = "service";
-  private String service;
 
   public static final String JSON_PROPERTY_SHOULD_TRACK_HOPS = "shouldTrackHops";
   private Boolean shouldTrackHops;
@@ -333,35 +325,6 @@ public class SyntheticsTestRequest {
     this.message = message;
   }
 
-  public SyntheticsTestRequest metadata(Map<String, String> metadata) {
-    this.metadata = metadata;
-    return this;
-  }
-
-  public SyntheticsTestRequest putMetadataItem(String key, String metadataItem) {
-    if (this.metadata == null) {
-      this.metadata = new HashMap<>();
-    }
-    this.metadata.put(key, metadataItem);
-    return this;
-  }
-
-  /**
-   * Metadata to include when performing the gRPC test.
-   *
-   * @return metadata
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, String> getMetadata() {
-    return metadata;
-  }
-
-  public void setMetadata(Map<String, String> metadata) {
-    this.metadata = metadata;
-  }
-
   public SyntheticsTestRequest method(HTTPMethod method) {
     this.method = method;
     this.unparsed |= !method.isValid();
@@ -516,27 +479,6 @@ public class SyntheticsTestRequest {
     this.servername = servername;
   }
 
-  public SyntheticsTestRequest service(String service) {
-    this.service = service;
-    return this;
-  }
-
-  /**
-   * gRPC service on which you want to perform the healthcheck.
-   *
-   * @return service
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getService() {
-    return service;
-  }
-
-  public void setService(String service) {
-    this.service = service;
-  }
-
   public SyntheticsTestRequest shouldTrackHops(Boolean shouldTrackHops) {
     this.shouldTrackHops = shouldTrackHops;
     return this;
@@ -620,7 +562,6 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.headers, syntheticsTestRequest.headers)
         && Objects.equals(this.host, syntheticsTestRequest.host)
         && Objects.equals(this.message, syntheticsTestRequest.message)
-        && Objects.equals(this.metadata, syntheticsTestRequest.metadata)
         && Objects.equals(this.method, syntheticsTestRequest.method)
         && Objects.equals(this.noSavingResponseBody, syntheticsTestRequest.noSavingResponseBody)
         && Objects.equals(this.numberOfPackets, syntheticsTestRequest.numberOfPackets)
@@ -628,7 +569,6 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.proxy, syntheticsTestRequest.proxy)
         && Objects.equals(this.query, syntheticsTestRequest.query)
         && Objects.equals(this.servername, syntheticsTestRequest.servername)
-        && Objects.equals(this.service, syntheticsTestRequest.service)
         && Objects.equals(this.shouldTrackHops, syntheticsTestRequest.shouldTrackHops)
         && Objects.equals(this.timeout, syntheticsTestRequest.timeout)
         && Objects.equals(this.url, syntheticsTestRequest.url);
@@ -647,7 +587,6 @@ public class SyntheticsTestRequest {
         headers,
         host,
         message,
-        metadata,
         method,
         noSavingResponseBody,
         numberOfPackets,
@@ -655,7 +594,6 @@ public class SyntheticsTestRequest {
         proxy,
         query,
         servername,
-        service,
         shouldTrackHops,
         timeout,
         url);
@@ -675,7 +613,6 @@ public class SyntheticsTestRequest {
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    noSavingResponseBody: ")
         .append(toIndentedString(noSavingResponseBody))
@@ -685,7 +622,6 @@ public class SyntheticsTestRequest {
     sb.append("    proxy: ").append(toIndentedString(proxy)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    servername: ").append(toIndentedString(servername)).append("\n");
-    sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    shouldTrackHops: ").append(toIndentedString(shouldTrackHops)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

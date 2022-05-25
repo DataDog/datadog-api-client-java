@@ -67,7 +67,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get cost across multi-org account.
+   * Get Cost Across Multi-Org Account.
    *
    * <p>See {@link #getCostByOrgWithHttpInfo}.
    *
@@ -81,7 +81,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get cost across multi-org account.
+   * Get Cost Across Multi-Org Account.
    *
    * <p>See {@link #getCostByOrgWithHttpInfoAsync}.
    *
@@ -98,7 +98,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get cost across multi-org account.
+   * Get Cost Across Multi-Org Account.
    *
    * <p>See {@link #getCostByOrgWithHttpInfo}.
    *
@@ -114,7 +114,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get cost across multi-org account.
+   * Get Cost Across Multi-Org Account.
    *
    * <p>See {@link #getCostByOrgWithHttpInfoAsync}.
    *
@@ -133,8 +133,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get cost across multi-org account. Cost by org data for a given month becomes available no
-   * later than the 16th of the following month.
+   * Get Cost Across Multi-Org Account.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning this month. (required)
@@ -191,7 +190,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get cost across multi-org account.
+   * Get Cost Across Multi-Org Account.
    *
    * <p>See {@link #getCostByOrgWithHttpInfo}.
    *

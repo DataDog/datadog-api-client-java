@@ -93,7 +93,7 @@ public class LogsCategoryProcessor {
   }
 
   /**
-   * Array of filters to match or not a log and their corresponding <code>name</code> to assign a
+   * Array of filters to match or not a log and their corresponding <code>name</code>to assign a
    * custom value to the log.
    *
    * @return categories

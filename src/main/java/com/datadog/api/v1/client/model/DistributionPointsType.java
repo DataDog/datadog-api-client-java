@@ -23,16 +23,15 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The new triage state of the signal. */
-@JsonSerialize(using = SignalTriageState.SignalTriageStateSerializer.class)
-public class SignalTriageState {
+/** The type of the distribution point. */
+@JsonSerialize(using = DistributionPointsType.DistributionPointsTypeSerializer.class)
+public class DistributionPointsType {
 
-  public static final SignalTriageState OPEN = new SignalTriageState("open");
-  public static final SignalTriageState ARCHIVED = new SignalTriageState("archived");
-  public static final SignalTriageState UNDER_REVIEW = new SignalTriageState("under_review");
+  public static final DistributionPointsType DISTRIBUTION =
+      new DistributionPointsType("distribution");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("open", "archived", "under_review"));
+      new HashSet<String>(Arrays.asList("distribution"));
 
   private String value;
 
@@ -40,21 +39,23 @@ public class SignalTriageState {
     return allowedValues.contains(this.value);
   }
 
-  SignalTriageState(String value) {
+  DistributionPointsType(String value) {
     this.value = value;
   }
 
-  public static class SignalTriageStateSerializer extends StdSerializer<SignalTriageState> {
-    public SignalTriageStateSerializer(Class<SignalTriageState> t) {
+  public static class DistributionPointsTypeSerializer
+      extends StdSerializer<DistributionPointsType> {
+    public DistributionPointsTypeSerializer(Class<DistributionPointsType> t) {
       super(t);
     }
 
-    public SignalTriageStateSerializer() {
+    public DistributionPointsTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(SignalTriageState value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        DistributionPointsType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -69,7 +70,7 @@ public class SignalTriageState {
     this.value = value;
   }
 
-  /** Return true if this SignalTriageState object is equal to o. */
+  /** Return true if this DistributionPointsType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -78,7 +79,7 @@ public class SignalTriageState {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((SignalTriageState) o).value);
+    return this.value.equals(((DistributionPointsType) o).value);
   }
 
   @Override
@@ -92,7 +93,7 @@ public class SignalTriageState {
   }
 
   @JsonCreator
-  public static SignalTriageState fromValue(String value) {
-    return new SignalTriageState(value);
+  public static DistributionPointsType fromValue(String value) {
+    return new DistributionPointsType(value);
   }
 }

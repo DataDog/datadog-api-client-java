@@ -14,24 +14,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 /** AuthN Mapping response from the API. */
-@JsonPropertyOrder({
-  AuthNMappingResponse.JSON_PROPERTY_DATA,
-  AuthNMappingResponse.JSON_PROPERTY_INCLUDED
-})
+@JsonPropertyOrder({AuthNMappingResponse.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private AuthNMapping data;
-
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<AuthNMappingIncluded> included = null;
 
   public AuthNMappingResponse data(AuthNMapping data) {
     this.data = data;
@@ -55,39 +47,6 @@ public class AuthNMappingResponse {
     this.data = data;
   }
 
-  public AuthNMappingResponse included(List<AuthNMappingIncluded> included) {
-    this.included = included;
-    for (AuthNMappingIncluded item : included) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public AuthNMappingResponse addIncludedItem(AuthNMappingIncluded includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
-    this.unparsed |= includedItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Included data in the AuthN Mapping response.
-   *
-   * @return included
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AuthNMappingIncluded> getIncluded() {
-    return included;
-  }
-
-  public void setIncluded(List<AuthNMappingIncluded> included) {
-    this.included = included;
-  }
-
   /** Return true if this AuthNMappingResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -98,13 +57,12 @@ public class AuthNMappingResponse {
       return false;
     }
     AuthNMappingResponse authNMappingResponse = (AuthNMappingResponse) o;
-    return Objects.equals(this.data, authNMappingResponse.data)
-        && Objects.equals(this.included, authNMappingResponse.included);
+    return Objects.equals(this.data, authNMappingResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included);
+    return Objects.hash(data);
   }
 
   @Override
@@ -112,7 +70,6 @@ public class AuthNMappingResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthNMappingResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("}");
     return sb.toString();
   }

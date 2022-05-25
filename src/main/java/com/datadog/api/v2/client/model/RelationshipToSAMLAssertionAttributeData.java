@@ -27,7 +27,7 @@ import java.util.Objects;
 public class RelationshipToSAMLAssertionAttributeData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private Integer id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SAMLAssertionAttributesType type = SAMLAssertionAttributesType.SAML_ASSERTION_ATTRIBUTES;
@@ -36,30 +36,30 @@ public class RelationshipToSAMLAssertionAttributeData {
 
   @JsonCreator
   public RelationshipToSAMLAssertionAttributeData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) Integer id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SAMLAssertionAttributesType type) {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public RelationshipToSAMLAssertionAttributeData id(String id) {
+  public RelationshipToSAMLAssertionAttributeData id(Integer id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the SAML assertion attribute.
+   * The ID of the SAML assertion attribute. maximum: 2147483647
    *
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

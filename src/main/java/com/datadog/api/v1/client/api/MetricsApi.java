@@ -5,6 +5,8 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
+import com.datadog.api.v1.client.model.DistributionPointsContentEncoding;
+import com.datadog.api.v1.client.model.DistributionPointsPayload;
 import com.datadog.api.v1.client.model.IntakePayloadAccepted;
 import com.datadog.api.v1.client.model.MetricContentEncoding;
 import com.datadog.api.v1.client.model.MetricMetadata;
@@ -711,6 +713,208 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricsQueryResponse>() {});
+  }
+
+  /** Manage optional parameters to submitDistributionPoints. */
+  public static class SubmitDistributionPointsOptionalParameters {
+    private DistributionPointsContentEncoding contentEncoding;
+
+    /**
+     * Set contentEncoding.
+     *
+     * @param contentEncoding HTTP header used to compress the media-type. (optional)
+     * @return SubmitDistributionPointsOptionalParameters
+     */
+    public SubmitDistributionPointsOptionalParameters contentEncoding(
+        DistributionPointsContentEncoding contentEncoding) {
+      this.contentEncoding = contentEncoding;
+      return this;
+    }
+  }
+
+  /**
+   * Submit distribution points.
+   *
+   * <p>See {@link #submitDistributionPointsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return IntakePayloadAccepted
+   * @throws ApiException if fails to make API call
+   */
+  public IntakePayloadAccepted submitDistributionPoints(DistributionPointsPayload body)
+      throws ApiException {
+    return submitDistributionPointsWithHttpInfo(
+            body, new SubmitDistributionPointsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Submit distribution points.
+   *
+   * <p>See {@link #submitDistributionPointsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
+   */
+  public CompletableFuture<IntakePayloadAccepted> submitDistributionPointsAsync(
+      DistributionPointsPayload body) {
+    return submitDistributionPointsWithHttpInfoAsync(
+            body, new SubmitDistributionPointsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Submit distribution points.
+   *
+   * <p>See {@link #submitDistributionPointsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return IntakePayloadAccepted
+   * @throws ApiException if fails to make API call
+   */
+  public IntakePayloadAccepted submitDistributionPoints(
+      DistributionPointsPayload body, SubmitDistributionPointsOptionalParameters parameters)
+      throws ApiException {
+    return submitDistributionPointsWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Submit distribution points.
+   *
+   * <p>See {@link #submitDistributionPointsWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
+   */
+  public CompletableFuture<IntakePayloadAccepted> submitDistributionPointsAsync(
+      DistributionPointsPayload body, SubmitDistributionPointsOptionalParameters parameters) {
+    return submitDistributionPointsWithHttpInfoAsync(body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * The distribution points end-point allows you to post distribution data that can be graphed on
+   * Datadog’s dashboards.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IntakePayloadAccepted&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
+   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IntakePayloadAccepted> submitDistributionPointsWithHttpInfo(
+      DistributionPointsPayload body, SubmitDistributionPointsOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling submitDistributionPoints");
+    }
+    DistributionPointsContentEncoding contentEncoding = parameters.contentEncoding;
+    // create path and map variables
+    String localVarPath = "/api/v1/distribution_points";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    if (contentEncoding != null)
+      localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "MetricsApi.submitDistributionPoints",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"text/json", "application/json"},
+            new String[] {"apiKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"text/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IntakePayloadAccepted>() {});
+  }
+
+  /**
+   * Submit distribution points.
+   *
+   * <p>See {@link #submitDistributionPointsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IntakePayloadAccepted&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IntakePayloadAccepted>>
+      submitDistributionPointsWithHttpInfoAsync(
+          DistributionPointsPayload body, SubmitDistributionPointsOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IntakePayloadAccepted>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling submitDistributionPoints"));
+      return result;
+    }
+    DistributionPointsContentEncoding contentEncoding = parameters.contentEncoding;
+    // create path and map variables
+    String localVarPath = "/api/v1/distribution_points";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    if (contentEncoding != null)
+      localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "MetricsApi.submitDistributionPoints",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"text/json", "application/json"},
+              new String[] {"apiKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IntakePayloadAccepted>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"text/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IntakePayloadAccepted>() {});
   }
 
   /** Manage optional parameters to submitMetrics. */

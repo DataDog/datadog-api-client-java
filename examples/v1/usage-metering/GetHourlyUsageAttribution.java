@@ -1,4 +1,4 @@
-// Get hourly usage attribution returns "OK" response
+// Get Hourly Usage Attribution returns "OK" response
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;

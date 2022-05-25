@@ -23,20 +23,15 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Reason why a signal has been archived. */
-@JsonSerialize(using = SignalArchiveReason.SignalArchiveReasonSerializer.class)
-public class SignalArchiveReason {
+/** HTTP header used to compress the media-type. */
+@JsonSerialize(
+    using = DistributionPointsContentEncoding.DistributionPointsContentEncodingSerializer.class)
+public class DistributionPointsContentEncoding {
 
-  public static final SignalArchiveReason NONE = new SignalArchiveReason("none");
-  public static final SignalArchiveReason FALSE_POSITIVE =
-      new SignalArchiveReason("false_positive");
-  public static final SignalArchiveReason TESTING_OR_MAINTENANCE =
-      new SignalArchiveReason("testing_or_maintenance");
-  public static final SignalArchiveReason OTHER = new SignalArchiveReason("other");
+  public static final DistributionPointsContentEncoding DEFLATE =
+      new DistributionPointsContentEncoding("deflate");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("none", "false_positive", "testing_or_maintenance", "other"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("deflate"));
 
   private String value;
 
@@ -44,22 +39,23 @@ public class SignalArchiveReason {
     return allowedValues.contains(this.value);
   }
 
-  SignalArchiveReason(String value) {
+  DistributionPointsContentEncoding(String value) {
     this.value = value;
   }
 
-  public static class SignalArchiveReasonSerializer extends StdSerializer<SignalArchiveReason> {
-    public SignalArchiveReasonSerializer(Class<SignalArchiveReason> t) {
+  public static class DistributionPointsContentEncodingSerializer
+      extends StdSerializer<DistributionPointsContentEncoding> {
+    public DistributionPointsContentEncodingSerializer(Class<DistributionPointsContentEncoding> t) {
       super(t);
     }
 
-    public SignalArchiveReasonSerializer() {
+    public DistributionPointsContentEncodingSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        SignalArchiveReason value, JsonGenerator jgen, SerializerProvider provider)
+        DistributionPointsContentEncoding value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -74,7 +70,7 @@ public class SignalArchiveReason {
     this.value = value;
   }
 
-  /** Return true if this SignalArchiveReason object is equal to o. */
+  /** Return true if this DistributionPointsContentEncoding object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +79,7 @@ public class SignalArchiveReason {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((SignalArchiveReason) o).value);
+    return this.value.equals(((DistributionPointsContentEncoding) o).value);
   }
 
   @Override
@@ -97,7 +93,7 @@ public class SignalArchiveReason {
   }
 
   @JsonCreator
-  public static SignalArchiveReason fromValue(String value) {
-    return new SignalArchiveReason(value);
+  public static DistributionPointsContentEncoding fromValue(String value) {
+    return new DistributionPointsContentEncoding(value);
   }
 }

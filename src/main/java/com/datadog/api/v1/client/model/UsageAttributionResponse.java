@@ -73,7 +73,7 @@ public class UsageAttributionResponse {
   }
 
   /**
-   * Get usage summary by tag(s).
+   * Get Usage Summary by tag(s).
    *
    * @return usage
    */

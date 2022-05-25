@@ -49,7 +49,7 @@ public class AuthNMappingAttributes {
 
   public static final String JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE_ID =
       "saml_assertion_attribute_id";
-  private String samlAssertionAttributeId;
+  private Integer samlAssertionAttributeId;
 
   public AuthNMappingAttributes attributeKey(String attributeKey) {
     this.attributeKey = attributeKey;
@@ -117,24 +117,24 @@ public class AuthNMappingAttributes {
     return modifiedAt;
   }
 
-  public AuthNMappingAttributes samlAssertionAttributeId(String samlAssertionAttributeId) {
+  public AuthNMappingAttributes samlAssertionAttributeId(Integer samlAssertionAttributeId) {
     this.samlAssertionAttributeId = samlAssertionAttributeId;
     return this;
   }
 
   /**
-   * The ID of the SAML assertion attribute.
+   * The ID of the SAML assertion attribute. maximum: 2147483647
    *
    * @return samlAssertionAttributeId
    */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSamlAssertionAttributeId() {
+  public Integer getSamlAssertionAttributeId() {
     return samlAssertionAttributeId;
   }
 
-  public void setSamlAssertionAttributeId(String samlAssertionAttributeId) {
+  public void setSamlAssertionAttributeId(Integer samlAssertionAttributeId) {
     this.samlAssertionAttributeId = samlAssertionAttributeId;
   }
 

@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Time-ascending <code>asc</code> or time-descending <code>desc</code> results. */
+/** Time-ascending <code>asc</code> or time-descending <code>desc</code>results. */
 @JsonSerialize(using = LogsSort.LogsSortSerializer.class)
 public class LogsSort {
 

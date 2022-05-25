@@ -128,7 +128,7 @@ public class LogsListRequest {
   }
 
   /**
-   * Time-ascending <code>asc</code> or time-descending <code>desc</code> results.
+   * Time-ascending <code>asc</code> or time-descending <code>desc</code>results.
    *
    * @return sort
    */
