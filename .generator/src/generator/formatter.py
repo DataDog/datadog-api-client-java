@@ -411,6 +411,7 @@ def format_data_with_schema(
                     named, value, one_of_imports = format_data_with_schema(
                         data,
                         sub_schema,
+                        default_name=default_name,
                         replace_values=replace_values,
                     )
                 if matched == 0:
@@ -430,6 +431,8 @@ def format_data_with_schema(
         imports |= extra_imports
         if name:
             return name, f"new {name}(\n{parameters})", imports
+        elif "oneOf" in schema and default_name:
+            return name, f"new {default_name}Item(\n{parameters})", imports
         else:
             return name, parameters, imports
 
@@ -451,10 +454,15 @@ def format_data_with_schema_list(
                 named, value, one_of_imports = format_data_with_schema(
                     data,
                     sub_schema,
+                    default_name=default_name,
                     replace_values=replace_values,
                 )
             except (KeyError, ValueError) as e:
                 continue
+
+            if default_name:
+                value = f"new {default_name}Item({value})"
+
             return name, value, one_of_imports
         raise ValueError(f"{data} is not valid oneOf {schema}")
 
