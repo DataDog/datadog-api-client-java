@@ -432,6 +432,7 @@ def format_data_with_schema(
         if name:
             return name, f"new {name}(\n{parameters})", imports
         elif "oneOf" in schema and default_name:
+            imports.add(f"{default_name}Item")
             return name, f"new {default_name}Item(\n{parameters})", imports
         else:
             return name, parameters, imports
@@ -461,6 +462,7 @@ def format_data_with_schema_list(
                 continue
 
             if default_name:
+                one_of_imports.add(f"{default_name}Item")
                 value = f"new {default_name}Item({value})"
 
             return name, value, one_of_imports
