@@ -53,6 +53,8 @@ public class SyntheticsAssertionType {
       new SyntheticsAssertionType("networkHop");
   public static final SyntheticsAssertionType RECEIVED_MESSAGE =
       new SyntheticsAssertionType("receivedMessage");
+  public static final SyntheticsAssertionType GRPC_HEALTHCHECK_STATUS =
+      new SyntheticsAssertionType("grpcHealthcheckStatus");
   public static final SyntheticsAssertionType CONNECTION =
       new SyntheticsAssertionType("connection");
 
@@ -74,6 +76,7 @@ public class SyntheticsAssertionType {
               "packetsReceived",
               "networkHop",
               "receivedMessage",
+              "grpcHealthcheckStatus",
               "connection"));
 
   private String value;
