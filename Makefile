@@ -1,6 +1,6 @@
 .PHONY: all
 all: .generator
-	@rm -rf src/main/java
+	@rm -rf src/main/java examples/*
 	@pre-commit run --all-files --hook-stage=manual generator-v1 || true
 	@pre-commit run --all-files --hook-stage=manual generator-v2 || true
 	@pre-commit run --all-files --hook-stage=manual examples || true
