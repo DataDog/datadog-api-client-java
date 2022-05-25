@@ -23,15 +23,16 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Time-ascending <code>asc</code> or time-descending <code>desc</code> results. */
-@JsonSerialize(using = LogsSort.LogsSortSerializer.class)
-public class LogsSort {
+/** The new triage state of the signal. */
+@JsonSerialize(using = SignalTriageState.SignalTriageStateSerializer.class)
+public class SignalTriageState {
 
-  public static final LogsSort TIME_ASCENDING = new LogsSort("asc");
-  public static final LogsSort TIME_DESCENDING = new LogsSort("desc");
+  public static final SignalTriageState OPEN = new SignalTriageState("open");
+  public static final SignalTriageState ARCHIVED = new SignalTriageState("archived");
+  public static final SignalTriageState UNDER_REVIEW = new SignalTriageState("under_review");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("asc", "desc"));
+      new HashSet<String>(Arrays.asList("open", "archived", "under_review"));
 
   private String value;
 
@@ -39,21 +40,21 @@ public class LogsSort {
     return allowedValues.contains(this.value);
   }
 
-  LogsSort(String value) {
+  SignalTriageState(String value) {
     this.value = value;
   }
 
-  public static class LogsSortSerializer extends StdSerializer<LogsSort> {
-    public LogsSortSerializer(Class<LogsSort> t) {
+  public static class SignalTriageStateSerializer extends StdSerializer<SignalTriageState> {
+    public SignalTriageStateSerializer(Class<SignalTriageState> t) {
       super(t);
     }
 
-    public LogsSortSerializer() {
+    public SignalTriageStateSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(LogsSort value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(SignalTriageState value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -68,7 +69,7 @@ public class LogsSort {
     this.value = value;
   }
 
-  /** Return true if this LogsSort object is equal to o. */
+  /** Return true if this SignalTriageState object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -77,7 +78,7 @@ public class LogsSort {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((LogsSort) o).value);
+    return this.value.equals(((SignalTriageState) o).value);
   }
 
   @Override
@@ -91,7 +92,7 @@ public class LogsSort {
   }
 
   @JsonCreator
-  public static LogsSort fromValue(String value) {
-    return new LogsSort(value);
+  public static SignalTriageState fromValue(String value) {
+    return new SignalTriageState(value);
   }
 }

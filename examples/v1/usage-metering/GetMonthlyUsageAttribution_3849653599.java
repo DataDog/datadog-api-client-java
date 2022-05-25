@@ -1,4 +1,4 @@
-// Paginate Monthly Usage Attribution
+// Paginate monthly usage attribution
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;

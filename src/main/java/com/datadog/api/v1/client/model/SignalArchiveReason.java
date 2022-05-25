@@ -23,15 +23,20 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Time-ascending <code>asc</code> or time-descending <code>desc</code> results. */
-@JsonSerialize(using = LogsSort.LogsSortSerializer.class)
-public class LogsSort {
+/** Reason why a signal has been archived. */
+@JsonSerialize(using = SignalArchiveReason.SignalArchiveReasonSerializer.class)
+public class SignalArchiveReason {
 
-  public static final LogsSort TIME_ASCENDING = new LogsSort("asc");
-  public static final LogsSort TIME_DESCENDING = new LogsSort("desc");
+  public static final SignalArchiveReason NONE = new SignalArchiveReason("none");
+  public static final SignalArchiveReason FALSE_POSITIVE =
+      new SignalArchiveReason("false_positive");
+  public static final SignalArchiveReason TESTING_OR_MAINTENANCE =
+      new SignalArchiveReason("testing_or_maintenance");
+  public static final SignalArchiveReason OTHER = new SignalArchiveReason("other");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("asc", "desc"));
+      new HashSet<String>(
+          Arrays.asList("none", "false_positive", "testing_or_maintenance", "other"));
 
   private String value;
 
@@ -39,21 +44,22 @@ public class LogsSort {
     return allowedValues.contains(this.value);
   }
 
-  LogsSort(String value) {
+  SignalArchiveReason(String value) {
     this.value = value;
   }
 
-  public static class LogsSortSerializer extends StdSerializer<LogsSort> {
-    public LogsSortSerializer(Class<LogsSort> t) {
+  public static class SignalArchiveReasonSerializer extends StdSerializer<SignalArchiveReason> {
+    public SignalArchiveReasonSerializer(Class<SignalArchiveReason> t) {
       super(t);
     }
 
-    public LogsSortSerializer() {
+    public SignalArchiveReasonSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(LogsSort value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        SignalArchiveReason value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -68,7 +74,7 @@ public class LogsSort {
     this.value = value;
   }
 
-  /** Return true if this LogsSort object is equal to o. */
+  /** Return true if this SignalArchiveReason object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -77,7 +83,7 @@ public class LogsSort {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((LogsSort) o).value);
+    return this.value.equals(((SignalArchiveReason) o).value);
   }
 
   @Override
@@ -91,7 +97,7 @@ public class LogsSort {
   }
 
   @JsonCreator
-  public static LogsSort fromValue(String value) {
-    return new LogsSort(value);
+  public static SignalArchiveReason fromValue(String value) {
+    return new SignalArchiveReason(value);
   }
 }
