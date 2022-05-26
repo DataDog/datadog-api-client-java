@@ -303,12 +303,6 @@ public class ApiClient extends JavaTimeFormatter {
           put("getSpecifiedDailyCustomReports", false);
           put("getMonthlyCustomReports", false);
           put("getSpecifiedMonthlyCustomReports", false);
-          put("createSLOCorrection", false);
-          put("listSLOCorrection", false);
-          put("deleteSLOCorrection", false);
-          put("getSLOCorrection", false);
-          put("updateSLOCorrection", false);
-          put("getSLOCorrections", false);
           put("getSLOHistory", false);
           put("getUsageAttribution", false);
           put("getHourlyUsageAttribution", false);
