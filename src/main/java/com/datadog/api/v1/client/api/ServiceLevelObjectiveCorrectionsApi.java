@@ -97,6 +97,11 @@ public class ServiceLevelObjectiveCorrectionsApi {
    */
   public ApiResponse<SLOCorrectionResponse> createSLOCorrectionWithHttpInfo(
       SLOCorrectionCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createSLOCorrection";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -139,6 +144,11 @@ public class ServiceLevelObjectiveCorrectionsApi {
    */
   public CompletableFuture<ApiResponse<SLOCorrectionResponse>> createSLOCorrectionWithHttpInfoAsync(
       SLOCorrectionCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createSLOCorrection";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -226,6 +236,11 @@ public class ServiceLevelObjectiveCorrectionsApi {
    */
   public ApiResponse<Void> deleteSLOCorrectionWithHttpInfo(String sloCorrectionId)
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSLOCorrection";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloCorrectionId' is set
@@ -272,6 +287,11 @@ public class ServiceLevelObjectiveCorrectionsApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteSLOCorrectionWithHttpInfoAsync(
       String sloCorrectionId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteSLOCorrection";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloCorrectionId' is set
@@ -366,6 +386,11 @@ public class ServiceLevelObjectiveCorrectionsApi {
    */
   public ApiResponse<SLOCorrectionResponse> getSLOCorrectionWithHttpInfo(String sloCorrectionId)
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSLOCorrection";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloCorrectionId' is set
@@ -412,6 +437,11 @@ public class ServiceLevelObjectiveCorrectionsApi {
    */
   public CompletableFuture<ApiResponse<SLOCorrectionResponse>> getSLOCorrectionWithHttpInfoAsync(
       String sloCorrectionId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSLOCorrection";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloCorrectionId' is set
@@ -502,6 +532,11 @@ public class ServiceLevelObjectiveCorrectionsApi {
    */
   public ApiResponse<SLOCorrectionListResponse> listSLOCorrectionWithHttpInfo()
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSLOCorrection";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v1/slo/correction";
@@ -537,6 +572,11 @@ public class ServiceLevelObjectiveCorrectionsApi {
    */
   public CompletableFuture<ApiResponse<SLOCorrectionListResponse>>
       listSLOCorrectionWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listSLOCorrection";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v1/slo/correction";
@@ -623,6 +663,11 @@ public class ServiceLevelObjectiveCorrectionsApi {
    */
   public ApiResponse<SLOCorrectionResponse> updateSLOCorrectionWithHttpInfo(
       String sloCorrectionId, SLOCorrectionUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateSLOCorrection";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'sloCorrectionId' is set
@@ -676,6 +721,11 @@ public class ServiceLevelObjectiveCorrectionsApi {
    */
   public CompletableFuture<ApiResponse<SLOCorrectionResponse>> updateSLOCorrectionWithHttpInfoAsync(
       String sloCorrectionId, SLOCorrectionUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateSLOCorrection";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'sloCorrectionId' is set

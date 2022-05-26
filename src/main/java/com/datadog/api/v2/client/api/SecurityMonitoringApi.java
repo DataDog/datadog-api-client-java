@@ -1349,6 +1349,11 @@ public class SecurityMonitoringApi {
   public ApiResponse<SecurityMonitoringSignalsListResponse>
       listSecurityMonitoringSignalsWithHttpInfo(
           ListSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringSignals";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
     OffsetDateTime filterFrom = parameters.filterFrom;
@@ -1400,6 +1405,11 @@ public class SecurityMonitoringApi {
   public CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>>
       listSecurityMonitoringSignalsWithHttpInfoAsync(
           ListSecurityMonitoringSignalsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listSecurityMonitoringSignals";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
     OffsetDateTime filterFrom = parameters.filterFrom;
@@ -1549,6 +1559,11 @@ public class SecurityMonitoringApi {
   public ApiResponse<SecurityMonitoringSignalsListResponse>
       searchSecurityMonitoringSignalsWithHttpInfo(
           SearchSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "searchSecurityMonitoringSignals";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = parameters.body;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/signals/search";
@@ -1586,6 +1601,11 @@ public class SecurityMonitoringApi {
   public CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>>
       searchSecurityMonitoringSignalsWithHttpInfoAsync(
           SearchSecurityMonitoringSignalsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "searchSecurityMonitoringSignals";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = parameters.body;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/signals/search";

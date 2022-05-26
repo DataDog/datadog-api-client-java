@@ -901,6 +901,11 @@ public class ServiceLevelObjectivesApi {
    */
   public ApiResponse<SLOCorrectionListResponse> getSLOCorrectionsWithHttpInfo(String sloId)
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSLOCorrections";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloId' is set
@@ -945,6 +950,11 @@ public class ServiceLevelObjectivesApi {
    */
   public CompletableFuture<ApiResponse<SLOCorrectionListResponse>>
       getSLOCorrectionsWithHttpInfoAsync(String sloId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSLOCorrections";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloId' is set
@@ -1125,6 +1135,11 @@ public class ServiceLevelObjectivesApi {
   public ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(
       String sloId, Long fromTs, Long toTs, GetSLOHistoryOptionalParameters parameters)
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSLOHistory";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloId' is set
@@ -1192,6 +1207,11 @@ public class ServiceLevelObjectivesApi {
    */
   public CompletableFuture<ApiResponse<SLOHistoryResponse>> getSLOHistoryWithHttpInfoAsync(
       String sloId, Long fromTs, Long toTs, GetSLOHistoryOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getSLOHistory";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloId' is set
