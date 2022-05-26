@@ -191,6 +191,13 @@ public class {{ name }} {
   {%- else %}
   public ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}> {{ operationId }}WithHttpInfo({% for name, parameter in allParams %}{{ get_type_for_parameter(parameter) }} {{name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
   {%- endif %}
+    {%- if "x-unstable" in operation %}
+    // Check if unstable operation is enabled
+    String operationId = "{{ operationId }}";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+        throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    {%- endif %}
     Object localVarPostBody = {% if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}{% if operation.requestBody.required %}{{ bodyParamName }}{% else %}parameters.body{% endif %}{% else %}null{% endif %};
     {%- for name, parameter in allParams %}
     {%- if parameter.required %}
@@ -259,6 +266,13 @@ public class {{ name }} {
   {%- else %}
   public CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> {{ operationId }}WithHttpInfoAsync({% for name, parameter in allParams %}{{ get_type_for_parameter(parameter) }} {{name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) {
   {%- endif %}
+    {%- if "x-unstable" in operation %}
+    // Check if unstable operation is enabled
+    String operationId = "{{ operationId }}";
+    if (!apiClient.isUnstableOperationEnabled(operationId)) {
+        throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    {%- endif %}
     Object localVarPostBody = {% if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}{% if operation.requestBody.required %}{{ bodyParamName }}{% else %}parameters.body{% endif %}{% else %}null{% endif %};
 
     {%- for name, parameter in allParams %}

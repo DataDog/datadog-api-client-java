@@ -492,6 +492,9 @@ public class World {
     } catch (java.lang.IllegalArgumentException e) {
       throw e;
     } catch (Exception e) {
+      if (!e.getCause().toString().contains("client.ApiException")) {
+        throw e;
+      }
       // Return a new response object with the response code set
       // so we can make assertions on it
       int responseCode = (int) exceptionClass.getMethod("getCode").invoke(e.getCause());
