@@ -102,8 +102,10 @@ public class IncidentServicesApi {
       IncidentServiceCreateRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "createIncidentService";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = body;
 
@@ -149,8 +151,13 @@ public class IncidentServicesApi {
       createIncidentServiceWithHttpInfoAsync(IncidentServiceCreateRequest body) {
     // Check if unstable operation is enabled
     String operationId = "createIncidentService";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentServiceResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
     }
     Object localVarPostBody = body;
 
@@ -242,8 +249,10 @@ public class IncidentServicesApi {
   public ApiResponse<Void> deleteIncidentServiceWithHttpInfo(String serviceId) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "deleteIncidentService";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = null;
 
@@ -291,8 +300,13 @@ public class IncidentServicesApi {
       String serviceId) {
     // Check if unstable operation is enabled
     String operationId = "deleteIncidentService";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
     }
     Object localVarPostBody = null;
 
@@ -444,8 +458,10 @@ public class IncidentServicesApi {
       String serviceId, GetIncidentServiceOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getIncidentService";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = null;
 
@@ -499,8 +515,13 @@ public class IncidentServicesApi {
           String serviceId, GetIncidentServiceOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "getIncidentService";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentServiceResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
     }
     Object localVarPostBody = null;
 
@@ -686,8 +707,10 @@ public class IncidentServicesApi {
       ListIncidentServicesOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "listIncidentServices";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = null;
     IncidentRelatedObject include = parameters.include;
@@ -737,8 +760,13 @@ public class IncidentServicesApi {
       listIncidentServicesWithHttpInfoAsync(ListIncidentServicesOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "listIncidentServices";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentServicesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
     }
     Object localVarPostBody = null;
     IncidentRelatedObject include = parameters.include;
@@ -840,8 +868,10 @@ public class IncidentServicesApi {
       String serviceId, IncidentServiceUpdateRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "updateIncidentService";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = body;
 
@@ -896,8 +926,13 @@ public class IncidentServicesApi {
       updateIncidentServiceWithHttpInfoAsync(String serviceId, IncidentServiceUpdateRequest body) {
     // Check if unstable operation is enabled
     String operationId = "updateIncidentService";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentServiceResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
     }
     Object localVarPostBody = body;
 

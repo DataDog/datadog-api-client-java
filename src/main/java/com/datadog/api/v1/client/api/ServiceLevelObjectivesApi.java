@@ -903,8 +903,10 @@ public class ServiceLevelObjectivesApi {
       throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getSLOCorrections";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = null;
 
@@ -952,8 +954,13 @@ public class ServiceLevelObjectivesApi {
       getSLOCorrectionsWithHttpInfoAsync(String sloId) {
     // Check if unstable operation is enabled
     String operationId = "getSLOCorrections";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SLOCorrectionListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
     }
     Object localVarPostBody = null;
 
@@ -1137,8 +1144,10 @@ public class ServiceLevelObjectivesApi {
       throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getSLOHistory";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = null;
 
@@ -1209,8 +1218,13 @@ public class ServiceLevelObjectivesApi {
       String sloId, Long fromTs, Long toTs, GetSLOHistoryOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "getSLOHistory";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SLOHistoryResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
     }
     Object localVarPostBody = null;
 

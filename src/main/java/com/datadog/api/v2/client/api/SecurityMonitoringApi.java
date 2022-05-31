@@ -1351,8 +1351,10 @@ public class SecurityMonitoringApi {
           ListSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "listSecurityMonitoringSignals";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
@@ -1407,8 +1409,14 @@ public class SecurityMonitoringApi {
           ListSecurityMonitoringSignalsOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "listSecurityMonitoringSignals";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
     }
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
@@ -1561,8 +1569,10 @@ public class SecurityMonitoringApi {
           SearchSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "searchSecurityMonitoringSignals";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = parameters.body;
     // create path and map variables
@@ -1603,8 +1613,14 @@ public class SecurityMonitoringApi {
           SearchSecurityMonitoringSignalsOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "searchSecurityMonitoringSignals";
-    if (!apiClient.isUnstableOperationEnabled(operationId)) {
-      throw new RuntimeException(String.format("Unstable operation '%s' is disabled", operationId));
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalsListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
     }
     Object localVarPostBody = parameters.body;
     // create path and map variables
