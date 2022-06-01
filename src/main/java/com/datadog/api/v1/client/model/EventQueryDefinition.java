@@ -18,10 +18,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /** The event query. */
-@JsonPropertyOrder({
-  EventQueryDefinition.JSON_PROPERTY_SEARCH,
-  EventQueryDefinition.JSON_PROPERTY_TAGS_EXECUTION
-})
+@JsonPropertyOrder({EventQueryDefinition.JSON_PROPERTY_SEARCH})
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventQueryDefinition {
@@ -29,17 +26,12 @@ public class EventQueryDefinition {
   public static final String JSON_PROPERTY_SEARCH = "search";
   private String search;
 
-  public static final String JSON_PROPERTY_TAGS_EXECUTION = "tags_execution";
-  private String tagsExecution;
-
   public EventQueryDefinition() {}
 
   @JsonCreator
   public EventQueryDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH) String search,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS_EXECUTION) String tagsExecution) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH) String search) {
     this.search = search;
-    this.tagsExecution = tagsExecution;
   }
 
   public EventQueryDefinition search(String search) {
@@ -62,26 +54,6 @@ public class EventQueryDefinition {
     this.search = search;
   }
 
-  public EventQueryDefinition tagsExecution(String tagsExecution) {
-    this.tagsExecution = tagsExecution;
-    return this;
-  }
-
-  /**
-   * The execution method for multi-value filters. Can be either and or or.
-   *
-   * @return tagsExecution
-   */
-  @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTagsExecution() {
-    return tagsExecution;
-  }
-
-  public void setTagsExecution(String tagsExecution) {
-    this.tagsExecution = tagsExecution;
-  }
-
   /** Return true if this EventQueryDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -92,13 +64,12 @@ public class EventQueryDefinition {
       return false;
     }
     EventQueryDefinition eventQueryDefinition = (EventQueryDefinition) o;
-    return Objects.equals(this.search, eventQueryDefinition.search)
-        && Objects.equals(this.tagsExecution, eventQueryDefinition.tagsExecution);
+    return Objects.equals(this.search, eventQueryDefinition.search);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(search, tagsExecution);
+    return Objects.hash(search);
   }
 
   @Override
@@ -106,7 +77,6 @@ public class EventQueryDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventQueryDefinition {\n");
     sb.append("    search: ").append(toIndentedString(search)).append("\n");
-    sb.append("    tagsExecution: ").append(toIndentedString(tagsExecution)).append("\n");
     sb.append("}");
     return sb.toString();
   }

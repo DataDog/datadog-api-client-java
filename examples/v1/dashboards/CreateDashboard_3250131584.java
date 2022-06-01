@@ -34,8 +34,7 @@ public class Example {
                                     .titleSize("16")
                                     .titleAlign(WidgetTextAlign.LEFT)
                                     .type(EventTimelineWidgetDefinitionType.EVENT_TIMELINE)
-                                    .query("status:error priority:all")
-                                    .tagsExecution("and")))))
+                                    .query("status:error priority:all")))))
             .layoutType(DashboardLayoutType.FREE)
             .isReadOnly(false);
 

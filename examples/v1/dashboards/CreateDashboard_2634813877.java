@@ -36,7 +36,6 @@ public class Example {
                                     .titleAlign(WidgetTextAlign.LEFT)
                                     .type(EventStreamWidgetDefinitionType.EVENT_STREAM)
                                     .query("example-query")
-                                    .tagsExecution("and")
                                     .eventSize(WidgetEventSize.SMALL)))))
             .layoutType(DashboardLayoutType.FREE)
             .isReadOnly(false);

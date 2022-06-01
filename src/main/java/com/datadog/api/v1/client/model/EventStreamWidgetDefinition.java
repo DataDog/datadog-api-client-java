@@ -24,7 +24,6 @@ import java.util.Objects;
 @JsonPropertyOrder({
   EventStreamWidgetDefinition.JSON_PROPERTY_EVENT_SIZE,
   EventStreamWidgetDefinition.JSON_PROPERTY_QUERY,
-  EventStreamWidgetDefinition.JSON_PROPERTY_TAGS_EXECUTION,
   EventStreamWidgetDefinition.JSON_PROPERTY_TIME,
   EventStreamWidgetDefinition.JSON_PROPERTY_TITLE,
   EventStreamWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
@@ -40,9 +39,6 @@ public class EventStreamWidgetDefinition {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
-
-  public static final String JSON_PROPERTY_TAGS_EXECUTION = "tags_execution";
-  private String tagsExecution;
 
   public static final String JSON_PROPERTY_TIME = "time";
   private WidgetTime time;
@@ -114,27 +110,6 @@ public class EventStreamWidgetDefinition {
 
   public void setQuery(String query) {
     this.query = query;
-  }
-
-  public EventStreamWidgetDefinition tagsExecution(String tagsExecution) {
-    this.tagsExecution = tagsExecution;
-    return this;
-  }
-
-  /**
-   * The execution method for multi-value filters. Can be either and or or.
-   *
-   * @return tagsExecution
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTagsExecution() {
-    return tagsExecution;
-  }
-
-  public void setTagsExecution(String tagsExecution) {
-    this.tagsExecution = tagsExecution;
   }
 
   public EventStreamWidgetDefinition time(WidgetTime time) {
@@ -262,7 +237,6 @@ public class EventStreamWidgetDefinition {
     EventStreamWidgetDefinition eventStreamWidgetDefinition = (EventStreamWidgetDefinition) o;
     return Objects.equals(this.eventSize, eventStreamWidgetDefinition.eventSize)
         && Objects.equals(this.query, eventStreamWidgetDefinition.query)
-        && Objects.equals(this.tagsExecution, eventStreamWidgetDefinition.tagsExecution)
         && Objects.equals(this.time, eventStreamWidgetDefinition.time)
         && Objects.equals(this.title, eventStreamWidgetDefinition.title)
         && Objects.equals(this.titleAlign, eventStreamWidgetDefinition.titleAlign)
@@ -272,7 +246,7 @@ public class EventStreamWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventSize, query, tagsExecution, time, title, titleAlign, titleSize, type);
+    return Objects.hash(eventSize, query, time, title, titleAlign, titleSize, type);
   }
 
   @Override
@@ -281,7 +255,6 @@ public class EventStreamWidgetDefinition {
     sb.append("class EventStreamWidgetDefinition {\n");
     sb.append("    eventSize: ").append(toIndentedString(eventSize)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
-    sb.append("    tagsExecution: ").append(toIndentedString(tagsExecution)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");

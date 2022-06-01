@@ -23,7 +23,6 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   EventTimelineWidgetDefinition.JSON_PROPERTY_QUERY,
-  EventTimelineWidgetDefinition.JSON_PROPERTY_TAGS_EXECUTION,
   EventTimelineWidgetDefinition.JSON_PROPERTY_TIME,
   EventTimelineWidgetDefinition.JSON_PROPERTY_TITLE,
   EventTimelineWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
@@ -36,9 +35,6 @@ public class EventTimelineWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
-
-  public static final String JSON_PROPERTY_TAGS_EXECUTION = "tags_execution";
-  private String tagsExecution;
 
   public static final String JSON_PROPERTY_TIME = "time";
   private WidgetTime time;
@@ -85,27 +81,6 @@ public class EventTimelineWidgetDefinition {
 
   public void setQuery(String query) {
     this.query = query;
-  }
-
-  public EventTimelineWidgetDefinition tagsExecution(String tagsExecution) {
-    this.tagsExecution = tagsExecution;
-    return this;
-  }
-
-  /**
-   * The execution method for multi-value filters. Can be either and or or.
-   *
-   * @return tagsExecution
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTagsExecution() {
-    return tagsExecution;
-  }
-
-  public void setTagsExecution(String tagsExecution) {
-    this.tagsExecution = tagsExecution;
   }
 
   public EventTimelineWidgetDefinition time(WidgetTime time) {
@@ -232,7 +207,6 @@ public class EventTimelineWidgetDefinition {
     }
     EventTimelineWidgetDefinition eventTimelineWidgetDefinition = (EventTimelineWidgetDefinition) o;
     return Objects.equals(this.query, eventTimelineWidgetDefinition.query)
-        && Objects.equals(this.tagsExecution, eventTimelineWidgetDefinition.tagsExecution)
         && Objects.equals(this.time, eventTimelineWidgetDefinition.time)
         && Objects.equals(this.title, eventTimelineWidgetDefinition.title)
         && Objects.equals(this.titleAlign, eventTimelineWidgetDefinition.titleAlign)
@@ -242,7 +216,7 @@ public class EventTimelineWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(query, tagsExecution, time, title, titleAlign, titleSize, type);
+    return Objects.hash(query, time, title, titleAlign, titleSize, type);
   }
 
   @Override
@@ -250,7 +224,6 @@ public class EventTimelineWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventTimelineWidgetDefinition {\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
-    sb.append("    tagsExecution: ").append(toIndentedString(tagsExecution)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
