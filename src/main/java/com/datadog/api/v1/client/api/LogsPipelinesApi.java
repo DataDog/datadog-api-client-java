@@ -195,6 +195,7 @@ public class LogsPipelinesApi {
    * <p>See {@link #deleteLogsPipelineWithHttpInfoAsync}.
    *
    * @param pipelineId ID of the pipeline to delete. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteLogsPipelineAsync(String pipelineId) {
     return deleteLogsPipelineWithHttpInfoAsync(pipelineId)

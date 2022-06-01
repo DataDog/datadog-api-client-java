@@ -197,6 +197,7 @@ public class NotebooksApi {
    * <p>See {@link #deleteNotebookWithHttpInfoAsync}.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteNotebookAsync(Long notebookId) {
     return deleteNotebookWithHttpInfoAsync(notebookId)

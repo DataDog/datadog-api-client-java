@@ -65,6 +65,7 @@ public class DowntimesApi {
    * <p>See {@link #cancelDowntimeWithHttpInfoAsync}.
    *
    * @param downtimeId ID of the downtime to cancel. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> cancelDowntimeAsync(Long downtimeId) {
     return cancelDowntimeWithHttpInfoAsync(downtimeId)

@@ -340,6 +340,7 @@ public class WebhooksIntegrationApi {
    * <p>See {@link #deleteWebhooksIntegrationWithHttpInfoAsync}.
    *
    * @param webhookName The name of the webhook. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteWebhooksIntegrationAsync(String webhookName) {
     return deleteWebhooksIntegrationWithHttpInfoAsync(webhookName)
@@ -479,6 +480,7 @@ public class WebhooksIntegrationApi {
    * <p>See {@link #deleteWebhooksIntegrationCustomVariableWithHttpInfoAsync}.
    *
    * @param customVariableName The name of the custom variable. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteWebhooksIntegrationCustomVariableAsync(
       String customVariableName) {

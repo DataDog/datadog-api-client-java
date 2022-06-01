@@ -239,6 +239,7 @@ public class ServiceAccountsApi {
    *
    * @param serviceAccountId The ID of the service account. (required)
    * @param appKeyId The ID of the application key. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteServiceAccountApplicationKeyAsync(
       String serviceAccountId, String appKeyId) {

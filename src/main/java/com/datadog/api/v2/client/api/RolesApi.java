@@ -668,6 +668,7 @@ public class RolesApi {
    * <p>See {@link #deleteRoleWithHttpInfoAsync}.
    *
    * @param roleId The unique identifier of the role. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteRoleAsync(String roleId) {
     return deleteRoleWithHttpInfoAsync(roleId)
