@@ -8,7 +8,6 @@ import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("deleteSloCorrection", true);
     ServiceLevelObjectiveCorrectionsApi apiInstance =
         new ServiceLevelObjectiveCorrectionsApi(defaultClient);
 

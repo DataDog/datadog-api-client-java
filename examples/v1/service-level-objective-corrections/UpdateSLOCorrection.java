@@ -14,7 +14,6 @@ import java.time.OffsetDateTime;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("updateSloCorrection", true);
     ServiceLevelObjectiveCorrectionsApi apiInstance =
         new ServiceLevelObjectiveCorrectionsApi(defaultClient);
 
