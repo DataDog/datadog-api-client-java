@@ -72,7 +72,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
    *
    * @param node The input data.
    * @param modelClass The class that contains the discriminator mappings.
-   * @return The matchinbg class
+   * @return The matching class
    */
   public static Class<?> getClassForElement(JsonNode node, Class<?> modelClass) {
     ClassDiscriminatorMapping cdm = modelDiscriminators.get(modelClass);

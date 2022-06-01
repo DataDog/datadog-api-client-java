@@ -1592,7 +1592,7 @@ public class ApiClient extends JavaTimeFormatter {
    * @param headerParams Map of header parameters
    * @param cookieParams Map of cookie parameters
    * @param uri HTTP URI
-   * @throws ApiException If one of the authentication shemes failed to be applied
+   * @throws ApiException If one of the authentication schemes failed to be applied
    */
   protected void updateParamsForAuth(
       String[] authNames,
