@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.7.1 / 2022-06-01
+
+### Fixed
+* Fix javadoc by @therve in https://github.com/DataDog/datadog-api-client-java/pull/1355
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-1.7.0...datadog-api-client-1.7.1
+
 ## 1.7.0 / 2022-06-01
 
 ### Fixed
