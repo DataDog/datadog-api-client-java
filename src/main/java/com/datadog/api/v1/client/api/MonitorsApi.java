@@ -225,7 +225,7 @@ public class MonitorsApi {
   /**
    * Create a monitor using the specified options.
    *
-   * <h4>Monitor Types</h4>
+   * <h3>Monitor Types</h3>
    *
    * <p>The type of monitor chosen from:
    *
@@ -252,7 +252,7 @@ public class MonitorsApi {
    *   <li>error-tracking: <code>error-tracking alert</code>
    * </ul>
    *
-   * <h4>Query Types</h4>
+   * <h3>Query Types</h3>
    *
    * <p><strong>Metric Alert Query</strong>
    *

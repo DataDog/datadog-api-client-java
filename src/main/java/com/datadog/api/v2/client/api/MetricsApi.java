@@ -531,6 +531,7 @@ public class MetricsApi {
    * <p>See {@link #deleteTagConfigurationWithHttpInfoAsync}.
    *
    * @param metricName The name of the metric. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteTagConfigurationAsync(String metricName) {
     return deleteTagConfigurationWithHttpInfoAsync(metricName)

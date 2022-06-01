@@ -201,6 +201,7 @@ public class AuthNMappingsApi {
    * <p>See {@link #deleteAuthNMappingWithHttpInfoAsync}.
    *
    * @param authnMappingId The UUID of the AuthN Mapping. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteAuthNMappingAsync(String authnMappingId) {
     return deleteAuthNMappingWithHttpInfoAsync(authnMappingId)

@@ -338,6 +338,7 @@ public class KeyManagementApi {
    * <p>See {@link #deleteAPIKeyWithHttpInfoAsync}.
    *
    * @param apiKeyId The ID of the API key. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteAPIKeyAsync(String apiKeyId) {
     return deleteAPIKeyWithHttpInfoAsync(apiKeyId)
@@ -469,6 +470,7 @@ public class KeyManagementApi {
    * <p>See {@link #deleteApplicationKeyWithHttpInfoAsync}.
    *
    * @param appKeyId The ID of the application key. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteApplicationKeyAsync(String appKeyId) {
     return deleteApplicationKeyWithHttpInfoAsync(appKeyId)
@@ -601,6 +603,7 @@ public class KeyManagementApi {
    * <p>See {@link #deleteCurrentUserApplicationKeyWithHttpInfoAsync}.
    *
    * @param appKeyId The ID of the application key. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteCurrentUserApplicationKeyAsync(String appKeyId) {
     return deleteCurrentUserApplicationKeyWithHttpInfoAsync(appKeyId)

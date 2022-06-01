@@ -545,6 +545,7 @@ public class SlackIntegrationApi {
    *
    * @param accountName Your Slack account name. (required)
    * @param channelName The name of the Slack channel being operated on. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> removeSlackIntegrationChannelAsync(
       String accountName, String channelName) {

@@ -414,6 +414,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Sets the base URL to the location where the OpenAPI document is being served.
    *
    * @param basePath The base URL to the target host.
+   * @return API client
    */
   public ApiClient setBasePath(String basePath) {
     this.basePath = basePath;
@@ -488,6 +489,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Helper method to set username for the first HTTP basic authentication.
    *
    * @param username Username
+   * @return API client
    */
   public ApiClient setUsername(String username) {
     for (Authentication auth : authentications.values()) {
@@ -503,6 +505,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Helper method to set password for the first HTTP basic authentication.
    *
    * @param password Password
+   * @return API client
    */
   public ApiClient setPassword(String password) {
     for (Authentication auth : authentications.values()) {
@@ -518,6 +521,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Helper method to set API key value for the first API key authentication.
    *
    * @param apiKey API key
+   * @return API client
    */
   public ApiClient setApiKey(String apiKey) {
     for (Authentication auth : authentications.values()) {
@@ -533,6 +537,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Helper method to configure authentications which respects aliases of API keys.
    *
    * @param secrets Hash map from authentication name to its secret.
+   * @return API client
    */
   public ApiClient configureApiKeys(Map<String, String> secrets) {
     for (Map.Entry<String, Authentication> authEntry : authentications.entrySet()) {
@@ -553,6 +558,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Helper method to set API key prefix for the first API key authentication.
    *
    * @param apiKeyPrefix API key prefix
+   * @return API client
    */
   public ApiClient setApiKeyPrefix(String apiKeyPrefix) {
     for (Authentication auth : authentications.values()) {
@@ -568,6 +574,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Helper method to set bearer token for the first Bearer authentication.
    *
    * @param bearerToken Bearer token
+   * @return API client
    */
   public ApiClient setBearerToken(String bearerToken) {
     for (Authentication auth : authentications.values()) {
@@ -583,6 +590,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Helper method to set access token for the first OAuth2 authentication.
    *
    * @param accessToken Access token
+   * @return API client
    */
   public ApiClient setAccessToken(String accessToken) {
     for (Authentication auth : authentications.values()) {
@@ -599,6 +607,7 @@ public class ApiClient extends JavaTimeFormatter {
    *
    * @param clientId the client ID
    * @param clientSecret the client secret
+   * @return API client
    */
   public ApiClient setOauthCredentials(String clientId, String clientSecret) {
     for (Authentication auth : authentications.values()) {
@@ -615,6 +624,7 @@ public class ApiClient extends JavaTimeFormatter {
    *
    * @param username the user name
    * @param password the user password
+   * @return API client
    */
   public ApiClient setOauthPasswordFlow(String username, String password) {
     for (Authentication auth : authentications.values()) {
@@ -630,6 +640,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Helper method to set the authorization code flow for the first OAuth2 authentication.
    *
    * @param code the authorization code
+   * @return API client
    */
   public ApiClient setOauthAuthorizationCodeFlow(String code) {
     for (Authentication auth : authentications.values()) {
@@ -645,6 +656,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Helper method to set the scopes for the first OAuth2 authentication.
    *
    * @param scope the oauth scope
+   * @return API client
    */
   public ApiClient setOauthScope(String scope) {
     for (Authentication auth : authentications.values()) {
@@ -1127,7 +1139,9 @@ public class ApiClient extends JavaTimeFormatter {
    *
    * @param obj Object
    * @param formParams Form parameters
-   * @param contentType Context type
+   * @param contentType Content type header
+   * @param contentEncoding Content encoding header
+   * @param isBodyNullable Whether the body can be null or not
    * @return Entity
    */
   public Entity<?> serialize(
@@ -1326,6 +1340,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Invoke API by sending HTTP request with the given options.
    *
    * @param <T> Type
+   * @param invocationBuilder HTTP requests builder
    * @param method The request method, one of "GET", "POST", "PUT", "HEAD" and "DELETE"
    * @param body The request body object
    * @param headerParams The header parameters
@@ -1417,6 +1432,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Invoke API by sending HTTP request with the given options, asynchronously.
    *
    * @param <T> Type
+   * @param invocationBuilder HTTP requests builder
    * @param method The request method, one of "GET", "POST", "PUT", "HEAD" and "DELETE"
    * @param body The request body object
    * @param headerParams The header parameters
@@ -1424,7 +1440,6 @@ public class ApiClient extends JavaTimeFormatter {
    * @param contentTypes The list of request Content-Type headers
    * @param returnType The return type into which to deserialize the response
    * @param isBodyNullable True if the body is nullable
-   * @return The response body in type of string
    * @return The future which be fired with the response
    */
   public <T> CompletableFuture<ApiResponse<T>> invokeAPIAsync(
@@ -1582,6 +1597,8 @@ public class ApiClient extends JavaTimeFormatter {
    *
    * <p>To completely disable certificate validation (at your own risk), you can override this
    * method and invoke disableCertificateValidation(clientBuilder).
+   *
+   * @param clientBuilder: HTTP client builder
    */
   protected void customizeClientBuilder(ClientBuilder clientBuilder) {
     // No-op extension point
@@ -1592,6 +1609,10 @@ public class ApiClient extends JavaTimeFormatter {
    *
    * <p>Please note that trusting all certificates is extremely risky. This may be useful in a
    * development environment with self-signed certificates.
+   *
+   * @param clientBuilder: HTTP client builder
+   * @throws KeyManagementException When the SSL context can't be initialized
+   * @throws NoSuchAlgorithmException If the environment doesn't support the required algorithm
    */
   protected void disableCertificateValidation(ClientBuilder clientBuilder)
       throws KeyManagementException, NoSuchAlgorithmException {
@@ -1636,6 +1657,7 @@ public class ApiClient extends JavaTimeFormatter {
    * @param headerParams Map of header parameters
    * @param cookieParams Map of cookie parameters
    * @param uri HTTP URI
+   * @throws ApiException If one of the authentication schemes failed to be applied
    */
   protected void updateParamsForAuth(
       String[] authNames,
