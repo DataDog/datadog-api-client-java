@@ -225,7 +225,7 @@ def docstring(text, indent=3):
     if not text:
         return ""
     blank = " " * indent
-    return "\n".join("{}* {}".format(blank, line) for line in markdown.markdown(text).splitlines())
+    return "\n".join("{}* {}".format(blank, line) for line in markdown.markdown(text).replace("h4>", "h3>").splitlines())
 
 
 def inline_docstring(text):

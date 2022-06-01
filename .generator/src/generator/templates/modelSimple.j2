@@ -271,6 +271,10 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   /**
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return {{ name }}
    */
   @JsonAnySetter
   public {{ name }} putAdditionalProperty(String key, {{ model.additionalProperties|simple_type }} value) {
@@ -283,6 +287,8 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
 
   /**
    * Return the additional (undeclared) property.
+   *
+   * @return The additional properties
    */
   @JsonAnyGetter
   public Map<String, {{ model.additionalProperties|simple_type }}> getAdditionalProperties() {
@@ -291,6 +297,9 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
 
   /**
    * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
    */
   public {{ model.additionalProperties|simple_type }} getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {

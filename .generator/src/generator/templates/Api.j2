@@ -82,6 +82,10 @@ public class {{ name }} {
  {%- endif %}
  {%- if returnType %}
  * @return {% if async %}CompletableFuture&lt;{{ returnType|escape_html }}&gt;{% else%}{{ returnType|escape_html }}{%endif %}
+ {%- else %}
+ {%- if async %}
+ * @return CompletableFuture
+ {%- endif %}
  {%- endif %}
  {%- if throwsApiException %}
  * @throws ApiException if fails to make API call

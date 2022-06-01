@@ -202,6 +202,7 @@ public class IncidentTeamsApi {
    * <p>See {@link #deleteIncidentTeamWithHttpInfoAsync}.
    *
    * @param teamId The ID of the incident team. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteIncidentTeamAsync(String teamId) {
     return deleteIncidentTeamWithHttpInfoAsync(teamId)

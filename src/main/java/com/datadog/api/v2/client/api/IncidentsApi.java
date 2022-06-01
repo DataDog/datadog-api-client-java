@@ -200,6 +200,7 @@ public class IncidentsApi {
    * <p>See {@link #deleteIncidentWithHttpInfoAsync}.
    *
    * @param incidentId The UUID of the incident. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteIncidentAsync(String incidentId) {
     return deleteIncidentWithHttpInfoAsync(incidentId)

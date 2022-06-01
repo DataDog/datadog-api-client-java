@@ -348,6 +348,7 @@ public class SecurityMonitoringApi {
    * <p>See {@link #deleteSecurityFilterWithHttpInfoAsync}.
    *
    * @param securityFilterId The ID of the security filter. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteSecurityFilterAsync(String securityFilterId) {
     return deleteSecurityFilterWithHttpInfoAsync(securityFilterId)
@@ -488,6 +489,7 @@ public class SecurityMonitoringApi {
    * <p>See {@link #deleteSecurityMonitoringRuleWithHttpInfoAsync}.
    *
    * @param ruleId The ID of the rule. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteSecurityMonitoringRuleAsync(String ruleId) {
     return deleteSecurityMonitoringRuleWithHttpInfoAsync(ruleId)

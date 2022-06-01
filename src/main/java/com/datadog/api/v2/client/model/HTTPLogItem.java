@@ -179,6 +179,10 @@ public class HTTPLogItem {
   /**
    * Set the additional (undeclared) property with the specified name and value. If the property
    * does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return HTTPLogItem
    */
   @JsonAnySetter
   public HTTPLogItem putAdditionalProperty(String key, String value) {
@@ -189,13 +193,22 @@ public class HTTPLogItem {
     return this;
   }
 
-  /** Return the additional (undeclared) property. */
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return The additional properties
+   */
   @JsonAnyGetter
   public Map<String, String> getAdditionalProperties() {
     return additionalProperties;
   }
 
-  /** Return the additional (undeclared) property with the specified name. */
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
+   */
   public String getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
       return null;

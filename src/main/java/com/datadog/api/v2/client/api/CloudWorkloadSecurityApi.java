@@ -208,6 +208,7 @@ public class CloudWorkloadSecurityApi {
    * <p>See {@link #deleteCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
    *
    * @param agentRuleId The ID of the Agent rule. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteCloudWorkloadSecurityAgentRuleAsync(String agentRuleId) {
     return deleteCloudWorkloadSecurityAgentRuleWithHttpInfoAsync(agentRuleId)

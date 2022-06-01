@@ -198,6 +198,7 @@ public class LogsMetricsApi {
    * <p>See {@link #deleteLogsMetricWithHttpInfoAsync}.
    *
    * @param metricId The name of the log-based metric. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteLogsMetricAsync(String metricId) {
     return deleteLogsMetricWithHttpInfoAsync(metricId)
