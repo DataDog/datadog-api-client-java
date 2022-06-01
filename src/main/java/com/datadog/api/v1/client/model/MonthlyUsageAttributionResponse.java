@@ -73,7 +73,7 @@ public class MonthlyUsageAttributionResponse {
   }
 
   /**
-   * Get Usage Summary by tag(s).
+   * Get usage summary by tag(s).
    *
    * @return usage
    */

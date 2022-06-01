@@ -617,6 +617,7 @@ public class SyntheticsApi {
    * <p>See {@link #deleteGlobalVariableWithHttpInfoAsync}.
    *
    * @param variableId The ID of the global variable. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteGlobalVariableAsync(String variableId) {
     return deleteGlobalVariableWithHttpInfoAsync(variableId)
@@ -753,6 +754,7 @@ public class SyntheticsApi {
    * <p>See {@link #deletePrivateLocationWithHttpInfoAsync}.
    *
    * @param locationId The ID of the private location. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deletePrivateLocationAsync(String locationId) {
     return deletePrivateLocationWithHttpInfoAsync(locationId)

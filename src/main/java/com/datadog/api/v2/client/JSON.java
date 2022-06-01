@@ -72,6 +72,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
    *
    * @param node The input data.
    * @param modelClass The class that contains the discriminator mappings.
+   * @return The matching class
    */
   public static Class<?> getClassForElement(JsonNode node, Class<?> modelClass) {
     ClassDiscriminatorMapping cdm = modelDiscriminators.get(modelClass);
@@ -129,6 +130,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
      *
      * @param node The input data.
      * @param visitedClasses The set of classes that have already been visited.
+     * @return The target class
      */
     Class<?> getClassForElement(JsonNode node, Set<Class<?>> visitedClasses) {
       if (visitedClasses.contains(modelClass)) {
@@ -175,6 +177,8 @@ public class JSON implements ContextResolver<ObjectMapper> {
    *
    * @param modelClass A OpenAPI model class.
    * @param inst The instance object.
+   * @param visitedClasses Keep track of the hierarchy to break cycles
+   * @return Boolean indicating if the class matches
    */
   public static boolean isInstanceOf(
       Class<?> modelClass, Object inst, Set<Class<?>> visitedClasses) {

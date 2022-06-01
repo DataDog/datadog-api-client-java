@@ -69,6 +69,7 @@ public class LogsArchivesApi {
    *
    * @param archiveId The ID of the archive. (required)
    * @param body (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> addReadRoleToArchiveAsync(
       String archiveId, RelationshipToRole body) {
@@ -353,6 +354,7 @@ public class LogsArchivesApi {
    * <p>See {@link #deleteLogsArchiveWithHttpInfoAsync}.
    *
    * @param archiveId The ID of the archive. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteLogsArchiveAsync(String archiveId) {
     return deleteLogsArchiveWithHttpInfoAsync(archiveId)
@@ -976,6 +978,7 @@ public class LogsArchivesApi {
    *
    * @param archiveId The ID of the archive. (required)
    * @param body (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> removeRoleFromArchiveAsync(
       String archiveId, RelationshipToRole body) {

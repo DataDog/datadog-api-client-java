@@ -1,4 +1,4 @@
-// Get Cost Across Multi-Org Account returns "OK" response
+// Get cost across multi-org account returns "OK" response
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;

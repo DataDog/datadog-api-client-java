@@ -74,6 +74,8 @@ public class OrganizationsApi {
    * Upload IdP metadata.
    *
    * <p>See {@link #uploadIdPMetadataWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> uploadIdPMetadataAsync() {
     return uploadIdPMetadataWithHttpInfoAsync(new UploadIdPMetadataOptionalParameters())
@@ -102,6 +104,7 @@ public class OrganizationsApi {
    * <p>See {@link #uploadIdPMetadataWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> uploadIdPMetadataAsync(
       UploadIdPMetadataOptionalParameters parameters) {

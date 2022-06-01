@@ -23,6 +23,10 @@ public interface Authentication {
    * @param queryParams List of query parameters
    * @param headerParams Map of header parameters
    * @param cookieParams Map of cookie parameters
+   * @param payload Raw payload
+   * @param method HTTP method to authenticate
+   * @param uri URI to authenticate
+   * @throws ApiException If the settings can't be applied
    */
   void applyToParams(
       List<Pair> queryParams,

@@ -3,7 +3,7 @@
     "httpRequest": {
       "headers": {
         "JAVA-TEST-NAME": [
-          "Get_Cost_Across_Multi_Org_Account_returns_OK_response"
+          "Get_cost_across_multi_org_account_returns_OK_response"
         ]
       },
       "method": "GET",
