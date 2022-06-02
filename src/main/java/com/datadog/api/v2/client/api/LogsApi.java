@@ -4,17 +4,21 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.PaginationIterable;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.ContentEncoding;
 import com.datadog.api.v2.client.model.HTTPLogItem;
+import com.datadog.api.v2.client.model.Log;
 import com.datadog.api.v2.client.model.LogsAggregateRequest;
 import com.datadog.api.v2.client.model.LogsAggregateResponse;
 import com.datadog.api.v2.client.model.LogsListRequest;
+import com.datadog.api.v2.client.model.LogsListRequestPage;
 import com.datadog.api.v2.client.model.LogsListResponse;
 import com.datadog.api.v2.client.model.LogsSort;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -253,6 +257,65 @@ public class LogsApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * Search logs.
+   *
+   * <p>See {@link #listLogsWithHttpInfo}.
+   *
+   * @return PaginationIterable<Log>
+   */
+  public PaginationIterable<Log> listLogsWithPagination() throws ApiException {
+    ListLogsOptionalParameters parameters = new ListLogsOptionalParameters();
+    return listLogsWithPagination(parameters);
+  }
+
+  /**
+   * Search logs.
+   *
+   * <p>See {@link #listLogsWithHttpInfo}.
+   *
+   * @return LogsListResponse
+   */
+  public PaginationIterable<Log> listLogsWithPagination(ListLogsOptionalParameters parameters)
+      throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "body.getPage.setCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit;
+
+    if (parameters.body == null) {
+      parameters.body(new LogsListRequest());
+    }
+
+    if (parameters.body.getPage() == null) {
+      parameters.body.setPage(new LogsListRequestPage());
+    }
+
+    if (parameters.body.getPage().getLimit() == null) {
+      limit = 10;
+      parameters.body.getPage().setLimit(limit);
+    } else {
+      limit = parameters.body.getPage().getLimit();
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listLogs",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**
@@ -496,6 +559,57 @@ public class LogsApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * Get a list of logs.
+   *
+   * <p>See {@link #listLogsGetWithHttpInfo}.
+   *
+   * @return PaginationIterable<Log>
+   */
+  public PaginationIterable<Log> listLogsGetWithPagination() throws ApiException {
+    ListLogsGetOptionalParameters parameters = new ListLogsGetOptionalParameters();
+    return listLogsGetWithPagination(parameters);
+  }
+
+  /**
+   * Get a list of logs.
+   *
+   * <p>See {@link #listLogsGetWithHttpInfo}.
+   *
+   * @return LogsListResponse
+   */
+  public PaginationIterable<Log> listLogsGetWithPagination(ListLogsGetOptionalParameters parameters)
+      throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 10;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listLogsGet",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**

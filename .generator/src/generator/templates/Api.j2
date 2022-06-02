@@ -2,25 +2,41 @@
 package {{ package_name }}.api;
 
 import {{ package_name }}.ApiException;
-import {{ package_name  }}.ApiClient;
-import {{ package_name  }}.ApiResponse;
-import {{ package_name  }}.Configuration;
-import {{ package_name  }}.Pair;
+import {{ package_name }}.ApiClient;
+import {{ package_name }}.ApiResponse;
+import {{ package_name }}.Configuration;
+import {{ package_name }}.Pair;
+import {{ package_name }}.PaginationIterable;
 
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.client.Invocation;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
 import java.time.OffsetDateTime;
 
 {%- for model in get_api_models(operations) %}
 import {{ package_name }}.model.{{ model }};
 {%- endfor %}
+{%- for path, method, operation in operations|sort(attribute="2.operationId") %}
+{%- if operation["x-pagination"] %}
+{%- set pagination = operation["x-pagination"] %}
+import {{ package_name }}.model.{{ get_pagintion_return_item_type(operation, pagination["resultsPath"]) }};
+
+{%- set limitParamParts = pagination.limitParam.split(".") %}
+{%- for i in range(1, limitParamParts|length) %}
+{%- set limitParam = ".".join(limitParamParts[:i]) %}
+import {{ package_name }}.model.{{ get_container_type(operation, limitParam) }};
+{%- endfor %}
+{%- endif %}
+{%- endfor %}
+
 
 {{ generated_annotation }}
 public class {{ name }} {
@@ -64,7 +80,7 @@ public class {{ name }} {
   {%- set operationId = operation.operationId|untitle_case %}
   {%- set bodyParamName = operation.get("x-codegen-request-body-name", "body") %}
 
-{%- macro endpointDocAndAnnotation(async=False, showRequired=True, showOptional=False, optionalParameterArg=False, throwsApiException=True) -%}
+{%- macro endpointDocAndAnnotation(async=False, showRequired=True, showOptional=False, optionalParameterArg=False, throwsApiException=True, overrideReturn=False) -%}
 /**
  * {{ operation.summary|escape_html }}.
  *
@@ -80,11 +96,15 @@ public class {{ name }} {
  {%- if optionalParameterArg %}
  * @param parameters Optional parameters for the request.
  {%- endif %}
+ {%- if overrideReturn %}
+ * @return {{ overrideReturn }}
+ {%- else %}
  {%- if returnType %}
  * @return {% if async %}CompletableFuture&lt;{{ returnType|escape_html }}&gt;{% else%}{{ returnType|escape_html }}{%endif %}
  {%- else %}
  {%- if async %}
  * @return CompletableFuture
+ {%- endif %}
  {%- endif %}
  {%- endif %}
  {%- if throwsApiException %}
@@ -97,6 +117,88 @@ public class {{ name }} {
 {%- if operation.deprecated %}
 @Deprecated
 {%- endif %}
+{%- endmacro %}
+
+{%- macro paginatedEndpointMacro(pagination) -%}
+  {%- set _, getters, _ = get_accessors(pagination.resultsPath) %}
+  String resultsPath = "{{ ".".join(getters) }}";
+
+{#- Pagination cursor param fields #}
+  {%- if pagination.cursorParam %}
+  {%- set _, cursorPathGetters, _ = get_accessors(pagination.cursorPath) %}
+  {%- set paramSchema = get_parameter_schema_from_name(pagination.cursorParam.split(".")[0], allParams) %}
+  {%- set cursorParamOptional, cursorParamGetters, cursorParamSetters = get_accessors(pagination.cursorParam, schema=paramSchema) %}
+  String valueGetterPath = "{{ ".".join(cursorPathGetters) }}";
+  String valueSetterPath = "{%- if cursorParamGetters|length > 1 %}{{ ".".join(cursorParamGetters[:cursorParamGetters|length-1]) }}.{%- endif %}{{ cursorParamSetters[cursorParamSetters|length-1] }}";
+  Boolean valueSetterParamOptional = {{ cursorParamOptional|lower }};
+  {%- endif %}
+
+{#- Pagination page offset param fields #}
+  {%- if pagination.pageOffsetParam %}
+  {%- set paramSchema = get_parameter_schema_from_name(pagination.pageOffsetParam.split(".")[0], allParams) %}
+  {%- set optional, getters, setters = get_accessors(pagination.pageOffsetParam, schema=paramSchema) %}
+  String valueGetterPath = "";
+  String valueSetterPath = "{%- if getters|length > 1 %}{{ ".".join(getters[:getters|length-1]) }}.{%- endif %}{{ setters[getters|length-1] }}";
+  Boolean valueSetterParamOptional = {{ optional|lower }};
+  {%- endif %}
+
+{#- Limit param field #}
+  {{ get_container_type(operation, pagination.limitParam) }} limit;
+
+{#- Limit param part fields #}
+  {%- set limitParamParts = pagination.limitParam.split(".") %}
+  {%- set paramSchema = get_parameter_schema_from_name(limitParamParts[0], allParams) %}
+  {%- set limitParamOptional, limitParamGetters, limitParamSetters = get_accessors(pagination.limitParam, schema=paramSchema) %}
+
+  {% if limitParamParts|length == 1 %}
+  {%- if limitParamOptional %}
+  if (parameters.{{ limitParamGetters[0] }} == null) {
+      limit = {{ get_default(operation, pagination.limitParam) }};
+      parameters.{{ limitParamGetters[0] ~ "(limit)" }};
+  } else {
+      limit = {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }};
+  }
+  {%- endif %}
+  {% else %}
+
+  {%- if limitParamOptional %}
+  if ({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }} ==  null) {
+      {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamSetters[0] ~ "(new " ~ get_container_type(operation, limitParamParts[0]) ~ "())" }};
+  }
+  {%- endif %}
+
+  {%- for i in range(1, limitParamGetters|length) %}
+  {%- if loop.nextitem %}
+
+  if({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i+1]) }}() == null) {
+      {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i]) }}{{ limitParamSetters[i] }}(new {{ get_container_type(operation, ".".join(limitParamParts[:i+1])) }}());
+  }
+  {%- endif %}
+
+  {% if loop.last %}
+  if ({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length]) }}() == null) {
+      limit = {{ get_default(operation, pagination.limitParam) }};
+      {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length-1]) }}().{{ limitParamSetters[limitParamGetters|length-1] }}(limit);
+  } else {
+      limit = {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:limitParamGetters|length]) }}();
+  }
+  {%- endif %}
+
+  {%- endfor %}
+  {%- endif %}
+
+  {# build args map #}
+  LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+  {%- for name, parameter in requiredParams %}
+  args.put("{{ name|variable_name }}", {{ name|variable_name }});
+  {%- endfor %}
+  {%- if optionalParams %}
+  args.put("optionalParams", parameters);
+  {%- endif  %}
+
+  PaginationIterable iterator = new PaginationIterable(this, "{{ operationId }}", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, limit, args);
+
+  return iterator;
 {%- endmacro %}
 
   {%- if optionalParams %}
@@ -161,6 +263,30 @@ public class {{ name }} {
     });
   }
   {%- endif %}
+
+  {%- if operation["x-pagination"] %}
+  {%- set pagination = operation["x-pagination"] %}
+  {%- set paginationReturnType = "PaginationIterable<" ~  get_pagintion_return_item_type(operation, pagination["resultsPath"]) ~ ">" %}
+
+  {{ endpointDocAndAnnotation(throwsApiException=False, overrideReturn=paginationReturnType) }}
+  public {{ paginationReturnType }} {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
+    {%- if optionalParams %}
+    {{ operationId|upperfirst }}OptionalParameters parameters = new {{ operationId|upperfirst }}OptionalParameters();
+    return {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ name|variable_name }}, {% endfor %}parameters);
+    {%- else %}
+    {{- paginatedEndpointMacro(pagination) }}
+    {%- endif %}
+  }
+
+  {%- if optionalParams %}
+
+  {{ endpointDocAndAnnotation(throwsApiException=False, overrideReturn=returnType) }}
+  public {{ paginationReturnType }} {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) throws ApiException {
+    {{- paginatedEndpointMacro(pagination) }}
+  }
+  {%- endif %}
+  {%- endif %}
+
 
   /**
 {{ operation.description|docstring }}

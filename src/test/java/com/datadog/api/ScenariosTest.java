@@ -10,5 +10,5 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
     plugin = {"pretty", "summary", "com.datadog.api.TracePlugin", "rerun:target/rerun.txt"},
     snippets = CAMELCASE,
-    tags = "not @skip and not @skip-java and not @with-pagination")
+    tags = "not @skip and not @skip-java")
 public class ScenariosTest {}

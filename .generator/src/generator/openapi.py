@@ -173,6 +173,26 @@ def get_type_for_parameter(parameter):
     return type_to_java(parameter.get("schema"))
 
 
+def get_parameter_schema_from_name(name, all_params):
+    for param_name, parameter in all_params:
+        if param_name == name:
+            return parameter
+
+
+def get_pagintion_return_item_type(operation, resultsPath):
+    resultsPath = resultsPath.split(".")
+    for response in operation.get("responses", {}).values():
+        for content in response.get("content", {}).values():
+            if "schema" in content:
+                properties = content["schema"].get("properties")
+                i = 0
+                while len(resultsPath) > 1:
+                    properties = properties.get(resultsPath[0]).get("properties")
+                    resultsPath.pop(0)
+                    i += 1
+                return type_to_java(properties.get(resultsPath[0]).get("items"))
+
+
 def child_models(schema, alternative_name=None, seen=None, parent=None):
     seen = seen or set()
     current_name = get_name(schema)
@@ -498,6 +518,57 @@ class Schema:
         if isinstance(value, (dict, list)):
             return json.dumps(value, indent=2)
         return str(value)
+
+
+def get_accessors(param_path, schema={}):
+    param_path = param_path.split(".")
+    optional = False
+    getter, setter = [], []
+    if schema:
+        optional = not schema.get("required", True)
+        param_name = formatter.variable_name(param_path.pop(0))
+        getter, setter = [param_name], [param_name]
+
+    for part in param_path:
+        getter.append(f"get{formatter.attribute_name(part)}")
+        setter.append(f"set{formatter.attribute_name(part)}")
+
+    return optional, getter, setter
+
+
+def get_default(operation, attribute_path):
+    attrs = attribute_path.split(".")
+    for name, parameter in parameters(operation):
+        if name == attrs[0]:
+            break
+    if name == attribute_path:
+        # We found a top level attribute matching the full path, let's use the default
+        return formatter.format_value(parameter["schema"]["default"], schema=parameter["schema"])
+
+    if name == "body":
+        parameter = next(iter(parameter["content"].values()))["schema"]
+    for attr in attrs[1:]:
+        parameter = parameter["properties"][attr]
+
+    return formatter.format_value(parameter["default"], schema=parameter)
+
+
+def get_container_type(operation, attribute_path, stop=None):
+    attrs = attribute_path.split(".")[:stop]
+    for name, parameter in parameters(operation):
+        if name == attrs[0]:
+            break
+
+    if attrs[0] == "body":
+        parameter = next(iter(parameter["content"].values()))
+
+    if name == attrs[0] and len(attrs) == 1:
+        return type_to_java(parameter["schema"])
+
+    parameter = parameter["schema"]
+    for attr in attrs[1:]:
+        parameter = parameter["properties"][attr]
+    return type_to_java(parameter)
 
 
 class Operation:
