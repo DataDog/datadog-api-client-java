@@ -4,6 +4,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.KeyManagementApi;
+import com.datadog.api.v2.client.api.KeyManagementApi.GetAPIKeyOptionalParameters;
 import com.datadog.api.v2.client.model.APIKeyResponse;
 
 public class Example {
@@ -15,7 +16,9 @@ public class Example {
     String API_KEY_DATA_ID = System.getenv("API_KEY_DATA_ID");
 
     try {
-      APIKeyResponse result = apiInstance.getAPIKey(API_KEY_DATA_ID);
+      APIKeyResponse result =
+          apiInstance.getAPIKey(
+              API_KEY_DATA_ID, new GetAPIKeyOptionalParameters().include("created_by,modified_by"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling KeyManagementApi#getAPIKey");
