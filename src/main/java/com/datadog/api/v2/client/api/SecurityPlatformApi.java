@@ -31,14 +31,14 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringApi {
+public class SecurityPlatformApi {
   private ApiClient apiClient;
 
-  public SecurityMonitoringApi() {
+  public SecurityPlatformApi() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public SecurityMonitoringApi(ApiClient apiClient) {
+  public SecurityPlatformApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -128,7 +128,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.createSecurityFilter",
+            "SecurityPlatformApi.createSecurityFilter",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -175,7 +175,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.createSecurityFilter",
+              "SecurityPlatformApi.createSecurityFilter",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -261,7 +261,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.createSecurityMonitoringRule",
+            "SecurityPlatformApi.createSecurityMonitoringRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -310,7 +310,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.createSecurityMonitoringRule",
+              "SecurityPlatformApi.createSecurityMonitoringRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -399,7 +399,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.deleteSecurityFilter",
+            "SecurityPlatformApi.deleteSecurityFilter",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -452,7 +452,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.deleteSecurityFilter",
+              "SecurityPlatformApi.deleteSecurityFilter",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -537,7 +537,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.deleteSecurityMonitoringRule",
+            "SecurityPlatformApi.deleteSecurityMonitoringRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -587,7 +587,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.deleteSecurityMonitoringRule",
+              "SecurityPlatformApi.deleteSecurityMonitoringRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -679,7 +679,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.getSecurityFilter",
+            "SecurityPlatformApi.getSecurityFilter",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -731,7 +731,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.getSecurityFilter",
+              "SecurityPlatformApi.getSecurityFilter",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -818,7 +818,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.getSecurityMonitoringRule",
+            "SecurityPlatformApi.getSecurityMonitoringRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -869,7 +869,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.getSecurityMonitoringRule",
+              "SecurityPlatformApi.getSecurityMonitoringRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -944,7 +944,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.listSecurityFilters",
+            "SecurityPlatformApi.listSecurityFilters",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -981,7 +981,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.listSecurityFilters",
+              "SecurityPlatformApi.listSecurityFilters",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1124,7 +1124,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.listSecurityMonitoringRules",
+            "SecurityPlatformApi.listSecurityMonitoringRules",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1169,7 +1169,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.listSecurityMonitoringRules",
+              "SecurityPlatformApi.listSecurityMonitoringRules",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1430,7 +1430,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.listSecurityMonitoringSignals",
+            "SecurityPlatformApi.listSecurityMonitoringSignals",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1483,7 +1483,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.listSecurityMonitoringSignals",
+              "SecurityPlatformApi.listSecurityMonitoringSignals",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1677,7 +1677,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.searchSecurityMonitoringSignals",
+            "SecurityPlatformApi.searchSecurityMonitoringSignals",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1716,7 +1716,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.searchSecurityMonitoringSignals",
+              "SecurityPlatformApi.searchSecurityMonitoringSignals",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1820,7 +1820,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.updateSecurityFilter",
+            "SecurityPlatformApi.updateSecurityFilter",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1884,7 +1884,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.updateSecurityFilter",
+              "SecurityPlatformApi.updateSecurityFilter",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1986,7 +1986,7 @@ public class SecurityMonitoringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SecurityMonitoringApi.updateSecurityMonitoringRule",
+            "SecurityPlatformApi.updateSecurityMonitoringRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -2050,7 +2050,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.updateSecurityMonitoringRule",
+              "SecurityPlatformApi.updateSecurityMonitoringRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

@@ -3,7 +3,7 @@
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi;
+import com.datadog.api.v2.client.api.SecurityPlatformApi;
 import com.datadog.api.v2.client.model.SecurityFilterCreateAttributes;
 import com.datadog.api.v2.client.model.SecurityFilterCreateData;
 import com.datadog.api.v2.client.model.SecurityFilterCreateRequest;
@@ -16,7 +16,7 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
+    SecurityPlatformApi apiInstance = new SecurityPlatformApi(defaultClient);
 
     SecurityFilterCreateRequest body =
         new SecurityFilterCreateRequest()
@@ -31,15 +31,15 @@ public class Example {
                                         .query("source:staging")))
                             .filteredDataType(SecurityFilterFilteredDataType.LOGS)
                             .isEnabled(true)
-                            .name("Example-Create_a_security_filter_returns_OK_response")
-                            .query("service:ExampleCreateasecurityfilterreturnsOKresponse"))
+                            .name("Custom security filter")
+                            .query("service:api"))
                     .type(SecurityFilterType.SECURITY_FILTERS));
 
     try {
       SecurityFilterResponse result = apiInstance.createSecurityFilter(body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SecurityMonitoringApi#createSecurityFilter");
+      System.err.println("Exception when calling SecurityPlatformApi#createSecurityFilter");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

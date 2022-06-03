@@ -1,23 +1,21 @@
-// Delete an existing rule returns "OK" response
+// Get all security filters returns "OK" response
 
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi;
+import com.datadog.api.v2.client.api.SecurityPlatformApi;
+import com.datadog.api.v2.client.model.SecurityFiltersResponse;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
-
-    // there is a valid "security_rule" in the system
-    String SECURITY_RULE_ID = System.getenv("SECURITY_RULE_ID");
+    SecurityPlatformApi apiInstance = new SecurityPlatformApi(defaultClient);
 
     try {
-      apiInstance.deleteSecurityMonitoringRule(SECURITY_RULE_ID);
+      SecurityFiltersResponse result = apiInstance.listSecurityFilters();
+      System.out.println(result);
     } catch (ApiException e) {
-      System.err.println(
-          "Exception when calling SecurityMonitoringApi#deleteSecurityMonitoringRule");
+      System.err.println("Exception when calling SecurityPlatformApi#listSecurityFilters");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
