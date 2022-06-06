@@ -60,6 +60,22 @@ jobs:
         env:
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
 
+  javadoc:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Java
+        # the setup-scala action is the only available action that allows us to access
+        # https://github.com/shyiko/jabba - a tool that can install various JDKs
+        uses: olafurpg/setup-scala@v10
+        with:
+          java-version: adopt@1.8.0-292
+          jabba-version: 0.11.2
+      - name: Build javadoc
+        run: mvn javadoc:javadoc
+        shell: bash
+
   test:
     strategy:
       matrix:

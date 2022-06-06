@@ -37,19 +37,6 @@ else
     echo "LICENSE-3rdparty.csv is up to date"
 fi
 
-
-# Test build java doc
-echo "Ensuring javadocs build successfully ..."
-
-set +e
-JAVADOC_OUTPUT=`mvn javadoc:javadoc`
-if [[ $? -ne 0 ]]; then
-    exit "$JAVADOC_OUTPUT"
-    exit 1
-else
-    echo "javadocs build successfully"
-fi
-
 RERUN_COUNT=$([ "$CI" == "true" ] && echo "1" || echo "0")
 
 set +e
