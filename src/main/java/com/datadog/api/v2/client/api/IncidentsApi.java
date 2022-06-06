@@ -625,7 +625,7 @@ public class IncidentsApi {
    *
    * <p>See {@link #listIncidentsWithHttpInfo}.
    *
-   * @return PaginationIterable<IncidentResponseData>
+   * @return PaginationIterable&lt;IncidentResponseData&gt;
    */
   public PaginationIterable<IncidentResponseData> listIncidentsWithPagination()
       throws ApiException {

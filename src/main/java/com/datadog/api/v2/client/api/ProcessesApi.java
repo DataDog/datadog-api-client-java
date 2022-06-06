@@ -194,7 +194,7 @@ public class ProcessesApi {
    *
    * <p>See {@link #listProcessesWithHttpInfo}.
    *
-   * @return PaginationIterable<ProcessSummary>
+   * @return PaginationIterable&lt;ProcessSummary&gt;
    */
   public PaginationIterable<ProcessSummary> listProcessesWithPagination() throws ApiException {
     ListProcessesOptionalParameters parameters = new ListProcessesOptionalParameters();

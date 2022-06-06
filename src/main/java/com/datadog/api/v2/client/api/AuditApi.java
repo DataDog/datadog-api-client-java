@@ -192,7 +192,7 @@ public class AuditApi {
    *
    * <p>See {@link #listAuditLogsWithHttpInfo}.
    *
-   * @return PaginationIterable<AuditLogsEvent>
+   * @return PaginationIterable&lt;AuditLogsEvent&gt;
    */
   public PaginationIterable<AuditLogsEvent> listAuditLogsWithPagination() throws ApiException {
     ListAuditLogsOptionalParameters parameters = new ListAuditLogsOptionalParameters();
@@ -436,7 +436,7 @@ public class AuditApi {
    *
    * <p>See {@link #searchAuditLogsWithHttpInfo}.
    *
-   * @return PaginationIterable<AuditLogsEvent>
+   * @return PaginationIterable&lt;AuditLogsEvent&gt;
    */
   public PaginationIterable<AuditLogsEvent> searchAuditLogsWithPagination() throws ApiException {
     SearchAuditLogsOptionalParameters parameters = new SearchAuditLogsOptionalParameters();
