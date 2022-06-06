@@ -14,6 +14,7 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("updateTagConfiguration", true);
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     // there is a valid "metric_tag_configuration" in the system

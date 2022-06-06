@@ -10,6 +10,7 @@ import com.datadog.api.v2.client.model.MetricsAndMetricTagConfigurationsResponse
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("listTagConfigurations", true);
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {
