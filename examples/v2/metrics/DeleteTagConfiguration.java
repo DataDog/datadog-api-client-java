@@ -8,7 +8,6 @@ import com.datadog.api.v2.client.api.MetricsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("deleteTagConfiguration", true);
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {
