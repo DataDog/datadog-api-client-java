@@ -1,0 +1,65 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_new_service_object_returns_CREATED_response-1653590938\",\"opsgenie_api_key\":\"00000000-0000-0000-0000-000000000000\",\"region\":\"us\"},\"type\":\"opsgenie-service\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_new_service_object_returns_CREATED_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/integration/opsgenie/services",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"custom_url\":null,\"region\":\"us\",\"name\":\"Test-Create_a_new_service_object_returns_CREATED_response-1653590938\"},\"type\":\"opsgenie-service\",\"id\":\"0dcb43af-f233-4cda-b260-37e97e12f66f\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d85b4700-58b8-500b-ef6e-9a26cb37831c"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_new_service_object_returns_CREATED_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/integration/opsgenie/services/0dcb43af-f233-4cda-b260-37e97e12f66f",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cbb8d25e-01b7-2f5f-7450-ed11e7eb9f3f"
+  }
+]
