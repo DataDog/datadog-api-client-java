@@ -3,8 +3,8 @@
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters;
+import com.datadog.api.v2.client.api.SecurityPlatformApi;
+import com.datadog.api.v2.client.api.SecurityPlatformApi.SearchSecurityMonitoringSignalsOptionalParameters;
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequest;
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestFilter;
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestPage;
@@ -15,8 +15,7 @@ import java.time.OffsetDateTime;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("searchSecurityMonitoringSignals", true);
-    SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
+    SecurityPlatformApi apiInstance = new SecurityPlatformApi(defaultClient);
 
     SecurityMonitoringSignalListRequest body =
         new SecurityMonitoringSignalListRequest()
@@ -39,7 +38,7 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
-          "Exception when calling SecurityMonitoringApi#searchSecurityMonitoringSignals");
+          "Exception when calling SecurityPlatformApi#searchSecurityMonitoringSignals");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
