@@ -58,11 +58,16 @@ def cli(input, output):
     env.globals["get_name"] = openapi.get_name
     env.globals["get_type_for_attribute"] = openapi.get_type_for_attribute
     env.globals["get_type_for_parameter"] = openapi.get_type_for_parameter
+    env.globals["get_parameter_schema_from_name"] = openapi.get_parameter_schema_from_name
+    env.globals["get_pagintion_return_item_type"] = openapi.get_pagintion_return_item_type
     env.globals["get_type"] = openapi.type_to_java
     env.globals["get_api_models"] = openapi.get_api_models
     env.globals["openapi"] = spec
     env.globals["package_name"] = PACKAGE_NAME.format(version)
     env.globals["generated_annotation"] = GENERATED_ANNOTATION
+    env.globals["get_accessors"] = openapi.get_accessors
+    env.globals["get_default"] = openapi.get_default
+    env.globals["get_container_type"] = openapi.get_container_type
     env.globals["version"] = version
 
     api_j2 = env.get_template("Api.j2")
@@ -81,6 +86,8 @@ def cli(input, output):
         "ServerConfiguration.java": env.get_template("ServerConfiguration.j2"),
         "ServerVariable.java": env.get_template("ServerVariable.j2"),
         "StringUtil.java": env.get_template("StringUtil.j2"),
+        "PaginationIterable.java": env.get_template("PaginationIterable.j2"),
+        "PaginationIterator.java": env.get_template("PaginationIterator.j2")
     }
 
     extra_models = {

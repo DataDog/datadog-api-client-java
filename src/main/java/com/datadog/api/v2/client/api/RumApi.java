@@ -4,15 +4,19 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.PaginationIterable;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.RUMAggregateRequest;
 import com.datadog.api.v2.client.model.RUMAnalyticsAggregateResponse;
+import com.datadog.api.v2.client.model.RUMEvent;
 import com.datadog.api.v2.client.model.RUMEventsResponse;
+import com.datadog.api.v2.client.model.RUMQueryPageOptions;
 import com.datadog.api.v2.client.model.RUMSearchEventsRequest;
 import com.datadog.api.v2.client.model.RUMSort;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -321,6 +325,57 @@ public class RumApi {
   }
 
   /**
+   * Get a list of RUM events.
+   *
+   * <p>See {@link #listRUMEventsWithHttpInfo}.
+   *
+   * @return PaginationIterable<RUMEvent>
+   */
+  public PaginationIterable<RUMEvent> listRUMEventsWithPagination() throws ApiException {
+    ListRUMEventsOptionalParameters parameters = new ListRUMEventsOptionalParameters();
+    return listRUMEventsWithPagination(parameters);
+  }
+
+  /**
+   * Get a list of RUM events.
+   *
+   * <p>See {@link #listRUMEventsWithHttpInfo}.
+   *
+   * @return RUMEventsResponse
+   */
+  public PaginationIterable<RUMEvent> listRUMEventsWithPagination(
+      ListRUMEventsOptionalParameters parameters) throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 10;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listRUMEvents",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
    * List endpoint returns events that match a RUM search query. <a
    * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
    * paginated</a>.
@@ -466,6 +521,50 @@ public class RumApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * Search RUM events.
+   *
+   * <p>See {@link #searchRUMEventsWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return PaginationIterable<RUMEvent>
+   */
+  public PaginationIterable<RUMEvent> searchRUMEventsWithPagination(RUMSearchEventsRequest body)
+      throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "body.getPage.setCursor";
+    Boolean valueSetterParamOptional = false;
+    Integer limit;
+
+    if (body.getPage() == null) {
+      body.setPage(new RUMQueryPageOptions());
+    }
+
+    if (body.getPage().getLimit() == null) {
+      limit = 10;
+      body.getPage().setLimit(limit);
+    } else {
+      limit = body.getPage().getLimit();
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("body", body);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "searchRUMEvents",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**

@@ -181,9 +181,14 @@ public class ClientSteps {
           java.lang.InstantiationException, java.lang.NoSuchMethodException,
           java.lang.ClassNotFoundException {
     Integer responseStatusCode = (Integer) 0;
+
     if (world.response != null) {
-      responseStatusCode =
-          (Integer) world.responseClass.getMethod("getStatusCode").invoke(world.response);
+      if (world.response.getClass().getSimpleName().equals("PaginationIterable")) {
+        responseStatusCode = 200;
+      } else {
+        responseStatusCode =
+            (Integer) world.responseClass.getMethod("getStatusCode").invoke(world.response);
+      }
     }
     assertEquals(statusCode, responseStatusCode);
   }
@@ -235,6 +240,18 @@ public class ClientSteps {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
     List value = (List) World.lookup(responseData, responsePath);
     assertEquals(size, Long.valueOf(value.size()));
+  }
+
+  @Then("the response has {int} items")
+  public void theResponseHasItems(Integer size)
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.NoSuchMethodException {
+    if (world.response.getClass().getSimpleName().equals("PaginationIterable")) {
+      assertEquals(size, ((Object) world.paginatedItems.size()));
+    } else {
+      Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
+      assertEquals(size, responseData.getClass().getMethod("size").invoke(responseData));
+    }
   }
 
   public String getTracingEndpoint() {

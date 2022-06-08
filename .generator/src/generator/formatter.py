@@ -147,7 +147,7 @@ def escape_reserved_keyword(word):
 
 
 def attribute_name(attribute):
-    return escape_reserved_keyword(upperfirst(snake_case(attribute)))
+    return escape_reserved_keyword(upperfirst(camel_case(attribute)))
 
 
 def variable_name(attribute):
@@ -625,3 +625,7 @@ def get_response_type(schema, version):
     if name:
         return api_response_type, f"com.datadog.api.{version}.client.model.{name}"
     return api_response_type, None
+
+
+def attribute_path(attribute):
+    return ".".join(attribute_name(a) for a in attribute.split("."))

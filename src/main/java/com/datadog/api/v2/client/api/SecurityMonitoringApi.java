@@ -4,6 +4,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.PaginationIterable;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.SecurityFilterCreateRequest;
 import com.datadog.api.v2.client.model.SecurityFilterResponse;
@@ -13,12 +14,15 @@ import com.datadog.api.v2.client.model.SecurityMonitoringListRulesResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleUpdatePayload;
+import com.datadog.api.v2.client.model.SecurityMonitoringSignal;
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequest;
+import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestPage;
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalsListResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringSignalsSort;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -1332,6 +1336,59 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get a quick list of security signals.
+   *
+   * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfo}.
+   *
+   * @return PaginationIterable<SecurityMonitoringSignal>
+   */
+  public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination()
+      throws ApiException {
+    ListSecurityMonitoringSignalsOptionalParameters parameters =
+        new ListSecurityMonitoringSignalsOptionalParameters();
+    return listSecurityMonitoringSignalsWithPagination(parameters);
+  }
+
+  /**
+   * Get a quick list of security signals.
+   *
+   * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringSignalsListResponse
+   */
+  public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination(
+      ListSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 10;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listSecurityMonitoringSignals",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
    * The list endpoint returns security signals that match a search query. Both this endpoint and
    * the POST endpoint can be used interchangeably when listing security signals.
    *
@@ -1529,6 +1586,67 @@ public class SecurityMonitoringApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * Get a list of security signals.
+   *
+   * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfo}.
+   *
+   * @return PaginationIterable<SecurityMonitoringSignal>
+   */
+  public PaginationIterable<SecurityMonitoringSignal>
+      searchSecurityMonitoringSignalsWithPagination() throws ApiException {
+    SearchSecurityMonitoringSignalsOptionalParameters parameters =
+        new SearchSecurityMonitoringSignalsOptionalParameters();
+    return searchSecurityMonitoringSignalsWithPagination(parameters);
+  }
+
+  /**
+   * Get a list of security signals.
+   *
+   * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringSignalsListResponse
+   */
+  public PaginationIterable<SecurityMonitoringSignal> searchSecurityMonitoringSignalsWithPagination(
+      SearchSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getAfter";
+    String valueSetterPath = "body.getPage.setCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit;
+
+    if (parameters.body == null) {
+      parameters.body(new SecurityMonitoringSignalListRequest());
+    }
+
+    if (parameters.body.getPage() == null) {
+      parameters.body.setPage(new SecurityMonitoringSignalListRequestPage());
+    }
+
+    if (parameters.body.getPage().getLimit() == null) {
+      limit = 10;
+      parameters.body.getPage().setLimit(limit);
+    } else {
+      limit = parameters.body.getPage().getLimit();
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "searchSecurityMonitoringSignals",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**

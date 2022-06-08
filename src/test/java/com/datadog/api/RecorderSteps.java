@@ -174,4 +174,9 @@ public class RecorderSteps {
   public void theRequestIsSent() throws Exception {
     world.sendRequest();
   }
+
+  @When("the request with pagination is sent")
+  public void theRequestSentWithPagination() throws Exception {
+    world.sendPaginatedRequest();
+  }
 }
