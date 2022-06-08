@@ -326,6 +326,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endHr;
     private String nextRecordId;
     private String tagBreakdownKeys;
+    private Boolean includeDescendants;
 
     /**
      * Set endHr.
@@ -361,6 +362,19 @@ public class UsageMeteringApi {
      */
     public GetHourlyUsageAttributionOptionalParameters tagBreakdownKeys(String tagBreakdownKeys) {
       this.tagBreakdownKeys = tagBreakdownKeys;
+      return this;
+    }
+
+    /**
+     * Set includeDescendants.
+     *
+     * @param includeDescendants Include child org usage in the response. Defaults to <code>true
+     *     </code>. (optional, default to true)
+     * @return GetHourlyUsageAttributionOptionalParameters
+     */
+    public GetHourlyUsageAttributionOptionalParameters includeDescendants(
+        Boolean includeDescendants) {
+      this.includeDescendants = includeDescendants;
       return this;
     }
   }
@@ -496,6 +510,7 @@ public class UsageMeteringApi {
     OffsetDateTime endHr = parameters.endHr;
     String nextRecordId = parameters.nextRecordId;
     String tagBreakdownKeys = parameters.tagBreakdownKeys;
+    Boolean includeDescendants = parameters.includeDescendants;
     // create path and map variables
     String localVarPath = "/api/v1/usage/hourly-attribution";
 
@@ -508,6 +523,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_descendants", includeDescendants));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -571,6 +588,7 @@ public class UsageMeteringApi {
     OffsetDateTime endHr = parameters.endHr;
     String nextRecordId = parameters.nextRecordId;
     String tagBreakdownKeys = parameters.tagBreakdownKeys;
+    Boolean includeDescendants = parameters.includeDescendants;
     // create path and map variables
     String localVarPath = "/api/v1/usage/hourly-attribution";
 
@@ -583,6 +601,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_descendants", includeDescendants));
 
     Invocation.Builder builder;
     try {
@@ -1264,6 +1284,7 @@ public class UsageMeteringApi {
     private MonthlyUsageAttributionSupportedMetrics sortName;
     private String tagBreakdownKeys;
     private String nextRecordId;
+    private Boolean includeDescendants;
 
     /**
      * Set endMonth.
@@ -1324,6 +1345,19 @@ public class UsageMeteringApi {
      */
     public GetMonthlyUsageAttributionOptionalParameters nextRecordId(String nextRecordId) {
       this.nextRecordId = nextRecordId;
+      return this;
+    }
+
+    /**
+     * Set includeDescendants.
+     *
+     * @param includeDescendants Include child org usage in the response. Defaults to <code>true
+     *     </code>. (optional, default to true)
+     * @return GetMonthlyUsageAttributionOptionalParameters
+     */
+    public GetMonthlyUsageAttributionOptionalParameters includeDescendants(
+        Boolean includeDescendants) {
+      this.includeDescendants = includeDescendants;
       return this;
     }
   }
@@ -1468,6 +1502,7 @@ public class UsageMeteringApi {
     MonthlyUsageAttributionSupportedMetrics sortName = parameters.sortName;
     String tagBreakdownKeys = parameters.tagBreakdownKeys;
     String nextRecordId = parameters.nextRecordId;
+    Boolean includeDescendants = parameters.includeDescendants;
     // create path and map variables
     String localVarPath = "/api/v1/usage/monthly-attribution";
 
@@ -1482,6 +1517,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_descendants", includeDescendants));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1549,6 +1586,7 @@ public class UsageMeteringApi {
     MonthlyUsageAttributionSupportedMetrics sortName = parameters.sortName;
     String tagBreakdownKeys = parameters.tagBreakdownKeys;
     String nextRecordId = parameters.nextRecordId;
+    Boolean includeDescendants = parameters.includeDescendants;
     // create path and map variables
     String localVarPath = "/api/v1/usage/monthly-attribution";
 
@@ -1563,6 +1601,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_descendants", includeDescendants));
 
     Invocation.Builder builder;
     try {
