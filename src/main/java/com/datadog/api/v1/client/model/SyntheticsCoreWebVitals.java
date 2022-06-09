@@ -23,15 +23,15 @@ import java.util.Objects;
 public class SyntheticsCoreWebVitals {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CLS = "cls";
-  private Long cls;
+  private Double cls;
 
   public static final String JSON_PROPERTY_LCP = "lcp";
-  private Long lcp;
+  private Double lcp;
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public SyntheticsCoreWebVitals cls(Long cls) {
+  public SyntheticsCoreWebVitals cls(Double cls) {
     this.cls = cls;
     return this;
   }
@@ -44,15 +44,15 @@ public class SyntheticsCoreWebVitals {
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCls() {
+  public Double getCls() {
     return cls;
   }
 
-  public void setCls(Long cls) {
+  public void setCls(Double cls) {
     this.cls = cls;
   }
 
-  public SyntheticsCoreWebVitals lcp(Long lcp) {
+  public SyntheticsCoreWebVitals lcp(Double lcp) {
     this.lcp = lcp;
     return this;
   }
@@ -65,11 +65,11 @@ public class SyntheticsCoreWebVitals {
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LCP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLcp() {
+  public Double getLcp() {
     return lcp;
   }
 
-  public void setLcp(Long lcp) {
+  public void setLcp(Double lcp) {
     this.lcp = lcp;
   }
 
