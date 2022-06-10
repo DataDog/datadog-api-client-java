@@ -1340,7 +1340,7 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #listSecurityMonitoringSignalsWithHttpInfo}.
    *
-   * @return PaginationIterable<SecurityMonitoringSignal>
+   * @return PaginationIterable&lt;SecurityMonitoringSignal&gt;
    */
   public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination()
       throws ApiException {
@@ -1593,7 +1593,7 @@ public class SecurityMonitoringApi {
    *
    * <p>See {@link #searchSecurityMonitoringSignalsWithHttpInfo}.
    *
-   * @return PaginationIterable<SecurityMonitoringSignal>
+   * @return PaginationIterable&lt;SecurityMonitoringSignal&gt;
    */
   public PaginationIterable<SecurityMonitoringSignal>
       searchSecurityMonitoringSignalsWithPagination() throws ApiException {

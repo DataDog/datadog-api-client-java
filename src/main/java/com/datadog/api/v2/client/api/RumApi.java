@@ -329,7 +329,7 @@ public class RumApi {
    *
    * <p>See {@link #listRUMEventsWithHttpInfo}.
    *
-   * @return PaginationIterable<RUMEvent>
+   * @return PaginationIterable&lt;RUMEvent&gt;
    */
   public PaginationIterable<RUMEvent> listRUMEventsWithPagination() throws ApiException {
     ListRUMEventsOptionalParameters parameters = new ListRUMEventsOptionalParameters();
@@ -529,7 +529,7 @@ public class RumApi {
    * <p>See {@link #searchRUMEventsWithHttpInfo}.
    *
    * @param body (required)
-   * @return PaginationIterable<RUMEvent>
+   * @return PaginationIterable&lt;RUMEvent&gt;
    */
   public PaginationIterable<RUMEvent> searchRUMEventsWithPagination(RUMSearchEventsRequest body)
       throws ApiException {

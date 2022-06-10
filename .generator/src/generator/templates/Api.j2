@@ -97,7 +97,7 @@ public class {{ name }} {
  * @param parameters Optional parameters for the request.
  {%- endif %}
  {%- if overrideReturn %}
- * @return {{ overrideReturn }}
+ * @return {{ overrideReturn|escape_html }}
  {%- else %}
  {%- if returnType %}
  * @return {% if async %}CompletableFuture&lt;{{ returnType|escape_html }}&gt;{% else%}{{ returnType|escape_html }}{%endif %}
