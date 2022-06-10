@@ -264,7 +264,7 @@ public class LogsApi {
    *
    * <p>See {@link #listLogsWithHttpInfo}.
    *
-   * @return PaginationIterable<Log>
+   * @return PaginationIterable&lt;Log&gt;
    */
   public PaginationIterable<Log> listLogsWithPagination() throws ApiException {
     ListLogsOptionalParameters parameters = new ListLogsOptionalParameters();
@@ -566,7 +566,7 @@ public class LogsApi {
    *
    * <p>See {@link #listLogsGetWithHttpInfo}.
    *
-   * @return PaginationIterable<Log>
+   * @return PaginationIterable&lt;Log&gt;
    */
   public PaginationIterable<Log> listLogsGetWithPagination() throws ApiException {
     ListLogsGetOptionalParameters parameters = new ListLogsGetOptionalParameters();
