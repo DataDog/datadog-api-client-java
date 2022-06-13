@@ -13,6 +13,7 @@ from yaml import CSafeLoader
 from . import formatter
 
 PRIMITIVE_TYPES = ["string", "number", "boolean", "integer"]
+JAVA_TYPES = ["long", "double", "list", "map", "integer", "string", "boolean"]
 
 
 def load(filename):
@@ -32,6 +33,10 @@ def is_primitive(schema):
     if schema.get("type") in PRIMITIVE_TYPES and "enum" not in schema:
         return True
     return False
+
+
+def is_java_base_type(type):
+    return type in JAVA_TYPES
 
 
 def get_required_attributes(schema):

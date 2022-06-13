@@ -46,11 +46,13 @@ def cli(input, output):
     env.filters["upperfirst"] = formatter.upperfirst
     env.filters["variable_name"] = formatter.variable_name
     env.filters["is_primitive"] = openapi.is_primitive
+    env.filters["is_java_base_type"] = openapi.is_java_base_type
     env.filters["is_model"] = openapi.is_model
     env.filters["get_required_attributes"] = openapi.get_required_attributes
     env.filters["escape_html"] = formatter.escape_html
     env.filters["docstring"] = formatter.docstring
     env.filters["inline_docstring"] = formatter.inline_docstring
+    env.filters["un_parameterize_type"] = formatter.un_parameterize_type
 
     env.globals["enumerate"] = enumerate
     env.globals["get_name"] = openapi.get_name
