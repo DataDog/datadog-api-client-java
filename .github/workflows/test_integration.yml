@@ -60,7 +60,7 @@ jobs:
       - name: Install Java
         uses: actions/setup-java@v3
         with:
-          java-version: '16'
+          java-version: '16.0.1'
           distribution: 'temurin'
           cache: 'maven'
       - name: Run integration tests
