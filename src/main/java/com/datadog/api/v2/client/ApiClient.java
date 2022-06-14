@@ -239,8 +239,6 @@ public class ApiClient extends JavaTimeFormatter {
           put("deleteIncident", false);
           put("getIncident", false);
           put("updateIncident", false);
-          put("listSecurityMonitoringSignals", false);
-          put("searchSecurityMonitoringSignals", false);
           put("createIncidentService", false);
           put("listIncidentServices", false);
           put("deleteIncidentService", false);
