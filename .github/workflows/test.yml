@@ -120,6 +120,7 @@ jobs:
     needs:
       - test
       - examples
+      - javadoc
     steps:
       - name: Get GitHub App token
         if: github.event_name == 'pull_request'
@@ -136,5 +137,5 @@ jobs:
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
-          status: ${{ needs.test.result == 'success' && needs.examples.result == 'success' && 'success' || 'failure' }}
+          status: ${{ needs.javadoc.result == 'success' && needs.test.result == 'success' && needs.examples.result == 'success' && 'success' || 'failure' }}
           context: unit
