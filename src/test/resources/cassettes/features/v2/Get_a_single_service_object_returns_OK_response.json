@@ -1,0 +1,95 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_a_single_service_object_returns_OK_response-1655132327\",\"opsgenie_api_key\":\"00000000-0000-0000-0000-000000000000\",\"region\":\"us\"},\"type\":\"opsgenie-service\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_a_single_service_object_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/integration/opsgenie/services",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"region\":\"us\",\"name\":\"Test-Get_a_single_service_object_returns_OK_response-1655132327\",\"custom_url\":null},\"type\":\"opsgenie-service\",\"id\":\"3ca2db9d-e088-47d1-9bfe-b88463c23f2d\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7c818160-590c-1f95-a968-bc6bd2bea05e"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_a_single_service_object_returns_OK_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v2/integration/opsgenie/services/3ca2db9d-e088-47d1-9bfe-b88463c23f2d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"region\":\"us\",\"name\":\"Test-Get_a_single_service_object_returns_OK_response-1655132327\",\"custom_url\":null},\"type\":\"opsgenie-service\",\"id\":\"3ca2db9d-e088-47d1-9bfe-b88463c23f2d\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "df5e16ec-7b4b-153f-076c-4cd98375aeee"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_a_single_service_object_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/integration/opsgenie/services/3ca2db9d-e088-47d1-9bfe-b88463c23f2d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9610cda7-34fa-b5ac-a5a8-c0e0c4761a46"
+  }
+]

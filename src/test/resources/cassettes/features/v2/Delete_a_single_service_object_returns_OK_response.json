@@ -1,0 +1,95 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_a_single_service_object_returns_OK_response-1655132327\",\"opsgenie_api_key\":\"00000000-0000-0000-0000-000000000000\",\"region\":\"us\"},\"type\":\"opsgenie-service\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_single_service_object_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/integration/opsgenie/services",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"region\":\"us\",\"name\":\"Test-Delete_a_single_service_object_returns_OK_response-1655132327\",\"custom_url\":null},\"type\":\"opsgenie-service\",\"id\":\"78050750-0312-400d-ad80-161ea7900931\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "93c2b0e2-346c-ed06-ff95-c759261f1fd3"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_single_service_object_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/integration/opsgenie/services/78050750-0312-400d-ad80-161ea7900931",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d94c96a5-e5ce-4862-24a9-cf83fca2f822"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_single_service_object_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/integration/opsgenie/services/78050750-0312-400d-ad80-161ea7900931",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Service not found.\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d94c96a5-e5ce-4862-24a9-cf83fca2f823"
+  }
+]

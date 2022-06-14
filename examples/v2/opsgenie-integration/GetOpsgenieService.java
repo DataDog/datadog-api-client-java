@@ -11,8 +11,11 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     OpsgenieIntegrationApi apiInstance = new OpsgenieIntegrationApi(defaultClient);
 
+    // there is a valid "opsgenie_service" in the system
+    String OPSGENIE_SERVICE_DATA_ID = System.getenv("OPSGENIE_SERVICE_DATA_ID");
+
     try {
-      OpsgenieServiceResponse result = apiInstance.getOpsgenieService("integration_service_id");
+      OpsgenieServiceResponse result = apiInstance.getOpsgenieService(OPSGENIE_SERVICE_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OpsgenieIntegrationApi#getOpsgenieService");

@@ -16,22 +16,26 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     OpsgenieIntegrationApi apiInstance = new OpsgenieIntegrationApi(defaultClient);
 
+    // there is a valid "opsgenie_service" in the system
+    String OPSGENIE_SERVICE_DATA_ATTRIBUTES_NAME =
+        System.getenv("OPSGENIE_SERVICE_DATA_ATTRIBUTES_NAME");
+    String OPSGENIE_SERVICE_DATA_ID = System.getenv("OPSGENIE_SERVICE_DATA_ID");
+
     OpsgenieServiceUpdateRequest body =
         new OpsgenieServiceUpdateRequest()
             .data(
                 new OpsgenieServiceUpdateData()
                     .attributes(
                         new OpsgenieServiceUpdateAttributes()
-                            .customUrl("https://example.com")
-                            .name("fake-opsgenie-service-name")
+                            .name("fake-opsgenie-service-name--updated")
                             .opsgenieApiKey("00000000-0000-0000-0000-000000000000")
-                            .region(OpsgenieServiceRegionType.US))
-                    .id("596da4af-0563-4097-90ff-07230c3f9db3")
+                            .region(OpsgenieServiceRegionType.EU))
+                    .id(OPSGENIE_SERVICE_DATA_ID)
                     .type(OpsgenieServiceType.OPSGENIE_SERVICE));
 
     try {
       OpsgenieServiceResponse result =
-          apiInstance.updateOpsgenieService("integration_service_id", body);
+          apiInstance.updateOpsgenieService(OPSGENIE_SERVICE_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OpsgenieIntegrationApi#updateOpsgenieService");
