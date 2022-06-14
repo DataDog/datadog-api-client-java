@@ -123,8 +123,7 @@ public class RecorderSteps {
       return;
     }
     List<Expectation> expectations = new ArrayList<>();
-    HttpRequest[] requests =
-        mockServer.retrieveRecordedRequests(null);
+    HttpRequest[] requests = mockServer.retrieveRecordedRequests(null);
     for (HttpRequest req : requests) {
       List<Parameter> params = req.getQueryStringParameterList();
       List<Parameter> cleanParams = new ArrayList<>();
@@ -147,7 +146,8 @@ public class RecorderSteps {
       }
       req.withHeaders(cleanHeaders);
       req.withQueryStringParameters(cleanParams);
-      LogEventRequestAndResponse[] requestAndResponses = mockServer.retrieveRecordedRequestsAndResponses(req);
+      LogEventRequestAndResponse[] requestAndResponses =
+          mockServer.retrieveRecordedRequestsAndResponses(req);
       expectations.add(
           Expectation.when(req, Times.once(), TimeToLive.unlimited())
               .thenRespond(requestAndResponses[0].getHttpResponse()));
