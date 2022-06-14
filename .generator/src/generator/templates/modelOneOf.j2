@@ -160,7 +160,7 @@ public class {{ name }} extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * {% for oneOf in model.oneOf %}{{ get_type(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %}
+     * {% for oneOf in model.oneOf %}{{ get_type(oneOf)|escape_html }}{% if loop.nextitem %}, {% endif %}{% endfor %}
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -193,9 +193,9 @@ public class {{ name }} extends AbstractOpenApiSchema {
 
     /**
      * Get the actual instance, which can be the following:
-     * {% for oneOf in model.oneOf %}{{ get_type(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %}
+     * {% for oneOf in model.oneOf %}{{ get_type(oneOf)|escape_html }}{% if loop.nextitem %}, {% endif %}{% endfor %}
      *
-     * @return The actual instance ({% for oneOf in model.oneOf %}{{ get_type(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %})
+     * @return The actual instance ({% for oneOf in model.oneOf %}{{ get_type(oneOf)|escape_html }}{% if loop.nextitem %}, {% endif %}{% endfor %})
      */
     @Override
     public Object getActualInstance() {
@@ -207,11 +207,11 @@ public class {{ name }} extends AbstractOpenApiSchema {
     {%- set unParameterizedDataType = get_type(oneOf)|un_parameterize_type %}
 
     /**
-     * Get the actual instance of `{{ dataType }}`. If the actual instance is not `{{ dataType }}`,
+     * Get the actual instance of `{{ dataType|escape_html }}`. If the actual instance is not `{{ dataType|escape_html }}`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `{{ dataType }}`
-     * @throws ClassCastException if the instance is not `{{ dataType }}`
+     * @return The actual instance of `{{ dataType|escape_html }}`
+     * @throws ClassCastException if the instance is not `{{ dataType|escape_html }}`
      */
     public {{ dataType }} get{{ unParameterizedDataType }}() throws ClassCastException {
         return ({{ dataType }})super.getActualInstance();

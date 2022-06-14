@@ -211,7 +211,7 @@ public class DistributionPointItem extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: Double, List<Double>
+   * against the oneOf child schemas: Double, List&lt;Double&gt;
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -235,9 +235,9 @@ public class DistributionPointItem extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance, which can be the following: Double, List<Double>
+   * Get the actual instance, which can be the following: Double, List&lt;Double&gt;
    *
-   * @return The actual instance (Double, List<Double>)
+   * @return The actual instance (Double, List&lt;Double&gt;)
    */
   @Override
   public Object getActualInstance() {
@@ -256,11 +256,11 @@ public class DistributionPointItem extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `List<Double>`. If the actual instance is not `List<Double>`, the
-   * ClassCastException will be thrown.
+   * Get the actual instance of `List&lt;Double&gt;`. If the actual instance is not
+   * `List&lt;Double&gt;`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `List<Double>`
-   * @throws ClassCastException if the instance is not `List<Double>`
+   * @return The actual instance of `List&lt;Double&gt;`
+   * @throws ClassCastException if the instance is not `List&lt;Double&gt;`
    */
   public List<Double> getList() throws ClassCastException {
     return (List<Double>) super.getActualInstance();
