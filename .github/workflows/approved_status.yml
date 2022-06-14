@@ -26,10 +26,8 @@ jobs:
           app_id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
           private_key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
           repository: DataDog/datadog-api-spec
-      - name: Checkout code
-        uses: actions/checkout@v2
       - name: Post PR review status check
         uses: DataDog/github-actions/post-review-status@v1.0.0
-        with:
+        wit,:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
