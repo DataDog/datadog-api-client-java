@@ -58,12 +58,11 @@ jobs:
         env:
           DATADOG_API_KEY: ${{ secrets.DD_API_KEY }}
       - name: Install Java
-        # the setup-scala action is the only available action that allows us to access
-        # https://github.com/shyiko/jabba - a tool that can install various JDKs
-        uses: olafurpg/setup-scala@v10
+        uses: actions/setup-java@v3
         with:
-          java-version: openjdk@1.16.0-1
-          jabba-version: 0.11.2
+          java-version: '16'
+          distribution: 'temurin'
+          cache: 'maven'
       - name: Run integration tests
         run: ./run-tests.sh
         env:
