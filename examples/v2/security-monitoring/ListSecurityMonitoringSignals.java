@@ -9,7 +9,6 @@ import com.datadog.api.v2.client.model.SecurityMonitoringSignalsListResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("listSecurityMonitoringSignals", true);
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     try {
