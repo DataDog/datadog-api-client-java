@@ -28,6 +28,6 @@ jobs:
           repository: DataDog/datadog-api-spec
       - name: Post PR review status check
         uses: DataDog/github-actions/post-review-status@v1.0.0
-        wit,:
+        with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
