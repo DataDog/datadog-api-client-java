@@ -11,7 +11,10 @@
 package com.datadog.api.v1.client.api;
 
 import static org.junit.Assert.*;
+import static org.junit.Assume.assumeFalse;
 
+import com.datadog.api.RecordingMode;
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -969,6 +972,9 @@ public class DashboardsApiTest extends V1ApiTest {
 
   @Test
   public void getAllDashboardAsyncTest() throws InterruptedException, ExecutionException {
+    assumeFalse(
+        "This test does not support replay from recording",
+        TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
     CompletableFuture<DashboardSummary> future = api.listDashboardsAsync();
     DashboardSummary getAllResponse = future.get();
     assertNotNull(getAllResponse.getDashboards().get(0).getAuthorHandle());

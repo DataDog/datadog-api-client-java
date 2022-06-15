@@ -28,6 +28,7 @@ public class World {
   // Client information
   Class<?> clientClass;
   public Object client; // ApiClient
+  Client httpClient = null;
 
   // Specific API information
   Class<?> apiClass;
@@ -143,7 +144,7 @@ public class World {
         .getMethod("setDebugging", boolean.class)
         .invoke(client, "true".equals(System.getenv("DEBUG")));
 
-    TestUtils.APITest.trustProxyCertsStatic();
+   // TestUtils.APITest.trustProxyCertsStatic();
 
     String site = System.getenv("DD_TEST_SITE");
     if (site != null) {
@@ -175,13 +176,10 @@ public class World {
           new HttpUrlConnectorProvider()
               .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
     } else if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
-      // Set base path to the mock server for replaying
-      // client.setBasePath(...)
-      clientClass.getMethod("setBasePath", String.class).invoke(client, RecorderSteps.getUrl());
-      // client.setServerIndex(null)
-      Field f = clientClass.getDeclaredField("serverIndex");
-      f.setAccessible(true);
-      f.set(client, null);
+      if (httpClient == null) {
+        httpClient = new TestClient(getName(), "/features/" + getVersion(), getObjectMapper());
+      }
+      clientClass.getMethod("setHttpClient", Client.class).invoke(client, httpClient);
     }
     // client.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
     clientClass
@@ -492,9 +490,10 @@ public class World {
 
     try {
       response = requestBuilder.invoke(api, parametersArray.toArray());
-    } catch (java.lang.IllegalArgumentException e) {
-      throw e;
     } catch (Exception e) {
+      if (!exceptionClass.isInstance(e.getCause())) {
+        throw e;
+      }
       // Return a new response object with the response code set
       // so we can make assertions on it
       int responseCode = (int) exceptionClass.getMethod("getCode").invoke(e.getCause());

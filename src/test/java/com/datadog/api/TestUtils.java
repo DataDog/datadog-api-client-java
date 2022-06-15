@@ -145,50 +145,18 @@ public class TestUtils {
 
     public abstract String getTracingEndpoint();
 
-    /**
-     * Combines all cassettes into a single huge one.
-     *
-     * <p>Note that this is aided by the "JAVA-TEST-NAME" headers that help mockserver distinguish
-     * calls to the same endpoint from different methods.
-     *
-     * @return Path to the combined cassette
-     */
-    static Path createCombinedCassette() throws IOException {
-      File cassettesDir = new File(APITest.cassettesDir);
-      List<File> allCassettes = new ArrayList<>();
-      allCassettes.addAll(FileUtils.listFiles(cassettesDir, new String[] {"json"}, true));
-      ObjectMapper om = new ObjectMapper();
-      om.enable(SerializationFeature.INDENT_OUTPUT);
-      List<Object> allRecords = new ArrayList<>();
-      for (File c : allCassettes) {
-        allRecords.addAll(om.readValue(c, List.class));
-      }
-      File humongousCassette = null;
-      humongousCassette = File.createTempFile("datadog-api-client-java-cassette-", ".json");
-      humongousCassette.deleteOnExit();
-      om.writeValue(humongousCassette, allRecords);
-      return humongousCassette.toPath();
-    }
-
     private static void setupMockServer() {
-      // Mockserver uses a connection pool with keepAlive connections to talk to the API.
-      // It seems that there are circumstances under which a reused connection freezes
-      // forever. We temporarily workaround this by making all connections closing
-      // instead of keepAlive, until we figure out where the problem really is.
-      System.setProperty("http.keepAlive", "false");
       if (getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
         return;
       }
-      if (getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
-        try {
-          ConfigurationProperties.initializationJsonPath(createCombinedCassette().toString());
-        } catch (IOException e) {
-          System.err.println("Failed creating combined cassette:");
-          System.err.println(e);
-          System.exit(1);
-        }
+      if (getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
+        // Mockserver uses a connection pool with keepAlive connections to talk to the API.
+        // It seems that there are circumstances under which a reused connection freezes
+        // forever. We temporarily workaround this by making all connections closing
+        // instead of keepAlive, until we figure out where the problem really is.
+        System.setProperty("http.keepAlive", "false");
+        mockServer = startClientAndServer(MOCKSERVER_PORT);
       }
-      mockServer = startClientAndServer(MOCKSERVER_PORT);
     }
 
     static {
