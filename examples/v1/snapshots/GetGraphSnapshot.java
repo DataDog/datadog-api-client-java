@@ -19,7 +19,9 @@ public class Example {
               OffsetDateTime.now().toInstant().getEpochSecond(),
               new GetGraphSnapshotOptionalParameters()
                   .metricQuery("avg:system.load.1{*}")
-                  .title("System load"));
+                  .title("System load")
+                  .height(400L)
+                  .width(600L));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SnapshotsApi#getGraphSnapshot");
