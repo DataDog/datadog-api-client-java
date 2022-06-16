@@ -356,7 +356,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * List your managed organizations.
+   * This endpoint returns data on your top-level organization.
    *
    * @return ApiResponse&lt;OrganizationListResponse&gt;
    * @throws ApiException if fails to make API call
