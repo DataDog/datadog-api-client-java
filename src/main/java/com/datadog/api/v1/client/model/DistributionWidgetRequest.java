@@ -22,6 +22,8 @@ import java.util.Objects;
   DistributionWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_Q,
+  DistributionWidgetRequest.JSON_PROPERTY_QUERY,
+  DistributionWidgetRequest.JSON_PROPERTY_REQUEST_TYPE,
   DistributionWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_STYLE
@@ -53,6 +55,12 @@ public class DistributionWidgetRequest {
 
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
+
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private DistributionWidgetHistogramRequestQuery query;
+
+  public static final String JSON_PROPERTY_REQUEST_TYPE = "request_type";
+  private DistributionWidgetHistogramRequestType requestType;
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
@@ -238,6 +246,53 @@ public class DistributionWidgetRequest {
     this.q = q;
   }
 
+  public DistributionWidgetRequest query(DistributionWidgetHistogramRequestQuery query) {
+    this.query = query;
+    this.unparsed |= query.unparsed;
+    return this;
+  }
+
+  /**
+   * Query definition for Distribution Widget Histogram Request
+   *
+   * @return query
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DistributionWidgetHistogramRequestQuery getQuery() {
+    return query;
+  }
+
+  public void setQuery(DistributionWidgetHistogramRequestQuery query) {
+    this.query = query;
+  }
+
+  public DistributionWidgetRequest requestType(DistributionWidgetHistogramRequestType requestType) {
+    this.requestType = requestType;
+    this.unparsed |= !requestType.isValid();
+    return this;
+  }
+
+  /**
+   * Request type for the histogram request.
+   *
+   * @return requestType
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DistributionWidgetHistogramRequestType getRequestType() {
+    return requestType;
+  }
+
+  public void setRequestType(DistributionWidgetHistogramRequestType requestType) {
+    if (!requestType.isValid()) {
+      this.unparsed = true;
+    }
+    this.requestType = requestType;
+  }
+
   public DistributionWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     this.unparsed |= rumQuery.unparsed;
@@ -322,6 +377,8 @@ public class DistributionWidgetRequest {
         && Objects.equals(this.processQuery, distributionWidgetRequest.processQuery)
         && Objects.equals(this.profileMetricsQuery, distributionWidgetRequest.profileMetricsQuery)
         && Objects.equals(this.q, distributionWidgetRequest.q)
+        && Objects.equals(this.query, distributionWidgetRequest.query)
+        && Objects.equals(this.requestType, distributionWidgetRequest.requestType)
         && Objects.equals(this.rumQuery, distributionWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, distributionWidgetRequest.securityQuery)
         && Objects.equals(this.style, distributionWidgetRequest.style);
@@ -338,6 +395,8 @@ public class DistributionWidgetRequest {
         processQuery,
         profileMetricsQuery,
         q,
+        query,
+        requestType,
         rumQuery,
         securityQuery,
         style);
@@ -357,6 +416,8 @@ public class DistributionWidgetRequest {
         .append(toIndentedString(profileMetricsQuery))
         .append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
