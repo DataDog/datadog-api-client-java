@@ -20,7 +20,8 @@ import java.util.Objects;
   Organization.JSON_PROPERTY_NAME,
   Organization.JSON_PROPERTY_PUBLIC_ID,
   Organization.JSON_PROPERTY_SETTINGS,
-  Organization.JSON_PROPERTY_SUBSCRIPTION
+  Organization.JSON_PROPERTY_SUBSCRIPTION,
+  Organization.JSON_PROPERTY_TRIAL
 })
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -46,6 +47,9 @@ public class Organization {
 
   public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
   private OrganizationSubscription subscription;
+
+  public static final String JSON_PROPERTY_TRIAL = "trial";
+  private Boolean trial;
 
   public Organization billing(OrganizationBilling billing) {
     this.billing = billing;
@@ -192,6 +196,27 @@ public class Organization {
     this.subscription = subscription;
   }
 
+  public Organization trial(Boolean trial) {
+    this.trial = trial;
+    return this;
+  }
+
+  /**
+   * Only available for MSP customers. Allows child organizations to be created on a trial plan.
+   *
+   * @return trial
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRIAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getTrial() {
+    return trial;
+  }
+
+  public void setTrial(Boolean trial) {
+    this.trial = trial;
+  }
+
   /** Return true if this Organization object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -208,12 +233,14 @@ public class Organization {
         && Objects.equals(this.name, organization.name)
         && Objects.equals(this.publicId, organization.publicId)
         && Objects.equals(this.settings, organization.settings)
-        && Objects.equals(this.subscription, organization.subscription);
+        && Objects.equals(this.subscription, organization.subscription)
+        && Objects.equals(this.trial, organization.trial);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billing, created, description, name, publicId, settings, subscription);
+    return Objects.hash(
+        billing, created, description, name, publicId, settings, subscription, trial);
   }
 
   @Override
@@ -227,6 +254,7 @@ public class Organization {
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
+    sb.append("    trial: ").append(toIndentedString(trial)).append("\n");
     sb.append("}");
     return sb.toString();
   }
