@@ -43,8 +43,7 @@ public class Example {
                     .samlIdpMetadataUploaded(false)
                     .samlLoginUrl("https://my.saml.login.url")
                     .samlStrictMode(new OrganizationSettingsSamlStrictMode().enabled(false)))
-            .subscription(new OrganizationSubscription().type("pro"))
-            .trial(false);
+            .subscription(new OrganizationSubscription().type("pro"));
 
     try {
       OrganizationResponse result = apiInstance.updateOrg("abc123", body);
