@@ -215,6 +215,7 @@ public class TestUtils {
     @Before
     public void setupClock() throws IOException {
       if (getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+        clock = Clock.systemUTC();
         now = OffsetDateTime.now();
         return;
       }
