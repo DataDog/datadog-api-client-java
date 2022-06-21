@@ -138,13 +138,15 @@ public abstract class V1ApiTest extends TestUtils.APITest {
 
   @Before
   public void setTestClient() {
-    Client httpClient =
-        new TestClient(
-            this.getQualifiedTestcaseName(),
-            "/" + V1ApiTest.version,
-            generalApiClient.getJSON().getMapper());
-    generalApiClient.setHttpClient(httpClient);
-    generalFakeAuthApiClient.setHttpClient(httpClient);
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+      Client httpClient =
+          new TestClient(
+              this.getQualifiedTestcaseName(),
+              "/" + V1ApiTest.version,
+              generalApiClient.getJSON().getMapper());
+      generalApiClient.setHttpClient(httpClient);
+      generalFakeAuthApiClient.setHttpClient(httpClient);
+    }
   }
 
   public void beginStub(MappingBuilder stub) {

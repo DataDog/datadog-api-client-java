@@ -86,12 +86,14 @@ public abstract class V2APITest extends TestUtils.APITest {
 
   @Before
   public void setTestClient() {
-    Client httpClient =
-        new TestClient(
-            this.getQualifiedTestcaseName(),
-            "/" + V2APITest.version,
-            generalApiClient.getJSON().getMapper());
-    generalApiClient.setHttpClient(httpClient);
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+      Client httpClient =
+          new TestClient(
+              this.getQualifiedTestcaseName(),
+              "/" + V2APITest.version,
+              generalApiClient.getJSON().getMapper());
+      generalApiClient.setHttpClient(httpClient);
+    }
   }
 
   public String testDomain() throws MalformedURLException {
