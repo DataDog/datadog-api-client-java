@@ -9,8 +9,8 @@ package com.datadog.api.v1.client.api;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 import com.datadog.api.RecordingMode;
-import com.datadog.api.TestUtils;
 import com.datadog.api.TestClient;
+import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
@@ -138,7 +138,11 @@ public abstract class V1ApiTest extends TestUtils.APITest {
 
   @Before
   public void setTestClient() {
-    Client httpClient = new TestClient(this.getQualifiedTestcaseName(), "/" + V1ApiTest.version, generalApiClient.getJSON().getMapper());
+    Client httpClient =
+        new TestClient(
+            this.getQualifiedTestcaseName(),
+            "/" + V1ApiTest.version,
+            generalApiClient.getJSON().getMapper());
     generalApiClient.setHttpClient(httpClient);
     generalFakeAuthApiClient.setHttpClient(httpClient);
   }

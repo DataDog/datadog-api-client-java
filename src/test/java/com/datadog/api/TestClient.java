@@ -1,24 +1,23 @@
 package com.datadog.api;
 
+import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
+import static net.javacrumbs.jsonunit.core.Option.IGNORING_EXTRA_FIELDS;
+import static org.junit.Assert.assertEquals;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import javax.ws.rs.client.*;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLContext;
-import java.lang.annotation.Annotation;
-import java.net.URI;
-import java.net.URLDecoder;
-import java.util.*;
-import javax.ws.rs.core.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
-import static net.javacrumbs.jsonunit.core.Option.IGNORING_EXTRA_FIELDS;
-import static org.junit.Assert.assertEquals;
+import java.lang.annotation.Annotation;
+import java.net.URI;
+import java.net.URLDecoder;
+import java.util.*;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.*;
 
 public class TestClient implements Client {
   public class TestStatus implements Response.StatusType {
@@ -27,6 +26,7 @@ public class TestClient implements Client {
     public TestStatus(int status) {
       this.status = status;
     }
+
     @Override
     public int getStatusCode() {
       return this.status;
@@ -42,6 +42,7 @@ public class TestClient implements Client {
       return "error";
     }
   }
+
   public class TestBuilder implements Invocation.Builder {
 
     private TestClient client;
@@ -247,19 +248,20 @@ public class TestClient implements Client {
 
     @Override
     public Response method(String s) {
-      Map record = (Map)this.client.records.get(this.client.requestCount);
+      Map record = (Map) this.client.records.get(this.client.requestCount);
       this.client.updateRequestCount();
-      Map request = (Map)record.get("httpRequest");
-      String method = (String)request.get("method");
+      Map request = (Map) record.get("httpRequest");
+      String method = (String) request.get("method");
       assertEquals(method, s);
-      Map response = (Map)record.get("httpResponse");
-      int statusCode = (int)response.get("statusCode");
-      Map<String,List<String>> originalHeaders = (Map<String,List<String>>)response.get("headers");
-      MultivaluedMap<String,String> headers = new MultivaluedHashMap<String, String>();
+      Map response = (Map) record.get("httpResponse");
+      int statusCode = (int) response.get("statusCode");
+      Map<String, List<String>> originalHeaders =
+          (Map<String, List<String>>) response.get("headers");
+      MultivaluedMap<String, String> headers = new MultivaluedHashMap<String, String>();
       for (Map.Entry<String, List<String>> entry : originalHeaders.entrySet()) {
         headers.addAll(entry.getKey(), entry.getValue());
       }
-      String body = (String)response.get("body");
+      String body = (String) response.get("body");
 
       return new TestResponse(statusCode, headers, body, this.client.mapper);
     }
@@ -276,14 +278,14 @@ public class TestClient implements Client {
 
     @Override
     public Response method(String s, Entity<?> entity) {
-      Map record = (Map)this.client.records.get(this.client.requestCount);
+      Map record = (Map) this.client.records.get(this.client.requestCount);
       this.client.updateRequestCount();
-      Map request = (Map)record.get("httpRequest");
-      Map requestBody = (Map)request.get("body");
+      Map request = (Map) record.get("httpRequest");
+      Map requestBody = (Map) request.get("body");
       if (requestBody == null) {
         assertEquals("", entity.getEntity());
       } else {
-        String json = (String)requestBody.get("json");
+        String json = (String) requestBody.get("json");
         String inputJson = "";
         try {
           inputJson = this.client.mapper.writeValueAsString(entity.getEntity());
@@ -292,16 +294,17 @@ public class TestClient implements Client {
         }
         assertThatJson(inputJson).when(IGNORING_EXTRA_FIELDS).withTolerance(0).isEqualTo(json);
       }
-      String method = (String)request.get("method");
+      String method = (String) request.get("method");
       assertEquals(method, s);
-      Map response = (Map)record.get("httpResponse");
-      int statusCode = (int)response.get("statusCode");
-      Map<String,List<String>> originalHeaders = (Map<String,List<String>>)response.get("headers");
-      MultivaluedMap<String,String> headers = new MultivaluedHashMap<String, String>();
+      Map response = (Map) record.get("httpResponse");
+      int statusCode = (int) response.get("statusCode");
+      Map<String, List<String>> originalHeaders =
+          (Map<String, List<String>>) response.get("headers");
+      MultivaluedMap<String, String> headers = new MultivaluedHashMap<String, String>();
       for (Map.Entry<String, List<String>> entry : originalHeaders.entrySet()) {
         headers.addAll(entry.getKey(), entry.getValue());
       }
-      String body = (String)response.get("body");
+      String body = (String) response.get("body");
 
       return new TestResponse(statusCode, headers, body, this.client.mapper);
     }
@@ -379,7 +382,7 @@ public class TestClient implements Client {
     @Override
     public WebTarget queryParam(String s, Object... objects) {
       try {
-        this.queryParams.put(s, URLDecoder.decode((String)objects[0], "utf-8"));
+        this.queryParams.put(s, URLDecoder.decode((String) objects[0], "utf-8"));
       } catch (UnsupportedEncodingException e) {
       }
       return this;
@@ -387,14 +390,15 @@ public class TestClient implements Client {
 
     @Override
     public Invocation.Builder request() {
-      Map record = (Map)this.client.records.get(this.client.requestCount);
-      Map request = (Map)record.get("httpRequest");
-      Map<String, List<String>> params = (Map<String, List<String>>)request.get("queryStringParameters");
+      Map record = (Map) this.client.records.get(this.client.requestCount);
+      Map request = (Map) record.get("httpRequest");
+      Map<String, List<String>> params =
+          (Map<String, List<String>>) request.get("queryStringParameters");
       if (params != null) {
         Map expectedQueryParams = new HashMap<String, String>();
         for (Map.Entry<String, List<String>> entry : params.entrySet()) {
           expectedQueryParams.put(entry.getKey(), entry.getValue().get(0));
-        } 
+        }
         assertEquals(this.queryParams, expectedQueryParams);
       }
       return new TestBuilder(this.client);
@@ -464,12 +468,13 @@ public class TestClient implements Client {
   class TestResponse extends Response {
 
     private int status;
-    private MultivaluedMap<String,String> headers;
+    private MultivaluedMap<String, String> headers;
     private String body;
     private ObjectMapper mapper;
 
-    public TestResponse(int status, MultivaluedMap<String,String> headers, String body, ObjectMapper mapper) {
-      this.status = status; 
+    public TestResponse(
+        int status, MultivaluedMap<String, String> headers, String body, ObjectMapper mapper) {
+      this.status = status;
       this.headers = headers;
       this.body = body;
       this.mapper = mapper;
@@ -497,7 +502,7 @@ public class TestClient implements Client {
     @Override
     public <T> T readEntity(Class<T> aClass) {
       if (aClass.equals(String.class)) {
-        return (T)this.body;
+        return (T) this.body;
       }
       return null;
     }
@@ -505,7 +510,7 @@ public class TestClient implements Client {
     @Override
     public <T> T readEntity(GenericType<T> genericType) {
       if (genericType.getRawType().equals(String.class)) {
-        return (T)this.body;
+        return (T) this.body;
       }
       String contentType = "";
       for (Map.Entry<String, List<String>> entry : this.headers.entrySet()) {
@@ -513,7 +518,7 @@ public class TestClient implements Client {
           contentType = entry.getValue().get(0).toLowerCase();
           break;
         }
-      } 
+      }
       if (contentType.contains("application/json") || contentType.contains("text/json")) {
         try {
           return this.mapper.readValue(this.body, this.mapper.constructType(genericType.getType()));
@@ -527,7 +532,7 @@ public class TestClient implements Client {
           FileWriter writer = new FileWriter(tempFile);
           writer.write(this.body);
           writer.close();
-          return (T)tempFile;
+          return (T) tempFile;
         } catch (IOException e) {
           throw new RuntimeException(e);
         }
@@ -556,9 +561,7 @@ public class TestClient implements Client {
     }
 
     @Override
-    public void close() {
-
-    }
+    public void close() {}
 
     @Override
     public MediaType getMediaType() {
@@ -632,7 +635,7 @@ public class TestClient implements Client {
 
     @Override
     public MultivaluedMap<String, Object> getHeaders() {
-      MultivaluedMap<String,Object> newHeaders = new MultivaluedHashMap<String, Object>();
+      MultivaluedMap<String, Object> newHeaders = new MultivaluedHashMap<String, Object>();
       for (Map.Entry<String, List<String>> entry : this.headers.entrySet()) {
         newHeaders.addAll(entry.getKey(), entry.getValue());
       }
@@ -674,22 +677,22 @@ public class TestClient implements Client {
   public HostnameVerifier getHostnameVerifier() {
     return null;
   }
-  
+
   @Override
   public SSLContext getSslContext() {
     return null;
   }
-  
+
   @Override
   public WebTarget target(String uri) {
     return null;
   }
-  
+
   @Override
   public WebTarget target(URI uri) {
-    Map record = (Map)this.records.get(this.requestCount);
-    Map request = (Map)record.get("httpRequest");
-    String path = (String)request.get("path");
+    Map record = (Map) this.records.get(this.requestCount);
+    Map request = (Map) record.get("httpRequest");
+    String path = (String) request.get("path");
     try {
       assertEquals(uri.getPath(), URLDecoder.decode(path, "utf-8"));
     } catch (UnsupportedEncodingException e) {
@@ -697,25 +700,24 @@ public class TestClient implements Client {
     }
     return new TestWebTarget(this);
   }
-  
+
   @Override
   public WebTarget target(Link link) {
     return null;
   }
-  
+
   @Override
   public WebTarget target(UriBuilder uriBuilder) {
     return null;
   }
-  
+
   @Override
   public Invocation.Builder invocation(Link link) {
     return null;
   }
 
   @Override
-  public void close() {
-  }
+  public void close() {}
 
   @Override
   public Configuration getConfiguration() {
@@ -767,4 +769,3 @@ public class TestClient implements Client {
     return null;
   }
 }
-

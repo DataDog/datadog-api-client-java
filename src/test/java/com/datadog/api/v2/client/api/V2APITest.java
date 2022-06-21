@@ -7,8 +7,8 @@
 package com.datadog.api.v2.client.api;
 
 import com.datadog.api.RecordingMode;
-import com.datadog.api.TestUtils;
 import com.datadog.api.TestClient;
+import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
@@ -86,7 +86,11 @@ public abstract class V2APITest extends TestUtils.APITest {
 
   @Before
   public void setTestClient() {
-    Client httpClient = new TestClient(this.getQualifiedTestcaseName(), "/" + V2APITest.version, generalApiClient.getJSON().getMapper());
+    Client httpClient =
+        new TestClient(
+            this.getQualifiedTestcaseName(),
+            "/" + V2APITest.version,
+            generalApiClient.getJSON().getMapper());
     generalApiClient.setHttpClient(httpClient);
   }
 
