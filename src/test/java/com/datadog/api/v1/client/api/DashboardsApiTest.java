@@ -984,7 +984,7 @@ public class DashboardsApiTest extends V1ApiTest {
   @Test
   public void dashboardDeleteErrorsTest() throws IOException {
     try {
-      fakeAuthApi.deleteDashboard("random");
+      fakeAuthApi.deleteDashboard("123-abc-xyz");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -993,7 +993,7 @@ public class DashboardsApiTest extends V1ApiTest {
     }
 
     try {
-      api.deleteDashboard("random");
+      api.deleteDashboard("123-abc-xyz");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -1011,7 +1011,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .layoutType(DashboardLayoutType.FREE);
 
     try {
-      api.updateDashboard("random", emptyDashboard);
+      api.updateDashboard("123-abc-xyz", emptyDashboard);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -1020,7 +1020,7 @@ public class DashboardsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateDashboard("random", emptyDashboard);
+      fakeAuthApi.updateDashboard("123-abc-xyz", emptyDashboard);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -1029,7 +1029,7 @@ public class DashboardsApiTest extends V1ApiTest {
     }
 
     try {
-      api.updateDashboard("random", dashboard);
+      api.updateDashboard("123-abc-xyz", dashboard);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
