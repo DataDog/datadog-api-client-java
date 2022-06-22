@@ -14,6 +14,8 @@ import com.datadog.api.v1.client.model.SyntheticsConfigVariableType;
 import com.datadog.api.v1.client.model.SyntheticsDeviceID;
 import com.datadog.api.v1.client.model.SyntheticsStep;
 import com.datadog.api.v1.client.model.SyntheticsStepType;
+import com.datadog.api.v1.client.model.SyntheticsTestCiOptions;
+import com.datadog.api.v1.client.model.SyntheticsTestExecutionRule;
 import com.datadog.api.v1.client.model.SyntheticsTestOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.v1.client.model.SyntheticsTestRequest;
@@ -59,7 +61,10 @@ public class Example {
                             .isEnabled(true)
                             .applicationId("mockApplicationId")
                             .clientTokenId(123456L))
-                    .tickEvery(300L))
+                    .tickEvery(300L)
+                    .ci(
+                        new SyntheticsTestCiOptions()
+                            .executionRule(SyntheticsTestExecutionRule.SKIPPED)))
             .tags(Collections.singletonList("testing:browser"))
             .type(SyntheticsBrowserTestType.BROWSER)
             .steps(
