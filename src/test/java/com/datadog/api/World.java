@@ -180,10 +180,6 @@ public class World {
       }
       clientClass.getMethod("setHttpClient", Client.class).invoke(client, httpClient);
     }
-    // client.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
-    clientClass
-        .getMethod("addDefaultHeader", String.class, String.class)
-        .invoke(client, "JAVA-TEST-NAME", getName());
   }
 
   public void setupClient(String apiVersion)
