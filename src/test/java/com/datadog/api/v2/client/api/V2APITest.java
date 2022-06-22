@@ -7,6 +7,7 @@
 package com.datadog.api.v2.client.api;
 
 import com.datadog.api.RecordingMode;
+import com.datadog.api.TestClient;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 import org.glassfish.jersey.client.ClientConfig;
@@ -59,11 +61,6 @@ public abstract class V2APITest extends TestUtils.APITest {
           generalApiClient.setServerVariables(serverVariables);
         }
       }
-    } else {
-      // Set base path to the mock server for replaying
-      generalApiClient.setBasePath(
-          "https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT);
-      generalApiClient.setServerIndex(null);
     }
   }
 
@@ -88,9 +85,15 @@ public abstract class V2APITest extends TestUtils.APITest {
   }
 
   @Before
-  public void setTestNameHeader() {
-    // these headers help mockserver properly identify the request in the huge all-in-one cassette
-    generalApiClient.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
+  public void setTestClient() {
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+      Client httpClient =
+          new TestClient(
+              this.getQualifiedTestcaseName(),
+              "/" + V2APITest.version,
+              generalApiClient.getJSON().getMapper());
+      generalApiClient.setHttpClient(httpClient);
+    }
   }
 
   public String testDomain() throws MalformedURLException {

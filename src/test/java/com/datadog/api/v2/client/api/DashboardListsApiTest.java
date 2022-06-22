@@ -63,10 +63,7 @@ public class DashboardListsApiTest extends V2APITest {
                 .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
       }
     } else {
-      // Set base path to the mock server for replaying
-      v1Client.setBasePath(
-          "https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT);
-      v1Client.setServerIndex(null);
+      v1Client.setHttpClient(generalApiClient.getHttpClient());
     }
 
     dashboardListsApiV1 = new com.datadog.api.v1.client.api.DashboardListsApi(v1Client);
