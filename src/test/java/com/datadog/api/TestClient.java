@@ -537,7 +537,7 @@ public class TestClient implements Client {
           throw new RuntimeException(e);
         }
       }
-      return null;
+      throw new RuntimeException("Unexpected response type");
     }
 
     @Override

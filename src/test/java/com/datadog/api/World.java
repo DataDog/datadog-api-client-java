@@ -144,7 +144,7 @@ public class World {
         .getMethod("setDebugging", boolean.class)
         .invoke(client, "true".equals(System.getenv("DEBUG")));
 
-    // TestUtils.APITest.trustProxyCertsStatic();
+    TestUtils.APITest.trustProxyCertsStatic();
 
     String site = System.getenv("DD_TEST_SITE");
     if (site != null) {
