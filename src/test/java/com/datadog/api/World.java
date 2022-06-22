@@ -144,8 +144,6 @@ public class World {
         .getMethod("setDebugging", boolean.class)
         .invoke(client, "true".equals(System.getenv("DEBUG")));
 
-    TestUtils.APITest.trustProxyCertsStatic();
-
     String site = System.getenv("DD_TEST_SITE");
     if (site != null) {
       HashMap<String, String> serverVariables = new HashMap<>();
@@ -158,6 +156,7 @@ public class World {
     }
 
     if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
+      TestUtils.APITest.trustProxyCertsStatic();
       // Set proxy to the "mockServer" for recording
       // ClientConfig config = (ClientConfig)
       // client.getHttpClient().getConfiguration()
