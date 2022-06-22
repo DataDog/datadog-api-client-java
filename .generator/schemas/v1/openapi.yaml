@@ -1449,6 +1449,25 @@ components:
       type: string
       x-enum-varnames:
       - DISTRIBUTION
+    DistributionWidgetHistogramRequestQuery:
+      description: Query definition for Distribution Widget Histogram Request
+      example:
+        data_source: metrics
+        name: query1
+        query: histogram:trace.Load{*}
+      oneOf:
+      - $ref: '#/components/schemas/FormulaAndFunctionMetricQueryDefinition'
+      - $ref: '#/components/schemas/FormulaAndFunctionEventQueryDefinition'
+      - $ref: '#/components/schemas/FormulaAndFunctionApmResourceStatsQueryDefinition'
+      type: object
+    DistributionWidgetHistogramRequestType:
+      description: Request type for the histogram request.
+      enum:
+      - histogram
+      example: histogram
+      type: string
+      x-enum-varnames:
+      - HISTOGRAM
     DistributionWidgetRequest:
       description: Updated distribution widget.
       properties:
@@ -1469,6 +1488,10 @@ components:
         q:
           description: Widget query.
           type: string
+        query:
+          $ref: '#/components/schemas/DistributionWidgetHistogramRequestQuery'
+        request_type:
+          $ref: '#/components/schemas/DistributionWidgetHistogramRequestType'
         rum_query:
           $ref: '#/components/schemas/LogQueryDefinition'
         security_query:
@@ -2249,6 +2272,7 @@ components:
       - error_rate
       - hits
       - latency_avg
+      - latency_distribution
       - latency_max
       - latency_p50
       - latency_p75
@@ -2262,6 +2286,7 @@ components:
       - ERROR_RATE
       - HITS
       - LATENCY_AVG
+      - LATENCY_DISTRIBUTION
       - LATENCY_MAX
       - LATENCY_P50
       - LATENCY_P75
@@ -7795,6 +7820,13 @@ components:
           format: int64
           type: integer
       type: object
+    OrgDowngradedResponse:
+      description: Status of downgrade
+      properties:
+        message:
+          description: Information pertaining to the downgraded child organization.
+          type: string
+      type: object
     Organization:
       description: Create, edit, and manage organizations.
       properties:
@@ -7822,6 +7854,11 @@ components:
           $ref: '#/components/schemas/OrganizationSettings'
         subscription:
           $ref: '#/components/schemas/OrganizationSubscription'
+        trial:
+          description: Only available for MSP customers. Allows child organizations
+            to be created on a trial plan.
+          example: false
+          type: boolean
       type: object
     OrganizationBilling:
       deprecated: true
@@ -18710,6 +18747,22 @@ paths:
         required: false
         schema:
           type: string
+      - description: The height of the graph. If no height is specified, the graph's
+          original height is used.
+        in: query
+        name: height
+        required: false
+        schema:
+          format: int64
+          type: integer
+      - description: The width of the graph. If no width is specified, the graph's
+          original width is used.
+        in: query
+        name: width
+        required: false
+        schema:
+          format: int64
+          type: integer
       responses:
         '200':
           content:
@@ -23144,7 +23197,7 @@ paths:
         type: idempotent
   /api/v1/org:
     get:
-      description: List your managed organizations.
+      description: This endpoint returns data on your top-level organization.
       operationId: ListOrgs
       responses:
         '200':
@@ -23307,6 +23360,47 @@ paths:
       x-menu-order: 4
       x-undo:
         type: idempotent
+  /api/v1/org/{public_id}/downgrade:
+    post:
+      description: Only available for MSP customers. Removes a child organization
+        from the hierarchy of the master organization and places the child organization
+        on a 30-day trial.
+      operationId: DowngradeOrg
+      parameters:
+      - description: The `public_id` of the organization you are operating within.
+        in: path
+        name: public_id
+        required: true
+        schema:
+          example: abc123
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrgDowngradedResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Spin-off Child Organization
+      tags:
+      - Organizations
+      x-menu-order: 6
+      x-undo:
+        type: unsafe
   /api/v1/org/{public_id}/idp_metadata:
     post:
       description: 'There are a couple of options for updating the Identity Provider
@@ -23770,10 +23864,6 @@ paths:
           description: Not Found
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
-      security:
-      - apiKeyAuth: []
-        appKeyAuth: []
-      - AuthZ: []
       summary: Get all SLOs
       tags:
       - Service Level Objectives
@@ -24227,10 +24317,6 @@ paths:
           description: Not found
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
-      security:
-      - apiKeyAuth: []
-        appKeyAuth: []
-      - AuthZ: []
       summary: Get an SLO's details
       tags:
       - Service Level Objectives
@@ -24326,10 +24412,6 @@ paths:
           description: Not Found
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
-      security:
-      - apiKeyAuth: []
-        appKeyAuth: []
-      - AuthZ: []
       summary: Get Corrections For an SLO
       tags:
       - Service Level Objectives
@@ -24414,10 +24496,6 @@ paths:
           description: Not Found
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
-      security:
-      - apiKeyAuth: []
-        appKeyAuth: []
-      - AuthZ: []
       summary: Get an SLO's history
       tags:
       - Service Level Objectives

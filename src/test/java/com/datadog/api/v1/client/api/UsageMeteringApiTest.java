@@ -251,7 +251,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
   @Test
   public void getSpecifiedDailyCustomReportsTest() throws ApiException {
-    LocalDate date = LocalDate.now();
+    LocalDate date = LocalDate.now(clock);
     DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     String reportID = FORMATTER.format(date.minusDays(1)); // Only have report from previous day
     generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
@@ -270,7 +270,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
   @Test
   public void getSpecifiedMonthlyCustomReportsTest() throws ApiException {
-    LocalDate date = LocalDate.now();
+    LocalDate date = LocalDate.now(clock);
     DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     String reportID =
         FORMATTER.format(

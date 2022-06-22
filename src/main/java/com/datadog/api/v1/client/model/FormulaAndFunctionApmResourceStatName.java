@@ -33,6 +33,8 @@ public class FormulaAndFunctionApmResourceStatName {
       new FormulaAndFunctionApmResourceStatName("hits");
   public static final FormulaAndFunctionApmResourceStatName LATENCY_AVG =
       new FormulaAndFunctionApmResourceStatName("latency_avg");
+  public static final FormulaAndFunctionApmResourceStatName LATENCY_DISTRIBUTION =
+      new FormulaAndFunctionApmResourceStatName("latency_distribution");
   public static final FormulaAndFunctionApmResourceStatName LATENCY_MAX =
       new FormulaAndFunctionApmResourceStatName("latency_max");
   public static final FormulaAndFunctionApmResourceStatName LATENCY_P50 =
@@ -53,6 +55,7 @@ public class FormulaAndFunctionApmResourceStatName {
               "error_rate",
               "hits",
               "latency_avg",
+              "latency_distribution",
               "latency_max",
               "latency_p50",
               "latency_p75",

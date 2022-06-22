@@ -43,10 +43,6 @@ public class RecorderSteps {
     this.world = world;
   }
 
-  public static String getUrl() {
-    return "https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT;
-  }
-
   @Before(value = "@integration-only", order = 0)
   public void skipIntegrationOnly() {
     if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {

@@ -51,6 +51,8 @@ public class SnapshotsApi {
     private String eventQuery;
     private String graphDef;
     private String title;
+    private Long height;
+    private Long width;
 
     /**
      * Set metricQuery.
@@ -97,6 +99,30 @@ public class SnapshotsApi {
      */
     public GetGraphSnapshotOptionalParameters title(String title) {
       this.title = title;
+      return this;
+    }
+
+    /**
+     * Set height.
+     *
+     * @param height The height of the graph. If no height is specified, the graph's original height
+     *     is used. (optional)
+     * @return GetGraphSnapshotOptionalParameters
+     */
+    public GetGraphSnapshotOptionalParameters height(Long height) {
+      this.height = height;
+      return this;
+    }
+
+    /**
+     * Set width.
+     *
+     * @param width The width of the graph. If no width is specified, the graph's original width is
+     *     used. (optional)
+     * @return GetGraphSnapshotOptionalParameters
+     */
+    public GetGraphSnapshotOptionalParameters width(Long width) {
+      this.width = width;
       return this;
     }
   }
@@ -206,6 +232,8 @@ public class SnapshotsApi {
     String eventQuery = parameters.eventQuery;
     String graphDef = parameters.graphDef;
     String title = parameters.title;
+    Long height = parameters.height;
+    Long width = parameters.width;
     // create path and map variables
     String localVarPath = "/api/v1/graph/snapshot";
 
@@ -218,6 +246,8 @@ public class SnapshotsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "event_query", eventQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "graph_def", graphDef));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "title", title));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "height", height));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "width", width));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -274,6 +304,8 @@ public class SnapshotsApi {
     String eventQuery = parameters.eventQuery;
     String graphDef = parameters.graphDef;
     String title = parameters.title;
+    Long height = parameters.height;
+    Long width = parameters.width;
     // create path and map variables
     String localVarPath = "/api/v1/graph/snapshot";
 
@@ -286,6 +318,8 @@ public class SnapshotsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "event_query", eventQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "graph_def", graphDef));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "title", title));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "height", height));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "width", width));
 
     Invocation.Builder builder;
     try {
