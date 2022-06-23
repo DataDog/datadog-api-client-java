@@ -266,10 +266,8 @@ public class TestUtils {
         return;
       }
       List<Expectation> expectations = new ArrayList<>();
-      LogEventRequestAndResponse[] requestsAndResponses =
-          mockServer.retrieveRecordedRequestsAndResponses(null);
-      for (LogEventRequestAndResponse requestAndResponse : requestsAndResponses) {
-        HttpRequest req = requestAndResponse.getHttpRequest();
+      HttpRequest[] requests = mockServer.retrieveRecordedRequests(null);
+      for (HttpRequest req : requests) {
         List<Parameter> params = req.getQueryStringParameterList();
         List<Parameter> cleanParams = new ArrayList<>();
         List<Header> headers = req.getHeaderList();
@@ -291,9 +289,11 @@ public class TestUtils {
         }
         req.withHeaders(cleanHeaders);
         req.withQueryStringParameters(cleanParams);
+        LogEventRequestAndResponse[] requestAndResponses =
+            mockServer.retrieveRecordedRequestsAndResponses(req);
         expectations.add(
             Expectation.when(req, Times.once(), TimeToLive.unlimited())
-                .thenRespond(requestAndResponse.getHttpResponse()));
+                .thenRespond(requestAndResponses[0].getHttpResponse()));
       }
 
       // write the cassette
