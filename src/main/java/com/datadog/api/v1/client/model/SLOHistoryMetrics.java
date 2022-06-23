@@ -239,7 +239,7 @@ public class SLOHistoryMetrics {
   }
 
   /**
-   * An array of query timestamps in EPOCH milliseconds.
+   * An array of query timestamps in EPOCH milliseconds
    *
    * @return times
    */

@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The type of metric. */
+/** The type of metric. The available types are 0(unspecified), 1(count), 2(rate), 3(gauge) */
 @JsonSerialize(using = MetricIntakeType.MetricIntakeTypeSerializer.class)
 public class MetricIntakeType {
 
@@ -27,10 +27,8 @@ public class MetricIntakeType {
   public static final MetricIntakeType COUNT = new MetricIntakeType(1);
   public static final MetricIntakeType RATE = new MetricIntakeType(2);
   public static final MetricIntakeType GAUGE = new MetricIntakeType(3);
-  public static final MetricIntakeType UNSPECIFIED_LEGACY = new MetricIntakeType(15);
 
-  private static final Set<Integer> allowedValues =
-      new HashSet<Integer>(Arrays.asList(0, 1, 2, 3, 15));
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 2, 3));
 
   private Integer value;
 

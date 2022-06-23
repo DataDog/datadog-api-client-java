@@ -120,8 +120,7 @@ public class ServiceLevelObjectiveRequest {
   }
 
   /**
-   * A list of (up to 100) monitor groups that narrow the scope of a monitor service level
-   * objective.
+   * A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.
    *
    * <p>Included in service level objective responses if it is not empty. Optional in create/update
    * requests for monitor service level objectives, but may only be used when then length of the
@@ -154,7 +153,7 @@ public class ServiceLevelObjectiveRequest {
   }
 
   /**
-   * A list of monitor IDs that defines the scope of a monitor service level objective.
+   * A list of monitor ids that defines the scope of a monitor service level objective.
    * <strong>Required if type is <code>monitor</code></strong>.
    *
    * @return monitorIds
@@ -197,7 +196,7 @@ public class ServiceLevelObjectiveRequest {
   }
 
   /**
-   * A metric-based SLO. <strong>Required if type is <code>metric</code></strong>. Note that Datadog
+   * A metric SLI query. <strong>Required if type is <code>metric</code></strong>. Note that Datadog
    * only allows the sum by aggregator to be used because this will sum up all request counts
    * instead of averaging them, or taking the max or min of all of those requests.
    *

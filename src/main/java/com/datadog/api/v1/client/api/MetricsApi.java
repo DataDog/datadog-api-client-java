@@ -924,7 +924,8 @@ public class MetricsApi {
     /**
      * Set contentEncoding.
      *
-     * @param contentEncoding HTTP header used to compress the media-type. (optional)
+     * @param contentEncoding HTTP header used to compress the media-type. (optional, default to
+     *     "deflate")
      * @return SubmitMetricsOptionalParameters
      */
     public SubmitMetricsOptionalParameters contentEncoding(MetricContentEncoding contentEncoding) {
