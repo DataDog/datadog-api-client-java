@@ -56,6 +56,7 @@ import,junit:junit,EPL-1.0,
 import,net.minidev:accessors-smart,Apache-2.0,2011 JSON-SMART authors
 import,net.minidev:json-smart,Apache-2.0,2011 JSON-SMART authors
 import,net.sf.jopt-simple:jopt-simple,MIT,2004-2016 Paul R. Holser Jr.
+import,net.javacrumbs.json-unit:json-unit-json-path,Apoche-2.0,2009-2019 the original author or authors
 import,org.apache.commons:commons-lang3,Apache-2.0,2001-2020 The Apache Software Foundation
 import,org.apache.commons:commons-text,Apache-2.0,2014-2020 The Apache Software Foundation
 import,org.apache.httpcomponents:httpclient,Apache-2.0,1999-2020 The Apache Software Foundation

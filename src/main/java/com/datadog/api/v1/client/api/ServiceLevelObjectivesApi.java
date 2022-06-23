@@ -13,6 +13,7 @@ import com.datadog.api.v1.client.model.SLOHistoryResponse;
 import com.datadog.api.v1.client.model.SLOListResponse;
 import com.datadog.api.v1.client.model.SLOResponse;
 import com.datadog.api.v1.client.model.SLOTimeframe;
+import com.datadog.api.v1.client.model.SearchSLOResponse;
 import com.datadog.api.v1.client.model.ServiceLevelObjective;
 import com.datadog.api.v1.client.model.ServiceLevelObjectiveRequest;
 import java.util.ArrayList;
@@ -782,7 +783,7 @@ public class ServiceLevelObjectivesApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -836,7 +837,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLOResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -923,7 +924,7 @@ public class ServiceLevelObjectivesApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -972,7 +973,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLOCorrectionListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1167,7 +1168,7 @@ public class ServiceLevelObjectivesApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1245,7 +1246,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLOHistoryResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1444,7 +1445,7 @@ public class ServiceLevelObjectivesApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1496,7 +1497,7 @@ public class ServiceLevelObjectivesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SLOListResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1511,6 +1512,208 @@ public class ServiceLevelObjectivesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SLOListResponse>() {});
+  }
+
+  /** Manage optional parameters to searchSLO. */
+  public static class SearchSLOOptionalParameters {
+    private String query;
+    private Long pageSize;
+    private Long pageNumber;
+
+    /**
+     * Set query.
+     *
+     * @param query The query string to filter results based on SLO names. (optional)
+     * @return SearchSLOOptionalParameters
+     */
+    public SearchSLOOptionalParameters query(String query) {
+      this.query = query;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize The number of files to return in the response <code>[default=10]</code>.
+     *     (optional)
+     * @return SearchSLOOptionalParameters
+     */
+    public SearchSLOOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber The identifier of the first page to return. This parameter is used for the
+     *     pagination feature <code>[default=0]</code>. (optional)
+     * @return SearchSLOOptionalParameters
+     */
+    public SearchSLOOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+  }
+
+  /**
+   * Search for SLOs.
+   *
+   * <p>See {@link #searchSLOWithHttpInfo}.
+   *
+   * @return SearchSLOResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SearchSLOResponse searchSLO() throws ApiException {
+    return searchSLOWithHttpInfo(new SearchSLOOptionalParameters()).getData();
+  }
+
+  /**
+   * Search for SLOs.
+   *
+   * <p>See {@link #searchSLOWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SearchSLOResponse&gt;
+   */
+  public CompletableFuture<SearchSLOResponse> searchSLOAsync() {
+    return searchSLOWithHttpInfoAsync(new SearchSLOOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search for SLOs.
+   *
+   * <p>See {@link #searchSLOWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SearchSLOResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SearchSLOResponse searchSLO(SearchSLOOptionalParameters parameters) throws ApiException {
+    return searchSLOWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Search for SLOs.
+   *
+   * <p>See {@link #searchSLOWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SearchSLOResponse&gt;
+   */
+  public CompletableFuture<SearchSLOResponse> searchSLOAsync(
+      SearchSLOOptionalParameters parameters) {
+    return searchSLOWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of service level objective objects for your organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SearchSLOResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SearchSLOResponse> searchSLOWithHttpInfo(
+      SearchSLOOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String query = parameters.query;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v1/slo/search";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "ServiceLevelObjectivesApi.searchSLO",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SearchSLOResponse>() {});
+  }
+
+  /**
+   * Search for SLOs.
+   *
+   * <p>See {@link #searchSLOWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;SearchSLOResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SearchSLOResponse>> searchSLOWithHttpInfoAsync(
+      SearchSLOOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String query = parameters.query;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v1/slo/search";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "ServiceLevelObjectivesApi.searchSLO",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SearchSLOResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SearchSLOResponse>() {});
   }
 
   /**

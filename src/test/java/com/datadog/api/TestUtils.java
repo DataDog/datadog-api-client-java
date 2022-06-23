@@ -10,8 +10,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.reset;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.mockserver.integration.ClientAndServer.startClientAndServer;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import datadog.trace.api.DDTags;
 import datadog.trace.api.interceptor.MutableSpan;
@@ -36,7 +34,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.function.BooleanSupplier;
 import javax.net.ssl.HttpsURLConnection;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.junit.After;
@@ -44,7 +41,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.rules.TestName;
-import org.mockserver.configuration.ConfigurationProperties;
 import org.mockserver.integration.ClientAndServer;
 import org.mockserver.logging.MockServerLogger;
 import org.mockserver.matchers.TimeToLive;
@@ -145,50 +141,18 @@ public class TestUtils {
 
     public abstract String getTracingEndpoint();
 
-    /**
-     * Combines all cassettes into a single huge one.
-     *
-     * <p>Note that this is aided by the "JAVA-TEST-NAME" headers that help mockserver distinguish
-     * calls to the same endpoint from different methods.
-     *
-     * @return Path to the combined cassette
-     */
-    static Path createCombinedCassette() throws IOException {
-      File cassettesDir = new File(APITest.cassettesDir);
-      List<File> allCassettes = new ArrayList<>();
-      allCassettes.addAll(FileUtils.listFiles(cassettesDir, new String[] {"json"}, true));
-      ObjectMapper om = new ObjectMapper();
-      om.enable(SerializationFeature.INDENT_OUTPUT);
-      List<Object> allRecords = new ArrayList<>();
-      for (File c : allCassettes) {
-        allRecords.addAll(om.readValue(c, List.class));
-      }
-      File humongousCassette = null;
-      humongousCassette = File.createTempFile("datadog-api-client-java-cassette-", ".json");
-      humongousCassette.deleteOnExit();
-      om.writeValue(humongousCassette, allRecords);
-      return humongousCassette.toPath();
-    }
-
     private static void setupMockServer() {
-      // Mockserver uses a connection pool with keepAlive connections to talk to the API.
-      // It seems that there are circumstances under which a reused connection freezes
-      // forever. We temporarily workaround this by making all connections closing
-      // instead of keepAlive, until we figure out where the problem really is.
-      System.setProperty("http.keepAlive", "false");
       if (getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
         return;
       }
-      if (getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
-        try {
-          ConfigurationProperties.initializationJsonPath(createCombinedCassette().toString());
-        } catch (IOException e) {
-          System.err.println("Failed creating combined cassette:");
-          System.err.println(e);
-          System.exit(1);
-        }
+      if (getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
+        // Mockserver uses a connection pool with keepAlive connections to talk to the API.
+        // It seems that there are circumstances under which a reused connection freezes
+        // forever. We temporarily workaround this by making all connections closing
+        // instead of keepAlive, until we figure out where the problem really is.
+        System.setProperty("http.keepAlive", "false");
+        mockServer = startClientAndServer(MOCKSERVER_PORT);
       }
-      mockServer = startClientAndServer(MOCKSERVER_PORT);
     }
 
     static {
@@ -251,6 +215,7 @@ public class TestUtils {
     @Before
     public void setupClock() throws IOException {
       if (getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+        clock = Clock.systemUTC();
         now = OffsetDateTime.now();
         return;
       }
@@ -301,10 +266,8 @@ public class TestUtils {
         return;
       }
       List<Expectation> expectations = new ArrayList<>();
-      LogEventRequestAndResponse[] requestsAndResponses =
-          mockServer.retrieveRecordedRequestsAndResponses(null);
-      for (LogEventRequestAndResponse requestAndResponse : requestsAndResponses) {
-        HttpRequest req = requestAndResponse.getHttpRequest();
+      HttpRequest[] requests = mockServer.retrieveRecordedRequests(null);
+      for (HttpRequest req : requests) {
         List<Parameter> params = req.getQueryStringParameterList();
         List<Parameter> cleanParams = new ArrayList<>();
         List<Header> headers = req.getHeaderList();
@@ -326,9 +289,11 @@ public class TestUtils {
         }
         req.withHeaders(cleanHeaders);
         req.withQueryStringParameters(cleanParams);
+        LogEventRequestAndResponse[] requestAndResponses =
+            mockServer.retrieveRecordedRequestsAndResponses(req);
         expectations.add(
             Expectation.when(req, Times.once(), TimeToLive.unlimited())
-                .thenRespond(requestAndResponse.getHttpResponse()));
+                .thenRespond(requestAndResponses[0].getHttpResponse()));
       }
 
       // write the cassette

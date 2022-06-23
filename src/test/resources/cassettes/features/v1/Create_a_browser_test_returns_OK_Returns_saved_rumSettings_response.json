@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"config\":{\"assertions\":[],\"configVariables\":[{\"example\":\"content-type\",\"name\":\"PROPERTY\",\"pattern\":\"content-type\",\"type\":\"text\"}],\"request\":{\"method\":\"GET\",\"url\":\"https://datadoghq.com\"},\"setCookie\":\"name:test\"},\"locations\":[\"aws:us-east-2\"],\"message\":\"Test message\",\"name\":\"Test-Create_a_browser_test_returns_OK_Returns_saved_rumSettings_response-1652879292\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"device_ids\":[\"tablet\"],\"disableCors\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"noScreenshot\":true,\"retry\":{\"count\":3,\"interval\":10},\"rumSettings\":{\"applicationId\":\"mockApplicationId\",\"clientTokenId\":123456,\"isEnabled\":true},\"tick_every\":300},\"steps\":[{\"allowFailure\":false,\"isCritical\":true,\"name\":\"Refresh page\",\"params\":{},\"type\":\"refresh\"}],\"tags\":[\"testing:browser\"],\"type\":\"browser\"}"
+        "json": "{\"config\":{\"assertions\":[],\"configVariables\":[{\"example\":\"content-type\",\"name\":\"PROPERTY\",\"pattern\":\"content-type\",\"type\":\"text\"}],\"request\":{\"method\":\"GET\",\"url\":\"https://datadoghq.com\"},\"setCookie\":\"name:test\"},\"locations\":[\"aws:us-east-2\"],\"message\":\"Test message\",\"name\":\"Test-Create_a_browser_test_returns_OK_Returns_saved_rumSettings_response-1655451777\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"ci\":{\"executionRule\":\"skipped\"},\"device_ids\":[\"tablet\"],\"disableCors\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"noScreenshot\":true,\"retry\":{\"count\":3,\"interval\":10},\"rumSettings\":{\"applicationId\":\"mockApplicationId\",\"clientTokenId\":123456,\"isEnabled\":true},\"tick_every\":300},\"steps\":[{\"allowFailure\":false,\"isCritical\":true,\"name\":\"Refresh page\",\"params\":{},\"type\":\"refresh\"}],\"tags\":[\"testing:browser\"],\"type\":\"browser\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"status\":\"paused\",\"public_id\":\"wfe-m7p-h4b\",\"tags\":[\"testing:browser\"],\"org_id\":321813,\"locations\":[\"aws:us-east-2\"],\"message\":\"Test message\",\"deleted_at\":null,\"name\":\"Test-Create_a_browser_test_returns_OK_Returns_saved_rumSettings_response-1652879292\",\"monitor_id\":71860323,\"type\":\"browser\",\"created_at\":\"2022-05-18T13:08:13.276145+00:00\",\"modified_at\":\"2022-05-18T13:08:13.276145+00:00\",\"steps\":[{\"name\":\"Refresh page\",\"allowFailure\":false,\"params\":{},\"isCritical\":true,\"type\":\"refresh\"}],\"config\":{\"setCookie\":\"name:test\",\"request\":{\"url\":\"https://datadoghq.com\",\"method\":\"GET\"},\"assertions\":[],\"configVariables\":[{\"pattern\":\"content-type\",\"type\":\"text\",\"example\":\"content-type\",\"name\":\"PROPERTY\"}]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":10},\"min_location_failed\":1,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"noScreenshot\":true,\"rumSettings\":{\"isEnabled\":true,\"applicationId\":\"mockApplicationId\",\"clientTokenId\":123456},\"disableCors\":true,\"device_ids\":[\"tablet\"],\"tick_every\":300}}",
+      "body": "{\"status\":\"paused\",\"public_id\":\"m3n-vmq-fd3\",\"tags\":[\"testing:browser\"],\"org_id\":321813,\"locations\":[\"aws:us-east-2\"],\"message\":\"Test message\",\"deleted_at\":null,\"name\":\"Test-Create_a_browser_test_returns_OK_Returns_saved_rumSettings_response-1655451777\",\"monitor_id\":74294599,\"type\":\"browser\",\"created_at\":\"2022-06-17T07:42:58.262163+00:00\",\"modified_at\":\"2022-06-17T07:42:58.262163+00:00\",\"steps\":[{\"name\":\"Refresh page\",\"allowFailure\":false,\"params\":{},\"isCritical\":true,\"type\":\"refresh\"}],\"config\":{\"setCookie\":\"name:test\",\"request\":{\"url\":\"https://datadoghq.com\",\"method\":\"GET\"},\"assertions\":[],\"configVariables\":[{\"pattern\":\"content-type\",\"type\":\"text\",\"example\":\"content-type\",\"name\":\"PROPERTY\"}]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":10},\"min_location_failed\":1,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"ci\":{\"executionRule\":\"skipped\"},\"noScreenshot\":true,\"rumSettings\":{\"isEnabled\":true,\"applicationId\":\"mockApplicationId\",\"clientTokenId\":12345},\"disableCors\":true,\"device_ids\":[\"tablet\"],\"tick_every\":300}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "19ad0a97-9b5d-2b99-76ec-73b74de0cf7c"
+    "id": "6f57420d-e311-eb60-0099-523bfc0f2fd9"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"public_ids\":[\"wfe-m7p-h4b\"]}"
+        "json": "{\"public_ids\":[\"m3n-vmq-fd3\"]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -50,7 +50,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_tests\":[{\"deleted_at\":\"2022-05-18T13:08:18.431221+00:00\",\"public_id\":\"wfe-m7p-h4b\"}]}",
+      "body": "{\"deleted_tests\":[{\"deleted_at\":\"2022-06-17T07:43:03.760052+00:00\",\"public_id\":\"m3n-vmq-fd3\"}]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,6 +65,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "76fc582c-80fc-7ec5-dbaf-db295ed98df2"
+    "id": "c5079f78-7dd3-67dc-fd03-fe67de8bc455"
   }
 ]

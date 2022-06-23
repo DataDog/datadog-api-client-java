@@ -2,7 +2,7 @@
   "id" : "0924ae36-d3ad-4868-afec-eb737dc6712c",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/dashboard/random",
+    "path" : "/api/v1/dashboard/123-abc-xyz",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardUpdateErrorsTest" ],
@@ -46,7 +46,7 @@
   "id" : "9f714264-c449-4ffd-b3e6-2e29938aca02",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/dashboard/random",
+    "path" : "/api/v1/dashboard/123-abc-xyz",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardUpdateErrorsTest" ],
@@ -84,7 +84,7 @@
   "id" : "da5daa73-e12f-4abf-8c45-ad8a23cfdfd9",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/dashboard/random",
+    "path" : "/api/v1/dashboard/123-abc-xyz",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "dashboardUpdateErrorsTest" ],
@@ -123,6 +123,6 @@
       "Strict-Transport-Security" : [ "max-age=15724800;" ],
       "content-length" : [ "50" ]
     },
-    "body" : "{\"errors\": [\"Dashboard with ID random not found\"]}"
+    "body" : "{\"errors\": [\"Dashboard with ID 123-abc-xyz not found\"]}"
   }
 }]

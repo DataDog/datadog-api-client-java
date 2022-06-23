@@ -19,6 +19,7 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_ACCEPT_SELF_SIGNED,
   SyntheticsTestOptions.JSON_PROPERTY_ALLOW_INSECURE,
   SyntheticsTestOptions.JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION,
+  SyntheticsTestOptions.JSON_PROPERTY_CI,
   SyntheticsTestOptions.JSON_PROPERTY_DEVICE_IDS,
   SyntheticsTestOptions.JSON_PROPERTY_DISABLE_CORS,
   SyntheticsTestOptions.JSON_PROPERTY_FOLLOW_REDIRECTS,
@@ -46,6 +47,9 @@ public class SyntheticsTestOptions {
   public static final String JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION =
       "checkCertificateRevocation";
   private Boolean checkCertificateRevocation;
+
+  public static final String JSON_PROPERTY_CI = "ci";
+  private SyntheticsTestCiOptions ci;
 
   public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
   private List<SyntheticsDeviceID> deviceIds = null;
@@ -147,6 +151,28 @@ public class SyntheticsTestOptions {
 
   public void setCheckCertificateRevocation(Boolean checkCertificateRevocation) {
     this.checkCertificateRevocation = checkCertificateRevocation;
+  }
+
+  public SyntheticsTestOptions ci(SyntheticsTestCiOptions ci) {
+    this.ci = ci;
+    this.unparsed |= ci.unparsed;
+    return this;
+  }
+
+  /**
+   * CI/CD options for a Synthetic test.
+   *
+   * @return ci
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestCiOptions getCi() {
+    return ci;
+  }
+
+  public void setCi(SyntheticsTestCiOptions ci) {
+    this.ci = ci;
   }
 
   public SyntheticsTestOptions deviceIds(List<SyntheticsDeviceID> deviceIds) {
@@ -468,6 +494,7 @@ public class SyntheticsTestOptions {
         && Objects.equals(this.allowInsecure, syntheticsTestOptions.allowInsecure)
         && Objects.equals(
             this.checkCertificateRevocation, syntheticsTestOptions.checkCertificateRevocation)
+        && Objects.equals(this.ci, syntheticsTestOptions.ci)
         && Objects.equals(this.deviceIds, syntheticsTestOptions.deviceIds)
         && Objects.equals(this.disableCors, syntheticsTestOptions.disableCors)
         && Objects.equals(this.followRedirects, syntheticsTestOptions.followRedirects)
@@ -489,6 +516,7 @@ public class SyntheticsTestOptions {
         acceptSelfSigned,
         allowInsecure,
         checkCertificateRevocation,
+        ci,
         deviceIds,
         disableCors,
         followRedirects,
@@ -513,6 +541,7 @@ public class SyntheticsTestOptions {
     sb.append("    checkCertificateRevocation: ")
         .append(toIndentedString(checkCertificateRevocation))
         .append("\n");
+    sb.append("    ci: ").append(toIndentedString(ci)).append("\n");
     sb.append("    deviceIds: ").append(toIndentedString(deviceIds)).append("\n");
     sb.append("    disableCors: ").append(toIndentedString(disableCors)).append("\n");
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
