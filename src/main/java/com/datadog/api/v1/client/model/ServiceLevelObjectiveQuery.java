@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /**
- * A metric SLI query. <strong>Required if type is <code>metric</code></strong>. Note that Datadog
+ * A metric-based SLO. <strong>Required if type is <code>metric</code></strong>. Note that Datadog
  * only allows the sum by aggregator to be used because this will sum up all request counts instead
  * of averaging them, or taking the max or min of all of those requests.
  */
