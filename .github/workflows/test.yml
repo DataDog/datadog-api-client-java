@@ -80,7 +80,7 @@ jobs:
       matrix:
         # see DEVELOPMENT.md for information why we're using this specific combination
         # of JDKs to run unit tests on
-        java-version: ["8", "16.0.1"]
+        java-version: ["8", "16"]
 
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')
@@ -104,7 +104,7 @@ jobs:
       - name: Install Java
         uses: actions/setup-java@v3
         with:
-          java-version: '16.0.1'
+          java-version: '16'
           distribution: 'adopt'
           cache: 'maven'
       - name: Check examples
