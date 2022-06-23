@@ -14,7 +14,9 @@ import com.datadog.api.v1.client.model.SyntheticsAssertionTarget;
 import com.datadog.api.v1.client.model.SyntheticsAssertionType;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestRumSettings;
 import com.datadog.api.v1.client.model.SyntheticsDeviceID;
+import com.datadog.api.v1.client.model.SyntheticsTestCiOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestDetailsSubType;
+import com.datadog.api.v1.client.model.SyntheticsTestExecutionRule;
 import com.datadog.api.v1.client.model.SyntheticsTestOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestOptionsMonitorOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
@@ -47,6 +49,9 @@ public class Example {
             .name("Example test name")
             .options(
                 new SyntheticsTestOptions()
+                    .ci(
+                        new SyntheticsTestCiOptions()
+                            .executionRule(SyntheticsTestExecutionRule.BLOCKING))
                     .deviceIds(Collections.singletonList(SyntheticsDeviceID.LAPTOP_LARGE))
                     .monitorOptions(new SyntheticsTestOptionsMonitorOptions())
                     .restrictedRoles(
