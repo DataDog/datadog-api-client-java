@@ -28,7 +28,7 @@ public class MetricTagConfigurationUpdateAttributes {
   private List<MetricCustomAggregation> aggregations = null;
 
   public static final String JSON_PROPERTY_INCLUDE_PERCENTILES = "include_percentiles";
-  private Boolean includePercentiles = false;
+  private Boolean includePercentiles;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
