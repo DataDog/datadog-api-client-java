@@ -21,7 +21,7 @@ jobs:
         with:
           app_id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
           private_key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
@@ -31,10 +31,11 @@ jobs:
           git config user.email "${GIT_AUTHOR_EMAIL}"
 
       - name: Install Java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: "8"
-          distribution: "adopt"
+          distribution: "temurin"
+          cache: "maven"
 
       - name: Calculate version
         id: get_version
