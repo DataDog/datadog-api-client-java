@@ -68,9 +68,9 @@ jobs:
       - name: Install Java
         uses: actions/setup-java@v3
         with:
-          java-version: '8'
-          distribution: 'adopt'
-          cache: 'maven'
+          java-version: "8"
+          distribution: "temurin"
+          cache: "maven"
       - name: Build javadoc
         run: mvn javadoc:javadoc
         shell: bash
@@ -91,8 +91,8 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.java-version }}
-          distribution: 'adopt'
-          cache: 'maven'
+          distribution: "temurin"
+          cache: "maven"
       - name: Test
         run: ./run-tests.sh
 
@@ -104,9 +104,9 @@ jobs:
       - name: Install Java
         uses: actions/setup-java@v3
         with:
-          java-version: '16'
-          distribution: 'adopt'
-          cache: 'maven'
+          java-version: "16"
+          distribution: "temurin"
+          cache: "maven"
       - name: Check examples
         run: ./check-examples.sh
         shell: bash
