@@ -72,12 +72,14 @@ public class SyntheticsAPITest {
   public SyntheticsAPITest(
       @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG) SyntheticsAPITestConfig config,
       @JsonProperty(required = true, value = JSON_PROPERTY_LOCATIONS) List<String> locations,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS) SyntheticsTestOptions options,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsAPITestType type) {
     this.config = config;
     this.unparsed |= config.unparsed;
     this.locations = locations;
+    this.message = message;
     this.name = name;
     this.options = options;
     this.unparsed |= options.unparsed;
@@ -141,9 +143,8 @@ public class SyntheticsAPITest {
    *
    * @return message
    */
-  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
     return message;
   }
