@@ -36,6 +36,8 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("custom_timeseries_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_LOGS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_indexed_logs_usage");
+  public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_SPANS_USAGE =
+      new HourlyUsageAttributionUsageType("estimated_indexed_spans_usage");
   public static final HourlyUsageAttributionUsageType FARGATE_USAGE =
       new HourlyUsageAttributionUsageType("fargate_usage");
   public static final HourlyUsageAttributionUsageType FUNCTIONS_USAGE =
@@ -64,6 +66,7 @@ public class HourlyUsageAttributionUsageType {
               "container_usage",
               "custom_timeseries_usage",
               "estimated_indexed_logs_usage",
+              "estimated_indexed_spans_usage",
               "fargate_usage",
               "functions_usage",
               "indexed_logs_usage",
