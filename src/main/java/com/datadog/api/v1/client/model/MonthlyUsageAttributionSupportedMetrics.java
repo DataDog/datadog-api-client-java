@@ -34,6 +34,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("apm_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics APM_HOST_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("apm_host_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics APPSEC_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("appsec_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics APPSEC_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("appsec_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics BROWSER_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("browser_usage");
   public static final MonthlyUsageAttributionSupportedMetrics BROWSER_PERCENTAGE =
@@ -100,6 +104,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "api_percentage",
               "apm_host_usage",
               "apm_host_percentage",
+              "appsec_usage",
+              "appsec_percentage",
               "browser_usage",
               "browser_percentage",
               "container_usage",
