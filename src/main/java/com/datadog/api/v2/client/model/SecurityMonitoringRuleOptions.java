@@ -14,6 +14,7 @@ import java.util.Objects;
 
 /** Options on rules. */
 @JsonPropertyOrder({
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_DETECTION_METHOD,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_EVALUATION_WINDOW,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_HARDCODED_EVALUATOR_TYPE,
@@ -26,6 +27,10 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleOptions {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV =
+      "decreaseCriticalityBasedOnEnv";
+  private Boolean decreaseCriticalityBasedOnEnv;
+
   public static final String JSON_PROPERTY_DETECTION_METHOD = "detectionMethod";
   private SecurityMonitoringRuleDetectionMethod detectionMethod;
 
@@ -46,6 +51,33 @@ public class SecurityMonitoringRuleOptions {
 
   public static final String JSON_PROPERTY_NEW_VALUE_OPTIONS = "newValueOptions";
   private SecurityMonitoringRuleNewValueOptions newValueOptions;
+
+  public SecurityMonitoringRuleOptions decreaseCriticalityBasedOnEnv(
+      Boolean decreaseCriticalityBasedOnEnv) {
+    this.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
+    return this;
+  }
+
+  /**
+   * If true, signals in non-production environments have a lower severity than what is defined by
+   * the rule case, which can reduce signal noise. The severity is decreased by one level: <code>
+   * CRITICAL</code> in production becomes <code>HIGH</code> in non-production, <code>HIGH</code>
+   * becomes <code>MEDIUM</code> and so on. <code>INFO</code> remains <code>INFO</code>. The
+   * decrement is applied when the environment tag of the signal starts with <code>staging</code>,
+   * <code>test</code> or <code>dev</code>.
+   *
+   * @return decreaseCriticalityBasedOnEnv
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDecreaseCriticalityBasedOnEnv() {
+    return decreaseCriticalityBasedOnEnv;
+  }
+
+  public void setDecreaseCriticalityBasedOnEnv(Boolean decreaseCriticalityBasedOnEnv) {
+    this.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
+  }
 
   public SecurityMonitoringRuleOptions detectionMethod(
       SecurityMonitoringRuleDetectionMethod detectionMethod) {
@@ -237,7 +269,10 @@ public class SecurityMonitoringRuleOptions {
       return false;
     }
     SecurityMonitoringRuleOptions securityMonitoringRuleOptions = (SecurityMonitoringRuleOptions) o;
-    return Objects.equals(this.detectionMethod, securityMonitoringRuleOptions.detectionMethod)
+    return Objects.equals(
+            this.decreaseCriticalityBasedOnEnv,
+            securityMonitoringRuleOptions.decreaseCriticalityBasedOnEnv)
+        && Objects.equals(this.detectionMethod, securityMonitoringRuleOptions.detectionMethod)
         && Objects.equals(this.evaluationWindow, securityMonitoringRuleOptions.evaluationWindow)
         && Objects.equals(
             this.hardcodedEvaluatorType, securityMonitoringRuleOptions.hardcodedEvaluatorType)
@@ -251,6 +286,7 @@ public class SecurityMonitoringRuleOptions {
   @Override
   public int hashCode() {
     return Objects.hash(
+        decreaseCriticalityBasedOnEnv,
         detectionMethod,
         evaluationWindow,
         hardcodedEvaluatorType,
@@ -264,6 +300,9 @@ public class SecurityMonitoringRuleOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleOptions {\n");
+    sb.append("    decreaseCriticalityBasedOnEnv: ")
+        .append(toIndentedString(decreaseCriticalityBasedOnEnv))
+        .append("\n");
     sb.append("    detectionMethod: ").append(toIndentedString(detectionMethod)).append("\n");
     sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
     sb.append("    hardcodedEvaluatorType: ")

@@ -43,6 +43,7 @@ public class Example {
             .hasExtendedTitle(true)
             .options(
                 new SecurityMonitoringRuleOptions()
+                    .decreaseCriticalityBasedOnEnv(false)
                     .detectionMethod(SecurityMonitoringRuleDetectionMethod.THRESHOLD)
                     .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.ZERO_MINUTES)
                     .hardcodedEvaluatorType(SecurityMonitoringRuleHardcodedEvaluatorType.LOG4SHELL)
