@@ -38,6 +38,8 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_DBM_QUERIES_USAGE,
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_FUNCTIONS_PERCENTAGE,
@@ -131,6 +133,14 @@ public class UsageAttributionValues {
   public static final String JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE =
       "estimated_indexed_logs_usage";
   private Double estimatedIndexedLogsUsage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE =
+      "estimated_indexed_spans_percentage";
+  private Double estimatedIndexedSpansPercentage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE =
+      "estimated_indexed_spans_usage";
+  private Double estimatedIndexedSpansUsage;
 
   public static final String JSON_PROPERTY_INFRA_HOST_PERCENTAGE = "infra_host_percentage";
   private Double infraHostPercentage;
@@ -683,6 +693,49 @@ public class UsageAttributionValues {
     this.estimatedIndexedLogsUsage = estimatedIndexedLogsUsage;
   }
 
+  public UsageAttributionValues estimatedIndexedSpansPercentage(
+      Double estimatedIndexedSpansPercentage) {
+    this.estimatedIndexedSpansPercentage = estimatedIndexedSpansPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of estimated indexed spans usage by tag(s). Note this field is in private beta.
+   *
+   * @return estimatedIndexedSpansPercentage
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIndexedSpansPercentage() {
+    return estimatedIndexedSpansPercentage;
+  }
+
+  public void setEstimatedIndexedSpansPercentage(Double estimatedIndexedSpansPercentage) {
+    this.estimatedIndexedSpansPercentage = estimatedIndexedSpansPercentage;
+  }
+
+  public UsageAttributionValues estimatedIndexedSpansUsage(Double estimatedIndexedSpansUsage) {
+    this.estimatedIndexedSpansUsage = estimatedIndexedSpansUsage;
+    return this;
+  }
+
+  /**
+   * The estimated indexed spans usage by tag(s). Note this field is in private beta.
+   *
+   * @return estimatedIndexedSpansUsage
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIndexedSpansUsage() {
+    return estimatedIndexedSpansUsage;
+  }
+
+  public void setEstimatedIndexedSpansUsage(Double estimatedIndexedSpansUsage) {
+    this.estimatedIndexedSpansUsage = estimatedIndexedSpansUsage;
+  }
+
   public UsageAttributionValues infraHostPercentage(Double infraHostPercentage) {
     this.infraHostPercentage = infraHostPercentage;
     return this;
@@ -1017,6 +1070,11 @@ public class UsageAttributionValues {
             usageAttributionValues.estimatedIndexedLogsPercentage)
         && Objects.equals(
             this.estimatedIndexedLogsUsage, usageAttributionValues.estimatedIndexedLogsUsage)
+        && Objects.equals(
+            this.estimatedIndexedSpansPercentage,
+            usageAttributionValues.estimatedIndexedSpansPercentage)
+        && Objects.equals(
+            this.estimatedIndexedSpansUsage, usageAttributionValues.estimatedIndexedSpansUsage)
         && Objects.equals(this.infraHostPercentage, usageAttributionValues.infraHostPercentage)
         && Objects.equals(this.infraHostUsage, usageAttributionValues.infraHostUsage)
         && Objects.equals(
@@ -1066,6 +1124,8 @@ public class UsageAttributionValues {
         dbmQueriesUsage,
         estimatedIndexedLogsPercentage,
         estimatedIndexedLogsUsage,
+        estimatedIndexedSpansPercentage,
+        estimatedIndexedSpansUsage,
         infraHostPercentage,
         infraHostUsage,
         lambdaFunctionsPercentage,
@@ -1125,6 +1185,12 @@ public class UsageAttributionValues {
         .append("\n");
     sb.append("    estimatedIndexedLogsUsage: ")
         .append(toIndentedString(estimatedIndexedLogsUsage))
+        .append("\n");
+    sb.append("    estimatedIndexedSpansPercentage: ")
+        .append(toIndentedString(estimatedIndexedSpansPercentage))
+        .append("\n");
+    sb.append("    estimatedIndexedSpansUsage: ")
+        .append(toIndentedString(estimatedIndexedSpansUsage))
         .append("\n");
     sb.append("    infraHostPercentage: ")
         .append(toIndentedString(infraHostPercentage))
