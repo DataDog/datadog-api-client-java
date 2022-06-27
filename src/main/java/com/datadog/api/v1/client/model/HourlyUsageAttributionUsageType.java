@@ -28,6 +28,8 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("api_usage");
   public static final HourlyUsageAttributionUsageType APM_HOST_USAGE =
       new HourlyUsageAttributionUsageType("apm_host_usage");
+  public static final HourlyUsageAttributionUsageType APPSEC_USAGE =
+      new HourlyUsageAttributionUsageType("appsec_usage");
   public static final HourlyUsageAttributionUsageType BROWSER_USAGE =
       new HourlyUsageAttributionUsageType("browser_usage");
   public static final HourlyUsageAttributionUsageType CONTAINER_USAGE =
@@ -62,6 +64,7 @@ public class HourlyUsageAttributionUsageType {
           Arrays.asList(
               "api_usage",
               "apm_host_usage",
+              "appsec_usage",
               "browser_usage",
               "container_usage",
               "custom_timeseries_usage",

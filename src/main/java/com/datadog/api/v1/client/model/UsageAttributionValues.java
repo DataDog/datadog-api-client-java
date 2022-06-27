@@ -18,6 +18,8 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_API_USAGE,
   UsageAttributionValues.JSON_PROPERTY_APM_HOST_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_APM_HOST_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_APPSEC_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_APPSEC_USAGE,
   UsageAttributionValues.JSON_PROPERTY_BROWSER_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_BROWSER_USAGE,
   UsageAttributionValues.JSON_PROPERTY_CONTAINER_PERCENTAGE,
@@ -70,6 +72,12 @@ public class UsageAttributionValues {
 
   public static final String JSON_PROPERTY_APM_HOST_USAGE = "apm_host_usage";
   private Double apmHostUsage;
+
+  public static final String JSON_PROPERTY_APPSEC_PERCENTAGE = "appsec_percentage";
+  private Object appsecPercentage = null;
+
+  public static final String JSON_PROPERTY_APPSEC_USAGE = "appsec_usage";
+  private Double appsecUsage;
 
   public static final String JSON_PROPERTY_BROWSER_PERCENTAGE = "browser_percentage";
   private Double browserPercentage;
@@ -269,6 +277,48 @@ public class UsageAttributionValues {
 
   public void setApmHostUsage(Double apmHostUsage) {
     this.apmHostUsage = apmHostUsage;
+  }
+
+  public UsageAttributionValues appsecPercentage(Object appsecPercentage) {
+    this.appsecPercentage = appsecPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Application Security Monitoring host usage by tag(s).
+   *
+   * @return appsecPercentage
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPSEC_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getAppsecPercentage() {
+    return appsecPercentage;
+  }
+
+  public void setAppsecPercentage(Object appsecPercentage) {
+    this.appsecPercentage = appsecPercentage;
+  }
+
+  public UsageAttributionValues appsecUsage(Double appsecUsage) {
+    this.appsecUsage = appsecUsage;
+    return this;
+  }
+
+  /**
+   * The Application Security Monitoring host usage by tag(s).
+   *
+   * @return appsecUsage
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPSEC_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getAppsecUsage() {
+    return appsecUsage;
+  }
+
+  public void setAppsecUsage(Double appsecUsage) {
+    this.appsecUsage = appsecUsage;
   }
 
   public UsageAttributionValues browserPercentage(Double browserPercentage) {
@@ -1044,6 +1094,8 @@ public class UsageAttributionValues {
         && Objects.equals(this.apiUsage, usageAttributionValues.apiUsage)
         && Objects.equals(this.apmHostPercentage, usageAttributionValues.apmHostPercentage)
         && Objects.equals(this.apmHostUsage, usageAttributionValues.apmHostUsage)
+        && Objects.equals(this.appsecPercentage, usageAttributionValues.appsecPercentage)
+        && Objects.equals(this.appsecUsage, usageAttributionValues.appsecUsage)
         && Objects.equals(this.browserPercentage, usageAttributionValues.browserPercentage)
         && Objects.equals(this.browserUsage, usageAttributionValues.browserUsage)
         && Objects.equals(this.containerPercentage, usageAttributionValues.containerPercentage)
@@ -1104,6 +1156,8 @@ public class UsageAttributionValues {
         apiUsage,
         apmHostPercentage,
         apmHostUsage,
+        appsecPercentage,
+        appsecUsage,
         browserPercentage,
         browserUsage,
         containerPercentage,
@@ -1150,6 +1204,8 @@ public class UsageAttributionValues {
     sb.append("    apiUsage: ").append(toIndentedString(apiUsage)).append("\n");
     sb.append("    apmHostPercentage: ").append(toIndentedString(apmHostPercentage)).append("\n");
     sb.append("    apmHostUsage: ").append(toIndentedString(apmHostUsage)).append("\n");
+    sb.append("    appsecPercentage: ").append(toIndentedString(appsecPercentage)).append("\n");
+    sb.append("    appsecUsage: ").append(toIndentedString(appsecUsage)).append("\n");
     sb.append("    browserPercentage: ").append(toIndentedString(browserPercentage)).append("\n");
     sb.append("    browserUsage: ").append(toIndentedString(browserUsage)).append("\n");
     sb.append("    containerPercentage: ")

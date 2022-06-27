@@ -29,6 +29,9 @@ public class UsageAttributionSort {
   public static final UsageAttributionSort APM_HOST_USAGE =
       new UsageAttributionSort("apm_host_usage");
   public static final UsageAttributionSort API_USAGE = new UsageAttributionSort("api_usage");
+  public static final UsageAttributionSort APPSEC_USAGE = new UsageAttributionSort("appsec_usage");
+  public static final UsageAttributionSort APPSEC_PERCENTAGE =
+      new UsageAttributionSort("appsec_percentage");
   public static final UsageAttributionSort CONTAINER_USAGE =
       new UsageAttributionSort("container_usage");
   public static final UsageAttributionSort CUSTOM_TIMESERIES_PERCENTAGE =
@@ -77,6 +80,8 @@ public class UsageAttributionSort {
               "snmp_usage",
               "apm_host_usage",
               "api_usage",
+              "appsec_usage",
+              "appsec_percentage",
               "container_usage",
               "custom_timeseries_percentage",
               "container_percentage",

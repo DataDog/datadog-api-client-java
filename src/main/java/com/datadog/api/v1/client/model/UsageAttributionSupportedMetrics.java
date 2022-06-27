@@ -91,6 +91,10 @@ public class UsageAttributionSupportedMetrics {
       new UsageAttributionSupportedMetrics("estimated_indexed_logs_usage");
   public static final UsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_PERCENTAGE =
       new UsageAttributionSupportedMetrics("estimated_indexed_logs_percentage");
+  public static final UsageAttributionSupportedMetrics APPSEC_USAGE =
+      new UsageAttributionSupportedMetrics("appsec_usage");
+  public static final UsageAttributionSupportedMetrics APPSEC_PERCENTAGE =
+      new UsageAttributionSupportedMetrics("appsec_percentage");
   public static final UsageAttributionSupportedMetrics ESTIMATED_INDEXED_SPANS_USAGE =
       new UsageAttributionSupportedMetrics("estimated_indexed_spans_usage");
   public static final UsageAttributionSupportedMetrics ESTIMATED_INDEXED_SPANS_PERCENTAGE =
@@ -133,6 +137,8 @@ public class UsageAttributionSupportedMetrics {
               "dbm_queries_percentage",
               "estimated_indexed_logs_usage",
               "estimated_indexed_logs_percentage",
+              "appsec_usage",
+              "appsec_percentage",
               "estimated_indexed_spans_usage",
               "estimated_indexed_spans_percentage",
               "*"));
