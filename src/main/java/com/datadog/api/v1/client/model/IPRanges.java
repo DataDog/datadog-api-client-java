@@ -21,6 +21,7 @@ import java.util.Objects;
   IPRanges.JSON_PROPERTY_MODIFIED,
   IPRanges.JSON_PROPERTY_PROCESS,
   IPRanges.JSON_PROPERTY_SYNTHETICS,
+  IPRanges.JSON_PROPERTY_SYNTHETICS_PRIVATE_LOCATIONS,
   IPRanges.JSON_PROPERTY_VERSION,
   IPRanges.JSON_PROPERTY_WEBHOOKS
 })
@@ -48,6 +49,10 @@ public class IPRanges {
 
   public static final String JSON_PROPERTY_SYNTHETICS = "synthetics";
   private IPPrefixesSynthetics synthetics;
+
+  public static final String JSON_PROPERTY_SYNTHETICS_PRIVATE_LOCATIONS =
+      "synthetics-private-locations";
+  private IPPrefixesSyntheticsPrivateLocations syntheticsPrivateLocations;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
@@ -208,6 +213,30 @@ public class IPRanges {
     this.synthetics = synthetics;
   }
 
+  public IPRanges syntheticsPrivateLocations(
+      IPPrefixesSyntheticsPrivateLocations syntheticsPrivateLocations) {
+    this.syntheticsPrivateLocations = syntheticsPrivateLocations;
+    this.unparsed |= syntheticsPrivateLocations.unparsed;
+    return this;
+  }
+
+  /**
+   * Available prefix information for the Synthetics Private Locations endpoints.
+   *
+   * @return syntheticsPrivateLocations
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYNTHETICS_PRIVATE_LOCATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IPPrefixesSyntheticsPrivateLocations getSyntheticsPrivateLocations() {
+    return syntheticsPrivateLocations;
+  }
+
+  public void setSyntheticsPrivateLocations(
+      IPPrefixesSyntheticsPrivateLocations syntheticsPrivateLocations) {
+    this.syntheticsPrivateLocations = syntheticsPrivateLocations;
+  }
+
   public IPRanges version(Long version) {
     this.version = version;
     return this;
@@ -268,13 +297,24 @@ public class IPRanges {
         && Objects.equals(this.modified, ipRanges.modified)
         && Objects.equals(this.process, ipRanges.process)
         && Objects.equals(this.synthetics, ipRanges.synthetics)
+        && Objects.equals(this.syntheticsPrivateLocations, ipRanges.syntheticsPrivateLocations)
         && Objects.equals(this.version, ipRanges.version)
         && Objects.equals(this.webhooks, ipRanges.webhooks);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agents, api, apm, logs, modified, process, synthetics, version, webhooks);
+    return Objects.hash(
+        agents,
+        api,
+        apm,
+        logs,
+        modified,
+        process,
+        synthetics,
+        syntheticsPrivateLocations,
+        version,
+        webhooks);
   }
 
   @Override
@@ -288,6 +328,9 @@ public class IPRanges {
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    process: ").append(toIndentedString(process)).append("\n");
     sb.append("    synthetics: ").append(toIndentedString(synthetics)).append("\n");
+    sb.append("    syntheticsPrivateLocations: ")
+        .append(toIndentedString(syntheticsPrivateLocations))
+        .append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
     sb.append("}");
