@@ -10,36 +10,46 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /** The payload accepted for intake. */
-@JsonPropertyOrder({IntakePayloadAccepted.JSON_PROPERTY_STATUS})
+@JsonPropertyOrder({IntakePayloadAccepted.JSON_PROPERTY_ERRORS})
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IntakePayloadAccepted {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private String status;
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  private List<String> errors = null;
 
-  public IntakePayloadAccepted status(String status) {
-    this.status = status;
+  public IntakePayloadAccepted errors(List<String> errors) {
+    this.errors = errors;
+    return this;
+  }
+
+  public IntakePayloadAccepted addErrorsItem(String errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
+    this.errors.add(errorsItem);
     return this;
   }
 
   /**
-   * The status of the intake payload.
+   * A list of errors.
    *
-   * @return status
+   * @return errors
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStatus() {
-    return status;
+  public List<String> getErrors() {
+    return errors;
   }
 
-  public void setStatus(String status) {
-    this.status = status;
+  public void setErrors(List<String> errors) {
+    this.errors = errors;
   }
 
   /** Return true if this IntakePayloadAccepted object is equal to o. */
@@ -52,19 +62,19 @@ public class IntakePayloadAccepted {
       return false;
     }
     IntakePayloadAccepted intakePayloadAccepted = (IntakePayloadAccepted) o;
-    return Objects.equals(this.status, intakePayloadAccepted.status);
+    return Objects.equals(this.errors, intakePayloadAccepted.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status);
+    return Objects.hash(errors);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IntakePayloadAccepted {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
