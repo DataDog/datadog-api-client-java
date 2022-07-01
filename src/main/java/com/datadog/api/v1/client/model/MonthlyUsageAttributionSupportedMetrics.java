@@ -46,10 +46,34 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("container_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("container_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CSPM_CONTAINERS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cspm_containers_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CSPM_CONTAINERS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cspm_containers_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics CSPM_HOSTS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cspm_hosts_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CSPM_HOSTS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cspm_hosts_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CUSTOM_TIMESERIES_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("custom_timeseries_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CUSTOM_TIMESERIES_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("custom_timeseries_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CWS_CONTAINERS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cws_containers_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CWS_CONTAINERS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cws_containers_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics CWS_HOSTS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cws_hosts_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CWS_HOSTS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cws_hosts_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics DBM_HOSTS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("dbm_hosts_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics DBM_HOSTS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("dbm_hosts_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics DBM_QUERIES_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("dbm_queries_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics DBM_QUERIES_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("dbm_queries_usage");
   public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("estimated_indexed_logs_usage");
   public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_PERCENTAGE =
@@ -110,8 +134,20 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "browser_percentage",
               "container_usage",
               "container_percentage",
+              "cspm_containers_percentage",
+              "cspm_containers_usage",
+              "cspm_hosts_percentage",
+              "cspm_hosts_usage",
               "custom_timeseries_usage",
               "custom_timeseries_percentage",
+              "cws_containers_percentage",
+              "cws_containers_usage",
+              "cws_hosts_percentage",
+              "cws_hosts_usage",
+              "dbm_hosts_percentage",
+              "dbm_hosts_usage",
+              "dbm_queries_percentage",
+              "dbm_queries_usage",
               "estimated_indexed_logs_usage",
               "estimated_indexed_logs_percentage",
               "estimated_indexed_spans_usage",
