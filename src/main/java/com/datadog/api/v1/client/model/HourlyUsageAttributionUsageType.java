@@ -34,8 +34,20 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("browser_usage");
   public static final HourlyUsageAttributionUsageType CONTAINER_USAGE =
       new HourlyUsageAttributionUsageType("container_usage");
+  public static final HourlyUsageAttributionUsageType CSPM_CONTAINERS_USAGE =
+      new HourlyUsageAttributionUsageType("cspm_containers_usage");
+  public static final HourlyUsageAttributionUsageType CSPM_HOSTS_USAGE =
+      new HourlyUsageAttributionUsageType("cspm_hosts_usage");
   public static final HourlyUsageAttributionUsageType CUSTOM_TIMESERIES_USAGE =
       new HourlyUsageAttributionUsageType("custom_timeseries_usage");
+  public static final HourlyUsageAttributionUsageType CWS_CONTAINERS_USAGE =
+      new HourlyUsageAttributionUsageType("cws_containers_usage");
+  public static final HourlyUsageAttributionUsageType CWS_HOSTS_USAGE =
+      new HourlyUsageAttributionUsageType("cws_hosts_usage");
+  public static final HourlyUsageAttributionUsageType DBM_HOSTS_USAGE =
+      new HourlyUsageAttributionUsageType("dbm_hosts_usage");
+  public static final HourlyUsageAttributionUsageType DBM_QUERIES_USAGE =
+      new HourlyUsageAttributionUsageType("dbm_queries_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_LOGS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_indexed_logs_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_SPANS_USAGE =
@@ -67,7 +79,13 @@ public class HourlyUsageAttributionUsageType {
               "appsec_usage",
               "browser_usage",
               "container_usage",
+              "cspm_containers_usage",
+              "cspm_hosts_usage",
               "custom_timeseries_usage",
+              "cws_containers_usage",
+              "cws_hosts_usage",
+              "dbm_hosts_usage",
+              "dbm_queries_usage",
               "estimated_indexed_logs_usage",
               "estimated_indexed_spans_usage",
               "fargate_usage",
