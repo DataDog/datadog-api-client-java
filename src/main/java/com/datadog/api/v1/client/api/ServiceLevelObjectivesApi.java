@@ -902,13 +902,6 @@ public class ServiceLevelObjectivesApi {
    */
   public ApiResponse<SLOCorrectionListResponse> getSLOCorrectionsWithHttpInfo(String sloId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getSLOCorrections";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloId' is set
@@ -953,16 +946,6 @@ public class ServiceLevelObjectivesApi {
    */
   public CompletableFuture<ApiResponse<SLOCorrectionListResponse>>
       getSLOCorrectionsWithHttpInfoAsync(String sloId) {
-    // Check if unstable operation is enabled
-    String operationId = "getSLOCorrections";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<SLOCorrectionListResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloId' is set
@@ -1665,6 +1648,13 @@ public class ServiceLevelObjectivesApi {
    */
   public ApiResponse<SearchSLOResponse> searchSLOWithHttpInfo(
       SearchSLOOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "searchSLO";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     String query = parameters.query;
     Long pageSize = parameters.pageSize;
@@ -1709,6 +1699,16 @@ public class ServiceLevelObjectivesApi {
    */
   public CompletableFuture<ApiResponse<SearchSLOResponse>> searchSLOWithHttpInfoAsync(
       SearchSLOOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "searchSLO";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SearchSLOResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
     String query = parameters.query;
     Long pageSize = parameters.pageSize;

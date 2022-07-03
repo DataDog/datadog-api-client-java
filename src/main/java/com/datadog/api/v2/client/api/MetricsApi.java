@@ -259,13 +259,6 @@ public class MetricsApi {
    */
   public ApiResponse<MetricTagConfigurationResponse> createTagConfigurationWithHttpInfo(
       String metricName, MetricTagConfigurationCreateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createTagConfiguration";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricName' is set
@@ -319,17 +312,6 @@ public class MetricsApi {
   public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>>
       createTagConfigurationWithHttpInfoAsync(
           String metricName, MetricTagConfigurationCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createTagConfiguration";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricName' is set
@@ -578,13 +560,6 @@ public class MetricsApi {
    */
   public ApiResponse<Void> deleteTagConfigurationWithHttpInfo(String metricName)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteTagConfiguration";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -630,16 +605,6 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteTagConfigurationWithHttpInfoAsync(
       String metricName) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteTagConfiguration";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -1017,13 +982,6 @@ public class MetricsApi {
    */
   public ApiResponse<MetricTagConfigurationResponse> listTagConfigurationByNameWithHttpInfo(
       String metricName) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listTagConfigurationByName";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -1070,17 +1028,6 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>>
       listTagConfigurationByNameWithHttpInfoAsync(String metricName) {
-    // Check if unstable operation is enabled
-    String operationId = "listTagConfigurationByName";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
@@ -1291,13 +1238,6 @@ public class MetricsApi {
    */
   public ApiResponse<MetricsAndMetricTagConfigurationsResponse> listTagConfigurationsWithHttpInfo(
       ListTagConfigurationsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listTagConfigurations";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     Boolean filterConfigured = parameters.filterConfigured;
     String filterTagsConfigured = parameters.filterTagsConfigured;
@@ -1352,17 +1292,6 @@ public class MetricsApi {
    */
   public CompletableFuture<ApiResponse<MetricsAndMetricTagConfigurationsResponse>>
       listTagConfigurationsWithHttpInfoAsync(ListTagConfigurationsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listTagConfigurations";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MetricsAndMetricTagConfigurationsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     Boolean filterConfigured = parameters.filterConfigured;
     String filterTagsConfigured = parameters.filterTagsConfigured;
@@ -1956,13 +1885,6 @@ public class MetricsApi {
    */
   public ApiResponse<MetricTagConfigurationResponse> updateTagConfigurationWithHttpInfo(
       String metricName, MetricTagConfigurationUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateTagConfiguration";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricName' is set
@@ -2016,17 +1938,6 @@ public class MetricsApi {
   public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>>
       updateTagConfigurationWithHttpInfoAsync(
           String metricName, MetricTagConfigurationUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateTagConfiguration";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricName' is set
