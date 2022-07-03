@@ -16,6 +16,8 @@ import com.datadog.api.v2.client.model.SecurityMonitoringRuleMaxSignalDuration;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleNewValueOptions;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleNewValueOptionsForgetAfter;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleNewValueOptionsLearningDuration;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuleNewValueOptionsLearningMethod;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuleNewValueOptionsLearningThreshold;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleQuery;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryAggregation;
@@ -41,6 +43,7 @@ public class Example {
             .hasExtendedTitle(true)
             .options(
                 new SecurityMonitoringRuleOptions()
+                    .decreaseCriticalityBasedOnEnv(false)
                     .detectionMethod(SecurityMonitoringRuleDetectionMethod.THRESHOLD)
                     .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.ZERO_MINUTES)
                     .hardcodedEvaluatorType(SecurityMonitoringRuleHardcodedEvaluatorType.LOG4SHELL)
@@ -53,7 +56,12 @@ public class Example {
                         new SecurityMonitoringRuleNewValueOptions()
                             .forgetAfter(SecurityMonitoringRuleNewValueOptionsForgetAfter.ONE_DAY)
                             .learningDuration(
-                                SecurityMonitoringRuleNewValueOptionsLearningDuration.ZERO_DAYS)))
+                                SecurityMonitoringRuleNewValueOptionsLearningDuration.ZERO_DAYS)
+                            .learningMethod(
+                                SecurityMonitoringRuleNewValueOptionsLearningMethod.DURATION)
+                            .learningThreshold(
+                                SecurityMonitoringRuleNewValueOptionsLearningThreshold
+                                    .ZERO_OCCURRENCES)))
             .queries(
                 Collections.singletonList(
                     new SecurityMonitoringRuleQuery()

@@ -9,7 +9,6 @@ on:
     inputs:
       version:
         description: New version tag
-        required: true
 
 jobs:
   prepare_release:
@@ -22,7 +21,9 @@ jobs:
         with:
           app_id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
           private_key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Git
         run: |
@@ -30,10 +31,24 @@ jobs:
           git config user.email "${GIT_AUTHOR_EMAIL}"
 
       - name: Install Java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: "8"
-          distribution: "adopt"
+          distribution: "temurin"
+          cache: "maven"
+
+      - name: Calculate version
+        id: get_version
+        run: |
+          if [ "${VERSION}" = "" ] ; then
+            LATEST_TAG=$(git describe --tags --abbrev=0)
+            NEXT_VERSION=$(echo ${LATEST_TAG#datadog-api-client-} | awk '{split($0, a, "."); print a[1] "." a[2] + 1 "." a[3]}')
+            echo ::set-output name=version::$NEXT_VERSION
+          else
+            echo ::set-output name=version::$VERSION
+          fi
+        env:
+          VERSION: ${{ github.event.inputs.version }}
 
       - name: Bump version
         run: |
@@ -42,12 +57,12 @@ jobs:
           git commit -a -m "Version bump ${RELEASE_VERSION}"
           git push -f --set-upstream origin "release/${RELEASE_VERSION}"
         env:
-          RELEASE_VERSION: ${{ github.event.inputs.version }}
+          RELEASE_VERSION: ${{ steps.get_version.outputs.version }}
 
       - name: Create PR
         uses: actions/github-script@v5
         env:
-          RELEASE_VERSION: ${{ github.event.inputs.version }}
+          RELEASE_VERSION: ${{ steps.get_version.outputs.version }}
           BASE: ${{ github.event.ref }}
         with:
           github-token: ${{ steps.get_token.outputs.token }}

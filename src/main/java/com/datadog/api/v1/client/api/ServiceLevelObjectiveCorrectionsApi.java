@@ -216,6 +216,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    * <p>See {@link #deleteSLOCorrectionWithHttpInfoAsync}.
    *
    * @param sloCorrectionId The ID of the SLO correction object. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteSLOCorrectionAsync(String sloCorrectionId) {
     return deleteSLOCorrectionWithHttpInfoAsync(sloCorrectionId)

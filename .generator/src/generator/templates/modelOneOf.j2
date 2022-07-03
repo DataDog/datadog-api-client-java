@@ -68,30 +68,30 @@ public class {{ name }} extends AbstractOpenApiSchema {
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
             {%- for oneOf in model.oneOf %}
-            {%- set dataType = get_type(oneOf) %}
-            // deserialize {{ dataType }}
+            {%- set unParameterizedDataType = get_type(oneOf)|un_parameterize_type %}
+            // deserialize {{ unParameterizedDataType }}
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if ({{ dataType }}.class.equals(Integer.class) || {{ dataType }}.class.equals(Long.class) || {{ dataType }}.class.equals(Float.class) || {{ dataType }}.class.equals(Double.class) || {{ dataType }}.class.equals(Boolean.class) || {{ dataType }}.class.equals(String.class)) {
+                if ({{ unParameterizedDataType }}.class.equals(Integer.class) || {{ unParameterizedDataType }}.class.equals(Long.class) || {{ unParameterizedDataType }}.class.equals(Float.class) || {{ unParameterizedDataType }}.class.equals(Double.class) || {{ unParameterizedDataType }}.class.equals(Boolean.class) || {{ unParameterizedDataType }}.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= (({{ dataType }}.class.equals(Integer.class) || {{ dataType }}.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= (({{ dataType }}.class.equals(Float.class) || {{ dataType }}.class.equals(Double.class)) && (token == JsonToken.VALUE_NUMBER_FLOAT || token == JsonToken.VALUE_NUMBER_INT));
-                        attemptParsing |= ({{ dataType }}.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= ({{ dataType }}.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= (({{ unParameterizedDataType }}.class.equals(Integer.class) || {{ unParameterizedDataType }}.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= (({{ unParameterizedDataType }}.class.equals(Float.class) || {{ unParameterizedDataType }}.class.equals(Double.class)) && (token == JsonToken.VALUE_NUMBER_FLOAT || token == JsonToken.VALUE_NUMBER_INT));
+                        attemptParsing |= ({{ unParameterizedDataType }}.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= ({{ unParameterizedDataType }}.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                         {%- if oneOf.nullable %}
                         attemptParsing |= (token == JsonToken.VALUE_NULL);
                         {%- endif %}
                     }
                 }
                 if (attemptParsing) {
-                    tmp = tree.traverse(jp.getCodec()).readValueAs({{ dataType }}.class);
+                    tmp = tree.traverse(jp.getCodec()).readValueAs({{ unParameterizedDataType }}.class);
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
-                    {%- if not oneOf|is_primitive %}
-                    if (!(({{ dataType }})tmp).unparsed) {
+                    {%- if not oneOf|is_primitive and not unParameterizedDataType|lower|is_java_base_type %}
+                    if (!(({{ unParameterizedDataType }})tmp).unparsed) {
                         deserialized = tmp;
                         match++;
                     }
@@ -99,11 +99,11 @@ public class {{ name }} extends AbstractOpenApiSchema {
                     deserialized = tmp;
                     match++;
                     {% endif %}
-                    log.log(Level.FINER, "Input data matches schema '{{ dataType }}'");
+                    log.log(Level.FINER, "Input data matches schema '{{ unParameterizedDataType }}'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema '{{ dataType }}'", e);
+                log.log(Level.FINER, "Input data does not match schema '{{ unParameterizedDataType }}'", e);
             }
             {#  #}
             {%- endfor %}
@@ -160,7 +160,7 @@ public class {{ name }} extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * {% for oneOf in model.oneOf %}{{ get_type(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %}
+     * {% for oneOf in model.oneOf %}{{ get_type(oneOf)|escape_html }}{% if loop.nextitem %}, {% endif %}{% endfor %}
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -175,7 +175,7 @@ public class {{ name }} extends AbstractOpenApiSchema {
 
         {% endif %}
         {%- for oneOf in model.oneOf %}
-        if (JSON.isInstanceOf({{ get_type(oneOf) }}.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf({{ get_type(oneOf)|un_parameterize_type }}.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -193,9 +193,9 @@ public class {{ name }} extends AbstractOpenApiSchema {
 
     /**
      * Get the actual instance, which can be the following:
-     * {% for oneOf in model.oneOf %}{{ get_type(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %}
+     * {% for oneOf in model.oneOf %}{{ get_type(oneOf)|escape_html }}{% if loop.nextitem %}, {% endif %}{% endfor %}
      *
-     * @return The actual instance ({% for oneOf in model.oneOf %}{{ get_type(oneOf) }}{% if loop.nextitem %}, {% endif %}{% endfor %})
+     * @return The actual instance ({% for oneOf in model.oneOf %}{{ get_type(oneOf)|escape_html }}{% if loop.nextitem %}, {% endif %}{% endfor %})
      */
     @Override
     public Object getActualInstance() {
@@ -204,15 +204,16 @@ public class {{ name }} extends AbstractOpenApiSchema {
 
     {%- for oneOf in model.oneOf %}
     {%- set dataType = get_type(oneOf) %}
+    {%- set unParameterizedDataType = get_type(oneOf)|un_parameterize_type %}
 
     /**
-     * Get the actual instance of `{{ dataType }}`. If the actual instance is not `{{ dataType }}`,
+     * Get the actual instance of `{{ dataType|escape_html }}`. If the actual instance is not `{{ dataType|escape_html }}`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `{{ dataType }}`
-     * @throws ClassCastException if the instance is not `{{ dataType }}`
+     * @return The actual instance of `{{ dataType|escape_html }}`
+     * @throws ClassCastException if the instance is not `{{ dataType|escape_html }}`
      */
-    public {{ dataType }} get{{ dataType }}() throws ClassCastException {
+    public {{ dataType }} get{{ unParameterizedDataType }}() throws ClassCastException {
         return ({{ dataType }})super.getActualInstance();
     }
 

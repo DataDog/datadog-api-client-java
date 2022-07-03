@@ -41,7 +41,7 @@ jobs:
           private_key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
           repository: DataDog/datadog-api-spec
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Post pending status check
         if: github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')
         uses: DataDog/github-actions/post-status-check@v1.0.0
@@ -50,20 +50,12 @@ jobs:
           repo: datadog-api-spec
           status: pending
           context: integration
-      - name: Report source code metadata
-        run: |
-          curl -L "https://github.com/DataDog/datadog-ci/releases/latest/download/datadog-ci_linux-x64" --output ./datadog-ci
-          chmod +x "./datadog-ci"
-          ./datadog-ci git-metadata upload
-        env:
-          DATADOG_API_KEY: ${{ secrets.DD_API_KEY }}
       - name: Install Java
-        # the setup-scala action is the only available action that allows us to access
-        # https://github.com/shyiko/jabba - a tool that can install various JDKs
-        uses: olafurpg/setup-scala@v10
+        uses: actions/setup-java@v3
         with:
-          java-version: openjdk@1.16.0-1
-          jabba-version: 0.11.2
+          java-version: '16'
+          distribution: 'temurin'
+          cache: 'maven'
       - name: Run integration tests
         run: ./run-tests.sh
         env:

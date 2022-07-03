@@ -9,7 +9,6 @@ import com.datadog.api.v1.client.model.SLOCorrectionListResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("getSloCorrections", true);
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
 
     // there is a valid "slo" in the system

@@ -249,6 +249,230 @@ public class UsageMeteringApi {
         new GenericType<CostByOrgResponse>() {});
   }
 
+  /** Manage optional parameters to getEstimatedCostByOrg. */
+  public static class GetEstimatedCostByOrgOptionalParameters {
+    private OffsetDateTime startMonth;
+    private OffsetDateTime endMonth;
+    private OffsetDateTime startDate;
+    private OffsetDateTime endDate;
+
+    /**
+     * Set startMonth.
+     *
+     * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+     *     for cost beginning this month. Either start_month or start_date should be specified, but
+     *     not both. (optional)
+     * @return GetEstimatedCostByOrgOptionalParameters
+     */
+    public GetEstimatedCostByOrgOptionalParameters startMonth(OffsetDateTime startMonth) {
+      this.startMonth = startMonth;
+      return this;
+    }
+
+    /**
+     * Set endMonth.
+     *
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+     *     for cost ending this month. (optional)
+     * @return GetEstimatedCostByOrgOptionalParameters
+     */
+    public GetEstimatedCostByOrgOptionalParameters endMonth(OffsetDateTime endMonth) {
+      this.endMonth = endMonth;
+      return this;
+    }
+
+    /**
+     * Set startDate.
+     *
+     * @param startDate Datetime in ISO-8601 format, UTC, precise to day: <code>[YYYY-MM-DD]</code>
+     *     for cost beginning this day. Either start_month or start_date should be specified, but
+     *     not both. (optional)
+     * @return GetEstimatedCostByOrgOptionalParameters
+     */
+    public GetEstimatedCostByOrgOptionalParameters startDate(OffsetDateTime startDate) {
+      this.startDate = startDate;
+      return this;
+    }
+
+    /**
+     * Set endDate.
+     *
+     * @param endDate Datetime in ISO-8601 format, UTC, precise to day: <code>[YYYY-MM-DD]</code>
+     *     for cost ending this day. (optional)
+     * @return GetEstimatedCostByOrgOptionalParameters
+     */
+    public GetEstimatedCostByOrgOptionalParameters endDate(OffsetDateTime endDate) {
+      this.endDate = endDate;
+      return this;
+    }
+  }
+
+  /**
+   * Get estimated cost across multi-org account.
+   *
+   * <p>See {@link #getEstimatedCostByOrgWithHttpInfo}.
+   *
+   * @return CostByOrgResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostByOrgResponse getEstimatedCostByOrg() throws ApiException {
+    return getEstimatedCostByOrgWithHttpInfo(new GetEstimatedCostByOrgOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get estimated cost across multi-org account.
+   *
+   * <p>See {@link #getEstimatedCostByOrgWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CostByOrgResponse&gt;
+   */
+  public CompletableFuture<CostByOrgResponse> getEstimatedCostByOrgAsync() {
+    return getEstimatedCostByOrgWithHttpInfoAsync(new GetEstimatedCostByOrgOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get estimated cost across multi-org account.
+   *
+   * <p>See {@link #getEstimatedCostByOrgWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CostByOrgResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostByOrgResponse getEstimatedCostByOrg(GetEstimatedCostByOrgOptionalParameters parameters)
+      throws ApiException {
+    return getEstimatedCostByOrgWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get estimated cost across multi-org account.
+   *
+   * <p>See {@link #getEstimatedCostByOrgWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostByOrgResponse&gt;
+   */
+  public CompletableFuture<CostByOrgResponse> getEstimatedCostByOrgAsync(
+      GetEstimatedCostByOrgOptionalParameters parameters) {
+    return getEstimatedCostByOrgWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get estimated cost across multi-org account.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostByOrgResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostByOrgResponse> getEstimatedCostByOrgWithHttpInfo(
+      GetEstimatedCostByOrgOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    OffsetDateTime startMonth = parameters.startMonth;
+    OffsetDateTime endMonth = parameters.endMonth;
+    OffsetDateTime startDate = parameters.startDate;
+    OffsetDateTime endDate = parameters.endDate;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/estimated_cost_by_org";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_date", endDate));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "UsageMeteringApi.getEstimatedCostByOrg",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostByOrgResponse>() {});
+  }
+
+  /**
+   * Get estimated cost across multi-org account.
+   *
+   * <p>See {@link #getEstimatedCostByOrgWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostByOrgResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostByOrgResponse>> getEstimatedCostByOrgWithHttpInfoAsync(
+      GetEstimatedCostByOrgOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    OffsetDateTime startMonth = parameters.startMonth;
+    OffsetDateTime endMonth = parameters.endMonth;
+    OffsetDateTime startDate = parameters.startDate;
+    OffsetDateTime endDate = parameters.endDate;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/estimated_cost_by_org";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_date", endDate));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getEstimatedCostByOrg",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostByOrgResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostByOrgResponse>() {});
+  }
+
   /** Manage optional parameters to getUsageApplicationSecurityMonitoring. */
   public static class GetUsageApplicationSecurityMonitoringOptionalParameters {
     private OffsetDateTime endHr;

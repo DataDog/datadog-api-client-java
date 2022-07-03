@@ -200,6 +200,7 @@ public class PagerDutyIntegrationApi {
    * <p>See {@link #deletePagerDutyIntegrationServiceWithHttpInfoAsync}.
    *
    * @param serviceName The service name (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deletePagerDutyIntegrationServiceAsync(String serviceName) {
     return deletePagerDutyIntegrationServiceWithHttpInfoAsync(serviceName)
@@ -485,6 +486,7 @@ public class PagerDutyIntegrationApi {
    *
    * @param serviceName The service name (required)
    * @param body Update an existing service object request body. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> updatePagerDutyIntegrationServiceAsync(
       String serviceName, PagerDutyServiceKey body) {

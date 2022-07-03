@@ -81,6 +81,8 @@ PATTERN_LEADING_ALPHA = re.compile(r"(.)([A-Z][a-z0-9]+)")
 PATTERN_FOLLOWING_ALPHA = re.compile(r"([a-z0-9])([A-Z])")
 PATTERN_WHITESPACE = re.compile(r"\W")
 
+UN_PARAMETERIZE = re.compile(r"<[^>]+>")
+
 
 # TODO: revisit this and find permanent solution
 # Edge cases to maintain backward compatibility with Openapi generator
@@ -145,11 +147,15 @@ def escape_reserved_keyword(word):
 
 
 def attribute_name(attribute):
-    return escape_reserved_keyword(upperfirst(snake_case(attribute)))
+    return escape_reserved_keyword(upperfirst(camel_case(attribute)))
 
 
 def variable_name(attribute):
     return escape_reserved_keyword((camel_case(attribute)))
+
+
+def un_parameterize_type(type):
+    return UN_PARAMETERIZE.sub("", type)
 
 
 def format_value(value, quotes='"', schema=None, default_value=False, type_=None):
@@ -225,7 +231,7 @@ def docstring(text, indent=3):
     if not text:
         return ""
     blank = " " * indent
-    return "\n".join("{}* {}".format(blank, line) for line in markdown.markdown(text).splitlines())
+    return "\n".join("{}* {}".format(blank, line) for line in markdown.markdown(text).replace("h4>", "h3>").splitlines())
 
 
 def inline_docstring(text):
@@ -322,7 +328,6 @@ def format_data_with_schema(
     default_name=None,
 ):
     name, imports = get_name_and_imports(schema)
-
     if "enum" in schema and data not in schema["enum"]:
         raise ValueError(f"{data} is not valid enum value {schema['enum']}")
 
@@ -392,11 +397,12 @@ def format_data_with_schema(
         return name, parameters, imports
 
     if "oneOf" in schema:
-        assert name is not None
         matched = 0
         extra_imports = one_of_imports = set()
         for sub_schema in schema["oneOf"]:
             try:
+                if "items" in sub_schema and not isinstance(data, list):
+                    continue
                 if sub_schema.get("nullable") and data is None:
                     # only one schema can be nullable
                     value = "null"
@@ -405,6 +411,7 @@ def format_data_with_schema(
                     named, value, one_of_imports = format_data_with_schema(
                         data,
                         sub_schema,
+                        default_name=default_name,
                         replace_values=replace_values,
                     )
                 if matched == 0:
@@ -422,7 +429,13 @@ def format_data_with_schema(
             warnings.warn(f"[{matched}] {data} is not valid for schema {name}")
 
         imports |= extra_imports
-        return name, f"new {name}(\n{parameters})", imports
+        if name:
+            return name, f"new {name}(\n{parameters})", imports
+        elif "oneOf" in schema and default_name:
+            imports.add(f"{default_name}Item")
+            return name, f"new {default_name}Item(\n{parameters})", imports
+        else:
+            return name, parameters, imports
 
     return name, parameters, imports
 
@@ -435,6 +448,25 @@ def format_data_with_schema_list(
     default_name=None,
 ):
     name, imports = get_name_and_imports(schema)
+
+    if "oneOf" in schema:
+        for sub_schema in schema["oneOf"]:
+            try:
+                named, value, one_of_imports = format_data_with_schema(
+                    data,
+                    sub_schema,
+                    default_name=default_name,
+                    replace_values=replace_values,
+                )
+            except (KeyError, ValueError) as e:
+                continue
+
+            if default_name:
+                one_of_imports.add(f"{default_name}Item")
+                value = f"new {default_name}Item({value})"
+
+            return name, value, one_of_imports
+        raise ValueError(f"{data} is not valid oneOf {schema}")
 
     parameters = ""
     param_count = 0
@@ -593,3 +625,7 @@ def get_response_type(schema, version):
     if name:
         return api_response_type, f"com.datadog.api.{version}.client.model.{name}"
     return api_response_type, None
+
+
+def attribute_path(attribute):
+    return ".".join(attribute_name(a) for a in attribute.split("."))

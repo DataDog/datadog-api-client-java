@@ -333,6 +333,7 @@ public class UsersApi {
    * <p>See {@link #disableUserWithHttpInfoAsync}.
    *
    * @param userId The ID of the user. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> disableUserAsync(String userId) {
     return disableUserWithHttpInfoAsync(userId)

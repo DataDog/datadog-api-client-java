@@ -338,6 +338,7 @@ public class DashboardsApi {
    * <p>See {@link #deleteDashboardsWithHttpInfoAsync}.
    *
    * @param body Delete dashboards request body. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteDashboardsAsync(DashboardBulkDeleteRequest body) {
     return deleteDashboardsWithHttpInfoAsync(body)
@@ -795,6 +796,7 @@ public class DashboardsApi {
    * <p>See {@link #restoreDashboardsWithHttpInfoAsync}.
    *
    * @param body Restore dashboards request body. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> restoreDashboardsAsync(DashboardRestoreRequest body) {
     return restoreDashboardsWithHttpInfoAsync(body)

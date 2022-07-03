@@ -28,6 +28,7 @@ public class World {
   // Client information
   Class<?> clientClass;
   public Object client; // ApiClient
+  Client httpClient = null;
 
   // Specific API information
   Class<?> apiClass;
@@ -40,11 +41,13 @@ public class World {
   Class<?> requestParametersClass;
   Object requestParameters;
   Method requestBuilder;
+  String methodName;
   List<Object> parametersArray;
 
   // Response information
   Class<?> responseClass;
   Object response; // ApiResponse<?>
+  ArrayList<Object> paginatedItems;
 
   // Name control
   Scenario scenario;
@@ -141,8 +144,6 @@ public class World {
         .getMethod("setDebugging", boolean.class)
         .invoke(client, "true".equals(System.getenv("DEBUG")));
 
-    TestUtils.APITest.trustProxyCertsStatic();
-
     String site = System.getenv("DD_TEST_SITE");
     if (site != null) {
       HashMap<String, String> serverVariables = new HashMap<>();
@@ -155,6 +156,7 @@ public class World {
     }
 
     if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
+      TestUtils.APITest.trustProxyCertsStatic();
       // Set proxy to the "mockServer" for recording
       // ClientConfig config = (ClientConfig)
       // client.getHttpClient().getConfiguration()
@@ -173,18 +175,11 @@ public class World {
           new HttpUrlConnectorProvider()
               .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
     } else if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
-      // Set base path to the mock server for replaying
-      // client.setBasePath(...)
-      clientClass.getMethod("setBasePath", String.class).invoke(client, RecorderSteps.getUrl());
-      // client.setServerIndex(null)
-      Field f = clientClass.getDeclaredField("serverIndex");
-      f.setAccessible(true);
-      f.set(client, null);
+      if (httpClient == null) {
+        httpClient = new TestClient(getName(), "/features/" + getVersion(), getObjectMapper());
+      }
+      clientClass.getMethod("setHttpClient", Client.class).invoke(client, httpClient);
     }
-    // client.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
-    clientClass
-        .getMethod("addDefaultHeader", String.class, String.class)
-        .invoke(client, "JAVA-TEST-NAME", getName());
   }
 
   public void setupClient(String apiVersion)
@@ -234,15 +229,16 @@ public class World {
     clientClass.getMethod("configureApiKeys", Map.class).invoke(client, secrets);
   }
 
-  public void newRequest(String methodName) {
+  public void newRequest(String name) {
+    methodName = toMethodName(name);
     for (Method method : apiClass.getMethods()) {
-      if (method.getName().equals(toMethodName(methodName) + "WithHttpInfo")) {
+      if (method.getName().equals(methodName + "WithHttpInfo")) {
         requestBuilder = method;
         break;
       }
     }
     for (Class c : apiClass.getClasses()) {
-      if (c.getName().endsWith(methodName + "OptionalParameters")) {
+      if (c.getName().endsWith(name + "OptionalParameters")) {
         requestParametersClass = c;
         try {
           requestParameters = c.getConstructor().newInstance();
@@ -489,9 +485,10 @@ public class World {
 
     try {
       response = requestBuilder.invoke(api, parametersArray.toArray());
-    } catch (java.lang.IllegalArgumentException e) {
-      throw e;
     } catch (Exception e) {
+      if (!exceptionClass.isInstance(e.getCause())) {
+        throw e;
+      }
       // Return a new response object with the response code set
       // so we can make assertions on it
       int responseCode = (int) exceptionClass.getMethod("getCode").invoke(e.getCause());
@@ -522,6 +519,43 @@ public class World {
         throw new Exception(e.getCause());
       }
       undo.add(getRequestUndo(apiVersion, undoSettings, data));
+    }
+  }
+
+  public void sendPaginatedRequest() throws Exception {
+    if (requestParametersClass != null) {
+      parametersArray.add(requestParameters);
+    }
+
+    Method paginatedMethod = null;
+    // Get the paginated method.
+    for (Method method : apiClass.getMethods()) {
+      if (method.getName().equals(this.methodName + "WithPagination")) {
+        if (parametersArray.size() == method.getParameterCount()) {
+          paginatedMethod = method;
+          break;
+        }
+      }
+    }
+
+    responseClass = paginatedMethod.getReturnType();
+
+    String apiVersion = getVersion();
+    Class<?> exceptionClass =
+        Class.forName("com.datadog.api." + apiVersion + ".client.ApiException");
+
+    try {
+      response = paginatedMethod.invoke(api, parametersArray.toArray());
+    } catch (Exception e) {
+      throw e;
+    }
+
+    paginatedItems = new ArrayList<>();
+    Object iterator = response.getClass().getMethod("iterator").invoke(response);
+
+    while (((boolean) iterator.getClass().getMethod("hasNext").invoke(iterator))) {
+      Object item = iterator.getClass().getMethod("next").invoke(iterator);
+      paginatedItems.add(item);
     }
   }
 

@@ -9,7 +9,6 @@ import com.datadog.api.v2.client.model.MetricTagConfigurationResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("listTagConfigurationByName", true);
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     // there is a valid "metric_tag_configuration" in the system

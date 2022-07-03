@@ -15,7 +15,6 @@ import java.util.Arrays;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("createTagConfiguration", true);
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     MetricTagConfigurationCreateRequest body =

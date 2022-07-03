@@ -6,6 +6,7 @@ import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
 import com.datadog.api.v1.client.model.IdpResponse;
+import com.datadog.api.v1.client.model.OrgDowngradedResponse;
 import com.datadog.api.v1.client.model.Organization;
 import com.datadog.api.v1.client.model.OrganizationCreateBody;
 import com.datadog.api.v1.client.model.OrganizationCreateResponse;
@@ -193,6 +194,146 @@ public class OrganizationsApi {
   }
 
   /**
+   * Spin-off Child Organization.
+   *
+   * <p>See {@link #downgradeOrgWithHttpInfo}.
+   *
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
+   *     (required)
+   * @return OrgDowngradedResponse
+   * @throws ApiException if fails to make API call
+   */
+  public OrgDowngradedResponse downgradeOrg(String publicId) throws ApiException {
+    return downgradeOrgWithHttpInfo(publicId).getData();
+  }
+
+  /**
+   * Spin-off Child Organization.
+   *
+   * <p>See {@link #downgradeOrgWithHttpInfoAsync}.
+   *
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
+   *     (required)
+   * @return CompletableFuture&lt;OrgDowngradedResponse&gt;
+   */
+  public CompletableFuture<OrgDowngradedResponse> downgradeOrgAsync(String publicId) {
+    return downgradeOrgWithHttpInfoAsync(publicId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Only available for MSP customers. Removes a child organization from the hierarchy of the master
+   * organization and places the child organization on a 30-day trial.
+   *
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
+   *     (required)
+   * @return ApiResponse&lt;OrgDowngradedResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<OrgDowngradedResponse> downgradeOrgWithHttpInfo(String publicId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling downgradeOrg");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/org/{public_id}/downgrade"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "OrganizationsApi.downgradeOrg",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgDowngradedResponse>() {});
+  }
+
+  /**
+   * Spin-off Child Organization.
+   *
+   * <p>See {@link #downgradeOrgWithHttpInfo}.
+   *
+   * @param publicId The <code>public_id</code> of the organization you are operating within.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;OrgDowngradedResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<OrgDowngradedResponse>> downgradeOrgWithHttpInfoAsync(
+      String publicId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<OrgDowngradedResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'publicId' when calling downgradeOrg"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/org/{public_id}/downgrade"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "OrganizationsApi.downgradeOrg",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<OrgDowngradedResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<OrgDowngradedResponse>() {});
+  }
+
+  /**
    * Get organization information.
    *
    * <p>See {@link #getOrgWithHttpInfo}.
@@ -356,7 +497,7 @@ public class OrganizationsApi {
   }
 
   /**
-   * List your managed organizations.
+   * This endpoint returns data on your top-level organization.
    *
    * @return ApiResponse&lt;OrganizationListResponse&gt;
    * @throws ApiException if fails to make API call

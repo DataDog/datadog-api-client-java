@@ -311,6 +311,7 @@ public class TagsApi {
    *
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
    *     (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteHostTagsAsync(String hostName) {
     return deleteHostTagsWithHttpInfoAsync(hostName, new DeleteHostTagsOptionalParameters())
@@ -343,6 +344,7 @@ public class TagsApi {
    * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
    *     (required)
    * @param parameters Optional parameters for the request.
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteHostTagsAsync(
       String hostName, DeleteHostTagsOptionalParameters parameters) {

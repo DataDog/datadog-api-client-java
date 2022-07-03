@@ -4,14 +4,17 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.PaginationIterable;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.IncidentCreateRequest;
 import com.datadog.api.v2.client.model.IncidentRelatedObject;
 import com.datadog.api.v2.client.model.IncidentResponse;
+import com.datadog.api.v2.client.model.IncidentResponseData;
 import com.datadog.api.v2.client.model.IncidentUpdateRequest;
 import com.datadog.api.v2.client.model.IncidentsResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -217,6 +220,7 @@ public class IncidentsApi {
    * <p>See {@link #deleteIncidentWithHttpInfoAsync}.
    *
    * @param incidentId The UUID of the incident. (required)
+   * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteIncidentAsync(String incidentId) {
     return deleteIncidentWithHttpInfoAsync(incidentId)
@@ -665,6 +669,58 @@ public class IncidentsApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * Get a list of incidents.
+   *
+   * <p>See {@link #listIncidentsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;IncidentResponseData&gt;
+   */
+  public PaginationIterable<IncidentResponseData> listIncidentsWithPagination()
+      throws ApiException {
+    ListIncidentsOptionalParameters parameters = new ListIncidentsOptionalParameters();
+    return listIncidentsWithPagination(parameters);
+  }
+
+  /**
+   * Get a list of incidents.
+   *
+   * <p>See {@link #listIncidentsWithHttpInfo}.
+   *
+   * @return IncidentsResponse
+   */
+  public PaginationIterable<IncidentResponseData> listIncidentsWithPagination(
+      ListIncidentsOptionalParameters parameters) throws ApiException {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageOffset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listIncidents",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**
