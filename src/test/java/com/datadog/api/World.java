@@ -20,6 +20,7 @@ import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.ws.rs.client.Client;
+import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -179,6 +180,11 @@ public class World {
         httpClient = new TestClient(getName(), "/features/" + getVersion(), getObjectMapper());
       }
       clientClass.getMethod("setHttpClient", Client.class).invoke(client, httpClient);
+    } else if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+      ClientConfig config =
+          (ClientConfig)
+              ((Client) clientClass.getMethod("getHttpClient").invoke(client)).getConfiguration();
+      config.connectorProvider(new ApacheConnectorProvider());
     }
   }
 
