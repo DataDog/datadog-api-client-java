@@ -230,6 +230,13 @@ public class UsageMeteringApi {
   @Deprecated
   public ApiResponse<UsageCustomReportsResponse> getDailyCustomReportsWithHttpInfo(
       GetDailyCustomReportsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getDailyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -278,6 +285,16 @@ public class UsageMeteringApi {
   @Deprecated
   public CompletableFuture<ApiResponse<UsageCustomReportsResponse>>
       getDailyCustomReportsWithHttpInfoAsync(GetDailyCustomReportsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getDailyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -494,6 +511,13 @@ public class UsageMeteringApi {
       HourlyUsageAttributionUsageType usageType,
       GetHourlyUsageAttributionOptionalParameters parameters)
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getHourlyUsageAttribution";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -562,6 +586,17 @@ public class UsageMeteringApi {
           OffsetDateTime startHr,
           HourlyUsageAttributionUsageType usageType,
           GetHourlyUsageAttributionOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getHourlyUsageAttribution";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<HourlyUsageAttributionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -1185,6 +1220,13 @@ public class UsageMeteringApi {
   @Deprecated
   public ApiResponse<UsageCustomReportsResponse> getMonthlyCustomReportsWithHttpInfo(
       GetMonthlyCustomReportsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getMonthlyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -1234,6 +1276,16 @@ public class UsageMeteringApi {
   public CompletableFuture<ApiResponse<UsageCustomReportsResponse>>
       getMonthlyCustomReportsWithHttpInfoAsync(
           GetMonthlyCustomReportsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getMonthlyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -1483,6 +1535,13 @@ public class UsageMeteringApi {
       MonthlyUsageAttributionSupportedMetrics fields,
       GetMonthlyUsageAttributionOptionalParameters parameters)
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getMonthlyUsageAttribution";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startMonth' is set
@@ -1557,6 +1616,17 @@ public class UsageMeteringApi {
           OffsetDateTime startMonth,
           MonthlyUsageAttributionSupportedMetrics fields,
           GetMonthlyUsageAttributionOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getMonthlyUsageAttribution";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonthlyUsageAttributionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startMonth' is set
@@ -1688,6 +1758,13 @@ public class UsageMeteringApi {
   @Deprecated
   public ApiResponse<UsageSpecifiedCustomReportsResponse>
       getSpecifiedDailyCustomReportsWithHttpInfo(String reportId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSpecifiedDailyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'reportId' is set
@@ -1735,6 +1812,17 @@ public class UsageMeteringApi {
   @Deprecated
   public CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>>
       getSpecifiedDailyCustomReportsWithHttpInfoAsync(String reportId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSpecifiedDailyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'reportId' is set
@@ -1840,6 +1928,13 @@ public class UsageMeteringApi {
   @Deprecated
   public ApiResponse<UsageSpecifiedCustomReportsResponse>
       getSpecifiedMonthlyCustomReportsWithHttpInfo(String reportId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSpecifiedMonthlyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'reportId' is set
@@ -1888,6 +1983,17 @@ public class UsageMeteringApi {
   @Deprecated
   public CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>>
       getSpecifiedMonthlyCustomReportsWithHttpInfoAsync(String reportId) {
+    // Check if unstable operation is enabled
+    String operationId = "getSpecifiedMonthlyCustomReports";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'reportId' is set
@@ -2340,6 +2446,13 @@ public class UsageMeteringApi {
       UsageAttributionSupportedMetrics fields,
       GetUsageAttributionOptionalParameters parameters)
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getUsageAttribution";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startMonth' is set
@@ -2414,6 +2527,16 @@ public class UsageMeteringApi {
           OffsetDateTime startMonth,
           UsageAttributionSupportedMetrics fields,
           GetUsageAttributionOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getUsageAttribution";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UsageAttributionResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startMonth' is set

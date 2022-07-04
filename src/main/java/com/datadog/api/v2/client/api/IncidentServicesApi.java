@@ -100,6 +100,13 @@ public class IncidentServicesApi {
    */
   public ApiResponse<IncidentServiceResponse> createIncidentServiceWithHttpInfo(
       IncidentServiceCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentService";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -142,6 +149,16 @@ public class IncidentServicesApi {
    */
   public CompletableFuture<ApiResponse<IncidentServiceResponse>>
       createIncidentServiceWithHttpInfoAsync(IncidentServiceCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentService";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentServiceResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -231,6 +248,13 @@ public class IncidentServicesApi {
    *     </table>
    */
   public ApiResponse<Void> deleteIncidentServiceWithHttpInfo(String serviceId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentService";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'serviceId' is set
@@ -275,6 +299,16 @@ public class IncidentServicesApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteIncidentServiceWithHttpInfoAsync(
       String serviceId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentService";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'serviceId' is set
@@ -423,6 +457,13 @@ public class IncidentServicesApi {
    */
   public ApiResponse<IncidentServiceResponse> getIncidentServiceWithHttpInfo(
       String serviceId, GetIncidentServiceOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentService";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'serviceId' is set
@@ -473,6 +514,16 @@ public class IncidentServicesApi {
   public CompletableFuture<ApiResponse<IncidentServiceResponse>>
       getIncidentServiceWithHttpInfoAsync(
           String serviceId, GetIncidentServiceOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentService";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentServiceResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'serviceId' is set
@@ -655,6 +706,13 @@ public class IncidentServicesApi {
    */
   public ApiResponse<IncidentServicesResponse> listIncidentServicesWithHttpInfo(
       ListIncidentServicesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentServices";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     IncidentRelatedObject include = parameters.include;
     Long pageSize = parameters.pageSize;
@@ -701,6 +759,16 @@ public class IncidentServicesApi {
    */
   public CompletableFuture<ApiResponse<IncidentServicesResponse>>
       listIncidentServicesWithHttpInfoAsync(ListIncidentServicesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentServices";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentServicesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
     IncidentRelatedObject include = parameters.include;
     Long pageSize = parameters.pageSize;
@@ -799,6 +867,13 @@ public class IncidentServicesApi {
    */
   public ApiResponse<IncidentServiceResponse> updateIncidentServiceWithHttpInfo(
       String serviceId, IncidentServiceUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentService";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'serviceId' is set
@@ -850,6 +925,16 @@ public class IncidentServicesApi {
    */
   public CompletableFuture<ApiResponse<IncidentServiceResponse>>
       updateIncidentServiceWithHttpInfoAsync(String serviceId, IncidentServiceUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentService";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentServiceResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'serviceId' is set
