@@ -108,7 +108,7 @@ public class ClientSteps {
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
           java.lang.InstantiationException, java.lang.NoSuchMethodException,
           java.lang.ClassNotFoundException {
-    world.setUnstableOperationEnabled(World.toMethodName(operationId));
+    world.setUnstableOperationEnabled(apiVersion + "." + World.toMethodName(operationId));
   }
 
   @Given("a valid \"apiKeyAuth\" key in the system")
@@ -170,7 +170,7 @@ public class ClientSteps {
           java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException, IOException {
     Path bodyPath =
-        Paths.get("src/test/resources/com/datadog/api/" + apiVersion + "/client/api/" + filename);
+        Paths.get("src/test/resources/com/datadog/api/client/" + apiVersion + "/api/" + filename);
     String data = new String(Files.readAllBytes(bodyPath));
     world.addRequestParameter("body", data);
   }
