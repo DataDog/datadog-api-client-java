@@ -367,7 +367,9 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get estimated cost across multi-org account.
+   * Get estimated cost across multi-org account. Estimated data is only available for the current
+   * month and previous month. To access historical costs beyond 2 months in the past, use the <a
+   * href="#get-cost-across-multi-org-account">/cost_by_org</a> endpoint.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CostByOrgResponse&gt;
