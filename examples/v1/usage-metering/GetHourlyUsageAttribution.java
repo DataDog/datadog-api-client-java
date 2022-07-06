@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 // Get hourly usage attribution returns "OK" response
-||||||| parent of ebb74b06e (Fix examples)
-// Get Hourly Usage Attribution returns "OK" response
-=======
-// Get Hourly Usage Attribution returns "OK" response
 import com.datadog.api.client.ApiException;
->>>>>>> ebb74b06e (Fix examples)
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.UsageMeteringApi;

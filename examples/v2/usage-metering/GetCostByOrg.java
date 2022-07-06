@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 // Get cost across multi-org account returns "OK" response
-||||||| parent of ebb74b06e (Fix examples)
-// Get Cost Across Multi-Org Account returns "OK" response
-=======
-// Get Cost Across Multi-Org Account returns "OK" response
 import com.datadog.api.client.ApiException;
->>>>>>> ebb74b06e (Fix examples)
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.UsageMeteringApi;

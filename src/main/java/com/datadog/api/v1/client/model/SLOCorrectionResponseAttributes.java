@@ -1,0 +1,424 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.v1.client.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+/** The attribute object associated with the SLO correction. */
+@JsonPropertyOrder({
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_CATEGORY,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_CREATED_AT,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_CREATOR,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_DESCRIPTION,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_DURATION,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_END,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_MODIFIED_AT,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_MODIFIER,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_RRULE,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_SLO_ID,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_START,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_TIMEZONE
+})
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class SLOCorrectionResponseAttributes {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CATEGORY = "category";
+  private SLOCorrectionCategory category;
+
+  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  private Long createdAt;
+
+  public static final String JSON_PROPERTY_CREATOR = "creator";
+  private Creator creator;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
+  public static final String JSON_PROPERTY_DURATION = "duration";
+  private JsonNullable<Long> duration = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_END = "end";
+  private Long end;
+
+  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+  private Long modifiedAt;
+
+  public static final String JSON_PROPERTY_MODIFIER = "modifier";
+  private JsonNullable<SLOCorrectionResponseAttributesModifier> modifier =
+      JsonNullable.<SLOCorrectionResponseAttributesModifier>undefined();
+
+  public static final String JSON_PROPERTY_RRULE = "rrule";
+  private JsonNullable<String> rrule = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SLO_ID = "slo_id";
+  private String sloId;
+
+  public static final String JSON_PROPERTY_START = "start";
+  private Long start;
+
+  public static final String JSON_PROPERTY_TIMEZONE = "timezone";
+  private String timezone;
+
+  public SLOCorrectionResponseAttributes category(SLOCorrectionCategory category) {
+    this.category = category;
+    this.unparsed |= !category.isValid();
+    return this;
+  }
+
+  /**
+   * Category the SLO correction belongs to.
+   *
+   * @return category
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOCorrectionCategory getCategory() {
+    return category;
+  }
+
+  public void setCategory(SLOCorrectionCategory category) {
+    if (!category.isValid()) {
+      this.unparsed = true;
+    }
+    this.category = category;
+  }
+
+  public SLOCorrectionResponseAttributes createdAt(Long createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * The epoch timestamp of when the correction was created at.
+   *
+   * @return createdAt
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(Long createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  /**
+   * Object describing the creator of the shared element.
+   *
+   * @return creator
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Creator getCreator() {
+    return creator;
+  }
+
+  public SLOCorrectionResponseAttributes description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Description of the correction being made.
+   *
+   * @return description
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public SLOCorrectionResponseAttributes duration(Long duration) {
+    this.duration = JsonNullable.<Long>of(duration);
+    return this;
+  }
+
+  /**
+   * Length of time (in seconds) for a specified <code>rrule</code> recurring SLO correction.
+   *
+   * @return duration
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+  public Long getDuration() {
+    return duration.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getDuration_JsonNullable() {
+    return duration;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  public void setDuration_JsonNullable(JsonNullable<Long> duration) {
+    this.duration = duration;
+  }
+
+  public void setDuration(Long duration) {
+    this.duration = JsonNullable.<Long>of(duration);
+  }
+
+  public SLOCorrectionResponseAttributes end(Long end) {
+    this.end = end;
+    return this;
+  }
+
+  /**
+   * Ending time of the correction in epoch seconds.
+   *
+   * @return end
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_END)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEnd() {
+    return end;
+  }
+
+  public void setEnd(Long end) {
+    this.end = end;
+  }
+
+  public SLOCorrectionResponseAttributes modifiedAt(Long modifiedAt) {
+    this.modifiedAt = modifiedAt;
+    return this;
+  }
+
+  /**
+   * The epoch timestamp of when the correction was modified at.
+   *
+   * @return modifiedAt
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getModifiedAt() {
+    return modifiedAt;
+  }
+
+  public void setModifiedAt(Long modifiedAt) {
+    this.modifiedAt = modifiedAt;
+  }
+
+  public SLOCorrectionResponseAttributes modifier(
+      SLOCorrectionResponseAttributesModifier modifier) {
+    this.modifier = JsonNullable.<SLOCorrectionResponseAttributesModifier>of(modifier);
+    return this;
+  }
+
+  /**
+   * Modifier of the object.
+   *
+   * @return modifier
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+  public SLOCorrectionResponseAttributesModifier getModifier() {
+    return modifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<SLOCorrectionResponseAttributesModifier> getModifier_JsonNullable() {
+    return modifier;
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIER)
+  public void setModifier_JsonNullable(
+      JsonNullable<SLOCorrectionResponseAttributesModifier> modifier) {
+    this.modifier = modifier;
+  }
+
+  public void setModifier(SLOCorrectionResponseAttributesModifier modifier) {
+    this.modifier = JsonNullable.<SLOCorrectionResponseAttributesModifier>of(modifier);
+  }
+
+  public SLOCorrectionResponseAttributes rrule(String rrule) {
+    this.rrule = JsonNullable.<String>of(rrule);
+    return this;
+  }
+
+  /**
+   * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO
+   * corrections are <code>FREQ</code>, <code>INTERVAL</code>, <code>COUNT</code>, and <code>UNTIL
+   * </code>.
+   *
+   * @return rrule
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+  public String getRrule() {
+    return rrule.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_RRULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getRrule_JsonNullable() {
+    return rrule;
+  }
+
+  @JsonProperty(JSON_PROPERTY_RRULE)
+  public void setRrule_JsonNullable(JsonNullable<String> rrule) {
+    this.rrule = rrule;
+  }
+
+  public void setRrule(String rrule) {
+    this.rrule = JsonNullable.<String>of(rrule);
+  }
+
+  public SLOCorrectionResponseAttributes sloId(String sloId) {
+    this.sloId = sloId;
+    return this;
+  }
+
+  /**
+   * ID of the SLO that this correction applies to.
+   *
+   * @return sloId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SLO_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSloId() {
+    return sloId;
+  }
+
+  public void setSloId(String sloId) {
+    this.sloId = sloId;
+  }
+
+  public SLOCorrectionResponseAttributes start(Long start) {
+    this.start = start;
+    return this;
+  }
+
+  /**
+   * Starting time of the correction in epoch seconds.
+   *
+   * @return start
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_START)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getStart() {
+    return start;
+  }
+
+  public void setStart(Long start) {
+    this.start = start;
+  }
+
+  public SLOCorrectionResponseAttributes timezone(String timezone) {
+    this.timezone = timezone;
+    return this;
+  }
+
+  /**
+   * The timezone to display in the UI for the correction times (defaults to "UTC").
+   *
+   * @return timezone
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMEZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTimezone() {
+    return timezone;
+  }
+
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
+  }
+
+  /** Return true if this SLOCorrectionResponseAttributes object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SLOCorrectionResponseAttributes sloCorrectionResponseAttributes =
+        (SLOCorrectionResponseAttributes) o;
+    return Objects.equals(this.category, sloCorrectionResponseAttributes.category)
+        && Objects.equals(this.createdAt, sloCorrectionResponseAttributes.createdAt)
+        && Objects.equals(this.creator, sloCorrectionResponseAttributes.creator)
+        && Objects.equals(this.description, sloCorrectionResponseAttributes.description)
+        && Objects.equals(this.duration, sloCorrectionResponseAttributes.duration)
+        && Objects.equals(this.end, sloCorrectionResponseAttributes.end)
+        && Objects.equals(this.modifiedAt, sloCorrectionResponseAttributes.modifiedAt)
+        && Objects.equals(this.modifier, sloCorrectionResponseAttributes.modifier)
+        && Objects.equals(this.rrule, sloCorrectionResponseAttributes.rrule)
+        && Objects.equals(this.sloId, sloCorrectionResponseAttributes.sloId)
+        && Objects.equals(this.start, sloCorrectionResponseAttributes.start)
+        && Objects.equals(this.timezone, sloCorrectionResponseAttributes.timezone);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        category,
+        createdAt,
+        creator,
+        description,
+        duration,
+        end,
+        modifiedAt,
+        modifier,
+        rrule,
+        sloId,
+        start,
+        timezone);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SLOCorrectionResponseAttributes {\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    modifier: ").append(toIndentedString(modifier)).append("\n");
+    sb.append("    rrule: ").append(toIndentedString(rrule)).append("\n");
+    sb.append("    sloId: ").append(toIndentedString(sloId)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
+    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}

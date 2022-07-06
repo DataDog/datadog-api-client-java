@@ -88,7 +88,7 @@ def cli(input, output):
         "ServerVariable.java": env.get_template("ServerVariable.j2"),
         "StringUtil.java": env.get_template("StringUtil.j2"),
         "PaginationIterable.java": env.get_template("PaginationIterable.j2"),
-        "PaginationIterator.java": env.get_template("PaginationIterator.j2")
+        "PaginationIterator.java": env.get_template("PaginationIterator.j2"),
         "UnparsedObject.java": env.get_template("UnparsedObject.j2"),
     }
 
