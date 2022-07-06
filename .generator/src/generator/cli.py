@@ -80,7 +80,6 @@ def cli(input, output):
         "ApiException.java": env.get_template("ApiException.j2"),
         "ApiResponse.java": env.get_template("ApiResponse.j2"),
         "JSON.java": env.get_template("JSON.j2"),
-        "JavaTimeFormatter.java": env.get_template("JavaTimeFormatter.j2"),
         "JsonTimeSerializer.java": env.get_template("JsonTimeSerializer.j2"),
         "Pair.java": env.get_template("Pair.j2"),
         "RFC3339DateFormat.java": env.get_template("RFC3339DateFormat.j2"),
@@ -95,7 +94,6 @@ def cli(input, output):
     extra_files = {
         "ApiClient.java": env.get_template("ApiClient.j2"),
         "Configuration.java": env.get_template("Configuration.j2"),
-        "JavaTimeFormatter.java": env.get_template("JavaTimeFormatter.j2"),
     }
 
     auth_files = {

@@ -31,6 +31,8 @@ import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -79,12 +81,13 @@ import org.glassfish.jersey.message.GZipEncoder;
 
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ApiClient extends JavaTimeFormatter {
+public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
   protected String basePath = "https://api.datadoghq.com";
   protected String userAgent;
   private static final Logger log = Logger.getLogger(ApiClient.class.getName());
+  private DateTimeFormatter offsetDateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 
   protected List<ServerConfiguration> servers =
       new ArrayList<ServerConfiguration>(
@@ -313,6 +316,47 @@ public class ApiClient extends JavaTimeFormatter {
 
     // Setup authentication lookup (key: authentication alias, value: authentication name)
     authenticationLookup = new HashMap<String, String>();
+  }
+
+  /**
+   * Get the date format used to parse/format {@code OffsetDateTime} parameters.
+   *
+   * @return DateTimeFormatter
+   */
+  public DateTimeFormatter getOffsetDateTimeFormatter() {
+    return offsetDateTimeFormatter;
+  }
+
+  /**
+   * Set the date format used to parse/format {@code OffsetDateTime} parameters.
+   *
+   * @param offsetDateTimeFormatter {@code DateTimeFormatter}
+   */
+  public void setOffsetDateTimeFormatter(DateTimeFormatter offsetDateTimeFormatter) {
+    this.offsetDateTimeFormatter = offsetDateTimeFormatter;
+  }
+
+  /**
+   * Parse the given string into {@code OffsetDateTime} object.
+   *
+   * @param str String
+   * @return {@code OffsetDateTime}
+   */
+  public OffsetDateTime parseOffsetDateTime(String str) {
+    try {
+      return OffsetDateTime.parse(str, offsetDateTimeFormatter);
+    } catch (DateTimeParseException e) {
+      throw new RuntimeException(e);
+    }
+  }
+  /**
+   * Format the given {@code OffsetDateTime} object into string.
+   *
+   * @param offsetDateTime {@code OffsetDateTime}
+   * @return {@code OffsetDateTime} in string format
+   */
+  public String formatOffsetDateTime(OffsetDateTime offsetDateTime) {
+    return offsetDateTimeFormatter.format(offsetDateTime);
   }
 
   /**

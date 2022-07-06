@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.v2.client;
+package com.datadog.api.client;
 
 import java.util.LinkedHashMap;
 
