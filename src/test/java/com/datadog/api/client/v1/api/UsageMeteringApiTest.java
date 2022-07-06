@@ -868,7 +868,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getSpecifiedDailyCustomReportsErrorsTest() throws IOException {
     try {
-      generalFakeAuthApiClient.setUnstableOperationEnabled("v1.getSpecifiedDailyCustomReports", true);
+      generalFakeAuthApiClient.setUnstableOperationEnabled(
+          "v1.getSpecifiedDailyCustomReports", true);
       fakeAuthApi.getSpecifiedDailyCustomReports("whatever");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {

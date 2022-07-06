@@ -8,20 +8,15 @@ package com.datadog.api.client.v2.api;
 
 import static org.junit.Assert.*;
 
-import com.datadog.api.RecordingMode;
-import com.datadog.api.TestUtils;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.model.DashboardList;
 import com.datadog.api.client.v2.model.*;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
-import org.glassfish.jersey.client.ClientConfig;
-import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
