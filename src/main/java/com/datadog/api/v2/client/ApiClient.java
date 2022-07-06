@@ -32,7 +32,6 @@ import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -336,19 +335,6 @@ public class ApiClient {
     this.offsetDateTimeFormatter = offsetDateTimeFormatter;
   }
 
-  /**
-   * Parse the given string into {@code OffsetDateTime} object.
-   *
-   * @param str String
-   * @return {@code OffsetDateTime}
-   */
-  public OffsetDateTime parseOffsetDateTime(String str) {
-    try {
-      return OffsetDateTime.parse(str, offsetDateTimeFormatter);
-    } catch (DateTimeParseException e) {
-      throw new RuntimeException(e);
-    }
-  }
   /**
    * Format the given {@code OffsetDateTime} object into string.
    *
