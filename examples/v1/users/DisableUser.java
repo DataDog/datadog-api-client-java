@@ -1,12 +1,12 @@
 // Disable a user returns "User disabled" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.UsersApi;
-import com.datadog.api.v1.client.model.UserDisableResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.UsersApi;
+import com.datadog.api.client.v1.model.UserDisableResponse;
 
-public class Example {
+public class DisableUser {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);

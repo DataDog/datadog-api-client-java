@@ -1,15 +1,15 @@
 // Create a child organization returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.OrganizationsApi;
-import com.datadog.api.v1.client.model.OrganizationBilling;
-import com.datadog.api.v1.client.model.OrganizationCreateBody;
-import com.datadog.api.v1.client.model.OrganizationCreateResponse;
-import com.datadog.api.v1.client.model.OrganizationSubscription;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.OrganizationsApi;
+import com.datadog.api.client.v1.model.OrganizationBilling;
+import com.datadog.api.client.v1.model.OrganizationCreateBody;
+import com.datadog.api.client.v1.model.OrganizationCreateResponse;
+import com.datadog.api.client.v1.model.OrganizationSubscription;
 
-public class Example {
+public class CreateChildOrg {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);

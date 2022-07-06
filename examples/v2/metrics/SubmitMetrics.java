@@ -1,17 +1,17 @@
 // Submit metrics returns "Payload accepted" response
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.MetricsApi;
-import com.datadog.api.v2.client.model.IntakePayloadAccepted;
-import com.datadog.api.v2.client.model.MetricIntakeType;
-import com.datadog.api.v2.client.model.MetricPayload;
-import com.datadog.api.v2.client.model.MetricPoint;
-import com.datadog.api.v2.client.model.MetricSeries;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.MetricsApi;
+import com.datadog.api.client.v2.model.IntakePayloadAccepted;
+import com.datadog.api.client.v2.model.MetricIntakeType;
+import com.datadog.api.client.v2.model.MetricPayload;
+import com.datadog.api.client.v2.model.MetricPoint;
+import com.datadog.api.client.v2.model.MetricSeries;
 import java.time.OffsetDateTime;
 import java.util.Collections;
 
-public class Example {
+public class SubmitMetrics {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);

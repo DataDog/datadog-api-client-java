@@ -1,23 +1,23 @@
 // Create a new dashboard with manage_status widget
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.Dashboard;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.MonitorSummaryWidgetDefinition;
-import com.datadog.api.v1.client.model.MonitorSummaryWidgetDefinitionType;
-import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetColorPreference;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.datadog.api.v1.client.model.WidgetLayout;
-import com.datadog.api.v1.client.model.WidgetMonitorSummaryDisplayFormat;
-import com.datadog.api.v1.client.model.WidgetMonitorSummarySort;
-import com.datadog.api.v1.client.model.WidgetSummaryType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.MonitorSummaryWidgetDefinition;
+import com.datadog.api.client.v1.model.MonitorSummaryWidgetDefinitionType;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetColorPreference;
+import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetMonitorSummaryDisplayFormat;
+import com.datadog.api.client.v1.model.WidgetMonitorSummarySort;
+import com.datadog.api.client.v1.model.WidgetSummaryType;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard_2917274132 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

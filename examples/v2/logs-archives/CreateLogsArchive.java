@@ -1,20 +1,20 @@
 // Create an archive returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.LogsArchivesApi;
-import com.datadog.api.v2.client.model.LogsArchive;
-import com.datadog.api.v2.client.model.LogsArchiveCreateRequest;
-import com.datadog.api.v2.client.model.LogsArchiveCreateRequestAttributes;
-import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDefinition;
-import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDestination;
-import com.datadog.api.v2.client.model.LogsArchiveDestinationAzure;
-import com.datadog.api.v2.client.model.LogsArchiveDestinationAzureType;
-import com.datadog.api.v2.client.model.LogsArchiveIntegrationAzure;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.LogsArchivesApi;
+import com.datadog.api.client.v2.model.LogsArchive;
+import com.datadog.api.client.v2.model.LogsArchiveCreateRequest;
+import com.datadog.api.client.v2.model.LogsArchiveCreateRequestAttributes;
+import com.datadog.api.client.v2.model.LogsArchiveCreateRequestDefinition;
+import com.datadog.api.client.v2.model.LogsArchiveCreateRequestDestination;
+import com.datadog.api.client.v2.model.LogsArchiveDestinationAzure;
+import com.datadog.api.client.v2.model.LogsArchiveDestinationAzureType;
+import com.datadog.api.client.v2.model.LogsArchiveIntegrationAzure;
 import java.util.Arrays;
 
-public class Example {
+public class CreateLogsArchive {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);

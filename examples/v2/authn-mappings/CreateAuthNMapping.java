@@ -1,20 +1,20 @@
 // Create an AuthN Mapping returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.AuthNMappingsApi;
-import com.datadog.api.v2.client.model.AuthNMappingCreateAttributes;
-import com.datadog.api.v2.client.model.AuthNMappingCreateData;
-import com.datadog.api.v2.client.model.AuthNMappingCreateRelationships;
-import com.datadog.api.v2.client.model.AuthNMappingCreateRequest;
-import com.datadog.api.v2.client.model.AuthNMappingResponse;
-import com.datadog.api.v2.client.model.AuthNMappingsType;
-import com.datadog.api.v2.client.model.RelationshipToRole;
-import com.datadog.api.v2.client.model.RelationshipToRoleData;
-import com.datadog.api.v2.client.model.RolesType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.AuthNMappingsApi;
+import com.datadog.api.client.v2.model.AuthNMappingCreateAttributes;
+import com.datadog.api.client.v2.model.AuthNMappingCreateData;
+import com.datadog.api.client.v2.model.AuthNMappingCreateRelationships;
+import com.datadog.api.client.v2.model.AuthNMappingCreateRequest;
+import com.datadog.api.client.v2.model.AuthNMappingResponse;
+import com.datadog.api.client.v2.model.AuthNMappingsType;
+import com.datadog.api.client.v2.model.RelationshipToRole;
+import com.datadog.api.client.v2.model.RelationshipToRoleData;
+import com.datadog.api.client.v2.model.RolesType;
 
-public class Example {
+public class CreateAuthNMapping {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     AuthNMappingsApi apiInstance = new AuthNMappingsApi(defaultClient);

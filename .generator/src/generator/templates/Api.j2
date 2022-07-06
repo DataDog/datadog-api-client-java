@@ -324,7 +324,7 @@ public class {{ name }} {
     {%- if "x-unstable" in operation %}
     // Check if unstable operation is enabled
     String operationId = "{{ operationId }}";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
+    if (apiClient.isUnstableOperationEnabled("{{ version }}." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
@@ -401,7 +401,7 @@ public class {{ name }} {
     {%- if "x-unstable" in operation %}
     // Check if unstable operation is enabled
     String operationId = "{{ operationId }}";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
+    if (apiClient.isUnstableOperationEnabled("{{ version }}." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> result = new CompletableFuture<>();

@@ -1,13 +1,13 @@
 // Upload IdP metadata returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.OrganizationsApi;
-import com.datadog.api.v1.client.model.IdpResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.OrganizationsApi;
+import com.datadog.api.client.v1.model.IdpResponse;
 import java.io.File;
 
-public class Example {
+public class UploadIdPForOrg {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);

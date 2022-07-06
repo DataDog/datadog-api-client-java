@@ -1,34 +1,34 @@
 // Create an API HTTP test returns "OK - Returns the created test details." response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-import com.datadog.api.v1.client.model.HTTPMethod;
-import com.datadog.api.v1.client.model.SyntheticsAPITest;
-import com.datadog.api.v1.client.model.SyntheticsAPITestConfig;
-import com.datadog.api.v1.client.model.SyntheticsAPITestType;
-import com.datadog.api.v1.client.model.SyntheticsAssertion;
-import com.datadog.api.v1.client.model.SyntheticsAssertionJSONPathOperator;
-import com.datadog.api.v1.client.model.SyntheticsAssertionJSONPathTarget;
-import com.datadog.api.v1.client.model.SyntheticsAssertionJSONPathTargetTarget;
-import com.datadog.api.v1.client.model.SyntheticsAssertionOperator;
-import com.datadog.api.v1.client.model.SyntheticsAssertionTarget;
-import com.datadog.api.v1.client.model.SyntheticsAssertionType;
-import com.datadog.api.v1.client.model.SyntheticsConfigVariable;
-import com.datadog.api.v1.client.model.SyntheticsConfigVariableType;
-import com.datadog.api.v1.client.model.SyntheticsTestDetailsSubType;
-import com.datadog.api.v1.client.model.SyntheticsTestOptions;
-import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
-import com.datadog.api.v1.client.model.SyntheticsTestRequest;
-import com.datadog.api.v1.client.model.SyntheticsTestRequestCertificate;
-import com.datadog.api.v1.client.model.SyntheticsTestRequestCertificateItem;
-import com.datadog.api.v1.client.model.SyntheticsTestRequestProxy;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.HTTPMethod;
+import com.datadog.api.client.v1.model.SyntheticsAPITest;
+import com.datadog.api.client.v1.model.SyntheticsAPITestConfig;
+import com.datadog.api.client.v1.model.SyntheticsAPITestType;
+import com.datadog.api.client.v1.model.SyntheticsAssertion;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathOperator;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathTargetTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
+import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionType;
+import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
+import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
+import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
+import com.datadog.api.client.v1.model.SyntheticsTestOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
+import com.datadog.api.client.v1.model.SyntheticsTestRequest;
+import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificate;
+import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificateItem;
+import com.datadog.api.client.v1.model.SyntheticsTestRequestProxy;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
 
-public class Example {
+public class CreateSyntheticsAPITest_1487281163 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);

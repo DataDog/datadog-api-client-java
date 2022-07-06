@@ -1,24 +1,24 @@
 // Aggregate compute events with group by returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.LogsApi;
-import com.datadog.api.v2.client.model.LogsAggregateRequest;
-import com.datadog.api.v2.client.model.LogsAggregateResponse;
-import com.datadog.api.v2.client.model.LogsAggregateSort;
-import com.datadog.api.v2.client.model.LogsAggregateSortType;
-import com.datadog.api.v2.client.model.LogsAggregationFunction;
-import com.datadog.api.v2.client.model.LogsCompute;
-import com.datadog.api.v2.client.model.LogsComputeType;
-import com.datadog.api.v2.client.model.LogsGroupBy;
-import com.datadog.api.v2.client.model.LogsGroupByMissing;
-import com.datadog.api.v2.client.model.LogsGroupByTotal;
-import com.datadog.api.v2.client.model.LogsQueryFilter;
-import com.datadog.api.v2.client.model.LogsSortOrder;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.LogsApi;
+import com.datadog.api.client.v2.model.LogsAggregateRequest;
+import com.datadog.api.client.v2.model.LogsAggregateResponse;
+import com.datadog.api.client.v2.model.LogsAggregateSort;
+import com.datadog.api.client.v2.model.LogsAggregateSortType;
+import com.datadog.api.client.v2.model.LogsAggregationFunction;
+import com.datadog.api.client.v2.model.LogsCompute;
+import com.datadog.api.client.v2.model.LogsComputeType;
+import com.datadog.api.client.v2.model.LogsGroupBy;
+import com.datadog.api.client.v2.model.LogsGroupByMissing;
+import com.datadog.api.client.v2.model.LogsGroupByTotal;
+import com.datadog.api.client.v2.model.LogsQueryFilter;
+import com.datadog.api.client.v2.model.LogsSortOrder;
 import java.util.Collections;
 
-public class Example {
+public class AggregateLogs_2955613758 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);

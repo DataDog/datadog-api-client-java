@@ -1,15 +1,15 @@
 // Schedule a downtime returns "OK" response
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DowntimesApi;
-import com.datadog.api.v1.client.model.Downtime;
-import com.datadog.api.v1.client.model.DowntimeRecurrence;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.DowntimesApi;
+import com.datadog.api.client.v1.model.Downtime;
+import com.datadog.api.client.v1.model.DowntimeRecurrence;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class CreateDowntime {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);

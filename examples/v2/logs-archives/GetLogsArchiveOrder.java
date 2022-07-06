@@ -1,12 +1,12 @@
 // Get archive order returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.LogsArchivesApi;
-import com.datadog.api.v2.client.model.LogsArchiveOrder;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.LogsArchivesApi;
+import com.datadog.api.client.v2.model.LogsArchiveOrder;
 
-public class Example {
+public class GetLogsArchiveOrder {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);

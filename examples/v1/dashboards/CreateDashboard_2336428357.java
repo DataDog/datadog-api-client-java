@@ -1,32 +1,32 @@
 // Create a new dashboard with query_table widget
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.Dashboard;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.FormulaAndFunctionMetricAggregation;
-import com.datadog.api.v1.client.model.FormulaAndFunctionMetricDataSource;
-import com.datadog.api.v1.client.model.FormulaAndFunctionMetricQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionResponseFormat;
-import com.datadog.api.v1.client.model.QuerySortOrder;
-import com.datadog.api.v1.client.model.TableWidgetCellDisplayMode;
-import com.datadog.api.v1.client.model.TableWidgetDefinition;
-import com.datadog.api.v1.client.model.TableWidgetDefinitionType;
-import com.datadog.api.v1.client.model.TableWidgetHasSearchBar;
-import com.datadog.api.v1.client.model.TableWidgetRequest;
-import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.datadog.api.v1.client.model.WidgetFormula;
-import com.datadog.api.v1.client.model.WidgetFormulaLimit;
-import com.datadog.api.v1.client.model.WidgetLayout;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
-import com.datadog.api.v1.client.model.WidgetTime;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.FormulaAndFunctionMetricAggregation;
+import com.datadog.api.client.v1.model.FormulaAndFunctionMetricDataSource;
+import com.datadog.api.client.v1.model.FormulaAndFunctionMetricQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
+import com.datadog.api.client.v1.model.QuerySortOrder;
+import com.datadog.api.client.v1.model.TableWidgetCellDisplayMode;
+import com.datadog.api.client.v1.model.TableWidgetDefinition;
+import com.datadog.api.client.v1.model.TableWidgetDefinitionType;
+import com.datadog.api.client.v1.model.TableWidgetHasSearchBar;
+import com.datadog.api.client.v1.model.TableWidgetRequest;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetFormula;
+import com.datadog.api.client.v1.model.WidgetFormulaLimit;
+import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetTextAlign;
+import com.datadog.api.client.v1.model.WidgetTime;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard_2336428357 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

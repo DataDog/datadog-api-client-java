@@ -1,12 +1,12 @@
 // Get cost across multi-org account returns "OK" response
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.UsageMeteringApi;
-import com.datadog.api.v2.client.model.CostByOrgResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.UsageMeteringApi;
+import com.datadog.api.client.v2.model.CostByOrgResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetCostByOrg {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

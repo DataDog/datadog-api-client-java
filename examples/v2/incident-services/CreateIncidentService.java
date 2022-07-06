@@ -1,16 +1,16 @@
 // Create a new incident service returns "CREATED" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.IncidentServicesApi;
-import com.datadog.api.v2.client.model.IncidentServiceCreateAttributes;
-import com.datadog.api.v2.client.model.IncidentServiceCreateData;
-import com.datadog.api.v2.client.model.IncidentServiceCreateRequest;
-import com.datadog.api.v2.client.model.IncidentServiceResponse;
-import com.datadog.api.v2.client.model.IncidentServiceType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.IncidentServicesApi;
+import com.datadog.api.client.v2.model.IncidentServiceCreateAttributes;
+import com.datadog.api.client.v2.model.IncidentServiceCreateData;
+import com.datadog.api.client.v2.model.IncidentServiceCreateRequest;
+import com.datadog.api.client.v2.model.IncidentServiceResponse;
+import com.datadog.api.client.v2.model.IncidentServiceType;
 
-public class Example {
+public class CreateIncidentService {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("createIncidentService", true);

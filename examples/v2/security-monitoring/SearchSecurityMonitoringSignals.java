@@ -1,18 +1,18 @@
 // Get a list of security signals returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequest;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestFilter;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestPage;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignalsListResponse;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignalsSort;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.SecurityMonitoringApi;
+import com.datadog.api.client.v2.api.SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalListRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalListRequestFilter;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalListRequestPage;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalsListResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalsSort;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class SearchSecurityMonitoringSignals {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);

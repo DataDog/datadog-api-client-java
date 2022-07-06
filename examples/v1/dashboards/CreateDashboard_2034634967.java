@@ -1,21 +1,21 @@
 // Create a new dashboard with servicemap widget
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.Dashboard;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.ServiceMapWidgetDefinition;
-import com.datadog.api.v1.client.model.ServiceMapWidgetDefinitionType;
-import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.datadog.api.v1.client.model.WidgetLayout;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.ServiceMapWidgetDefinition;
+import com.datadog.api.client.v1.model.ServiceMapWidgetDefinitionType;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetTextAlign;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard_2034634967 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

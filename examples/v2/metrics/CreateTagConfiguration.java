@@ -1,18 +1,18 @@
 // Create a tag configuration returns "Created" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.MetricsApi;
-import com.datadog.api.v2.client.model.MetricTagConfigurationCreateAttributes;
-import com.datadog.api.v2.client.model.MetricTagConfigurationCreateData;
-import com.datadog.api.v2.client.model.MetricTagConfigurationCreateRequest;
-import com.datadog.api.v2.client.model.MetricTagConfigurationMetricTypes;
-import com.datadog.api.v2.client.model.MetricTagConfigurationResponse;
-import com.datadog.api.v2.client.model.MetricTagConfigurationType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.MetricsApi;
+import com.datadog.api.client.v2.model.MetricTagConfigurationCreateAttributes;
+import com.datadog.api.client.v2.model.MetricTagConfigurationCreateData;
+import com.datadog.api.client.v2.model.MetricTagConfigurationCreateRequest;
+import com.datadog.api.client.v2.model.MetricTagConfigurationMetricTypes;
+import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
+import com.datadog.api.client.v2.model.MetricTagConfigurationType;
 import java.util.Arrays;
 
-public class Example {
+public class CreateTagConfiguration {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);

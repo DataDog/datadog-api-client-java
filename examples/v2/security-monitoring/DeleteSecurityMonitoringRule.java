@@ -1,11 +1,11 @@
 // Delete an existing rule returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 
-public class Example {
+public class DeleteSecurityMonitoringRule {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);

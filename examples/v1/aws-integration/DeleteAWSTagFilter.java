@@ -1,13 +1,13 @@
 // Delete a tag filtering entry returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.AwsIntegrationApi;
-import com.datadog.api.v1.client.model.AWSNamespace;
-import com.datadog.api.v1.client.model.AWSTagFilterDeleteRequest;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.AwsIntegrationApi;
+import com.datadog.api.client.v1.model.AWSNamespace;
+import com.datadog.api.client.v1.model.AWSTagFilterDeleteRequest;
 
-public class Example {
+public class DeleteAWSTagFilter {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);

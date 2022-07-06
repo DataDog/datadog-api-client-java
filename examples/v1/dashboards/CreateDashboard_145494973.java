@@ -1,26 +1,26 @@
 // Create a new dashboard with apm resource stats widget
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.Dashboard;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.FormulaAndFunctionApmResourceStatName;
-import com.datadog.api.v1.client.model.FormulaAndFunctionApmResourceStatsDataSource;
-import com.datadog.api.v1.client.model.FormulaAndFunctionApmResourceStatsQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionResponseFormat;
-import com.datadog.api.v1.client.model.TableWidgetDefinition;
-import com.datadog.api.v1.client.model.TableWidgetDefinitionType;
-import com.datadog.api.v1.client.model.TableWidgetRequest;
-import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.datadog.api.v1.client.model.WidgetLayout;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.FormulaAndFunctionApmResourceStatName;
+import com.datadog.api.client.v1.model.FormulaAndFunctionApmResourceStatsDataSource;
+import com.datadog.api.client.v1.model.FormulaAndFunctionApmResourceStatsQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
+import com.datadog.api.client.v1.model.TableWidgetDefinition;
+import com.datadog.api.client.v1.model.TableWidgetDefinitionType;
+import com.datadog.api.client.v1.model.TableWidgetRequest;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetTextAlign;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard_145494973 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

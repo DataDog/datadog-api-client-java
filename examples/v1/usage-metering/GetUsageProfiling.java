@@ -1,13 +1,13 @@
 // Get hourly usage for profiled hosts returns "OK" response
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.UsageMeteringApi;
-import com.datadog.api.v1.client.api.UsageMeteringApi.GetUsageProfilingOptionalParameters;
-import com.datadog.api.v1.client.model.UsageProfilingResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.UsageMeteringApi;
+import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageProfilingOptionalParameters;
+import com.datadog.api.client.v1.model.UsageProfilingResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetUsageProfiling {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

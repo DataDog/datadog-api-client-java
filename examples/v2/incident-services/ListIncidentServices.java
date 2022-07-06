@@ -1,13 +1,13 @@
 // Get a list of all incident services returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.IncidentServicesApi;
-import com.datadog.api.v2.client.api.IncidentServicesApi.ListIncidentServicesOptionalParameters;
-import com.datadog.api.v2.client.model.IncidentServicesResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.IncidentServicesApi;
+import com.datadog.api.client.v2.api.IncidentServicesApi.ListIncidentServicesOptionalParameters;
+import com.datadog.api.client.v2.model.IncidentServicesResponse;
 
-public class Example {
+public class ListIncidentServices {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("listIncidentServices", true);

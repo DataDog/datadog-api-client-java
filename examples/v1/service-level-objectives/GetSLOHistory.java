@@ -1,12 +1,12 @@
 // Get an SLO's history returns "OK" response
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
-import com.datadog.api.v1.client.model.SLOHistoryResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi;
+import com.datadog.api.client.v1.model.SLOHistoryResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetSLOHistory {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("getSloHistory", true);

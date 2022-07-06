@@ -1,13 +1,13 @@
 // Get hourly usage for Observability Pipelines returns "OK" response
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.UsageMeteringApi;
-import com.datadog.api.v2.client.api.UsageMeteringApi.GetUsageObservabilityPipelinesOptionalParameters;
-import com.datadog.api.v2.client.model.UsageObservabilityPipelinesResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.UsageMeteringApi;
+import com.datadog.api.client.v2.api.UsageMeteringApi.GetUsageObservabilityPipelinesOptionalParameters;
+import com.datadog.api.client.v2.model.UsageObservabilityPipelinesResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetUsageObservabilityPipelines {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

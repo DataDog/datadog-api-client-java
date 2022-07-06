@@ -1,17 +1,17 @@
 // Update a tag configuration returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.MetricsApi;
-import com.datadog.api.v2.client.model.MetricTagConfigurationResponse;
-import com.datadog.api.v2.client.model.MetricTagConfigurationType;
-import com.datadog.api.v2.client.model.MetricTagConfigurationUpdateAttributes;
-import com.datadog.api.v2.client.model.MetricTagConfigurationUpdateData;
-import com.datadog.api.v2.client.model.MetricTagConfigurationUpdateRequest;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.MetricsApi;
+import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
+import com.datadog.api.client.v2.model.MetricTagConfigurationType;
+import com.datadog.api.client.v2.model.MetricTagConfigurationUpdateAttributes;
+import com.datadog.api.client.v2.model.MetricTagConfigurationUpdateData;
+import com.datadog.api.client.v2.model.MetricTagConfigurationUpdateRequest;
 import java.util.Collections;
 
-public class Example {
+public class UpdateTagConfiguration {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);

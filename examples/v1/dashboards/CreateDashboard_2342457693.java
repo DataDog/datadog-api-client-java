@@ -1,32 +1,32 @@
 // Create a new dashboard with scatterplot widget
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.Dashboard;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.FormulaAndFunctionMetricAggregation;
-import com.datadog.api.v1.client.model.FormulaAndFunctionMetricDataSource;
-import com.datadog.api.v1.client.model.FormulaAndFunctionMetricQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionResponseFormat;
-import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinition;
-import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinitionRequests;
-import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinitionType;
-import com.datadog.api.v1.client.model.ScatterplotDimension;
-import com.datadog.api.v1.client.model.ScatterplotTableRequest;
-import com.datadog.api.v1.client.model.ScatterplotWidgetFormula;
-import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetAxis;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.datadog.api.v1.client.model.WidgetLayout;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
-import com.datadog.api.v1.client.model.WidgetTime;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.FormulaAndFunctionMetricAggregation;
+import com.datadog.api.client.v1.model.FormulaAndFunctionMetricDataSource;
+import com.datadog.api.client.v1.model.FormulaAndFunctionMetricQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
+import com.datadog.api.client.v1.model.ScatterPlotWidgetDefinition;
+import com.datadog.api.client.v1.model.ScatterPlotWidgetDefinitionRequests;
+import com.datadog.api.client.v1.model.ScatterPlotWidgetDefinitionType;
+import com.datadog.api.client.v1.model.ScatterplotDimension;
+import com.datadog.api.client.v1.model.ScatterplotTableRequest;
+import com.datadog.api.client.v1.model.ScatterplotWidgetFormula;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetAxis;
+import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetTextAlign;
+import com.datadog.api.client.v1.model.WidgetTime;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard_2342457693 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

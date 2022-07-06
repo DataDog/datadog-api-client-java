@@ -1,18 +1,18 @@
 // Update a pipeline returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.LogsPipelinesApi;
-import com.datadog.api.v1.client.model.LogsFilter;
-import com.datadog.api.v1.client.model.LogsGrokParser;
-import com.datadog.api.v1.client.model.LogsGrokParserRules;
-import com.datadog.api.v1.client.model.LogsGrokParserType;
-import com.datadog.api.v1.client.model.LogsPipeline;
-import com.datadog.api.v1.client.model.LogsProcessor;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.LogsPipelinesApi;
+import com.datadog.api.client.v1.model.LogsFilter;
+import com.datadog.api.client.v1.model.LogsGrokParser;
+import com.datadog.api.client.v1.model.LogsGrokParserRules;
+import com.datadog.api.client.v1.model.LogsGrokParserType;
+import com.datadog.api.client.v1.model.LogsPipeline;
+import com.datadog.api.client.v1.model.LogsProcessor;
 import java.util.Collections;
 
-public class Example {
+public class UpdateLogsPipeline {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);

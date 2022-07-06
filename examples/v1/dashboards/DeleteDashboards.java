@@ -1,15 +1,15 @@
 // Delete dashboards returns "No Content" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.DashboardBulkActionData;
-import com.datadog.api.v1.client.model.DashboardBulkDeleteRequest;
-import com.datadog.api.v1.client.model.DashboardResourceType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.DashboardBulkActionData;
+import com.datadog.api.client.v1.model.DashboardBulkDeleteRequest;
+import com.datadog.api.client.v1.model.DashboardResourceType;
 import java.util.Collections;
 
-public class Example {
+public class DeleteDashboards {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

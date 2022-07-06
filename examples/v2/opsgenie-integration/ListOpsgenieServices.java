@@ -1,12 +1,12 @@
 // Get all service objects returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.OpsgenieIntegrationApi;
-import com.datadog.api.v2.client.model.OpsgenieServicesResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.OpsgenieIntegrationApi;
+import com.datadog.api.client.v2.model.OpsgenieServicesResponse;
 
-public class Example {
+public class ListOpsgenieServices {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     OpsgenieIntegrationApi apiInstance = new OpsgenieIntegrationApi(defaultClient);

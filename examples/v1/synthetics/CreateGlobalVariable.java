@@ -1,20 +1,20 @@
 // Create a global variable returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-import com.datadog.api.v1.client.model.SyntheticsGlobalVariable;
-import com.datadog.api.v1.client.model.SyntheticsGlobalVariableAttributes;
-import com.datadog.api.v1.client.model.SyntheticsGlobalVariableParseTestOptions;
-import com.datadog.api.v1.client.model.SyntheticsGlobalVariableParseTestOptionsType;
-import com.datadog.api.v1.client.model.SyntheticsGlobalVariableParserType;
-import com.datadog.api.v1.client.model.SyntheticsGlobalVariableValue;
-import com.datadog.api.v1.client.model.SyntheticsVariableParser;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariable;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariableAttributes;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptions;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptionsType;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParserType;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariableValue;
+import com.datadog.api.client.v1.model.SyntheticsVariableParser;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class CreateGlobalVariable {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);

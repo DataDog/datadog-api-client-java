@@ -1,11 +1,11 @@
 // Delete an app key owned by this service account returns "No Content" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.ServiceAccountsApi;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.ServiceAccountsApi;
 
-public class Example {
+public class DeleteServiceAccountApplicationKey_992091161 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);

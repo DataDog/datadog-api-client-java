@@ -1,18 +1,18 @@
 // Configure tags for multiple metrics returns "Accepted" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.MetricsApi;
-import com.datadog.api.v2.client.model.MetricBulkConfigureTagsType;
-import com.datadog.api.v2.client.model.MetricBulkTagConfigCreate;
-import com.datadog.api.v2.client.model.MetricBulkTagConfigCreateAttributes;
-import com.datadog.api.v2.client.model.MetricBulkTagConfigCreateRequest;
-import com.datadog.api.v2.client.model.MetricBulkTagConfigResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.MetricsApi;
+import com.datadog.api.client.v2.model.MetricBulkConfigureTagsType;
+import com.datadog.api.client.v2.model.MetricBulkTagConfigCreate;
+import com.datadog.api.client.v2.model.MetricBulkTagConfigCreateAttributes;
+import com.datadog.api.client.v2.model.MetricBulkTagConfigCreateRequest;
+import com.datadog.api.client.v2.model.MetricBulkTagConfigResponse;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class CreateBulkTagsMetricsConfiguration {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);

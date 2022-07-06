@@ -1,12 +1,12 @@
 // Edit metric metadata returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.MetricsApi;
-import com.datadog.api.v1.client.model.MetricMetadata;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.MetricsApi;
+import com.datadog.api.client.v1.model.MetricMetadata;
 
-public class Example {
+public class UpdateMetricMetadata {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);

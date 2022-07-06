@@ -1,19 +1,19 @@
 // Create an SLO object returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
-import com.datadog.api.v1.client.model.SLOListResponse;
-import com.datadog.api.v1.client.model.SLOThreshold;
-import com.datadog.api.v1.client.model.SLOTimeframe;
-import com.datadog.api.v1.client.model.SLOType;
-import com.datadog.api.v1.client.model.ServiceLevelObjectiveQuery;
-import com.datadog.api.v1.client.model.ServiceLevelObjectiveRequest;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi;
+import com.datadog.api.client.v1.model.SLOListResponse;
+import com.datadog.api.client.v1.model.SLOThreshold;
+import com.datadog.api.client.v1.model.SLOTimeframe;
+import com.datadog.api.client.v1.model.SLOType;
+import com.datadog.api.client.v1.model.ServiceLevelObjectiveQuery;
+import com.datadog.api.client.v1.model.ServiceLevelObjectiveRequest;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class CreateSLO {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);

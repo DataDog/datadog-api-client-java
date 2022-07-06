@@ -1,13 +1,13 @@
 // Get all processes returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.ProcessesApi;
-import com.datadog.api.v2.client.api.ProcessesApi.ListProcessesOptionalParameters;
-import com.datadog.api.v2.client.model.ProcessSummariesResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.ProcessesApi;
+import com.datadog.api.client.v2.api.ProcessesApi.ListProcessesOptionalParameters;
+import com.datadog.api.client.v2.model.ProcessSummariesResponse;
 
-public class Example {
+public class ListProcesses {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     ProcessesApi apiInstance = new ProcessesApi(defaultClient);

@@ -13,17 +13,17 @@ import {{ package }}.{{ import }};
 {%- endfor %}
 
 import com.datadog.api.client.ApiException;
-import com.datadog.api.{{ version }}.client.ApiClient;
-import com.datadog.api.{{ version }}.client.Configuration;
-import com.datadog.api.{{ version }}.client.api.{{ context.api_instance.name|camel_case|upperfirst }}Api;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.{{ version }}.api.{{ context.api_instance.name|camel_case|upperfirst }}Api;
 {%- if optional_parameters %}
-import com.datadog.api.{{ version }}.client.api.{{ context.api_instance.name|camel_case|upperfirst }}Api.{{ context.api_request.operation_id }}OptionalParameters;
+import com.datadog.api.client.{{ version }}.api.{{ context.api_instance.name|camel_case|upperfirst }}Api.{{ context.api_request.operation_id }}OptionalParameters;
 {%- endif %}
 {%- if api_reponse_type_import %}
 import {{ api_reponse_type_import}};
 {%- endif %}
 {%- for model in (parameters_models|list + (body_models or [])|list)|unique|sort %}
-import com.datadog.api.{{ version }}.client.model.{{ model }};
+import com.datadog.api.client.{{ version }}.model.{{ model }};
 {%- endfor %}
 import java.io.File;
 import java.time.OffsetDateTime;

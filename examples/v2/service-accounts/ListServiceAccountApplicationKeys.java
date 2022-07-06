@@ -1,12 +1,12 @@
 // List application keys for this service account returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.ServiceAccountsApi;
-import com.datadog.api.v2.client.model.ListApplicationKeysResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.ServiceAccountsApi;
+import com.datadog.api.client.v2.model.ListApplicationKeysResponse;
 
-public class Example {
+public class ListServiceAccountApplicationKeys {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);

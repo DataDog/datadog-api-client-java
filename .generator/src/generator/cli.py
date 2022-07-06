@@ -6,7 +6,7 @@ from jinja2 import Environment, FileSystemLoader
 from . import openapi
 from . import formatter
 
-PACKAGE_NAME = "com.datadog.api.{}.client"
+PACKAGE_NAME = "com.datadog.api.client.{}"
 COMMON_PACKAGE_NAME = "com.datadog.api.client"
 GENERATED_ANNOTATION = (
     '@javax.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")'
@@ -14,9 +14,9 @@ GENERATED_ANNOTATION = (
 
 
 @click.command()
-@click.option(
-    "-i",
-    "--input",
+@click.argument(
+    "specs",
+    nargs=-1,
     type=click.Path(exists=True, file_okay=True, dir_okay=False, path_type=pathlib.Path),
 )
 @click.option(
@@ -24,12 +24,10 @@ GENERATED_ANNOTATION = (
     "--output",
     type=click.Path(path_type=pathlib.Path),
 )
-def cli(input, output):
+def cli(specs, output):
     """
     Generate a Ruby code snippet from OpenAPI specification.
     """
-    spec = openapi.load(input)
-    version = input.parent.name
     env = Environment(loader=FileSystemLoader(str(pathlib.Path(__file__).parent / "templates")))
 
     env.filters["accept_headers"] = openapi.accept_headers
@@ -63,14 +61,11 @@ def cli(input, output):
     env.globals["get_pagintion_return_item_type"] = openapi.get_pagintion_return_item_type
     env.globals["get_type"] = openapi.type_to_java
     env.globals["get_api_models"] = openapi.get_api_models
-    env.globals["openapi"] = spec
-    env.globals["package_name"] = PACKAGE_NAME.format(version)
     env.globals["common_package_name"] = COMMON_PACKAGE_NAME
     env.globals["generated_annotation"] = GENERATED_ANNOTATION
     env.globals["get_accessors"] = openapi.get_accessors
     env.globals["get_default"] = openapi.get_default
     env.globals["get_container_type"] = openapi.get_container_type
-    env.globals["version"] = version
 
     api_j2 = env.get_template("Api.j2")
     model_j2 = env.get_template("model.j2")
@@ -102,37 +97,47 @@ def cli(input, output):
         "OAuthFlow.java": env.get_template("auth/OAuthFlow.j2"),
     }
 
-    apis = openapi.apis(spec)
-    models = openapi.models(spec)
-
     output.mkdir(parents=True, exist_ok=True)
 
-    client_output = output.parent.parent / "client"
-    client_output.mkdir(parents=True, exist_ok=True)
-
-    auth_path = client_output / "auth"
+    auth_path = output / "auth"
     auth_path.mkdir(parents=True, exist_ok=True)
     for name, template in auth_files.items():
         filename = auth_path / name
         with filename.open("w") as fp:
             fp.write(template.render())
 
+    all_specs = {}
+    all_apis = {}
+
+    for spec_path in specs:
+        spec = openapi.load(spec_path)
+        version = spec_path.parent.name
+        all_specs[version] = spec
+
+        apis = openapi.apis(spec)
+        all_apis[version] = apis
+        models = openapi.models(spec)
+
+        env.globals["openapi"] = spec
+        env.globals["package_name"] = PACKAGE_NAME.format(version)
+        env.globals["version"] = version
+
+        model_dir = output / version / "model"
+        model_dir.mkdir(parents=True, exist_ok=True)
+        for name, model in models.items():
+            model_path = model_dir / f"{name}.java"
+            with model_path.open("w") as fp:
+                fp.write(model_j2.render(name=name, model=model))
+
+        api_dir = output / version / "api"
+        api_dir.mkdir(parents=True, exist_ok=True)
+        for name, operations in apis.items():
+            api_name = formatter.upperfirst(formatter.camel_case(name)) + "Api"
+            filename = api_dir / f"{api_name}.java"
+            with filename.open("w") as fp:
+                fp.write(api_j2.render(name=api_name, operations=operations))
+
     for name, template in common_files.items():
-        filename = client_output / name
+        filename = output / name
         with filename.open("w") as fp:
-            fp.write(template.render())
-
-    model_dir = output / "model"
-    model_dir.mkdir(parents=True, exist_ok=True)
-    for name, model in models.items():
-        model_path = model_dir / f"{name}.java"
-        with model_path.open("w") as fp:
-            fp.write(model_j2.render(name=name, model=model))
-
-    api_dir = output / "api"
-    api_dir.mkdir(parents=True, exist_ok=True)
-    for name, operations in apis.items():
-        api_name = formatter.upperfirst(formatter.camel_case(name)) + "Api"
-        filename = api_dir / f"{api_name}.java"
-        with filename.open("w") as fp:
-            fp.write(api_j2.render(name=api_name, operations=operations))
+            fp.write(template.render(specs=all_specs, apis=all_apis))

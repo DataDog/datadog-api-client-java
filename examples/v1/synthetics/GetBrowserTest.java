@@ -1,12 +1,12 @@
 // Get a browser test returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-import com.datadog.api.v1.client.model.SyntheticsBrowserTest;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.SyntheticsBrowserTest;
 
-public class Example {
+public class GetBrowserTest {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);

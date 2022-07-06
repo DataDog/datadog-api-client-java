@@ -131,7 +131,7 @@ public class ApiClient {
   private DateTimeFormatter offsetDateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(
-    {%- for server in openapi.servers %}
+    {%- for server in specs.v2.servers %}
         {%- if loop.first %}
         Arrays.asList(
         {%- endif %}
@@ -175,11 +175,13 @@ public class ApiClient {
 
   protected DateFormat dateFormat;
   protected final Map<String, Boolean> unstableOperations = new HashMap<String, Boolean>() {{ '{{' }}
-    {%- for path in openapi.paths.values() %}
-    {%- for operation in path.values()|sort(attribute="operationId") %}
+    {%- for version, api in apis.items() %}
+    {%- for operations in api.values() %}
+    {%- for _, _, operation in operations|sort(attribute="2.operationId") %}
     {%- if "x-unstable" in operation %}
-        put("{{ operation.operationId|untitle_case }}", false);
+        put("{{ version }}.{{ operation.operationId|untitle_case }}", false);
     {%- endif %}
+    {%- endfor %}
     {%- endfor %}
     {%- endfor %}
   }};
@@ -209,7 +211,7 @@ public class ApiClient {
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
     Authentication auth = null;
-    {%- for name, schema in openapi.components.securitySchemes.items()  %}
+    {%- for name, schema in specs.v2.components.securitySchemes.items()  %}
     if (authMap != null) {
       auth = authMap.get("{{ name }}");
     }

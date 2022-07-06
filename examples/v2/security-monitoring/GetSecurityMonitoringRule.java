@@ -1,12 +1,12 @@
 // Get a rule's details returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.SecurityMonitoringApi;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 
-public class Example {
+public class GetSecurityMonitoringRule {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);

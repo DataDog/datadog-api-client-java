@@ -1,12 +1,12 @@
 // List tag configurations returns "Success" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.MetricsApi;
-import com.datadog.api.v2.client.model.MetricsAndMetricTagConfigurationsResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.MetricsApi;
+import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurationsResponse;
 
-public class Example {
+public class ListTagConfigurations {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);

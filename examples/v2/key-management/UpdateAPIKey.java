@@ -1,16 +1,16 @@
 // Edit an API key returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.KeyManagementApi;
-import com.datadog.api.v2.client.model.APIKeyResponse;
-import com.datadog.api.v2.client.model.APIKeyUpdateAttributes;
-import com.datadog.api.v2.client.model.APIKeyUpdateData;
-import com.datadog.api.v2.client.model.APIKeyUpdateRequest;
-import com.datadog.api.v2.client.model.APIKeysType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.KeyManagementApi;
+import com.datadog.api.client.v2.model.APIKeyResponse;
+import com.datadog.api.client.v2.model.APIKeyUpdateAttributes;
+import com.datadog.api.client.v2.model.APIKeyUpdateData;
+import com.datadog.api.client.v2.model.APIKeyUpdateRequest;
+import com.datadog.api.client.v2.model.APIKeysType;
 
-public class Example {
+public class UpdateAPIKey {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);

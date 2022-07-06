@@ -1,24 +1,24 @@
 // Create an incident returns "CREATED" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.IncidentsApi;
-import com.datadog.api.v2.client.model.IncidentCreateAttributes;
-import com.datadog.api.v2.client.model.IncidentCreateData;
-import com.datadog.api.v2.client.model.IncidentCreateRelationships;
-import com.datadog.api.v2.client.model.IncidentCreateRequest;
-import com.datadog.api.v2.client.model.IncidentFieldAttributes;
-import com.datadog.api.v2.client.model.IncidentFieldAttributesSingleValue;
-import com.datadog.api.v2.client.model.IncidentFieldAttributesSingleValueType;
-import com.datadog.api.v2.client.model.IncidentResponse;
-import com.datadog.api.v2.client.model.IncidentType;
-import com.datadog.api.v2.client.model.NullableRelationshipToUser;
-import com.datadog.api.v2.client.model.NullableRelationshipToUserData;
-import com.datadog.api.v2.client.model.UsersType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.IncidentsApi;
+import com.datadog.api.client.v2.model.IncidentCreateAttributes;
+import com.datadog.api.client.v2.model.IncidentCreateData;
+import com.datadog.api.client.v2.model.IncidentCreateRelationships;
+import com.datadog.api.client.v2.model.IncidentCreateRequest;
+import com.datadog.api.client.v2.model.IncidentFieldAttributes;
+import com.datadog.api.client.v2.model.IncidentFieldAttributesSingleValue;
+import com.datadog.api.client.v2.model.IncidentFieldAttributesSingleValueType;
+import com.datadog.api.client.v2.model.IncidentResponse;
+import com.datadog.api.client.v2.model.IncidentType;
+import com.datadog.api.client.v2.model.NullableRelationshipToUser;
+import com.datadog.api.client.v2.model.NullableRelationshipToUserData;
+import com.datadog.api.client.v2.model.UsersType;
 import java.util.Map;
 
-public class Example {
+public class CreateIncident {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("createIncident", true);

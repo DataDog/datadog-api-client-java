@@ -1,19 +1,19 @@
 // Add commander to an incident returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.IncidentsApi;
-import com.datadog.api.v2.client.model.IncidentResponse;
-import com.datadog.api.v2.client.model.IncidentType;
-import com.datadog.api.v2.client.model.IncidentUpdateData;
-import com.datadog.api.v2.client.model.IncidentUpdateRelationships;
-import com.datadog.api.v2.client.model.IncidentUpdateRequest;
-import com.datadog.api.v2.client.model.NullableRelationshipToUser;
-import com.datadog.api.v2.client.model.NullableRelationshipToUserData;
-import com.datadog.api.v2.client.model.UsersType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.IncidentsApi;
+import com.datadog.api.client.v2.model.IncidentResponse;
+import com.datadog.api.client.v2.model.IncidentType;
+import com.datadog.api.client.v2.model.IncidentUpdateData;
+import com.datadog.api.client.v2.model.IncidentUpdateRelationships;
+import com.datadog.api.client.v2.model.IncidentUpdateRequest;
+import com.datadog.api.client.v2.model.NullableRelationshipToUser;
+import com.datadog.api.client.v2.model.NullableRelationshipToUserData;
+import com.datadog.api.client.v2.model.UsersType;
 
-public class Example {
+public class UpdateIncident_3369341440 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("updateIncident", true);

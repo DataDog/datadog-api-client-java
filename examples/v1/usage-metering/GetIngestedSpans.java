@@ -1,13 +1,13 @@
 // Get hourly usage for ingested spans returns "OK" response
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.UsageMeteringApi;
-import com.datadog.api.v1.client.api.UsageMeteringApi.GetIngestedSpansOptionalParameters;
-import com.datadog.api.v1.client.model.UsageIngestedSpansResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.UsageMeteringApi;
+import com.datadog.api.client.v1.api.UsageMeteringApi.GetIngestedSpansOptionalParameters;
+import com.datadog.api.client.v1.model.UsageIngestedSpansResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetIngestedSpans {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

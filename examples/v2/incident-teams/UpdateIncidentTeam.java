@@ -1,16 +1,16 @@
 // Update an existing incident team returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.IncidentTeamsApi;
-import com.datadog.api.v2.client.model.IncidentTeamResponse;
-import com.datadog.api.v2.client.model.IncidentTeamType;
-import com.datadog.api.v2.client.model.IncidentTeamUpdateAttributes;
-import com.datadog.api.v2.client.model.IncidentTeamUpdateData;
-import com.datadog.api.v2.client.model.IncidentTeamUpdateRequest;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.IncidentTeamsApi;
+import com.datadog.api.client.v2.model.IncidentTeamResponse;
+import com.datadog.api.client.v2.model.IncidentTeamType;
+import com.datadog.api.client.v2.model.IncidentTeamUpdateAttributes;
+import com.datadog.api.client.v2.model.IncidentTeamUpdateData;
+import com.datadog.api.client.v2.model.IncidentTeamUpdateRequest;
 
-public class Example {
+public class UpdateIncidentTeam {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("updateIncidentTeam", true);

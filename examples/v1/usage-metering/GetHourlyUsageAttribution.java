@@ -1,13 +1,13 @@
 // Get hourly usage attribution returns "OK" response
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.UsageMeteringApi;
-import com.datadog.api.v1.client.model.HourlyUsageAttributionResponse;
-import com.datadog.api.v1.client.model.HourlyUsageAttributionUsageType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.UsageMeteringApi;
+import com.datadog.api.client.v1.model.HourlyUsageAttributionResponse;
+import com.datadog.api.client.v1.model.HourlyUsageAttributionUsageType;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetHourlyUsageAttribution {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("getHourlyUsageAttribution", true);

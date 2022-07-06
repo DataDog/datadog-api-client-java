@@ -1,12 +1,12 @@
 // List read roles for an archive returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.LogsArchivesApi;
-import com.datadog.api.v2.client.model.RolesResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.LogsArchivesApi;
+import com.datadog.api.client.v2.model.RolesResponse;
 
-public class Example {
+public class ListArchiveReadRoles {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);

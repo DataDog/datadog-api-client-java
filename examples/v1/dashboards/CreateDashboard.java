@@ -1,25 +1,25 @@
 // Create a new dashboard returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.Dashboard;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.LogQueryDefinition;
-import com.datadog.api.v1.client.model.LogQueryDefinitionGroupBy;
-import com.datadog.api.v1.client.model.LogQueryDefinitionGroupBySort;
-import com.datadog.api.v1.client.model.LogQueryDefinitionSearch;
-import com.datadog.api.v1.client.model.LogsQueryCompute;
-import com.datadog.api.v1.client.model.TimeseriesWidgetDefinition;
-import com.datadog.api.v1.client.model.TimeseriesWidgetDefinitionType;
-import com.datadog.api.v1.client.model.TimeseriesWidgetRequest;
-import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.datadog.api.v1.client.model.WidgetSort;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.LogQueryDefinition;
+import com.datadog.api.client.v1.model.LogQueryDefinitionGroupBy;
+import com.datadog.api.client.v1.model.LogQueryDefinitionGroupBySort;
+import com.datadog.api.client.v1.model.LogQueryDefinitionSearch;
+import com.datadog.api.client.v1.model.LogsQueryCompute;
+import com.datadog.api.client.v1.model.TimeseriesWidgetDefinition;
+import com.datadog.api.client.v1.model.TimeseriesWidgetDefinitionType;
+import com.datadog.api.client.v1.model.TimeseriesWidgetRequest;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetSort;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

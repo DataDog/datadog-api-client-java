@@ -1,11 +1,11 @@
 // Delete a log-based metric returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.LogsMetricsApi;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.LogsMetricsApi;
 
-public class Example {
+public class DeleteLogsMetric {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsMetricsApi apiInstance = new LogsMetricsApi(defaultClient);

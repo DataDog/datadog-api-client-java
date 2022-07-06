@@ -1,11 +1,11 @@
 // Delete a security filter returns "No Content" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 
-public class Example {
+public class DeleteSecurityFilter_555029489 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);

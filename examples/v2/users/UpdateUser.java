@@ -1,16 +1,16 @@
 // Update a user returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.UsersApi;
-import com.datadog.api.v2.client.model.UserResponse;
-import com.datadog.api.v2.client.model.UserUpdateAttributes;
-import com.datadog.api.v2.client.model.UserUpdateData;
-import com.datadog.api.v2.client.model.UserUpdateRequest;
-import com.datadog.api.v2.client.model.UsersType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.UsersApi;
+import com.datadog.api.client.v2.model.UserResponse;
+import com.datadog.api.client.v2.model.UserUpdateAttributes;
+import com.datadog.api.client.v2.model.UserUpdateData;
+import com.datadog.api.client.v2.model.UserUpdateRequest;
+import com.datadog.api.client.v2.model.UsersType;
 
-public class Example {
+public class UpdateUser {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);

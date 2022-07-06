@@ -1,14 +1,14 @@
 // Revoke role from an archive returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.LogsArchivesApi;
-import com.datadog.api.v2.client.model.RelationshipToRole;
-import com.datadog.api.v2.client.model.RelationshipToRoleData;
-import com.datadog.api.v2.client.model.RolesType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.LogsArchivesApi;
+import com.datadog.api.client.v2.model.RelationshipToRole;
+import com.datadog.api.client.v2.model.RelationshipToRoleData;
+import com.datadog.api.client.v2.model.RolesType;
 
-public class Example {
+public class RemoveRoleFromArchive {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);

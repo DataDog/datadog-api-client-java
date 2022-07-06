@@ -1,25 +1,25 @@
 // Trigger tests from CI/CD pipelines returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-import com.datadog.api.v1.client.model.SyntheticsBasicAuth;
-import com.datadog.api.v1.client.model.SyntheticsBasicAuthWeb;
-import com.datadog.api.v1.client.model.SyntheticsBasicAuthWebType;
-import com.datadog.api.v1.client.model.SyntheticsCIBatchMetadata;
-import com.datadog.api.v1.client.model.SyntheticsCIBatchMetadataCI;
-import com.datadog.api.v1.client.model.SyntheticsCIBatchMetadataGit;
-import com.datadog.api.v1.client.model.SyntheticsCIBatchMetadataPipeline;
-import com.datadog.api.v1.client.model.SyntheticsCIBatchMetadataProvider;
-import com.datadog.api.v1.client.model.SyntheticsCITest;
-import com.datadog.api.v1.client.model.SyntheticsCITestBody;
-import com.datadog.api.v1.client.model.SyntheticsDeviceID;
-import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
-import com.datadog.api.v1.client.model.SyntheticsTriggerCITestsResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.SyntheticsBasicAuth;
+import com.datadog.api.client.v1.model.SyntheticsBasicAuthWeb;
+import com.datadog.api.client.v1.model.SyntheticsBasicAuthWebType;
+import com.datadog.api.client.v1.model.SyntheticsCIBatchMetadata;
+import com.datadog.api.client.v1.model.SyntheticsCIBatchMetadataCI;
+import com.datadog.api.client.v1.model.SyntheticsCIBatchMetadataGit;
+import com.datadog.api.client.v1.model.SyntheticsCIBatchMetadataPipeline;
+import com.datadog.api.client.v1.model.SyntheticsCIBatchMetadataProvider;
+import com.datadog.api.client.v1.model.SyntheticsCITest;
+import com.datadog.api.client.v1.model.SyntheticsCITestBody;
+import com.datadog.api.client.v1.model.SyntheticsDeviceID;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
+import com.datadog.api.client.v1.model.SyntheticsTriggerCITestsResponse;
 import java.util.Collections;
 
-public class Example {
+public class TriggerCITests {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);

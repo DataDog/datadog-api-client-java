@@ -1,16 +1,16 @@
 // Create a new incident team returns "CREATED" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.IncidentTeamsApi;
-import com.datadog.api.v2.client.model.IncidentTeamCreateAttributes;
-import com.datadog.api.v2.client.model.IncidentTeamCreateData;
-import com.datadog.api.v2.client.model.IncidentTeamCreateRequest;
-import com.datadog.api.v2.client.model.IncidentTeamResponse;
-import com.datadog.api.v2.client.model.IncidentTeamType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.IncidentTeamsApi;
+import com.datadog.api.client.v2.model.IncidentTeamCreateAttributes;
+import com.datadog.api.client.v2.model.IncidentTeamCreateData;
+import com.datadog.api.client.v2.model.IncidentTeamCreateRequest;
+import com.datadog.api.client.v2.model.IncidentTeamResponse;
+import com.datadog.api.client.v2.model.IncidentTeamType;
 
-public class Example {
+public class CreateIncidentTeam {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("createIncidentTeam", true);

@@ -1,15 +1,15 @@
 // Create a private location returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-import com.datadog.api.v1.client.model.SyntheticsPrivateLocation;
-import com.datadog.api.v1.client.model.SyntheticsPrivateLocationCreationResponse;
-import com.datadog.api.v1.client.model.SyntheticsPrivateLocationMetadata;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.SyntheticsPrivateLocation;
+import com.datadog.api.client.v1.model.SyntheticsPrivateLocationCreationResponse;
+import com.datadog.api.client.v1.model.SyntheticsPrivateLocationMetadata;
 import java.util.Collections;
 
-public class Example {
+public class CreatePrivateLocation {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);

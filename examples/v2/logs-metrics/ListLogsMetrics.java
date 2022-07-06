@@ -1,12 +1,12 @@
 // Get all log-based metrics returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.LogsMetricsApi;
-import com.datadog.api.v2.client.model.LogsMetricsResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.LogsMetricsApi;
+import com.datadog.api.client.v2.model.LogsMetricsResponse;
 
-public class Example {
+public class ListLogsMetrics {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsMetricsApi apiInstance = new LogsMetricsApi(defaultClient);

@@ -1,14 +1,14 @@
 // Get a quick list of logs returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.LogsApi;
-import com.datadog.api.v2.client.api.LogsApi.ListLogsGetOptionalParameters;
-import com.datadog.api.v2.client.model.LogsListResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.LogsApi;
+import com.datadog.api.client.v2.api.LogsApi.ListLogsGetOptionalParameters;
+import com.datadog.api.client.v2.model.LogsListResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class ListLogsGet_2034110533 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);

@@ -1,12 +1,12 @@
 // Validate API key returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.AuthenticationApi;
-import com.datadog.api.v1.client.model.AuthenticationValidationResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.AuthenticationApi;
+import com.datadog.api.client.v1.model.AuthenticationValidationResponse;
 
-public class Example {
+public class Validate {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);

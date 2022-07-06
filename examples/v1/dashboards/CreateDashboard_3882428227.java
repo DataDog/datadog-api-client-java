@@ -1,31 +1,31 @@
 // Create a distribution widget using a histogram request containing a formulas and functions events
 // query
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.Dashboard;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.DistributionWidgetDefinition;
-import com.datadog.api.v1.client.model.DistributionWidgetDefinitionType;
-import com.datadog.api.v1.client.model.DistributionWidgetHistogramRequestQuery;
-import com.datadog.api.v1.client.model.DistributionWidgetHistogramRequestType;
-import com.datadog.api.v1.client.model.DistributionWidgetRequest;
-import com.datadog.api.v1.client.model.DistributionWidgetXAxis;
-import com.datadog.api.v1.client.model.DistributionWidgetYAxis;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventAggregation;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionCompute;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionSearch;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventsDataSource;
-import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.datadog.api.v1.client.model.WidgetLayout;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.DistributionWidgetDefinition;
+import com.datadog.api.client.v1.model.DistributionWidgetDefinitionType;
+import com.datadog.api.client.v1.model.DistributionWidgetHistogramRequestQuery;
+import com.datadog.api.client.v1.model.DistributionWidgetHistogramRequestType;
+import com.datadog.api.client.v1.model.DistributionWidgetRequest;
+import com.datadog.api.client.v1.model.DistributionWidgetXAxis;
+import com.datadog.api.client.v1.model.DistributionWidgetYAxis;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventAggregation;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionCompute;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionSearch;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventsDataSource;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetTextAlign;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard_3882428227 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

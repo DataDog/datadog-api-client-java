@@ -1,15 +1,15 @@
 // Remove a user from a role returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.RolesApi;
-import com.datadog.api.v2.client.model.RelationshipToUser;
-import com.datadog.api.v2.client.model.RelationshipToUserData;
-import com.datadog.api.v2.client.model.UsersResponse;
-import com.datadog.api.v2.client.model.UsersType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.RolesApi;
+import com.datadog.api.client.v2.model.RelationshipToUser;
+import com.datadog.api.client.v2.model.RelationshipToUserData;
+import com.datadog.api.client.v2.model.UsersResponse;
+import com.datadog.api.client.v2.model.UsersType;
 
-public class Example {
+public class RemoveUserFromRole {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);

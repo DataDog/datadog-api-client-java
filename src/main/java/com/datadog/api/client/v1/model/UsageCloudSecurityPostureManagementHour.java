@@ -1,0 +1,342 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v1.model;
+
+import com.datadog.api.client.JsonTimeSerializer;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.time.OffsetDateTime;
+import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+/** Cloud Security Posture Management usage for a given organization for a given hour. */
+@JsonPropertyOrder({
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_AAS_HOST_COUNT,
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_AZURE_HOST_COUNT,
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_COMPLIANCE_HOST_COUNT,
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_CONTAINER_COUNT,
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_HOST_COUNT,
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_HOUR,
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_ORG_NAME,
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_PUBLIC_ID
+})
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class UsageCloudSecurityPostureManagementHour {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AAS_HOST_COUNT = "aas_host_count";
+  private JsonNullable<Double> aasHostCount = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_AZURE_HOST_COUNT = "azure_host_count";
+  private JsonNullable<Double> azureHostCount = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_COMPLIANCE_HOST_COUNT = "compliance_host_count";
+  private JsonNullable<Double> complianceHostCount = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_CONTAINER_COUNT = "container_count";
+  private JsonNullable<Double> containerCount = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_HOST_COUNT = "host_count";
+  private JsonNullable<Double> hostCount = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_HOUR = "hour";
+
+  @JsonSerialize(using = JsonTimeSerializer.class)
+  private OffsetDateTime hour;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
+
+  public UsageCloudSecurityPostureManagementHour aasHostCount(Double aasHostCount) {
+    this.aasHostCount = JsonNullable.<Double>of(aasHostCount);
+    return this;
+  }
+
+  /**
+   * The number of Cloud Security Posture Management Azure app services hosts during a given hour.
+   *
+   * @return aasHostCount
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+  public Double getAasHostCount() {
+    return aasHostCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AAS_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getAasHostCount_JsonNullable() {
+    return aasHostCount;
+  }
+
+  @JsonProperty(JSON_PROPERTY_AAS_HOST_COUNT)
+  public void setAasHostCount_JsonNullable(JsonNullable<Double> aasHostCount) {
+    this.aasHostCount = aasHostCount;
+  }
+
+  public void setAasHostCount(Double aasHostCount) {
+    this.aasHostCount = JsonNullable.<Double>of(aasHostCount);
+  }
+
+  public UsageCloudSecurityPostureManagementHour azureHostCount(Double azureHostCount) {
+    this.azureHostCount = JsonNullable.<Double>of(azureHostCount);
+    return this;
+  }
+
+  /**
+   * The number of Cloud Security Posture Management Azure hosts during a given hour.
+   *
+   * @return azureHostCount
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+  public Double getAzureHostCount() {
+    return azureHostCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AZURE_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getAzureHostCount_JsonNullable() {
+    return azureHostCount;
+  }
+
+  @JsonProperty(JSON_PROPERTY_AZURE_HOST_COUNT)
+  public void setAzureHostCount_JsonNullable(JsonNullable<Double> azureHostCount) {
+    this.azureHostCount = azureHostCount;
+  }
+
+  public void setAzureHostCount(Double azureHostCount) {
+    this.azureHostCount = JsonNullable.<Double>of(azureHostCount);
+  }
+
+  public UsageCloudSecurityPostureManagementHour complianceHostCount(Double complianceHostCount) {
+    this.complianceHostCount = JsonNullable.<Double>of(complianceHostCount);
+    return this;
+  }
+
+  /**
+   * The number of Cloud Security Posture Management hosts during a given hour.
+   *
+   * @return complianceHostCount
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+  public Double getComplianceHostCount() {
+    return complianceHostCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getComplianceHostCount_JsonNullable() {
+    return complianceHostCount;
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_HOST_COUNT)
+  public void setComplianceHostCount_JsonNullable(JsonNullable<Double> complianceHostCount) {
+    this.complianceHostCount = complianceHostCount;
+  }
+
+  public void setComplianceHostCount(Double complianceHostCount) {
+    this.complianceHostCount = JsonNullable.<Double>of(complianceHostCount);
+  }
+
+  public UsageCloudSecurityPostureManagementHour containerCount(Double containerCount) {
+    this.containerCount = JsonNullable.<Double>of(containerCount);
+    return this;
+  }
+
+  /**
+   * The total number of Cloud Security Posture Management containers during a given hour.
+   *
+   * @return containerCount
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+  public Double getContainerCount() {
+    return containerCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getContainerCount_JsonNullable() {
+    return containerCount;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
+  public void setContainerCount_JsonNullable(JsonNullable<Double> containerCount) {
+    this.containerCount = containerCount;
+  }
+
+  public void setContainerCount(Double containerCount) {
+    this.containerCount = JsonNullable.<Double>of(containerCount);
+  }
+
+  public UsageCloudSecurityPostureManagementHour hostCount(Double hostCount) {
+    this.hostCount = JsonNullable.<Double>of(hostCount);
+    return this;
+  }
+
+  /**
+   * The total number of Cloud Security Posture Management hosts during a given hour.
+   *
+   * @return hostCount
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+  public Double getHostCount() {
+    return hostCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getHostCount_JsonNullable() {
+    return hostCount;
+  }
+
+  @JsonProperty(JSON_PROPERTY_HOST_COUNT)
+  public void setHostCount_JsonNullable(JsonNullable<Double> hostCount) {
+    this.hostCount = hostCount;
+  }
+
+  public void setHostCount(Double hostCount) {
+    this.hostCount = JsonNullable.<Double>of(hostCount);
+  }
+
+  public UsageCloudSecurityPostureManagementHour hour(OffsetDateTime hour) {
+    this.hour = hour;
+    return this;
+  }
+
+  /**
+   * The hour for the usage.
+   *
+   * @return hour
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getHour() {
+    return hour;
+  }
+
+  public void setHour(OffsetDateTime hour) {
+    this.hour = hour;
+  }
+
+  public UsageCloudSecurityPostureManagementHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageCloudSecurityPostureManagementHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
+  /** Return true if this UsageCloudSecurityPostureManagementHour object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UsageCloudSecurityPostureManagementHour usageCloudSecurityPostureManagementHour =
+        (UsageCloudSecurityPostureManagementHour) o;
+    return Objects.equals(this.aasHostCount, usageCloudSecurityPostureManagementHour.aasHostCount)
+        && Objects.equals(
+            this.azureHostCount, usageCloudSecurityPostureManagementHour.azureHostCount)
+        && Objects.equals(
+            this.complianceHostCount, usageCloudSecurityPostureManagementHour.complianceHostCount)
+        && Objects.equals(
+            this.containerCount, usageCloudSecurityPostureManagementHour.containerCount)
+        && Objects.equals(this.hostCount, usageCloudSecurityPostureManagementHour.hostCount)
+        && Objects.equals(this.hour, usageCloudSecurityPostureManagementHour.hour)
+        && Objects.equals(this.orgName, usageCloudSecurityPostureManagementHour.orgName)
+        && Objects.equals(this.publicId, usageCloudSecurityPostureManagementHour.publicId);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        aasHostCount,
+        azureHostCount,
+        complianceHostCount,
+        containerCount,
+        hostCount,
+        hour,
+        orgName,
+        publicId);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UsageCloudSecurityPostureManagementHour {\n");
+    sb.append("    aasHostCount: ").append(toIndentedString(aasHostCount)).append("\n");
+    sb.append("    azureHostCount: ").append(toIndentedString(azureHostCount)).append("\n");
+    sb.append("    complianceHostCount: ")
+        .append(toIndentedString(complianceHostCount))
+        .append("\n");
+    sb.append("    containerCount: ").append(toIndentedString(containerCount)).append("\n");
+    sb.append("    hostCount: ").append(toIndentedString(hostCount)).append("\n");
+    sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}

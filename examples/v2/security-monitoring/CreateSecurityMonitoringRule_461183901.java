@@ -1,25 +1,25 @@
 // Create a detection rule with type 'impossible_travel' returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleCaseCreate;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleCreatePayload;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleDetectionMethod;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleEvaluationWindow;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleImpossibleTravelOptions;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleKeepAlive;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleMaxSignalDuration;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleOptions;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryAggregation;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryCreate;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleSeverity;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleTypeCreate;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.SecurityMonitoringApi;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseCreate;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleDetectionMethod;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleEvaluationWindow;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleImpossibleTravelOptions;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleKeepAlive;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleMaxSignalDuration;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleOptions;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryAggregation;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryCreate;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleTypeCreate;
 import java.util.Collections;
 
-public class Example {
+public class CreateSecurityMonitoringRule_461183901 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);

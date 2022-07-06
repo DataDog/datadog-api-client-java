@@ -1,12 +1,12 @@
 // Get a list of incidents returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.IncidentsApi;
-import com.datadog.api.v2.client.model.IncidentsResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.IncidentsApi;
+import com.datadog.api.client.v2.model.IncidentsResponse;
 
-public class Example {
+public class ListIncidents {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("listIncidents", true);

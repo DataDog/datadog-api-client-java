@@ -1,22 +1,22 @@
 // Create a new dashboard with funnel widget
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.Dashboard;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.FunnelQuery;
-import com.datadog.api.v1.client.model.FunnelRequestType;
-import com.datadog.api.v1.client.model.FunnelSource;
-import com.datadog.api.v1.client.model.FunnelWidgetDefinition;
-import com.datadog.api.v1.client.model.FunnelWidgetDefinitionType;
-import com.datadog.api.v1.client.model.FunnelWidgetRequest;
-import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetDefinition;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.FunnelQuery;
+import com.datadog.api.client.v1.model.FunnelRequestType;
+import com.datadog.api.client.v1.model.FunnelSource;
+import com.datadog.api.client.v1.model.FunnelWidgetDefinition;
+import com.datadog.api.client.v1.model.FunnelWidgetDefinitionType;
+import com.datadog.api.client.v1.model.FunnelWidgetRequest;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetDefinition;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard_927141680 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

@@ -1,16 +1,16 @@
 // Update archive order returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.LogsArchivesApi;
-import com.datadog.api.v2.client.model.LogsArchiveOrder;
-import com.datadog.api.v2.client.model.LogsArchiveOrderAttributes;
-import com.datadog.api.v2.client.model.LogsArchiveOrderDefinition;
-import com.datadog.api.v2.client.model.LogsArchiveOrderDefinitionType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.LogsArchivesApi;
+import com.datadog.api.client.v2.model.LogsArchiveOrder;
+import com.datadog.api.client.v2.model.LogsArchiveOrderAttributes;
+import com.datadog.api.client.v2.model.LogsArchiveOrderDefinition;
+import com.datadog.api.client.v2.model.LogsArchiveOrderDefinitionType;
 import java.util.Arrays;
 
-public class Example {
+public class UpdateLogsArchiveOrder {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);

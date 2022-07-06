@@ -1,13 +1,13 @@
 // Get hourly usage for Synthetics API Checks returns "OK" response
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.UsageMeteringApi;
-import com.datadog.api.v1.client.api.UsageMeteringApi.GetUsageSyntheticsAPIOptionalParameters;
-import com.datadog.api.v1.client.model.UsageSyntheticsAPIResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.UsageMeteringApi;
+import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageSyntheticsAPIOptionalParameters;
+import com.datadog.api.client.v1.model.UsageSyntheticsAPIResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetUsageSyntheticsAPI {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

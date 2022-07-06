@@ -1,13 +1,13 @@
 // Update a webhook returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.WebhooksIntegrationApi;
-import com.datadog.api.v1.client.model.WebhooksIntegration;
-import com.datadog.api.v1.client.model.WebhooksIntegrationUpdateRequest;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.WebhooksIntegrationApi;
+import com.datadog.api.client.v1.model.WebhooksIntegration;
+import com.datadog.api.client.v1.model.WebhooksIntegrationUpdateRequest;
 
-public class Example {
+public class UpdateWebhooksIntegration {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     WebhooksIntegrationApi apiInstance = new WebhooksIntegrationApi(defaultClient);

@@ -1,13 +1,13 @@
 // Update a GCP integration returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.GcpIntegrationApi;
-import com.datadog.api.v1.client.model.GCPAccount;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.GcpIntegrationApi;
+import com.datadog.api.client.v1.model.GCPAccount;
 import java.util.Collections;
 
-public class Example {
+public class UpdateGCPIntegration {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);

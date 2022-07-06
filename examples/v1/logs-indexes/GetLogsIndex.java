@@ -1,12 +1,12 @@
 // Get an index returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.LogsIndexesApi;
-import com.datadog.api.v1.client.model.LogsIndex;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.LogsIndexesApi;
+import com.datadog.api.client.v1.model.LogsIndex;
 
-public class Example {
+public class GetLogsIndex {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);

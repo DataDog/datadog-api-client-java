@@ -1,29 +1,29 @@
 // Create a new dashboard with a formulas and functions treemap widget
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.Dashboard;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventAggregation;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionCompute;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionSearch;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventsDataSource;
-import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionResponseFormat;
-import com.datadog.api.v1.client.model.TreeMapWidgetDefinition;
-import com.datadog.api.v1.client.model.TreeMapWidgetDefinitionType;
-import com.datadog.api.v1.client.model.TreeMapWidgetRequest;
-import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.datadog.api.v1.client.model.WidgetFormula;
-import com.datadog.api.v1.client.model.WidgetLayout;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventAggregation;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionCompute;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionSearch;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventsDataSource;
+import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
+import com.datadog.api.client.v1.model.TreeMapWidgetDefinition;
+import com.datadog.api.client.v1.model.TreeMapWidgetDefinitionType;
+import com.datadog.api.client.v1.model.TreeMapWidgetRequest;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetFormula;
+import com.datadog.api.client.v1.model.WidgetLayout;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard_1024858348 {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

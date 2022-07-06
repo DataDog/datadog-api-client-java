@@ -236,21 +236,30 @@ public class ApiClient {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
-          put("createIncident", false);
-          put("listIncidents", false);
-          put("deleteIncident", false);
-          put("getIncident", false);
-          put("updateIncident", false);
-          put("createIncidentService", false);
-          put("listIncidentServices", false);
-          put("deleteIncidentService", false);
-          put("getIncidentService", false);
-          put("updateIncidentService", false);
-          put("createIncidentTeam", false);
-          put("listIncidentTeams", false);
-          put("deleteIncidentTeam", false);
-          put("getIncidentTeam", false);
-          put("updateIncidentTeam", false);
+          put("v1.getDailyCustomReports", false);
+          put("v1.getHourlyUsageAttribution", false);
+          put("v1.getMonthlyCustomReports", false);
+          put("v1.getMonthlyUsageAttribution", false);
+          put("v1.getSpecifiedDailyCustomReports", false);
+          put("v1.getSpecifiedMonthlyCustomReports", false);
+          put("v1.getUsageAttribution", false);
+          put("v1.getSLOHistory", false);
+          put("v1.searchSLO", false);
+          put("v2.createIncident", false);
+          put("v2.deleteIncident", false);
+          put("v2.getIncident", false);
+          put("v2.listIncidents", false);
+          put("v2.updateIncident", false);
+          put("v2.createIncidentService", false);
+          put("v2.deleteIncidentService", false);
+          put("v2.getIncidentService", false);
+          put("v2.listIncidentServices", false);
+          put("v2.updateIncidentService", false);
+          put("v2.createIncidentTeam", false);
+          put("v2.deleteIncidentTeam", false);
+          put("v2.getIncidentTeam", false);
+          put("v2.listIncidentTeams", false);
+          put("v2.updateIncidentTeam", false);
         }
       };
   protected static final java.util.logging.Logger logger =

@@ -1,22 +1,22 @@
 // Aggregate RUM events returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.RumApi;
-import com.datadog.api.v2.client.model.RUMAggregateRequest;
-import com.datadog.api.v2.client.model.RUMAggregationFunction;
-import com.datadog.api.v2.client.model.RUMAnalyticsAggregateResponse;
-import com.datadog.api.v2.client.model.RUMCompute;
-import com.datadog.api.v2.client.model.RUMComputeType;
-import com.datadog.api.v2.client.model.RUMGroupBy;
-import com.datadog.api.v2.client.model.RUMGroupByTotal;
-import com.datadog.api.v2.client.model.RUMQueryFilter;
-import com.datadog.api.v2.client.model.RUMQueryOptions;
-import com.datadog.api.v2.client.model.RUMQueryPageOptions;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.RumApi;
+import com.datadog.api.client.v2.model.RUMAggregateRequest;
+import com.datadog.api.client.v2.model.RUMAggregationFunction;
+import com.datadog.api.client.v2.model.RUMAnalyticsAggregateResponse;
+import com.datadog.api.client.v2.model.RUMCompute;
+import com.datadog.api.client.v2.model.RUMComputeType;
+import com.datadog.api.client.v2.model.RUMGroupBy;
+import com.datadog.api.client.v2.model.RUMGroupByTotal;
+import com.datadog.api.client.v2.model.RUMQueryFilter;
+import com.datadog.api.client.v2.model.RUMQueryOptions;
+import com.datadog.api.client.v2.model.RUMQueryPageOptions;
 import java.util.Collections;
 
-public class Example {
+public class AggregateRUMEvents {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     RumApi apiInstance = new RumApi(defaultClient);

@@ -1,19 +1,19 @@
 // Create a security filter returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi;
-import com.datadog.api.v2.client.model.SecurityFilterCreateAttributes;
-import com.datadog.api.v2.client.model.SecurityFilterCreateData;
-import com.datadog.api.v2.client.model.SecurityFilterCreateRequest;
-import com.datadog.api.v2.client.model.SecurityFilterExclusionFilter;
-import com.datadog.api.v2.client.model.SecurityFilterFilteredDataType;
-import com.datadog.api.v2.client.model.SecurityFilterResponse;
-import com.datadog.api.v2.client.model.SecurityFilterType;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.SecurityMonitoringApi;
+import com.datadog.api.client.v2.model.SecurityFilterCreateAttributes;
+import com.datadog.api.client.v2.model.SecurityFilterCreateData;
+import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
+import com.datadog.api.client.v2.model.SecurityFilterExclusionFilter;
+import com.datadog.api.client.v2.model.SecurityFilterFilteredDataType;
+import com.datadog.api.client.v2.model.SecurityFilterResponse;
+import com.datadog.api.client.v2.model.SecurityFilterType;
 import java.util.Collections;
 
-public class Example {
+public class CreateSecurityFilter {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);

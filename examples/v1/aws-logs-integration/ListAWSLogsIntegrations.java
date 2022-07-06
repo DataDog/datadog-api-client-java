@@ -1,13 +1,13 @@
 // List all AWS Logs integrations returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
-import com.datadog.api.v1.client.model.AWSLogsListResponse;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v1.api.AwsLogsIntegrationApi;
+import com.datadog.api.client.v1.model.AWSLogsListResponse;
 import java.util.List;
 
-public class Example {
+public class ListAWSLogsIntegrations {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);

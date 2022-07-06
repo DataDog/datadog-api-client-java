@@ -1,20 +1,20 @@
 // Update an existing incident returns "OK" response
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.IncidentsApi;
-import com.datadog.api.v2.client.model.IncidentFieldAttributes;
-import com.datadog.api.v2.client.model.IncidentFieldAttributesSingleValue;
-import com.datadog.api.v2.client.model.IncidentFieldAttributesSingleValueType;
-import com.datadog.api.v2.client.model.IncidentResponse;
-import com.datadog.api.v2.client.model.IncidentType;
-import com.datadog.api.v2.client.model.IncidentUpdateAttributes;
-import com.datadog.api.v2.client.model.IncidentUpdateData;
-import com.datadog.api.v2.client.model.IncidentUpdateRequest;
+import com.datadog.api.client.Configuration;
+import com.datadog.api.client.v2.api.IncidentsApi;
+import com.datadog.api.client.v2.model.IncidentFieldAttributes;
+import com.datadog.api.client.v2.model.IncidentFieldAttributesSingleValue;
+import com.datadog.api.client.v2.model.IncidentFieldAttributesSingleValueType;
+import com.datadog.api.client.v2.model.IncidentResponse;
+import com.datadog.api.client.v2.model.IncidentType;
+import com.datadog.api.client.v2.model.IncidentUpdateAttributes;
+import com.datadog.api.client.v2.model.IncidentUpdateData;
+import com.datadog.api.client.v2.model.IncidentUpdateRequest;
 import java.util.Map;
 
-public class Example {
+public class UpdateIncident {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("updateIncident", true);
