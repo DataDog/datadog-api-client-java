@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.OrganizationsApi;
 import com.datadog.api.client.v1.model.IdpResponse;
 import java.io.File;
 
-public class UploadIdPForOrg {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);

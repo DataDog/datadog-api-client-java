@@ -16,7 +16,7 @@ import com.datadog.api.client.v1.model.MonitorType;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class CreateMonitor_1969035628 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);

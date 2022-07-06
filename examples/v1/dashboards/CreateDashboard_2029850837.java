@@ -17,7 +17,7 @@ import com.datadog.api.client.v1.model.WidgetTextAlign;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class CreateDashboard_2029850837 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

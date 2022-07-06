@@ -11,7 +11,7 @@ import com.datadog.api.client.v2.model.LogsComputeType;
 import com.datadog.api.client.v2.model.LogsQueryFilter;
 import java.util.Collections;
 
-public class AggregateLogs_2527007002 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);

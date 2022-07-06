@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.LogsArchivesApi;
 import com.datadog.api.client.v2.model.LogsArchives;
 
-public class ListLogsArchives {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);

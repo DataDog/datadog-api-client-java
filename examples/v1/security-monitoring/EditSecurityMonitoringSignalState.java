@@ -8,7 +8,7 @@ import com.datadog.api.client.v1.model.SignalStateUpdateRequest;
 import com.datadog.api.client.v1.model.SignalTriageState;
 import com.datadog.api.client.v1.model.SuccessfulSignalUpdateResponse;
 
-public class EditSecurityMonitoringSignalState {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);

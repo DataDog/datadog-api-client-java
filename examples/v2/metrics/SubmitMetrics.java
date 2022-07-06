@@ -10,7 +10,7 @@ import com.datadog.api.client.v2.model.MetricSeries;
 import java.time.OffsetDateTime;
 import java.util.Collections;
 
-public class SubmitMetrics {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);

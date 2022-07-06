@@ -30,7 +30,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificateItem;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestProxy;
 import java.util.Collections;
 
-public class UpdateBrowserTest {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);

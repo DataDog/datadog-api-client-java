@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageDBMOptionalParamet
 import com.datadog.api.client.v1.model.UsageDBMResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageDBM {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

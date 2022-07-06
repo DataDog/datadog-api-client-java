@@ -8,7 +8,7 @@ import com.datadog.api.client.v2.model.RelationshipToUserData;
 import com.datadog.api.client.v2.model.UsersResponse;
 import com.datadog.api.client.v2.model.UsersType;
 
-public class RemoveUserFromRole {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);

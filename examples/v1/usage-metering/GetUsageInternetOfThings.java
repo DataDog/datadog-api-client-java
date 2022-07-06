@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageInternetOfThingsOp
 import com.datadog.api.client.v1.model.UsageIoTResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageInternetOfThings {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

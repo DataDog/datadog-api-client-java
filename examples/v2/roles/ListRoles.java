@@ -6,7 +6,7 @@ import com.datadog.api.client.v2.api.RolesApi;
 import com.datadog.api.client.v2.api.RolesApi.ListRolesOptionalParameters;
 import com.datadog.api.client.v2.model.RolesResponse;
 
-public class ListRoles {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);

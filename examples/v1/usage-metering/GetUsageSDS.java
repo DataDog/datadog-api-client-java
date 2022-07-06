@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageSDSOptionalParamet
 import com.datadog.api.client.v1.model.UsageSDSResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageSDS {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

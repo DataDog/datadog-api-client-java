@@ -7,7 +7,7 @@ import com.datadog.api.client.v1.model.MonthlyUsageAttributionResponse;
 import com.datadog.api.client.v1.model.MonthlyUsageAttributionSupportedMetrics;
 import java.time.OffsetDateTime;
 
-public class GetMonthlyUsageAttribution_3849653599 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

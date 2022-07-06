@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.SnapshotsApi.GetGraphSnapshotOptionalParame
 import com.datadog.api.client.v1.model.GraphSnapshot;
 import java.time.OffsetDateTime;
 
-public class GetGraphSnapshot {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SnapshotsApi apiInstance = new SnapshotsApi(defaultClient);

@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.WebhooksIntegrationApi;
 import com.datadog.api.client.v1.model.WebhooksIntegration;
 import com.datadog.api.client.v1.model.WebhooksIntegrationUpdateRequest;
 
-public class UpdateWebhooksIntegration {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     WebhooksIntegrationApi apiInstance = new WebhooksIntegrationApi(defaultClient);

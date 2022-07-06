@@ -9,7 +9,7 @@ import com.datadog.api.client.v1.model.HTTPLogItem;
 import java.util.Collections;
 import java.util.List;
 
-public class SubmitLog_3418823904 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);

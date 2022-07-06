@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ServiceAccountsApi;
 import com.datadog.api.client.v2.model.ListApplicationKeysResponse;
 
-public class ListServiceAccountApplicationKeys_1268914341 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);

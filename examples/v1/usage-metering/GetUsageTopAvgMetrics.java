@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageTopAvgMetricsOptio
 import com.datadog.api.client.v1.model.UsageTopAvgMetricsResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageTopAvgMetrics {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

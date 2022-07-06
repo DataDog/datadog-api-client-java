@@ -8,7 +8,7 @@ import com.datadog.api.client.v1.model.SyntheticsTriggerCITestsResponse;
 import com.datadog.api.client.v1.model.SyntheticsTriggerTest;
 import java.util.Collections;
 
-public class TriggerTests {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);

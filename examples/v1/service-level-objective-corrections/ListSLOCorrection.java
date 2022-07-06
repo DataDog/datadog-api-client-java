@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.ServiceLevelObjectiveCorrectionsApi;
 import com.datadog.api.client.v1.model.SLOCorrectionListResponse;
 
-public class ListSLOCorrection {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceLevelObjectiveCorrectionsApi apiInstance =

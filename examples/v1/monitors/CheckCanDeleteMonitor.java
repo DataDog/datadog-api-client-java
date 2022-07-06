@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.MonitorsApi;
 import com.datadog.api.client.v1.model.CheckCanDeleteMonitorResponse;
 import java.util.Collections;
 
-public class CheckCanDeleteMonitor {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);

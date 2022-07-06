@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.IpRangesApi;
 import com.datadog.api.client.v1.model.IPRanges;
 
-public class GetIPRanges {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     IpRangesApi apiInstance = new IpRangesApi(defaultClient);

@@ -7,7 +7,7 @@ import com.datadog.api.client.v1.model.UsageAttributionResponse;
 import com.datadog.api.client.v1.model.UsageAttributionSupportedMetrics;
 import java.time.OffsetDateTime;
 
-public class GetUsageAttribution {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("getUsageAttribution", true);

@@ -22,7 +22,7 @@ import com.datadog.api.client.v1.model.WidgetLayout;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class CreateDashboard_1024858348 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

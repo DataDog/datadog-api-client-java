@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
 import com.datadog.api.client.v1.model.UsageSpecifiedCustomReportsResponse;
 
-public class GetSpecifiedMonthlyCustomReports {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);

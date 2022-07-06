@@ -8,7 +8,7 @@ import com.datadog.api.client.v1.model.SyntheticsPrivateLocationCreationResponse
 import com.datadog.api.client.v1.model.SyntheticsPrivateLocationMetadata;
 import java.util.Collections;
 
-public class CreatePrivateLocation {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);

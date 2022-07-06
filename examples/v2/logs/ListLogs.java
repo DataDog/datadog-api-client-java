@@ -11,7 +11,7 @@ import com.datadog.api.client.v2.model.LogsQueryFilter;
 import com.datadog.api.client.v2.model.LogsSort;
 import java.util.Collections;
 
-public class ListLogs {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);

@@ -4,7 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.NotebooksApi;
 
-public class DeleteNotebook {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     NotebooksApi apiInstance = new NotebooksApi(defaultClient);

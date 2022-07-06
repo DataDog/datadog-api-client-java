@@ -6,7 +6,7 @@ import com.datadog.api.client.v2.api.UsageMeteringApi.GetUsageObservabilityPipel
 import com.datadog.api.client.v2.model.UsageObservabilityPipelinesResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageObservabilityPipelines {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

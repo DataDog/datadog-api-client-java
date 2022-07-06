@@ -6,7 +6,7 @@ import com.datadog.api.client.v2.api.ProcessesApi;
 import com.datadog.api.client.v2.api.ProcessesApi.ListProcessesOptionalParameters;
 import com.datadog.api.client.v2.model.ProcessSummariesResponse;
 
-public class ListProcesses {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ProcessesApi apiInstance = new ProcessesApi(defaultClient);

@@ -23,7 +23,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestPauseStatus;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
 import java.util.Collections;
 
-public class CreateSyntheticsAPITest {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);

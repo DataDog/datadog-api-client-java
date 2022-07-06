@@ -10,7 +10,7 @@ import com.datadog.api.client.v2.model.OpsgenieServiceUpdateAttributes;
 import com.datadog.api.client.v2.model.OpsgenieServiceUpdateData;
 import com.datadog.api.client.v2.model.OpsgenieServiceUpdateRequest;
 
-public class UpdateOpsgenieService {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OpsgenieIntegrationApi apiInstance = new OpsgenieIntegrationApi(defaultClient);

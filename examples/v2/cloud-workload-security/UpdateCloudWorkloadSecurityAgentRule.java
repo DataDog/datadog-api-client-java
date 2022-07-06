@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleUpdateAttri
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleUpdateData;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleUpdateRequest;
 
-public class UpdateCloudWorkloadSecurityAgentRule {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     CloudWorkloadSecurityApi apiInstance = new CloudWorkloadSecurityApi(defaultClient);

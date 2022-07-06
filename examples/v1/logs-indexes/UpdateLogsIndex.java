@@ -10,7 +10,7 @@ import com.datadog.api.client.v1.model.LogsIndex;
 import com.datadog.api.client.v1.model.LogsIndexUpdateRequest;
 import java.util.Collections;
 
-public class UpdateLogsIndex {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);

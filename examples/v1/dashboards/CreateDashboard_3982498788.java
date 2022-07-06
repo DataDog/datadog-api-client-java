@@ -16,7 +16,7 @@ import com.datadog.api.client.v1.model.WidgetLineWidth;
 import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import java.util.Collections;
 
-public class CreateDashboard_3982498788 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

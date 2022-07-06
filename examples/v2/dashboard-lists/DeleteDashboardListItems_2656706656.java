@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.DashboardListItemRequest;
 import com.datadog.api.client.v2.model.DashboardType;
 import java.util.Collections;
 
-public class DeleteDashboardListItems_2656706656 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);

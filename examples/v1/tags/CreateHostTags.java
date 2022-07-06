@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.TagsApi;
 import com.datadog.api.client.v1.model.HostTags;
 import java.util.Collections;
 
-public class CreateHostTags {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     TagsApi apiInstance = new TagsApi(defaultClient);

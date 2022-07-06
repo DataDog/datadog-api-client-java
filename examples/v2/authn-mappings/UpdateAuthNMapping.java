@@ -13,7 +13,7 @@ import com.datadog.api.client.v2.model.RelationshipToRole;
 import com.datadog.api.client.v2.model.RelationshipToRoleData;
 import com.datadog.api.client.v2.model.RolesType;
 
-public class UpdateAuthNMapping {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AuthNMappingsApi apiInstance = new AuthNMappingsApi(defaultClient);

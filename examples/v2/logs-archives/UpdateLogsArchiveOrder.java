@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.LogsArchiveOrderDefinition;
 import com.datadog.api.client.v2.model.LogsArchiveOrderDefinitionType;
 import java.util.Arrays;
 
-public class UpdateLogsArchiveOrder {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);

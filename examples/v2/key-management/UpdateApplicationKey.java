@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.ApplicationKeyUpdateData;
 import com.datadog.api.client.v2.model.ApplicationKeyUpdateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeysType;
 
-public class UpdateApplicationKey {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);

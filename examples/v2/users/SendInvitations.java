@@ -13,7 +13,7 @@ import com.datadog.api.client.v2.model.UserInvitationsType;
 import com.datadog.api.client.v2.model.UsersType;
 import java.util.Collections;
 
-public class SendInvitations {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);

@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.HostsApi;
 import com.datadog.api.client.v1.model.HostMuteResponse;
 import com.datadog.api.client.v1.model.HostMuteSettings;
 
-public class MuteHost {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     HostsApi apiInstance = new HostsApi(defaultClient);

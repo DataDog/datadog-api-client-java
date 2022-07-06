@@ -7,7 +7,7 @@ import com.datadog.api.client.v1.model.SyntheticsDeleteTestsPayload;
 import com.datadog.api.client.v1.model.SyntheticsDeleteTestsResponse;
 import java.util.Collections;
 
-public class DeleteTests {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);

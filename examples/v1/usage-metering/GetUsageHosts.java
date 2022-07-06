@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageHostsOptionalParam
 import com.datadog.api.client.v1.model.UsageHostsResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageHosts {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

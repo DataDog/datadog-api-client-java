@@ -8,7 +8,7 @@ import com.datadog.api.client.v1.model.DashboardResourceType;
 import com.datadog.api.client.v1.model.DashboardRestoreRequest;
 import java.util.Collections;
 
-public class RestoreDashboards {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

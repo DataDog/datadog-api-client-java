@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.SecurityMonitoringApi;
 import com.datadog.api.client.v1.model.SignalAssigneeUpdateRequest;
 import com.datadog.api.client.v1.model.SuccessfulSignalUpdateResponse;
 
-public class EditSecurityMonitoringSignalAssignee {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);

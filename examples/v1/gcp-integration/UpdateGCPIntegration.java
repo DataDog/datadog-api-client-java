@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.GcpIntegrationApi;
 import com.datadog.api.client.v1.model.GCPAccount;
 import java.util.Collections;
 
-public class UpdateGCPIntegration {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);

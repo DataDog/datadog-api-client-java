@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.model.MonthlyUsageAttributionResponse;
 import com.datadog.api.client.v1.model.MonthlyUsageAttributionSupportedMetrics;
 import java.time.OffsetDateTime;
 
-public class GetMonthlyUsageAttribution {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("getMonthlyUsageAttribution", true);

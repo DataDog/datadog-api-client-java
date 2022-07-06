@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.EventsApi;
 import com.datadog.api.client.v1.model.EventListResponse;
 
-public class ListEvents {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     EventsApi apiInstance = new EventsApi(defaultClient);

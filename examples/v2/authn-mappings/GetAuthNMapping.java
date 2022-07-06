@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.AuthNMappingsApi;
 import com.datadog.api.client.v2.model.AuthNMappingResponse;
 
-public class GetAuthNMapping {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AuthNMappingsApi apiInstance = new AuthNMappingsApi(defaultClient);

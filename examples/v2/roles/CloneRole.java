@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.RoleCloneRequest;
 import com.datadog.api.client.v2.model.RoleResponse;
 import com.datadog.api.client.v2.model.RolesType;
 
-public class CloneRole {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);

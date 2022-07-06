@@ -10,7 +10,7 @@ import com.datadog.api.client.v2.model.MetricTagConfigurationUpdateData;
 import com.datadog.api.client.v2.model.MetricTagConfigurationUpdateRequest;
 import java.util.Collections;
 
-public class UpdateTagConfiguration {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);

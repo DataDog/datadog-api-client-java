@@ -12,7 +12,7 @@ import com.datadog.api.client.v2.model.NullableRelationshipToUser;
 import com.datadog.api.client.v2.model.NullableRelationshipToUserData;
 import com.datadog.api.client.v2.model.UsersType;
 
-public class UpdateIncident_3369341440 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("updateIncident", true);

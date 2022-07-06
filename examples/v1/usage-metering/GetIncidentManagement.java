@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.UsageMeteringApi.GetIncidentManagementOptio
 import com.datadog.api.client.v1.model.UsageIncidentManagementResponse;
 import java.time.OffsetDateTime;
 
-public class GetIncidentManagement {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

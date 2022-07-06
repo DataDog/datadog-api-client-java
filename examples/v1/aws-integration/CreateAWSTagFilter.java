@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.AwsIntegrationApi;
 import com.datadog.api.client.v1.model.AWSNamespace;
 import com.datadog.api.client.v1.model.AWSTagFilterCreateRequest;
 
-public class CreateAWSTagFilter {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);

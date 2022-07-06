@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.LogsIndexesApi;
 import com.datadog.api.client.v1.model.LogsIndexesOrder;
 import java.util.Arrays;
 
-public class UpdateLogsIndexOrder {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);

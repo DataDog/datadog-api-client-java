@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.UserCreateRequest;
 import com.datadog.api.client.v2.model.UserResponse;
 import com.datadog.api.client.v2.model.UsersType;
 
-public class CreateUser {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);

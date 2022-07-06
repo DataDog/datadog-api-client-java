@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.IncidentTeamCreateRequest;
 import com.datadog.api.client.v2.model.IncidentTeamResponse;
 import com.datadog.api.client.v2.model.IncidentTeamType;
 
-public class CreateIncidentTeam {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("createIncidentTeam", true);

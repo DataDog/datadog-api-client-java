@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageRumSessionsOptiona
 import com.datadog.api.client.v1.model.UsageRumSessionsResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageRumSessions {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

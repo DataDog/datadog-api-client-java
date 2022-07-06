@@ -10,7 +10,7 @@ import com.datadog.api.client.v2.model.LogsMetricUpdateAttributes;
 import com.datadog.api.client.v2.model.LogsMetricUpdateData;
 import com.datadog.api.client.v2.model.LogsMetricUpdateRequest;
 
-public class UpdateLogsMetric {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsMetricsApi apiInstance = new LogsMetricsApi(defaultClient);

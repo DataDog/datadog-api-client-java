@@ -33,7 +33,7 @@ import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class UpdateNotebook {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     NotebooksApi apiInstance = new NotebooksApi(defaultClient);

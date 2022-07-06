@@ -7,7 +7,7 @@ import com.datadog.api.client.v1.model.EventCreateRequest;
 import com.datadog.api.client.v1.model.EventCreateResponse;
 import java.util.Collections;
 
-public class CreateEvent {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     EventsApi apiInstance = new EventsApi(defaultClient);

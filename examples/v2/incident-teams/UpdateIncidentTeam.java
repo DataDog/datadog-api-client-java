@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.IncidentTeamUpdateAttributes;
 import com.datadog.api.client.v2.model.IncidentTeamUpdateData;
 import com.datadog.api.client.v2.model.IncidentTeamUpdateRequest;
 
-public class UpdateIncidentTeam {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("updateIncidentTeam", true);

@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.KeyManagementApi;
 import com.datadog.api.client.v1.model.ApiKey;
 import com.datadog.api.client.v1.model.ApiKeyResponse;
 
-public class UpdateAPIKey {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);

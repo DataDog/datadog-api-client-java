@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.ApplicationKeyUpdateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeysType;
 import com.datadog.api.client.v2.model.PartialApplicationKeyResponse;
 
-public class UpdateServiceAccountApplicationKey_768415790 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);

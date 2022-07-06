@@ -11,7 +11,7 @@ import com.datadog.api.client.v1.model.ServiceLevelObjective;
 import com.datadog.api.client.v1.model.ServiceLevelObjectiveQuery;
 import java.util.Collections;
 
-public class UpdateSLO {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);

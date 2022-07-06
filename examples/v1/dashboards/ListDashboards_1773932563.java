@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.DashboardsApi;
 import com.datadog.api.client.v1.api.DashboardsApi.ListDashboardsOptionalParameters;
 import com.datadog.api.client.v1.model.DashboardSummary;
 
-public class ListDashboards_1773932563 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

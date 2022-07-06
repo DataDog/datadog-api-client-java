@@ -10,7 +10,7 @@ import com.datadog.api.client.v1.model.SLOCorrectionResponse;
 import com.datadog.api.client.v1.model.SLOCorrectionType;
 import java.time.OffsetDateTime;
 
-public class CreateSLOCorrection_1326388368 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceLevelObjectiveCorrectionsApi apiInstance =

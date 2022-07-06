@@ -8,7 +8,7 @@ import com.datadog.api.client.v1.model.DashboardBulkDeleteRequest;
 import com.datadog.api.client.v1.model.DashboardResourceType;
 import java.util.Collections;
 
-public class DeleteDashboards {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);

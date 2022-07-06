@@ -15,7 +15,7 @@ import com.datadog.api.client.v1.model.OrganizationSettingsSamlStrictMode;
 import com.datadog.api.client.v1.model.OrganizationSubscription;
 import java.util.Collections;
 
-public class UpdateOrg {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);

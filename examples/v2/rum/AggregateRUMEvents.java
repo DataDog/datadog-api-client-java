@@ -15,7 +15,7 @@ import com.datadog.api.client.v2.model.RUMQueryOptions;
 import com.datadog.api.client.v2.model.RUMQueryPageOptions;
 import java.util.Collections;
 
-public class AggregateRUMEvents {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RumApi apiInstance = new RumApi(defaultClient);

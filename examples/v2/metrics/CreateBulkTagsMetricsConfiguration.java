@@ -11,7 +11,7 @@ import com.datadog.api.client.v2.model.MetricBulkTagConfigResponse;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class CreateBulkTagsMetricsConfiguration {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);

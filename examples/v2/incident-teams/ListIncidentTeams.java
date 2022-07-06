@@ -6,7 +6,7 @@ import com.datadog.api.client.v2.api.IncidentTeamsApi;
 import com.datadog.api.client.v2.api.IncidentTeamsApi.ListIncidentTeamsOptionalParameters;
 import com.datadog.api.client.v2.model.IncidentTeamsResponse;
 
-public class ListIncidentTeams {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("listIncidentTeams", true);

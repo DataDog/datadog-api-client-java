@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.ApplicationKeyCreateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeyResponse;
 import com.datadog.api.client.v2.model.ApplicationKeysType;
 
-public class CreateCurrentUserApplicationKey_1999509896 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);

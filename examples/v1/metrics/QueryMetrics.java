@@ -5,7 +5,7 @@ import com.datadog.api.client.v1.api.MetricsApi;
 import com.datadog.api.client.v1.model.MetricsQueryResponse;
 import java.time.OffsetDateTime;
 
-public class QueryMetrics {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);

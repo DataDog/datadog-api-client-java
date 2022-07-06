@@ -9,7 +9,7 @@ import com.datadog.api.client.v1.model.ServiceCheckStatus;
 import java.util.Collections;
 import java.util.List;
 
-public class SubmitServiceCheck {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceChecksApi apiInstance = new ServiceChecksApi(defaultClient);

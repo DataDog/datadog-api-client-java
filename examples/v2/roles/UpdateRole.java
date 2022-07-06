@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.RoleUpdateRequest;
 import com.datadog.api.client.v2.model.RoleUpdateResponse;
 import com.datadog.api.client.v2.model.RolesType;
 
-public class UpdateRole {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);

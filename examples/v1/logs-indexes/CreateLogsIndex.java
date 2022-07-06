@@ -9,7 +9,7 @@ import com.datadog.api.client.v1.model.LogsFilter;
 import com.datadog.api.client.v1.model.LogsIndex;
 import java.util.Collections;
 
-public class CreateLogsIndex {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);

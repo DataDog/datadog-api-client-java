@@ -13,7 +13,7 @@ import com.datadog.api.client.v2.model.LogsArchiveDestinationAzureType;
 import com.datadog.api.client.v2.model.LogsArchiveIntegrationAzure;
 import java.util.Arrays;
 
-public class CreateLogsArchive {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);

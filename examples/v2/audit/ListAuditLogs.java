@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.AuditApi;
 import com.datadog.api.client.v2.model.AuditLogsEventsResponse;
 
-public class ListAuditLogs {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AuditApi apiInstance = new AuditApi(defaultClient);

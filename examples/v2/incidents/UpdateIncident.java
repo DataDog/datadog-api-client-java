@@ -13,7 +13,7 @@ import com.datadog.api.client.v2.model.IncidentUpdateData;
 import com.datadog.api.client.v2.model.IncidentUpdateRequest;
 import java.util.Map;
 
-public class UpdateIncident {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("updateIncident", true);

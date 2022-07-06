@@ -8,7 +8,7 @@ import com.datadog.api.client.v1.model.OrganizationCreateBody;
 import com.datadog.api.client.v1.model.OrganizationCreateResponse;
 import com.datadog.api.client.v1.model.OrganizationSubscription;
 
-public class CreateChildOrg {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);

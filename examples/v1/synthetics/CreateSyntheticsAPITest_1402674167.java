@@ -18,7 +18,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestRequest;
 import java.util.Collections;
 import java.util.Map;
 
-public class CreateSyntheticsAPITest_1402674167 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);

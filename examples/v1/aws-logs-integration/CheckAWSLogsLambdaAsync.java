@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.AwsLogsIntegrationApi;
 import com.datadog.api.client.v1.model.AWSAccountAndLambdaRequest;
 import com.datadog.api.client.v1.model.AWSLogsAsyncResponse;
 
-public class CheckAWSLogsLambdaAsync {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);

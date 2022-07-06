@@ -6,7 +6,7 @@ import com.datadog.api.client.v2.api.UsageMeteringApi.GetUsageLambdaTracedInvoca
 import com.datadog.api.client.v2.model.UsageLambdaTracedInvocationsResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageLambdaTracedInvocations {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

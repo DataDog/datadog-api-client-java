@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageLogsByRetentionOpt
 import com.datadog.api.client.v1.model.UsageLogsByRetentionResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageLogsByRetention {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

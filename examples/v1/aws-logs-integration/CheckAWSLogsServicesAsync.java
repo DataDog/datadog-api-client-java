@@ -7,7 +7,7 @@ import com.datadog.api.client.v1.model.AWSLogsAsyncResponse;
 import com.datadog.api.client.v1.model.AWSLogsServicesRequest;
 import java.util.Arrays;
 
-public class CheckAWSLogsServicesAsync {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);

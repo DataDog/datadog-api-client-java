@@ -11,7 +11,7 @@ import com.datadog.api.client.v2.model.AuditLogsQueryPageOptions;
 import com.datadog.api.client.v2.model.AuditLogsSearchEventsRequest;
 import com.datadog.api.client.v2.model.AuditLogsSort;
 
-public class SearchAuditLogs {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AuditApi apiInstance = new AuditApi(defaultClient);

@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.model.HourlyUsageAttributionResponse;
 import com.datadog.api.client.v1.model.HourlyUsageAttributionUsageType;
 import java.time.OffsetDateTime;
 
-public class GetHourlyUsageAttribution {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("getHourlyUsageAttribution", true);

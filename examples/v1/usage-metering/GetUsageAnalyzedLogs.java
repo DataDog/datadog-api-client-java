@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageAnalyzedLogsOption
 import com.datadog.api.client.v1.model.UsageAnalyzedLogsResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageAnalyzedLogs {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

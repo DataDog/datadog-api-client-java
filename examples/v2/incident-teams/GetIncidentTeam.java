@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.IncidentTeamsApi;
 import com.datadog.api.client.v2.model.IncidentTeamResponse;
 
-public class GetIncidentTeam {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("getIncidentTeam", true);

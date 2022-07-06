@@ -11,7 +11,7 @@ import com.datadog.api.client.v1.model.LogsPipeline;
 import com.datadog.api.client.v1.model.LogsProcessor;
 import java.util.Collections;
 
-public class CreateLogsPipeline {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);

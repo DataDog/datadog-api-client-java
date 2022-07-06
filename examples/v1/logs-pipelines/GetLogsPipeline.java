@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.LogsPipelinesApi;
 import com.datadog.api.client.v1.model.LogsPipeline;
 
-public class GetLogsPipeline {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);

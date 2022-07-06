@@ -6,7 +6,7 @@ import com.datadog.api.client.v2.api.UsageMeteringApi.GetEstimatedCostByOrgOptio
 import com.datadog.api.client.v2.model.CostByOrgResponse;
 import java.time.OffsetDateTime;
 
-public class GetEstimatedCostByOrg_627383212 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

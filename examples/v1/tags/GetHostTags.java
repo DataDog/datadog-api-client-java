@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.TagsApi;
 import com.datadog.api.client.v1.model.HostTags;
 
-public class GetHostTags {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     TagsApi apiInstance = new TagsApi(defaultClient);

@@ -7,7 +7,7 @@ import com.datadog.api.client.v2.model.RelationshipToRole;
 import com.datadog.api.client.v2.model.RelationshipToRoleData;
 import com.datadog.api.client.v2.model.RolesType;
 
-public class AddReadRoleToArchive {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);

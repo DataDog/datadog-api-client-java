@@ -5,7 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CloudWorkloadSecurityApi;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 
-public class GetCloudWorkloadSecurityAgentRule {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     CloudWorkloadSecurityApi apiInstance = new CloudWorkloadSecurityApi(defaultClient);

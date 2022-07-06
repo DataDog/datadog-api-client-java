@@ -8,7 +8,7 @@ import com.datadog.api.client.v2.model.PermissionsType;
 import com.datadog.api.client.v2.model.RelationshipToPermission;
 import com.datadog.api.client.v2.model.RelationshipToPermissionData;
 
-public class AddPermissionToRole {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);

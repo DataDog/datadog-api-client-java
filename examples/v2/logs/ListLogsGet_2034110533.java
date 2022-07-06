@@ -7,7 +7,7 @@ import com.datadog.api.client.v2.api.LogsApi.ListLogsGetOptionalParameters;
 import com.datadog.api.client.v2.model.LogsListResponse;
 import java.time.OffsetDateTime;
 
-public class ListLogsGet_2034110533 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);

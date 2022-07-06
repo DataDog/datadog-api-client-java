@@ -10,7 +10,7 @@ import com.datadog.api.client.v2.model.OpsgenieServiceRegionType;
 import com.datadog.api.client.v2.model.OpsgenieServiceResponse;
 import com.datadog.api.client.v2.model.OpsgenieServiceType;
 
-public class CreateOpsgenieService {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OpsgenieIntegrationApi apiInstance = new OpsgenieIntegrationApi(defaultClient);

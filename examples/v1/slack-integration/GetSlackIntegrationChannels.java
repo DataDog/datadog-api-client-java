@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.SlackIntegrationApi;
 import com.datadog.api.client.v1.model.SlackIntegrationChannel;
 import java.util.List;
 
-public class GetSlackIntegrationChannels {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SlackIntegrationApi apiInstance = new SlackIntegrationApi(defaultClient);

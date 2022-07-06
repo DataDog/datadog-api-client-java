@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.model.Downtime;
 import java.time.OffsetDateTime;
 import java.util.Collections;
 
-public class CreateDowntime_3355644446 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);

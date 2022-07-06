@@ -6,7 +6,7 @@ import com.datadog.api.client.v2.api.UsageMeteringApi.GetUsageApplicationSecurit
 import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageApplicationSecurityMonitoring {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

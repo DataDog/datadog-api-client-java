@@ -6,7 +6,7 @@ import com.datadog.api.client.v2.api.MetricsApi;
 import com.datadog.api.client.v2.api.MetricsApi.ListTagConfigurationsOptionalParameters;
 import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurationsResponse;
 
-public class ListTagConfigurations_103226315 {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);

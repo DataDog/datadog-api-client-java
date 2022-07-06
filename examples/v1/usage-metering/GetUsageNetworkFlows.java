@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageNetworkFlowsOption
 import com.datadog.api.client.v1.model.UsageNetworkFlowsResponse;
 import java.time.OffsetDateTime;
 
-public class GetUsageNetworkFlows {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);

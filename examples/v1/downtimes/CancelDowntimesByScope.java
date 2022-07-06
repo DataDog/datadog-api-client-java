@@ -6,7 +6,7 @@ import com.datadog.api.client.v1.api.DowntimesApi;
 import com.datadog.api.client.v1.model.CancelDowntimesByScopeRequest;
 import com.datadog.api.client.v1.model.CanceledDowntimesIds;
 
-public class CancelDowntimesByScope {
+public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);
