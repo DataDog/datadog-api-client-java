@@ -13,15 +13,9 @@ package com.datadog.api.v1.client.api;
 import static org.junit.Assert.*;
 import static org.junit.Assume.assumeFalse;
 
-<<<<<<< HEAD
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
-import com.datadog.api.v1.client.ApiException;
-||||||| parent of e2a52d8e7 (Move common classes out of version specific)
-import com.datadog.api.v1.client.ApiException;
-=======
 import com.datadog.api.client.ApiException;
->>>>>>> e2a52d8e7 (Move common classes out of version specific)
 import com.datadog.api.v1.client.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
