@@ -4,16 +4,8 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.v2.client;
+package com.datadog.api.client;
 
-import com.datadog.api.client.ApiException;
-import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.JSON;
-import com.datadog.api.client.Pair;
-import com.datadog.api.client.RFC3339DateFormat;
-import com.datadog.api.client.ServerConfiguration;
-import com.datadog.api.client.ServerVariable;
-import com.datadog.api.client.StringUtil;
 import com.datadog.api.client.auth.ApiKeyAuth;
 import com.datadog.api.client.auth.Authentication;
 import com.datadog.api.client.auth.HttpBasicAuth;

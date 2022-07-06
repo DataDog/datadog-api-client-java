@@ -1,10 +1,10 @@
 package com.datadog.api.v1.client.api;
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.model.LogsIndex;
 import com.datadog.api.v1.client.model.LogsIndexListResponse;
 import com.datadog.api.v1.client.model.LogsIndexUpdateRequest;

@@ -1,10 +1,10 @@
 package com.datadog.api.v2.client.api;
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.model.CostByOrgResponse;
 import com.datadog.api.v2.client.model.UsageApplicationSecurityMonitoringResponse;
 import com.datadog.api.v2.client.model.UsageLambdaTracedInvocationsResponse;

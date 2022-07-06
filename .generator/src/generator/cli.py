@@ -77,8 +77,10 @@ def cli(input, output):
 
     common_files = {
         "AbstractOpenApiSchema.java": env.get_template("AbstractOpenApiSchema.j2"),
+        "ApiClient.java": env.get_template("ApiClient.j2"),
         "ApiException.java": env.get_template("ApiException.j2"),
         "ApiResponse.java": env.get_template("ApiResponse.j2"),
+        "Configuration.java": env.get_template("Configuration.j2"),
         "JSON.java": env.get_template("JSON.j2"),
         "JsonTimeSerializer.java": env.get_template("JsonTimeSerializer.j2"),
         "Pair.java": env.get_template("Pair.j2"),
@@ -89,11 +91,6 @@ def cli(input, output):
         "PaginationIterable.java": env.get_template("PaginationIterable.j2"),
         "PaginationIterator.java": env.get_template("PaginationIterator.j2"),
         "UnparsedObject.java": env.get_template("UnparsedObject.j2"),
-    }
-
-    extra_files = {
-        "ApiClient.java": env.get_template("ApiClient.j2"),
-        "Configuration.java": env.get_template("Configuration.j2"),
     }
 
     auth_files = {
@@ -112,11 +109,6 @@ def cli(input, output):
 
     client_output = output.parent.parent / "client"
     client_output.mkdir(parents=True, exist_ok=True)
-
-    for name, template in extra_files.items():
-        filename = output / name
-        with filename.open("w") as fp:
-            fp.write(template.render(apis=apis, models=models))
 
     auth_path = client_output / "auth"
     auth_path.mkdir(parents=True, exist_ok=True)

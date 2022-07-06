@@ -1,11 +1,11 @@
 package com.datadog.api.v2.client.api;
 
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.Configuration;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.model.ContentEncoding;
 import com.datadog.api.v2.client.model.HTTPLogItem;
 import com.datadog.api.v2.client.model.Log;
