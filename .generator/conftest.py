@@ -138,7 +138,7 @@ def _get_prefix(request):
 @pytest.fixture
 def api_version(request):
     path = pathlib.Path(request.node.__scenario_report__.scenario.feature.filename)
-    return path.parent.parent.parent.name
+    return path.parent.parent.name
 
 
 @pytest.fixture
@@ -342,7 +342,7 @@ def request_body(request, context, data):
 def request_body_from_file(request, context, path, api_version):
     """Set request body."""
     body_file = (
-        ROOT_PATH / "src" / "test" / "resources" / "com" / "datadog" / "api" / api_version / "client" / "api" / path
+        ROOT_PATH / "src" / "test" / "resources" / "com" / "datadog" / "api" / "client" / api_version / "api" / path
     )
     with body_file.open() as f:
         data = f.read()
@@ -442,7 +442,7 @@ def build_given(version, operation):
 
 
 for f in (ROOT_PATH / "src" / "test" / "resources" / "com" / "datadog" / "api").rglob("given.json"):
-    version = f.parent.parent.parent.name
+    version = f.parent.parent.name
     with f.open() as fp:
         for settings in json.load(fp):
             given(settings["step"])(build_given(version, settings))
