@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.DashboardsApi;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
@@ -16,9 +15,9 @@ import com.datadog.api.client.v1.model.WidgetTimeWindows;
 import com.datadog.api.client.v1.model.WidgetViewMode;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard_173805046 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
     // there is a valid "slo" in the system

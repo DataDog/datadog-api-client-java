@@ -2,12 +2,11 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.ServiceLevelObjectiveCorrectionsApi;
 
-public class Example {
+public class DeleteSLOCorrection {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceLevelObjectiveCorrectionsApi apiInstance =
         new ServiceLevelObjectiveCorrectionsApi(defaultClient);
 

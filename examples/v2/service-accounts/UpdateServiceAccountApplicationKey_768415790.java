@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.ServiceAccountsApi;
 import com.datadog.api.client.v2.model.ApplicationKeyUpdateAttributes;
 import com.datadog.api.client.v2.model.ApplicationKeyUpdateData;
@@ -10,9 +9,9 @@ import com.datadog.api.client.v2.model.ApplicationKeyUpdateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeysType;
 import com.datadog.api.client.v2.model.PartialApplicationKeyResponse;
 
-public class Example {
+public class UpdateServiceAccountApplicationKey_768415790 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
 
     // there is a valid "service_account_user" in the system

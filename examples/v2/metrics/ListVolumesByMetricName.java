@@ -2,13 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.MetricsApi;
 import com.datadog.api.client.v2.model.MetricVolumesResponse;
 
-public class Example {
+public class ListVolumesByMetricName {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {

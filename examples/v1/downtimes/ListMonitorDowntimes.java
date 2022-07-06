@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.DowntimesApi;
 import com.datadog.api.client.v1.model.Downtime;
 import java.util.List;
 
-public class Example {
+public class ListMonitorDowntimes {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);
 
     try {

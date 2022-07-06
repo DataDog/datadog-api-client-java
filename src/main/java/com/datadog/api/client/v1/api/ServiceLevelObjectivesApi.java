@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.CheckCanDeleteSLOResponse;
 import com.datadog.api.client.v1.model.SLOBulkDeleteResponse;
@@ -30,7 +29,7 @@ public class ServiceLevelObjectivesApi {
   private ApiClient apiClient;
 
   public ServiceLevelObjectivesApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public ServiceLevelObjectivesApi(ApiClient apiClient) {

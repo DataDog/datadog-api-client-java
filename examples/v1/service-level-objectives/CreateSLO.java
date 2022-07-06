@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi;
 import com.datadog.api.client.v1.model.SLOListResponse;
 import com.datadog.api.client.v1.model.SLOThreshold;
@@ -13,9 +12,9 @@ import com.datadog.api.client.v1.model.ServiceLevelObjectiveRequest;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class CreateSLO {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
 
     ServiceLevelObjectiveRequest body =

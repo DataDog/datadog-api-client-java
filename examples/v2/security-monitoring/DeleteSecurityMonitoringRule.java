@@ -2,12 +2,11 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 
-public class Example {
+public class DeleteSecurityMonitoringRule {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     // there is a valid "security_rule" in the system

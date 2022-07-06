@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.EventCreateRequest;
 import com.datadog.api.client.v1.model.EventCreateResponse;
@@ -24,7 +23,7 @@ public class EventsApi {
   private ApiClient apiClient;
 
   public EventsApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public EventsApi(ApiClient apiClient) {

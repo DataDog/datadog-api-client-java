@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.LogsApi;
 import com.datadog.api.client.v1.api.LogsApi.SubmitLogOptionalParameters;
 import com.datadog.api.client.v1.model.ContentEncoding;
@@ -10,9 +9,9 @@ import com.datadog.api.client.v1.model.HTTPLogItem;
 import java.util.Collections;
 import java.util.List;
 
-public class Example {
+public class SubmitLog_1920474053 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
     List<HTTPLogItem> body =

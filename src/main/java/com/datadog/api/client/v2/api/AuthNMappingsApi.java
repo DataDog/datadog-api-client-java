@@ -3,7 +3,6 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.AuthNMappingCreateRequest;
 import com.datadog.api.client.v2.model.AuthNMappingResponse;
@@ -24,7 +23,7 @@ public class AuthNMappingsApi {
   private ApiClient apiClient;
 
   public AuthNMappingsApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public AuthNMappingsApi(ApiClient apiClient) {

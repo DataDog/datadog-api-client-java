@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.AwsLogsIntegrationApi;
 import com.datadog.api.client.v1.model.AWSLogsListServicesResponse;
 import java.util.List;
 
-public class Example {
+public class ListAWSLogsServices {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
 
     try {

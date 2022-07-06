@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.LogsIndexesApi;
 import com.datadog.api.client.v1.model.LogsExclusion;
 import com.datadog.api.client.v1.model.LogsExclusionFilter;
@@ -10,9 +9,9 @@ import com.datadog.api.client.v1.model.LogsFilter;
 import com.datadog.api.client.v1.model.LogsIndex;
 import java.util.Collections;
 
-public class Example {
+public class CreateLogsIndex {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
 
     LogsIndex body =

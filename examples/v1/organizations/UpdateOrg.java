@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.OrganizationsApi;
 import com.datadog.api.client.v1.model.AccessRole;
 import com.datadog.api.client.v1.model.Organization;
@@ -16,9 +15,9 @@ import com.datadog.api.client.v1.model.OrganizationSettingsSamlStrictMode;
 import com.datadog.api.client.v1.model.OrganizationSubscription;
 import java.util.Collections;
 
-public class Example {
+public class UpdateOrg {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
 
     Organization body =

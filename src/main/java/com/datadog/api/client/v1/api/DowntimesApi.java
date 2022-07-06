@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.CancelDowntimesByScopeRequest;
 import com.datadog.api.client.v1.model.CanceledDowntimesIds;
@@ -22,7 +21,7 @@ public class DowntimesApi {
   private ApiClient apiClient;
 
   public DowntimesApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public DowntimesApi(ApiClient apiClient) {

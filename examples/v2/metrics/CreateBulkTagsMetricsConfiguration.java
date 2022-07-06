@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.MetricsApi;
 import com.datadog.api.client.v2.model.MetricBulkConfigureTagsType;
 import com.datadog.api.client.v2.model.MetricBulkTagConfigCreate;
@@ -12,9 +11,9 @@ import com.datadog.api.client.v2.model.MetricBulkTagConfigResponse;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class CreateBulkTagsMetricsConfiguration {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     // there is a valid "user" in the system

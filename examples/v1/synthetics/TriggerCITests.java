@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.SyntheticsApi;
 import com.datadog.api.client.v1.model.SyntheticsBasicAuth;
 import com.datadog.api.client.v1.model.SyntheticsBasicAuthWeb;
@@ -19,9 +18,9 @@ import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTriggerCITestsResponse;
 import java.util.Collections;
 
-public class Example {
+public class TriggerCITests {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     SyntheticsCITestBody body =

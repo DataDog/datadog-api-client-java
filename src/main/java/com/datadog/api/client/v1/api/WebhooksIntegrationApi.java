@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.WebhooksIntegration;
 import com.datadog.api.client.v1.model.WebhooksIntegrationCustomVariable;
@@ -23,7 +22,7 @@ public class WebhooksIntegrationApi {
   private ApiClient apiClient;
 
   public WebhooksIntegrationApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public WebhooksIntegrationApi(ApiClient apiClient) {

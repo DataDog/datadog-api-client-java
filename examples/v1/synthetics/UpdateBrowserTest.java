@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.SyntheticsApi;
 import com.datadog.api.client.v1.model.HTTPMethod;
 import com.datadog.api.client.v1.model.SyntheticsBasicAuth;
@@ -31,9 +30,9 @@ import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificateItem;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestProxy;
 import java.util.Collections;
 
-public class Example {
+public class UpdateBrowserTest {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     SyntheticsBrowserTest body =

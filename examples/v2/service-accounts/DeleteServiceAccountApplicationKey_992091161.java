@@ -2,12 +2,11 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.ServiceAccountsApi;
 
-public class Example {
+public class DeleteServiceAccountApplicationKey_992091161 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
 
     // there is a valid "service_account_user" in the system

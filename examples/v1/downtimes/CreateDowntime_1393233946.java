@@ -1,7 +1,6 @@
 // Schedule a downtime with until occurrences
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.DowntimesApi;
 import com.datadog.api.client.v1.model.Downtime;
 import com.datadog.api.client.v1.model.DowntimeRecurrence;
@@ -9,9 +8,9 @@ import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class CreateDowntime_1393233946 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);
 
     Downtime body =

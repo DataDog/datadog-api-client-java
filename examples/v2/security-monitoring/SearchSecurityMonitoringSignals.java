@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalListRequest;
@@ -12,9 +11,9 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSignalsListResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsSort;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class SearchSecurityMonitoringSignals {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     SecurityMonitoringSignalListRequest body =

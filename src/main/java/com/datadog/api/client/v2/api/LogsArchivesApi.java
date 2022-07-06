@@ -3,7 +3,6 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.LogsArchive;
 import com.datadog.api.client.v2.model.LogsArchiveCreateRequest;
@@ -24,7 +23,7 @@ public class LogsArchivesApi {
   private ApiClient apiClient;
 
   public LogsArchivesApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public LogsArchivesApi(ApiClient apiClient) {

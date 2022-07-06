@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.UsersApi;
 import com.datadog.api.client.v2.model.UserCreateAttributes;
 import com.datadog.api.client.v2.model.UserCreateData;
@@ -10,9 +9,9 @@ import com.datadog.api.client.v2.model.UserCreateRequest;
 import com.datadog.api.client.v2.model.UserResponse;
 import com.datadog.api.client.v2.model.UsersType;
 
-public class Example {
+public class CreateUser {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);
 
     UserCreateRequest body =

@@ -2,13 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.OrganizationsApi;
 import com.datadog.api.client.v1.model.OrganizationListResponse;
 
-public class Example {
+public class ListOrgs {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
 
     try {

@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.LogsPipeline;
 import com.datadog.api.client.v1.model.LogsPipelinesOrder;
@@ -21,7 +20,7 @@ public class LogsPipelinesApi {
   private ApiClient apiClient;
 
   public LogsPipelinesApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public LogsPipelinesApi(ApiClient apiClient) {

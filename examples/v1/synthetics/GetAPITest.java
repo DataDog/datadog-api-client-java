@@ -2,13 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.SyntheticsApi;
 import com.datadog.api.client.v1.model.SyntheticsAPITest;
 
-public class Example {
+public class GetAPITest {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     try {

@@ -3,7 +3,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.DashboardsApi;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
@@ -23,9 +22,9 @@ import com.datadog.api.client.v1.model.WidgetStyle;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard_252716965 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
     Dashboard body =

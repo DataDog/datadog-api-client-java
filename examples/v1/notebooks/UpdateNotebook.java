@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.NotebooksApi;
 import com.datadog.api.client.v1.model.NotebookCellCreateRequest;
 import com.datadog.api.client.v1.model.NotebookCellCreateRequestAttributes;
@@ -34,9 +33,9 @@ import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class UpdateNotebook {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     NotebooksApi apiInstance = new NotebooksApi(defaultClient);
 
     // there is a valid "notebook" in the system

@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.DashboardsApi;
 import com.datadog.api.client.v1.api.DashboardsApi.ListDashboardsOptionalParameters;
 import com.datadog.api.client.v1.model.DashboardSummary;
 
-public class Example {
+public class ListDashboards_1773932563 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
     try {

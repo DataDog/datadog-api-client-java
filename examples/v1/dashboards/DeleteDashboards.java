@@ -2,16 +2,15 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.DashboardsApi;
 import com.datadog.api.client.v1.model.DashboardBulkActionData;
 import com.datadog.api.client.v1.model.DashboardBulkDeleteRequest;
 import com.datadog.api.client.v1.model.DashboardResourceType;
 import java.util.Collections;
 
-public class Example {
+public class DeleteDashboards {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
     // there is a valid "dashboard" in the system

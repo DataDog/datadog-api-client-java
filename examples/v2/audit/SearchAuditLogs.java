@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.AuditApi;
 import com.datadog.api.client.v2.api.AuditApi.SearchAuditLogsOptionalParameters;
 import com.datadog.api.client.v2.model.AuditLogsEventsResponse;
@@ -12,9 +11,9 @@ import com.datadog.api.client.v2.model.AuditLogsQueryPageOptions;
 import com.datadog.api.client.v2.model.AuditLogsSearchEventsRequest;
 import com.datadog.api.client.v2.model.AuditLogsSort;
 
-public class Example {
+public class SearchAuditLogs {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AuditApi apiInstance = new AuditApi(defaultClient);
 
     AuditLogsSearchEventsRequest body =

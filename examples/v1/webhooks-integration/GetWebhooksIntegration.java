@@ -2,13 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.WebhooksIntegrationApi;
 import com.datadog.api.client.v1.model.WebhooksIntegration;
 
-public class Example {
+public class GetWebhooksIntegration {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     WebhooksIntegrationApi apiInstance = new WebhooksIntegrationApi(defaultClient);
 
     // there is a valid "webhook" in the system

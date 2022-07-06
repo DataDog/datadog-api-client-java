@@ -1,14 +1,13 @@
 // Query timeseries points returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.MetricsApi;
 import com.datadog.api.client.v1.model.MetricsQueryResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class QueryMetrics {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {

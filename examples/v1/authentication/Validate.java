@@ -2,13 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.AuthenticationApi;
 import com.datadog.api.client.v1.model.AuthenticationValidationResponse;
 
-public class Example {
+public class Validate {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
 
     try {

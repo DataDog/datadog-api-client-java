@@ -1,7 +1,6 @@
 // Update an SLO correction returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.ServiceLevelObjectiveCorrectionsApi;
 import com.datadog.api.client.v1.model.SLOCorrectionCategory;
 import com.datadog.api.client.v1.model.SLOCorrectionResponse;
@@ -11,9 +10,9 @@ import com.datadog.api.client.v1.model.SLOCorrectionUpdateRequest;
 import com.datadog.api.client.v1.model.SLOCorrectionUpdateRequestAttributes;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class UpdateSLOCorrection {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceLevelObjectiveCorrectionsApi apiInstance =
         new ServiceLevelObjectiveCorrectionsApi(defaultClient);
 

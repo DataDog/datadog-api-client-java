@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.SecurityMonitoringApi;
 import com.datadog.api.client.v1.model.AddSignalToIncidentRequest;
 import com.datadog.api.client.v1.model.SuccessfulSignalUpdateResponse;
 
-public class Example {
+public class AddSecurityMonitoringSignalToIncident {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     AddSignalToIncidentRequest body = new AddSignalToIncidentRequest().incidentId(2609L);

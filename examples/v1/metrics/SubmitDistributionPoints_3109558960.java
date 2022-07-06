@@ -1,7 +1,6 @@
 // Submit deflate distribution points returns "Payload accepted" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.MetricsApi;
 import com.datadog.api.client.v1.api.MetricsApi.SubmitDistributionPointsOptionalParameters;
 import com.datadog.api.client.v1.model.DistributionPointItem;
@@ -13,9 +12,9 @@ import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Example {
+public class SubmitDistributionPoints_3109558960 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     DistributionPointsPayload body =

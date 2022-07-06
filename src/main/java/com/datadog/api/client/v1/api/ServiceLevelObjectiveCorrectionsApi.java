@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.SLOCorrectionCreateRequest;
 import com.datadog.api.client.v1.model.SLOCorrectionListResponse;
@@ -22,7 +21,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   private ApiClient apiClient;
 
   public ServiceLevelObjectiveCorrectionsApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public ServiceLevelObjectiveCorrectionsApi(ApiClient apiClient) {

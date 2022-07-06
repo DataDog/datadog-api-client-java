@@ -3,7 +3,6 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.PermissionsResponse;
 import com.datadog.api.client.v2.model.RelationshipToPermission;
@@ -31,7 +30,7 @@ public class RolesApi {
   private ApiClient apiClient;
 
   public RolesApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public RolesApi(ApiClient apiClient) {

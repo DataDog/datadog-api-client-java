@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.PagerDutyIntegrationApi;
 import com.datadog.api.client.v1.model.PagerDutyService;
 import com.datadog.api.client.v1.model.PagerDutyServiceName;
 
-public class Example {
+public class CreatePagerDutyIntegrationService {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
 
     PagerDutyService body = new PagerDutyService().serviceKey("").serviceName("");

@@ -1,15 +1,14 @@
 // Get all custom metrics by hourly average returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
 import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters;
 import com.datadog.api.client.v1.model.UsageTopAvgMetricsResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetUsageTopAvgMetrics {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {

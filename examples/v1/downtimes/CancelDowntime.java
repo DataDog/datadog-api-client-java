@@ -2,12 +2,11 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.DowntimesApi;
 
-public class Example {
+public class CancelDowntime {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);
 
     // there is a valid "downtime" in the system

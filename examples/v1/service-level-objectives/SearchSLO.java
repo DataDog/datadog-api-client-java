@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi;
 import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi.SearchSLOOptionalParameters;
 import com.datadog.api.client.v1.model.SearchSLOResponse;
 
-public class Example {
+public class SearchSLO {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("searchSlo", true);
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
 

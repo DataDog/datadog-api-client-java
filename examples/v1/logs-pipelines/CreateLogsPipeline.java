@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.LogsPipelinesApi;
 import com.datadog.api.client.v1.model.LogsFilter;
 import com.datadog.api.client.v1.model.LogsGrokParser;
@@ -12,9 +11,9 @@ import com.datadog.api.client.v1.model.LogsPipeline;
 import com.datadog.api.client.v1.model.LogsProcessor;
 import java.util.Collections;
 
-public class Example {
+public class CreateLogsPipeline {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
 
     LogsPipeline body =

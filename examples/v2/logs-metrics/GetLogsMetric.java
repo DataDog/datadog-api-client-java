@@ -2,13 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.LogsMetricsApi;
 import com.datadog.api.client.v2.model.LogsMetricResponse;
 
-public class Example {
+public class GetLogsMetric {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsMetricsApi apiInstance = new LogsMetricsApi(defaultClient);
 
     // there is a valid "logs_metric" in the system

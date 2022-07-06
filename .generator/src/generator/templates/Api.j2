@@ -4,7 +4,6 @@ package {{ package_name }}.api;
 import {{ common_package_name }}.ApiClient;
 import {{ common_package_name }}.ApiException;
 import {{ common_package_name }}.ApiResponse;
-import {{ common_package_name }}.Configuration;
 import {{ common_package_name }}.Pair;
 import {{ common_package_name }}.PaginationIterable;
 
@@ -42,7 +41,7 @@ import {{ package_name }}.model.{{ get_container_type(operation, limitParam) }};
 public class {{ name }} {
   private ApiClient apiClient;
   public {{ name }}() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public {{ name }}(ApiClient apiClient) {

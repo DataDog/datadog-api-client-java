@@ -2,13 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.OpsgenieIntegrationApi;
 import com.datadog.api.client.v2.model.OpsgenieServiceResponse;
 
-public class Example {
+public class GetOpsgenieService {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OpsgenieIntegrationApi apiInstance = new OpsgenieIntegrationApi(defaultClient);
 
     // there is a valid "opsgenie_service" in the system

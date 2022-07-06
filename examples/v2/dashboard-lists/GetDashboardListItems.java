@@ -2,13 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.DashboardListsApi;
 import com.datadog.api.client.v2.model.DashboardListItems;
 
-public class Example {
+public class GetDashboardListItems {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
 
     // there is a valid "dashboard_list" in the system

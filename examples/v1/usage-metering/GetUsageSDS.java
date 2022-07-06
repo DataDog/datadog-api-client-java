@@ -1,15 +1,14 @@
 // Get hourly usage for Sensitive Data Scanner returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
 import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageSDSOptionalParameters;
 import com.datadog.api.client.v1.model.UsageSDSResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetUsageSDS {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {

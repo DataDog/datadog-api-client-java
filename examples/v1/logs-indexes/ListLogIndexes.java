@@ -2,13 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.LogsIndexesApi;
 import com.datadog.api.client.v1.model.LogsIndexListResponse;
 
-public class Example {
+public class ListLogIndexes {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
 
     try {

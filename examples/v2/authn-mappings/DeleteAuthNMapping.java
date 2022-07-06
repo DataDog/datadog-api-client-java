@@ -2,12 +2,11 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.AuthNMappingsApi;
 
-public class Example {
+public class DeleteAuthNMapping {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AuthNMappingsApi apiInstance = new AuthNMappingsApi(defaultClient);
 
     // there is a valid "authn_mapping" in the system

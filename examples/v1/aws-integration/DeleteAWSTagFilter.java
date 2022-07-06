@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.AwsIntegrationApi;
 import com.datadog.api.client.v1.model.AWSNamespace;
 import com.datadog.api.client.v1.model.AWSTagFilterDeleteRequest;
 
-public class Example {
+public class DeleteAWSTagFilter {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
 
     AWSTagFilterDeleteRequest body =

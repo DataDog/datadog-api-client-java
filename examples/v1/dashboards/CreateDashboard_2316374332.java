@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.DashboardsApi;
 import com.datadog.api.client.v1.model.AlertValueWidgetDefinition;
 import com.datadog.api.client.v1.model.AlertValueWidgetDefinitionType;
@@ -14,9 +13,9 @@ import com.datadog.api.client.v1.model.WidgetLayout;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import java.util.Collections;
 
-public class Example {
+public class CreateDashboard_2316374332 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
     // there is a valid "monitor" in the system

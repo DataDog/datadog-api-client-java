@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.KeyManagementApi;
 import com.datadog.api.client.v2.api.KeyManagementApi.ListAPIKeysOptionalParameters;
 import com.datadog.api.client.v2.model.APIKeysResponse;
 
-public class Example {
+public class ListAPIKeys {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
 
     // there is a valid "api_key" in the system

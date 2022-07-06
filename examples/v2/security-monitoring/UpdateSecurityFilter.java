@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 import com.datadog.api.client.v2.model.SecurityFilterFilteredDataType;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
@@ -11,9 +10,9 @@ import com.datadog.api.client.v2.model.SecurityFilterUpdateAttributes;
 import com.datadog.api.client.v2.model.SecurityFilterUpdateData;
 import com.datadog.api.client.v2.model.SecurityFilterUpdateRequest;
 
-public class Example {
+public class UpdateSecurityFilter {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     // there is a valid "security_filter" in the system

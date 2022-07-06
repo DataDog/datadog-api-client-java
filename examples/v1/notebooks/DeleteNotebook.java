@@ -2,12 +2,11 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.NotebooksApi;
 
-public class Example {
+public class DeleteNotebook {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     NotebooksApi apiInstance = new NotebooksApi(defaultClient);
 
     // there is a valid "notebook" in the system

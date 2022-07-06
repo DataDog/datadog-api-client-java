@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.RolesApi;
 import com.datadog.api.client.v2.model.RoleCreateAttributes;
 import com.datadog.api.client.v2.model.RoleCreateData;
@@ -10,9 +9,9 @@ import com.datadog.api.client.v2.model.RoleCreateRequest;
 import com.datadog.api.client.v2.model.RoleCreateResponse;
 import com.datadog.api.client.v2.model.RolesType;
 
-public class Example {
+public class CreateRole {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);
 
     RoleCreateRequest body =

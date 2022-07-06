@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.KeyManagementApi;
 import com.datadog.api.client.v1.model.ApplicationKey;
 import com.datadog.api.client.v1.model.ApplicationKeyResponse;
 
-public class Example {
+public class UpdateApplicationKey {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
 
     ApplicationKey body = new ApplicationKey().name("example user");

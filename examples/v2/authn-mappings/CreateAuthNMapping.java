@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.AuthNMappingsApi;
 import com.datadog.api.client.v2.model.AuthNMappingCreateAttributes;
 import com.datadog.api.client.v2.model.AuthNMappingCreateData;
@@ -14,9 +13,9 @@ import com.datadog.api.client.v2.model.RelationshipToRole;
 import com.datadog.api.client.v2.model.RelationshipToRoleData;
 import com.datadog.api.client.v2.model.RolesType;
 
-public class Example {
+public class CreateAuthNMapping {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AuthNMappingsApi apiInstance = new AuthNMappingsApi(defaultClient);
 
     // there is a valid "role" in the system

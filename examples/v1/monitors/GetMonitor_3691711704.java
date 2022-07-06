@@ -2,13 +2,12 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.MonitorsApi;
 import com.datadog.api.client.v1.model.Monitor;
 
-public class Example {
+public class GetMonitor_3691711704 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
     // there is a valid "synthetics_api_test" in the system

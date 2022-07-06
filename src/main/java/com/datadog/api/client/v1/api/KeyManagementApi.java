@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.ApiKey;
 import com.datadog.api.client.v1.model.ApiKeyListResponse;
@@ -24,7 +23,7 @@ public class KeyManagementApi {
   private ApiClient apiClient;
 
   public KeyManagementApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public KeyManagementApi(ApiClient apiClient) {

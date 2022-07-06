@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.NotebookCreateRequest;
 import com.datadog.api.client.v1.model.NotebookResponse;
@@ -23,7 +22,7 @@ public class NotebooksApi {
   private ApiClient apiClient;
 
   public NotebooksApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public NotebooksApi(ApiClient apiClient) {

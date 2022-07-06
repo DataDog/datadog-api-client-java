@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.HourlyUsageAttributionResponse;
 import com.datadog.api.client.v1.model.HourlyUsageAttributionUsageType;
@@ -62,7 +61,7 @@ public class UsageMeteringApi {
   private ApiClient apiClient;
 
   public UsageMeteringApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public UsageMeteringApi(ApiClient apiClient) {

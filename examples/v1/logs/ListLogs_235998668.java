@@ -1,7 +1,6 @@
 // Search test logs returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.LogsApi;
 import com.datadog.api.client.v1.model.LogsListRequest;
 import com.datadog.api.client.v1.model.LogsListRequestTime;
@@ -9,9 +8,9 @@ import com.datadog.api.client.v1.model.LogsListResponse;
 import com.datadog.api.client.v1.model.LogsSort;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class ListLogs_235998668 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
     LogsListRequest body =

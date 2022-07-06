@@ -3,7 +3,6 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ApplicationKeyCreateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeyResponse;
@@ -25,7 +24,7 @@ public class ServiceAccountsApi {
   private ApiClient apiClient;
 
   public ServiceAccountsApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public ServiceAccountsApi(ApiClient apiClient) {

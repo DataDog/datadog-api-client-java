@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.KeyManagementApi;
 import com.datadog.api.client.v2.model.APIKeyCreateAttributes;
 import com.datadog.api.client.v2.model.APIKeyCreateData;
@@ -10,9 +9,9 @@ import com.datadog.api.client.v2.model.APIKeyCreateRequest;
 import com.datadog.api.client.v2.model.APIKeyResponse;
 import com.datadog.api.client.v2.model.APIKeysType;
 
-public class Example {
+public class CreateAPIKey {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
 
     APIKeyCreateRequest body =

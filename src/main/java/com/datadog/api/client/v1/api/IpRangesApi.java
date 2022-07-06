@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.IPRanges;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class IpRangesApi {
   private ApiClient apiClient;
 
   public IpRangesApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public IpRangesApi(ApiClient apiClient) {

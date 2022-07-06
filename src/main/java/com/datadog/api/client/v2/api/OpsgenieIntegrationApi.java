@@ -3,7 +3,6 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.OpsgenieServiceCreateRequest;
 import com.datadog.api.client.v2.model.OpsgenieServiceResponse;
@@ -22,7 +21,7 @@ public class OpsgenieIntegrationApi {
   private ApiClient apiClient;
 
   public OpsgenieIntegrationApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public OpsgenieIntegrationApi(ApiClient apiClient) {

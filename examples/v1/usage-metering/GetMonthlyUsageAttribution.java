@@ -1,15 +1,14 @@
 // Get monthly usage attribution returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
 import com.datadog.api.client.v1.model.MonthlyUsageAttributionResponse;
 import com.datadog.api.client.v1.model.MonthlyUsageAttributionSupportedMetrics;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetMonthlyUsageAttribution {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("getMonthlyUsageAttribution", true);
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 

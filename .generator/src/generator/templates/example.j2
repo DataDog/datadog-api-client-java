@@ -14,7 +14,6 @@ import {{ package }}.{{ import }};
 
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.{{ version }}.api.{{ context.api_instance.name|camel_case|upperfirst }}Api;
 {%- if optional_parameters %}
 import com.datadog.api.client.{{ version }}.api.{{ context.api_instance.name|camel_case|upperfirst }}Api.{{ context.api_request.operation_id }}OptionalParameters;
@@ -34,7 +33,7 @@ import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
 {%- for operation in context._enable_operations %}
     defaultClient.setUnstableOperationEnabled("{{ operation|camel_case|untitle_case }}", true);
 {%- endfor %}

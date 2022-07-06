@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.HostTags;
 import com.datadog.api.client.v1.model.TagToHosts;
@@ -21,7 +20,7 @@ public class TagsApi {
   private ApiClient apiClient;
 
   public TagsApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public TagsApi(ApiClient apiClient) {

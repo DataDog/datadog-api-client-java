@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.CheckCanDeleteMonitorResponse;
 import com.datadog.api.client.v1.model.DeletedMonitor;
@@ -25,7 +24,7 @@ public class MonitorsApi {
   private ApiClient apiClient;
 
   public MonitorsApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public MonitorsApi(ApiClient apiClient) {

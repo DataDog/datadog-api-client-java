@@ -3,7 +3,6 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.IntakePayloadAccepted;
 import com.datadog.api.client.v2.model.MetricAllTagsResponse;
@@ -33,7 +32,7 @@ public class MetricsApi {
   private ApiClient apiClient;
 
   public MetricsApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public MetricsApi(ApiClient apiClient) {

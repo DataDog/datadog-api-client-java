@@ -38,7 +38,6 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
@@ -77,7 +76,6 @@ public class ApiClient {
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
   protected String basePath = "https://api.datadoghq.com";
   protected String userAgent;
-  private static final Logger log = Logger.getLogger(ApiClient.class.getName());
   private DateTimeFormatter offsetDateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 
   protected List<ServerConfiguration> servers =
@@ -230,7 +228,6 @@ public class ApiClient {
   protected String tempFolderPath = null;
 
   protected Map<String, Authentication> authentications;
-  protected Map<String, String> authenticationLookup;
 
   protected DateFormat dateFormat;
   protected final Map<String, Boolean> unstableOperations =
@@ -264,6 +261,52 @@ public class ApiClient {
       };
   protected static final java.util.logging.Logger logger =
       java.util.logging.Logger.getLogger(ApiClient.class.getName());
+
+  private static ApiClient defaultApiClient;
+
+  /**
+   * Get the default API client, which would be used when creating API instances without providing
+   * an API client.
+   *
+   * @return Default API client
+   */
+  public static ApiClient getDefaultApiClient() {
+    if (defaultApiClient != null) {
+      return defaultApiClient;
+    }
+    defaultApiClient = new ApiClient();
+
+    // Configure the Datadog site to send API calls to
+    String site = System.getenv("DD_SITE");
+    if (site != null) {
+      HashMap<String, String> serverVariables = new HashMap<String, String>();
+      serverVariables.put("site", site);
+      defaultApiClient.setServerVariables(serverVariables);
+    }
+    // Configure API key authorization
+    HashMap<String, String> secrets = new HashMap<String, String>();
+    String apiKeyAuth = System.getenv("DD_API_KEY");
+    if (apiKeyAuth != null) {
+      secrets.put("apiKeyAuth", apiKeyAuth);
+    }
+    String appKeyAuth = System.getenv("DD_APP_KEY");
+    if (appKeyAuth != null) {
+      secrets.put("appKeyAuth", appKeyAuth);
+    }
+    defaultApiClient.configureApiKeys(secrets);
+
+    return defaultApiClient;
+  }
+
+  /**
+   * Set the default API client, which would be used when creating API instances without providing
+   * an API client.
+   *
+   * @param apiClient API client
+   */
+  public static void setDefaultApiClient(ApiClient apiClient) {
+    defaultApiClient = apiClient;
+  }
 
   /** Constructs a new ApiClient with default parameters. */
   public ApiClient() {
@@ -313,9 +356,6 @@ public class ApiClient {
     }
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
-
-    // Setup authentication lookup (key: authentication alias, value: authentication name)
-    authenticationLookup = new HashMap<String, String>();
   }
 
   /**
@@ -507,8 +547,6 @@ public class ApiClient {
       Authentication auth = authEntry.getValue();
       if (auth instanceof ApiKeyAuth) {
         String name = authEntry.getKey();
-        // respect x-auth-id-alias property
-        name = authenticationLookup.containsKey(name) ? authenticationLookup.get(name) : name;
         if (secrets.containsKey(name)) {
           ((ApiKeyAuth) auth).setApiKey(secrets.get(name));
         }

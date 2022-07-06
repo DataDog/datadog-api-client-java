@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi;
 import com.datadog.api.client.v1.model.SLOListResponse;
 import com.datadog.api.client.v1.model.SLOThreshold;
@@ -12,9 +11,9 @@ import com.datadog.api.client.v1.model.ServiceLevelObjective;
 import com.datadog.api.client.v1.model.ServiceLevelObjectiveQuery;
 import java.util.Collections;
 
-public class Example {
+public class UpdateSLO {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
 
     // there is a valid "slo" in the system

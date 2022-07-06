@@ -19,3 +19,6 @@ if [ $? -ne 0 ]; then
     echo -e "Failed to build v2 examples"
     exit 1
 fi
+
+
+find examples/ -name "*.bak" -delete

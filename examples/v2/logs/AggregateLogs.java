@@ -2,16 +2,15 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.LogsApi;
 import com.datadog.api.client.v2.model.LogsAggregateRequest;
 import com.datadog.api.client.v2.model.LogsAggregateResponse;
 import com.datadog.api.client.v2.model.LogsQueryFilter;
 import java.util.Collections;
 
-public class Example {
+public class AggregateLogs {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
     LogsAggregateRequest body =

@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.OrganizationsApi;
 import com.datadog.api.client.v2.api.OrganizationsApi.UploadIdPMetadataOptionalParameters;
 import java.io.File;
 
-public class Example {
+public class UploadIdPMetadata {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
 
     try {

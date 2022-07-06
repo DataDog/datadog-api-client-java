@@ -2,12 +2,11 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.CloudWorkloadSecurityApi;
 
-public class Example {
+public class DeleteCloudWorkloadSecurityAgentRule {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     CloudWorkloadSecurityApi apiInstance = new CloudWorkloadSecurityApi(defaultClient);
 
     // there is a valid "agent_rule" in the system

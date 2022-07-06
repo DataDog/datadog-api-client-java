@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.IncidentsApi;
 import com.datadog.api.client.v2.model.IncidentResponse;
 import com.datadog.api.client.v2.model.IncidentType;
@@ -11,9 +10,9 @@ import com.datadog.api.client.v2.model.IncidentUpdateRelationships;
 import com.datadog.api.client.v2.model.IncidentUpdateRequest;
 import com.datadog.api.client.v2.model.NullableRelationshipToUser;
 
-public class Example {
+public class UpdateIncident_1009194038 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("updateIncident", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 

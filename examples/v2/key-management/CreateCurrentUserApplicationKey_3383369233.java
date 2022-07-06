@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.KeyManagementApi;
 import com.datadog.api.client.v2.model.ApplicationKeyCreateAttributes;
 import com.datadog.api.client.v2.model.ApplicationKeyCreateData;
@@ -11,9 +10,9 @@ import com.datadog.api.client.v2.model.ApplicationKeyResponse;
 import com.datadog.api.client.v2.model.ApplicationKeysType;
 import java.util.Arrays;
 
-public class Example {
+public class CreateCurrentUserApplicationKey_3383369233 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
 
     ApplicationKeyCreateRequest body =

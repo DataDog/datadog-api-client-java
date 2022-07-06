@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.AWSAccount;
 import com.datadog.api.client.v1.model.AWSAccountCreateResponse;
@@ -26,7 +25,7 @@ public class AwsIntegrationApi {
   private ApiClient apiClient;
 
   public AwsIntegrationApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public AwsIntegrationApi(ApiClient apiClient) {

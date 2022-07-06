@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.IncidentTeamsApi;
 import com.datadog.api.client.v2.api.IncidentTeamsApi.ListIncidentTeamsOptionalParameters;
 import com.datadog.api.client.v2.model.IncidentTeamsResponse;
 
-public class Example {
+public class ListIncidentTeams {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("listIncidentTeams", true);
     IncidentTeamsApi apiInstance = new IncidentTeamsApi(defaultClient);
 

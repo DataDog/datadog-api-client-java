@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.SlackIntegrationChannel;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class SlackIntegrationApi {
   private ApiClient apiClient;
 
   public SlackIntegrationApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public SlackIntegrationApi(ApiClient apiClient) {

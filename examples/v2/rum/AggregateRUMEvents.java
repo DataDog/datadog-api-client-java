@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.RumApi;
 import com.datadog.api.client.v2.model.RUMAggregateRequest;
 import com.datadog.api.client.v2.model.RUMAggregationFunction;
@@ -16,9 +15,9 @@ import com.datadog.api.client.v2.model.RUMQueryOptions;
 import com.datadog.api.client.v2.model.RUMQueryPageOptions;
 import java.util.Collections;
 
-public class Example {
+public class AggregateRUMEvents {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RumApi apiInstance = new RumApi(defaultClient);
 
     RUMAggregateRequest body =

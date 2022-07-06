@@ -2,15 +2,14 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.UsersApi;
 import com.datadog.api.client.v1.model.AccessRole;
 import com.datadog.api.client.v1.model.User;
 import com.datadog.api.client.v1.model.UserResponse;
 
-public class Example {
+public class CreateUser {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);
 
     User body =

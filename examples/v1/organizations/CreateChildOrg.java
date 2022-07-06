@@ -2,16 +2,15 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.OrganizationsApi;
 import com.datadog.api.client.v1.model.OrganizationBilling;
 import com.datadog.api.client.v1.model.OrganizationCreateBody;
 import com.datadog.api.client.v1.model.OrganizationCreateResponse;
 import com.datadog.api.client.v1.model.OrganizationSubscription;
 
-public class Example {
+public class CreateChildOrg {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
 
     OrganizationCreateBody body =

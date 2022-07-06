@@ -2,14 +2,13 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.MetricsApi;
 import com.datadog.api.client.v2.api.MetricsApi.ListTagConfigurationsOptionalParameters;
 import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurationsResponse;
 
-public class Example {
+public class ListTagConfigurations_1799362914 {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {

@@ -1,15 +1,14 @@
 // Get hourly usage for SNMP devices returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
 import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageSNMPOptionalParameters;
 import com.datadog.api.client.v1.model.UsageSNMPResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetUsageSNMP {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {

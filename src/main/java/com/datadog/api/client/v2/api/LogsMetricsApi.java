@@ -3,7 +3,6 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.LogsMetricCreateRequest;
 import com.datadog.api.client.v2.model.LogsMetricResponse;
@@ -22,7 +21,7 @@ public class LogsMetricsApi {
   private ApiClient apiClient;
 
   public LogsMetricsApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public LogsMetricsApi(ApiClient apiClient) {

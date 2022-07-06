@@ -1,15 +1,14 @@
 // Get hourly usage for indexed spans returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
 import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageIndexedSpansOptionalParameters;
 import com.datadog.api.client.v1.model.UsageIndexedSpansResponse;
 import java.time.OffsetDateTime;
 
-public class Example {
+public class GetUsageIndexedSpans {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {

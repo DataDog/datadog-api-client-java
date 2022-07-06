@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.LogsMetricsApi;
 import com.datadog.api.client.v2.model.LogsMetricFilter;
 import com.datadog.api.client.v2.model.LogsMetricResponse;
@@ -11,9 +10,9 @@ import com.datadog.api.client.v2.model.LogsMetricUpdateAttributes;
 import com.datadog.api.client.v2.model.LogsMetricUpdateData;
 import com.datadog.api.client.v2.model.LogsMetricUpdateRequest;
 
-public class Example {
+public class UpdateLogsMetric {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsMetricsApi apiInstance = new LogsMetricsApi(defaultClient);
 
     // there is a valid "logs_metric" in the system

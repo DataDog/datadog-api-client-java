@@ -3,7 +3,6 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.SyntheticsAPITest;
 import com.datadog.api.client.v1.model.SyntheticsAPITestResultFull;
@@ -39,7 +38,7 @@ public class SyntheticsApi {
   private ApiClient apiClient;
 
   public SyntheticsApi() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public SyntheticsApi(ApiClient apiClient) {

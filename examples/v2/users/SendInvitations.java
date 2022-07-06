@@ -2,7 +2,6 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v2.api.UsersApi;
 import com.datadog.api.client.v2.model.RelationshipToUser;
 import com.datadog.api.client.v2.model.RelationshipToUserData;
@@ -14,9 +13,9 @@ import com.datadog.api.client.v2.model.UserInvitationsType;
 import com.datadog.api.client.v2.model.UsersType;
 import java.util.Collections;
 
-public class Example {
+public class SendInvitations {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);
 
     // there is a valid "user" in the system

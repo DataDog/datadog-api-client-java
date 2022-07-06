@@ -2,15 +2,14 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.Configuration;
 import com.datadog.api.client.v1.api.SyntheticsApi;
 import com.datadog.api.client.v1.model.SyntheticsDeleteTestsPayload;
 import com.datadog.api.client.v1.model.SyntheticsDeleteTestsResponse;
 import java.util.Collections;
 
-public class Example {
+public class DeleteTests {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     // there is a valid "synthetics_api_test" in the system
