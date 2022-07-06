@@ -546,8 +546,7 @@ public class World {
     responseClass = paginatedMethod.getReturnType();
 
     String apiVersion = getVersion();
-    Class<?> exceptionClass =
-        Class.forName("com.datadog.api." + apiVersion + ".client.ApiException");
+    Class<?> exceptionClass = Class.forName("com.datadog.api.client.ApiException");
 
     try {
       response = paginatedMethod.invoke(api, parametersArray.toArray());
