@@ -7,7 +7,7 @@ import com.datadog.api.client.v2.api.IncidentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("deleteIncident", true);
+    defaultClient.setUnstableOperationEnabled("v2.deleteIncident", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
     // there is a valid "incident" in the system

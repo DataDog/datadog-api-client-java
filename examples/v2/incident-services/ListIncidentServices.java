@@ -9,7 +9,7 @@ import com.datadog.api.client.v2.model.IncidentServicesResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("listIncidentServices", true);
+    defaultClient.setUnstableOperationEnabled("v2.listIncidentServices", true);
     IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
 
     // there is a valid "service" in the system

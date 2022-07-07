@@ -13,7 +13,7 @@ import com.datadog.api.client.v2.model.NullableRelationshipToUser;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("updateIncident", true);
+    defaultClient.setUnstableOperationEnabled("v2.updateIncident", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
     // there is a valid "incident" in the system

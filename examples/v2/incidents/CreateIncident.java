@@ -20,7 +20,7 @@ import java.util.Map;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("createIncident", true);
+    defaultClient.setUnstableOperationEnabled("v2.createIncident", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
     // there is a valid "user" in the system

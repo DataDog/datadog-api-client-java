@@ -35,7 +35,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
 {%- for operation in context._enable_operations %}
-    defaultClient.setUnstableOperationEnabled("{{ operation|camel_case|untitle_case }}", true);
+    defaultClient.setUnstableOperationEnabled("{{ version }}.{{ operation|camel_case|untitle_case }}", true);
 {%- endfor %}
     {{ context.api_instance.name|camel_case|upperfirst }}Api apiInstance = new {{ context.api_instance.name|camel_case|upperfirst }}Api(defaultClient);
 

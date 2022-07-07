@@ -12,7 +12,7 @@ import com.datadog.api.client.v2.model.IncidentServiceUpdateRequest;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("updateIncidentService", true);
+    defaultClient.setUnstableOperationEnabled("v2.updateIncidentService", true);
     IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
 
     // there is a valid "service" in the system

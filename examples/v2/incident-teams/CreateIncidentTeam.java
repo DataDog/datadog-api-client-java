@@ -12,7 +12,7 @@ import com.datadog.api.client.v2.model.IncidentTeamType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("createIncidentTeam", true);
+    defaultClient.setUnstableOperationEnabled("v2.createIncidentTeam", true);
     IncidentTeamsApi apiInstance = new IncidentTeamsApi(defaultClient);
 
     IncidentTeamCreateRequest body =

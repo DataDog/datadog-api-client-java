@@ -8,7 +8,7 @@ import com.datadog.api.client.v2.model.IncidentTeamResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("getIncidentTeam", true);
+    defaultClient.setUnstableOperationEnabled("v2.getIncidentTeam", true);
     IncidentTeamsApi apiInstance = new IncidentTeamsApi(defaultClient);
 
     // there is a valid "team" in the system

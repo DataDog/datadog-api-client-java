@@ -12,7 +12,7 @@ import com.datadog.api.client.v2.model.IncidentServiceType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("createIncidentService", true);
+    defaultClient.setUnstableOperationEnabled("v2.createIncidentService", true);
     IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
 
     IncidentServiceCreateRequest body =

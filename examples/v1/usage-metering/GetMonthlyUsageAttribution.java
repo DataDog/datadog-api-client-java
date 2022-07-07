@@ -9,7 +9,7 @@ import java.time.OffsetDateTime;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("getMonthlyUsageAttribution", true);
+    defaultClient.setUnstableOperationEnabled("v1.getMonthlyUsageAttribution", true);
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {

@@ -8,7 +8,7 @@ import com.datadog.api.client.v2.model.IncidentsResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("listIncidents", true);
+    defaultClient.setUnstableOperationEnabled("v2.listIncidents", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
     try {
