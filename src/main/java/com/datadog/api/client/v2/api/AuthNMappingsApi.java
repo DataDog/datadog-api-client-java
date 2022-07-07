@@ -112,7 +112,7 @@ public class AuthNMappingsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "AuthNMappingsApi.createAuthNMapping",
+            "v2.AuthNMappingsApi.createAuthNMapping",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -246,7 +246,7 @@ public class AuthNMappingsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "AuthNMappingsApi.deleteAuthNMapping",
+            "v2.AuthNMappingsApi.deleteAuthNMapping",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -386,7 +386,7 @@ public class AuthNMappingsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "AuthNMappingsApi.getAuthNMapping",
+            "v2.AuthNMappingsApi.getAuthNMapping",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -605,7 +605,7 @@ public class AuthNMappingsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "AuthNMappingsApi.listAuthNMappings",
+            "v2.AuthNMappingsApi.listAuthNMappings",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -755,7 +755,7 @@ public class AuthNMappingsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "AuthNMappingsApi.updateAuthNMapping",
+            "v2.AuthNMappingsApi.updateAuthNMapping",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

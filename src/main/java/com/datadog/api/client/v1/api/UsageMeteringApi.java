@@ -254,7 +254,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getDailyCustomReports",
+            "v1.UsageMeteringApi.getDailyCustomReports",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -551,7 +551,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getHourlyUsageAttribution",
+            "v1.UsageMeteringApi.getHourlyUsageAttribution",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -794,7 +794,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getIncidentManagement",
+            "v1.UsageMeteringApi.getIncidentManagement",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -998,7 +998,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getIngestedSpans",
+            "v1.UsageMeteringApi.getIngestedSpans",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1244,7 +1244,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getMonthlyCustomReports",
+            "v1.UsageMeteringApi.getMonthlyCustomReports",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1580,7 +1580,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getMonthlyUsageAttribution",
+            "v1.UsageMeteringApi.getMonthlyUsageAttribution",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1781,7 +1781,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getSpecifiedDailyCustomReports",
+            "v1.UsageMeteringApi.getSpecifiedDailyCustomReports",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1952,7 +1952,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getSpecifiedMonthlyCustomReports",
+            "v1.UsageMeteringApi.getSpecifiedMonthlyCustomReports",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -2169,7 +2169,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageAnalyzedLogs",
+            "v1.UsageMeteringApi.getUsageAnalyzedLogs",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -2489,7 +2489,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageAttribution",
+            "v1.UsageMeteringApi.getUsageAttribution",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -2727,7 +2727,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageAuditLogs",
+            "v1.UsageMeteringApi.getUsageAuditLogs",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -2910,7 +2910,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageBillableSummary",
+            "v1.UsageMeteringApi.getUsageBillableSummary",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -3099,7 +3099,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageCIApp",
+            "v1.UsageMeteringApi.getUsageCIApp",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -3311,7 +3311,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageCloudSecurityPostureManagement",
+            "v1.UsageMeteringApi.getUsageCloudSecurityPostureManagement",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -3516,7 +3516,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageCWS",
+            "v1.UsageMeteringApi.getUsageCWS",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -3715,7 +3715,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageDBM",
+            "v1.UsageMeteringApi.getUsageDBM",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -3915,7 +3915,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageFargate",
+            "v1.UsageMeteringApi.getUsageFargate",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -4114,7 +4114,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageHosts",
+            "v1.UsageMeteringApi.getUsageHosts",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -4319,7 +4319,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageIndexedSpans",
+            "v1.UsageMeteringApi.getUsageIndexedSpans",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -4524,7 +4524,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageInternetOfThings",
+            "v1.UsageMeteringApi.getUsageInternetOfThings",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -4724,7 +4724,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageLambda",
+            "v1.UsageMeteringApi.getUsageLambda",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -4923,7 +4923,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageLogs",
+            "v1.UsageMeteringApi.getUsageLogs",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -5141,7 +5141,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageLogsByIndex",
+            "v1.UsageMeteringApi.getUsageLogsByIndex",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -5350,7 +5350,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageLogsByRetention",
+            "v1.UsageMeteringApi.getUsageLogsByRetention",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -5559,7 +5559,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageNetworkFlows",
+            "v1.UsageMeteringApi.getUsageNetworkFlows",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -5765,7 +5765,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageNetworkHosts",
+            "v1.UsageMeteringApi.getUsageNetworkHosts",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -5971,7 +5971,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageOnlineArchive",
+            "v1.UsageMeteringApi.getUsageOnlineArchive",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -6172,7 +6172,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageProfiling",
+            "v1.UsageMeteringApi.getUsageProfiling",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -6392,7 +6392,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageRumSessions",
+            "v1.UsageMeteringApi.getUsageRumSessions",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -6595,7 +6595,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageRumUnits",
+            "v1.UsageMeteringApi.getUsageRumUnits",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -6794,7 +6794,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageSDS",
+            "v1.UsageMeteringApi.getUsageSDS",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -6993,7 +6993,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageSNMP",
+            "v1.UsageMeteringApi.getUsageSNMP",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -7208,7 +7208,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageSummary",
+            "v1.UsageMeteringApi.getUsageSummary",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -7423,7 +7423,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageSynthetics",
+            "v1.UsageMeteringApi.getUsageSynthetics",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -7632,7 +7632,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageSyntheticsAPI",
+            "v1.UsageMeteringApi.getUsageSyntheticsAPI",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -7839,7 +7839,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageSyntheticsBrowser",
+            "v1.UsageMeteringApi.getUsageSyntheticsBrowser",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -8045,7 +8045,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageTimeseries",
+            "v1.UsageMeteringApi.getUsageTimeseries",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -8292,7 +8292,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageTopAvgMetrics",
+            "v1.UsageMeteringApi.getUsageTopAvgMetrics",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,

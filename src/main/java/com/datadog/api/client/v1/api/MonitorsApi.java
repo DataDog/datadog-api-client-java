@@ -116,7 +116,7 @@ public class MonitorsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MonitorsApi.checkCanDeleteMonitor",
+            "v1.MonitorsApi.checkCanDeleteMonitor",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -531,7 +531,7 @@ public class MonitorsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MonitorsApi.createMonitor",
+            "v1.MonitorsApi.createMonitor",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -720,7 +720,7 @@ public class MonitorsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MonitorsApi.deleteMonitor",
+            "v1.MonitorsApi.deleteMonitor",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -917,7 +917,7 @@ public class MonitorsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MonitorsApi.getMonitor",
+            "v1.MonitorsApi.getMonitor",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1208,7 +1208,7 @@ public class MonitorsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MonitorsApi.listMonitors",
+            "v1.MonitorsApi.listMonitors",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1446,7 +1446,7 @@ public class MonitorsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MonitorsApi.searchMonitorGroups",
+            "v1.MonitorsApi.searchMonitorGroups",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1676,7 +1676,7 @@ public class MonitorsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MonitorsApi.searchMonitors",
+            "v1.MonitorsApi.searchMonitors",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1821,7 +1821,7 @@ public class MonitorsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MonitorsApi.updateMonitor",
+            "v1.MonitorsApi.updateMonitor",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1975,7 +1975,7 @@ public class MonitorsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MonitorsApi.validateExistingMonitor",
+            "v1.MonitorsApi.validateExistingMonitor",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -2118,7 +2118,7 @@ public class MonitorsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MonitorsApi.validateMonitor",
+            "v1.MonitorsApi.validateMonitor",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

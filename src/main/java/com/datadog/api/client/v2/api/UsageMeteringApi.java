@@ -171,7 +171,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getCostByOrg",
+            "v2.UsageMeteringApi.getCostByOrg",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -401,7 +401,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getEstimatedCostByOrg",
+            "v2.UsageMeteringApi.getEstimatedCostByOrg",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -607,7 +607,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageApplicationSecurityMonitoring",
+            "v2.UsageMeteringApi.getUsageApplicationSecurityMonitoring",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -822,7 +822,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageLambdaTracedInvocations",
+            "v2.UsageMeteringApi.getUsageLambdaTracedInvocations",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1035,7 +1035,7 @@ public class UsageMeteringApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsageMeteringApi.getUsageObservabilityPipelines",
+            "v2.UsageMeteringApi.getUsageObservabilityPipelines",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,

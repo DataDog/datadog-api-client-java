@@ -107,7 +107,7 @@ public class LogsIndexesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsIndexesApi.createLogsIndex",
+            "v1.LogsIndexesApi.createLogsIndex",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -239,7 +239,7 @@ public class LogsIndexesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsIndexesApi.getLogsIndex",
+            "v1.LogsIndexesApi.getLogsIndex",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -359,7 +359,7 @@ public class LogsIndexesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsIndexesApi.getLogsIndexOrder",
+            "v1.LogsIndexesApi.getLogsIndexOrder",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -469,7 +469,7 @@ public class LogsIndexesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsIndexesApi.listLogIndexes",
+            "v1.LogsIndexesApi.listLogIndexes",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -606,7 +606,7 @@ public class LogsIndexesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsIndexesApi.updateLogsIndex",
+            "v1.LogsIndexesApi.updateLogsIndex",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -750,7 +750,7 @@ public class LogsIndexesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsIndexesApi.updateLogsIndexOrder",
+            "v1.LogsIndexesApi.updateLogsIndexOrder",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

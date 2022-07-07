@@ -146,7 +146,201 @@ public class ApiClient {
       new HashMap<String, List<ServerConfiguration>>() {
         {
           put(
-              "LogsApi.submitLog",
+              "v1.IpRangesApi.getIPRanges",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The regional site for Datadog customers.",
+                                      "datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "datadoghq.com",
+                                              "us3.datadoghq.com",
+                                              "us5.datadoghq.com",
+                                              "datadoghq.eu",
+                                              "ddog-gov.com"))));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "ip-ranges",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "ip-ranges.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.datadoghq.com",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "ip-ranges",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
+              "v1.ServiceLevelObjectivesApi.searchSLO",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The regional site for Datadog customers.",
+                                      "datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "datadoghq.com",
+                                              "us3.datadoghq.com",
+                                              "us5.datadoghq.com",
+                                              "ddog-gov.com"))));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "api",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "api.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "api",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
+              "v1.LogsApi.submitLog",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The regional site for Datadog customers.",
+                                      "datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "datadoghq.com",
+                                              "us3.datadoghq.com",
+                                              "us5.datadoghq.com",
+                                              "datadoghq.eu",
+                                              "ddog-gov.com"))));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "http-intake.logs",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "http-intake.logs.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "http-intake.logs",
+                                      new HashSet<String>()));
+                            }
+                          }))));
+          put(
+              "v2.LogsApi.submitLog",
               new ArrayList<ServerConfiguration>(
                   Arrays.asList(
                       new ServerConfiguration(

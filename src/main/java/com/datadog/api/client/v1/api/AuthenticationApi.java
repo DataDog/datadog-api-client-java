@@ -93,7 +93,7 @@ public class AuthenticationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "AuthenticationApi.validate",
+            "v1.AuthenticationApi.validate",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

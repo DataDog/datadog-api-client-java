@@ -92,7 +92,7 @@ public class IpRangesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "IpRangesApi.getIPRanges",
+            "v1.IpRangesApi.getIPRanges",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

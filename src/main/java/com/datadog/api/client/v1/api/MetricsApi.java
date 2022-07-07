@@ -116,7 +116,7 @@ public class MetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MetricsApi.getMetricMetadata",
+            "v1.MetricsApi.getMetricMetadata",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -321,7 +321,7 @@ public class MetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MetricsApi.listActiveMetrics",
+            "v1.MetricsApi.listActiveMetrics",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -464,7 +464,7 @@ public class MetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MetricsApi.listMetrics",
+            "v1.MetricsApi.listMetrics",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -621,7 +621,7 @@ public class MetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MetricsApi.queryMetrics",
+            "v1.MetricsApi.queryMetrics",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -840,7 +840,7 @@ public class MetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MetricsApi.submitDistributionPoints",
+            "v1.MetricsApi.submitDistributionPoints",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1046,7 +1046,7 @@ public class MetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MetricsApi.submitMetrics",
+            "v1.MetricsApi.submitMetrics",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1198,7 +1198,7 @@ public class MetricsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "MetricsApi.updateMetricMetadata",
+            "v1.MetricsApi.updateMetricMetadata",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

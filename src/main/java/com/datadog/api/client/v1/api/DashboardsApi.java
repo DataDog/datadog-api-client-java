@@ -112,7 +112,7 @@ public class DashboardsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DashboardsApi.createDashboard",
+            "v1.DashboardsApi.createDashboard",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -246,7 +246,7 @@ public class DashboardsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DashboardsApi.deleteDashboard",
+            "v1.DashboardsApi.deleteDashboard",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -381,7 +381,7 @@ public class DashboardsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DashboardsApi.deleteDashboards",
+            "v1.DashboardsApi.deleteDashboards",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -514,7 +514,7 @@ public class DashboardsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DashboardsApi.getDashboard",
+            "v1.DashboardsApi.getDashboard",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -710,7 +710,7 @@ public class DashboardsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DashboardsApi.listDashboards",
+            "v1.DashboardsApi.listDashboards",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -839,7 +839,7 @@ public class DashboardsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DashboardsApi.restoreDashboards",
+            "v1.DashboardsApi.restoreDashboards",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -983,7 +983,7 @@ public class DashboardsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DashboardsApi.updateDashboard",
+            "v1.DashboardsApi.updateDashboard",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

@@ -184,7 +184,7 @@ public class TagsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "TagsApi.createHostTags",
+            "v1.TagsApi.createHostTags",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -394,7 +394,7 @@ public class TagsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "TagsApi.deleteHostTags",
+            "v1.TagsApi.deleteHostTags",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -594,7 +594,7 @@ public class TagsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "TagsApi.getHostTags",
+            "v1.TagsApi.getHostTags",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -776,7 +776,7 @@ public class TagsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "TagsApi.listHostTags",
+            "v1.TagsApi.listHostTags",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -980,7 +980,7 @@ public class TagsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "TagsApi.updateHostTags",
+            "v1.TagsApi.updateHostTags",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,

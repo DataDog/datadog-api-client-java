@@ -111,7 +111,7 @@ public class ServiceChecksApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "ServiceChecksApi.submitServiceCheck",
+            "v1.ServiceChecksApi.submitServiceCheck",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

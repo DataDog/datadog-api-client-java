@@ -115,7 +115,7 @@ public class UsersApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsersApi.createServiceAccount",
+            "v2.UsersApi.createServiceAccount",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -245,7 +245,7 @@ public class UsersApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsersApi.createUser",
+            "v2.UsersApi.createUser",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -375,7 +375,7 @@ public class UsersApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsersApi.disableUser",
+            "v2.UsersApi.disableUser",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -511,7 +511,7 @@ public class UsersApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsersApi.getInvitation",
+            "v2.UsersApi.getInvitation",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -647,7 +647,7 @@ public class UsersApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsersApi.getUser",
+            "v2.UsersApi.getUser",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -781,7 +781,7 @@ public class UsersApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsersApi.listUserOrganizations",
+            "v2.UsersApi.listUserOrganizations",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -917,7 +917,7 @@ public class UsersApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsersApi.listUserPermissions",
+            "v2.UsersApi.listUserPermissions",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1168,7 +1168,7 @@ public class UsersApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsersApi.listUsers",
+            "v2.UsersApi.listUsers",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -1305,7 +1305,7 @@ public class UsersApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsersApi.sendInvitations",
+            "v2.UsersApi.sendInvitations",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1448,7 +1448,7 @@ public class UsersApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "UsersApi.updateUser",
+            "v2.UsersApi.updateUser",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

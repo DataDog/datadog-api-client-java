@@ -153,7 +153,7 @@ public class HostsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "HostsApi.getHostTotals",
+            "v1.HostsApi.getHostTotals",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -427,7 +427,7 @@ public class HostsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "HostsApi.listHosts",
+            "v1.HostsApi.listHosts",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -579,7 +579,7 @@ public class HostsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "HostsApi.muteHost",
+            "v1.HostsApi.muteHost",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -721,7 +721,7 @@ public class HostsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "HostsApi.unmuteHost",
+            "v1.HostsApi.unmuteHost",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

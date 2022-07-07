@@ -250,7 +250,7 @@ public class SnapshotsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SnapshotsApi.getGraphSnapshot",
+            "v1.SnapshotsApi.getGraphSnapshot",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,

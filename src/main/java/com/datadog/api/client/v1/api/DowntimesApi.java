@@ -108,7 +108,7 @@ public class DowntimesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DowntimesApi.cancelDowntime",
+            "v1.DowntimesApi.cancelDowntime",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -244,7 +244,7 @@ public class DowntimesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DowntimesApi.cancelDowntimesByScope",
+            "v1.DowntimesApi.cancelDowntimesByScope",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -374,7 +374,7 @@ public class DowntimesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DowntimesApi.createDowntime",
+            "v1.DowntimesApi.createDowntime",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -506,7 +506,7 @@ public class DowntimesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DowntimesApi.getDowntime",
+            "v1.DowntimesApi.getDowntime",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -681,7 +681,7 @@ public class DowntimesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DowntimesApi.listDowntimes",
+            "v1.DowntimesApi.listDowntimes",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -809,7 +809,7 @@ public class DowntimesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DowntimesApi.listMonitorDowntimes",
+            "v1.DowntimesApi.listMonitorDowntimes",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -955,7 +955,7 @@ public class DowntimesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "DowntimesApi.updateDowntime",
+            "v1.DowntimesApi.updateDowntime",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

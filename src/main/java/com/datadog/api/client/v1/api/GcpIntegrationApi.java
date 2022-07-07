@@ -104,7 +104,7 @@ public class GcpIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "GcpIntegrationApi.createGCPIntegration",
+            "v1.GcpIntegrationApi.createGCPIntegration",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -234,7 +234,7 @@ public class GcpIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "GcpIntegrationApi.deleteGCPIntegration",
+            "v1.GcpIntegrationApi.deleteGCPIntegration",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -355,7 +355,7 @@ public class GcpIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "GcpIntegrationApi.listGCPIntegration",
+            "v1.GcpIntegrationApi.listGCPIntegration",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -477,7 +477,7 @@ public class GcpIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "GcpIntegrationApi.updateGCPIntegration",
+            "v1.GcpIntegrationApi.updateGCPIntegration",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

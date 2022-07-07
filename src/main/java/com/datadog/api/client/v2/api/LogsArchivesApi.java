@@ -122,7 +122,7 @@ public class LogsArchivesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsArchivesApi.addReadRoleToArchive",
+            "v2.LogsArchivesApi.addReadRoleToArchive",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -265,7 +265,7 @@ public class LogsArchivesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsArchivesApi.createLogsArchive",
+            "v2.LogsArchivesApi.createLogsArchive",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -397,7 +397,7 @@ public class LogsArchivesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsArchivesApi.deleteLogsArchive",
+            "v2.LogsArchivesApi.deleteLogsArchive",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -531,7 +531,7 @@ public class LogsArchivesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsArchivesApi.getLogsArchive",
+            "v2.LogsArchivesApi.getLogsArchive",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -653,7 +653,7 @@ public class LogsArchivesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsArchivesApi.getLogsArchiveOrder",
+            "v2.LogsArchivesApi.getLogsArchiveOrder",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -776,7 +776,7 @@ public class LogsArchivesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsArchivesApi.listArchiveReadRoles",
+            "v2.LogsArchivesApi.listArchiveReadRoles",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -898,7 +898,7 @@ public class LogsArchivesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsArchivesApi.listLogsArchives",
+            "v2.LogsArchivesApi.listLogsArchives",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1031,7 +1031,7 @@ public class LogsArchivesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsArchivesApi.removeRoleFromArchive",
+            "v2.LogsArchivesApi.removeRoleFromArchive",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1193,7 +1193,7 @@ public class LogsArchivesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsArchivesApi.updateLogsArchive",
+            "v2.LogsArchivesApi.updateLogsArchive",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1341,7 +1341,7 @@ public class LogsArchivesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsArchivesApi.updateLogsArchiveOrder",
+            "v2.LogsArchivesApi.updateLogsArchiveOrder",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

@@ -110,7 +110,7 @@ public class WebhooksIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "WebhooksIntegrationApi.createWebhooksIntegration",
+            "v1.WebhooksIntegrationApi.createWebhooksIntegration",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -246,7 +246,7 @@ public class WebhooksIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "WebhooksIntegrationApi.createWebhooksIntegrationCustomVariable",
+            "v1.WebhooksIntegrationApi.createWebhooksIntegrationCustomVariable",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -385,7 +385,7 @@ public class WebhooksIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "WebhooksIntegrationApi.deleteWebhooksIntegration",
+            "v1.WebhooksIntegrationApi.deleteWebhooksIntegration",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -528,7 +528,7 @@ public class WebhooksIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "WebhooksIntegrationApi.deleteWebhooksIntegrationCustomVariable",
+            "v1.WebhooksIntegrationApi.deleteWebhooksIntegrationCustomVariable",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -669,7 +669,7 @@ public class WebhooksIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "WebhooksIntegrationApi.getWebhooksIntegration",
+            "v1.WebhooksIntegrationApi.getWebhooksIntegration",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -817,7 +817,7 @@ public class WebhooksIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "WebhooksIntegrationApi.getWebhooksIntegrationCustomVariable",
+            "v1.WebhooksIntegrationApi.getWebhooksIntegrationCustomVariable",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -972,7 +972,7 @@ public class WebhooksIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "WebhooksIntegrationApi.updateWebhooksIntegration",
+            "v1.WebhooksIntegrationApi.updateWebhooksIntegration",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1143,7 +1143,7 @@ public class WebhooksIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "WebhooksIntegrationApi.updateWebhooksIntegrationCustomVariable",
+            "v1.WebhooksIntegrationApi.updateWebhooksIntegrationCustomVariable",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

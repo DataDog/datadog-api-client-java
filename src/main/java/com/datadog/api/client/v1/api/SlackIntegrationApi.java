@@ -122,7 +122,7 @@ public class SlackIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SlackIntegrationApi.createSlackIntegrationChannel",
+            "v1.SlackIntegrationApi.createSlackIntegrationChannel",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -289,7 +289,7 @@ public class SlackIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SlackIntegrationApi.getSlackIntegrationChannel",
+            "v1.SlackIntegrationApi.getSlackIntegrationChannel",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -446,7 +446,7 @@ public class SlackIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SlackIntegrationApi.getSlackIntegrationChannels",
+            "v1.SlackIntegrationApi.getSlackIntegrationChannels",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -604,7 +604,7 @@ public class SlackIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SlackIntegrationApi.removeSlackIntegrationChannel",
+            "v1.SlackIntegrationApi.removeSlackIntegrationChannel",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -784,7 +784,7 @@ public class SlackIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "SlackIntegrationApi.updateSlackIntegrationChannel",
+            "v1.SlackIntegrationApi.updateSlackIntegrationChannel",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

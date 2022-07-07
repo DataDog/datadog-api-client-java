@@ -146,7 +146,7 @@ public class OrganizationsApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "OrganizationsApi.uploadIdPMetadata",
+            "v2.OrganizationsApi.uploadIdPMetadata",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

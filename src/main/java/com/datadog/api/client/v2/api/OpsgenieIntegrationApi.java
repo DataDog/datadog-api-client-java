@@ -110,7 +110,7 @@ public class OpsgenieIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "OpsgenieIntegrationApi.createOpsgenieService",
+            "v2.OpsgenieIntegrationApi.createOpsgenieService",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -247,7 +247,7 @@ public class OpsgenieIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "OpsgenieIntegrationApi.deleteOpsgenieService",
+            "v2.OpsgenieIntegrationApi.deleteOpsgenieService",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -393,7 +393,7 @@ public class OpsgenieIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "OpsgenieIntegrationApi.getOpsgenieService",
+            "v2.OpsgenieIntegrationApi.getOpsgenieService",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -520,7 +520,7 @@ public class OpsgenieIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "OpsgenieIntegrationApi.listOpsgenieServices",
+            "v2.OpsgenieIntegrationApi.listOpsgenieServices",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -660,7 +660,7 @@ public class OpsgenieIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "OpsgenieIntegrationApi.updateOpsgenieService",
+            "v2.OpsgenieIntegrationApi.updateOpsgenieService",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

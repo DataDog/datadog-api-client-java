@@ -106,7 +106,7 @@ public class LogsPipelinesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsPipelinesApi.createLogsPipeline",
+            "v1.LogsPipelinesApi.createLogsPipeline",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -238,7 +238,7 @@ public class LogsPipelinesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsPipelinesApi.deleteLogsPipeline",
+            "v1.LogsPipelinesApi.deleteLogsPipeline",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -375,7 +375,7 @@ public class LogsPipelinesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsPipelinesApi.getLogsPipeline",
+            "v1.LogsPipelinesApi.getLogsPipeline",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -498,7 +498,7 @@ public class LogsPipelinesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsPipelinesApi.getLogsPipelineOrder",
+            "v1.LogsPipelinesApi.getLogsPipelineOrder",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -608,7 +608,7 @@ public class LogsPipelinesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsPipelinesApi.listLogsPipelines",
+            "v1.LogsPipelinesApi.listLogsPipelines",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -745,7 +745,7 @@ public class LogsPipelinesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsPipelinesApi.updateLogsPipeline",
+            "v1.LogsPipelinesApi.updateLogsPipeline",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -896,7 +896,7 @@ public class LogsPipelinesApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "LogsPipelinesApi.updateLogsPipelineOrder",
+            "v1.LogsPipelinesApi.updateLogsPipelineOrder",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,

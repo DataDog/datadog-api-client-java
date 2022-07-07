@@ -116,7 +116,7 @@ public class RumApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "RumApi.aggregateRUMEvents",
+            "v2.RumApi.aggregateRUMEvents",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -418,7 +418,7 @@ public class RumApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "RumApi.listRUMEvents",
+            "v2.RumApi.listRUMEvents",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -602,7 +602,7 @@ public class RumApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "RumApi.searchRUMEvents",
+            "v2.RumApi.searchRUMEvents",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
