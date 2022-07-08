@@ -128,7 +128,7 @@ public class MonthlyUsageAttributionBody {
   /**
    * The source of the usage attribution tag configuration and the selected tags in the format
    * <code>
-   * &lt;source_org_name&gt;:&lt;selected tag 1&gt;///&lt;selected tag 2&gt;///&lt;selected tag 3&gt;
+   * &lt;source_org_name&gt;:::&lt;selected tag 1&gt;///&lt;selected tag 2&gt;///&lt;selected tag 3&gt;
    * </code>.
    *
    * @return tagConfigSource
@@ -158,7 +158,13 @@ public class MonthlyUsageAttributionBody {
   }
 
   /**
-   * Usage Summary by tag name.
+   * Tag keys and values.
+   *
+   * <p>A <code>null</code> value here means that the requested tag breakdown cannot be applied
+   * because it does not match the <a
+   * href="https://docs.datadoghq.com/account_management/billing/usage_attribution/#getting-started">tags
+   * configured for usage attribution</a>. In this scenario the API returns the total usage, not
+   * broken down by tags.
    *
    * @return tags
    */
