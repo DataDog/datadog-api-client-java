@@ -1,20 +1,19 @@
 // Search logs returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.LogsApi;
-import com.datadog.api.v2.client.api.LogsApi.ListLogsOptionalParameters;
-import com.datadog.api.v2.client.model.LogsListRequest;
-import com.datadog.api.v2.client.model.LogsListRequestPage;
-import com.datadog.api.v2.client.model.LogsListResponse;
-import com.datadog.api.v2.client.model.LogsQueryFilter;
-import com.datadog.api.v2.client.model.LogsSort;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.LogsApi;
+import com.datadog.api.client.v2.api.LogsApi.ListLogsOptionalParameters;
+import com.datadog.api.client.v2.model.LogsListRequest;
+import com.datadog.api.client.v2.model.LogsListRequestPage;
+import com.datadog.api.client.v2.model.LogsListResponse;
+import com.datadog.api.client.v2.model.LogsQueryFilter;
+import com.datadog.api.client.v2.model.LogsSort;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
     LogsListRequest body =

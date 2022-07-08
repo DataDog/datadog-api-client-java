@@ -1,26 +1,25 @@
 // Create a browser test returns "OK - Returns the created test details." response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-import com.datadog.api.v1.client.model.HTTPMethod;
-import com.datadog.api.v1.client.model.SyntheticsBrowserTest;
-import com.datadog.api.v1.client.model.SyntheticsBrowserTestConfig;
-import com.datadog.api.v1.client.model.SyntheticsBrowserTestType;
-import com.datadog.api.v1.client.model.SyntheticsConfigVariable;
-import com.datadog.api.v1.client.model.SyntheticsConfigVariableType;
-import com.datadog.api.v1.client.model.SyntheticsDeviceID;
-import com.datadog.api.v1.client.model.SyntheticsStep;
-import com.datadog.api.v1.client.model.SyntheticsStepType;
-import com.datadog.api.v1.client.model.SyntheticsTestOptions;
-import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
-import com.datadog.api.v1.client.model.SyntheticsTestRequest;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.HTTPMethod;
+import com.datadog.api.client.v1.model.SyntheticsBrowserTest;
+import com.datadog.api.client.v1.model.SyntheticsBrowserTestConfig;
+import com.datadog.api.client.v1.model.SyntheticsBrowserTestType;
+import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
+import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
+import com.datadog.api.client.v1.model.SyntheticsDeviceID;
+import com.datadog.api.client.v1.model.SyntheticsStep;
+import com.datadog.api.client.v1.model.SyntheticsStepType;
+import com.datadog.api.client.v1.model.SyntheticsTestOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
+import com.datadog.api.client.v1.model.SyntheticsTestRequest;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     SyntheticsBrowserTest body =

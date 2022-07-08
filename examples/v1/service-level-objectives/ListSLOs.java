@@ -1,15 +1,14 @@
 // Get all SLOs returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
-import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi.ListSLOsOptionalParameters;
-import com.datadog.api.v1.client.model.SLOListResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi;
+import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi.ListSLOsOptionalParameters;
+import com.datadog.api.client.v1.model.SLOListResponse;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
 
     // there is a valid "slo" in the system

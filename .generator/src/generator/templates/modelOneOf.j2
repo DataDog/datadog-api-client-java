@@ -24,7 +24,9 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import {{ package_name }}.JSON;
+import {{ common_package_name }}.JSON;
+import {{ common_package_name }}.AbstractOpenApiSchema;
+import {{ common_package_name }}.UnparsedObject;
 
 {{ generated_annotation }}
 @JsonDeserialize(using = {{ name }}.{{name }}Deserializer.class)

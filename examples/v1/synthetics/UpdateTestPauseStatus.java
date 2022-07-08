@@ -1,16 +1,15 @@
 // Pause or start a test returns "OK - Returns a boolean indicating if the update was successful."
 // response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-import com.datadog.api.v1.client.model.SyntheticsTestPauseStatus;
-import com.datadog.api.v1.client.model.SyntheticsUpdateTestPauseStatusPayload;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.SyntheticsTestPauseStatus;
+import com.datadog.api.client.v1.model.SyntheticsUpdateTestPauseStatusPayload;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     SyntheticsUpdateTestPauseStatusPayload body =

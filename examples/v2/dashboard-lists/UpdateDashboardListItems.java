@@ -1,18 +1,17 @@
 // Update items of a dashboard list returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.DashboardListsApi;
-import com.datadog.api.v2.client.model.DashboardListItemRequest;
-import com.datadog.api.v2.client.model.DashboardListUpdateItemsRequest;
-import com.datadog.api.v2.client.model.DashboardListUpdateItemsResponse;
-import com.datadog.api.v2.client.model.DashboardType;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.DashboardListsApi;
+import com.datadog.api.client.v2.model.DashboardListItemRequest;
+import com.datadog.api.client.v2.model.DashboardListUpdateItemsRequest;
+import com.datadog.api.client.v2.model.DashboardListUpdateItemsResponse;
+import com.datadog.api.client.v2.model.DashboardType;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
 
     // there is a valid "dashboard_list" in the system

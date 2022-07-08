@@ -1,14 +1,13 @@
 // Get the latest Cloud Workload Security policy returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.CloudWorkloadSecurityApi;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.CloudWorkloadSecurityApi;
 import java.io.File;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     CloudWorkloadSecurityApi apiInstance = new CloudWorkloadSecurityApi(defaultClient);
 
     try {

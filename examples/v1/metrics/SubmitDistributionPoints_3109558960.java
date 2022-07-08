@@ -1,21 +1,20 @@
 // Submit deflate distribution points returns "Payload accepted" response
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.MetricsApi;
-import com.datadog.api.v1.client.api.MetricsApi.SubmitDistributionPointsOptionalParameters;
-import com.datadog.api.v1.client.model.DistributionPointItem;
-import com.datadog.api.v1.client.model.DistributionPointsContentEncoding;
-import com.datadog.api.v1.client.model.DistributionPointsPayload;
-import com.datadog.api.v1.client.model.DistributionPointsSeries;
-import com.datadog.api.v1.client.model.IntakePayloadAccepted;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.MetricsApi;
+import com.datadog.api.client.v1.api.MetricsApi.SubmitDistributionPointsOptionalParameters;
+import com.datadog.api.client.v1.model.DistributionPointItem;
+import com.datadog.api.client.v1.model.DistributionPointsContentEncoding;
+import com.datadog.api.client.v1.model.DistributionPointsPayload;
+import com.datadog.api.client.v1.model.DistributionPointsSeries;
+import com.datadog.api.client.v1.model.IntakePayloadAccepted;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     DistributionPointsPayload body =

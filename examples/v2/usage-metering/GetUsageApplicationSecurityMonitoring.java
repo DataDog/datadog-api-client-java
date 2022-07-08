@@ -1,15 +1,14 @@
 // Get hourly usage for Application Security returns "OK" response
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.UsageMeteringApi;
-import com.datadog.api.v2.client.api.UsageMeteringApi.GetUsageApplicationSecurityMonitoringOptionalParameters;
-import com.datadog.api.v2.client.model.UsageApplicationSecurityMonitoringResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.UsageMeteringApi;
+import com.datadog.api.client.v2.api.UsageMeteringApi.GetUsageApplicationSecurityMonitoringOptionalParameters;
+import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringResponse;
 import java.time.OffsetDateTime;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {

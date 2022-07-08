@@ -1,15 +1,14 @@
 // Check that an AWS Lambda Function exists returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
-import com.datadog.api.v1.client.model.AWSAccountAndLambdaRequest;
-import com.datadog.api.v1.client.model.AWSLogsAsyncResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.AwsLogsIntegrationApi;
+import com.datadog.api.client.v1.model.AWSAccountAndLambdaRequest;
+import com.datadog.api.client.v1.model.AWSLogsAsyncResponse;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
 
     AWSAccountAndLambdaRequest body =

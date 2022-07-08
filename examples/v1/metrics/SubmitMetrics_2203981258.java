@@ -1,20 +1,19 @@
 // Submit deflate metrics returns "Payload accepted" response
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.MetricsApi;
-import com.datadog.api.v1.client.api.MetricsApi.SubmitMetricsOptionalParameters;
-import com.datadog.api.v1.client.model.IntakePayloadAccepted;
-import com.datadog.api.v1.client.model.MetricContentEncoding;
-import com.datadog.api.v1.client.model.MetricsPayload;
-import com.datadog.api.v1.client.model.Series;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.MetricsApi;
+import com.datadog.api.client.v1.api.MetricsApi.SubmitMetricsOptionalParameters;
+import com.datadog.api.client.v1.model.IntakePayloadAccepted;
+import com.datadog.api.client.v1.model.MetricContentEncoding;
+import com.datadog.api.client.v1.model.MetricsPayload;
+import com.datadog.api.client.v1.model.Series;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     MetricsPayload body =

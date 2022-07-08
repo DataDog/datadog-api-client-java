@@ -1,15 +1,14 @@
 // Get estimated cost across multi-org account with date returns "OK" response
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.UsageMeteringApi;
-import com.datadog.api.v2.client.api.UsageMeteringApi.GetEstimatedCostByOrgOptionalParameters;
-import com.datadog.api.v2.client.model.CostByOrgResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.UsageMeteringApi;
+import com.datadog.api.client.v2.api.UsageMeteringApi.GetEstimatedCostByOrgOptionalParameters;
+import com.datadog.api.client.v2.model.CostByOrgResponse;
 import java.time.OffsetDateTime;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {

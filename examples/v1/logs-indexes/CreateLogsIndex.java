@@ -1,18 +1,17 @@
 // Create an index returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.LogsIndexesApi;
-import com.datadog.api.v1.client.model.LogsExclusion;
-import com.datadog.api.v1.client.model.LogsExclusionFilter;
-import com.datadog.api.v1.client.model.LogsFilter;
-import com.datadog.api.v1.client.model.LogsIndex;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.LogsIndexesApi;
+import com.datadog.api.client.v1.model.LogsExclusion;
+import com.datadog.api.client.v1.model.LogsExclusionFilter;
+import com.datadog.api.client.v1.model.LogsFilter;
+import com.datadog.api.client.v1.model.LogsIndex;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
 
     LogsIndex body =

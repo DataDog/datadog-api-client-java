@@ -1,15 +1,14 @@
 // Enable an AWS Logs integration returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
-import com.datadog.api.v1.client.model.AWSLogsServicesRequest;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.AwsLogsIntegrationApi;
+import com.datadog.api.client.v1.model.AWSLogsServicesRequest;
 import java.util.Arrays;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
 
     AWSLogsServicesRequest body =

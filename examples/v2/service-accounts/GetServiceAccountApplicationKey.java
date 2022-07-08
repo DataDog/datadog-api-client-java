@@ -1,14 +1,13 @@
 // Get one application key for this service account returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.ServiceAccountsApi;
-import com.datadog.api.v2.client.model.PartialApplicationKeyResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.ServiceAccountsApi;
+import com.datadog.api.client.v2.model.PartialApplicationKeyResponse;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
 
     try {

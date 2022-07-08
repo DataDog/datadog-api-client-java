@@ -1,18 +1,17 @@
 // Edit an application key owned by current user returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.KeyManagementApi;
-import com.datadog.api.v2.client.model.ApplicationKeyResponse;
-import com.datadog.api.v2.client.model.ApplicationKeyUpdateAttributes;
-import com.datadog.api.v2.client.model.ApplicationKeyUpdateData;
-import com.datadog.api.v2.client.model.ApplicationKeyUpdateRequest;
-import com.datadog.api.v2.client.model.ApplicationKeysType;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.KeyManagementApi;
+import com.datadog.api.client.v2.model.ApplicationKeyResponse;
+import com.datadog.api.client.v2.model.ApplicationKeyUpdateAttributes;
+import com.datadog.api.client.v2.model.ApplicationKeyUpdateData;
+import com.datadog.api.client.v2.model.ApplicationKeyUpdateRequest;
+import com.datadog.api.client.v2.model.ApplicationKeysType;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
 
     // there is a valid "application_key" in the system

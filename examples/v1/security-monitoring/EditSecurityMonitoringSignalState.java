@@ -1,17 +1,16 @@
 // Change the triage state of a security signal returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.SecurityMonitoringApi;
-import com.datadog.api.v1.client.model.SignalArchiveReason;
-import com.datadog.api.v1.client.model.SignalStateUpdateRequest;
-import com.datadog.api.v1.client.model.SignalTriageState;
-import com.datadog.api.v1.client.model.SuccessfulSignalUpdateResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.SecurityMonitoringApi;
+import com.datadog.api.client.v1.model.SignalArchiveReason;
+import com.datadog.api.client.v1.model.SignalStateUpdateRequest;
+import com.datadog.api.client.v1.model.SignalTriageState;
+import com.datadog.api.client.v1.model.SuccessfulSignalUpdateResponse;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     SignalStateUpdateRequest body =

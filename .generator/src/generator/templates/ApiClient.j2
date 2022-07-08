@@ -1,6 +1,6 @@
 {% include "ApiInfo.j2" %}
 
-package {{ package_name }};
+package {{ common_package_name }};
 
 import javax.ws.rs.client.AsyncInvoker;
 import javax.ws.rs.client.Client;
@@ -62,6 +62,8 @@ import java.util.Properties;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 import java.net.URLEncoder;
 
@@ -72,11 +74,20 @@ import java.text.DateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import {{ package_name }}.auth.ApiKeyAuth;
-import {{ package_name }}.auth.Authentication;
-import {{ package_name }}.auth.HttpBasicAuth;
-import {{ package_name }}.auth.HttpBearerAuth;
-import {{ package_name }}.auth.OAuth;
+import {{ common_package_name }}.ApiException;
+import {{ common_package_name }}.ApiResponse;
+import {{ common_package_name }}.JSON;
+import {{ common_package_name }}.Pair;
+import {{ common_package_name }}.RFC3339DateFormat;
+import {{ common_package_name }}.ServerConfiguration;
+import {{ common_package_name }}.ServerVariable;
+import {{ common_package_name }}.StringUtil;
+
+import {{ common_package_name }}.auth.ApiKeyAuth;
+import {{ common_package_name }}.auth.Authentication;
+import {{ common_package_name }}.auth.HttpBasicAuth;
+import {{ common_package_name }}.auth.HttpBearerAuth;
+import {{ common_package_name }}.auth.OAuth;
 
 {%- macro server_configuration(server) -%}
      new ServerConfiguration(
@@ -110,16 +121,16 @@ import {{ package_name }}.auth.OAuth;
     )
 {%- endmacro %}
 {{ generated_annotation }}
-public class ApiClient extends JavaTimeFormatter {
+public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
   {%- set default_server = openapi.servers[0]|format_server %}
   protected String basePath = "{{ default_server.geturl() }}";
   protected String userAgent;
-  private static final Logger log = Logger.getLogger(ApiClient.class.getName());
+  private DateTimeFormatter offsetDateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(
-    {%- for server in openapi.servers %}
+    {%- for server in specs.v2.servers %}
         {%- if loop.first %}
         Arrays.asList(
         {%- endif %}
@@ -132,16 +143,18 @@ public class ApiClient extends JavaTimeFormatter {
   protected Integer serverIndex = 0;
   protected Map<String, String> serverVariables = null;
   protected Map<String, List<ServerConfiguration>> operationServers = new HashMap<String, List<ServerConfiguration>>() {{ '{{' }}
-    {%- for path in openapi.paths.values() %}
+    {%- for version, spec in specs.items() %}
+    {%- for path in spec.paths.values() %}
     {%- for operation in path.values() %}
     {%- for server in operation.servers %}
         {%- if loop.first %}
-        put("{{ operation.tags[0].replace(" ", "")|camel_case|upperfirst }}Api.{{ operation.operationId|untitle_case }}", new ArrayList<ServerConfiguration>(Arrays.asList(
+        put("{{ version }}.{{ operation.tags[0].replace(" ", "")|camel_case|upperfirst }}Api.{{ operation.operationId|untitle_case }}", new ArrayList<ServerConfiguration>(Arrays.asList(
         {%- endif %}
             {{ server_configuration(server) }}{% if loop.nextitem %},{% endif %}
         {%- if loop.last %}
         )));
         {%- endif %}
+    {%- endfor %}
     {%- endfor %}
     {%- endfor %}
     {%- endfor %}
@@ -159,19 +172,66 @@ public class ApiClient extends JavaTimeFormatter {
   protected String tempFolderPath = null;
 
   protected Map<String, Authentication> authentications;
-  protected Map<String, String> authenticationLookup;
 
   protected DateFormat dateFormat;
   protected final Map<String, Boolean> unstableOperations = new HashMap<String, Boolean>() {{ '{{' }}
-    {%- for path in openapi.paths.values() %}
-    {%- for operation in path.values()|sort(attribute="operationId") %}
+    {%- for version, api in apis.items() %}
+    {%- for operations in api.values() %}
+    {%- for _, _, operation in operations|sort(attribute="2.operationId") %}
     {%- if "x-unstable" in operation %}
-        put("{{ operation.operationId|untitle_case }}", false);
+        put("{{ version }}.{{ operation.operationId|untitle_case }}", false);
     {%- endif %}
+    {%- endfor %}
     {%- endfor %}
     {%- endfor %}
   }};
   protected static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ApiClient.class.getName());
+
+  private static ApiClient defaultApiClient;
+
+  /**
+   * Get the default API client, which would be used when creating API instances without providing
+   * an API client.
+   *
+   * @return Default API client
+   */
+  public static ApiClient getDefaultApiClient() {
+    if (defaultApiClient != null) {
+      return defaultApiClient;
+    }
+    defaultApiClient = new ApiClient();
+
+    // Configure the Datadog site to send API calls to
+    String site = System.getenv("DD_SITE");
+    if (site != null) {
+      HashMap<String, String> serverVariables = new HashMap<String, String>();
+      serverVariables.put("site", site);
+      defaultApiClient.setServerVariables(serverVariables);
+    }
+    // Configure API key authorization
+    HashMap<String, String> secrets = new HashMap<String, String>();
+    String apiKeyAuth = System.getenv("DD_API_KEY");
+    if (apiKeyAuth != null) {
+      secrets.put("apiKeyAuth", apiKeyAuth);
+    }
+    String appKeyAuth = System.getenv("DD_APP_KEY");
+    if (appKeyAuth != null) {
+      secrets.put("appKeyAuth", appKeyAuth);
+    }
+    defaultApiClient.configureApiKeys(secrets);
+
+    return defaultApiClient;
+  }
+
+  /**
+   * Set the default API client, which would be used when creating API instances without providing
+   * an API client.
+   *
+   * @param apiClient API client
+   */
+  public static void setDefaultApiClient(ApiClient apiClient) {
+    defaultApiClient = apiClient;
+  }
 
   /**
    * Constructs a new ApiClient with default parameters.
@@ -197,7 +257,7 @@ public class ApiClient extends JavaTimeFormatter {
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
     Authentication auth = null;
-    {%- for name, schema in openapi.components.securitySchemes.items()  %}
+    {%- for name, schema in specs.v2.components.securitySchemes.items()  %}
     if (authMap != null) {
       auth = authMap.get("{{ name }}");
     }
@@ -217,14 +277,34 @@ public class ApiClient extends JavaTimeFormatter {
     {%- endfor %}
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
+  }
 
-    // Setup authentication lookup (key: authentication alias, value: authentication name)
-    authenticationLookup = new HashMap<String, String>();
-    {%- for name, auth in openapi.components.securitySchemes.items() %}
-    {%- if "x-auth-id-alias" in auth %}
-    authenticationLookup.put("{{ name }}", "{{ auth["x-auth-id-alias"] }}");
-    {%- endif %}
-    {%- endfor %}
+  /**
+   * Get the date format used to parse/format {@code OffsetDateTime} parameters.
+   *
+   * @return DateTimeFormatter
+   */
+  public DateTimeFormatter getOffsetDateTimeFormatter() {
+    return offsetDateTimeFormatter;
+  }
+
+  /**
+   * Set the date format used to parse/format {@code OffsetDateTime} parameters.
+   *
+   * @param offsetDateTimeFormatter {@code DateTimeFormatter}
+   */
+  public void setOffsetDateTimeFormatter(DateTimeFormatter offsetDateTimeFormatter) {
+    this.offsetDateTimeFormatter = offsetDateTimeFormatter;
+  }
+
+  /**
+   * Format the given {@code OffsetDateTime} object into string.
+   *
+   * @param offsetDateTime {@code OffsetDateTime}
+   * @return {@code OffsetDateTime} in string format
+   */
+  public String formatOffsetDateTime(OffsetDateTime offsetDateTime) {
+    return offsetDateTimeFormatter.format(offsetDateTime);
   }
 
   /**
@@ -388,8 +468,6 @@ public class ApiClient extends JavaTimeFormatter {
       Authentication auth = authEntry.getValue();
       if (auth instanceof ApiKeyAuth) {
         String name = authEntry.getKey();
-        // respect x-auth-id-alias property
-        name = authenticationLookup.containsKey(name) ? authenticationLookup.get(name) : name;
         if (secrets.containsKey(name)) {
           ((ApiKeyAuth) auth).setApiKey(secrets.get(name));
         }

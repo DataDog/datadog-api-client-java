@@ -1,14 +1,13 @@
 // Get all users of a role returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.RolesApi;
-import com.datadog.api.v2.client.model.UsersResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.RolesApi;
+import com.datadog.api.client.v2.model.UsersResponse;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);
 
     // there is a valid "role" in the system

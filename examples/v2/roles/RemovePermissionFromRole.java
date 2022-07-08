@@ -1,17 +1,16 @@
 // Revoke permission returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.RolesApi;
-import com.datadog.api.v2.client.model.PermissionsResponse;
-import com.datadog.api.v2.client.model.PermissionsType;
-import com.datadog.api.v2.client.model.RelationshipToPermission;
-import com.datadog.api.v2.client.model.RelationshipToPermissionData;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.RolesApi;
+import com.datadog.api.client.v2.model.PermissionsResponse;
+import com.datadog.api.client.v2.model.PermissionsType;
+import com.datadog.api.client.v2.model.RelationshipToPermission;
+import com.datadog.api.client.v2.model.RelationshipToPermissionData;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);
 
     // there is a valid "role" in the system

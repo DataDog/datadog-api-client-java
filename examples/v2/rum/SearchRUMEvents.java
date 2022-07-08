@@ -1,19 +1,18 @@
 // Search RUM events returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.RumApi;
-import com.datadog.api.v2.client.model.RUMEventsResponse;
-import com.datadog.api.v2.client.model.RUMQueryFilter;
-import com.datadog.api.v2.client.model.RUMQueryOptions;
-import com.datadog.api.v2.client.model.RUMQueryPageOptions;
-import com.datadog.api.v2.client.model.RUMSearchEventsRequest;
-import com.datadog.api.v2.client.model.RUMSort;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.RumApi;
+import com.datadog.api.client.v2.model.RUMEventsResponse;
+import com.datadog.api.client.v2.model.RUMQueryFilter;
+import com.datadog.api.client.v2.model.RUMQueryOptions;
+import com.datadog.api.client.v2.model.RUMQueryPageOptions;
+import com.datadog.api.client.v2.model.RUMSearchEventsRequest;
+import com.datadog.api.client.v2.model.RUMSort;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RumApi apiInstance = new RumApi(defaultClient);
 
     RUMSearchEventsRequest body =

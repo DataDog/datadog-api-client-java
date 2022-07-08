@@ -1,15 +1,14 @@
 // Get hourly usage for custom metrics returns "OK" response
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.UsageMeteringApi;
-import com.datadog.api.v1.client.api.UsageMeteringApi.GetUsageTimeseriesOptionalParameters;
-import com.datadog.api.v1.client.model.UsageTimeseriesResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.UsageMeteringApi;
+import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageTimeseriesOptionalParameters;
+import com.datadog.api.client.v1.model.UsageTimeseriesResponse;
 import java.time.OffsetDateTime;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {

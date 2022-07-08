@@ -1,15 +1,14 @@
 // Tag Configuration Cardinality Estimator returns "Success" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.MetricsApi;
-import com.datadog.api.v2.client.api.MetricsApi.EstimateMetricsOutputSeriesOptionalParameters;
-import com.datadog.api.v2.client.model.MetricEstimateResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.MetricsApi;
+import com.datadog.api.client.v2.api.MetricsApi.EstimateMetricsOutputSeriesOptionalParameters;
+import com.datadog.api.client.v2.model.MetricEstimateResponse;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {

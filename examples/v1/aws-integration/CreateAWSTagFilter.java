@@ -1,15 +1,14 @@
 // Set an AWS tag filter returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.AwsIntegrationApi;
-import com.datadog.api.v1.client.model.AWSNamespace;
-import com.datadog.api.v1.client.model.AWSTagFilterCreateRequest;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.AwsIntegrationApi;
+import com.datadog.api.client.v1.model.AWSNamespace;
+import com.datadog.api.client.v1.model.AWSTagFilterCreateRequest;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
 
     AWSTagFilterCreateRequest body =

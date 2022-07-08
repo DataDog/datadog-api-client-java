@@ -1,18 +1,17 @@
 // Add Items to a Dashboard List returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.DashboardListsApi;
-import com.datadog.api.v2.client.model.DashboardListAddItemsRequest;
-import com.datadog.api.v2.client.model.DashboardListAddItemsResponse;
-import com.datadog.api.v2.client.model.DashboardListItemRequest;
-import com.datadog.api.v2.client.model.DashboardType;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.DashboardListsApi;
+import com.datadog.api.client.v2.model.DashboardListAddItemsRequest;
+import com.datadog.api.client.v2.model.DashboardListAddItemsResponse;
+import com.datadog.api.client.v2.model.DashboardListItemRequest;
+import com.datadog.api.client.v2.model.DashboardType;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
 
     DashboardListAddItemsRequest body =

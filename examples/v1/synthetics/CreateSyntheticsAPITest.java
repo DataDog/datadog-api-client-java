@@ -1,32 +1,31 @@
 // Create an API test returns "OK - Returns the created test details." response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-import com.datadog.api.v1.client.model.HTTPMethod;
-import com.datadog.api.v1.client.model.SyntheticsAPITest;
-import com.datadog.api.v1.client.model.SyntheticsAPITestConfig;
-import com.datadog.api.v1.client.model.SyntheticsAPITestType;
-import com.datadog.api.v1.client.model.SyntheticsAssertion;
-import com.datadog.api.v1.client.model.SyntheticsAssertionOperator;
-import com.datadog.api.v1.client.model.SyntheticsAssertionTarget;
-import com.datadog.api.v1.client.model.SyntheticsAssertionType;
-import com.datadog.api.v1.client.model.SyntheticsBrowserTestRumSettings;
-import com.datadog.api.v1.client.model.SyntheticsDeviceID;
-import com.datadog.api.v1.client.model.SyntheticsTestCiOptions;
-import com.datadog.api.v1.client.model.SyntheticsTestDetailsSubType;
-import com.datadog.api.v1.client.model.SyntheticsTestExecutionRule;
-import com.datadog.api.v1.client.model.SyntheticsTestOptions;
-import com.datadog.api.v1.client.model.SyntheticsTestOptionsMonitorOptions;
-import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
-import com.datadog.api.v1.client.model.SyntheticsTestPauseStatus;
-import com.datadog.api.v1.client.model.SyntheticsTestRequest;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.HTTPMethod;
+import com.datadog.api.client.v1.model.SyntheticsAPITest;
+import com.datadog.api.client.v1.model.SyntheticsAPITestConfig;
+import com.datadog.api.client.v1.model.SyntheticsAPITestType;
+import com.datadog.api.client.v1.model.SyntheticsAssertion;
+import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
+import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionType;
+import com.datadog.api.client.v1.model.SyntheticsBrowserTestRumSettings;
+import com.datadog.api.client.v1.model.SyntheticsDeviceID;
+import com.datadog.api.client.v1.model.SyntheticsTestCiOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
+import com.datadog.api.client.v1.model.SyntheticsTestExecutionRule;
+import com.datadog.api.client.v1.model.SyntheticsTestOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsMonitorOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
+import com.datadog.api.client.v1.model.SyntheticsTestPauseStatus;
+import com.datadog.api.client.v1.model.SyntheticsTestRequest;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     SyntheticsAPITest body =

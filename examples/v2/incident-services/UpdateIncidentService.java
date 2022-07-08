@@ -1,19 +1,18 @@
 // Update an existing incident service returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.IncidentServicesApi;
-import com.datadog.api.v2.client.model.IncidentServiceResponse;
-import com.datadog.api.v2.client.model.IncidentServiceType;
-import com.datadog.api.v2.client.model.IncidentServiceUpdateAttributes;
-import com.datadog.api.v2.client.model.IncidentServiceUpdateData;
-import com.datadog.api.v2.client.model.IncidentServiceUpdateRequest;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.IncidentServicesApi;
+import com.datadog.api.client.v2.model.IncidentServiceResponse;
+import com.datadog.api.client.v2.model.IncidentServiceType;
+import com.datadog.api.client.v2.model.IncidentServiceUpdateAttributes;
+import com.datadog.api.client.v2.model.IncidentServiceUpdateData;
+import com.datadog.api.client.v2.model.IncidentServiceUpdateRequest;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("updateIncidentService", true);
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.updateIncidentService", true);
     IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
 
     // there is a valid "service" in the system

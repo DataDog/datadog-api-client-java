@@ -1,12 +1,11 @@
 {#-{% include "ApiInfo.j2" %}#}
 package {{ package_name }}.api;
 
-import {{ package_name }}.ApiException;
-import {{ package_name }}.ApiClient;
-import {{ package_name }}.ApiResponse;
-import {{ package_name }}.Configuration;
-import {{ package_name }}.Pair;
-import {{ package_name }}.PaginationIterable;
+import {{ common_package_name }}.ApiClient;
+import {{ common_package_name }}.ApiException;
+import {{ common_package_name }}.ApiResponse;
+import {{ common_package_name }}.Pair;
+import {{ common_package_name }}.PaginationIterable;
 
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.client.Invocation;
@@ -42,7 +41,7 @@ import {{ package_name }}.model.{{ get_container_type(operation, limitParam) }};
 public class {{ name }} {
   private ApiClient apiClient;
   public {{ name }}() {
-    this(Configuration.getDefaultApiClient());
+    this(ApiClient.getDefaultApiClient());
   }
 
   public {{ name }}(ApiClient apiClient) {
@@ -324,7 +323,7 @@ public class {{ name }} {
     {%- if "x-unstable" in operation %}
     // Check if unstable operation is enabled
     String operationId = "{{ operationId }}";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
+    if (apiClient.isUnstableOperationEnabled("{{ version }}." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
@@ -370,7 +369,7 @@ public class {{ name }} {
       if ({{ name|variable_name }} != null) localVarFormParams.put("{{ name }}", {{ name|variable_name }});
     {%- endfor %}
 
-    Invocation.Builder builder = apiClient.createBuilder("{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- for mediaType in operation|accept_headers %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %} }, new String[] { {% for authMethod in authMethods|reverse %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %} });
+    Invocation.Builder builder = apiClient.createBuilder("{{ version }}.{{ name }}.{{ operationId }}", localVarPath, {% if queryParams %}localVarQueryParams{% else %}new ArrayList<Pair>(){% endif %}, localVarHeaderParams, new HashMap<String, String>(), new String[] { {%- for mediaType in operation|accept_headers %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{% endfor %} }, new String[] { {% for authMethod in authMethods|reverse %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %} });
     return apiClient.invokeAPI("{{ method.upper() }}", builder, localVarHeaderParams,  new String[] { {%- if operation.requestBody is defined %} {%- for mediaType in operation.requestBody.content.keys() %}"{{ mediaType }}"{% if loop.nextitem %}, {% endif %}{%- endfor %}{%- endif %} }, localVarPostBody,{% if formParams %}localVarFormParams{% else %}new HashMap<String, Object>(){% endif %} , {% if operation.requestBody %}{% if operation.requestBody.nullable %}true{% else %}false{% endif %}{% else %}false{% endif %}, {% if returnType %}new GenericType<{{ returnType }}>() {}{% else %}null{% endif %});
   }
 
@@ -401,7 +400,7 @@ public class {{ name }} {
     {%- if "x-unstable" in operation %}
     // Check if unstable operation is enabled
     String operationId = "{{ operationId }}";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
+    if (apiClient.isUnstableOperationEnabled("{{ version }}." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<{% if returnType %}{{ returnType }}{% else %}Void{% endif %}>> result = new CompletableFuture<>();

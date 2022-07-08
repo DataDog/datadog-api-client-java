@@ -1,22 +1,21 @@
 // Send invitation emails returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.UsersApi;
-import com.datadog.api.v2.client.model.RelationshipToUser;
-import com.datadog.api.v2.client.model.RelationshipToUserData;
-import com.datadog.api.v2.client.model.UserInvitationData;
-import com.datadog.api.v2.client.model.UserInvitationRelationships;
-import com.datadog.api.v2.client.model.UserInvitationsRequest;
-import com.datadog.api.v2.client.model.UserInvitationsResponse;
-import com.datadog.api.v2.client.model.UserInvitationsType;
-import com.datadog.api.v2.client.model.UsersType;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.UsersApi;
+import com.datadog.api.client.v2.model.RelationshipToUser;
+import com.datadog.api.client.v2.model.RelationshipToUserData;
+import com.datadog.api.client.v2.model.UserInvitationData;
+import com.datadog.api.client.v2.model.UserInvitationRelationships;
+import com.datadog.api.client.v2.model.UserInvitationsRequest;
+import com.datadog.api.client.v2.model.UserInvitationsResponse;
+import com.datadog.api.client.v2.model.UserInvitationsType;
+import com.datadog.api.client.v2.model.UsersType;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);
 
     // there is a valid "user" in the system

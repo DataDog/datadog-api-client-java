@@ -1,14 +1,13 @@
 // List your managed organizations returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.OrganizationsApi;
-import com.datadog.api.v1.client.model.OrganizationListResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.OrganizationsApi;
+import com.datadog.api.client.v1.model.OrganizationListResponse;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
 
     try {

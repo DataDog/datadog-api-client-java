@@ -1,15 +1,14 @@
 // Get specified monthly custom reports returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.UsageMeteringApi;
-import com.datadog.api.v1.client.model.UsageSpecifiedCustomReportsResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.UsageMeteringApi;
+import com.datadog.api.client.v1.model.UsageSpecifiedCustomReportsResponse;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v1.getSpecifiedMonthlyCustomReports", true);
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {

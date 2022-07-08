@@ -1,15 +1,14 @@
 // Create an Azure integration returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.AzureIntegrationApi;
-import com.datadog.api.v1.client.model.AzureAccount;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.AzureIntegrationApi;
+import com.datadog.api.client.v1.model.AzureAccount;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
 
     AzureAccount body =

@@ -1,18 +1,17 @@
 // Create an app key for this service account returns "Created" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.ServiceAccountsApi;
-import com.datadog.api.v2.client.model.ApplicationKeyCreateAttributes;
-import com.datadog.api.v2.client.model.ApplicationKeyCreateData;
-import com.datadog.api.v2.client.model.ApplicationKeyCreateRequest;
-import com.datadog.api.v2.client.model.ApplicationKeyResponse;
-import com.datadog.api.v2.client.model.ApplicationKeysType;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.ServiceAccountsApi;
+import com.datadog.api.client.v2.model.ApplicationKeyCreateAttributes;
+import com.datadog.api.client.v2.model.ApplicationKeyCreateData;
+import com.datadog.api.client.v2.model.ApplicationKeyCreateRequest;
+import com.datadog.api.client.v2.model.ApplicationKeyResponse;
+import com.datadog.api.client.v2.model.ApplicationKeysType;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
 
     // there is a valid "service_account_user" in the system

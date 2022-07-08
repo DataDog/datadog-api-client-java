@@ -1,14 +1,13 @@
 // Get an event returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.EventsApi;
-import com.datadog.api.v1.client.model.EventResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.EventsApi;
+import com.datadog.api.client.v1.model.EventResponse;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     EventsApi apiInstance = new EventsApi(defaultClient);
 
     try {

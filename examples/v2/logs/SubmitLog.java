@@ -1,16 +1,15 @@
 // Send logs returns "Request accepted for processing (always 202 empty JSON)." response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.LogsApi;
-import com.datadog.api.v2.client.model.HTTPLogItem;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.LogsApi;
+import com.datadog.api.client.v2.model.HTTPLogItem;
 import java.util.Collections;
 import java.util.List;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
     List<HTTPLogItem> body =

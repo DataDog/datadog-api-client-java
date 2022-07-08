@@ -1,23 +1,22 @@
 // Create a service account returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.UsersApi;
-import com.datadog.api.v2.client.model.RelationshipToRoleData;
-import com.datadog.api.v2.client.model.RelationshipToRoles;
-import com.datadog.api.v2.client.model.RolesType;
-import com.datadog.api.v2.client.model.ServiceAccountCreateAttributes;
-import com.datadog.api.v2.client.model.ServiceAccountCreateData;
-import com.datadog.api.v2.client.model.ServiceAccountCreateRequest;
-import com.datadog.api.v2.client.model.UserRelationships;
-import com.datadog.api.v2.client.model.UserResponse;
-import com.datadog.api.v2.client.model.UsersType;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.UsersApi;
+import com.datadog.api.client.v2.model.RelationshipToRoleData;
+import com.datadog.api.client.v2.model.RelationshipToRoles;
+import com.datadog.api.client.v2.model.RolesType;
+import com.datadog.api.client.v2.model.ServiceAccountCreateAttributes;
+import com.datadog.api.client.v2.model.ServiceAccountCreateData;
+import com.datadog.api.client.v2.model.ServiceAccountCreateRequest;
+import com.datadog.api.client.v2.model.UserRelationships;
+import com.datadog.api.client.v2.model.UserResponse;
+import com.datadog.api.client.v2.model.UsersType;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);
 
     // there is a valid "role" in the system

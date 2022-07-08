@@ -1,29 +1,28 @@
 // Create a new dashboard with an audit logs query
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.Dashboard;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventAggregation;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionCompute;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionSearch;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventsDataSource;
-import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionResponseFormat;
-import com.datadog.api.v1.client.model.TimeseriesWidgetDefinition;
-import com.datadog.api.v1.client.model.TimeseriesWidgetDefinitionType;
-import com.datadog.api.v1.client.model.TimeseriesWidgetRequest;
-import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.datadog.api.v1.client.model.WidgetLayout;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventAggregation;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionCompute;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionSearch;
+import com.datadog.api.client.v1.model.FormulaAndFunctionEventsDataSource;
+import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
+import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
+import com.datadog.api.client.v1.model.TimeseriesWidgetDefinition;
+import com.datadog.api.client.v1.model.TimeseriesWidgetDefinitionType;
+import com.datadog.api.client.v1.model.TimeseriesWidgetRequest;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetDefinition;
+import com.datadog.api.client.v1.model.WidgetLayout;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
     Dashboard body =

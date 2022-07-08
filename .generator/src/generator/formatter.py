@@ -623,7 +623,7 @@ def get_response_type(schema, version):
             api_response_type = simple_type(response_schema)
 
     if name:
-        return api_response_type, f"com.datadog.api.{version}.client.model.{name}"
+        return api_response_type, f"com.datadog.api.client.{version}.model.{name}"
     return api_response_type, None
 
 

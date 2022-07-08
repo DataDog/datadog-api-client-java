@@ -1,16 +1,15 @@
 // Create a user returns "User created" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.UsersApi;
-import com.datadog.api.v1.client.model.AccessRole;
-import com.datadog.api.v1.client.model.User;
-import com.datadog.api.v1.client.model.UserResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.UsersApi;
+import com.datadog.api.client.v1.model.AccessRole;
+import com.datadog.api.client.v1.model.User;
+import com.datadog.api.client.v1.model.UserResponse;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);
 
     User body =

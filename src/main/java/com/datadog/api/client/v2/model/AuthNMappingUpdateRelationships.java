@@ -1,0 +1,83 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v2.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.Objects;
+
+/** Relationship of AuthN Mapping update object to Role. */
+@JsonPropertyOrder({AuthNMappingUpdateRelationships.JSON_PROPERTY_ROLE})
+@javax.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class AuthNMappingUpdateRelationships {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ROLE = "role";
+  private RelationshipToRole role;
+
+  public AuthNMappingUpdateRelationships role(RelationshipToRole role) {
+    this.role = role;
+    this.unparsed |= role.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship to role.
+   *
+   * @return role
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ROLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToRole getRole() {
+    return role;
+  }
+
+  public void setRole(RelationshipToRole role) {
+    this.role = role;
+  }
+
+  /** Return true if this AuthNMappingUpdateRelationships object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    AuthNMappingUpdateRelationships authNMappingUpdateRelationships =
+        (AuthNMappingUpdateRelationships) o;
+    return Objects.equals(this.role, authNMappingUpdateRelationships.role);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(role);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AuthNMappingUpdateRelationships {\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}

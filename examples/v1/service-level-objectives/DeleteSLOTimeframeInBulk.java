@@ -1,18 +1,17 @@
 // Bulk Delete SLO Timeframes returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
-import com.datadog.api.v1.client.model.SLOBulkDeleteResponse;
-import com.datadog.api.v1.client.model.SLOTimeframe;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.ServiceLevelObjectivesApi;
+import com.datadog.api.client.v1.model.SLOBulkDeleteResponse;
+import com.datadog.api.client.v1.model.SLOTimeframe;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
 
     Map<String, List<SLOTimeframe>> body =

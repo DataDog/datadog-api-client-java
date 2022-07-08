@@ -1,17 +1,16 @@
 // Get usage attribution returns "OK" response
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.UsageMeteringApi;
-import com.datadog.api.v1.client.api.UsageMeteringApi.GetUsageAttributionOptionalParameters;
-import com.datadog.api.v1.client.model.UsageAttributionResponse;
-import com.datadog.api.v1.client.model.UsageAttributionSupportedMetrics;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.UsageMeteringApi;
+import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageAttributionOptionalParameters;
+import com.datadog.api.client.v1.model.UsageAttributionResponse;
+import com.datadog.api.client.v1.model.UsageAttributionSupportedMetrics;
 import java.time.OffsetDateTime;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("getUsageAttribution", true);
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v1.getUsageAttribution", true);
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {

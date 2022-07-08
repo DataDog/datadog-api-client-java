@@ -1,18 +1,17 @@
 // Create a ci-tests monitor returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.MonitorsApi;
-import com.datadog.api.v1.client.model.Monitor;
-import com.datadog.api.v1.client.model.MonitorOptions;
-import com.datadog.api.v1.client.model.MonitorThresholds;
-import com.datadog.api.v1.client.model.MonitorType;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.MonitorsApi;
+import com.datadog.api.client.v1.model.Monitor;
+import com.datadog.api.client.v1.model.MonitorOptions;
+import com.datadog.api.client.v1.model.MonitorThresholds;
+import com.datadog.api.client.v1.model.MonitorType;
 import java.util.Arrays;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
     Monitor body =

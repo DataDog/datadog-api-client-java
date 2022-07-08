@@ -1,8 +1,6 @@
 # datadog-api-client-java
 
 This repository contains a Java API client for the [Datadog API](https://docs.datadoghq.com/api/).
-The code is generated using [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
-and [apigentools](https://github.com/DataDog/apigentools).
 
 ## Requirements
 
@@ -35,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.datadoghq</groupId>
   <artifactId>datadog-api-client</artifactId>
-  <version>1.2.0</version>
+  <version>2.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -47,7 +45,7 @@ See the [Releases page](https://github.com/DataDog/datadog-api-client-java/relea
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.datadoghq:datadog-api-client:1.2.0"
+compile "com.datadoghq:datadog-api-client:2.0.0"
 ```
 
 See the [Releases page](https://github.com/DataDog/datadog-api-client-java/releases) for the latest available version.
@@ -70,43 +68,41 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.MonitorsApi;
+import com.datadog.api.client.v1.model.Monitor;
+import com.datadog.api.client.v1.model.MonitorType;
+import java.util.Arrays;
 
-import com.datadog.api.v1.client.*;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.model.*;
-import com.datadog.api.v1.client.api.AwsIntegrationApi;
+public class MonitorCreatetExample {
+  public static void main(String[] args) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
-public class AwsIntegrationApiExample {
+    Monitor body =
+        new Monitor()
+            .name("my-monitor")
+            .type(MonitorType.LOG_ALERT)
+            .query(
+                """
+logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2
+""")
+            .message("some message Notify: @hipchat-channel")
+            .tags(Arrays.asList("test:example", "env:ci"))
+            .priority(3L));
 
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization:
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
-
-        AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
-        try {
-            AWSAccountCreateResponse result = apiInstance.createAWSAccount(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AwsIntegrationApi#createAWSAccount");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    try {
+      Monitor result = apiInstance.createMonitor(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MonitorsApi#createMonitor");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 
 ```
@@ -116,13 +112,12 @@ public class AwsIntegrationApiExample {
 All API methods have asynchronous versions returning `CompletableFuture` when adding the `Async` suffix to their names:
 
 ```java
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.MonitorsApi;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.v1.api.MonitorsApi;
 
 public class ListMonitorsAsyncExample {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
     apiInstance.listMonitorsAsync().thenApply(monitors -> {
@@ -141,7 +136,7 @@ public class ListMonitorsAsyncExample {
 This client includes access to Datadog API endpoints while they are in an unstable state and may undergo breaking changes. An extra configuration step is required to enable these endpoints:
 
 ```java
-defaultClient.setUnstableOperationEnabled("<OperationName>", true);
+defaultClient.setUnstableOperationEnabled("<Version>.<OperationName>", true);
 ```
 
 where `<OperationName>` is the name of the method used to interact with that endpoint. For example: `listSLOCorrection`, or `getSLOHistory`

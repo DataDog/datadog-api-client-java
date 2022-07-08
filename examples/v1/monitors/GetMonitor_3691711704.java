@@ -1,14 +1,13 @@
 // Get a synthetics monitor's details
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.MonitorsApi;
-import com.datadog.api.v1.client.model.Monitor;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.MonitorsApi;
+import com.datadog.api.client.v1.model.Monitor;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
     // there is a valid "synthetics_api_test" in the system

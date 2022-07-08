@@ -1,26 +1,25 @@
 // Update a dashboard returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.Dashboard;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.ListStreamColumn;
-import com.datadog.api.v1.client.model.ListStreamColumnWidth;
-import com.datadog.api.v1.client.model.ListStreamQuery;
-import com.datadog.api.v1.client.model.ListStreamResponseFormat;
-import com.datadog.api.v1.client.model.ListStreamSource;
-import com.datadog.api.v1.client.model.ListStreamWidgetDefinition;
-import com.datadog.api.v1.client.model.ListStreamWidgetDefinitionType;
-import com.datadog.api.v1.client.model.ListStreamWidgetRequest;
-import com.datadog.api.v1.client.model.Widget;
-import com.datadog.api.v1.client.model.WidgetDefinition;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
+import com.datadog.api.client.v1.model.DashboardLayoutType;
+import com.datadog.api.client.v1.model.ListStreamColumn;
+import com.datadog.api.client.v1.model.ListStreamColumnWidth;
+import com.datadog.api.client.v1.model.ListStreamQuery;
+import com.datadog.api.client.v1.model.ListStreamResponseFormat;
+import com.datadog.api.client.v1.model.ListStreamSource;
+import com.datadog.api.client.v1.model.ListStreamWidgetDefinition;
+import com.datadog.api.client.v1.model.ListStreamWidgetDefinitionType;
+import com.datadog.api.client.v1.model.ListStreamWidgetRequest;
+import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetDefinition;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
     // there is a valid "dashboard" in the system

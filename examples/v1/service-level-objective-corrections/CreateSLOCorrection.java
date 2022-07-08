@@ -1,19 +1,18 @@
 // Create an SLO correction returns "OK" response
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
-import com.datadog.api.v1.client.model.SLOCorrectionCategory;
-import com.datadog.api.v1.client.model.SLOCorrectionCreateData;
-import com.datadog.api.v1.client.model.SLOCorrectionCreateRequest;
-import com.datadog.api.v1.client.model.SLOCorrectionCreateRequestAttributes;
-import com.datadog.api.v1.client.model.SLOCorrectionResponse;
-import com.datadog.api.v1.client.model.SLOCorrectionType;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.ServiceLevelObjectiveCorrectionsApi;
+import com.datadog.api.client.v1.model.SLOCorrectionCategory;
+import com.datadog.api.client.v1.model.SLOCorrectionCreateData;
+import com.datadog.api.client.v1.model.SLOCorrectionCreateRequest;
+import com.datadog.api.client.v1.model.SLOCorrectionCreateRequestAttributes;
+import com.datadog.api.client.v1.model.SLOCorrectionResponse;
+import com.datadog.api.client.v1.model.SLOCorrectionType;
 import java.time.OffsetDateTime;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceLevelObjectiveCorrectionsApi apiInstance =
         new ServiceLevelObjectiveCorrectionsApi(defaultClient);
 

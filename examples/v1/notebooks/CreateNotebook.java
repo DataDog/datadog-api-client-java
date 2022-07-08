@@ -1,41 +1,40 @@
 // Create a notebook returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.NotebooksApi;
-import com.datadog.api.v1.client.model.NotebookCellCreateRequest;
-import com.datadog.api.v1.client.model.NotebookCellCreateRequestAttributes;
-import com.datadog.api.v1.client.model.NotebookCellResourceType;
-import com.datadog.api.v1.client.model.NotebookCreateData;
-import com.datadog.api.v1.client.model.NotebookCreateDataAttributes;
-import com.datadog.api.v1.client.model.NotebookCreateRequest;
-import com.datadog.api.v1.client.model.NotebookGlobalTime;
-import com.datadog.api.v1.client.model.NotebookGraphSize;
-import com.datadog.api.v1.client.model.NotebookMarkdownCellAttributes;
-import com.datadog.api.v1.client.model.NotebookMarkdownCellDefinition;
-import com.datadog.api.v1.client.model.NotebookMarkdownCellDefinitionType;
-import com.datadog.api.v1.client.model.NotebookRelativeTime;
-import com.datadog.api.v1.client.model.NotebookResourceType;
-import com.datadog.api.v1.client.model.NotebookResponse;
-import com.datadog.api.v1.client.model.NotebookSplitBy;
-import com.datadog.api.v1.client.model.NotebookStatus;
-import com.datadog.api.v1.client.model.NotebookTimeseriesCellAttributes;
-import com.datadog.api.v1.client.model.TimeseriesWidgetDefinition;
-import com.datadog.api.v1.client.model.TimeseriesWidgetDefinitionType;
-import com.datadog.api.v1.client.model.TimeseriesWidgetRequest;
-import com.datadog.api.v1.client.model.WidgetAxis;
-import com.datadog.api.v1.client.model.WidgetDisplayType;
-import com.datadog.api.v1.client.model.WidgetLineType;
-import com.datadog.api.v1.client.model.WidgetLineWidth;
-import com.datadog.api.v1.client.model.WidgetLiveSpan;
-import com.datadog.api.v1.client.model.WidgetRequestStyle;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.NotebooksApi;
+import com.datadog.api.client.v1.model.NotebookCellCreateRequest;
+import com.datadog.api.client.v1.model.NotebookCellCreateRequestAttributes;
+import com.datadog.api.client.v1.model.NotebookCellResourceType;
+import com.datadog.api.client.v1.model.NotebookCreateData;
+import com.datadog.api.client.v1.model.NotebookCreateDataAttributes;
+import com.datadog.api.client.v1.model.NotebookCreateRequest;
+import com.datadog.api.client.v1.model.NotebookGlobalTime;
+import com.datadog.api.client.v1.model.NotebookGraphSize;
+import com.datadog.api.client.v1.model.NotebookMarkdownCellAttributes;
+import com.datadog.api.client.v1.model.NotebookMarkdownCellDefinition;
+import com.datadog.api.client.v1.model.NotebookMarkdownCellDefinitionType;
+import com.datadog.api.client.v1.model.NotebookRelativeTime;
+import com.datadog.api.client.v1.model.NotebookResourceType;
+import com.datadog.api.client.v1.model.NotebookResponse;
+import com.datadog.api.client.v1.model.NotebookSplitBy;
+import com.datadog.api.client.v1.model.NotebookStatus;
+import com.datadog.api.client.v1.model.NotebookTimeseriesCellAttributes;
+import com.datadog.api.client.v1.model.TimeseriesWidgetDefinition;
+import com.datadog.api.client.v1.model.TimeseriesWidgetDefinitionType;
+import com.datadog.api.client.v1.model.TimeseriesWidgetRequest;
+import com.datadog.api.client.v1.model.WidgetAxis;
+import com.datadog.api.client.v1.model.WidgetDisplayType;
+import com.datadog.api.client.v1.model.WidgetLineType;
+import com.datadog.api.client.v1.model.WidgetLineWidth;
+import com.datadog.api.client.v1.model.WidgetLiveSpan;
+import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     NotebooksApi apiInstance = new NotebooksApi(defaultClient);
 
     NotebookCreateRequest body =

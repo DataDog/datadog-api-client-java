@@ -1,15 +1,14 @@
 // Get all dashboards returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.api.DashboardsApi.ListDashboardsOptionalParameters;
-import com.datadog.api.v1.client.model.DashboardSummary;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.api.DashboardsApi.ListDashboardsOptionalParameters;
+import com.datadog.api.client.v1.model.DashboardSummary;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
     try {

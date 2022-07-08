@@ -1,19 +1,18 @@
 // Update a security filter returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi;
-import com.datadog.api.v2.client.model.SecurityFilterFilteredDataType;
-import com.datadog.api.v2.client.model.SecurityFilterResponse;
-import com.datadog.api.v2.client.model.SecurityFilterType;
-import com.datadog.api.v2.client.model.SecurityFilterUpdateAttributes;
-import com.datadog.api.v2.client.model.SecurityFilterUpdateData;
-import com.datadog.api.v2.client.model.SecurityFilterUpdateRequest;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.SecurityMonitoringApi;
+import com.datadog.api.client.v2.model.SecurityFilterFilteredDataType;
+import com.datadog.api.client.v2.model.SecurityFilterResponse;
+import com.datadog.api.client.v2.model.SecurityFilterType;
+import com.datadog.api.client.v2.model.SecurityFilterUpdateAttributes;
+import com.datadog.api.client.v2.model.SecurityFilterUpdateData;
+import com.datadog.api.client.v2.model.SecurityFilterUpdateRequest;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     // there is a valid "security_filter" in the system

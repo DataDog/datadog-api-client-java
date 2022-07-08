@@ -129,7 +129,7 @@ public class World {
     String[] parts = scenario.getUri().toString().split("/");
     // get version
     // src/test/resources/com/datadog/api/>>>v2<<</client/api/teams.feature
-    return parts[parts.length - 4];
+    return parts[parts.length - 3];
   }
 
   private void configureClient(Class<?> clientClass, Object client)
@@ -192,8 +192,8 @@ public class World {
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
           java.lang.InstantiationException, java.lang.NoSuchMethodException,
           java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
-    // import com.datadog.api.{{ apiVersion }}.client.ApiClient
-    clientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
+    // import com.datadog.api.client.ApiClient
+    clientClass = Class.forName("com.datadog.api.client.ApiClient");
     // client = new ApiClient()
     client = clientClass.getConstructor().newInstance();
     configureClient(clientClass, client);
@@ -204,7 +204,7 @@ public class World {
           java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException {
     // import com.datadog.api.{{ apiVersion }}.client.api.{{ apiName }}Api
-    apiClass = Class.forName("com.datadog.api." + apiVersion + ".client.api." + apiName + "Api");
+    apiClass = Class.forName("com.datadog.api.client." + apiVersion + ".api." + apiName + "Api");
     // api = new {{ apiName }}Api(client)
     api = apiClass.getConstructor(clientClass).newInstance(client);
   }
@@ -331,9 +331,9 @@ public class World {
   public void given(String apiVersion, Given step) throws Exception {
     // find API service based on step tag value
     Class<?> givenAPIClass =
-        Class.forName("com.datadog.api." + apiVersion + ".client.api." + step.getAPIName() + "Api");
+        Class.forName("com.datadog.api.client." + apiVersion + ".api." + step.getAPIName() + "Api");
     // import com.datadog.api.{{ apiVersion }}.client.ApiClient
-    Class<?> apiClientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
+    Class<?> apiClientClass = Class.forName("com.datadog.api.client.ApiClient");
     Object clientAPI = apiClientClass.getConstructor().newInstance();
     configureClient(apiClientClass, clientAPI);
     authenticateClient(apiClientClass, clientAPI);
@@ -353,10 +353,10 @@ public class World {
     if ((boolean)
         apiClientClass
             .getMethod("isUnstableOperation", String.class)
-            .invoke(clientAPI, givenOperationName)) {
+            .invoke(clientAPI, apiVersion + "." + givenOperationName)) {
       apiClientClass
           .getMethod("setUnstableOperationEnabled", String.class, boolean.class)
-          .invoke(clientAPI, givenOperationName, true);
+          .invoke(clientAPI, apiVersion + "." + givenOperationName, true);
     }
 
     Class<?> givenParametersClass = null;
@@ -424,8 +424,8 @@ public class World {
     // find API service based on undo tag value
     Class<?> undoAPIClass =
         Class.forName(
-            "com.datadog.api." + apiVersion + ".client.api." + undoSettings.getAPIName() + "Api");
-    Class<?> apiClientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
+            "com.datadog.api.client." + apiVersion + ".api." + undoSettings.getAPIName() + "Api");
+    Class<?> apiClientClass = Class.forName("com.datadog.api.client.ApiClient");
     Object clientAPI = apiClientClass.getConstructor().newInstance();
     configureClient(apiClientClass, clientAPI);
     authenticateClient(apiClientClass, clientAPI);
@@ -438,10 +438,10 @@ public class World {
     if ((boolean)
         apiClientClass
             .getMethod("isUnstableOperation", String.class)
-            .invoke(clientAPI, undoOperationName)) {
+            .invoke(clientAPI, apiVersion + "." + undoOperationName)) {
       apiClientClass
           .getMethod("setUnstableOperationEnabled", String.class, boolean.class)
-          .invoke(clientAPI, undoOperationName, true);
+          .invoke(clientAPI, apiVersion + "." + undoOperationName, true);
     }
 
     return () -> {
@@ -480,8 +480,7 @@ public class World {
     responseClass = requestBuilder.getReturnType();
 
     String apiVersion = getVersion();
-    Class<?> exceptionClass =
-        Class.forName("com.datadog.api." + apiVersion + ".client.ApiException");
+    Class<?> exceptionClass = Class.forName("com.datadog.api.client.ApiException");
 
     Undo undoSettings =
         UndoAction.UndoAction()
@@ -547,8 +546,7 @@ public class World {
     responseClass = paginatedMethod.getReturnType();
 
     String apiVersion = getVersion();
-    Class<?> exceptionClass =
-        Class.forName("com.datadog.api." + apiVersion + ".client.ApiException");
+    Class<?> exceptionClass = Class.forName("com.datadog.api.client.ApiException");
 
     try {
       response = paginatedMethod.invoke(api, parametersArray.toArray());

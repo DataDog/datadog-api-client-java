@@ -1,18 +1,17 @@
 // Submit a Service Check returns "Payload accepted" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.ServiceChecksApi;
-import com.datadog.api.v1.client.model.IntakePayloadAccepted;
-import com.datadog.api.v1.client.model.ServiceCheck;
-import com.datadog.api.v1.client.model.ServiceCheckStatus;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.ServiceChecksApi;
+import com.datadog.api.client.v1.model.IntakePayloadAccepted;
+import com.datadog.api.client.v1.model.ServiceCheck;
+import com.datadog.api.client.v1.model.ServiceCheckStatus;
 import java.util.Collections;
 import java.util.List;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceChecksApi apiInstance = new ServiceChecksApi(defaultClient);
 
     List<ServiceCheck> body =

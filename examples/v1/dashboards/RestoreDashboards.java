@@ -1,17 +1,16 @@
 // Restore deleted dashboards returns "No Content" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.DashboardsApi;
-import com.datadog.api.v1.client.model.DashboardBulkActionData;
-import com.datadog.api.v1.client.model.DashboardResourceType;
-import com.datadog.api.v1.client.model.DashboardRestoreRequest;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.DashboardBulkActionData;
+import com.datadog.api.client.v1.model.DashboardResourceType;
+import com.datadog.api.client.v1.model.DashboardRestoreRequest;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
     // there is a valid "dashboard" in the system

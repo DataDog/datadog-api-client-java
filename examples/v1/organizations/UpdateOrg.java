@@ -1,24 +1,23 @@
 // Update your organization returns "OK" response
 
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.OrganizationsApi;
-import com.datadog.api.v1.client.model.AccessRole;
-import com.datadog.api.v1.client.model.Organization;
-import com.datadog.api.v1.client.model.OrganizationBilling;
-import com.datadog.api.v1.client.model.OrganizationResponse;
-import com.datadog.api.v1.client.model.OrganizationSettings;
-import com.datadog.api.v1.client.model.OrganizationSettingsSaml;
-import com.datadog.api.v1.client.model.OrganizationSettingsSamlAutocreateUsersDomains;
-import com.datadog.api.v1.client.model.OrganizationSettingsSamlIdpInitiatedLogin;
-import com.datadog.api.v1.client.model.OrganizationSettingsSamlStrictMode;
-import com.datadog.api.v1.client.model.OrganizationSubscription;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.OrganizationsApi;
+import com.datadog.api.client.v1.model.AccessRole;
+import com.datadog.api.client.v1.model.Organization;
+import com.datadog.api.client.v1.model.OrganizationBilling;
+import com.datadog.api.client.v1.model.OrganizationResponse;
+import com.datadog.api.client.v1.model.OrganizationSettings;
+import com.datadog.api.client.v1.model.OrganizationSettingsSaml;
+import com.datadog.api.client.v1.model.OrganizationSettingsSamlAutocreateUsersDomains;
+import com.datadog.api.client.v1.model.OrganizationSettingsSamlIdpInitiatedLogin;
+import com.datadog.api.client.v1.model.OrganizationSettingsSamlStrictMode;
+import com.datadog.api.client.v1.model.OrganizationSubscription;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
 
     Organization body =

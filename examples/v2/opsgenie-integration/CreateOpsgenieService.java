@@ -1,19 +1,18 @@
 // Create a new service object returns "CREATED" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.OpsgenieIntegrationApi;
-import com.datadog.api.v2.client.model.OpsgenieServiceCreateAttributes;
-import com.datadog.api.v2.client.model.OpsgenieServiceCreateData;
-import com.datadog.api.v2.client.model.OpsgenieServiceCreateRequest;
-import com.datadog.api.v2.client.model.OpsgenieServiceRegionType;
-import com.datadog.api.v2.client.model.OpsgenieServiceResponse;
-import com.datadog.api.v2.client.model.OpsgenieServiceType;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.OpsgenieIntegrationApi;
+import com.datadog.api.client.v2.model.OpsgenieServiceCreateAttributes;
+import com.datadog.api.client.v2.model.OpsgenieServiceCreateData;
+import com.datadog.api.client.v2.model.OpsgenieServiceCreateRequest;
+import com.datadog.api.client.v2.model.OpsgenieServiceRegionType;
+import com.datadog.api.client.v2.model.OpsgenieServiceResponse;
+import com.datadog.api.client.v2.model.OpsgenieServiceType;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OpsgenieIntegrationApi apiInstance = new OpsgenieIntegrationApi(defaultClient);
 
     OpsgenieServiceCreateRequest body =

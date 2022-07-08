@@ -1,15 +1,14 @@
 // List all users returns "OK" response
 
-import com.datadog.api.v2.client.ApiClient;
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.UsersApi;
-import com.datadog.api.v2.client.api.UsersApi.ListUsersOptionalParameters;
-import com.datadog.api.v2.client.model.UsersResponse;
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v2.api.UsersApi;
+import com.datadog.api.client.v2.api.UsersApi.ListUsersOptionalParameters;
+import com.datadog.api.client.v2.model.UsersResponse;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);
 
     // there is a valid "user" in the system
