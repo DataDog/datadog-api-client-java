@@ -160,7 +160,13 @@ public class HourlyUsageAttributionBody {
   }
 
   /**
-   * Usage Summary by tag name.
+   * Tag keys and values.
+   *
+   * <p>A <code>null</code> value here means that the requested tag breakdown cannot be applied
+   * because it does not match the <a
+   * href="https://docs.datadoghq.com/account_management/billing/usage_attribution/#getting-started">tags
+   * configured for usage attribution</a>. In this scenario the API returns the total usage, not
+   * broken down by tags.
    *
    * @return tags
    */
