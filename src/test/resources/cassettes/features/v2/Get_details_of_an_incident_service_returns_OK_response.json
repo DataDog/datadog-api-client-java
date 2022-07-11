@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_details_of_an_incident_service_returns_OK_response-1652349093\"},\"type\":\"services\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_details_of_an_incident_service_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/services",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_details_of_an_incident_service_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/services/e7c6527e-95ff-5ab1-b151-ba4f786038c0",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_details_of_an_incident_service_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/services/e7c6527e-95ff-5ab1-b151-ba4f786038c0",
       "keepAlive": false,

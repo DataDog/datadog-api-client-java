@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"series\": [{\"metric\": \"TestUpdateatagconfigurationreturnsOKresponse1652354372\", \"points\": [[1652354372.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_tag_configuration_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/series",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestUpdateatagconfigurationreturnsOKresponse1652354372\"]},\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1652354372\",\"type\":\"manage_tags\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_tag_configuration_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1652354372/tags",
       "keepAlive": false,
@@ -73,11 +65,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"tags\":[\"app\"]},\"id\":\"TestUpdateatagconfigurationreturnsOKresponse1652354372\",\"type\":\"manage_tags\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_tag_configuration_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1652354372/tags",
       "keepAlive": false,
@@ -103,11 +91,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_tag_configuration_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/metrics/TestUpdateatagconfigurationreturnsOKresponse1652354372/tags",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"config\":{\"assertions\":[{\"operator\":\"is\",\"property\":\"{{ PROPERTY }}\",\"target\":\"text/html\",\"type\":\"header\"},{\"operator\":\"lessThan\",\"target\":2000,\"type\":\"responseTime\"},{\"operator\":\"validatesJSONPath\",\"target\":{\"jsonPath\":\"topKey\",\"operator\":\"isNot\",\"targetValue\":\"0\"},\"type\":\"body\"}],\"configVariables\":[{\"example\":\"content-type\",\"name\":\"PROPERTY\",\"pattern\":\"content-type\",\"type\":\"text\"}],\"request\":{\"certificate\":{\"cert\":{\"content\":\"cert-content\",\"filename\":\"cert-filename\",\"updatedAt\":\"2020-10-16T09:23:24.857Z\"},\"key\":{\"content\":\"key-content\",\"filename\":\"key-filename\",\"updatedAt\":\"2020-10-16T09:23:24.857Z\"}},\"headers\":{\"unique\":\"testeditanapitestreturnsokresponse1645549951\"},\"method\":\"GET\",\"proxy\":{\"headers\":{},\"url\":\"https://datadoghq.com\"},\"timeout\":10,\"url\":\"https://datadoghq.com\"}},\"locations\":[\"aws:us-east-2\"],\"message\":\"BDD test payload: synthetics_api_http_test_payload.json\",\"name\":\"Test-Edit_an_API_test_returns_OK_response-1645549951\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"monitor_name\":\"Test-Edit_an_API_test_returns_OK_response-1645549951\",\"monitor_priority\":5,\"retry\":{\"count\":3,\"interval\":10},\"tick_every\":60},\"subtype\":\"http\",\"tags\":[\"testing:api\"],\"type\":\"api\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_an_API_test_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/synthetics/tests/api",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"config\":{\"assertions\":[{\"operator\":\"is\",\"property\":\"{{ PROPERTY }}\",\"target\":\"text/html\",\"type\":\"header\"},{\"operator\":\"lessThan\",\"target\":2000,\"type\":\"responseTime\"},{\"operator\":\"validatesJSONPath\",\"target\":{\"jsonPath\":\"topKey\",\"operator\":\"isNot\",\"targetValue\":\"0\"},\"type\":\"body\"}],\"configVariables\":[{\"example\":\"content-type\",\"name\":\"PROPERTY\",\"pattern\":\"content-type\",\"type\":\"text\"}],\"request\":{\"certificate\":{\"cert\":{\"filename\":\"cert-filename\",\"updatedAt\":\"2020-10-16T09:23:24.857Z\"},\"key\":{\"filename\":\"key-filename\",\"updatedAt\":\"2020-10-16T09:23:24.857Z\"}},\"headers\":{\"unique\":\"testeditanapitestreturnsokresponse1645549951\"},\"method\":\"GET\",\"timeout\":10,\"url\":\"https://datadoghq.com\"}},\"locations\":[\"aws:us-east-2\"],\"message\":\"BDD test payload: synthetics_api_test_payload.json\",\"name\":\"Test-Edit_an_API_test_returns_OK_response-1645549951-updated\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"monitor_name\":\"Test-TestSyntheticsAPITestLifecycle-1623076664\",\"monitor_priority\":5,\"retry\":{\"count\":3,\"interval\":10},\"tick_every\":60},\"status\":\"live\",\"subtype\":\"http\",\"tags\":[\"testing:api\"],\"type\":\"api\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_an_API_test_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PUT",
       "path": "/api/v1/synthetics/tests/api/y28-82w-h8h",
       "keepAlive": false,
@@ -73,11 +65,7 @@
         "type": "JSON",
         "json": "{\"public_ids\":[\"y28-82w-h8h\"]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_an_API_test_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/synthetics/tests/delete",
       "keepAlive": false,

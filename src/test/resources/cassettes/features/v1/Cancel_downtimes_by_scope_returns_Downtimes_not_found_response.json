@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"scope\":\"test:testcanceldowntimesbyscopereturnsdowntimesnotfoundresponse1641430245_invalid\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Cancel_downtimes_by_scope_returns_Downtimes_not_found_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/downtime/cancel/by_scope",
       "keepAlive": false,

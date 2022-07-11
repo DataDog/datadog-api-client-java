@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_new_service_object_returns_CREATED_response-1653590938\",\"opsgenie_api_key\":\"00000000-0000-0000-0000-000000000000\",\"region\":\"us\"},\"type\":\"opsgenie-service\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_service_object_returns_CREATED_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/integration/opsgenie/services",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_service_object_returns_CREATED_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/integration/opsgenie/services/0dcb43af-f233-4cda-b260-37e97e12f66f",
       "keepAlive": false,

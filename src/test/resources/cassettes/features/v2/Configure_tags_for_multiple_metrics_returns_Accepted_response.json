@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Configure_tags_for_multiple_metrics_returns_Accepted_response-1652349149@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Configure_tags_for_multiple_metrics_returns_Accepted_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/users",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\"],\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1652349149\"]},\"id\":\"system.load.1\",\"type\":\"metric_bulk_configure_tags\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Configure_tags_for_multiple_metrics_returns_Accepted_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/metrics/config/bulk-tags",
       "keepAlive": false,
@@ -73,11 +65,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\"],\"status\":\"Accepted\",\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1652349149\"]},\"id\":\"system.load.1\",\"type\":\"metric_bulk_configure_tags\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Configure_tags_for_multiple_metrics_returns_Accepted_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/metrics/config/bulk-tags",
       "keepAlive": false,
@@ -103,11 +91,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Configure_tags_for_multiple_metrics_returns_Accepted_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/users/3cf23548-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

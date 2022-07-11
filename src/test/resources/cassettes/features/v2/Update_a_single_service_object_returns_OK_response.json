@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_a_single_service_object_returns_OK_response-1654804626\",\"opsgenie_api_key\":\"00000000-0000-0000-0000-000000000000\",\"region\":\"us\"},\"type\":\"opsgenie-service\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_single_service_object_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/integration/opsgenie/services",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_a_single_service_object_returns_OK_response-1654804626--updated\",\"opsgenie_api_key\":\"00000000-0000-0000-0000-000000000000\",\"region\":\"eu\"},\"id\":\"0b04ddfb-b00a-4243-baed-33ff1bff0909\",\"type\":\"opsgenie-service\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_single_service_object_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/integration/opsgenie/services/0b04ddfb-b00a-4243-baed-33ff1bff0909",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_single_service_object_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/integration/opsgenie/services/0b04ddfb-b00a-4243-baed-33ff1bff0909",
       "keepAlive": false,

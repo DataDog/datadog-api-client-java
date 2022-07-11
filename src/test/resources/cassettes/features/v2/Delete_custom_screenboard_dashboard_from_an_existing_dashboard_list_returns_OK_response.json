@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\":\"Test-Delete_custom_screenboard_dashboard_from_an_existing_dashboard_list_returns_OK_response-1647890206\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_custom_screenboard_dashboard_from_an_existing_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard/lists/manual",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"free\",\"title\":\"Test-Delete_custom_screenboard_dashboard_from_an_existing_dashboard_list_returns_OK_response-1647890206 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"},\"layout\":{\"height\":10,\"width\":10,\"x\":10,\"y\":10}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_custom_screenboard_dashboard_from_an_existing_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -73,11 +65,7 @@
         "type": "JSON",
         "json": "{\"dashboards\":[{\"id\":\"dam-zij-6w8\",\"type\":\"custom_screenboard\"}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_custom_screenboard_dashboard_from_an_existing_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/dashboard/lists/manual/284063/dashboards",
       "keepAlive": false,
@@ -107,11 +95,7 @@
         "type": "JSON",
         "json": "{\"dashboards\":[{\"id\":\"dam-zij-6w8\",\"type\":\"custom_screenboard\"}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_custom_screenboard_dashboard_from_an_existing_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/dashboard/lists/manual/284063/dashboards",
       "keepAlive": false,
@@ -137,11 +121,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_custom_screenboard_dashboard_from_an_existing_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/dam-zij-6w8",
       "keepAlive": false,
@@ -167,11 +147,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_custom_screenboard_dashboard_from_an_existing_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/lists/manual/284063",
       "keepAlive": false,

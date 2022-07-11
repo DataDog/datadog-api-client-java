@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_private_location_returns_OK_response-1652349027\"},\"type\":\"roles\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_private_location_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"description\":\"Test Test-Create_a_private_location_returns_OK_response-1652349027 description\",\"metadata\":{\"restricted_roles\":[\"f3ea9674-d1d8-11ec-ad3d-da7ad0900002\"]},\"name\":\"Test-Create_a_private_location_returns_OK_response-1652349027\",\"tags\":[\"test:testcreateaprivatelocationreturnsokresponse1652349027\"]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_private_location_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/synthetics/private-locations",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_private_location_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/synthetics/private-locations/pl%3Atest-create_a_private_location_returns_ok_response-1652349027-f25e95d60b40f1c257d8d213eb20034c",
       "keepAlive": false,
@@ -94,11 +82,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_private_location_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/f3ea9674-d1d8-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

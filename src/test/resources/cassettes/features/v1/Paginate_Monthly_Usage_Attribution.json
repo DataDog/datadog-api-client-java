@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Paginate_Monthly_Usage_Attribution"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/usage/monthly-attribution",
       "queryStringParameters": {
@@ -39,11 +35,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Paginate_Monthly_Usage_Attribution"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/usage/monthly-attribution",
       "queryStringParameters": {

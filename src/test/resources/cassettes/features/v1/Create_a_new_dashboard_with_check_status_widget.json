@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_check_status_widget-1641430229\",\"widgets\":[{\"definition\":{\"check\":\"datadog.agent.up\",\"grouping\":\"check\",\"tags\":[\"*\"],\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"check_status\"},\"layout\":{\"height\":8,\"width\":15,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_check_status_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_check_status_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/baz-eax-3ka",
       "keepAlive": false,

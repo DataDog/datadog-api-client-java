@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_sunburst_widget_and_metrics_data-1641430241\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"sum\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"sum:system.mem.used{*} by {service}\"}],\"response_format\":\"scalar\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"sunburst\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_sunburst_widget_and_metrics_data"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_sunburst_widget_and_metrics_data"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/sgm-ici-pnu",
       "keepAlive": false,

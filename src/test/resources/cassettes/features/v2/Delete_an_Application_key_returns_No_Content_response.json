@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_an_Application_key_returns_No_Content_response-1652349126\"},\"type\":\"application_keys\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_Application_key_returns_No_Content_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/current_user/application_keys",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_Application_key_returns_No_Content_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/application_keys/d2653524-a474-460c-a7c7-75073e8aa1fa",
       "keepAlive": false,
@@ -60,11 +52,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_Application_key_returns_No_Content_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/current_user/application_keys/d2653524-a474-460c-a7c7-75073e8aa1fa",
       "keepAlive": false,

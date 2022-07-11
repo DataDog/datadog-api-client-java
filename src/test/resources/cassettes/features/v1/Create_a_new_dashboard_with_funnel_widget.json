@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_funnel_widget-1641430232 with funnel widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"rum\",\"query_string\":\"\",\"steps\":[]},\"request_type\":\"funnel\"}],\"type\":\"funnel\"}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_funnel_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_funnel_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/2n6-br7-kwr",
       "keepAlive": false,

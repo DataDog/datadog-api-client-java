@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"series\": [{\"metric\": \"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912\", \"points\": [[1652354912.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_distinct_metric_volumes_by_metric_name_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/series",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912\"]},\"id\":\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912\",\"type\":\"manage_tags\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_distinct_metric_volumes_by_metric_name_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912/tags",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_distinct_metric_volumes_by_metric_name_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912/volumes",
       "keepAlive": false,
@@ -99,11 +87,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_distinct_metric_volumes_by_metric_name_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912/tags",
       "keepAlive": false,

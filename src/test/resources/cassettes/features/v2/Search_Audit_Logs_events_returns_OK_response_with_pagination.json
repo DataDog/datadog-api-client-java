@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"filter\":{\"from\":\"now-15m\",\"to\":\"now\"},\"options\":{\"timezone\":\"GMT\"},\"page\":{\"limit\":2},\"sort\":\"timestamp\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Search_Audit_Logs_events_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/audit/events/search",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"filter\":{\"from\":\"now-15m\",\"to\":\"now\"},\"options\":{\"timezone\":\"GMT\"},\"page\":{\"cursor\":\"eyJhZnRlciI6IkFRQUFBWUFpT2hZV1JxeFgzUUFBQUFCQldVRnBUMmh2VFVGQlFrczVOa2wwVFZKVFYycEJRVUUifQ\",\"limit\":2},\"sort\":\"timestamp\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Search_Audit_Logs_events_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/audit/events/search",
       "keepAlive": false,

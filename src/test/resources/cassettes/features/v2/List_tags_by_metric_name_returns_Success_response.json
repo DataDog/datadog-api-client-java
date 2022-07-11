@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"series\": [{\"metric\": \"TestListtagsbymetricnamereturnsSuccessresponse1652354618\", \"points\": [[1652354618.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_tags_by_metric_name_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/series",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestListtagsbymetricnamereturnsSuccessresponse1652354618\"]},\"id\":\"TestListtagsbymetricnamereturnsSuccessresponse1652354618\",\"type\":\"manage_tags\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_tags_by_metric_name_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1652354618/tags",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_tags_by_metric_name_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1652354618/all-tags",
       "keepAlive": false,
@@ -99,11 +87,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_tags_by_metric_name_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1652354618/tags",
       "keepAlive": false,

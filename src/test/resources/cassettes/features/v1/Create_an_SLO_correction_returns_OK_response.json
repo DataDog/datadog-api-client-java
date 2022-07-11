@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\": \"Test-Create_an_SLO_correction_returns_OK_response-1652349011\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_SLO_correction_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/slo",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"category\":\"Scheduled Maintenance\",\"description\":\"Test-Create_an_SLO_correction_returns_OK_response-1652349011\",\"end\":1652352611,\"slo_id\":\"26d1f492d25b598fb6ef1a0405faa153\",\"start\":1652349011,\"timezone\":\"UTC\"},\"type\":\"correction\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_SLO_correction_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/slo/correction",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_SLO_correction_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/slo/correction/eb223538-d1d8-11ec-8dd2-da7ad0902002",
       "keepAlive": false,
@@ -94,11 +82,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_SLO_correction_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/slo/26d1f492d25b598fb6ef1a0405faa153",
       "keepAlive": false,

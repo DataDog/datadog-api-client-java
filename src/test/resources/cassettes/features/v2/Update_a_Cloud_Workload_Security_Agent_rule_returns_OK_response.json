@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1652349088\"},\"type\":\"agent_rule\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_Cloud_Workload_Security_Agent_rule_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_Cloud_Workload_Security_Agent_rule_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ivl-0d3-hga",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_Cloud_Workload_Security_Agent_rule_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ivl-0d3-hga",
       "keepAlive": false,

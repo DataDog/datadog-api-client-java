@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\":\"Test-Get_a_webhook_integration_returns_OK_response-1652349051\",\"url\":\"http://example.com/webhook\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_webhook_integration_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/integration/webhooks/configuration/webhooks",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_webhook_integration_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/integration/webhooks/configuration/webhooks/Test-Get_a_webhook_integration_returns_OK_response-1652349051",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_webhook_integration_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/integration/webhooks/configuration/webhooks/Test-Get_a_webhook_integration_returns_OK_response-1652349051",
       "keepAlive": false,

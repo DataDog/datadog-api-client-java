@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestListtagconfigurationsreturnsSuccessresponse1648477792\"]},\"id\":\"test.metric.1\",\"type\":\"manage_tags\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_tag_configurations_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/metrics/test.metric.1/tags",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_tag_configurations_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/metrics",
       "keepAlive": false,

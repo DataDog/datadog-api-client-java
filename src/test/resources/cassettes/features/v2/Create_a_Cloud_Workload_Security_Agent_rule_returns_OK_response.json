@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsokresponse1652349080\"},\"type\":\"agent_rule\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_Cloud_Workload_Security_Agent_rule_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_Cloud_Workload_Security_Agent_rule_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/qb1-cn9-jwq",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"query\":\"query\",\"type\":\"log alert\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_monitor_returns_Bad_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/monitor",
       "keepAlive": false,

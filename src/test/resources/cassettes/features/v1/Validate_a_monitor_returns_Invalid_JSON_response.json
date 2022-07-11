@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"query\":\"query\",\"type\":\"log alert\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Validate_a_monitor_returns_Invalid_JSON_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/monitor/validate",
       "keepAlive": false,

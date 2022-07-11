@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-List_all_AuthN_Mappings_returns_OK_response-1652349077\"},\"type\":\"roles\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_all_AuthN_Mappings_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"attribute_key\":\"testlistallauthnmappingsreturnsokresponse1652349077\",\"attribute_value\":\"Test-List_all_AuthN_Mappings_returns_OK_response-1652349077\"},\"relationships\":{\"role\":{\"data\":{\"id\":\"120a6d32-d1d9-11ec-ad3d-da7ad0900002\",\"type\":\"roles\"}}},\"type\":\"authn_mappings\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_all_AuthN_Mappings_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/authn_mappings",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_all_AuthN_Mappings_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/authn_mappings",
       "keepAlive": false,
@@ -99,11 +87,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_all_AuthN_Mappings_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/authn_mappings/125e0500-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
@@ -124,11 +108,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_all_AuthN_Mappings_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/120a6d32-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

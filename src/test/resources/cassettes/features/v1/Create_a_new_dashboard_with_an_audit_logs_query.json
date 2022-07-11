@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_an_audit_logs_query-1641430228 with Audit Logs Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"audit\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"timeseries\"}],\"type\":\"timeseries\"},\"layout\":{\"height\":2,\"width\":4,\"x\":2,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_an_audit_logs_query"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_an_audit_logs_query"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/gni-ma8-3tw",
       "keepAlive": false,

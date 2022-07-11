@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"series\": [{\"metric\": \"TestDeleteatagconfigurationreturnsNoContentresponse1652354788\", \"points\": [[1652354788.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_tag_configuration_returns_No_Content_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/series",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestDeleteatagconfigurationreturnsNoContentresponse1652354788\"]},\"id\":\"TestDeleteatagconfigurationreturnsNoContentresponse1652354788\",\"type\":\"manage_tags\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_tag_configuration_returns_No_Content_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1652354788/tags",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_tag_configuration_returns_No_Content_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1652354788/tags",
       "keepAlive": false,
@@ -94,11 +82,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_tag_configuration_returns_No_Content_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1652354788/tags",
       "keepAlive": false,

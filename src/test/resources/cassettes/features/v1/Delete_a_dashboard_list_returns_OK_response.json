@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\":\"Test-Delete_a_dashboard_list_returns_OK_response-1641430221\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard/lists/manual",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/lists/manual/269880",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/lists/manual/269880",
       "keepAlive": false,

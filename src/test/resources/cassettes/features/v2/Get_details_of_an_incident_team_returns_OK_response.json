@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_details_of_an_incident_team_returns_OK_response-1652349100\"},\"type\":\"teams\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_details_of_an_incident_team_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/teams",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_details_of_an_incident_team_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/teams/d447ff27-d27c-59ab-a492-42c455411a49",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_details_of_an_incident_team_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/teams/d447ff27-d27c-59ab-a492-42c455411a49",
       "keepAlive": false,

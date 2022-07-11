@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"index\":\"main\",\"query\":\"host:Test*\",\"sort\":\"asc\",\"time\":{\"from\":\"2022-04-12T13:46:01.054Z\",\"timezone\":\"Europe/Paris\",\"to\":\"2022-04-12T14:46:01.054Z\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Search_test_logs_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/logs-queries/list",
       "keepAlive": false,

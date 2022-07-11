@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_apm_dependency_stats_widget-1641430228\",\"widgets\":[{\"definition\":{\"requests\":[{\"queries\":[{\"data_source\":\"apm_dependency_stats\",\"env\":\"ci\",\"name\":\"query1\",\"operation_name\":\"cassandra.query\",\"primary_tag_name\":\"datacenter\",\"primary_tag_value\":\"edge-eu1.prod.dog\",\"resource_name\":\"DELETE FROM monitor_history.monitor_state_change_history WHERE org_id = ? AND monitor_id IN ? AND group = ?\",\"service\":\"cassandra\",\"stat\":\"avg_duration\"}],\"response_format\":\"scalar\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_table\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_apm_dependency_stats_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_apm_dependency_stats_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/z3x-s3a-d2f",
       "keepAlive": false,

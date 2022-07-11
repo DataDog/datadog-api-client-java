@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"filter\":{\"from\":\"now-15m\",\"indexes\":[\"main\"],\"query\":\"*\",\"to\":\"now\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Aggregate_events_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/logs/analytics/aggregate",
       "keepAlive": false,

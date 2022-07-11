@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\":\"Not found\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_dashboard_list_returns_Not_Found_response"
-        ]
-      },
+      "headers": {},
       "method": "PUT",
       "path": "/api/v1/dashboard/lists/manual/0",
       "keepAlive": false,

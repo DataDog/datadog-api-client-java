@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"customer_impacted\":false,\"title\":\"Test-Update_an_existing_incident_returns_OK_response-1652349117\"},\"type\":\"incidents\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_an_existing_incident_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/incidents",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"fields\":{\"state\":{\"type\":\"dropdown\",\"value\":\"resolved\"}},\"title\":\"Test-Update_an_existing_incident_returns_OK_response-1652349117-updated\"},\"id\":\"a96e7410-b136-5e42-828b-f2df24cfe2cb\",\"type\":\"incidents\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_an_existing_incident_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/incidents/a96e7410-b136-5e42-828b-f2df24cfe2cb",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_an_existing_incident_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/incidents/a96e7410-b136-5e42-828b-f2df24cfe2cb",
       "keepAlive": false,

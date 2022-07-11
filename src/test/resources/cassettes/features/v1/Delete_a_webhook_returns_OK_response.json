@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\":\"Test-Delete_a_webhook_returns_OK_response-1652349047\",\"url\":\"http://example.com/webhook\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_webhook_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/integration/webhooks/configuration/webhooks",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_webhook_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1652349047",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_webhook_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1652349047",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"series\": [{\"metric\": \"system.load.1\", \"points\": [{\"timestamp\": 1652898272, \"value\": 0.7}], \"type\": 0}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Submit_metrics_returns_Payload_accepted_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/series",
       "keepAlive": false,

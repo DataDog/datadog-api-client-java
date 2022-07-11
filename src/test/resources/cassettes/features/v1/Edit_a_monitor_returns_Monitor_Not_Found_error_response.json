@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\": \"updated\", \"options\": {\"evaluation_delay\": null, \"new_group_delay\": 600, \"new_host_delay\": null, \"renotify_interval\": null, \"thresholds\": {\"critical\": 2, \"warning\": null}, \"timeout_h\": null}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_a_monitor_returns_Monitor_Not_Found_error_response"
-        ]
-      },
+      "headers": {},
       "method": "PUT",
       "path": "/api/v1/monitor/0",
       "keepAlive": false,

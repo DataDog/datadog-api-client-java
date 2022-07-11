@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Update_a_user_returns_Bad_User_ID_in_Request_response-1652349231@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_user_returns_Bad_User_ID_in_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/users",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"disabled\":true,\"name\":\"updated\"},\"id\":\"00000000-mismatch-body-id-ffffffffffff\",\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_user_returns_Bad_User_ID_in_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/users/6de87a9a-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_user_returns_Bad_User_ID_in_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/users/6de87a9a-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

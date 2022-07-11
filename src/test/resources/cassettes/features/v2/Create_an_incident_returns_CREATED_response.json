@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Create_an_incident_returns_CREATED_response-1652349107@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_incident_returns_CREATED_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/users",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"customer_impacted\":false,\"fields\":{\"state\":{\"type\":\"dropdown\",\"value\":\"resolved\"}},\"title\":\"Test-Create_an_incident_returns_CREATED_response-1652349107\"},\"relationships\":{\"commander_user\":{\"data\":{\"id\":\"23750d48-d1d9-11ec-ad3d-da7ad0900002\",\"type\":\"users\"}}},\"type\":\"incidents\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_incident_returns_CREATED_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/incidents",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_incident_returns_CREATED_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/incidents/2c86e43d-5710-5ad6-8674-99d4fe2549c3",
       "keepAlive": false,
@@ -94,11 +82,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_incident_returns_CREATED_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/users/23750d48-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

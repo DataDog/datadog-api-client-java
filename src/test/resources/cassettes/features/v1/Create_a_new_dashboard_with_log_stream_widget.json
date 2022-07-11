@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_log_stream_widget-1641430236\",\"widgets\":[{\"definition\":{\"columns\":[\"host\",\"service\"],\"indexes\":[\"main\"],\"message_display\":\"expanded-md\",\"query\":\"\",\"show_date_column\":true,\"show_message_column\":true,\"sort\":{\"column\":\"time\",\"order\":\"desc\"},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"log_stream\"},\"layout\":{\"height\":36,\"width\":47,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_log_stream_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_log_stream_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/ge2-n5p-cnd",
       "keepAlive": false,

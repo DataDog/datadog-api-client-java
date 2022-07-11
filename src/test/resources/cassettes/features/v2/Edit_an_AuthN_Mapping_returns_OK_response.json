@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Edit_an_AuthN_Mapping_returns_OK_response-1652349071\"},\"type\":\"roles\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_an_AuthN_Mapping_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"attribute_key\":\"testeditanauthnmappingreturnsokresponse1652349071\",\"attribute_value\":\"Test-Edit_an_AuthN_Mapping_returns_OK_response-1652349071\"},\"relationships\":{\"role\":{\"data\":{\"id\":\"0e6f2848-d1d9-11ec-ad3d-da7ad0900002\",\"type\":\"roles\"}}},\"type\":\"authn_mappings\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_an_AuthN_Mapping_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/authn_mappings",
       "keepAlive": false,
@@ -73,11 +65,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"attribute_key\":\"member-of\",\"attribute_value\":\"Development\"},\"id\":\"0ece1b8c-d1d9-11ec-ad3d-da7ad0900002\",\"relationships\":{\"role\":{\"data\":{\"id\":\"0e6f2848-d1d9-11ec-ad3d-da7ad0900002\",\"type\":\"roles\"}}},\"type\":\"authn_mappings\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_an_AuthN_Mapping_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/authn_mappings/0ece1b8c-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
@@ -103,11 +91,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_an_AuthN_Mapping_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/authn_mappings/0ece1b8c-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
@@ -128,11 +112,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_an_AuthN_Mapping_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/0e6f2848-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_formulas_and_functions_change_widget-1641430224\",\"widgets\":[{\"definition\":{\"requests\":[{\"change_type\":\"absolute\",\"compare_to\":\"hour_before\",\"formulas\":[{\"formula\":\"hour_before(query1)\"},{\"formula\":\"query1\"}],\"increase_good\":true,\"order_by\":\"change\",\"order_dir\":\"desc\",\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"change\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_a_formulas_and_functions_change_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_a_formulas_and_functions_change_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/jfv-7es-bv2",
       "keepAlive": false,

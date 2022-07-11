@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_tag_configurations_with_a_tag_filter_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/metrics",
       "queryStringParameters": {

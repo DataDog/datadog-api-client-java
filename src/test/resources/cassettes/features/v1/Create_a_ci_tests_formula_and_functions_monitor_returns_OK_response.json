@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Create_a_ci_tests_formula_and_functions_monitor_returns_OK_response-1652438435\", \"options\": {\"thresholds\": {\"critical\": 0.8}, \"variables\": [{\"compute\": {\"aggregation\": \"count\"}, \"data_source\": \"ci_tests\", \"group_by\": [], \"indexes\": [\"*\"], \"name\": \"query1\", \"search\": {\"query\": \"@test.status:fail\"}}, {\"compute\": {\"aggregation\": \"count\"}, \"data_source\": \"ci_tests\", \"group_by\": [], \"indexes\": [\"*\"], \"name\": \"query2\", \"search\": {\"query\": \"\"}}]}, \"priority\": 3, \"query\": \"formula(\\\"query1 / query2 * 100\\\").last(\\\"15m\\\") >= 0.8\", \"tags\": [\"test:testcreateacitestsformulaandfunctionsmonitorreturnsokresponse1652438435\", \"env:ci\"], \"type\": \"ci-tests alert\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_ci_tests_formula_and_functions_monitor_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/monitor",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_ci_tests_formula_and_functions_monitor_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/monitor/71427772",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\":\"Test-Update_a_dashboard_list_returns_OK_response-1641430223\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard/lists/manual",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"name\":\"updated Test-Update_a_dashboard_list_returns_OK_response-1641430223\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PUT",
       "path": "/api/v1/dashboard/lists/manual/269882",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/lists/manual/269882",
       "keepAlive": false,

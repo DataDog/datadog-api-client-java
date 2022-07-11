@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"description\":null,\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_free_text_widget-1641430232\",\"widgets\":[{\"definition\":{\"color\":\"#4d4d4d\",\"font_size\":\"auto\",\"text\":\"Example free text\",\"text_align\":\"left\",\"type\":\"free_text\"},\"layout\":{\"height\":6,\"width\":24,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_free_text_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_free_text_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/d55-4cs-38k",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"cases\":[{\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"hasExtendedTitle\":true,\"isEnabled\":true,\"message\":\"test\",\"name\":\"Test-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response-1652349188\",\"options\":{\"detectionMethod\":\"impossible_travel\",\"evaluationWindow\":900,\"impossibleTravelOptions\":{\"baselineUserLocations\":false},\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"geo_data\",\"distinctFields\":[],\"groupByFields\":[\"@usr.id\"],\"metric\":\"@network.client.geoip\",\"query\":\"*\"}],\"tags\":[],\"type\":\"log_detection\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_detection_rule_with_type_impossible_travel_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/security_monitoring/rules",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_detection_rule_with_type_impossible_travel_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/security_monitoring/rules/gnq-slf-npc",
       "keepAlive": false,

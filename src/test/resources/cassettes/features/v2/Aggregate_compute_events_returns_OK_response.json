@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"compute\":[{\"aggregation\":\"count\",\"interval\":\"5m\",\"type\":\"timeseries\"}],\"filter\":{\"from\":\"now-15m\",\"indexes\":[\"main\"],\"query\":\"*\",\"to\":\"now\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Aggregate_compute_events_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/logs/analytics/aggregate",
       "keepAlive": false,

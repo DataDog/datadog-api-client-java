@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"message\":\"Test-Cancel_downtimes_by_scope_returns_OK_response-1652348995\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1654163395,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testcanceldowntimesbyscopereturnsokresponse1652348995\"],\"start\":1652348995,\"timezone\":\"Etc/UTC\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Cancel_downtimes_by_scope_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/downtime",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"scope\":\"test:testcanceldowntimesbyscopereturnsokresponse1652348995\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Cancel_downtimes_by_scope_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/downtime/cancel/by_scope",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Cancel_downtimes_by_scope_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/downtime/1944162243",
       "keepAlive": false,

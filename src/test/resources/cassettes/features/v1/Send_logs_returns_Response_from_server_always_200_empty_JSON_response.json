@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "[{\"ddtags\":\"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1649774806\",\"message\":\"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1649774806\"}]"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Send_logs_returns_Response_from_server_always_200_empty_JSON_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/v1/input",
       "keepAlive": false,

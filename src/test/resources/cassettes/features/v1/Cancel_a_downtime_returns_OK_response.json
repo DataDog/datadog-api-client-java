@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"message\":\"Test-Cancel_a_downtime_returns_OK_response-1652348993\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1654163393,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testcanceladowntimereturnsokresponse1652348993\"],\"start\":1652348993,\"timezone\":\"Etc/UTC\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Cancel_a_downtime_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/downtime",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Cancel_a_downtime_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/downtime/1944162237",
       "keepAlive": false,
@@ -60,11 +52,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Cancel_a_downtime_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/downtime/1944162237",
       "keepAlive": false,

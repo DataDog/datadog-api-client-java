@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_a_list_of_all_incident_services_returns_OK_response-1652349092\"},\"type\":\"services\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_list_of_all_incident_services_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/services",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_list_of_all_incident_services_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/services",
       "queryStringParameters": {
@@ -70,11 +62,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_list_of_all_incident_services_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/services/84fc985e-fd2b-5e37-b627-eee699786658",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"filter\":{\"from\":\"now-15m\",\"query\":\"@type:session AND @session.type:user\",\"to\":\"now\"},\"options\":{\"time_offset\":0,\"timezone\":\"GMT\"},\"page\":{\"limit\":25},\"sort\":\"timestamp\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Search_RUM_events_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/rum/events/search",
       "keepAlive": false,

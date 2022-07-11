@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"filter\":{\"query\":\"source:Test-Delete_a_log_based_metric_returns_OK_response-1652349143\"}},\"id\":\"Test-Delete_a_log_based_metric_returns_OK_response-1652349143\",\"type\":\"logs_metrics\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_log_based_metric_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/logs/config/metrics",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_log_based_metric_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/logs/config/metrics/Test_Delete_a_log_based_metric_returns_OK_response_1652349143",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_log_based_metric_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/logs/config/metrics/Test_Delete_a_log_based_metric_returns_OK_response_1652349143",
       "keepAlive": false,

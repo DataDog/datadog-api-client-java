@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_an_existing_incident_team_returns_OK_response-1652349097\"},\"type\":\"teams\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_existing_incident_team_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/teams",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_existing_incident_team_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/teams/94f78eab-7698-5c99-9b6e-23f18d36d926",
       "keepAlive": false,
@@ -60,11 +52,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_existing_incident_team_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/teams/94f78eab-7698-5c99-9b6e-23f18d36d926",
       "keepAlive": false,

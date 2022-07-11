@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_an_Application_key_with_scopes_for_current_user_returns_Created_response-1652349122\",\"scopes\":[\"dashboards_read\",\"dashboards_write\",\"dashboards_public_share\"]},\"type\":\"application_keys\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_Application_key_with_scopes_for_current_user_returns_Created_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/current_user/application_keys",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_Application_key_with_scopes_for_current_user_returns_Created_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/current_user/application_keys/aae6e868-4746-46f2-a457-5b39d35b0c30",
       "keepAlive": false,

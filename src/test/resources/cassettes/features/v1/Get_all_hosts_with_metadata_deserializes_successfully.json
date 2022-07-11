@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_hosts_with_metadata_deserializes_successfully"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/hosts",
       "queryStringParameters": {

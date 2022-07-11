@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"end\":1641433848,\"message\":\"Test-Schedule_a_downtime_with_invalid_weekdays-1641430248\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"week_days\":[\"mon\",\"tue\"]},\"scope\":[\"*\"],\"start\":1641430248,\"timezone\":\"Etc/UTC\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Schedule_a_downtime_with_invalid_weekdays"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/downtime",
       "keepAlive": false,

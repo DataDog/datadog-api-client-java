@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testgetallcloudworkloadsecurityagentrulesreturnsokresponse1652349084\"},\"type\":\"agent_rule\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_Cloud_Workload_Security_Agent_rules_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_Cloud_Workload_Security_Agent_rules_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_Cloud_Workload_Security_Agent_rules_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/w3n-qy8-qud",
       "keepAlive": false,

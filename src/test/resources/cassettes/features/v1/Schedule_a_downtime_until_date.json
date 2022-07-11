@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"end\":1652352599,\"message\":\"Test-Schedule_a_downtime_until_date-1652348999\",\"mute_first_recovery_notification\":true,\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1654163399,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"*\"],\"start\":1652348999,\"timezone\":\"Etc/UTC\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Schedule_a_downtime_until_date"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/downtime",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Schedule_a_downtime_until_date"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/downtime/1944162290",
       "keepAlive": false,

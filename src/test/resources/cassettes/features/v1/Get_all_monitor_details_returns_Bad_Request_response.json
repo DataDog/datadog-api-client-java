@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_monitor_details_returns_Bad_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/monitor",
       "queryStringParameters": {

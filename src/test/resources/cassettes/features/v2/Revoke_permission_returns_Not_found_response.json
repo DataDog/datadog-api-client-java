@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Revoke_permission_returns_Not_found_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/permissions",
       "keepAlive": false,
@@ -35,11 +31,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"id\":\"984a2bd4-d3b4-11e8-a1ff-a7f660d43029\",\"type\":\"permissions\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Revoke_permission_returns_Not_found_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/00000000-dead-beef-dead-ffffffffffff/permissions",
       "keepAlive": false,

@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Tag_Configuration_Cardinality_Estimator_returns_Success_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/metrics/system.cpu.idle/estimate",
       "queryStringParameters": {

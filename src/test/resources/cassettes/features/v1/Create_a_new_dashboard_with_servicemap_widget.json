@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_servicemap_widget-1641430239\",\"widgets\":[{\"definition\":{\"filters\":[\"env:none\",\"environment:*\"],\"service\":\"\",\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"servicemap\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_servicemap_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_servicemap_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/9b3-emh-qe4",
       "keepAlive": false,
