@@ -256,7 +256,8 @@ public class MetricSeries {
   }
 
   /**
-   * The type of metric.
+   * The type of metric. The available types are <code>0</code> (unspecified), <code>1</code>
+   * (count), <code>2</code> (rate), and <code>3</code> (gauge).
    *
    * @return type
    */
