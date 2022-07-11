@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_processes_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/processes",
       "queryStringParameters": {
@@ -36,11 +32,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_processes_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/processes",
       "queryStringParameters": {

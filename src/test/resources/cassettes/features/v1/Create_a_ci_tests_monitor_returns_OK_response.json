@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Create_a_ci_tests_monitor_returns_OK_response-1652800228\", \"options\": {\"thresholds\": {\"critical\": 1}}, \"priority\": 3, \"query\": \"ci-tests(\\\"type:test @git.branch:staging* @test.status:fail\\\").rollup(\\\"count\\\").by(\\\"@test.name\\\").last(\\\"5m\\\") >= 1\", \"tags\": [\"test:testcreateacitestsmonitorreturnsokresponse1652800228\", \"env:ci\"], \"type\": \"ci-tests alert\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_ci_tests_monitor_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/monitor",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_ci_tests_monitor_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/monitor/71774917",
       "keepAlive": false,

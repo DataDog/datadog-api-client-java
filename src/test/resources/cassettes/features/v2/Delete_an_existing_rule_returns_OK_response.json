@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Delete_an_existing_rule_returns_OK_response-1652349193\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metric\":\"\",\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_existing_rule_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/security_monitoring/rules",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_existing_rule_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/security_monitoring/rules/rsi-g0p-3jz",
       "keepAlive": false,
@@ -60,11 +52,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_existing_rule_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/security_monitoring/rules/rsi-g0p-3jz",
       "keepAlive": false,

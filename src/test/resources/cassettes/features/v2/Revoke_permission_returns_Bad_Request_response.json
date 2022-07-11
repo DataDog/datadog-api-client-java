@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Revoke_permission_returns_Bad_Request_response-1652349179\"},\"type\":\"roles\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Revoke_permission_returns_Bad_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Revoke_permission_returns_Bad_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/permissions",
       "keepAlive": false,
@@ -69,11 +61,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"id\":\"11111111-dead-beef-dead-ffffffffffff\",\"type\":\"permissions\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Revoke_permission_returns_Bad_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/4e9847ba-d1d9-11ec-ad3d-da7ad0900002/permissions",
       "keepAlive": false,
@@ -99,11 +87,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Revoke_permission_returns_Bad_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/4e9847ba-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

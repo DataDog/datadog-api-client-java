@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Remove_a_user_from_a_role_returns_OK_response-1652349176\"},\"type\":\"roles\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Remove_a_user_from_a_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Remove_a_user_from_a_role_returns_OK_response-1652349176@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Remove_a_user_from_a_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/users",
       "keepAlive": false,
@@ -73,11 +65,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"id\":\"4d2043ce-d1d9-11ec-ad3d-da7ad0900002\",\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Remove_a_user_from_a_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles/4cd4ef1e-d1d9-11ec-ad3d-da7ad0900002/users",
       "keepAlive": false,
@@ -107,11 +95,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"id\":\"4d2043ce-d1d9-11ec-ad3d-da7ad0900002\",\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Remove_a_user_from_a_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/4cd4ef1e-d1d9-11ec-ad3d-da7ad0900002/users",
       "keepAlive": false,
@@ -137,11 +121,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Remove_a_user_from_a_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/users/4d2043ce-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
@@ -162,11 +142,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Remove_a_user_from_a_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/4cd4ef1e-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

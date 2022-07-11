@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_monitor_s_details_returns_Monitor_Not_Found_error_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/monitor/12345",
       "keepAlive": false,

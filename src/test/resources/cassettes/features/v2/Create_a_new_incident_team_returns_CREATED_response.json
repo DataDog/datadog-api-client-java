@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_new_incident_team_returns_CREATED_response-1652349096\"},\"type\":\"teams\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_incident_team_returns_CREATED_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/teams",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_incident_team_returns_CREATED_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/teams/1be2fa70-2fa1-51c7-aa84-6cab8defbe7d",
       "keepAlive": false,

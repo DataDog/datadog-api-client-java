@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\":\"Test-Update_items_of_a_dashboard_list_returns_OK_response-1647890211\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_items_of_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard/lists/manual",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Update_items_of_a_dashboard_list_returns_OK_response-1647890211 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_items_of_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -73,11 +65,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"free\",\"title\":\"Test-Update_items_of_a_dashboard_list_returns_OK_response-1647890211 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"},\"layout\":{\"height\":10,\"width\":10,\"x\":10,\"y\":10}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_items_of_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -107,11 +95,7 @@
         "type": "JSON",
         "json": "{\"dashboards\":[{\"id\":\"niu-g3w-pmy\",\"type\":\"custom_timeboard\"}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_items_of_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/dashboard/lists/manual/284066/dashboards",
       "keepAlive": false,
@@ -141,11 +125,7 @@
         "type": "JSON",
         "json": "{\"dashboards\":[{\"id\":\"kqn-ck6-7nq\",\"type\":\"custom_screenboard\"}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_items_of_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PUT",
       "path": "/api/v2/dashboard/lists/manual/284066/dashboards",
       "keepAlive": false,
@@ -171,11 +151,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_items_of_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/kqn-ck6-7nq",
       "keepAlive": false,
@@ -201,11 +177,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_items_of_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/niu-g3w-pmy",
       "keepAlive": false,
@@ -231,11 +203,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_items_of_a_dashboard_list_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/lists/manual/284066",
       "keepAlive": false,

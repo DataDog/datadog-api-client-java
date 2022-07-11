@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Cancel_a_downtime_returns_Downtime_not_found_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/downtime/0",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"series\": [{\"metric\": \"system.load.1\", \"points\": [[1652349005.0, 1.1]], \"tags\": [\"test:TestSubmitmetricsreturnsPayloadacceptedresponse1652349005\"], \"type\": \"gauge\"}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Submit_metrics_returns_Payload_accepted_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/series",
       "keepAlive": false,

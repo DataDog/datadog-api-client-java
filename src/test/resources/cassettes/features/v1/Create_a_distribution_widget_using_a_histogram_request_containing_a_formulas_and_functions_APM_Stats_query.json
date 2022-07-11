@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"description\":\"\",\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_APM_Stats-1654267230\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"apm_resource_stats\",\"env\":\"staging\",\"group_by\":[\"resource_name\"],\"name\":\"query1\",\"operation_name\":\"universal.http.client\",\"primary_tag_name\":\"datacenter\",\"primary_tag_value\":\"*\",\"service\":\"azure-bill-import\",\"stat\":\"latency_distribution\"},\"request_type\":\"histogram\",\"style\":{\"palette\":\"dog_classic\"}}],\"show_legend\":false,\"title\":\"APM Stats - Request latency HOP\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":2,\"width\":4,\"x\":8,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_APM_Stats_query"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_APM_Stats_query"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/u8n-j9a-4sd",
       "keepAlive": false,

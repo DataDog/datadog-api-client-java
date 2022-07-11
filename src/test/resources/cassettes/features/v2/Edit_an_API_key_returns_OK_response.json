@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Edit_an_API_key_returns_OK_response-1652349128\"},\"type\":\"api_keys\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_an_API_key_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/api_keys",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Edit_an_API_key_returns_OK_response-1652349128\"},\"id\":\"929dfb7c-2309-46b4-bdfe-998dc339f2db\",\"type\":\"api_keys\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_an_API_key_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/api_keys/929dfb7c-2309-46b4-bdfe-998dc339f2db",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Edit_an_API_key_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/api_keys/929dfb7c-2309-46b4-bdfe-998dc339f2db",
       "keepAlive": false,

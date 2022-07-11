@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Create_a_RUM_formula_and_functions_monitor_returns_OK_response-1643835850\", \"options\": {\"thresholds\": {\"critical\": 0.8}, \"variables\": [{\"compute\": {\"aggregation\": \"count\"}, \"data_source\": \"rum\", \"group_by\": [], \"indexes\": [\"*\"], \"name\": \"query2\", \"search\": {\"query\": \"\"}}, {\"compute\": {\"aggregation\": \"count\"}, \"data_source\": \"rum\", \"group_by\": [], \"indexes\": [\"*\"], \"name\": \"query1\", \"search\": {\"query\": \"status:error\"}}]}, \"priority\": 3, \"query\": \"formula(\\\"query2 / query1 * 100\\\").last(\\\"15m\\\") >= 0.8\", \"tags\": [\"test:testcreatearumformulaandfunctionsmonitorreturnsokresponse1643835850\", \"env:ci\"], \"type\": \"rum alert\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_RUM_formula_and_functions_monitor_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/monitor",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_RUM_formula_and_functions_monitor_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/monitor/62683819",
       "keepAlive": false,

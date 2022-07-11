@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"filter\":{\"from\":\"2022-04-13T11:17:57.080Z\",\"query\":\"security:attack status:high\",\"to\":\"2022-04-13T11:32:57.080Z\"},\"page\":{\"limit\":2},\"sort\":\"timestamp\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_list_of_security_signals_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/security_monitoring/signals/search",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"filter\":{\"from\":\"2022-04-13T11:17:57.080Z\",\"query\":\"security:attack status:high\",\"to\":\"2022-04-13T11:32:57.080Z\"},\"page\":{\"cursor\":\"eyJhZnRlciI6IkFRQUFBWUFlRFg2UlExTW1SUUFBQUFCQldVRmxSRmcyVWtGQlJEWk9ObWg0UkhOSU9HRjNRVUUifQ\",\"limit\":2},\"sort\":\"timestamp\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_list_of_security_signals_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/security_monitoring/signals/search",
       "keepAlive": false,

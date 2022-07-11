@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\": \"Test-Create_a_new_dashboard_with_slo_widget-1641430240\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_slo_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/slo",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_slo_widget-1641430240\",\"widgets\":[{\"definition\":{\"global_time_target\":\"0\",\"show_error_budget\":true,\"slo_id\":\"dda0096b964856baa7e4cae291511f97\",\"time_windows\":[\"7d\"],\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"slo\",\"view_mode\":\"overall\",\"view_type\":\"detail\"},\"layout\":{\"height\":21,\"width\":60,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_slo_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_slo_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/m5p-qa8-p3i",
       "keepAlive": false,
@@ -99,11 +87,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_slo_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/slo/dda0096b964856baa7e4cae291511f97",
       "keepAlive": false,

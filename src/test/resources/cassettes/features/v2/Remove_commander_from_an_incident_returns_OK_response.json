@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"customer_impacted\":false,\"title\":\"Test-Remove_commander_from_an_incident_returns_OK_response-1652349115\"},\"type\":\"incidents\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Remove_commander_from_an_incident_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/incidents",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"id\":\"e3dd7a6c-675d-5f37-8320-fdff8b12f03e\",\"relationships\":{\"commander_user\":{\"data\":null}},\"type\":\"incidents\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Remove_commander_from_an_incident_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/incidents/e3dd7a6c-675d-5f37-8320-fdff8b12f03e",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Remove_commander_from_an_incident_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/incidents/e3dd7a6c-675d-5f37-8320-fdff8b12f03e",
       "keepAlive": false,

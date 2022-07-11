@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"updated\"},\"id\":\"00000000-dead-beef-dead-ffffffffffff\",\"type\":\"roles\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_role_returns_Not_found_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/roles/00000000-dead-beef-dead-ffffffffffff",
       "keepAlive": false,

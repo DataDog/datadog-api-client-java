@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_metrics_q-1654267232\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"histogram:trace.Load{*}\"},\"request_type\":\"histogram\",\"style\":{\"palette\":\"dog_classic\"}}],\"show_legend\":false,\"title\":\"Metrics HOP\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_metrics_query"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_metrics_query"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/gb2-e78-emw",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_apm_resource_stats_widget-1641430229\",\"widgets\":[{\"definition\":{\"requests\":[{\"queries\":[{\"data_source\":\"apm_resource_stats\",\"env\":\"ci\",\"group_by\":[\"resource_name\"],\"name\":\"query1\",\"operation_name\":\"cassandra.query\",\"primary_tag_name\":\"datacenter\",\"primary_tag_value\":\"edge-eu1.prod.dog\",\"service\":\"cassandra\",\"stat\":\"hits\"}],\"response_format\":\"scalar\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_table\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_apm_resource_stats_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_apm_resource_stats_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/cpv-tgq-6ui",
       "keepAlive": false,

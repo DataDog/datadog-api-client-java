@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_monitor_returns_Item_not_found_error_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/monitor/0",
       "keepAlive": false,

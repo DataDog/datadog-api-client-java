@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"description\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu-1654267231\",\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu-1654267231\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"compute\":{\"aggregation\":\"min\",\"metric\":\"@duration\"},\"data_source\":\"events\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}},\"request_type\":\"histogram\"}],\"show_legend\":false,\"title\":\"Events Platform - Request latency HOP\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_query"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_query"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/z8p-mhb-k4x",
       "keepAlive": false,

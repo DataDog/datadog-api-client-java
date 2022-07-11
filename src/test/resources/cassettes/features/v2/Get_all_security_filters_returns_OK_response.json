@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_security_filters_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/security_monitoring/configuration/security_filters",
       "keepAlive": false,

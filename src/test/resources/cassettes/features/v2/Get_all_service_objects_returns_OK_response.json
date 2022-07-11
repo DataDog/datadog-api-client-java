@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_all_service_objects_returns_OK_response-1655132328\",\"opsgenie_api_key\":\"00000000-0000-0000-0000-000000000000\",\"region\":\"us\"},\"type\":\"opsgenie-service\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_service_objects_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/integration/opsgenie/services",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_service_objects_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/integration/opsgenie/services",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_service_objects_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/integration/opsgenie/services/337861b6-ed46-4c66-b4a0-32d7a4ba94b9",
       "keepAlive": false,

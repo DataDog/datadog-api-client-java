@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Validate_API_key_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/validate",
       "keepAlive": false,

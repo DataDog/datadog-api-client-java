@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_notebook_returns_Not_Found_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/notebooks/123456",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_distribution_widget_and_apm_stats_data-1641430230\",\"widgets\":[{\"definition\":{\"requests\":[{\"apm_stats_query\":{\"env\":\"prod\",\"name\":\"cassandra.query\",\"primary_tag\":\"datacenter:dc1\",\"row_type\":\"service\",\"service\":\"cassandra\"}}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_distribution_widget_and_apm_stats_data"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_distribution_widget_and_apm_stats_data"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/7yq-u4p-9qh",
       "keepAlive": false,

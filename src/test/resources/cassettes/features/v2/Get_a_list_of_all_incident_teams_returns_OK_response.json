@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_a_list_of_all_incident_teams_returns_OK_response-1652349099\"},\"type\":\"teams\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_list_of_all_incident_teams_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/teams",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_list_of_all_incident_teams_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/teams",
       "queryStringParameters": {
@@ -70,11 +62,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_list_of_all_incident_teams_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/teams/48fe29a2-88f2-5563-ac54-205e0ca2723a",
       "keepAlive": false,

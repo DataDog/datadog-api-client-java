@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_an_existing_incident_team_returns_OK_response-1652349102\"},\"type\":\"teams\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_an_existing_incident_team_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/teams",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_an_existing_incident_team_returns_OK_response-1652349102-updated\"},\"type\":\"teams\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_an_existing_incident_team_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/teams/361a363d-3245-5783-8a77-e9f74261d571",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_an_existing_incident_team_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/teams/361a363d-3245-5783-8a77-e9f74261d571",
       "keepAlive": false,

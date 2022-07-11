@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"filter\":{\"from\":\"now-15m\",\"indexes\":[\"main\"],\"to\":\"now\"},\"options\":{\"timezone\":\"GMT\"},\"page\":{\"limit\":2},\"sort\":\"timestamp\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Search_logs_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/logs/events/search",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"filter\":{\"from\":\"now-15m\",\"indexes\":[\"main\"],\"to\":\"now\"},\"options\":{\"timezone\":\"GMT\"},\"page\":{\"cursor\":\"eyJhZnRlciI6IkFRQUFBWUFaZGJvSjdkR3dOZ0FBQUFCQldVRmFaR0p5TVVGQlEwczRPRU4zWW1aMVVESlJRVUUifQ\",\"limit\":2},\"sort\":\"timestamp\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Search_logs_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/logs/events/search",
       "keepAlive": false,

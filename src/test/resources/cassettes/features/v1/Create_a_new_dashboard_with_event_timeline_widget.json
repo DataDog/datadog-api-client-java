@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"description\":null,\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_event_timeline_widget-1641430231\",\"widgets\":[{\"definition\":{\"query\":\"status:error priority:all\",\"tags_execution\":\"and\",\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"event_timeline\"},\"layout\":{\"height\":9,\"width\":47,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_event_timeline_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_event_timeline_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/8zb-e23-rdn",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Revoke_permission_returns_OK_response-1652349181\"},\"type\":\"roles\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Revoke_permission_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Revoke_permission_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/permissions",
       "keepAlive": false,
@@ -69,11 +61,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"id\":\"984a2bd4-d3b4-11e8-a1ff-a7f660d43029\",\"type\":\"permissions\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Revoke_permission_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles/4fc503c6-d1d9-11ec-ad3d-da7ad0900002/permissions",
       "keepAlive": false,
@@ -103,11 +91,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"id\":\"984a2bd4-d3b4-11e8-a1ff-a7f660d43029\",\"type\":\"permissions\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Revoke_permission_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/4fc503c6-d1d9-11ec-ad3d-da7ad0900002/permissions",
       "keepAlive": false,
@@ -133,11 +117,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Revoke_permission_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/4fc503c6-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

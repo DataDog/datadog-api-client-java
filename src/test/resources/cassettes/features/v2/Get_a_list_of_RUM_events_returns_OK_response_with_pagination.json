@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_list_of_RUM_events_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/rum/events",
       "queryStringParameters": {
@@ -36,11 +32,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_list_of_RUM_events_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/rum/events",
       "queryStringParameters": {

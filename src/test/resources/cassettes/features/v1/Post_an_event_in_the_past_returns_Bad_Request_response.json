@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"date_happened\":1,\"tags\":[\"test:TestPostaneventinthepastreturnsBadRequestresponse1641430251\"],\"text\":\"A text message.\",\"title\":\"Test-Post_an_event_in_the_past_returns_Bad_Request_response-1641430251\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Post_an_event_in_the_past_returns_Bad_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/events",
       "keepAlive": false,

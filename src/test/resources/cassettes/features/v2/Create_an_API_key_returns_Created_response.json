@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_an_API_key_returns_Created_response-1652349120\"},\"type\":\"api_keys\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_API_key_returns_Created_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/api_keys",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_API_key_returns_Created_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/api_keys/f625994a-4ee7-4967-b08c-7067d1f1cdac",
       "keepAlive": false,

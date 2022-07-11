@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Get_a_user_invitation_returns_OK_response-1652349217@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_user_invitation_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/users",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":[{\"relationships\":{\"user\":{\"data\":{\"id\":\"657f03d8-d1d9-11ec-ad3d-da7ad0900002\",\"type\":\"users\"}}},\"type\":\"user_invitations\"}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_user_invitation_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/user_invitations",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_user_invitation_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/user_invitations/65ef03ae-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
@@ -99,11 +87,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_user_invitation_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/users/657f03d8-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

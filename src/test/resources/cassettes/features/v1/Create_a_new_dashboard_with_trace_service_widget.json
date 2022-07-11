@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_trace_service_widget-1641430242\",\"widgets\":[{\"definition\":{\"display_format\":\"two_column\",\"env\":\"none\",\"service\":\"\",\"show_breakdown\":true,\"show_distribution\":true,\"show_errors\":true,\"show_hits\":true,\"show_latency\":true,\"show_resource_list\":false,\"size_format\":\"medium\",\"span_name\":\"\",\"time\":{},\"title\":\"Service Summary\",\"type\":\"trace_service\"},\"layout\":{\"height\":72,\"width\":72,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_trace_service_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_trace_service_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/y2w-4ed-wj5",
       "keepAlive": false,

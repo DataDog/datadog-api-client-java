@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"filter\":{\"query\":\"source:Test-Update_a_log_based_metric_returns_OK_response-1652349148\"}},\"id\":\"Test-Update_a_log_based_metric_returns_OK_response-1652349148\",\"type\":\"logs_metrics\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_log_based_metric_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/logs/config/metrics",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"source:Test-Update_a_log_based_metric_returns_OK_response-1652349148-updated\"}},\"type\":\"logs_metrics\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_log_based_metric_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1652349148",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_log_based_metric_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1652349148",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\nContent-Disposition: form-data; name=\"idp_file\"; filename=\"invalid_idp_metadata.xml\"\r\nContent-Type: application/xml\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\ni am > bad xml\n\r\n--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--\r\n"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Upload_IdP_metadata_returns_Bad_Request_caused_by_either_malformed_XML_or_invalid_SAML_IdP_metadata_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/saml_configurations/idp_metadata",
       "keepAlive": false,

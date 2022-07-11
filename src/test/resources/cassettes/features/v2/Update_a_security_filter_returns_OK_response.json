@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1652349197\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1652349197\"},\"type\":\"security_filters\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_security_filter_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/security_monitoring/configuration/security_filters",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1652349197\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1652349197\",\"version\":1},\"type\":\"security_filters\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_security_filter_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/security_monitoring/configuration/security_filters/f8d-36h-d0y",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_security_filter_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/security_monitoring/configuration/security_filters/f8d-36h-d0y",
       "keepAlive": false,

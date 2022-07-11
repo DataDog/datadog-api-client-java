@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_an_existing_incident_service_returns_OK_response-1652349095\"},\"type\":\"services\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_an_existing_incident_service_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/services",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_an_existing_incident_service_returns_OK_response-1652349095-updated\"},\"type\":\"services\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_an_existing_incident_service_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/services/f9f4467a-1e31-5513-83b8-ca6c4287a9b3",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_an_existing_incident_service_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/services/f9f4467a-1e31-5513-83b8-ca6c4287a9b3",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1652349195\",\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1652349195\"},\"type\":\"security_filters\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_security_filter_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/security_monitoring/configuration/security_filters",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_security_filter_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/security_monitoring/configuration/security_filters/lgh-q3c-xlh",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_security_filter_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/security_monitoring/configuration/security_filters/lgh-q3c-xlh",
       "keepAlive": false,

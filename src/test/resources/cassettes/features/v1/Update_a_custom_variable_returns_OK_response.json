@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"is_secret\":false,\"name\":\"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056\",\"value\":\"variable-value\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_custom_variable_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/integration/webhooks/configuration/custom-variables",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"value\":\"variable-updated\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_custom_variable_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PUT",
       "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_custom_variable_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1652349056",
       "keepAlive": false,

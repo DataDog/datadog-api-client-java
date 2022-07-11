@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_an_AuthN_Mapping_returns_OK_response-1652349069\"},\"type\":\"roles\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_AuthN_Mapping_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"attribute_key\":\"testdeleteanauthnmappingreturnsokresponse1652349069\",\"attribute_value\":\"Test-Delete_an_AuthN_Mapping_returns_OK_response-1652349069\"},\"relationships\":{\"role\":{\"data\":{\"id\":\"0cd38a56-d1d9-11ec-ad3d-da7ad0900002\",\"type\":\"roles\"}}},\"type\":\"authn_mappings\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_AuthN_Mapping_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/authn_mappings",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_AuthN_Mapping_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/authn_mappings/0d2328cc-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
@@ -94,11 +82,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_AuthN_Mapping_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/authn_mappings/0d2328cc-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
@@ -124,11 +108,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_AuthN_Mapping_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/0cd38a56-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_dashboard_list_returns_Not_Found_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/dashboard/lists/manual/0",
       "keepAlive": false,

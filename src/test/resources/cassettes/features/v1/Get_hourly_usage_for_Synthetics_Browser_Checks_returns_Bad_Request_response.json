@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_hourly_usage_for_Synthetics_Browser_Checks_returns_Bad_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/usage/synthetics_browser",
       "queryStringParameters": {

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\": \"Test-Get_an_SLO_s_details_returns_OK_response-1646747470\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_an_SLO_s_details_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/slo",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_an_SLO_s_details_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/slo/152e72d970e15e799e4b195d7193ed18",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_an_SLO_s_details_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/slo/152e72d970e15e799e4b195d7193ed18",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"archiveReason\":\"none\",\"state\":\"open\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Change_the_triage_state_of_a_security_signal_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v1/security_analytics/signals/AQAAAYDiB_Ol8PbzFAAAAABBWURpQl9PbEFBQU0yeXhGTG9ZV2JnQUE/state",
       "keepAlive": false,

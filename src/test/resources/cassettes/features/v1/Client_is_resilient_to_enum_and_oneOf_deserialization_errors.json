@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Client_is_resilient_to_enum_and_oneOf_deserialization_errors"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/synthetics/tests",
       "keepAlive": false,

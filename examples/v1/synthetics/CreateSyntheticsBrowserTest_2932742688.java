@@ -59,7 +59,7 @@ public class Example {
                         new SyntheticsBrowserTestRumSettings()
                             .isEnabled(true)
                             .applicationId("mockApplicationId")
-                            .clientTokenId(123456L))
+                            .clientTokenId(12345L))
                     .tickEvery(300L)
                     .ci(
                         new SyntheticsTestCiOptions()

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\": \"Test-Get_an_SLO_correction_for_an_SLO_returns_OK_response-1652349019\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_an_SLO_correction_for_an_SLO_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/slo",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"category\":\"Other\",\"description\":\"Test Correction\",\"end\":1652352619,\"slo_id\":\"b7e8543aac97516ebb61e8743d1a10a1\",\"start\":1652349019,\"timezone\":\"UTC\"},\"type\":\"correction\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_an_SLO_correction_for_an_SLO_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/slo/correction",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_an_SLO_correction_for_an_SLO_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/slo/correction/efa6f9ea-d1d8-11ec-9495-da7ad0902002",
       "keepAlive": false,
@@ -99,11 +87,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_an_SLO_correction_for_an_SLO_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/slo/correction/efa6f9ea-d1d8-11ec-9495-da7ad0902002",
       "keepAlive": false,
@@ -124,11 +108,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_an_SLO_correction_for_an_SLO_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/slo/b7e8543aac97516ebb61e8743d1a10a1",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"end\":1641433849,\"message\":\"Test-Schedule_a_downtime_with_mutually_exclusive_until_occurrences_and_until_date_properties-1641430249\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1643244649,\"until_occurrences\":3,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"*\"],\"start\":1641430249,\"timezone\":\"Etc/UTC\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Schedule_a_downtime_with_mutually_exclusive_until_occurrences_and_until_date_properties"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/downtime",
       "keepAlive": false,

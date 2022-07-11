@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Schedule_a_monitor_downtime_returns_OK_response-1652349001\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"groupby_simple_monitor\": true, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notify_audit\": false, \"notify_no_data\": false, \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 24}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testscheduleamonitordowntimereturnsokresponse1652349001\", \"env:ci\"], \"type\": \"log alert\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Schedule_a_monitor_downtime_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/monitor",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"message\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1652349001\",\"monitor_id\":71310133,\"scope\":[\"test:testscheduleamonitordowntimereturnsokresponse1652349001\"],\"start\":1652349001,\"timezone\":\"Etc/UTC\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Schedule_a_monitor_downtime_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/downtime",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Schedule_a_monitor_downtime_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/downtime/1944162322",
       "keepAlive": false,
@@ -94,11 +82,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Schedule_a_monitor_downtime_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/monitor/71310133",
       "keepAlive": false,

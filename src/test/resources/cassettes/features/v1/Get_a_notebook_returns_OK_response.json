@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Get_a_notebook_returns_OK_response-1652349008 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\"}],\"name\":\"Test-Get_a_notebook_returns_OK_response-1652349008\",\"time\":{\"live_span\":\"1h\"}},\"type\":\"notebooks\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_notebook_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/notebooks",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_notebook_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/notebooks/2466033",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_a_notebook_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/notebooks/2466033",
       "keepAlive": false,

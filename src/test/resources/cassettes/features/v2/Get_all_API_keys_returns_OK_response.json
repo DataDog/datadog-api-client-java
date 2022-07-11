@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_all_API_keys_returns_OK_response-1652349134\"},\"type\":\"api_keys\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_API_keys_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/api_keys",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_API_keys_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/api_keys",
       "queryStringParameters": {
@@ -70,11 +62,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_all_API_keys_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/api_keys/32c723fd-9e78-4b1a-a1dd-fab7fe34e8e8",
       "keepAlive": false,

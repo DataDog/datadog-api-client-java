@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_new_role_by_cloning_an_existing_role_returns_OK_response-1652349160\"},\"type\":\"roles\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_role_by_cloning_an_existing_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_new_role_by_cloning_an_existing_role_returns_OK_response-1652349160 clone\"},\"type\":\"roles\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_role_by_cloning_an_existing_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles/436017a6-d1d9-11ec-ad3d-da7ad0900002/clone",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_role_by_cloning_an_existing_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/43c71ad2-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
@@ -94,11 +82,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_role_by_cloning_an_existing_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/436017a6-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

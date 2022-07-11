@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Delete_a_monitor_returns_OK_response-1641430256\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"groupby_simple_monitor\": true, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notify_audit\": false, \"notify_no_data\": false, \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 24}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testdeleteamonitorreturnsokresponse1641430256\", \"env:ci\"], \"type\": \"log alert\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_monitor_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/monitor",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_monitor_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/monitor/59800638",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_monitor_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/monitor/59800638",
       "keepAlive": false,

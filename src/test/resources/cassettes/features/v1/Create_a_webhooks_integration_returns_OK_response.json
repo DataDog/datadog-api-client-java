@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\":\"Test-Create_a_webhooks_integration_returns_OK_response-1652349037\",\"url\":\"https://example.com/webhook\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_webhooks_integration_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/integration/webhooks/configuration/webhooks",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_webhooks_integration_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/integration/webhooks/configuration/webhooks/Test-Create_a_webhooks_integration_returns_OK_response-1652349037",
       "keepAlive": false,

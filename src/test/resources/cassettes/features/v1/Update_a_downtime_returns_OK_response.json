@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"message\":\"Test-Update_a_downtime_returns_OK_response-1652349003\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1654163403,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testupdateadowntimereturnsokresponse1652349003\"],\"start\":1652349003,\"timezone\":\"Etc/UTC\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_downtime_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/downtime",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"message\":\"Test-Update_a_downtime_returns_OK_response-1652349003-updated\",\"mute_first_recovery_notification\":true}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_downtime_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PUT",
       "path": "/api/v1/downtime/1944162328",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_downtime_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/downtime/1944162328",
       "keepAlive": false,

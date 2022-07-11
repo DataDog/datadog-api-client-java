@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"filter\":{\"from\":\"2020-09-17T11:48:36+01:00\",\"indexes\":[\"main\"],\"query\":\"datadog-agent\",\"to\":\"2020-09-17T12:48:36+01:00\"},\"page\":{\"limit\":5},\"sort\":\"timestamp\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Search_logs_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/logs/events/search",
       "keepAlive": false,

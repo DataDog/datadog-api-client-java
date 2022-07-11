@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_list_stream_widget-1650360448 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"apm_issue_stream\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_list_stream_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_list_stream_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/8qi-cen-xbg",
       "keepAlive": false,

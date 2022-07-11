@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_an_existing_incident_service_returns_OK_response-1652349090\"},\"type\":\"services\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_existing_incident_service_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/services",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_existing_incident_service_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/services/9f42d0e5-438a-5808-bb84-01ede3c065fb",
       "keepAlive": false,
@@ -60,11 +52,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_an_existing_incident_service_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/services/9f42d0e5-438a-5808-bb84-01ede3c065fb",
       "keepAlive": false,

@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"filter\":{\"from\":\"now-15m\",\"query\":\"@type:session AND @session.type:user\",\"to\":\"now\"},\"options\":{\"time_offset\":0,\"timezone\":\"GMT\"},\"page\":{\"limit\":2},\"sort\":\"timestamp\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Search_RUM_events_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/rum/events/search",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"filter\":{\"from\":\"now-15m\",\"query\":\"@type:session AND @session.type:user\",\"to\":\"now\"},\"options\":{\"time_offset\":0,\"timezone\":\"GMT\"},\"page\":{\"cursor\":\"eyJhZnRlciI6IkFRQUFBWUFkeXBJYXB1d21Sd0FBQUFCeWMxOWlNVGcxTW1Fd1l5MDROV0V5TFRRNFlqWXRZak0wTnkxbVpUSXhN\",\"limit\":2},\"sort\":\"timestamp\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Search_RUM_events_returns_OK_response_with_pagination"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/rum/events/search",
       "keepAlive": false,

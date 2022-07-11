@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_formulas_and_functions_scatterplot_widget-1641430231\",\"widgets\":[{\"definition\":{\"requests\":{\"table\":{\"formulas\":[{\"alias\":\"my-query1\",\"dimension\":\"x\",\"formula\":\"query1\"},{\"alias\":\"my-query2\",\"dimension\":\"y\",\"formula\":\"query2\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"},{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query2\",\"query\":\"avg:system.mem.used{*} by {service}\"}],\"response_format\":\"scalar\"}},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"scatterplot\"},\"id\":5346764334358972,\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_formulas_and_functions_scatterplot_widget"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_formulas_and_functions_scatterplot_widget"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/zct-37r-af2",
       "keepAlive": false,

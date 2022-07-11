@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"tags\":[\"test:TestPostaneventreturnsOKresponse1641430251\"],\"text\":\"A text message.\",\"title\":\"Test-Post_an_event_returns_OK_response-1641430251\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Post_an_event_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/events",
       "keepAlive": false,

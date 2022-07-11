@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_hourly_usage_for_IoT_returns_Bad_Request_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/usage/iot",
       "queryStringParameters": {

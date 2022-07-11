@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_new_incident_service_returns_CREATED_response-1652349089\"},\"type\":\"services\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_incident_service_returns_CREATED_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/services",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_incident_service_returns_CREATED_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/services/aa4526fd-8084-58a0-bd52-164cd7f1a51e",
       "keepAlive": false,

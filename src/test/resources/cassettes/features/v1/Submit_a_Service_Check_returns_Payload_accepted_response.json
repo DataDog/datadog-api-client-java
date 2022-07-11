@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "[{\"check\":\"app.ok\",\"host_name\":\"host\",\"status\":0,\"tags\":[\"test:TestSubmitaServiceCheckreturnsPayloadacceptedresponse1652349011\"]}]"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Submit_a_Service_Check_returns_Payload_accepted_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/check_run",
       "keepAlive": false,

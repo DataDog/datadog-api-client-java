@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testdeleteacloudworkloadsecurityagentrulereturnsokresponse1652349081\"},\"type\":\"agent_rule\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_Cloud_Workload_Security_Agent_rule_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_Cloud_Workload_Security_Agent_rule_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/hqy-ez4-nci",
       "keepAlive": false,
@@ -64,11 +56,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_Cloud_Workload_Security_Agent_rule_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/hqy-ez4-nci",
       "keepAlive": false,

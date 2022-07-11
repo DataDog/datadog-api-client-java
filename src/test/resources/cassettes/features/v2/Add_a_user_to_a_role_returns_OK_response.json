@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Add_a_user_to_a_role_returns_OK_response-1652349154\"},\"type\":\"roles\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Add_a_user_to_a_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Add_a_user_to_a_role_returns_OK_response-1652349154@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Add_a_user_to_a_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/users",
       "keepAlive": false,
@@ -73,11 +65,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"id\":\"4029e0ee-d1d9-11ec-ad3d-da7ad0900002\",\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Add_a_user_to_a_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/roles/3fdd7736-d1d9-11ec-ad3d-da7ad0900002/users",
       "keepAlive": false,
@@ -103,11 +91,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Add_a_user_to_a_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/users/4029e0ee-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
@@ -128,11 +112,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Add_a_user_to_a_role_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/roles/3fdd7736-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

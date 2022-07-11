@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"disabled\":true,\"name\":\"updated\"},\"id\":\"00000000-dead-beef-dead-ffffffffffff\",\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Update_a_user_returns_Not_found_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v2/users/00000000-dead-beef-dead-ffffffffffff",
       "keepAlive": false,

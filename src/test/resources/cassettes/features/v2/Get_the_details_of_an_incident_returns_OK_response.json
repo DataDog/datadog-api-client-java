@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"customer_impacted\":false,\"title\":\"Test-Get_the_details_of_an_incident_returns_OK_response-1652349114\"},\"type\":\"incidents\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_the_details_of_an_incident_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/incidents",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_the_details_of_an_incident_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/incidents/4b220587-66f8-59c2-839d-68eb53672064",
       "keepAlive": false,
@@ -65,11 +57,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_the_details_of_an_incident_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/incidents/4b220587-66f8-59c2-839d-68eb53672064",
       "keepAlive": false,

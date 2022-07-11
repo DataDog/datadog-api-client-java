@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "List_IP_Ranges_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/",
       "keepAlive": false,

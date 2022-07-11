@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Delete_a_Cloud_Workload_Security_Agent_rule_returns_Not_Found_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/abc-123-xyz",
       "keepAlive": false,

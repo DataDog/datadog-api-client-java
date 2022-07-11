@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"name\": \"Test-Get_Corrections_For_an_SLO_returns_OK_response-1652349024\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_Corrections_For_an_SLO_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/slo",
       "keepAlive": false,
@@ -39,11 +35,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"category\":\"Other\",\"description\":\"Test Correction\",\"end\":1652352624,\"slo_id\":\"dd2615cf2fbf56098f3cf4965d37892f\",\"start\":1652349024,\"timezone\":\"UTC\"},\"type\":\"correction\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_Corrections_For_an_SLO_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/slo/correction",
       "keepAlive": false,
@@ -69,11 +61,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_Corrections_For_an_SLO_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v1/slo/dd2615cf2fbf56098f3cf4965d37892f/corrections",
       "keepAlive": false,
@@ -99,11 +87,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_Corrections_For_an_SLO_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/slo/correction/f2b8ad40-d1d8-11ec-a01e-da7ad0902002",
       "keepAlive": false,
@@ -124,11 +108,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_Corrections_For_an_SLO_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/slo/dd2615cf2fbf56098f3cf4965d37892f",
       "keepAlive": false,

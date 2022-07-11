@@ -1,11 +1,7 @@
 [
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Get_hourly_usage_for_Lambda_Traced_Invocations_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "GET",
       "path": "/api/v2/usage/lambda_traced_invocations",
       "queryStringParameters": {

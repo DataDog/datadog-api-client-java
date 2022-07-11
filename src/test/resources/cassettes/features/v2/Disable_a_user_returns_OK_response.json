@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Disable_a_user_returns_OK_response-1652349216@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Disable_a_user_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v2/users",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Disable_a_user_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/users/649b7e06-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,
@@ -60,11 +52,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Disable_a_user_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v2/users/649b7e06-d1d9-11ec-ad3d-da7ad0900002",
       "keepAlive": false,

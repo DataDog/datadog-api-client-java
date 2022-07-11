@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"incident_id\":2609}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Add_a_security_signal_to_an_incident_returns_OK_response"
-        ]
-      },
+      "headers": {},
       "method": "PATCH",
       "path": "/api/v1/security_analytics/signals/AQAAAYDiB_Ol8PbzFAAAAABBWURpQl9PbEFBQU0yeXhGTG9ZV2JnQUE/add_to_incident",
       "keepAlive": false,

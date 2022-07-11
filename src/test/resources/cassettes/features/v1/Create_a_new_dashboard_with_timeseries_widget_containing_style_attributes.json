@@ -5,11 +5,7 @@
         "type": "JSON",
         "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1641430241 with timeseries widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"on_right_yaxis\":false,\"q\":\"sum:trace.test.errors{env:prod,service:datadog-api-spec} by {resource_name}.as_count()\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"warm\"}}],\"type\":\"timeseries\"}}]}"
       },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes"
-        ]
-      },
+      "headers": {},
       "method": "POST",
       "path": "/api/v1/dashboard",
       "keepAlive": false,
@@ -35,11 +31,7 @@
   },
   {
     "httpRequest": {
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes"
-        ]
-      },
+      "headers": {},
       "method": "DELETE",
       "path": "/api/v1/dashboard/asn-82x-2q5",
       "keepAlive": false,
