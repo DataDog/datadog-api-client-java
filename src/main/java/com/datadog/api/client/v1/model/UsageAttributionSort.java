@@ -72,6 +72,10 @@ public class UsageAttributionSort {
       new UsageAttributionSort("estimated_indexed_spans_usage");
   public static final UsageAttributionSort ESTIMATED_INDEXED_SPANS_PERCENTAGE =
       new UsageAttributionSort("estimated_indexed_spans_percentage");
+  public static final UsageAttributionSort ESTIMATED_INGESTED_SPANS_USAGE =
+      new UsageAttributionSort("estimated_ingested_spans_usage");
+  public static final UsageAttributionSort ESTIMATED_INGESTED_SPANS_PERCENTAGE =
+      new UsageAttributionSort("estimated_ingested_spans_percentage");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -101,7 +105,9 @@ public class UsageAttributionSort {
               "estimated_indexed_logs_usage",
               "estimated_indexed_logs_percentage",
               "estimated_indexed_spans_usage",
-              "estimated_indexed_spans_percentage"));
+              "estimated_indexed_spans_percentage",
+              "estimated_ingested_spans_usage",
+              "estimated_ingested_spans_percentage"));
 
   private String value;
 
