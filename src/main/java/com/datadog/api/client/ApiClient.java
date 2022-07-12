@@ -1740,6 +1740,7 @@ public class ApiClient {
     }
     clientConfig.register(GZipEncoder.class);
     clientConfig.register(DeflateEncoder.class);
+    clientConfig.register(ZstdEncoder.class);
     ClientBuilder clientBuilder = ClientBuilder.newBuilder();
     customizeClientBuilder(clientBuilder);
     clientBuilder = clientBuilder.withConfig(clientConfig);
