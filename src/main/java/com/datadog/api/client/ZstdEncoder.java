@@ -5,11 +5,10 @@
  */
 package com.datadog.api.client;
 
-import com.github.luben.zstd.ZstdInputStream;
-import com.github.luben.zstd.ZstdOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
 import javax.annotation.Priority;
 import javax.ws.rs.Priorities;
 import org.glassfish.jersey.spi.ContentEncoder;
@@ -23,11 +22,30 @@ public class ZstdEncoder extends ContentEncoder {
 
   @Override
   public InputStream decode(String contentEncoding, InputStream encodedStream) throws IOException {
-    return new ZstdInputStream(encodedStream);
+    try {
+      Class<?> streamClass = Class.forName("com.github.luben.zstd.ZstdInputStream");
+      return (InputStream) streamClass.getConstructor(InputStream.class).newInstance(encodedStream);
+    } catch (ClassNotFoundException
+        | NoSuchMethodException
+        | InstantiationException
+        | IllegalAccessException
+        | InvocationTargetException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   @Override
   public OutputStream encode(String contentEncoding, OutputStream entityStream) throws IOException {
-    return new ZstdOutputStream(entityStream);
+    try {
+      Class<?> streamClass = Class.forName("com.github.luben.zstd.ZstdOutputStream");
+      return (OutputStream)
+          streamClass.getConstructor(OutputStream.class).newInstance(entityStream);
+    } catch (ClassNotFoundException
+        | NoSuchMethodException
+        | InstantiationException
+        | IllegalAccessException
+        | InvocationTargetException e) {
+      throw new RuntimeException(e);
+    }
   }
 }
