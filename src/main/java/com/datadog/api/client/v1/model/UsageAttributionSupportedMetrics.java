@@ -99,6 +99,10 @@ public class UsageAttributionSupportedMetrics {
       new UsageAttributionSupportedMetrics("estimated_indexed_spans_usage");
   public static final UsageAttributionSupportedMetrics ESTIMATED_INDEXED_SPANS_PERCENTAGE =
       new UsageAttributionSupportedMetrics("estimated_indexed_spans_percentage");
+  public static final UsageAttributionSupportedMetrics ESTIMATED_INGESTED_SPANS_USAGE =
+      new UsageAttributionSupportedMetrics("estimated_ingested_spans_usage");
+  public static final UsageAttributionSupportedMetrics ESTIMATED_INGESTED_SPANS_PERCENTAGE =
+      new UsageAttributionSupportedMetrics("estimated_ingested_spans_percentage");
   public static final UsageAttributionSupportedMetrics ALL =
       new UsageAttributionSupportedMetrics("*");
 
@@ -141,6 +145,8 @@ public class UsageAttributionSupportedMetrics {
               "appsec_percentage",
               "estimated_indexed_spans_usage",
               "estimated_indexed_spans_percentage",
+              "estimated_ingested_spans_usage",
+              "estimated_ingested_spans_percentage",
               "*"));
 
   private String value;
