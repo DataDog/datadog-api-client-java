@@ -42,6 +42,8 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_FUNCTIONS_PERCENTAGE,
@@ -74,7 +76,7 @@ public class UsageAttributionValues {
   private Double apmHostUsage;
 
   public static final String JSON_PROPERTY_APPSEC_PERCENTAGE = "appsec_percentage";
-  private Object appsecPercentage = null;
+  private Double appsecPercentage;
 
   public static final String JSON_PROPERTY_APPSEC_USAGE = "appsec_usage";
   private Double appsecUsage;
@@ -149,6 +151,14 @@ public class UsageAttributionValues {
   public static final String JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE =
       "estimated_indexed_spans_usage";
   private Double estimatedIndexedSpansUsage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE =
+      "estimated_ingested_spans_percentage";
+  private Double estimatedIngestedSpansPercentage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE =
+      "estimated_ingested_spans_usage";
+  private Double estimatedIngestedSpansUsage;
 
   public static final String JSON_PROPERTY_INFRA_HOST_PERCENTAGE = "infra_host_percentage";
   private Double infraHostPercentage;
@@ -279,7 +289,7 @@ public class UsageAttributionValues {
     this.apmHostUsage = apmHostUsage;
   }
 
-  public UsageAttributionValues appsecPercentage(Object appsecPercentage) {
+  public UsageAttributionValues appsecPercentage(Double appsecPercentage) {
     this.appsecPercentage = appsecPercentage;
     return this;
   }
@@ -292,11 +302,11 @@ public class UsageAttributionValues {
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPSEC_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getAppsecPercentage() {
+  public Double getAppsecPercentage() {
     return appsecPercentage;
   }
 
-  public void setAppsecPercentage(Object appsecPercentage) {
+  public void setAppsecPercentage(Double appsecPercentage) {
     this.appsecPercentage = appsecPercentage;
   }
 
@@ -786,6 +796,49 @@ public class UsageAttributionValues {
     this.estimatedIndexedSpansUsage = estimatedIndexedSpansUsage;
   }
 
+  public UsageAttributionValues estimatedIngestedSpansPercentage(
+      Double estimatedIngestedSpansPercentage) {
+    this.estimatedIngestedSpansPercentage = estimatedIngestedSpansPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of estimated ingested spans usage by tag(s). Note this field is in private beta.
+   *
+   * @return estimatedIngestedSpansPercentage
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIngestedSpansPercentage() {
+    return estimatedIngestedSpansPercentage;
+  }
+
+  public void setEstimatedIngestedSpansPercentage(Double estimatedIngestedSpansPercentage) {
+    this.estimatedIngestedSpansPercentage = estimatedIngestedSpansPercentage;
+  }
+
+  public UsageAttributionValues estimatedIngestedSpansUsage(Double estimatedIngestedSpansUsage) {
+    this.estimatedIngestedSpansUsage = estimatedIngestedSpansUsage;
+    return this;
+  }
+
+  /**
+   * The estimated ingested spans usage by tag(s). Note this field is in private beta.
+   *
+   * @return estimatedIngestedSpansUsage
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIngestedSpansUsage() {
+    return estimatedIngestedSpansUsage;
+  }
+
+  public void setEstimatedIngestedSpansUsage(Double estimatedIngestedSpansUsage) {
+    this.estimatedIngestedSpansUsage = estimatedIngestedSpansUsage;
+  }
+
   public UsageAttributionValues infraHostPercentage(Double infraHostPercentage) {
     this.infraHostPercentage = infraHostPercentage;
     return this;
@@ -1127,6 +1180,11 @@ public class UsageAttributionValues {
             usageAttributionValues.estimatedIndexedSpansPercentage)
         && Objects.equals(
             this.estimatedIndexedSpansUsage, usageAttributionValues.estimatedIndexedSpansUsage)
+        && Objects.equals(
+            this.estimatedIngestedSpansPercentage,
+            usageAttributionValues.estimatedIngestedSpansPercentage)
+        && Objects.equals(
+            this.estimatedIngestedSpansUsage, usageAttributionValues.estimatedIngestedSpansUsage)
         && Objects.equals(this.infraHostPercentage, usageAttributionValues.infraHostPercentage)
         && Objects.equals(this.infraHostUsage, usageAttributionValues.infraHostUsage)
         && Objects.equals(
@@ -1180,6 +1238,8 @@ public class UsageAttributionValues {
         estimatedIndexedLogsUsage,
         estimatedIndexedSpansPercentage,
         estimatedIndexedSpansUsage,
+        estimatedIngestedSpansPercentage,
+        estimatedIngestedSpansUsage,
         infraHostPercentage,
         infraHostUsage,
         lambdaFunctionsPercentage,
@@ -1247,6 +1307,12 @@ public class UsageAttributionValues {
         .append("\n");
     sb.append("    estimatedIndexedSpansUsage: ")
         .append(toIndentedString(estimatedIndexedSpansUsage))
+        .append("\n");
+    sb.append("    estimatedIngestedSpansPercentage: ")
+        .append(toIndentedString(estimatedIngestedSpansPercentage))
+        .append("\n");
+    sb.append("    estimatedIngestedSpansUsage: ")
+        .append(toIndentedString(estimatedIngestedSpansUsage))
         .append("\n");
     sb.append("    infraHostPercentage: ")
         .append(toIndentedString(infraHostPercentage))
