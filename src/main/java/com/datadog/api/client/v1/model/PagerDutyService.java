@@ -18,7 +18,7 @@ import java.util.Objects;
   PagerDutyService.JSON_PROPERTY_SERVICE_KEY,
   PagerDutyService.JSON_PROPERTY_SERVICE_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PagerDutyService {
   @JsonIgnore public boolean unparsed = false;

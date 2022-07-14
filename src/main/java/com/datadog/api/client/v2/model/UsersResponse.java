@@ -20,7 +20,7 @@ import java.util.Objects;
   UsersResponse.JSON_PROPERTY_INCLUDED,
   UsersResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsersResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class UsersResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<User> getData() {
@@ -88,7 +88,7 @@ public class UsersResponse {
    *
    * @return included
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UserResponseIncludedItem> getIncluded() {
@@ -110,7 +110,7 @@ public class UsersResponse {
    *
    * @return meta
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResponseMetaAttributes getMeta() {

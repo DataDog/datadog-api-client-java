@@ -20,7 +20,7 @@ import java.util.Objects;
   SyntheticsAPITestResultShort.JSON_PROPERTY_RESULT_ID,
   SyntheticsAPITestResultShort.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITestResultShort {
   @JsonIgnore public boolean unparsed = false;
@@ -49,7 +49,7 @@ public class SyntheticsAPITestResultShort {
    *
    * @return checkTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHECK_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCheckTime() {
@@ -70,7 +70,7 @@ public class SyntheticsAPITestResultShort {
    *
    * @return probeDc
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROBE_DC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProbeDc() {
@@ -92,7 +92,7 @@ public class SyntheticsAPITestResultShort {
    *
    * @return result
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsAPITestResultShortResult getResult() {
@@ -113,7 +113,7 @@ public class SyntheticsAPITestResultShort {
    *
    * @return resultId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultId() {
@@ -136,7 +136,7 @@ public class SyntheticsAPITestResultShort {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestMonitorStatus getStatus() {

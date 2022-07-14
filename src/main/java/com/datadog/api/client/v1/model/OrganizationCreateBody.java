@@ -19,7 +19,7 @@ import java.util.Objects;
   OrganizationCreateBody.JSON_PROPERTY_NAME,
   OrganizationCreateBody.JSON_PROPERTY_SUBSCRIPTION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationCreateBody {
   @JsonIgnore public boolean unparsed = false;
@@ -53,7 +53,7 @@ public class OrganizationCreateBody {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationBilling getBilling() {
@@ -97,7 +97,7 @@ public class OrganizationCreateBody {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationSubscription getSubscription() {

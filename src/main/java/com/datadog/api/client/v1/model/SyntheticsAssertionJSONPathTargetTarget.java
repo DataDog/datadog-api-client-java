@@ -18,7 +18,7 @@ import java.util.Objects;
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_OPERATOR,
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_TARGET_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAssertionJSONPathTargetTarget {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class SyntheticsAssertionJSONPathTargetTarget {
    *
    * @return jsonPath
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_JSON_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getJsonPath() {
@@ -62,7 +62,7 @@ public class SyntheticsAssertionJSONPathTargetTarget {
    *
    * @return operator
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOperator() {
@@ -83,7 +83,7 @@ public class SyntheticsAssertionJSONPathTargetTarget {
    *
    * @return targetValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Object getTargetValue() {

@@ -32,7 +32,7 @@ import java.util.Objects;
   HostMeta.JSON_PROPERTY_SOCKET_HOSTNAME,
   HostMeta.JSON_PROPERTY_WIN_V
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMeta {
   @JsonIgnore public boolean unparsed = false;
@@ -99,7 +99,7 @@ public class HostMeta {
    *
    * @return agentChecks
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGENT_CHECKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<List<Object>> getAgentChecks() {
@@ -120,7 +120,7 @@ public class HostMeta {
    *
    * @return agentVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGENT_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAgentVersion() {
@@ -141,7 +141,7 @@ public class HostMeta {
    *
    * @return cpuCores
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CPU_CORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCpuCores() {
@@ -170,7 +170,7 @@ public class HostMeta {
    *
    * @return fbsdV
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FBSD_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getFbsdV() {
@@ -191,7 +191,7 @@ public class HostMeta {
    *
    * @return gohai
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GOHAI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGohai() {
@@ -213,7 +213,7 @@ public class HostMeta {
    *
    * @return installMethod
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INSTALL_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMetaInstallMethod getInstallMethod() {
@@ -242,7 +242,7 @@ public class HostMeta {
    *
    * @return macV
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAC_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getMacV() {
@@ -263,7 +263,7 @@ public class HostMeta {
    *
    * @return machine
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MACHINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMachine() {
@@ -292,7 +292,7 @@ public class HostMeta {
    *
    * @return nixV
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NIX_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getNixV() {
@@ -313,7 +313,7 @@ public class HostMeta {
    *
    * @return platform
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPlatform() {
@@ -334,7 +334,7 @@ public class HostMeta {
    *
    * @return processor
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProcessor() {
@@ -355,7 +355,7 @@ public class HostMeta {
    *
    * @return pythonV
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PYTHON_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPythonV() {
@@ -376,7 +376,7 @@ public class HostMeta {
    *
    * @return socketFqdn
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOCKET_FQDN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSocketFqdn() {
@@ -397,7 +397,7 @@ public class HostMeta {
    *
    * @return socketHostname
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOCKET_HOSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSocketHostname() {
@@ -426,7 +426,7 @@ public class HostMeta {
    *
    * @return winV
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WIN_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getWinV() {

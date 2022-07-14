@@ -17,7 +17,7 @@ import java.util.Objects;
   LogsMetricResponseCompute.JSON_PROPERTY_AGGREGATION_TYPE,
   LogsMetricResponseCompute.JSON_PROPERTY_PATH
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricResponseCompute {
   @JsonIgnore public boolean unparsed = false;
@@ -39,7 +39,7 @@ public class LogsMetricResponseCompute {
    *
    * @return aggregationType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsMetricResponseComputeAggregationType getAggregationType() {
@@ -64,7 +64,7 @@ public class LogsMetricResponseCompute {
    *
    * @return path
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPath() {

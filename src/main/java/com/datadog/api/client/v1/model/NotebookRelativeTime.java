@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Relative timeframe. */
 @JsonPropertyOrder({NotebookRelativeTime.JSON_PROPERTY_LIVE_SPAN})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookRelativeTime {
   @JsonIgnore public boolean unparsed = false;

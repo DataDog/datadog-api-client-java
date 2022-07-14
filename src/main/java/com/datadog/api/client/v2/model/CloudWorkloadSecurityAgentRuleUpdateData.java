@@ -18,7 +18,7 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentRuleUpdateData.JSON_PROPERTY_ATTRIBUTES,
   CloudWorkloadSecurityAgentRuleUpdateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleUpdateData {
   @JsonIgnore public boolean unparsed = false;

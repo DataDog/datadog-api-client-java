@@ -18,7 +18,7 @@ import java.util.Objects;
   EventQueryDefinition.JSON_PROPERTY_SEARCH,
   EventQueryDefinition.JSON_PROPERTY_TAGS_EXECUTION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventQueryDefinition {
   @JsonIgnore public boolean unparsed = false;

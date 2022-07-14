@@ -49,7 +49,7 @@ import java.util.Objects;
   LogsArithmeticProcessor.JSON_PROPERTY_TARGET,
   LogsArithmeticProcessor.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArithmeticProcessor {
   @JsonIgnore public boolean unparsed = false;
@@ -114,7 +114,7 @@ public class LogsArithmeticProcessor {
    *
    * @return isEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -136,7 +136,7 @@ public class LogsArithmeticProcessor {
    *
    * @return isReplaceMissing
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_REPLACE_MISSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsReplaceMissing() {
@@ -157,7 +157,7 @@ public class LogsArithmeticProcessor {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

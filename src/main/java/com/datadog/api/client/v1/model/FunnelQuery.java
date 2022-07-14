@@ -21,7 +21,7 @@ import java.util.Objects;
   FunnelQuery.JSON_PROPERTY_QUERY_STRING,
   FunnelQuery.JSON_PROPERTY_STEPS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FunnelQuery {
   @JsonIgnore public boolean unparsed = false;

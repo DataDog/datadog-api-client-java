@@ -19,7 +19,7 @@ import java.util.Objects;
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE,
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE_FLIP
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMapWidgetDefinitionStyle {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class HostMapWidgetDefinitionStyle {
    *
    * @return fillMax
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILL_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFillMax() {
@@ -66,7 +66,7 @@ public class HostMapWidgetDefinitionStyle {
    *
    * @return fillMin
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILL_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFillMin() {
@@ -87,7 +87,7 @@ public class HostMapWidgetDefinitionStyle {
    *
    * @return palette
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPalette() {
@@ -108,7 +108,7 @@ public class HostMapWidgetDefinitionStyle {
    *
    * @return paletteFlip
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PALETTE_FLIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPaletteFlip() {

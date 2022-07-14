@@ -28,7 +28,7 @@ import java.util.Objects;
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_TAGS,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleCreatePayload {
   @JsonIgnore public boolean unparsed = false;
@@ -136,7 +136,7 @@ public class SecurityMonitoringRuleCreatePayload {
    *
    * @return filters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringFilter> getFilters() {
@@ -157,7 +157,7 @@ public class SecurityMonitoringRuleCreatePayload {
    *
    * @return hasExtendedTitle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasExtendedTitle() {
@@ -298,7 +298,7 @@ public class SecurityMonitoringRuleCreatePayload {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -320,7 +320,7 @@ public class SecurityMonitoringRuleCreatePayload {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleTypeCreate getType() {

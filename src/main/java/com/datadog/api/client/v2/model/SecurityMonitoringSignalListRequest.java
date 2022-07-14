@@ -18,7 +18,7 @@ import java.util.Objects;
   SecurityMonitoringSignalListRequest.JSON_PROPERTY_PAGE,
   SecurityMonitoringSignalListRequest.JSON_PROPERTY_SORT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalListRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -43,7 +43,7 @@ public class SecurityMonitoringSignalListRequest {
    *
    * @return filter
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringSignalListRequestFilter getFilter() {
@@ -65,7 +65,7 @@ public class SecurityMonitoringSignalListRequest {
    *
    * @return page
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringSignalListRequestPage getPage() {
@@ -87,7 +87,7 @@ public class SecurityMonitoringSignalListRequest {
    *
    * @return sort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringSignalsSort getSort() {

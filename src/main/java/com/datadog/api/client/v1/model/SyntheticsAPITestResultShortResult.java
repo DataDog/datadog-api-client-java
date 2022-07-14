@@ -17,7 +17,7 @@ import java.util.Objects;
   SyntheticsAPITestResultShortResult.JSON_PROPERTY_PASSED,
   SyntheticsAPITestResultShortResult.JSON_PROPERTY_TIMINGS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITestResultShortResult {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class SyntheticsAPITestResultShortResult {
    *
    * @return passed
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPassed() {
@@ -61,7 +61,7 @@ public class SyntheticsAPITestResultShortResult {
    *
    * @return timings
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTiming getTimings() {

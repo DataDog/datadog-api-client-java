@@ -19,7 +19,7 @@ import java.util.Objects;
   UsageAttributionResponse.JSON_PROPERTY_METADATA,
   UsageAttributionResponse.JSON_PROPERTY_USAGE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributionResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -40,7 +40,7 @@ public class UsageAttributionResponse {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageAttributionMetadata getMetadata() {
@@ -73,7 +73,7 @@ public class UsageAttributionResponse {
    *
    * @return usage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageAttributionBody> getUsage() {

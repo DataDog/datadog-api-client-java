@@ -21,7 +21,7 @@ import java.util.Objects;
  * schema documentation</a> to learn how to build the <code>&lt;EVENTS_SCHEMA&gt;</code>.
  */
 @JsonPropertyOrder({WidgetEvent.JSON_PROPERTY_Q, WidgetEvent.JSON_PROPERTY_TAGS_EXECUTION})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetEvent {
   @JsonIgnore public boolean unparsed = false;
@@ -68,7 +68,7 @@ public class WidgetEvent {
    *
    * @return tagsExecution
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagsExecution() {

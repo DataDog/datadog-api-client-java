@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Request containing a list of dashboards to add. */
 @JsonPropertyOrder({DashboardListAddItemsRequest.JSON_PROPERTY_DASHBOARDS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardListAddItemsRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class DashboardListAddItemsRequest {
    *
    * @return dashboards
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DASHBOARDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DashboardListItemRequest> getDashboards() {

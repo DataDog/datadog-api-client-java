@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Notebooks get all response. */
 @JsonPropertyOrder({NotebooksResponse.JSON_PROPERTY_DATA, NotebooksResponse.JSON_PROPERTY_META})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebooksResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -48,7 +48,7 @@ public class NotebooksResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<NotebooksResponseData> getData() {
@@ -70,7 +70,7 @@ public class NotebooksResponse {
    *
    * @return meta
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebooksResponseMeta getMeta() {

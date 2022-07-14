@@ -31,7 +31,7 @@ import java.util.Objects;
   SyntheticsBrowserTestRumSettings.JSON_PROPERTY_CLIENT_TOKEN_ID,
   SyntheticsBrowserTestRumSettings.JSON_PROPERTY_IS_ENABLED
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestRumSettings {
   @JsonIgnore public boolean unparsed = false;
@@ -62,7 +62,7 @@ public class SyntheticsBrowserTestRumSettings {
    *
    * @return applicationId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getApplicationId() {
@@ -83,7 +83,7 @@ public class SyntheticsBrowserTestRumSettings {
    *
    * @return clientTokenId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLIENT_TOKEN_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getClientTokenId() {

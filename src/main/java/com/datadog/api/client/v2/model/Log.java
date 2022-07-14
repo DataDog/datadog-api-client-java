@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Object description of a log after being processed and stored by Datadog. */
 @JsonPropertyOrder({Log.JSON_PROPERTY_ATTRIBUTES, Log.JSON_PROPERTY_ID, Log.JSON_PROPERTY_TYPE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Log {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class Log {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogAttributes getAttributes() {
@@ -59,7 +59,7 @@ public class Log {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -81,7 +81,7 @@ public class Log {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogType getType() {

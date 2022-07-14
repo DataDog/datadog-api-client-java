@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Object for a single metric tag configuration. */
 @JsonPropertyOrder({Metric.JSON_PROPERTY_ID, Metric.JSON_PROPERTY_TYPE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Metric {
   @JsonIgnore public boolean unparsed = false;
@@ -34,7 +34,7 @@ public class Metric {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -56,7 +56,7 @@ public class Metric {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricType getType() {

@@ -19,7 +19,7 @@ import java.util.Objects;
   UsageTopAvgMetricsHour.JSON_PROPERTY_METRIC_CATEGORY,
   UsageTopAvgMetricsHour.JSON_PROPERTY_METRIC_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageTopAvgMetricsHour {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class UsageTopAvgMetricsHour {
    *
    * @return avgMetricHour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AVG_METRIC_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAvgMetricHour() {
@@ -66,7 +66,7 @@ public class UsageTopAvgMetricsHour {
    *
    * @return maxMetricHour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAX_METRIC_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMaxMetricHour() {
@@ -88,7 +88,7 @@ public class UsageTopAvgMetricsHour {
    *
    * @return metricCategory
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageMetricCategory getMetricCategory() {
@@ -112,7 +112,7 @@ public class UsageTopAvgMetricsHour {
    *
    * @return metricName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetricName() {

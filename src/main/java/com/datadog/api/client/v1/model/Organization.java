@@ -23,7 +23,7 @@ import java.util.Objects;
   Organization.JSON_PROPERTY_SUBSCRIPTION,
   Organization.JSON_PROPERTY_TRIAL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Organization {
   @JsonIgnore public boolean unparsed = false;
@@ -64,7 +64,7 @@ public class Organization {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationBilling getBilling() {
@@ -80,7 +80,7 @@ public class Organization {
    *
    * @return created
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreated() {
@@ -97,7 +97,7 @@ public class Organization {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -118,7 +118,7 @@ public class Organization {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -139,7 +139,7 @@ public class Organization {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -161,7 +161,7 @@ public class Organization {
    *
    * @return settings
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationSettings getSettings() {
@@ -185,7 +185,7 @@ public class Organization {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationSubscription getSubscription() {
@@ -206,7 +206,7 @@ public class Organization {
    *
    * @return trial
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getTrial() {

@@ -23,7 +23,7 @@ import java.util.Objects;
   UsageFargateHour.JSON_PROPERTY_PUBLIC_ID,
   UsageFargateHour.JSON_PROPERTY_TASKS_COUNT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageFargateHour {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class UsageFargateHour {
    *
    * @return avgProfiledFargateTasks
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAvgProfiledFargateTasks() {
@@ -76,7 +76,7 @@ public class UsageFargateHour {
    *
    * @return hour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -97,7 +97,7 @@ public class UsageFargateHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -118,7 +118,7 @@ public class UsageFargateHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -139,7 +139,7 @@ public class UsageFargateHour {
    *
    * @return tasksCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TASKS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTasksCount() {

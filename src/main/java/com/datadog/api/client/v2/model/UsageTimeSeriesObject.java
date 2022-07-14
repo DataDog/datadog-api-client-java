@@ -21,7 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageTimeSeriesObject.JSON_PROPERTY_TIMESTAMP,
   UsageTimeSeriesObject.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageTimeSeriesObject {
   @JsonIgnore public boolean unparsed = false;
@@ -43,7 +43,7 @@ public class UsageTimeSeriesObject {
    *
    * @return timestamp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTimestamp() {
@@ -64,7 +64,7 @@ public class UsageTimeSeriesObject {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getValue() {
     return value.orElse(null);

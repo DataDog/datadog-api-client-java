@@ -28,7 +28,7 @@ import java.util.Objects;
   SyntheticsTiming.JSON_PROPERTY_TOTAL,
   SyntheticsTiming.JSON_PROPERTY_WAIT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTiming {
   @JsonIgnore public boolean unparsed = false;
@@ -69,7 +69,7 @@ public class SyntheticsTiming {
    *
    * @return dns
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDns() {
@@ -90,7 +90,7 @@ public class SyntheticsTiming {
    *
    * @return download
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOWNLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDownload() {
@@ -111,7 +111,7 @@ public class SyntheticsTiming {
    *
    * @return firstByte
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIRST_BYTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getFirstByte() {
@@ -132,7 +132,7 @@ public class SyntheticsTiming {
    *
    * @return handshake
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HANDSHAKE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getHandshake() {
@@ -153,7 +153,7 @@ public class SyntheticsTiming {
    *
    * @return redirect
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REDIRECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getRedirect() {
@@ -174,7 +174,7 @@ public class SyntheticsTiming {
    *
    * @return ssl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SSL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getSsl() {
@@ -195,7 +195,7 @@ public class SyntheticsTiming {
    *
    * @return tcp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TCP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTcp() {
@@ -216,7 +216,7 @@ public class SyntheticsTiming {
    *
    * @return total
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTotal() {
@@ -237,7 +237,7 @@ public class SyntheticsTiming {
    *
    * @return wait
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WAIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getWait() {

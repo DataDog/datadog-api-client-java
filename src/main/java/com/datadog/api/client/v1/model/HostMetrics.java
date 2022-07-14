@@ -18,7 +18,7 @@ import java.util.Objects;
   HostMetrics.JSON_PROPERTY_IOWAIT,
   HostMetrics.JSON_PROPERTY_LOAD
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMetrics {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class HostMetrics {
    *
    * @return cpu
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CPU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCpu() {
@@ -62,7 +62,7 @@ public class HostMetrics {
    *
    * @return iowait
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IOWAIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getIowait() {
@@ -83,7 +83,7 @@ public class HostMetrics {
    *
    * @return load
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLoad() {

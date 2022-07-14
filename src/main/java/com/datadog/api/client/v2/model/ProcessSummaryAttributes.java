@@ -25,7 +25,7 @@ import java.util.Objects;
   ProcessSummaryAttributes.JSON_PROPERTY_TIMESTAMP,
   ProcessSummaryAttributes.JSON_PROPERTY_USER
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessSummaryAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -63,7 +63,7 @@ public class ProcessSummaryAttributes {
    *
    * @return cmdline
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CMDLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCmdline() {
@@ -84,7 +84,7 @@ public class ProcessSummaryAttributes {
    *
    * @return host
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -105,7 +105,7 @@ public class ProcessSummaryAttributes {
    *
    * @return pid
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPid() {
@@ -126,7 +126,7 @@ public class ProcessSummaryAttributes {
    *
    * @return ppid
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PPID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPpid() {
@@ -147,7 +147,7 @@ public class ProcessSummaryAttributes {
    *
    * @return start
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStart() {
@@ -176,7 +176,7 @@ public class ProcessSummaryAttributes {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -197,7 +197,7 @@ public class ProcessSummaryAttributes {
    *
    * @return timestamp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimestamp() {
@@ -218,7 +218,7 @@ public class ProcessSummaryAttributes {
    *
    * @return user
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUser() {

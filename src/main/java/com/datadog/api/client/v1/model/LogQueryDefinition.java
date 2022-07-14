@@ -22,7 +22,7 @@ import java.util.Objects;
   LogQueryDefinition.JSON_PROPERTY_MULTI_COMPUTE,
   LogQueryDefinition.JSON_PROPERTY_SEARCH
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -52,7 +52,7 @@ public class LogQueryDefinition {
    *
    * @return compute
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsQueryCompute getCompute() {
@@ -85,7 +85,7 @@ public class LogQueryDefinition {
    *
    * @return groupBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogQueryDefinitionGroupBy> getGroupBy() {
@@ -107,7 +107,7 @@ public class LogQueryDefinition {
    *
    * @return index
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIndex() {
@@ -140,7 +140,7 @@ public class LogQueryDefinition {
    *
    * @return multiCompute
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MULTI_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsQueryCompute> getMultiCompute() {
@@ -162,7 +162,7 @@ public class LogQueryDefinition {
    *
    * @return search
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SEARCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinitionSearch getSearch() {

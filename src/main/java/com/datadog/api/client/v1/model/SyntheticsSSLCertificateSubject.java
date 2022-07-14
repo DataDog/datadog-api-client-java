@@ -22,7 +22,7 @@ import java.util.Objects;
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_S_T,
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_ALT_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsSSLCertificateSubject {
   @JsonIgnore public boolean unparsed = false;
@@ -57,7 +57,7 @@ public class SyntheticsSSLCertificateSubject {
    *
    * @return C
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_C)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getC() {
@@ -78,7 +78,7 @@ public class SyntheticsSSLCertificateSubject {
    *
    * @return CN
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_C_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCN() {
@@ -99,7 +99,7 @@ public class SyntheticsSSLCertificateSubject {
    *
    * @return L
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getL() {
@@ -120,7 +120,7 @@ public class SyntheticsSSLCertificateSubject {
    *
    * @return O
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_O)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getO() {
@@ -141,7 +141,7 @@ public class SyntheticsSSLCertificateSubject {
    *
    * @return OU
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_O_U)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOU() {
@@ -162,7 +162,7 @@ public class SyntheticsSSLCertificateSubject {
    *
    * @return ST
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_S_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getST() {
@@ -183,7 +183,7 @@ public class SyntheticsSSLCertificateSubject {
    *
    * @return altName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAltName() {

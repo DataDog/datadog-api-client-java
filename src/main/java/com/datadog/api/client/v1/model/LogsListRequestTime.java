@@ -22,7 +22,7 @@ import java.util.Objects;
   LogsListRequestTime.JSON_PROPERTY_TIMEZONE,
   LogsListRequestTime.JSON_PROPERTY_TO
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListRequestTime {
   @JsonIgnore public boolean unparsed = false;
@@ -80,7 +80,7 @@ public class LogsListRequestTime {
    *
    * @return timezone
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {

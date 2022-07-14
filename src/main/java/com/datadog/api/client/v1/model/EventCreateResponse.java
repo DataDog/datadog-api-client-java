@@ -17,7 +17,7 @@ import java.util.Objects;
   EventCreateResponse.JSON_PROPERTY_EVENT,
   EventCreateResponse.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventCreateResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class EventCreateResponse {
    *
    * @return event
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Event getEvent() {
@@ -59,7 +59,7 @@ public class EventCreateResponse {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {

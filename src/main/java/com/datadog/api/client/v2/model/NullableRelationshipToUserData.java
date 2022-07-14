@@ -18,7 +18,7 @@ import java.util.Objects;
   NullableRelationshipToUserData.JSON_PROPERTY_ID,
   NullableRelationshipToUserData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NullableRelationshipToUserData {
   @JsonIgnore public boolean unparsed = false;

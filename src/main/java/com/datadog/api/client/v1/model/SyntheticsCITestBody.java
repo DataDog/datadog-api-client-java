@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Object describing the synthetics tests to trigger. */
 @JsonPropertyOrder({SyntheticsCITestBody.JSON_PROPERTY_TESTS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCITestBody {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class SyntheticsCITestBody {
    *
    * @return tests
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TESTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsCITest> getTests() {

@@ -18,7 +18,7 @@ import java.util.Objects;
   SLOCorrectionResponseAttributesModifier.JSON_PROPERTY_HANDLE,
   SLOCorrectionResponseAttributesModifier.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionResponseAttributesModifier {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class SLOCorrectionResponseAttributesModifier {
    *
    * @return email
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -62,7 +62,7 @@ public class SLOCorrectionResponseAttributesModifier {
    *
    * @return handle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHandle() {
@@ -83,7 +83,7 @@ public class SLOCorrectionResponseAttributesModifier {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

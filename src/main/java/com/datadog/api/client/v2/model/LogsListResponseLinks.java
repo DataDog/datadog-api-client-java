@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Links attributes. */
 @JsonPropertyOrder({LogsListResponseLinks.JSON_PROPERTY_NEXT})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListResponseLinks {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class LogsListResponseLinks {
    *
    * @return next
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNext() {

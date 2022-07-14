@@ -27,7 +27,7 @@ import java.util.Objects;
   AlertValueWidgetDefinition.JSON_PROPERTY_TYPE,
   AlertValueWidgetDefinition.JSON_PROPERTY_UNIT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AlertValueWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -97,7 +97,7 @@ public class AlertValueWidgetDefinition {
    *
    * @return precision
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPrecision() {
@@ -119,7 +119,7 @@ public class AlertValueWidgetDefinition {
    *
    * @return textAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEXT_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTextAlign() {
@@ -143,7 +143,7 @@ public class AlertValueWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -165,7 +165,7 @@ public class AlertValueWidgetDefinition {
    *
    * @return titleAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -189,7 +189,7 @@ public class AlertValueWidgetDefinition {
    *
    * @return titleSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -234,7 +234,7 @@ public class AlertValueWidgetDefinition {
    *
    * @return unit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUnit() {

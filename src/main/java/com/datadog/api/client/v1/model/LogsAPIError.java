@@ -20,7 +20,7 @@ import java.util.Objects;
   LogsAPIError.JSON_PROPERTY_DETAILS,
   LogsAPIError.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAPIError {
   @JsonIgnore public boolean unparsed = false;
@@ -43,7 +43,7 @@ public class LogsAPIError {
    *
    * @return code
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCode() {
@@ -76,7 +76,7 @@ public class LogsAPIError {
    *
    * @return details
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsAPIError> getDetails() {
@@ -97,7 +97,7 @@ public class LogsAPIError {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {

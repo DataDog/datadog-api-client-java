@@ -22,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorThresholds.JSON_PROPERTY_WARNING,
   MonitorThresholds.JSON_PROPERTY_WARNING_RECOVERY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorThresholds {
   @JsonIgnore public boolean unparsed = false;
@@ -54,7 +54,7 @@ public class MonitorThresholds {
    *
    * @return critical
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCritical() {
@@ -75,7 +75,7 @@ public class MonitorThresholds {
    *
    * @return criticalRecovery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Double getCriticalRecovery() {
     return criticalRecovery.orElse(null);
@@ -106,7 +106,7 @@ public class MonitorThresholds {
    *
    * @return ok
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Double getOk() {
     return ok.orElse(null);
@@ -137,7 +137,7 @@ public class MonitorThresholds {
    *
    * @return unknown
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Double getUnknown() {
     return unknown.orElse(null);
@@ -168,7 +168,7 @@ public class MonitorThresholds {
    *
    * @return warning
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Double getWarning() {
     return warning.orElse(null);
@@ -199,7 +199,7 @@ public class MonitorThresholds {
    *
    * @return warningRecovery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Double getWarningRecovery() {
     return warningRecovery.orElse(null);

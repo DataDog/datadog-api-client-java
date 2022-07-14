@@ -35,7 +35,7 @@ import java.util.Objects;
   SLOHistoryMonitor.JSON_PROPERTY_SPAN_PRECISION,
   SLOHistoryMonitor.JSON_PROPERTY_UPTIME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMonitor {
   @JsonIgnore public boolean unparsed = false;
@@ -94,7 +94,7 @@ public class SLOHistoryMonitor {
    *
    * @return errorBudgetRemaining
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERROR_BUDGET_REMAINING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Double> getErrorBudgetRemaining() {
@@ -128,7 +128,7 @@ public class SLOHistoryMonitor {
    *
    * @return errors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SLOHistoryResponseErrorWithType> getErrors() {
@@ -149,7 +149,7 @@ public class SLOHistoryMonitor {
    *
    * @return group
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGroup() {
@@ -180,7 +180,7 @@ public class SLOHistoryMonitor {
    *
    * @return history
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HISTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<List<Double>> getHistory() {
@@ -202,7 +202,7 @@ public class SLOHistoryMonitor {
    *
    * @return monitorModified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorModified() {
@@ -223,7 +223,7 @@ public class SLOHistoryMonitor {
    *
    * @return monitorType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMonitorType() {
@@ -245,7 +245,7 @@ public class SLOHistoryMonitor {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -269,7 +269,7 @@ public class SLOHistoryMonitor {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getPrecision() {
@@ -291,7 +291,7 @@ public class SLOHistoryMonitor {
    *
    * @return preview
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PREVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPreview() {
@@ -312,7 +312,7 @@ public class SLOHistoryMonitor {
    *
    * @return sliValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SLI_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getSliValue() {
@@ -334,7 +334,7 @@ public class SLOHistoryMonitor {
    *
    * @return spanPrecision
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPAN_PRECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getSpanPrecision() {
@@ -357,7 +357,7 @@ public class SLOHistoryMonitor {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPTIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getUptime() {

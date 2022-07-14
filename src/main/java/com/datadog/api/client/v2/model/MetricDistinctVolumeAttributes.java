@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Object containing the definition of a metric's distinct volume. */
 @JsonPropertyOrder({MetricDistinctVolumeAttributes.JSON_PROPERTY_DISTINCT_VOLUME})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricDistinctVolumeAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class MetricDistinctVolumeAttributes {
    *
    * @return distinctVolume
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISTINCT_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDistinctVolume() {

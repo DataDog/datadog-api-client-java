@@ -27,7 +27,7 @@ import java.util.Objects;
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TAG_FILTERS,
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TEXT_FILTER
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionProcessQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -84,7 +84,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
    *
    * @return aggregator
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionMetricAggregation getAggregator() {
@@ -133,7 +133,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
    *
    * @return isNormalizedCpu
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_NORMALIZED_CPU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsNormalizedCpu() {
@@ -154,7 +154,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
    *
    * @return limit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -216,7 +216,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
    *
    * @return sort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public QuerySortOrder getSort() {
@@ -248,7 +248,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
    *
    * @return tagFilters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAG_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTagFilters() {
@@ -269,7 +269,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
    *
    * @return textFilter
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEXT_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTextFilter() {

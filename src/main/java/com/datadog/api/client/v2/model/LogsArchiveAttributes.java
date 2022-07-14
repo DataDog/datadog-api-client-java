@@ -26,7 +26,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   LogsArchiveAttributes.JSON_PROPERTY_REHYDRATION_TAGS,
   LogsArchiveAttributes.JSON_PROPERTY_STATE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -81,7 +81,7 @@ public class LogsArchiveAttributes {
    *
    * @return destination
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESTINATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LogsArchiveDestination getDestination() {
@@ -103,7 +103,7 @@ public class LogsArchiveAttributes {
    *
    * @return includeTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludeTags() {
@@ -164,7 +164,7 @@ public class LogsArchiveAttributes {
    *
    * @return rehydrationMaxScanSizeInGb
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getRehydrationMaxScanSizeInGb() {
     return rehydrationMaxScanSizeInGb.orElse(null);
@@ -204,7 +204,7 @@ public class LogsArchiveAttributes {
    *
    * @return rehydrationTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REHYDRATION_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRehydrationTags() {
@@ -226,7 +226,7 @@ public class LogsArchiveAttributes {
    *
    * @return state
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsArchiveState getState() {

@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** The Markdown timeline cell contents. */
 @JsonPropertyOrder({IncidentTimelineCellMarkdownCreateAttributesContent.JSON_PROPERTY_CONTENT})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentTimelineCellMarkdownCreateAttributesContent {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class IncidentTimelineCellMarkdownCreateAttributesContent {
    *
    * @return content
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getContent() {

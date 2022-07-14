@@ -31,7 +31,7 @@ import java.util.Objects;
   ScatterPlotWidgetDefinition.JSON_PROPERTY_XAXIS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_YAXIS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScatterPlotWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -97,7 +97,7 @@ public class ScatterPlotWidgetDefinition {
    *
    * @return colorByGroups
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COLOR_BY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getColorByGroups() {
@@ -130,7 +130,7 @@ public class ScatterPlotWidgetDefinition {
    *
    * @return customLinks
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -173,7 +173,7 @@ public class ScatterPlotWidgetDefinition {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -194,7 +194,7 @@ public class ScatterPlotWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -216,7 +216,7 @@ public class ScatterPlotWidgetDefinition {
    *
    * @return titleAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -240,7 +240,7 @@ public class ScatterPlotWidgetDefinition {
    *
    * @return titleSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -286,7 +286,7 @@ public class ScatterPlotWidgetDefinition {
    *
    * @return xaxis
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_XAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetAxis getXaxis() {
@@ -308,7 +308,7 @@ public class ScatterPlotWidgetDefinition {
    *
    * @return yaxis
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_YAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetAxis getYaxis() {

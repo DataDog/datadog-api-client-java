@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Set of tags to associate with your host. */
 @JsonPropertyOrder({HostTags.JSON_PROPERTY_HOST, HostTags.JSON_PROPERTY_TAGS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostTags {
   @JsonIgnore public boolean unparsed = false;
@@ -36,7 +36,7 @@ public class HostTags {
    *
    * @return host
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -65,7 +65,7 @@ public class HostTags {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

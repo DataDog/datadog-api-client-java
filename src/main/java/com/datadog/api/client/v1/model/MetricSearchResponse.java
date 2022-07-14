@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Object containing the list of metrics matching the search query. */
 @JsonPropertyOrder({MetricSearchResponse.JSON_PROPERTY_RESULTS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricSearchResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class MetricSearchResponse {
    *
    * @return results
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricSearchResponseResults getResults() {

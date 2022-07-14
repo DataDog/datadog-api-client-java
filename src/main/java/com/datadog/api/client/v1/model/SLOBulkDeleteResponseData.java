@@ -19,7 +19,7 @@ import java.util.Objects;
   SLOBulkDeleteResponseData.JSON_PROPERTY_DELETED,
   SLOBulkDeleteResponseData.JSON_PROPERTY_UPDATED
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOBulkDeleteResponseData {
   @JsonIgnore public boolean unparsed = false;
@@ -48,7 +48,7 @@ public class SLOBulkDeleteResponseData {
    *
    * @return deleted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getDeleted() {
@@ -78,7 +78,7 @@ public class SLOBulkDeleteResponseData {
    *
    * @return updated
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getUpdated() {

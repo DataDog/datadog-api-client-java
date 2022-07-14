@@ -19,7 +19,7 @@ import java.util.Objects;
   LogsListRequest.JSON_PROPERTY_PAGE,
   LogsListRequest.JSON_PROPERTY_SORT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -46,7 +46,7 @@ public class LogsListRequest {
    *
    * @return filter
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsQueryFilter getFilter() {
@@ -69,7 +69,7 @@ public class LogsListRequest {
    *
    * @return options
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsQueryOptions getOptions() {
@@ -91,7 +91,7 @@ public class LogsListRequest {
    *
    * @return page
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsListRequestPage getPage() {
@@ -113,7 +113,7 @@ public class LogsListRequest {
    *
    * @return sort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsSort getSort() {

@@ -38,7 +38,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DowntimeChild.JSON_PROPERTY_TIMEZONE,
   DowntimeChild.JSON_PROPERTY_UPDATER_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DowntimeChild {
   @JsonIgnore public boolean unparsed = false;
@@ -100,7 +100,7 @@ public class DowntimeChild {
    *
    * @return active
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
@@ -112,7 +112,7 @@ public class DowntimeChild {
    *
    * @return canceled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getCanceled() {
 
@@ -138,7 +138,7 @@ public class DowntimeChild {
    *
    * @return creatorId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCreatorId() {
@@ -155,7 +155,7 @@ public class DowntimeChild {
    *
    * @return disabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisabled() {
@@ -173,7 +173,7 @@ public class DowntimeChild {
    *
    * @return downtimeType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOWNTIME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getDowntimeType() {
@@ -191,7 +191,7 @@ public class DowntimeChild {
    *
    * @return end
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getEnd() {
     return end.orElse(null);
@@ -217,7 +217,7 @@ public class DowntimeChild {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -235,7 +235,7 @@ public class DowntimeChild {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -257,7 +257,7 @@ public class DowntimeChild {
    *
    * @return monitorId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getMonitorId() {
     return monitorId.orElse(null);
@@ -300,7 +300,7 @@ public class DowntimeChild {
    *
    * @return monitorTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getMonitorTags() {
@@ -321,7 +321,7 @@ public class DowntimeChild {
    *
    * @return muteFirstRecoveryNotification
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getMuteFirstRecoveryNotification() {
@@ -342,7 +342,7 @@ public class DowntimeChild {
    *
    * @return parentId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getParentId() {
     return parentId.orElse(null);
@@ -373,7 +373,7 @@ public class DowntimeChild {
    *
    * @return recurrence
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public DowntimeRecurrence getRecurrence() {
     return recurrence.orElse(null);
@@ -415,7 +415,7 @@ public class DowntimeChild {
    *
    * @return scope
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getScope() {
@@ -437,7 +437,7 @@ public class DowntimeChild {
    *
    * @return start
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStart() {
@@ -458,7 +458,7 @@ public class DowntimeChild {
    *
    * @return timezone
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {
@@ -474,7 +474,7 @@ public class DowntimeChild {
    *
    * @return updaterId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Integer getUpdaterId() {
 

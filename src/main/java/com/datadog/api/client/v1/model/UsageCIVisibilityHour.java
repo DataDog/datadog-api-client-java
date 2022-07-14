@@ -21,7 +21,7 @@ import java.util.Objects;
   UsageCIVisibilityHour.JSON_PROPERTY_ORG_NAME,
   UsageCIVisibilityHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageCIVisibilityHour {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class UsageCIVisibilityHour {
    *
    * @return ciPipelineIndexedSpans
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCiPipelineIndexedSpans() {
@@ -76,7 +76,7 @@ public class UsageCIVisibilityHour {
    *
    * @return ciTestIndexedSpans
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCiTestIndexedSpans() {
@@ -99,7 +99,7 @@ public class UsageCIVisibilityHour {
    *
    * @return ciVisibilityPipelineCommitters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCiVisibilityPipelineCommitters() {
@@ -121,7 +121,7 @@ public class UsageCIVisibilityHour {
    *
    * @return ciVisibilityTestCommitters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCiVisibilityTestCommitters() {
@@ -142,7 +142,7 @@ public class UsageCIVisibilityHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -163,7 +163,7 @@ public class UsageCIVisibilityHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

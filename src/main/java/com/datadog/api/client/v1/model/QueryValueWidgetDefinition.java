@@ -30,7 +30,7 @@ import java.util.Objects;
   QueryValueWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   QueryValueWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class QueryValueWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -93,7 +93,7 @@ public class QueryValueWidgetDefinition {
    *
    * @return autoscale
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTOSCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAutoscale() {
@@ -126,7 +126,7 @@ public class QueryValueWidgetDefinition {
    *
    * @return customLinks
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -147,7 +147,7 @@ public class QueryValueWidgetDefinition {
    *
    * @return customUnit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomUnit() {
@@ -168,7 +168,7 @@ public class QueryValueWidgetDefinition {
    *
    * @return precision
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPrecision() {
@@ -219,7 +219,7 @@ public class QueryValueWidgetDefinition {
    *
    * @return textAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEXT_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTextAlign() {
@@ -244,7 +244,7 @@ public class QueryValueWidgetDefinition {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -267,7 +267,7 @@ public class QueryValueWidgetDefinition {
    *
    * @return timeseriesBackground
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMESERIES_BACKGROUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TimeseriesBackground getTimeseriesBackground() {
@@ -288,7 +288,7 @@ public class QueryValueWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -310,7 +310,7 @@ public class QueryValueWidgetDefinition {
    *
    * @return titleAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -334,7 +334,7 @@ public class QueryValueWidgetDefinition {
    *
    * @return titleSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {

@@ -34,7 +34,7 @@ import java.util.Objects;
   SecurityMonitoringRuleResponse.JSON_PROPERTY_UPDATE_AUTHOR_ID,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_VERSION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -111,7 +111,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return cases
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CASES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringRuleCase> getCases() {
@@ -132,7 +132,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCreatedAt() {
@@ -153,7 +153,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return creationAuthorId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATION_AUTHOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCreationAuthorId() {
@@ -186,7 +186,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return filters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringFilter> getFilters() {
@@ -207,7 +207,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return hasExtendedTitle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasExtendedTitle() {
@@ -228,7 +228,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -249,7 +249,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return isDefault
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsDefault() {
@@ -270,7 +270,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return isDeleted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsDeleted() {
@@ -291,7 +291,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return isEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -312,7 +312,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -333,7 +333,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -355,7 +355,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return options
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleOptions getOptions() {
@@ -388,7 +388,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return queries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringRuleQuery> getQueries() {
@@ -417,7 +417,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -439,7 +439,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleTypeRead getType() {
@@ -463,7 +463,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return updateAuthorId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATE_AUTHOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getUpdateAuthorId() {
@@ -484,7 +484,7 @@ public class SecurityMonitoringRuleResponse {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVersion() {

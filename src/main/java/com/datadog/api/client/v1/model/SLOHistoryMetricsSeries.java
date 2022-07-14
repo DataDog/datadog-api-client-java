@@ -25,7 +25,7 @@ import java.util.Objects;
   SLOHistoryMetricsSeries.JSON_PROPERTY_SUM,
   SLOHistoryMetricsSeries.JSON_PROPERTY_VALUES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMetricsSeries {
   @JsonIgnore public boolean unparsed = false;
@@ -84,7 +84,7 @@ public class SLOHistoryMetricsSeries {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOHistoryMetricsSeriesMetadata getMetadata() {

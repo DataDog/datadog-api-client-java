@@ -18,7 +18,7 @@ import java.util.Objects;
  * Response containing the number of indexed logs for each hour and index for a given organization.
  */
 @JsonPropertyOrder({UsageLogsByIndexResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageLogsByIndexResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -47,7 +47,7 @@ public class UsageLogsByIndexResponse {
    *
    * @return usage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageLogsByIndexHour> getUsage() {

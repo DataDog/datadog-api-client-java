@@ -19,7 +19,7 @@ import java.util.Objects;
   LogsArchiveDefinition.JSON_PROPERTY_ID,
   LogsArchiveDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -51,7 +51,7 @@ public class LogsArchiveDefinition {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsArchiveAttributes getAttributes() {
@@ -67,7 +67,7 @@ public class LogsArchiveDefinition {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {

@@ -20,7 +20,7 @@ import java.util.Objects;
   LogsArchiveDestinationGCS.JSON_PROPERTY_PATH,
   LogsArchiveDestinationGCS.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveDestinationGCS {
   @JsonIgnore public boolean unparsed = false;
@@ -103,7 +103,7 @@ public class LogsArchiveDestinationGCS {
    *
    * @return path
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPath() {

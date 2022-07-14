@@ -19,7 +19,7 @@ import java.util.Objects;
   AuthNMappingResponse.JSON_PROPERTY_DATA,
   AuthNMappingResponse.JSON_PROPERTY_INCLUDED
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -40,7 +40,7 @@ public class AuthNMappingResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthNMapping getData() {
@@ -73,7 +73,7 @@ public class AuthNMappingResponse {
    *
    * @return included
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AuthNMappingIncluded> getIncluded() {

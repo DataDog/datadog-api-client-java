@@ -20,7 +20,7 @@ import java.util.Objects;
   SignalStateUpdateRequest.JSON_PROPERTY_STATE,
   SignalStateUpdateRequest.JSON_PROPERTY_VERSION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SignalStateUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class SignalStateUpdateRequest {
    *
    * @return archiveComment
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARCHIVE_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getArchiveComment() {
@@ -77,7 +77,7 @@ public class SignalStateUpdateRequest {
    *
    * @return archiveReason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARCHIVE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SignalArchiveReason getArchiveReason() {
@@ -125,7 +125,7 @@ public class SignalStateUpdateRequest {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVersion() {

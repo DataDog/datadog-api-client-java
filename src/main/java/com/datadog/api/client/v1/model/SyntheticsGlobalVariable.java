@@ -26,7 +26,7 @@ import java.util.Objects;
   SyntheticsGlobalVariable.JSON_PROPERTY_TAGS,
   SyntheticsGlobalVariable.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsGlobalVariable {
   @JsonIgnore public boolean unparsed = false;
@@ -81,7 +81,7 @@ public class SyntheticsGlobalVariable {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsGlobalVariableAttributes getAttributes() {
@@ -117,7 +117,7 @@ public class SyntheticsGlobalVariable {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -157,7 +157,7 @@ public class SyntheticsGlobalVariable {
    *
    * @return parseTestOptions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PARSE_TEST_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsGlobalVariableParseTestOptions getParseTestOptions() {
@@ -178,7 +178,7 @@ public class SyntheticsGlobalVariable {
    *
    * @return parseTestPublicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PARSE_TEST_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getParseTestPublicId() {

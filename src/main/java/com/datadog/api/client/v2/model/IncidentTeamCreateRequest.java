@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Create request with an incident team payload. */
 @JsonPropertyOrder({IncidentTeamCreateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentTeamCreateRequest {
   @JsonIgnore public boolean unparsed = false;

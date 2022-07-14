@@ -18,7 +18,7 @@ import java.util.Objects;
   SecurityFilterExclusionFilter.JSON_PROPERTY_NAME,
   SecurityFilterExclusionFilter.JSON_PROPERTY_QUERY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityFilterExclusionFilter {
   @JsonIgnore public boolean unparsed = false;

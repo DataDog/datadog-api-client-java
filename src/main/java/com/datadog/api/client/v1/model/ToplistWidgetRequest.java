@@ -32,7 +32,7 @@ import java.util.Objects;
   ToplistWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_STYLE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ToplistWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -92,7 +92,7 @@ public class ToplistWidgetRequest {
    *
    * @return apmQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getApmQuery() {
@@ -114,7 +114,7 @@ public class ToplistWidgetRequest {
    *
    * @return auditQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUDIT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getAuditQuery() {
@@ -148,7 +148,7 @@ public class ToplistWidgetRequest {
    *
    * @return conditionalFormats
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetConditionalFormat> getConditionalFormats() {
@@ -170,7 +170,7 @@ public class ToplistWidgetRequest {
    *
    * @return eventQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getEventQuery() {
@@ -203,7 +203,7 @@ public class ToplistWidgetRequest {
    *
    * @return formulas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetFormula> getFormulas() {
@@ -225,7 +225,7 @@ public class ToplistWidgetRequest {
    *
    * @return logQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOG_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getLogQuery() {
@@ -247,7 +247,7 @@ public class ToplistWidgetRequest {
    *
    * @return networkQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getNetworkQuery() {
@@ -269,7 +269,7 @@ public class ToplistWidgetRequest {
    *
    * @return processQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ProcessQueryDefinition getProcessQuery() {
@@ -291,7 +291,7 @@ public class ToplistWidgetRequest {
    *
    * @return profileMetricsQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getProfileMetricsQuery() {
@@ -312,7 +312,7 @@ public class ToplistWidgetRequest {
    *
    * @return q
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQ() {
@@ -345,7 +345,7 @@ public class ToplistWidgetRequest {
    *
    * @return queries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<FormulaAndFunctionQueryDefinition> getQueries() {
@@ -367,7 +367,7 @@ public class ToplistWidgetRequest {
    *
    * @return responseFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionResponseFormat getResponseFormat() {
@@ -392,7 +392,7 @@ public class ToplistWidgetRequest {
    *
    * @return rumQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getRumQuery() {
@@ -414,7 +414,7 @@ public class ToplistWidgetRequest {
    *
    * @return securityQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getSecurityQuery() {
@@ -436,7 +436,7 @@ public class ToplistWidgetRequest {
    *
    * @return style
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetRequestStyle getStyle() {

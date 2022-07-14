@@ -20,7 +20,7 @@ import java.util.Objects;
   LogsListResponse.JSON_PROPERTY_NEXT_LOG_ID,
   LogsListResponse.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class LogsListResponse {
    *
    * @return logs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Log> getLogs() {
@@ -77,7 +77,7 @@ public class LogsListResponse {
    *
    * @return nextLogId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT_LOG_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNextLogId() {
@@ -98,7 +98,7 @@ public class LogsListResponse {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {

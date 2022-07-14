@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** The description of a notebook create request. */
 @JsonPropertyOrder({NotebookCreateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookCreateRequest {
   @JsonIgnore public boolean unparsed = false;

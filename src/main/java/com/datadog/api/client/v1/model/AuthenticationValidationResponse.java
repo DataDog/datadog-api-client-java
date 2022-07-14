@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Represent validation endpoint responses. */
 @JsonPropertyOrder({AuthenticationValidationResponse.JSON_PROPERTY_VALID})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthenticationValidationResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -26,7 +26,7 @@ public class AuthenticationValidationResponse {
    *
    * @return valid
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getValid() {

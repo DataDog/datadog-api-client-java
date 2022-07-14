@@ -22,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_RESULTS,
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_TRIGGERED_CHECK_IDS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTriggerCITestsResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -48,7 +48,7 @@ public class SyntheticsTriggerCITestsResponse {
    *
    * @return batchId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getBatchId() {
     return batchId.orElse(null);
@@ -93,7 +93,7 @@ public class SyntheticsTriggerCITestsResponse {
    *
    * @return locations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsTriggerCITestLocation> getLocations() {
@@ -127,7 +127,7 @@ public class SyntheticsTriggerCITestsResponse {
    *
    * @return results
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsTriggerCITestRunResult> getResults() {
@@ -156,7 +156,7 @@ public class SyntheticsTriggerCITestsResponse {
    *
    * @return triggeredCheckIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRIGGERED_CHECK_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTriggeredCheckIds() {

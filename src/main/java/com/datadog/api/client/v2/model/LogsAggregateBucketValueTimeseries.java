@@ -13,7 +13,7 @@ import java.util.Objects;
 
 /** A timeseries array */
 @JsonPropertyOrder({})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateBucketValueTimeseries
     extends ArrayList<LogsAggregateBucketValueTimeseriesPoint> {

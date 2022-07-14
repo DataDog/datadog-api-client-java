@@ -25,7 +25,7 @@ import java.util.Objects;
   UsageLogsByIndexHour.JSON_PROPERTY_PUBLIC_ID,
   UsageLogsByIndexHour.JSON_PROPERTY_RETENTION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageLogsByIndexHour {
   @JsonIgnore public boolean unparsed = false;
@@ -62,7 +62,7 @@ public class UsageLogsByIndexHour {
    *
    * @return eventCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVENT_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEventCount() {
@@ -83,7 +83,7 @@ public class UsageLogsByIndexHour {
    *
    * @return hour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -104,7 +104,7 @@ public class UsageLogsByIndexHour {
    *
    * @return indexId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIndexId() {
@@ -125,7 +125,7 @@ public class UsageLogsByIndexHour {
    *
    * @return indexName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEX_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIndexName() {
@@ -146,7 +146,7 @@ public class UsageLogsByIndexHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -167,7 +167,7 @@ public class UsageLogsByIndexHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -188,7 +188,7 @@ public class UsageLogsByIndexHour {
    *
    * @return retention
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRetention() {

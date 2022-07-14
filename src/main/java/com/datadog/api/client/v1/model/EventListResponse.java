@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** An event list response. */
 @JsonPropertyOrder({EventListResponse.JSON_PROPERTY_EVENTS, EventListResponse.JSON_PROPERTY_STATUS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -48,7 +48,7 @@ public class EventListResponse {
    *
    * @return events
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Event> getEvents() {
@@ -69,7 +69,7 @@ public class EventListResponse {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {

@@ -18,7 +18,7 @@ import java.util.Objects;
   FunnelWidgetRequest.JSON_PROPERTY_QUERY,
   FunnelWidgetRequest.JSON_PROPERTY_REQUEST_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FunnelWidgetRequest {
   @JsonIgnore public boolean unparsed = false;

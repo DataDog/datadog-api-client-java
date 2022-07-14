@@ -204,10 +204,10 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- endif %}
     {%- if isRequired %}
     {%- if isNullable %}
-      @javax.annotation.Nullable
+      @jakarta.annotation.Nullable
     {%- endif %}
     {%- else %}
-      @javax.annotation.Nullable
+      @jakarta.annotation.Nullable
     {%- endif %}
     {%- if not isRequired and isNullable %}
       @JsonIgnore

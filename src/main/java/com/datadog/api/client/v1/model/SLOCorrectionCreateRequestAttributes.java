@@ -24,7 +24,7 @@ import java.util.Objects;
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_START,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_TIMEZONE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionCreateRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -99,7 +99,7 @@ public class SLOCorrectionCreateRequestAttributes {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -120,7 +120,7 @@ public class SLOCorrectionCreateRequestAttributes {
    *
    * @return duration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDuration() {
@@ -141,7 +141,7 @@ public class SLOCorrectionCreateRequestAttributes {
    *
    * @return end
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
@@ -164,7 +164,7 @@ public class SLOCorrectionCreateRequestAttributes {
    *
    * @return rrule
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RRULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRrule() {
@@ -225,7 +225,7 @@ public class SLOCorrectionCreateRequestAttributes {
    *
    * @return timezone
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {

@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Paging settings */
 @JsonPropertyOrder({LogsAggregateRequestPage.JSON_PROPERTY_CURSOR})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateRequestPage {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class LogsAggregateRequestPage {
    *
    * @return cursor
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCursor() {

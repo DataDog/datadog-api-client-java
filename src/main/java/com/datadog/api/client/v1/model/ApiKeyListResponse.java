@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** List of API and application keys available for a given organization. */
 @JsonPropertyOrder({ApiKeyListResponse.JSON_PROPERTY_API_KEYS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApiKeyListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class ApiKeyListResponse {
    *
    * @return apiKeys
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ApiKey> getApiKeys() {

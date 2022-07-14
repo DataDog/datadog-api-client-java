@@ -19,7 +19,7 @@ import java.util.Objects;
   RUMAggregateSort.JSON_PROPERTY_ORDER,
   RUMAggregateSort.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMAggregateSort {
   @JsonIgnore public boolean unparsed = false;
@@ -46,7 +46,7 @@ public class RUMAggregateSort {
    *
    * @return aggregation
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMAggregationFunction getAggregation() {
@@ -70,7 +70,7 @@ public class RUMAggregateSort {
    *
    * @return metric
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -92,7 +92,7 @@ public class RUMAggregateSort {
    *
    * @return order
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMSortOrder getOrder() {
@@ -117,7 +117,7 @@ public class RUMAggregateSort {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMAggregateSortType getType() {

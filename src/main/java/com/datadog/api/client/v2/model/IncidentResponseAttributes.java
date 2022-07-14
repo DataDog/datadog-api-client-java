@@ -42,7 +42,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentResponseAttributes.JSON_PROPERTY_TIME_TO_RESOLVE,
   IncidentResponseAttributes.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -127,7 +127,7 @@ public class IncidentResponseAttributes {
    *
    * @return created
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -140,7 +140,7 @@ public class IncidentResponseAttributes {
    *
    * @return customerImpactDuration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCustomerImpactDuration() {
@@ -157,7 +157,7 @@ public class IncidentResponseAttributes {
    *
    * @return customerImpactEnd
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public OffsetDateTime getCustomerImpactEnd() {
     return customerImpactEnd.orElse(null);
@@ -188,7 +188,7 @@ public class IncidentResponseAttributes {
    *
    * @return customerImpactScope
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getCustomerImpactScope() {
     return customerImpactScope.orElse(null);
@@ -219,7 +219,7 @@ public class IncidentResponseAttributes {
    *
    * @return customerImpactStart
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public OffsetDateTime getCustomerImpactStart() {
     return customerImpactStart.orElse(null);
@@ -251,7 +251,7 @@ public class IncidentResponseAttributes {
    *
    * @return customerImpacted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getCustomerImpacted() {
@@ -272,7 +272,7 @@ public class IncidentResponseAttributes {
    *
    * @return detected
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public OffsetDateTime getDetected() {
     return detected.orElse(null);
@@ -311,7 +311,7 @@ public class IncidentResponseAttributes {
    *
    * @return fields
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, IncidentFieldAttributes> getFields() {
@@ -327,7 +327,7 @@ public class IncidentResponseAttributes {
    *
    * @return modified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -360,7 +360,7 @@ public class IncidentResponseAttributes {
    *
    * @return notificationHandles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<IncidentNotificationHandle> getNotificationHandles() {
     return notificationHandles.orElse(null);
@@ -393,7 +393,7 @@ public class IncidentResponseAttributes {
    *
    * @return postmortemId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POSTMORTEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPostmortemId() {
@@ -414,7 +414,7 @@ public class IncidentResponseAttributes {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPublicId() {
@@ -435,7 +435,7 @@ public class IncidentResponseAttributes {
    *
    * @return resolved
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public OffsetDateTime getResolved() {
     return resolved.orElse(null);
@@ -462,7 +462,7 @@ public class IncidentResponseAttributes {
    *
    * @return timeToDetect
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_TO_DETECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeToDetect() {
@@ -475,7 +475,7 @@ public class IncidentResponseAttributes {
    *
    * @return timeToInternalResponse
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_TO_INTERNAL_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeToInternalResponse() {
@@ -488,7 +488,7 @@ public class IncidentResponseAttributes {
    *
    * @return timeToRepair
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_TO_REPAIR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeToRepair() {
@@ -501,7 +501,7 @@ public class IncidentResponseAttributes {
    *
    * @return timeToResolve
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_TO_RESOLVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeToResolve() {

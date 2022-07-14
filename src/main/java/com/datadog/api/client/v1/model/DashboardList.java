@@ -27,7 +27,7 @@ import java.util.Objects;
   DashboardList.JSON_PROPERTY_NAME,
   DashboardList.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardList {
   @JsonIgnore public boolean unparsed = false;
@@ -71,7 +71,7 @@ public class DashboardList {
    *
    * @return author
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getAuthor() {
@@ -83,7 +83,7 @@ public class DashboardList {
    *
    * @return created
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -95,7 +95,7 @@ public class DashboardList {
    *
    * @return dashboardCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DASHBOARD_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDashboardCount() {
@@ -107,7 +107,7 @@ public class DashboardList {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -119,7 +119,7 @@ public class DashboardList {
    *
    * @return isFavorite
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsFavorite() {
@@ -131,7 +131,7 @@ public class DashboardList {
    *
    * @return modified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -163,7 +163,7 @@ public class DashboardList {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {

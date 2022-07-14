@@ -59,7 +59,7 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_SNMP_USAGE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributionValues {
   @JsonIgnore public boolean unparsed = false;
@@ -215,7 +215,7 @@ public class UsageAttributionValues {
    *
    * @return apiPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApiPercentage() {
@@ -236,7 +236,7 @@ public class UsageAttributionValues {
    *
    * @return apiUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApiUsage() {
@@ -257,7 +257,7 @@ public class UsageAttributionValues {
    *
    * @return apmHostPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApmHostPercentage() {
@@ -278,7 +278,7 @@ public class UsageAttributionValues {
    *
    * @return apmHostUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApmHostUsage() {
@@ -299,7 +299,7 @@ public class UsageAttributionValues {
    *
    * @return appsecPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPSEC_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getAppsecPercentage() {
@@ -320,7 +320,7 @@ public class UsageAttributionValues {
    *
    * @return appsecUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPSEC_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getAppsecUsage() {
@@ -341,7 +341,7 @@ public class UsageAttributionValues {
    *
    * @return browserPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getBrowserPercentage() {
@@ -362,7 +362,7 @@ public class UsageAttributionValues {
    *
    * @return browserUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getBrowserUsage() {
@@ -383,7 +383,7 @@ public class UsageAttributionValues {
    *
    * @return containerPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTAINER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getContainerPercentage() {
@@ -404,7 +404,7 @@ public class UsageAttributionValues {
    *
    * @return containerUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTAINER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getContainerUsage() {
@@ -425,7 +425,7 @@ public class UsageAttributionValues {
    *
    * @return cspmContainerPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCspmContainerPercentage() {
@@ -446,7 +446,7 @@ public class UsageAttributionValues {
    *
    * @return cspmContainerUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCspmContainerUsage() {
@@ -467,7 +467,7 @@ public class UsageAttributionValues {
    *
    * @return cspmHostPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCspmHostPercentage() {
@@ -488,7 +488,7 @@ public class UsageAttributionValues {
    *
    * @return cspmHostUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCspmHostUsage() {
@@ -509,7 +509,7 @@ public class UsageAttributionValues {
    *
    * @return customTimeseriesPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCustomTimeseriesPercentage() {
@@ -530,7 +530,7 @@ public class UsageAttributionValues {
    *
    * @return customTimeseriesUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCustomTimeseriesUsage() {
@@ -551,7 +551,7 @@ public class UsageAttributionValues {
    *
    * @return cwsContainerPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCwsContainerPercentage() {
@@ -572,7 +572,7 @@ public class UsageAttributionValues {
    *
    * @return cwsContainerUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCwsContainerUsage() {
@@ -593,7 +593,7 @@ public class UsageAttributionValues {
    *
    * @return cwsHostPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CWS_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCwsHostPercentage() {
@@ -614,7 +614,7 @@ public class UsageAttributionValues {
    *
    * @return cwsHostUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CWS_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCwsHostUsage() {
@@ -635,7 +635,7 @@ public class UsageAttributionValues {
    *
    * @return dbmHostsPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DBM_HOSTS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDbmHostsPercentage() {
@@ -656,7 +656,7 @@ public class UsageAttributionValues {
    *
    * @return dbmHostsUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DBM_HOSTS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDbmHostsUsage() {
@@ -677,7 +677,7 @@ public class UsageAttributionValues {
    *
    * @return dbmQueriesPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DBM_QUERIES_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDbmQueriesPercentage() {
@@ -698,7 +698,7 @@ public class UsageAttributionValues {
    *
    * @return dbmQueriesUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DBM_QUERIES_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDbmQueriesUsage() {
@@ -721,7 +721,7 @@ public class UsageAttributionValues {
    *
    * @return estimatedIndexedLogsPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIndexedLogsPercentage() {
@@ -742,7 +742,7 @@ public class UsageAttributionValues {
    *
    * @return estimatedIndexedLogsUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIndexedLogsUsage() {
@@ -764,7 +764,7 @@ public class UsageAttributionValues {
    *
    * @return estimatedIndexedSpansPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIndexedSpansPercentage() {
@@ -785,7 +785,7 @@ public class UsageAttributionValues {
    *
    * @return estimatedIndexedSpansUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIndexedSpansUsage() {
@@ -807,7 +807,7 @@ public class UsageAttributionValues {
    *
    * @return estimatedIngestedSpansPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIngestedSpansPercentage() {
@@ -828,7 +828,7 @@ public class UsageAttributionValues {
    *
    * @return estimatedIngestedSpansUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIngestedSpansUsage() {
@@ -849,7 +849,7 @@ public class UsageAttributionValues {
    *
    * @return infraHostPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getInfraHostPercentage() {
@@ -870,7 +870,7 @@ public class UsageAttributionValues {
    *
    * @return infraHostUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getInfraHostUsage() {
@@ -891,7 +891,7 @@ public class UsageAttributionValues {
    *
    * @return lambdaFunctionsPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAMBDA_FUNCTIONS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLambdaFunctionsPercentage() {
@@ -912,7 +912,7 @@ public class UsageAttributionValues {
    *
    * @return lambdaFunctionsUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAMBDA_FUNCTIONS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLambdaFunctionsUsage() {
@@ -933,7 +933,7 @@ public class UsageAttributionValues {
    *
    * @return lambdaInvocationsPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAMBDA_INVOCATIONS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLambdaInvocationsPercentage() {
@@ -954,7 +954,7 @@ public class UsageAttributionValues {
    *
    * @return lambdaInvocationsUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAMBDA_INVOCATIONS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLambdaInvocationsUsage() {
@@ -975,7 +975,7 @@ public class UsageAttributionValues {
    *
    * @return npmHostPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NPM_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getNpmHostPercentage() {
@@ -996,7 +996,7 @@ public class UsageAttributionValues {
    *
    * @return npmHostUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NPM_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getNpmHostUsage() {
@@ -1017,7 +1017,7 @@ public class UsageAttributionValues {
    *
    * @return profiledContainerPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledContainerPercentage() {
@@ -1038,7 +1038,7 @@ public class UsageAttributionValues {
    *
    * @return profiledContainerUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILED_CONTAINER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledContainerUsage() {
@@ -1059,7 +1059,7 @@ public class UsageAttributionValues {
    *
    * @return profiledHostsPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILED_HOSTS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledHostsPercentage() {
@@ -1080,7 +1080,7 @@ public class UsageAttributionValues {
    *
    * @return profiledHostsUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILED_HOSTS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledHostsUsage() {
@@ -1101,7 +1101,7 @@ public class UsageAttributionValues {
    *
    * @return snmpPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SNMP_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getSnmpPercentage() {
@@ -1122,7 +1122,7 @@ public class UsageAttributionValues {
    *
    * @return snmpUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SNMP_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getSnmpUsage() {

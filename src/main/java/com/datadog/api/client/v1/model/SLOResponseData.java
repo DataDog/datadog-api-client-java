@@ -35,7 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOResponseData.JSON_PROPERTY_THRESHOLDS,
   SLOResponseData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOResponseData {
   @JsonIgnore public boolean unparsed = false;
@@ -100,7 +100,7 @@ public class SLOResponseData {
    *
    * @return configuredAlertIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIGURED_ALERT_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Long> getConfiguredAlertIds() {
@@ -118,7 +118,7 @@ public class SLOResponseData {
    *
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCreatedAt() {
@@ -130,7 +130,7 @@ public class SLOResponseData {
    *
    * @return creator
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
@@ -150,7 +150,7 @@ public class SLOResponseData {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getDescription() {
     return description.orElse(null);
@@ -193,7 +193,7 @@ public class SLOResponseData {
    *
    * @return groups
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroups() {
@@ -211,7 +211,7 @@ public class SLOResponseData {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -225,7 +225,7 @@ public class SLOResponseData {
    *
    * @return modifiedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getModifiedAt() {
@@ -251,7 +251,7 @@ public class SLOResponseData {
    *
    * @return monitorIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Long> getMonitorIds() {
@@ -284,7 +284,7 @@ public class SLOResponseData {
    *
    * @return monitorTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getMonitorTags() {
@@ -305,7 +305,7 @@ public class SLOResponseData {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -329,7 +329,7 @@ public class SLOResponseData {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ServiceLevelObjectiveQuery getQuery() {
@@ -359,7 +359,7 @@ public class SLOResponseData {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -392,7 +392,7 @@ public class SLOResponseData {
    *
    * @return thresholds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_THRESHOLDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SLOThreshold> getThresholds() {
@@ -414,7 +414,7 @@ public class SLOResponseData {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOType getType() {

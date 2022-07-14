@@ -34,7 +34,7 @@ import java.util.Objects;
   SyntheticsCITest.JSON_PROPERTY_START_URL,
   SyntheticsCITest.JSON_PROPERTY_VARIABLES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCITest {
   @JsonIgnore public boolean unparsed = false;
@@ -99,7 +99,7 @@ public class SyntheticsCITest {
    *
    * @return allowInsecureCertificates
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOW_INSECURE_CERTIFICATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowInsecureCertificates() {
@@ -121,7 +121,7 @@ public class SyntheticsCITest {
    *
    * @return basicAuth
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BASIC_AUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBasicAuth getBasicAuth() {
@@ -142,7 +142,7 @@ public class SyntheticsCITest {
    *
    * @return body
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBody() {
@@ -163,7 +163,7 @@ public class SyntheticsCITest {
    *
    * @return bodyType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BODY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBodyType() {
@@ -184,7 +184,7 @@ public class SyntheticsCITest {
    *
    * @return cookies
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COOKIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCookies() {
@@ -214,7 +214,7 @@ public class SyntheticsCITest {
    *
    * @return deviceIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsDeviceID> getDeviceIds() {
@@ -235,7 +235,7 @@ public class SyntheticsCITest {
    *
    * @return followRedirects
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getFollowRedirects() {
@@ -264,7 +264,7 @@ public class SyntheticsCITest {
    *
    * @return headers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getHeaders() {
@@ -293,7 +293,7 @@ public class SyntheticsCITest {
    *
    * @return locations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getLocations() {
@@ -315,7 +315,7 @@ public class SyntheticsCITest {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadata getMetadata() {
@@ -357,7 +357,7 @@ public class SyntheticsCITest {
    *
    * @return retry
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestOptionsRetry getRetry() {
@@ -378,7 +378,7 @@ public class SyntheticsCITest {
    *
    * @return startUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartUrl() {
@@ -407,7 +407,7 @@ public class SyntheticsCITest {
    *
    * @return variables
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getVariables() {

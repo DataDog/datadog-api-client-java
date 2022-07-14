@@ -18,7 +18,7 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_ENABLED,
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_EXPRESSION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -62,7 +62,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
    *
    * @return enabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {
@@ -83,7 +83,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
    *
    * @return expression
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpression() {

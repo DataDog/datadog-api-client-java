@@ -37,7 +37,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorUpdateRequest.JSON_PROPERTY_TAGS,
   MonitorUpdateRequest.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -100,7 +100,7 @@ public class MonitorUpdateRequest {
    *
    * @return created
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -112,7 +112,7 @@ public class MonitorUpdateRequest {
    *
    * @return creator
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
@@ -124,7 +124,7 @@ public class MonitorUpdateRequest {
    *
    * @return deleted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public OffsetDateTime getDeleted() {
 
@@ -150,7 +150,7 @@ public class MonitorUpdateRequest {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -167,7 +167,7 @@ public class MonitorUpdateRequest {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -183,7 +183,7 @@ public class MonitorUpdateRequest {
    *
    * @return modified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -195,7 +195,7 @@ public class MonitorUpdateRequest {
    *
    * @return multi
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MULTI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getMulti() {
@@ -212,7 +212,7 @@ public class MonitorUpdateRequest {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -234,7 +234,7 @@ public class MonitorUpdateRequest {
    *
    * @return options
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOptions getOptions() {
@@ -250,7 +250,7 @@ public class MonitorUpdateRequest {
    *
    * @return overallState
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OVERALL_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getOverallState() {
@@ -267,7 +267,7 @@ public class MonitorUpdateRequest {
    *
    * @return priority
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPriority() {
@@ -288,7 +288,7 @@ public class MonitorUpdateRequest {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -325,7 +325,7 @@ public class MonitorUpdateRequest {
    *
    * @return restrictedRoles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRestrictedRoles() {
@@ -341,7 +341,7 @@ public class MonitorUpdateRequest {
    *
    * @return state
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorState getState() {
@@ -366,7 +366,7 @@ public class MonitorUpdateRequest {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -389,7 +389,7 @@ public class MonitorUpdateRequest {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorType getType() {

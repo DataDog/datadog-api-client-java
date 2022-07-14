@@ -19,7 +19,7 @@ import java.util.Objects;
   LogsQueryCompute.JSON_PROPERTY_FACET,
   LogsQueryCompute.JSON_PROPERTY_INTERVAL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsQueryCompute {
   @JsonIgnore public boolean unparsed = false;
@@ -70,7 +70,7 @@ public class LogsQueryCompute {
    *
    * @return facet
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFacet() {
@@ -91,7 +91,7 @@ public class LogsQueryCompute {
    *
    * @return interval
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInterval() {

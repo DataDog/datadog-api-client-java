@@ -23,7 +23,7 @@ import java.util.Objects;
   SearchSLOResponseMetaPage.JSON_PROPERTY_TOTAL,
   SearchSLOResponseMetaPage.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SearchSLOResponseMetaPage {
   @JsonIgnore public boolean unparsed = false;
@@ -61,7 +61,7 @@ public class SearchSLOResponseMetaPage {
    *
    * @return firstNumber
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIRST_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFirstNumber() {
@@ -82,7 +82,7 @@ public class SearchSLOResponseMetaPage {
    *
    * @return lastNumber
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastNumber() {
@@ -103,7 +103,7 @@ public class SearchSLOResponseMetaPage {
    *
    * @return nextNumber
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNextNumber() {
@@ -124,7 +124,7 @@ public class SearchSLOResponseMetaPage {
    *
    * @return number
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNumber() {
@@ -145,7 +145,7 @@ public class SearchSLOResponseMetaPage {
    *
    * @return prevNumber
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PREV_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPrevNumber() {
@@ -166,7 +166,7 @@ public class SearchSLOResponseMetaPage {
    *
    * @return size
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSize() {
@@ -187,7 +187,7 @@ public class SearchSLOResponseMetaPage {
    *
    * @return total
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotal() {
@@ -208,7 +208,7 @@ public class SearchSLOResponseMetaPage {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {

@@ -19,7 +19,7 @@ import java.util.Objects;
   AddSignalToIncidentRequest.JSON_PROPERTY_INCIDENT_ID,
   AddSignalToIncidentRequest.JSON_PROPERTY_VERSION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AddSignalToIncidentRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -50,7 +50,7 @@ public class AddSignalToIncidentRequest {
    *
    * @return addToSignalTimeline
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADD_TO_SIGNAL_TIMELINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAddToSignalTimeline() {
@@ -91,7 +91,7 @@ public class AddSignalToIncidentRequest {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVersion() {

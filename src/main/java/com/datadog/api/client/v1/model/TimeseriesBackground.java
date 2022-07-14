@@ -18,7 +18,7 @@ import java.util.Objects;
   TimeseriesBackground.JSON_PROPERTY_TYPE,
   TimeseriesBackground.JSON_PROPERTY_YAXIS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TimeseriesBackground {
   @JsonIgnore public boolean unparsed = false;
@@ -72,7 +72,7 @@ public class TimeseriesBackground {
    *
    * @return yaxis
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_YAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetAxis getYaxis() {

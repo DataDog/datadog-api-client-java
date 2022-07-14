@@ -17,7 +17,7 @@ import java.util.Objects;
   MonitorSearchResultNotification.JSON_PROPERTY_HANDLE,
   MonitorSearchResultNotification.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorSearchResultNotification {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class MonitorSearchResultNotification {
    *
    * @return handle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHandle() {
@@ -44,7 +44,7 @@ public class MonitorSearchResultNotification {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

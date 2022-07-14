@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Description of errors. */
 @JsonPropertyOrder({AWSLogsAsyncError.JSON_PROPERTY_CODE, AWSLogsAsyncError.JSON_PROPERTY_MESSAGE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSLogsAsyncError {
   @JsonIgnore public boolean unparsed = false;
@@ -34,7 +34,7 @@ public class AWSLogsAsyncError {
    *
    * @return code
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCode() {
@@ -55,7 +55,7 @@ public class AWSLogsAsyncError {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {

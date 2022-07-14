@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Response from the delete dashboard call. */
 @JsonPropertyOrder({DashboardDeleteResponse.JSON_PROPERTY_DELETED_DASHBOARD_ID})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardDeleteResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class DashboardDeleteResponse {
    *
    * @return deletedDashboardId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELETED_DASHBOARD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeletedDashboardId() {

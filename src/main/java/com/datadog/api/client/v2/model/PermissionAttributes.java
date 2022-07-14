@@ -25,7 +25,7 @@ import java.util.Objects;
   PermissionAttributes.JSON_PROPERTY_NAME,
   PermissionAttributes.JSON_PROPERTY_RESTRICTED
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PermissionAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -62,7 +62,7 @@ public class PermissionAttributes {
    *
    * @return created
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -83,7 +83,7 @@ public class PermissionAttributes {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -104,7 +104,7 @@ public class PermissionAttributes {
    *
    * @return displayName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayName() {
@@ -125,7 +125,7 @@ public class PermissionAttributes {
    *
    * @return displayType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISPLAY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayType() {
@@ -146,7 +146,7 @@ public class PermissionAttributes {
    *
    * @return groupName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGroupName() {
@@ -167,7 +167,7 @@ public class PermissionAttributes {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -188,7 +188,7 @@ public class PermissionAttributes {
    *
    * @return restricted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESTRICTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getRestricted() {

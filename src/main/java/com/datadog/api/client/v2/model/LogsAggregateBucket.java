@@ -19,7 +19,7 @@ import java.util.Objects;
   LogsAggregateBucket.JSON_PROPERTY_BY,
   LogsAggregateBucket.JSON_PROPERTY_COMPUTES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateBucket {
   @JsonIgnore public boolean unparsed = false;
@@ -47,7 +47,7 @@ public class LogsAggregateBucket {
    *
    * @return by
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getBy() {
@@ -76,7 +76,7 @@ public class LogsAggregateBucket {
    *
    * @return computes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, LogsAggregateBucketValue> getComputes() {

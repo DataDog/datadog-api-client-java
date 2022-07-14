@@ -21,7 +21,7 @@ import java.util.Objects;
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_USERNAME,
   SyntheticsBasicAuthNTLM.JSON_PROPERTY_WORKSTATION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBasicAuthNTLM {
   @JsonIgnore public boolean unparsed = false;
@@ -59,7 +59,7 @@ public class SyntheticsBasicAuthNTLM {
    *
    * @return domain
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOMAIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDomain() {
@@ -80,7 +80,7 @@ public class SyntheticsBasicAuthNTLM {
    *
    * @return password
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPassword() {
@@ -125,7 +125,7 @@ public class SyntheticsBasicAuthNTLM {
    *
    * @return username
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUsername() {
@@ -146,7 +146,7 @@ public class SyntheticsBasicAuthNTLM {
    *
    * @return workstation
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WORKSTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWorkstation() {

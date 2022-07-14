@@ -18,7 +18,7 @@ import java.util.Objects;
   DashboardBulkActionData.JSON_PROPERTY_ID,
   DashboardBulkActionData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardBulkActionData {
   @JsonIgnore public boolean unparsed = false;

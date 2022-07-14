@@ -22,7 +22,7 @@ import java.util.Objects;
   UsageIncidentManagementHour.JSON_PROPERTY_ORG_NAME,
   UsageIncidentManagementHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageIncidentManagementHour {
   @JsonIgnore public boolean unparsed = false;
@@ -50,7 +50,7 @@ public class UsageIncidentManagementHour {
    *
    * @return hour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -72,7 +72,7 @@ public class UsageIncidentManagementHour {
    *
    * @return monthlyActiveUsers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONTHLY_ACTIVE_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonthlyActiveUsers() {
@@ -93,7 +93,7 @@ public class UsageIncidentManagementHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -114,7 +114,7 @@ public class UsageIncidentManagementHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

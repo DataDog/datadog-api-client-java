@@ -18,7 +18,7 @@ import java.util.Objects;
   SyntheticsTriggerTest.JSON_PROPERTY_METADATA,
   SyntheticsTriggerTest.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTriggerTest {
   @JsonIgnore public boolean unparsed = false;
@@ -47,7 +47,7 @@ public class SyntheticsTriggerTest {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadata getMetadata() {

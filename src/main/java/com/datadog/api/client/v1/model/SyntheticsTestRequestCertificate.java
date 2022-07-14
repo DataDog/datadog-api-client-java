@@ -17,7 +17,7 @@ import java.util.Objects;
   SyntheticsTestRequestCertificate.JSON_PROPERTY_CERT,
   SyntheticsTestRequestCertificate.JSON_PROPERTY_KEY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestRequestCertificate {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class SyntheticsTestRequestCertificate {
    *
    * @return cert
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequestCertificateItem getCert() {
@@ -60,7 +60,7 @@ public class SyntheticsTestRequestCertificate {
    *
    * @return key
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequestCertificateItem getKey() {

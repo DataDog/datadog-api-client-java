@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Relationships of the user object. */
 @JsonPropertyOrder({UserRelationships.JSON_PROPERTY_ROLES})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserRelationships {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class UserRelationships {
    *
    * @return roles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToRoles getRoles() {

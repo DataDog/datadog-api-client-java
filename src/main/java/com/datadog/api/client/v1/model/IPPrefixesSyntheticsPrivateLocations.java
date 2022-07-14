@@ -19,7 +19,7 @@ import java.util.Objects;
   IPPrefixesSyntheticsPrivateLocations.JSON_PROPERTY_PREFIXES_IPV4,
   IPPrefixesSyntheticsPrivateLocations.JSON_PROPERTY_PREFIXES_IPV6
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IPPrefixesSyntheticsPrivateLocations {
   @JsonIgnore public boolean unparsed = false;
@@ -47,7 +47,7 @@ public class IPPrefixesSyntheticsPrivateLocations {
    *
    * @return prefixesIpv4
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV4)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPrefixesIpv4() {
@@ -76,7 +76,7 @@ public class IPPrefixesSyntheticsPrivateLocations {
    *
    * @return prefixesIpv6
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV6)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPrefixesIpv6() {

@@ -23,7 +23,7 @@ import java.util.Objects;
   SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleOptions {
   @JsonIgnore public boolean unparsed = false;
@@ -68,7 +68,7 @@ public class SecurityMonitoringRuleOptions {
    *
    * @return decreaseCriticalityBasedOnEnv
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDecreaseCriticalityBasedOnEnv() {
@@ -91,7 +91,7 @@ public class SecurityMonitoringRuleOptions {
    *
    * @return detectionMethod
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DETECTION_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleDetectionMethod getDetectionMethod() {
@@ -118,7 +118,7 @@ public class SecurityMonitoringRuleOptions {
    *
    * @return evaluationWindow
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVALUATION_WINDOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleEvaluationWindow getEvaluationWindow() {
@@ -144,7 +144,7 @@ public class SecurityMonitoringRuleOptions {
    *
    * @return hardcodedEvaluatorType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HARDCODED_EVALUATOR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleHardcodedEvaluatorType getHardcodedEvaluatorType() {
@@ -171,7 +171,7 @@ public class SecurityMonitoringRuleOptions {
    *
    * @return impossibleTravelOptions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleImpossibleTravelOptions getImpossibleTravelOptions() {
@@ -195,7 +195,7 @@ public class SecurityMonitoringRuleOptions {
    *
    * @return keepAlive
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KEEP_ALIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleKeepAlive getKeepAlive() {
@@ -222,7 +222,7 @@ public class SecurityMonitoringRuleOptions {
    *
    * @return maxSignalDuration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAX_SIGNAL_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleMaxSignalDuration getMaxSignalDuration() {
@@ -248,7 +248,7 @@ public class SecurityMonitoringRuleOptions {
    *
    * @return newValueOptions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEW_VALUE_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleNewValueOptions getNewValueOptions() {

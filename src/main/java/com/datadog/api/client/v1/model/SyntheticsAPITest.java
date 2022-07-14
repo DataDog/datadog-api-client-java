@@ -29,7 +29,7 @@ import java.util.Objects;
   SyntheticsAPITest.JSON_PROPERTY_TAGS,
   SyntheticsAPITest.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITest {
   @JsonIgnore public boolean unparsed = false;
@@ -158,7 +158,7 @@ public class SyntheticsAPITest {
    *
    * @return monitorId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorId() {
@@ -211,7 +211,7 @@ public class SyntheticsAPITest {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -230,7 +230,7 @@ public class SyntheticsAPITest {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestPauseStatus getStatus() {
@@ -257,7 +257,7 @@ public class SyntheticsAPITest {
    *
    * @return subtype
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestDetailsSubType getSubtype() {
@@ -289,7 +289,7 @@ public class SyntheticsAPITest {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

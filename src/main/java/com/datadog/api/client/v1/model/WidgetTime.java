@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Time setting for the widget. */
 @JsonPropertyOrder({WidgetTime.JSON_PROPERTY_LIVE_SPAN})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetTime {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class WidgetTime {
    *
    * @return liveSpan
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIVE_SPAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetLiveSpan getLiveSpan() {

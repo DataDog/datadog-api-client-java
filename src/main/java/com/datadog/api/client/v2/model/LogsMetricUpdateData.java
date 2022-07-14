@@ -18,7 +18,7 @@ import java.util.Objects;
   LogsMetricUpdateData.JSON_PROPERTY_ATTRIBUTES,
   LogsMetricUpdateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricUpdateData {
   @JsonIgnore public boolean unparsed = false;

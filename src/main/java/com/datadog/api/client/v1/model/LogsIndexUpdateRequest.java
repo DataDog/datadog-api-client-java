@@ -23,7 +23,7 @@ import java.util.Objects;
   LogsIndexUpdateRequest.JSON_PROPERTY_FILTER,
   LogsIndexUpdateRequest.JSON_PROPERTY_NUM_RETENTION_DAYS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsIndexUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -61,7 +61,7 @@ public class LogsIndexUpdateRequest {
    *
    * @return dailyLimit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DAILY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDailyLimit() {
@@ -84,7 +84,7 @@ public class LogsIndexUpdateRequest {
    *
    * @return disableDailyLimit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISABLE_DAILY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisableDailyLimit() {
@@ -119,7 +119,7 @@ public class LogsIndexUpdateRequest {
    *
    * @return exclusionFilters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsExclusion> getExclusionFilters() {
@@ -165,7 +165,7 @@ public class LogsIndexUpdateRequest {
    *
    * @return numRetentionDays
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUM_RETENTION_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNumRetentionDays() {

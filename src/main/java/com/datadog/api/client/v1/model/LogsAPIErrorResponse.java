@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Response returned by the Logs API when errors occur. */
 @JsonPropertyOrder({LogsAPIErrorResponse.JSON_PROPERTY_ERROR})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAPIErrorResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class LogsAPIErrorResponse {
    *
    * @return error
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsAPIError getError() {

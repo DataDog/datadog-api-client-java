@@ -36,7 +36,7 @@ import java.util.Objects;
   TableWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   TableWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TableWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -108,7 +108,7 @@ public class TableWidgetRequest {
    *
    * @return aggregator
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetAggregator getAggregator() {
@@ -132,7 +132,7 @@ public class TableWidgetRequest {
    *
    * @return alias
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAlias() {
@@ -154,7 +154,7 @@ public class TableWidgetRequest {
    *
    * @return apmQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getApmQuery() {
@@ -176,7 +176,7 @@ public class TableWidgetRequest {
    *
    * @return apmStatsQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_STATS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApmStatsQueryDefinition getApmStatsQuery() {
@@ -206,7 +206,7 @@ public class TableWidgetRequest {
    *
    * @return cellDisplayMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TableWidgetCellDisplayMode> getCellDisplayMode() {
@@ -240,7 +240,7 @@ public class TableWidgetRequest {
    *
    * @return conditionalFormats
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetConditionalFormat> getConditionalFormats() {
@@ -262,7 +262,7 @@ public class TableWidgetRequest {
    *
    * @return eventQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getEventQuery() {
@@ -295,7 +295,7 @@ public class TableWidgetRequest {
    *
    * @return formulas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetFormula> getFormulas() {
@@ -317,7 +317,7 @@ public class TableWidgetRequest {
    *
    * @return limit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -339,7 +339,7 @@ public class TableWidgetRequest {
    *
    * @return logQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOG_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getLogQuery() {
@@ -361,7 +361,7 @@ public class TableWidgetRequest {
    *
    * @return networkQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getNetworkQuery() {
@@ -383,7 +383,7 @@ public class TableWidgetRequest {
    *
    * @return order
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetSort getOrder() {
@@ -408,7 +408,7 @@ public class TableWidgetRequest {
    *
    * @return processQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ProcessQueryDefinition getProcessQuery() {
@@ -430,7 +430,7 @@ public class TableWidgetRequest {
    *
    * @return profileMetricsQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getProfileMetricsQuery() {
@@ -451,7 +451,7 @@ public class TableWidgetRequest {
    *
    * @return q
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQ() {
@@ -484,7 +484,7 @@ public class TableWidgetRequest {
    *
    * @return queries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<FormulaAndFunctionQueryDefinition> getQueries() {
@@ -506,7 +506,7 @@ public class TableWidgetRequest {
    *
    * @return responseFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionResponseFormat getResponseFormat() {
@@ -531,7 +531,7 @@ public class TableWidgetRequest {
    *
    * @return rumQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getRumQuery() {
@@ -553,7 +553,7 @@ public class TableWidgetRequest {
    *
    * @return securityQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getSecurityQuery() {

@@ -18,7 +18,7 @@ import java.util.Objects;
   RUMAnalyticsAggregateResponse.JSON_PROPERTY_LINKS,
   RUMAnalyticsAggregateResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMAnalyticsAggregateResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class RUMAnalyticsAggregateResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMAggregationBucketsResponse getData() {
@@ -64,7 +64,7 @@ public class RUMAnalyticsAggregateResponse {
    *
    * @return links
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMResponseLinks getLinks() {
@@ -86,7 +86,7 @@ public class RUMAnalyticsAggregateResponse {
    *
    * @return meta
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMResponseMetadata getMeta() {

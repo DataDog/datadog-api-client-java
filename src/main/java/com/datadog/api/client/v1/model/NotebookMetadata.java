@@ -19,7 +19,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   NotebookMetadata.JSON_PROPERTY_TAKE_SNAPSHOTS,
   NotebookMetadata.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookMetadata {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class NotebookMetadata {
    *
    * @return isTemplate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsTemplate() {
@@ -63,7 +63,7 @@ public class NotebookMetadata {
    *
    * @return takeSnapshots
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAKE_SNAPSHOTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getTakeSnapshots() {
@@ -84,7 +84,7 @@ public class NotebookMetadata {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public NotebookMetadataType getType() {
     return type.orElse(null);

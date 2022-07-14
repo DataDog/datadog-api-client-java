@@ -22,7 +22,7 @@ import java.util.Objects;
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_NOTIFICATIONS,
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleCaseCreate {
   @JsonIgnore public boolean unparsed = false;
@@ -60,7 +60,7 @@ public class SecurityMonitoringRuleCaseCreate {
    *
    * @return condition
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONDITION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCondition() {
@@ -81,7 +81,7 @@ public class SecurityMonitoringRuleCaseCreate {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -110,7 +110,7 @@ public class SecurityMonitoringRuleCaseCreate {
    *
    * @return notifications
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getNotifications() {

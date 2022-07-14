@@ -27,7 +27,7 @@ import java.util.Objects;
   Widget.JSON_PROPERTY_ID,
   Widget.JSON_PROPERTY_LAYOUT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Widget {
   @JsonIgnore public boolean unparsed = false;
@@ -81,7 +81,7 @@ public class Widget {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -104,7 +104,7 @@ public class Widget {
    *
    * @return layout
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAYOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetLayout getLayout() {

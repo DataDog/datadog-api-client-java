@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Paging attributes. */
 @JsonPropertyOrder({SecurityMonitoringSignalsListResponseMetaPage.JSON_PROPERTY_AFTER})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalsListResponseMetaPage {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class SecurityMonitoringSignalsListResponseMetaPage {
    *
    * @return after
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAfter() {

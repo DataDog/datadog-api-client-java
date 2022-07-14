@@ -19,7 +19,7 @@ import java.util.Objects;
   MetricTagConfigurationCreateData.JSON_PROPERTY_ID,
   MetricTagConfigurationCreateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricTagConfigurationCreateData {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class MetricTagConfigurationCreateData {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricTagConfigurationCreateAttributes getAttributes() {

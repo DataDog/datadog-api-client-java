@@ -18,7 +18,7 @@ import java.util.Objects;
   UserUpdateAttributes.JSON_PROPERTY_EMAIL,
   UserUpdateAttributes.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class UserUpdateAttributes {
    *
    * @return disabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisabled() {
@@ -62,7 +62,7 @@ public class UserUpdateAttributes {
    *
    * @return email
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -83,7 +83,7 @@ public class UserUpdateAttributes {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

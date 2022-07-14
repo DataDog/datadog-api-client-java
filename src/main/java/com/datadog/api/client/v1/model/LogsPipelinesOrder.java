@@ -17,7 +17,7 @@ import java.util.Objects;
 
 /** Object containing the ordered list of pipeline IDs. */
 @JsonPropertyOrder({LogsPipelinesOrder.JSON_PROPERTY_PIPELINE_IDS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsPipelinesOrder {
   @JsonIgnore public boolean unparsed = false;

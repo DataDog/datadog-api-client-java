@@ -19,7 +19,7 @@ import java.util.Objects;
   SLOBulkDeleteError.JSON_PROPERTY_MESSAGE,
   SLOBulkDeleteError.JSON_PROPERTY_TIMEFRAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOBulkDeleteError {
   @JsonIgnore public boolean unparsed = false;

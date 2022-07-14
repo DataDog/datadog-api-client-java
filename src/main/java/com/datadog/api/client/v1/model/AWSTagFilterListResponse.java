@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** An array of tag filter rules by <code>namespace</code> and tag filter string. */
 @JsonPropertyOrder({AWSTagFilterListResponse.JSON_PROPERTY_FILTERS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSTagFilterListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class AWSTagFilterListResponse {
    *
    * @return filters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AWSTagFilter> getFilters() {

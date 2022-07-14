@@ -31,7 +31,7 @@ import java.util.Objects;
   DashboardListItem.JSON_PROPERTY_TYPE,
   DashboardListItem.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardListItem {
   @JsonIgnore public boolean unparsed = false;
@@ -97,7 +97,7 @@ public class DashboardListItem {
    *
    * @return author
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getAuthor() {
@@ -113,7 +113,7 @@ public class DashboardListItem {
    *
    * @return created
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -125,7 +125,7 @@ public class DashboardListItem {
    *
    * @return icon
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIcon() {
@@ -157,7 +157,7 @@ public class DashboardListItem {
    *
    * @return isFavorite
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsFavorite() {
@@ -169,7 +169,7 @@ public class DashboardListItem {
    *
    * @return isReadOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsReadOnly() {
@@ -181,7 +181,7 @@ public class DashboardListItem {
    *
    * @return isShared
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_SHARED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsShared() {
@@ -193,7 +193,7 @@ public class DashboardListItem {
    *
    * @return modified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -205,7 +205,7 @@ public class DashboardListItem {
    *
    * @return popularity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POPULARITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getPopularity() {
@@ -217,7 +217,7 @@ public class DashboardListItem {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -253,7 +253,7 @@ public class DashboardListItem {
    *
    * @return url
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {

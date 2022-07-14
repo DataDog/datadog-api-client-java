@@ -20,7 +20,7 @@ import java.util.Objects;
   AuditLogsQueryOptions.JSON_PROPERTY_TIME_OFFSET,
   AuditLogsQueryOptions.JSON_PROPERTY_TIMEZONE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditLogsQueryOptions {
   @JsonIgnore public boolean unparsed = false;
@@ -40,7 +40,7 @@ public class AuditLogsQueryOptions {
    *
    * @return timeOffset
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeOffset() {
@@ -61,7 +61,7 @@ public class AuditLogsQueryOptions {
    *
    * @return timezone
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {

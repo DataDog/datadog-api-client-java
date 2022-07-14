@@ -21,7 +21,7 @@ import java.util.Objects;
   SLOThreshold.JSON_PROPERTY_WARNING,
   SLOThreshold.JSON_PROPERTY_WARNING_DISPLAY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOThreshold {
   @JsonIgnore public boolean unparsed = false;
@@ -84,7 +84,7 @@ public class SLOThreshold {
    *
    * @return targetDisplay
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTargetDisplay() {
@@ -129,7 +129,7 @@ public class SLOThreshold {
    *
    * @return warning
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getWarning() {
@@ -154,7 +154,7 @@ public class SLOThreshold {
    *
    * @return warningDisplay
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WARNING_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWarningDisplay() {

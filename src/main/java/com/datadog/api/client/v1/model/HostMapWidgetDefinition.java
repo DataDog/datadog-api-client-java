@@ -34,7 +34,7 @@ import java.util.Objects;
   HostMapWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   HostMapWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -112,7 +112,7 @@ public class HostMapWidgetDefinition {
    *
    * @return customLinks
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -141,7 +141,7 @@ public class HostMapWidgetDefinition {
    *
    * @return group
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroup() {
@@ -162,7 +162,7 @@ public class HostMapWidgetDefinition {
    *
    * @return noGroupHosts
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NO_GROUP_HOSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNoGroupHosts() {
@@ -183,7 +183,7 @@ public class HostMapWidgetDefinition {
    *
    * @return noMetricHosts
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NO_METRIC_HOSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNoMetricHosts() {
@@ -205,7 +205,7 @@ public class HostMapWidgetDefinition {
    *
    * @return nodeType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NODE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetNodeType getNodeType() {
@@ -229,7 +229,7 @@ public class HostMapWidgetDefinition {
    *
    * @return notes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NOTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNotes() {
@@ -279,7 +279,7 @@ public class HostMapWidgetDefinition {
    *
    * @return scope
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getScope() {
@@ -301,7 +301,7 @@ public class HostMapWidgetDefinition {
    *
    * @return style
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMapWidgetDefinitionStyle getStyle() {
@@ -322,7 +322,7 @@ public class HostMapWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -344,7 +344,7 @@ public class HostMapWidgetDefinition {
    *
    * @return titleAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -368,7 +368,7 @@ public class HostMapWidgetDefinition {
    *
    * @return titleSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {

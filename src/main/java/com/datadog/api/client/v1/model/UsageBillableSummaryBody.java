@@ -25,7 +25,7 @@ import java.util.Objects;
   UsageBillableSummaryBody.JSON_PROPERTY_PERCENTAGE_IN_ACCOUNT,
   UsageBillableSummaryBody.JSON_PROPERTY_USAGE_UNIT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageBillableSummaryBody {
   @JsonIgnore public boolean unparsed = false;
@@ -64,7 +64,7 @@ public class UsageBillableSummaryBody {
    *
    * @return accountBillableUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAccountBillableUsage() {
@@ -85,7 +85,7 @@ public class UsageBillableSummaryBody {
    *
    * @return elapsedUsageHours
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ELAPSED_USAGE_HOURS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getElapsedUsageHours() {
@@ -106,7 +106,7 @@ public class UsageBillableSummaryBody {
    *
    * @return firstBillableUsageHour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIRST_BILLABLE_USAGE_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getFirstBillableUsageHour() {
@@ -127,7 +127,7 @@ public class UsageBillableSummaryBody {
    *
    * @return lastBillableUsageHour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_BILLABLE_USAGE_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getLastBillableUsageHour() {
@@ -148,7 +148,7 @@ public class UsageBillableSummaryBody {
    *
    * @return orgBillableUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_BILLABLE_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOrgBillableUsage() {
@@ -169,7 +169,7 @@ public class UsageBillableSummaryBody {
    *
    * @return percentageInAccount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERCENTAGE_IN_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getPercentageInAccount() {
@@ -190,7 +190,7 @@ public class UsageBillableSummaryBody {
    *
    * @return usageUnit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUsageUnit() {

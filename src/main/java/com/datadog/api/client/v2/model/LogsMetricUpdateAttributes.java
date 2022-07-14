@@ -19,7 +19,7 @@ import java.util.Objects;
   LogsMetricUpdateAttributes.JSON_PROPERTY_FILTER,
   LogsMetricUpdateAttributes.JSON_PROPERTY_GROUP_BY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -40,7 +40,7 @@ public class LogsMetricUpdateAttributes {
    *
    * @return filter
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsMetricFilter getFilter() {
@@ -73,7 +73,7 @@ public class LogsMetricUpdateAttributes {
    *
    * @return groupBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsMetricGroupBy> getGroupBy() {

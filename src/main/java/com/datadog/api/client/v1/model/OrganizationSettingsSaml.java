@@ -17,7 +17,7 @@ import java.util.Objects;
  * documentation for more information about all SAML settings.
  */
 @JsonPropertyOrder({OrganizationSettingsSaml.JSON_PROPERTY_ENABLED})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationSettingsSaml {
   @JsonIgnore public boolean unparsed = false;
@@ -34,7 +34,7 @@ public class OrganizationSettingsSaml {
    *
    * @return enabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {

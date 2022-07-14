@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Response metadata object. */
 @JsonPropertyOrder({ProcessSummariesMeta.JSON_PROPERTY_PAGE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessSummariesMeta {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class ProcessSummariesMeta {
    *
    * @return page
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ProcessSummariesMetaPage getPage() {

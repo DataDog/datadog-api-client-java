@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Optional parameters for bulk deleting metric tag configurations. */
 @JsonPropertyOrder({MetricBulkTagConfigDeleteAttributes.JSON_PROPERTY_EMAILS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricBulkTagConfigDeleteAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class MetricBulkTagConfigDeleteAttributes {
    *
    * @return emails
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getEmails() {

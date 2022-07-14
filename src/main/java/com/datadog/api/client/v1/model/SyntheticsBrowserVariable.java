@@ -25,7 +25,7 @@ import java.util.Objects;
   SyntheticsBrowserVariable.JSON_PROPERTY_PATTERN,
   SyntheticsBrowserVariable.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserVariable {
   @JsonIgnore public boolean unparsed = false;
@@ -66,7 +66,7 @@ public class SyntheticsBrowserVariable {
    *
    * @return example
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExample() {
@@ -87,7 +87,7 @@ public class SyntheticsBrowserVariable {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -128,7 +128,7 @@ public class SyntheticsBrowserVariable {
    *
    * @return pattern
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PATTERN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPattern() {

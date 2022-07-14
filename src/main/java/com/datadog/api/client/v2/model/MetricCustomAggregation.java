@@ -18,7 +18,7 @@ import java.util.Objects;
   MetricCustomAggregation.JSON_PROPERTY_SPACE,
   MetricCustomAggregation.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricCustomAggregation {
   @JsonIgnore public boolean unparsed = false;

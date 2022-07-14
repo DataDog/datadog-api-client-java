@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** The Response returned by the AWS Create Account call. */
 @JsonPropertyOrder({AWSAccountCreateResponse.JSON_PROPERTY_EXTERNAL_ID})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSAccountCreateResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class AWSAccountCreateResponse {
    *
    * @return externalId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExternalId() {

@@ -35,7 +35,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 @JsonDeserialize(using = DistributionPointItem.DistributionPointItemDeserializer.class)
 @JsonSerialize(using = DistributionPointItem.DistributionPointItemSerializer.class)

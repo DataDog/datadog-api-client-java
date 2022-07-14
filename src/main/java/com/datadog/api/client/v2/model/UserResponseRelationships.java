@@ -19,7 +19,7 @@ import java.util.Objects;
   UserResponseRelationships.JSON_PROPERTY_OTHER_USERS,
   UserResponseRelationships.JSON_PROPERTY_ROLES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserResponseRelationships {
   @JsonIgnore public boolean unparsed = false;
@@ -46,7 +46,7 @@ public class UserResponseRelationships {
    *
    * @return org
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToOrganization getOrg() {
@@ -68,7 +68,7 @@ public class UserResponseRelationships {
    *
    * @return otherOrgs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OTHER_ORGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToOrganizations getOtherOrgs() {
@@ -90,7 +90,7 @@ public class UserResponseRelationships {
    *
    * @return otherUsers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OTHER_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUsers getOtherUsers() {
@@ -112,7 +112,7 @@ public class UserResponseRelationships {
    *
    * @return roles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToRoles getRoles() {

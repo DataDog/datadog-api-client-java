@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Bucket values. */
 @JsonPropertyOrder({RUMBucketResponse.JSON_PROPERTY_BY, RUMBucketResponse.JSON_PROPERTY_COMPUTES})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMBucketResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -44,7 +44,7 @@ public class RUMBucketResponse {
    *
    * @return by
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getBy() {
@@ -73,7 +73,7 @@ public class RUMBucketResponse {
    *
    * @return computes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, RUMAggregateBucketValue> getComputes() {

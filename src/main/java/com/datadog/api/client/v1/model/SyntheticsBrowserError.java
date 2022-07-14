@@ -20,7 +20,7 @@ import java.util.Objects;
   SyntheticsBrowserError.JSON_PROPERTY_STATUS,
   SyntheticsBrowserError.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserError {
   @JsonIgnore public boolean unparsed = false;
@@ -99,7 +99,7 @@ public class SyntheticsBrowserError {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStatus() {

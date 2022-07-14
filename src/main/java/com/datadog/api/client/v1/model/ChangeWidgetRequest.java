@@ -35,7 +35,7 @@ import java.util.Objects;
   ChangeWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_SHOW_PRESENT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ChangeWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -104,7 +104,7 @@ public class ChangeWidgetRequest {
    *
    * @return apmQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getApmQuery() {
@@ -126,7 +126,7 @@ public class ChangeWidgetRequest {
    *
    * @return changeType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHANGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetChangeType getChangeType() {
@@ -151,7 +151,7 @@ public class ChangeWidgetRequest {
    *
    * @return compareTo
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPARE_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetCompareTo getCompareTo() {
@@ -176,7 +176,7 @@ public class ChangeWidgetRequest {
    *
    * @return eventQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getEventQuery() {
@@ -209,7 +209,7 @@ public class ChangeWidgetRequest {
    *
    * @return formulas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetFormula> getFormulas() {
@@ -230,7 +230,7 @@ public class ChangeWidgetRequest {
    *
    * @return increaseGood
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCREASE_GOOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncreaseGood() {
@@ -252,7 +252,7 @@ public class ChangeWidgetRequest {
    *
    * @return logQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOG_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getLogQuery() {
@@ -274,7 +274,7 @@ public class ChangeWidgetRequest {
    *
    * @return networkQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getNetworkQuery() {
@@ -296,7 +296,7 @@ public class ChangeWidgetRequest {
    *
    * @return orderBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORDER_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetOrderBy getOrderBy() {
@@ -321,7 +321,7 @@ public class ChangeWidgetRequest {
    *
    * @return orderDir
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORDER_DIR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetSort getOrderDir() {
@@ -346,7 +346,7 @@ public class ChangeWidgetRequest {
    *
    * @return processQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ProcessQueryDefinition getProcessQuery() {
@@ -368,7 +368,7 @@ public class ChangeWidgetRequest {
    *
    * @return profileMetricsQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getProfileMetricsQuery() {
@@ -389,7 +389,7 @@ public class ChangeWidgetRequest {
    *
    * @return q
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQ() {
@@ -422,7 +422,7 @@ public class ChangeWidgetRequest {
    *
    * @return queries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<FormulaAndFunctionQueryDefinition> getQueries() {
@@ -444,7 +444,7 @@ public class ChangeWidgetRequest {
    *
    * @return responseFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionResponseFormat getResponseFormat() {
@@ -469,7 +469,7 @@ public class ChangeWidgetRequest {
    *
    * @return rumQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getRumQuery() {
@@ -491,7 +491,7 @@ public class ChangeWidgetRequest {
    *
    * @return securityQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getSecurityQuery() {
@@ -512,7 +512,7 @@ public class ChangeWidgetRequest {
    *
    * @return showPresent
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_PRESENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowPresent() {

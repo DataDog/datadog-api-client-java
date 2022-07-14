@@ -19,7 +19,7 @@ import java.util.Objects;
   SyntheticsBasicAuthWeb.JSON_PROPERTY_TYPE,
   SyntheticsBasicAuthWeb.JSON_PROPERTY_USERNAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBasicAuthWeb {
   @JsonIgnore public boolean unparsed = false;
@@ -73,7 +73,7 @@ public class SyntheticsBasicAuthWeb {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBasicAuthWebType getType() {

@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Filter for logs. */
 @JsonPropertyOrder({LogsFilter.JSON_PROPERTY_QUERY})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsFilter {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class LogsFilter {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {

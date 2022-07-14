@@ -19,7 +19,7 @@ import java.util.Objects;
   MetricsListResponse.JSON_PROPERTY_FROM,
   MetricsListResponse.JSON_PROPERTY_METRICS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -39,7 +39,7 @@ public class MetricsListResponse {
    *
    * @return from
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFrom() {
@@ -68,7 +68,7 @@ public class MetricsListResponse {
    *
    * @return metrics
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getMetrics() {

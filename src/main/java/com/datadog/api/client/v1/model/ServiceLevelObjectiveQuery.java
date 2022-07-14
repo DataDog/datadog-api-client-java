@@ -22,7 +22,7 @@ import java.util.Objects;
   ServiceLevelObjectiveQuery.JSON_PROPERTY_DENOMINATOR,
   ServiceLevelObjectiveQuery.JSON_PROPERTY_NUMERATOR
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceLevelObjectiveQuery {
   @JsonIgnore public boolean unparsed = false;

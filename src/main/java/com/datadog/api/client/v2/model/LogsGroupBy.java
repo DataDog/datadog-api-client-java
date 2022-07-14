@@ -22,7 +22,7 @@ import java.util.Objects;
   LogsGroupBy.JSON_PROPERTY_SORT,
   LogsGroupBy.JSON_PROPERTY_TOTAL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsGroupBy {
   @JsonIgnore public boolean unparsed = false;
@@ -83,7 +83,7 @@ public class LogsGroupBy {
    *
    * @return histogram
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HISTOGRAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsGroupByHistogram getHistogram() {
@@ -104,7 +104,7 @@ public class LogsGroupBy {
    *
    * @return limit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -126,7 +126,7 @@ public class LogsGroupBy {
    *
    * @return missing
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MISSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsGroupByMissing getMissing() {
@@ -148,7 +148,7 @@ public class LogsGroupBy {
    *
    * @return sort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsAggregateSort getSort() {
@@ -170,7 +170,7 @@ public class LogsGroupBy {
    *
    * @return total
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsGroupByTotal getTotal() {

@@ -20,7 +20,7 @@ import java.util.Objects;
   DashboardListItems.JSON_PROPERTY_DASHBOARDS,
   DashboardListItems.JSON_PROPERTY_TOTAL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardListItems {
   @JsonIgnore public boolean unparsed = false;
@@ -73,7 +73,7 @@ public class DashboardListItems {
    *
    * @return total
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotal() {

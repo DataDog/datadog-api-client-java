@@ -21,7 +21,7 @@ import java.util.Objects;
   IFrameWidgetDefinition.JSON_PROPERTY_TYPE,
   IFrameWidgetDefinition.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IFrameWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;

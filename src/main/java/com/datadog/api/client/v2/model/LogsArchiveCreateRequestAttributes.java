@@ -25,7 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_REHYDRATION_MAX_SCAN_SIZE_IN_GB,
   LogsArchiveCreateRequestAttributes.JSON_PROPERTY_REHYDRATION_TAGS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveCreateRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -95,7 +95,7 @@ public class LogsArchiveCreateRequestAttributes {
    *
    * @return includeTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludeTags() {
@@ -157,7 +157,7 @@ public class LogsArchiveCreateRequestAttributes {
    *
    * @return rehydrationMaxScanSizeInGb
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getRehydrationMaxScanSizeInGb() {
     return rehydrationMaxScanSizeInGb.orElse(null);
@@ -197,7 +197,7 @@ public class LogsArchiveCreateRequestAttributes {
    *
    * @return rehydrationTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REHYDRATION_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRehydrationTags() {

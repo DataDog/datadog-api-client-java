@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** The relationships the incident will have with other resources once created. */
 @JsonPropertyOrder({IncidentCreateRelationships.JSON_PROPERTY_COMMANDER_USER})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentCreateRelationships {
   @JsonIgnore public boolean unparsed = false;

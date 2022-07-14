@@ -23,7 +23,7 @@ import java.util.Objects;
   UsageSDSHour.JSON_PROPERTY_PUBLIC_ID,
   UsageSDSHour.JSON_PROPERTY_TOTAL_SCANNED_BYTES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSDSHour {
   @JsonIgnore public boolean unparsed = false;
@@ -54,7 +54,7 @@ public class UsageSDSHour {
    *
    * @return hour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -76,7 +76,7 @@ public class UsageSDSHour {
    *
    * @return logsScannedBytes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_SCANNED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsScannedBytes() {
@@ -97,7 +97,7 @@ public class UsageSDSHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -118,7 +118,7 @@ public class UsageSDSHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -140,7 +140,7 @@ public class UsageSDSHour {
    *
    * @return totalScannedBytes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_SCANNED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalScannedBytes() {

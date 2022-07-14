@@ -28,7 +28,7 @@ import java.util.Objects;
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_SERVICE,
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_STAT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -145,7 +145,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return groupBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupBy() {
@@ -186,7 +186,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return operationName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPERATION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOperationName() {
@@ -209,7 +209,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return primaryTagName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrimaryTagName() {
@@ -231,7 +231,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return primaryTagValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrimaryTagValue() {
@@ -252,7 +252,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
    *
    * @return resourceName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOURCE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResourceName() {

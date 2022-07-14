@@ -19,7 +19,7 @@ import java.util.Objects;
   IncidentServiceCreateData.JSON_PROPERTY_RELATIONSHIPS,
   IncidentServiceCreateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentServiceCreateData {
   @JsonIgnore public boolean unparsed = false;
@@ -52,7 +52,7 @@ public class IncidentServiceCreateData {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentServiceCreateAttributes getAttributes() {
@@ -68,7 +68,7 @@ public class IncidentServiceCreateData {
    *
    * @return relationships
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentServiceRelationships getRelationships() {

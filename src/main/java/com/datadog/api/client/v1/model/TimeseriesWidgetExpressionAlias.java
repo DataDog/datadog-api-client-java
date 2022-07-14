@@ -18,7 +18,7 @@ import java.util.Objects;
   TimeseriesWidgetExpressionAlias.JSON_PROPERTY_ALIAS_NAME,
   TimeseriesWidgetExpressionAlias.JSON_PROPERTY_EXPRESSION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TimeseriesWidgetExpressionAlias {
   @JsonIgnore public boolean unparsed = false;
@@ -46,7 +46,7 @@ public class TimeseriesWidgetExpressionAlias {
    *
    * @return aliasName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALIAS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAliasName() {

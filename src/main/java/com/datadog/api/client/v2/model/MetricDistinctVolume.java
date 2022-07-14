@@ -18,7 +18,7 @@ import java.util.Objects;
   MetricDistinctVolume.JSON_PROPERTY_ID,
   MetricDistinctVolume.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricDistinctVolume {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class MetricDistinctVolume {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricDistinctVolumeAttributes getAttributes() {
@@ -63,7 +63,7 @@ public class MetricDistinctVolume {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -85,7 +85,7 @@ public class MetricDistinctVolume {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricDistinctVolumeType getType() {

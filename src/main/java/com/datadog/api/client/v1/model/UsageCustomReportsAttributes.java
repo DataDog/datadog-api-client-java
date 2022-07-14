@@ -22,7 +22,7 @@ import java.util.Objects;
   UsageCustomReportsAttributes.JSON_PROPERTY_START_DATE,
   UsageCustomReportsAttributes.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageCustomReportsAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -51,7 +51,7 @@ public class UsageCustomReportsAttributes {
    *
    * @return computedOn
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPUTED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getComputedOn() {
@@ -72,7 +72,7 @@ public class UsageCustomReportsAttributes {
    *
    * @return endDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEndDate() {
@@ -93,7 +93,7 @@ public class UsageCustomReportsAttributes {
    *
    * @return size
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSize() {
@@ -114,7 +114,7 @@ public class UsageCustomReportsAttributes {
    *
    * @return startDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartDate() {
@@ -143,7 +143,7 @@ public class UsageCustomReportsAttributes {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

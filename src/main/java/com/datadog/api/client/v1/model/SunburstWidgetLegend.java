@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 @JsonDeserialize(using = SunburstWidgetLegend.SunburstWidgetLegendDeserializer.class)
 @JsonSerialize(using = SunburstWidgetLegend.SunburstWidgetLegendSerializer.class)

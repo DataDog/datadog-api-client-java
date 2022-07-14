@@ -24,7 +24,7 @@ import java.util.Objects;
   UsageLogsByRetentionHour.JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT,
   UsageLogsByRetentionHour.JSON_PROPERTY_RETENTION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageLogsByRetentionHour {
   @JsonIgnore public boolean unparsed = false;
@@ -57,7 +57,7 @@ public class UsageLogsByRetentionHour {
    *
    * @return indexedEventsCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIndexedEventsCount() {
@@ -78,7 +78,7 @@ public class UsageLogsByRetentionHour {
    *
    * @return liveIndexedEventsCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIVE_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLiveIndexedEventsCount() {
@@ -99,7 +99,7 @@ public class UsageLogsByRetentionHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -120,7 +120,7 @@ public class UsageLogsByRetentionHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -141,7 +141,7 @@ public class UsageLogsByRetentionHour {
    *
    * @return rehydratedIndexedEventsCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRehydratedIndexedEventsCount() {
@@ -162,7 +162,7 @@ public class UsageLogsByRetentionHour {
    *
    * @return retention
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRetention() {

@@ -22,7 +22,7 @@ import java.util.Objects;
   MetricMetadata.JSON_PROPERTY_TYPE,
   MetricMetadata.JSON_PROPERTY_UNIT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricMetadata {
   @JsonIgnore public boolean unparsed = false;
@@ -57,7 +57,7 @@ public class MetricMetadata {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -73,7 +73,7 @@ public class MetricMetadata {
    *
    * @return integration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INTEGRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIntegration() {
@@ -90,7 +90,7 @@ public class MetricMetadata {
    *
    * @return perUnit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PER_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPerUnit() {
@@ -111,7 +111,7 @@ public class MetricMetadata {
    *
    * @return shortName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShortName() {
@@ -132,7 +132,7 @@ public class MetricMetadata {
    *
    * @return statsdInterval
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATSD_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStatsdInterval() {
@@ -153,7 +153,7 @@ public class MetricMetadata {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -174,7 +174,7 @@ public class MetricMetadata {
    *
    * @return unit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUnit() {

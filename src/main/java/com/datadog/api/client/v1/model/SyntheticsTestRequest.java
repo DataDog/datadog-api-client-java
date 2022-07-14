@@ -39,7 +39,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_TIMEOUT,
   SyntheticsTestRequest.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -119,7 +119,7 @@ public class SyntheticsTestRequest {
    *
    * @return allowInsecure
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOW_INSECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowInsecure() {
@@ -141,7 +141,7 @@ public class SyntheticsTestRequest {
    *
    * @return basicAuth
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BASIC_AUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBasicAuth getBasicAuth() {
@@ -162,7 +162,7 @@ public class SyntheticsTestRequest {
    *
    * @return body
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBody() {
@@ -184,7 +184,7 @@ public class SyntheticsTestRequest {
    *
    * @return certificate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CERTIFICATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequestCertificate getCertificate() {
@@ -205,7 +205,7 @@ public class SyntheticsTestRequest {
    *
    * @return dnsServer
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DNS_SERVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDnsServer() {
@@ -226,7 +226,7 @@ public class SyntheticsTestRequest {
    *
    * @return dnsServerPort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DNS_SERVER_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getDnsServerPort() {
@@ -247,7 +247,7 @@ public class SyntheticsTestRequest {
    *
    * @return followRedirects
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getFollowRedirects() {
@@ -276,7 +276,7 @@ public class SyntheticsTestRequest {
    *
    * @return headers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getHeaders() {
@@ -297,7 +297,7 @@ public class SyntheticsTestRequest {
    *
    * @return host
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -318,7 +318,7 @@ public class SyntheticsTestRequest {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -347,7 +347,7 @@ public class SyntheticsTestRequest {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getMetadata() {
@@ -369,7 +369,7 @@ public class SyntheticsTestRequest {
    *
    * @return method
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HTTPMethod getMethod() {
@@ -393,7 +393,7 @@ public class SyntheticsTestRequest {
    *
    * @return noSavingResponseBody
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NO_SAVING_RESPONSE_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNoSavingResponseBody() {
@@ -414,7 +414,7 @@ public class SyntheticsTestRequest {
    *
    * @return numberOfPackets
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_PACKETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getNumberOfPackets() {
@@ -435,7 +435,7 @@ public class SyntheticsTestRequest {
    *
    * @return port
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPort() {
@@ -457,7 +457,7 @@ public class SyntheticsTestRequest {
    *
    * @return proxy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROXY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequestProxy getProxy() {
@@ -478,7 +478,7 @@ public class SyntheticsTestRequest {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Object getQuery() {
@@ -501,7 +501,7 @@ public class SyntheticsTestRequest {
    *
    * @return servername
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getServername() {
@@ -522,7 +522,7 @@ public class SyntheticsTestRequest {
    *
    * @return service
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getService() {
@@ -543,7 +543,7 @@ public class SyntheticsTestRequest {
    *
    * @return shouldTrackHops
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOULD_TRACK_HOPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShouldTrackHops() {
@@ -564,7 +564,7 @@ public class SyntheticsTestRequest {
    *
    * @return timeout
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTimeout() {
@@ -585,7 +585,7 @@ public class SyntheticsTestRequest {
    *
    * @return url
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {

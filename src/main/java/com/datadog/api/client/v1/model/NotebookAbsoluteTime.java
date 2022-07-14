@@ -22,7 +22,7 @@ import java.util.Objects;
   NotebookAbsoluteTime.JSON_PROPERTY_LIVE,
   NotebookAbsoluteTime.JSON_PROPERTY_START
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookAbsoluteTime {
   @JsonIgnore public boolean unparsed = false;
@@ -79,7 +79,7 @@ public class NotebookAbsoluteTime {
    *
    * @return live
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getLive() {
