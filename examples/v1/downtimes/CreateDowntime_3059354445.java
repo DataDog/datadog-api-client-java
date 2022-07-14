@@ -20,7 +20,8 @@ public class Example {
             .start(OffsetDateTime.now().toInstant().getEpochSecond())
             .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
             .timezone("Etc/UTC")
-            .muteFirstRecoveryNotification(true);
+            .muteFirstRecoveryNotification(true)
+            .monitorTags(Collections.singletonList("tag0"));
 
     try {
       Downtime result = apiInstance.createDowntime(body);

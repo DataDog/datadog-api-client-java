@@ -25,7 +25,8 @@ public class Example {
             .scope(Collections.singletonList("*"))
             .start(OffsetDateTime.now().toInstant().getEpochSecond())
             .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
-            .timezone("Etc/UTC");
+            .timezone("Etc/UTC")
+            .monitorTags(Collections.singletonList("tag0"));
 
     try {
       Downtime result = apiInstance.createDowntime(body);
