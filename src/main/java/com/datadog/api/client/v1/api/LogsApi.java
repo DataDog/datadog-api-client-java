@@ -8,13 +8,13 @@ import com.datadog.api.client.v1.model.ContentEncoding;
 import com.datadog.api.client.v1.model.HTTPLogItem;
 import com.datadog.api.client.v1.model.LogsListRequest;
 import com.datadog.api.client.v1.model.LogsListResponse;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

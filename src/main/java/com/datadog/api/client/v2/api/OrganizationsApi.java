@@ -4,12 +4,12 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import jakarta.ws.rs.client.Invocation;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import javax.ws.rs.client.Invocation;
 
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

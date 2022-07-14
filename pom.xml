@@ -574,10 +574,10 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jersey-version>2.35</jersey-version>
+        <jersey-version>3.0.4</jersey-version>
         <jackson-version>2.13.2</jackson-version>
         <jackson-databind-version>2.13.2.2</jackson-databind-version>
-        <jackson-databind-nullable-version>0.2.2</jackson-databind-nullable-version>
+        <jackson-databind-nullable-version>0.2.3</jackson-databind-nullable-version>
         <scribejava-version>8.3.1</scribejava-version>
         <junit-version>4.13.2</junit-version>
         <dd-java-agent-version>0.98.1</dd-java-agent-version>

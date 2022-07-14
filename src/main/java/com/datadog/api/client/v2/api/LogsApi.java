@@ -14,6 +14,8 @@ import com.datadog.api.client.v2.model.LogsListRequest;
 import com.datadog.api.client.v2.model.LogsListRequestPage;
 import com.datadog.api.client.v2.model.LogsListResponse;
 import com.datadog.api.client.v2.model.LogsSort;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.core.GenericType;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,8 +23,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

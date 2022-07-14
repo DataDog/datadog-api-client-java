@@ -9,13 +9,13 @@ package com.datadog.api.client;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.ext.ContextResolver;
 import java.text.DateFormat;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.ext.ContextResolver;
 import org.openapitools.jackson.nullable.JsonNullableModule;
 
 @javax.annotation.Generated(

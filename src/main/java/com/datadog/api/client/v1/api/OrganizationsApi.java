@@ -11,13 +11,13 @@ import com.datadog.api.client.v1.model.OrganizationCreateBody;
 import com.datadog.api.client.v1.model.OrganizationCreateResponse;
 import com.datadog.api.client.v1.model.OrganizationListResponse;
 import com.datadog.api.client.v1.model.OrganizationResponse;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.core.GenericType;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

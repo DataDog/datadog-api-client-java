@@ -13,6 +13,7 @@ import com.github.scribejava.core.builder.api.DefaultApi20;
 import com.github.scribejava.core.exceptions.OAuthException;
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.github.scribejava.core.oauth.OAuth20Service;
+import jakarta.ws.rs.core.UriBuilder;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -21,7 +22,6 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ws.rs.core.UriBuilder;
 
 @javax.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

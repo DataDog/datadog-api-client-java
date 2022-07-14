@@ -28,7 +28,7 @@ import java.time.Duration;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicReference;
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import org.junit.AssumptionViolatedException;
 import org.junit.Before;
 import org.junit.Test;

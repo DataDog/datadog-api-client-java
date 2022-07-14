@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

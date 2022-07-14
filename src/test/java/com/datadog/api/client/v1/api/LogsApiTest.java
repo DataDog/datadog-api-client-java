@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import org.junit.AssumptionViolatedException;
 import org.junit.BeforeClass;
 import org.junit.Test;
