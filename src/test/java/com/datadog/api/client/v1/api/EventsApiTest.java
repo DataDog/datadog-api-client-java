@@ -15,10 +15,10 @@ import com.datadog.api.client.v1.model.*;
 import com.datadog.api.client.v1.model.EventPriority;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.ws.rs.core.GenericType;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import jakarta.ws.rs.core.GenericType;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
