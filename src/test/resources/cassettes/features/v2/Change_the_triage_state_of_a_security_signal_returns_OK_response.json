@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"archive_reason\":\"none\",\"state\":\"open\"}}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security_monitoring/signals/AQAAAYG1bl5K4HuUewAAAABBWUcxYmw1S0FBQmt2RmhRN0V4ZUVnQUE/state",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"incident_ids\":[2066],\"state_update_user\":{\"handle\":\"bernard.le+synthetics@datadoghq.com\",\"uuid\":\"2514d32c-0719-11eb-b643-63faf7d5e1bd\",\"name\":null,\"id\":2115689,\"icon\":\"https://secure.gravatar.com/avatar/ae546a62b5816be30cc23792a69bd9ee?s=48&d=retro\"},\"assignee\":{\"id\":-1,\"name\":\"Unassigned\",\"uuid\":\"\"},\"state\":\"open\",\"archive_reason\":\"none\",\"state_update_timestamp\":1657118941005},\"type\":\"signal_metadata\",\"id\":\"AQAAAYG1bl5K4HuUewAAAABBWUcxYmw1S0FBQmt2RmhRN0V4ZUVnQUE\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "029aa90a-e14b-1655-8ed7-b9d2605354be"
+  }
+]
