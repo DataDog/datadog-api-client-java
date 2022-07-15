@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"end\":1652352600,\"message\":\"Test-Schedule_a_downtime_with_until_occurrences-1652349000\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_occurrences\":3,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"*\"],\"start\":1652349000,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"end\":1657667267,\"message\":\"Test-Schedule_a_downtime_with_until_occurrences-1657663667\",\"monitor_tags\":[\"tag0\"],\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_occurrences\":3,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"*\"],\"start\":1657663667,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":3,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":1652352600,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1652349001,\"org_id\":321813,\"modified\":1652349001,\"disabled\":false,\"start\":1652349000,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"*\"],\"message\":\"Test-Schedule_a_downtime_with_until_occurrences-1652349000\",\"downtime_type\":0,\"id\":1944162296,\"updater_id\":null}",
+      "body": "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":3,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":1657667267,\"monitor_tags\":[\"tag0\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1657663667,\"org_id\":321813,\"modified\":1657663667,\"disabled\":false,\"start\":1657663667,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"*\"],\"message\":\"Test-Schedule_a_downtime_with_until_occurrences-1657663667\",\"downtime_type\":0,\"id\":2082107712,\"updater_id\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "06e478ca-11ed-0a9b-e9db-96a81bacd693"
+    "id": "c2756aa9-6de6-2926-750d-4242480a29a0"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/downtime/1944162296",
+      "path": "/api/v1/downtime/2082107712",
       "keepAlive": false,
       "secure": true
     },
@@ -48,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4d7d6ecd-7d11-b6e1-c357-5a30cf69a6be"
+    "id": "382da210-f7c4-1d43-133c-4f1eb74a4fee"
   }
 ]
