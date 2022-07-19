@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** The response returned after all triage operations, containing the updated signal triage data. */
 @JsonPropertyOrder({SecurityMonitoringSignalTriageUpdateResponse.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalTriageUpdateResponse {
   @JsonIgnore public boolean unparsed = false;

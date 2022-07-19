@@ -20,7 +20,7 @@ import java.util.Objects;
   SecurityMonitoringSignalStateUpdateAttributes.JSON_PROPERTY_STATE,
   SecurityMonitoringSignalStateUpdateAttributes.JSON_PROPERTY_VERSION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalStateUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -56,7 +56,7 @@ public class SecurityMonitoringSignalStateUpdateAttributes {
    *
    * @return archiveComment
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARCHIVE_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getArchiveComment() {
@@ -79,7 +79,7 @@ public class SecurityMonitoringSignalStateUpdateAttributes {
    *
    * @return archiveReason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARCHIVE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringSignalArchiveReason getArchiveReason() {
@@ -127,7 +127,7 @@ public class SecurityMonitoringSignalStateUpdateAttributes {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVersion() {
