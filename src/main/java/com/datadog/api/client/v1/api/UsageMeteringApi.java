@@ -510,13 +510,6 @@ public class UsageMeteringApi {
       HourlyUsageAttributionUsageType usageType,
       GetHourlyUsageAttributionOptionalParameters parameters)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getHourlyUsageAttribution";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -585,17 +578,6 @@ public class UsageMeteringApi {
           OffsetDateTime startHr,
           HourlyUsageAttributionUsageType usageType,
           GetHourlyUsageAttributionOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getHourlyUsageAttribution";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<HourlyUsageAttributionResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -1534,13 +1516,6 @@ public class UsageMeteringApi {
       MonthlyUsageAttributionSupportedMetrics fields,
       GetMonthlyUsageAttributionOptionalParameters parameters)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getMonthlyUsageAttribution";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startMonth' is set
@@ -1615,17 +1590,6 @@ public class UsageMeteringApi {
           OffsetDateTime startMonth,
           MonthlyUsageAttributionSupportedMetrics fields,
           GetMonthlyUsageAttributionOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getMonthlyUsageAttribution";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MonthlyUsageAttributionResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startMonth' is set

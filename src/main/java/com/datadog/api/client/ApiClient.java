@@ -428,9 +428,7 @@ public class ApiClient {
       new HashMap<String, Boolean>() {
         {
           put("v1.getDailyCustomReports", false);
-          put("v1.getHourlyUsageAttribution", false);
           put("v1.getMonthlyCustomReports", false);
-          put("v1.getMonthlyUsageAttribution", false);
           put("v1.getSpecifiedDailyCustomReports", false);
           put("v1.getSpecifiedMonthlyCustomReports", false);
           put("v1.getUsageAttribution", false);

@@ -12,7 +12,7 @@ public class Example {
 
     try {
       SyntheticsGetBrowserTestLatestResultsResponse result =
-          apiInstance.getBrowserTestLatestResults("public_id");
+          apiInstance.getBrowserTestLatestResults("2yy-sem-mjh");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SyntheticsApi#getBrowserTestLatestResults");
