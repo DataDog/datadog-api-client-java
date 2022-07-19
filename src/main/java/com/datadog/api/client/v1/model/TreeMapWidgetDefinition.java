@@ -16,16 +16,17 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The treemap visualization found on the Host Dashboards comes from the output of <code>ps auxww
- * </code>. This is not continuously run on your hosts. Instead, it’s run once on Agent
- * start/restart. The treemap is only supported for process data on a single host dashboard — this
- * may not be reused in other dashboards or for other metrics.
+ * The treemap visualization enables you to display hierarchical and nested data. It is well suited
+ * for queries that describe part-whole relationships, such as resource usage by availability zone,
+ * data center, or team.
  */
 @JsonPropertyOrder({
   TreeMapWidgetDefinition.JSON_PROPERTY_COLOR_BY,
+  TreeMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   TreeMapWidgetDefinition.JSON_PROPERTY_GROUP_BY,
   TreeMapWidgetDefinition.JSON_PROPERTY_REQUESTS,
   TreeMapWidgetDefinition.JSON_PROPERTY_SIZE_BY,
+  TreeMapWidgetDefinition.JSON_PROPERTY_TIME,
   TreeMapWidgetDefinition.JSON_PROPERTY_TITLE,
   TreeMapWidgetDefinition.JSON_PROPERTY_TYPE
 })
@@ -36,6 +37,9 @@ public class TreeMapWidgetDefinition {
   public static final String JSON_PROPERTY_COLOR_BY = "color_by";
   private TreeMapColorBy colorBy = TreeMapColorBy.USER;
 
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
+
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private TreeMapGroupBy groupBy;
 
@@ -44,6 +48,9 @@ public class TreeMapWidgetDefinition {
 
   public static final String JSON_PROPERTY_SIZE_BY = "size_by";
   private TreeMapSizeBy sizeBy;
+
+  public static final String JSON_PROPERTY_TIME = "time";
+  private WidgetTime time;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -70,10 +77,12 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * The attribute used to determine color in the widget.
+   * (deprecated) The attribute formerly used to determine color in the widget.
    *
    * @return colorBy
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COLOR_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,6 +97,39 @@ public class TreeMapWidgetDefinition {
     this.colorBy = colorBy;
   }
 
+  public TreeMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    for (WidgetCustomLink item : customLinks) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public TreeMapWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    this.unparsed |= customLinksItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of custom links.
+   *
+   * @return customLinks
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+  }
+
   public TreeMapWidgetDefinition groupBy(TreeMapGroupBy groupBy) {
     this.groupBy = groupBy;
     this.unparsed |= !groupBy.isValid();
@@ -95,10 +137,12 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * The attribute used to group elements in the widget.
+   * (deprecated) The attribute formerly used to group elements in the widget.
    *
    * @return groupBy
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +172,7 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * List of top list widget requests.
+   * List of treemap widget requests.
    *
    * @return requests
    */
@@ -149,10 +193,12 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * The attribute used to determine size in the widget.
+   * (deprecated) The attribute formerly used to determine size in the widget.
    *
    * @return sizeBy
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZE_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,6 +211,28 @@ public class TreeMapWidgetDefinition {
       this.unparsed = true;
     }
     this.sizeBy = sizeBy;
+  }
+
+  public TreeMapWidgetDefinition time(WidgetTime time) {
+    this.time = time;
+    this.unparsed |= time.unparsed;
+    return this;
+  }
+
+  /**
+   * Time setting for the widget.
+   *
+   * @return time
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
+
+  public void setTime(WidgetTime time) {
+    this.time = time;
   }
 
   public TreeMapWidgetDefinition title(String title) {
@@ -223,16 +291,18 @@ public class TreeMapWidgetDefinition {
     }
     TreeMapWidgetDefinition treeMapWidgetDefinition = (TreeMapWidgetDefinition) o;
     return Objects.equals(this.colorBy, treeMapWidgetDefinition.colorBy)
+        && Objects.equals(this.customLinks, treeMapWidgetDefinition.customLinks)
         && Objects.equals(this.groupBy, treeMapWidgetDefinition.groupBy)
         && Objects.equals(this.requests, treeMapWidgetDefinition.requests)
         && Objects.equals(this.sizeBy, treeMapWidgetDefinition.sizeBy)
+        && Objects.equals(this.time, treeMapWidgetDefinition.time)
         && Objects.equals(this.title, treeMapWidgetDefinition.title)
         && Objects.equals(this.type, treeMapWidgetDefinition.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorBy, groupBy, requests, sizeBy, title, type);
+    return Objects.hash(colorBy, customLinks, groupBy, requests, sizeBy, time, title, type);
   }
 
   @Override
@@ -240,9 +310,11 @@ public class TreeMapWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class TreeMapWidgetDefinition {\n");
     sb.append("    colorBy: ").append(toIndentedString(colorBy)).append("\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    sizeBy: ").append(toIndentedString(sizeBy)).append("\n");
+    sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
