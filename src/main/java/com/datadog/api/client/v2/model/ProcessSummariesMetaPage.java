@@ -17,7 +17,7 @@ import java.util.Objects;
   ProcessSummariesMetaPage.JSON_PROPERTY_AFTER,
   ProcessSummariesMetaPage.JSON_PROPERTY_SIZE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessSummariesMetaPage {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class ProcessSummariesMetaPage {
    *
    * @return after
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAfter() {
@@ -59,7 +59,7 @@ public class ProcessSummariesMetaPage {
    *
    * @return size
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getSize() {

@@ -27,7 +27,7 @@ import java.util.Objects;
   EventStreamWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   EventStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventStreamWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -78,7 +78,7 @@ public class EventStreamWidgetDefinition {
    *
    * @return eventSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVENT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetEventSize getEventSize() {
@@ -122,7 +122,7 @@ public class EventStreamWidgetDefinition {
    *
    * @return tagsExecution
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagsExecution() {
@@ -144,7 +144,7 @@ public class EventStreamWidgetDefinition {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -165,7 +165,7 @@ public class EventStreamWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -187,7 +187,7 @@ public class EventStreamWidgetDefinition {
    *
    * @return titleAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -211,7 +211,7 @@ public class EventStreamWidgetDefinition {
    *
    * @return titleSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {

@@ -22,7 +22,7 @@ import java.util.Objects;
   UserInvitationDataAttributes.JSON_PROPERTY_INVITE_TYPE,
   UserInvitationDataAttributes.JSON_PROPERTY_UUID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserInvitationDataAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -52,7 +52,7 @@ public class UserInvitationDataAttributes {
    *
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -73,7 +73,7 @@ public class UserInvitationDataAttributes {
    *
    * @return expiresAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getExpiresAt() {
@@ -94,7 +94,7 @@ public class UserInvitationDataAttributes {
    *
    * @return inviteType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INVITE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInviteType() {
@@ -115,7 +115,7 @@ public class UserInvitationDataAttributes {
    *
    * @return uuid
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UUID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUuid() {

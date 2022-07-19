@@ -23,7 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DashboardTemplateVariable.JSON_PROPERTY_NAME,
   DashboardTemplateVariable.JSON_PROPERTY_PREFIX
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardTemplateVariable {
   @JsonIgnore public boolean unparsed = false;
@@ -69,7 +69,7 @@ public class DashboardTemplateVariable {
    *
    * @return availableValues
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<String> getAvailableValues() {
     return availableValues.orElse(null);
@@ -100,7 +100,7 @@ public class DashboardTemplateVariable {
    *
    * @return _default
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getDefault() {
     return _default.orElse(null);
@@ -152,7 +152,7 @@ public class DashboardTemplateVariable {
    *
    * @return prefix
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getPrefix() {
     return prefix.orElse(null);

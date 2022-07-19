@@ -18,7 +18,7 @@ import java.util.Objects;
   MonitorOptionsAggregation.JSON_PROPERTY_METRIC,
   MonitorOptionsAggregation.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorOptionsAggregation {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class MonitorOptionsAggregation {
    *
    * @return groupBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGroupBy() {
@@ -62,7 +62,7 @@ public class MonitorOptionsAggregation {
    *
    * @return metric
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -83,7 +83,7 @@ public class MonitorOptionsAggregation {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {

@@ -8,14 +8,14 @@ import com.datadog.api.client.v2.model.LogsMetricCreateRequest;
 import com.datadog.api.client.v2.model.LogsMetricResponse;
 import com.datadog.api.client.v2.model.LogsMetricUpdateRequest;
 import com.datadog.api.client.v2.model.LogsMetricsResponse;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricsApi {
   private ApiClient apiClient;

@@ -17,7 +17,7 @@ import java.util.Objects;
   RoleRelationships.JSON_PROPERTY_PERMISSIONS,
   RoleRelationships.JSON_PROPERTY_USERS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleRelationships {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class RoleRelationships {
    *
    * @return permissions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToPermissions getPermissions() {
@@ -60,7 +60,7 @@ public class RoleRelationships {
    *
    * @return users
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUsers getUsers() {

@@ -24,7 +24,7 @@ import java.util.Objects;
   GeomapWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   GeomapWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GeomapWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -71,7 +71,7 @@ public class GeomapWidgetRequest {
    *
    * @return formulas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetFormula> getFormulas() {
@@ -93,7 +93,7 @@ public class GeomapWidgetRequest {
    *
    * @return logQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOG_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getLogQuery() {
@@ -114,7 +114,7 @@ public class GeomapWidgetRequest {
    *
    * @return q
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQ() {
@@ -147,7 +147,7 @@ public class GeomapWidgetRequest {
    *
    * @return queries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<FormulaAndFunctionQueryDefinition> getQueries() {
@@ -169,7 +169,7 @@ public class GeomapWidgetRequest {
    *
    * @return responseFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionResponseFormat getResponseFormat() {
@@ -194,7 +194,7 @@ public class GeomapWidgetRequest {
    *
    * @return rumQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getRumQuery() {
@@ -216,7 +216,7 @@ public class GeomapWidgetRequest {
    *
    * @return securityQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getSecurityQuery() {

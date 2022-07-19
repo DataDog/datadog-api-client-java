@@ -30,7 +30,7 @@ import java.util.Objects;
   GCPAccount.JSON_PROPERTY_TOKEN_URI,
   GCPAccount.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GCPAccount {
   @JsonIgnore public boolean unparsed = false;
@@ -84,7 +84,7 @@ public class GCPAccount {
    *
    * @return authProviderX509CertUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTH_PROVIDER_X509_CERT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAuthProviderX509CertUrl() {
@@ -105,7 +105,7 @@ public class GCPAccount {
    *
    * @return authUri
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTH_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAuthUri() {
@@ -126,7 +126,7 @@ public class GCPAccount {
    *
    * @return automute
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTOMUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAutomute() {
@@ -147,7 +147,7 @@ public class GCPAccount {
    *
    * @return clientEmail
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLIENT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientEmail() {
@@ -168,7 +168,7 @@ public class GCPAccount {
    *
    * @return clientId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientId() {
@@ -190,7 +190,7 @@ public class GCPAccount {
    *
    * @return clientX509CertUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLIENT_X509_CERT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientX509CertUrl() {
@@ -219,7 +219,7 @@ public class GCPAccount {
    *
    * @return errors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getErrors() {
@@ -241,7 +241,7 @@ public class GCPAccount {
    *
    * @return hostFilters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHostFilters() {
@@ -262,7 +262,7 @@ public class GCPAccount {
    *
    * @return privateKey
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIVATE_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrivateKey() {
@@ -283,7 +283,7 @@ public class GCPAccount {
    *
    * @return privateKeyId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIVATE_KEY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrivateKeyId() {
@@ -304,7 +304,7 @@ public class GCPAccount {
    *
    * @return projectId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProjectId() {
@@ -325,7 +325,7 @@ public class GCPAccount {
    *
    * @return tokenUri
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTokenUri() {
@@ -346,7 +346,7 @@ public class GCPAccount {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {

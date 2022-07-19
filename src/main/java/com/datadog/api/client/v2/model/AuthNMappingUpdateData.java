@@ -20,7 +20,7 @@ import java.util.Objects;
   AuthNMappingUpdateData.JSON_PROPERTY_RELATIONSHIPS,
   AuthNMappingUpdateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingUpdateData {
   @JsonIgnore public boolean unparsed = false;
@@ -58,7 +58,7 @@ public class AuthNMappingUpdateData {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthNMappingUpdateAttributes getAttributes() {
@@ -100,7 +100,7 @@ public class AuthNMappingUpdateData {
    *
    * @return relationships
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthNMappingUpdateRelationships getRelationships() {

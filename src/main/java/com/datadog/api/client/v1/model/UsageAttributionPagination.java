@@ -20,7 +20,7 @@ import java.util.Objects;
   UsageAttributionPagination.JSON_PROPERTY_SORT_NAME,
   UsageAttributionPagination.JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributionPagination {
   @JsonIgnore public boolean unparsed = false;
@@ -49,7 +49,7 @@ public class UsageAttributionPagination {
    *
    * @return limit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -70,7 +70,7 @@ public class UsageAttributionPagination {
    *
    * @return offset
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOffset() {
@@ -91,7 +91,7 @@ public class UsageAttributionPagination {
    *
    * @return sortDirection
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSortDirection() {
@@ -112,7 +112,7 @@ public class UsageAttributionPagination {
    *
    * @return sortName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSortName() {
@@ -133,7 +133,7 @@ public class UsageAttributionPagination {
    *
    * @return totalNumberOfRecords
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalNumberOfRecords() {

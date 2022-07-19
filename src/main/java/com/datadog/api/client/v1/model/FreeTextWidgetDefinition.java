@@ -24,7 +24,7 @@ import java.util.Objects;
   FreeTextWidgetDefinition.JSON_PROPERTY_TEXT_ALIGN,
   FreeTextWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FreeTextWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -65,7 +65,7 @@ public class FreeTextWidgetDefinition {
    *
    * @return color
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getColor() {
@@ -86,7 +86,7 @@ public class FreeTextWidgetDefinition {
    *
    * @return fontSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFontSize() {
@@ -128,7 +128,7 @@ public class FreeTextWidgetDefinition {
    *
    * @return textAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEXT_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTextAlign() {

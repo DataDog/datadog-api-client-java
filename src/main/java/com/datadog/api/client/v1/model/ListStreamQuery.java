@@ -21,7 +21,7 @@ import java.util.Objects;
   ListStreamQuery.JSON_PROPERTY_INDEXES,
   ListStreamQuery.JSON_PROPERTY_QUERY_STRING
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamQuery {
   @JsonIgnore public boolean unparsed = false;
@@ -87,7 +87,7 @@ public class ListStreamQuery {
    *
    * @return indexes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getIndexes() {

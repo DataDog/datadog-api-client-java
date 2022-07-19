@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** The object containing page total count for specified ID. */
 @JsonPropertyOrder({UsageSpecifiedCustomReportsPage.JSON_PROPERTY_TOTAL_COUNT})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSpecifiedCustomReportsPage {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class UsageSpecifiedCustomReportsPage {
    *
    * @return totalCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalCount() {

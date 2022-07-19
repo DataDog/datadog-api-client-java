@@ -34,7 +34,7 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_RUM_SETTINGS,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestOptions {
   @JsonIgnore public boolean unparsed = false;
@@ -100,7 +100,7 @@ public class SyntheticsTestOptions {
    *
    * @return acceptSelfSigned
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCEPT_SELF_SIGNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAcceptSelfSigned() {
@@ -121,7 +121,7 @@ public class SyntheticsTestOptions {
    *
    * @return allowInsecure
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOW_INSECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowInsecure() {
@@ -142,7 +142,7 @@ public class SyntheticsTestOptions {
    *
    * @return checkCertificateRevocation
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getCheckCertificateRevocation() {
@@ -164,7 +164,7 @@ public class SyntheticsTestOptions {
    *
    * @return ci
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestCiOptions getCi() {
@@ -194,7 +194,7 @@ public class SyntheticsTestOptions {
    *
    * @return deviceIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsDeviceID> getDeviceIds() {
@@ -215,7 +215,7 @@ public class SyntheticsTestOptions {
    *
    * @return disableCors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISABLE_CORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisableCors() {
@@ -236,7 +236,7 @@ public class SyntheticsTestOptions {
    *
    * @return followRedirects
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getFollowRedirects() {
@@ -257,7 +257,7 @@ public class SyntheticsTestOptions {
    *
    * @return minFailureDuration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMinFailureDuration() {
@@ -278,7 +278,7 @@ public class SyntheticsTestOptions {
    *
    * @return minLocationFailed
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMinLocationFailed() {
@@ -300,7 +300,7 @@ public class SyntheticsTestOptions {
    *
    * @return monitorName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMonitorName() {
@@ -322,7 +322,7 @@ public class SyntheticsTestOptions {
    *
    * @return monitorOptions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestOptionsMonitorOptions getMonitorOptions() {
@@ -343,7 +343,7 @@ public class SyntheticsTestOptions {
    *
    * @return monitorPriority
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getMonitorPriority() {
@@ -364,7 +364,7 @@ public class SyntheticsTestOptions {
    *
    * @return noScreenshot
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NO_SCREENSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNoScreenshot() {
@@ -394,7 +394,7 @@ public class SyntheticsTestOptions {
    *
    * @return restrictedRoles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRestrictedRoles() {
@@ -416,7 +416,7 @@ public class SyntheticsTestOptions {
    *
    * @return retry
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestOptionsRetry getRetry() {
@@ -448,7 +448,7 @@ public class SyntheticsTestOptions {
    *
    * @return rumSettings
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBrowserTestRumSettings getRumSettings() {
@@ -469,7 +469,7 @@ public class SyntheticsTestOptions {
    *
    * @return tickEvery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TICK_EVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTickEvery() {

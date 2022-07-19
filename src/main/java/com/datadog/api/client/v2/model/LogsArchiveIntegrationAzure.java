@@ -18,7 +18,7 @@ import java.util.Objects;
   LogsArchiveIntegrationAzure.JSON_PROPERTY_CLIENT_ID,
   LogsArchiveIntegrationAzure.JSON_PROPERTY_TENANT_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveIntegrationAzure {
   @JsonIgnore public boolean unparsed = false;

@@ -30,7 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ServiceLevelObjectiveRequest.JSON_PROPERTY_THRESHOLDS,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceLevelObjectiveRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -85,7 +85,7 @@ public class ServiceLevelObjectiveRequest {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getDescription() {
     return description.orElse(null);
@@ -129,7 +129,7 @@ public class ServiceLevelObjectiveRequest {
    *
    * @return groups
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroups() {
@@ -159,7 +159,7 @@ public class ServiceLevelObjectiveRequest {
    *
    * @return monitorIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Long> getMonitorIds() {
@@ -203,7 +203,7 @@ public class ServiceLevelObjectiveRequest {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ServiceLevelObjectiveQuery getQuery() {
@@ -233,7 +233,7 @@ public class ServiceLevelObjectiveRequest {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

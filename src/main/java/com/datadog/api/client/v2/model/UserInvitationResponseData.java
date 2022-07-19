@@ -18,7 +18,7 @@ import java.util.Objects;
   UserInvitationResponseData.JSON_PROPERTY_ID,
   UserInvitationResponseData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserInvitationResponseData {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class UserInvitationResponseData {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UserInvitationDataAttributes getAttributes() {
@@ -63,7 +63,7 @@ public class UserInvitationResponseData {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -85,7 +85,7 @@ public class UserInvitationResponseData {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UserInvitationsType getType() {

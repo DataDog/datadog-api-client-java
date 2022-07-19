@@ -22,7 +22,7 @@ import java.util.Objects;
   LogsAggregateRequest.JSON_PROPERTY_OPTIONS,
   LogsAggregateRequest.JSON_PROPERTY_PAGE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -63,7 +63,7 @@ public class LogsAggregateRequest {
    *
    * @return compute
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsCompute> getCompute() {
@@ -85,7 +85,7 @@ public class LogsAggregateRequest {
    *
    * @return filter
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsQueryFilter getFilter() {
@@ -118,7 +118,7 @@ public class LogsAggregateRequest {
    *
    * @return groupBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsGroupBy> getGroupBy() {
@@ -141,7 +141,7 @@ public class LogsAggregateRequest {
    *
    * @return options
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsQueryOptions getOptions() {
@@ -163,7 +163,7 @@ public class LogsAggregateRequest {
    *
    * @return page
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsAggregateRequestPage getPage() {

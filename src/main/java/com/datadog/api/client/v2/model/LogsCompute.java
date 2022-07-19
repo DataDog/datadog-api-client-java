@@ -20,7 +20,7 @@ import java.util.Objects;
   LogsCompute.JSON_PROPERTY_METRIC,
   LogsCompute.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsCompute {
   @JsonIgnore public boolean unparsed = false;
@@ -80,7 +80,7 @@ public class LogsCompute {
    *
    * @return interval
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInterval() {
@@ -101,7 +101,7 @@ public class LogsCompute {
    *
    * @return metric
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -123,7 +123,7 @@ public class LogsCompute {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsComputeType getType() {

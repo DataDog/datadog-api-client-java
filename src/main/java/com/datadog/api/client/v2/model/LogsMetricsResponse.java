@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** All the available log-based metric objects. */
 @JsonPropertyOrder({LogsMetricsResponse.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricsResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class LogsMetricsResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsMetricResponseData> getData() {

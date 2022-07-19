@@ -18,7 +18,7 @@ import java.util.Objects;
   ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_X,
   ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_Y
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScatterPlotWidgetDefinitionRequests {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class ScatterPlotWidgetDefinitionRequests {
    *
    * @return table
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ScatterplotTableRequest getTable() {
@@ -64,7 +64,7 @@ public class ScatterPlotWidgetDefinitionRequests {
    *
    * @return x
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ScatterPlotRequest getX() {
@@ -86,7 +86,7 @@ public class ScatterPlotWidgetDefinitionRequests {
    *
    * @return y
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ScatterPlotRequest getY() {

@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Array of Datadog users for a given organization. */
 @JsonPropertyOrder({UserListResponse.JSON_PROPERTY_USERS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class UserListResponse {
    *
    * @return users
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<User> getUsers() {

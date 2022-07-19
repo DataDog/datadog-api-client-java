@@ -30,7 +30,7 @@ import java.util.Objects;
   SLOHistoryMetrics.JSON_PROPERTY_RESP_VERSION,
   SLOHistoryMetrics.JSON_PROPERTY_TIMES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMetrics {
   @JsonIgnore public boolean unparsed = false;
@@ -135,7 +135,7 @@ public class SLOHistoryMetrics {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {

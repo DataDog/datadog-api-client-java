@@ -25,7 +25,7 @@ import java.util.Objects;
   MetricsQueryResponse.JSON_PROPERTY_STATUS,
   MetricsQueryResponse.JSON_PROPERTY_TO_DATE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsQueryResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -61,7 +61,7 @@ public class MetricsQueryResponse {
    *
    * @return error
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getError() {
@@ -73,7 +73,7 @@ public class MetricsQueryResponse {
    *
    * @return fromDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFromDate() {
@@ -85,7 +85,7 @@ public class MetricsQueryResponse {
    *
    * @return groupBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupBy() {
@@ -97,7 +97,7 @@ public class MetricsQueryResponse {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -109,7 +109,7 @@ public class MetricsQueryResponse {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -121,7 +121,7 @@ public class MetricsQueryResponse {
    *
    * @return resType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RES_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResType() {
@@ -133,7 +133,7 @@ public class MetricsQueryResponse {
    *
    * @return series
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MetricsQueryMetadata> getSeries() {
@@ -145,7 +145,7 @@ public class MetricsQueryResponse {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -157,7 +157,7 @@ public class MetricsQueryResponse {
    *
    * @return toDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getToDate() {

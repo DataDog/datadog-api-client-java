@@ -18,7 +18,7 @@ import java.util.Objects;
   RUMWarning.JSON_PROPERTY_DETAIL,
   RUMWarning.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMWarning {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class RUMWarning {
    *
    * @return code
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCode() {
@@ -62,7 +62,7 @@ public class RUMWarning {
    *
    * @return detail
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDetail() {
@@ -83,7 +83,7 @@ public class RUMWarning {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {

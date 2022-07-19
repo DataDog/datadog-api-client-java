@@ -24,7 +24,7 @@ import java.util.Objects;
   SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_NAME,
   SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_QUERY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleQueryCreate {
   @JsonIgnore public boolean unparsed = false;
@@ -66,7 +66,7 @@ public class SecurityMonitoringRuleQueryCreate {
    *
    * @return aggregation
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleQueryAggregation getAggregation() {
@@ -98,7 +98,7 @@ public class SecurityMonitoringRuleQueryCreate {
    *
    * @return distinctFields
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISTINCT_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getDistinctFields() {
@@ -127,7 +127,7 @@ public class SecurityMonitoringRuleQueryCreate {
    *
    * @return groupByFields
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupByFields() {
@@ -148,7 +148,7 @@ public class SecurityMonitoringRuleQueryCreate {
    *
    * @return metric
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -169,7 +169,7 @@ public class SecurityMonitoringRuleQueryCreate {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

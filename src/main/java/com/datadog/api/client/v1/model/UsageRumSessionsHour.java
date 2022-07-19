@@ -27,7 +27,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_IOS,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_REACTNATIVE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageRumSessionsHour {
   @JsonIgnore public boolean unparsed = false;
@@ -67,7 +67,7 @@ public class UsageRumSessionsHour {
    *
    * @return hour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -88,7 +88,7 @@ public class UsageRumSessionsHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -109,7 +109,7 @@ public class UsageRumSessionsHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -130,7 +130,7 @@ public class UsageRumSessionsHour {
    *
    * @return replaySessionCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REPLAY_SESSION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getReplaySessionCount() {
@@ -151,7 +151,7 @@ public class UsageRumSessionsHour {
    *
    * @return sessionCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getSessionCount() {
     return sessionCount.orElse(null);
@@ -183,7 +183,7 @@ public class UsageRumSessionsHour {
    *
    * @return sessionCountAndroid
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getSessionCountAndroid() {
     return sessionCountAndroid.orElse(null);
@@ -214,7 +214,7 @@ public class UsageRumSessionsHour {
    *
    * @return sessionCountIos
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getSessionCountIos() {
     return sessionCountIos.orElse(null);
@@ -246,7 +246,7 @@ public class UsageRumSessionsHour {
    *
    * @return sessionCountReactnative
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getSessionCountReactnative() {
     return sessionCountReactnative.orElse(null);

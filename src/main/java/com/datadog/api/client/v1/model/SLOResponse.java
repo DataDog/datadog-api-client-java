@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** A service level objective response containing a single service level objective. */
 @JsonPropertyOrder({SLOResponse.JSON_PROPERTY_DATA, SLOResponse.JSON_PROPERTY_ERRORS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -39,7 +39,7 @@ public class SLOResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOResponseData getData() {
@@ -68,7 +68,7 @@ public class SLOResponse {
    *
    * @return errors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getErrors() {

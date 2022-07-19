@@ -22,7 +22,7 @@ import java.util.Objects;
   LogsListRequest.JSON_PROPERTY_START_AT,
   LogsListRequest.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -64,7 +64,7 @@ public class LogsListRequest {
    *
    * @return index
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIndex() {
@@ -85,7 +85,7 @@ public class LogsListRequest {
    *
    * @return limit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getLimit() {
@@ -106,7 +106,7 @@ public class LogsListRequest {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -128,7 +128,7 @@ public class LogsListRequest {
    *
    * @return sort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsSort getSort() {
@@ -156,7 +156,7 @@ public class LogsListRequest {
    *
    * @return startAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartAt() {

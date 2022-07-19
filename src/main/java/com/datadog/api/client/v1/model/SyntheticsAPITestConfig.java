@@ -21,7 +21,7 @@ import java.util.Objects;
   SyntheticsAPITestConfig.JSON_PROPERTY_REQUEST,
   SyntheticsAPITestConfig.JSON_PROPERTY_STEPS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITestConfig {
   @JsonIgnore public boolean unparsed = false;
@@ -59,7 +59,7 @@ public class SyntheticsAPITestConfig {
    *
    * @return assertions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsAssertion> getAssertions() {
@@ -93,7 +93,7 @@ public class SyntheticsAPITestConfig {
    *
    * @return configVariables
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsConfigVariable> getConfigVariables() {
@@ -115,7 +115,7 @@ public class SyntheticsAPITestConfig {
    *
    * @return request
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequest getRequest() {
@@ -148,7 +148,7 @@ public class SyntheticsAPITestConfig {
    *
    * @return steps
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsAPIStep> getSteps() {

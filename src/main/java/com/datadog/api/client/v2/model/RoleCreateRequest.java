@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Create a role. */
 @JsonPropertyOrder({RoleCreateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleCreateRequest {
   @JsonIgnore public boolean unparsed = false;

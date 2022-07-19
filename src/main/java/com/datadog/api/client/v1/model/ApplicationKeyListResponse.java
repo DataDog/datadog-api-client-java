@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** An application key response. */
 @JsonPropertyOrder({ApplicationKeyListResponse.JSON_PROPERTY_APPLICATION_KEYS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKeyListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class ApplicationKeyListResponse {
    *
    * @return applicationKeys
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLICATION_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ApplicationKey> getApplicationKeys() {

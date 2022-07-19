@@ -17,7 +17,7 @@ import java.util.Objects;
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_FILL,
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_SIZE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMapWidgetDefinitionRequests {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class HostMapWidgetDefinitionRequests {
    *
    * @return fill
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMapRequest getFill() {
@@ -60,7 +60,7 @@ public class HostMapWidgetDefinitionRequests {
    *
    * @return size
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMapRequest getSize() {

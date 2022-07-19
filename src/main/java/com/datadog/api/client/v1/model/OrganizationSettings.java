@@ -25,7 +25,7 @@ import java.util.Objects;
   OrganizationSettings.JSON_PROPERTY_SAML_LOGIN_URL,
   OrganizationSettings.JSON_PROPERTY_SAML_STRICT_MODE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationSettings {
   @JsonIgnore public boolean unparsed = false;
@@ -72,7 +72,7 @@ public class OrganizationSettings {
    *
    * @return privateWidgetShare
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIVATE_WIDGET_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPrivateWidgetShare() {
@@ -95,7 +95,7 @@ public class OrganizationSettings {
    *
    * @return saml
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationSettingsSaml getSaml() {
@@ -118,7 +118,7 @@ public class OrganizationSettings {
    *
    * @return samlAutocreateAccessRole
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML_AUTOCREATE_ACCESS_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AccessRole getSamlAutocreateAccessRole() {
@@ -145,7 +145,7 @@ public class OrganizationSettings {
    *
    * @return samlAutocreateUsersDomains
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML_AUTOCREATE_USERS_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationSettingsSamlAutocreateUsersDomains getSamlAutocreateUsersDomains() {
@@ -167,7 +167,7 @@ public class OrganizationSettings {
    *
    * @return samlCanBeEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML_CAN_BE_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSamlCanBeEnabled() {
@@ -188,7 +188,7 @@ public class OrganizationSettings {
    *
    * @return samlIdpEndpoint
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML_IDP_ENDPOINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSamlIdpEndpoint() {
@@ -211,7 +211,7 @@ public class OrganizationSettings {
    *
    * @return samlIdpInitiatedLogin
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML_IDP_INITIATED_LOGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationSettingsSamlIdpInitiatedLogin getSamlIdpInitiatedLogin() {
@@ -233,7 +233,7 @@ public class OrganizationSettings {
    *
    * @return samlIdpMetadataUploaded
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML_IDP_METADATA_UPLOADED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSamlIdpMetadataUploaded() {
@@ -254,7 +254,7 @@ public class OrganizationSettings {
    *
    * @return samlLoginUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML_LOGIN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSamlLoginUrl() {
@@ -276,7 +276,7 @@ public class OrganizationSettings {
    *
    * @return samlStrictMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML_STRICT_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationSettingsSamlStrictMode getSamlStrictMode() {

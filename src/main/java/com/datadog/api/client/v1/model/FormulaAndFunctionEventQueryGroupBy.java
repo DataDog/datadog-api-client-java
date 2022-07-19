@@ -19,7 +19,7 @@ import java.util.Objects;
   FormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_LIMIT,
   FormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_SORT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionEventQueryGroupBy {
   @JsonIgnore public boolean unparsed = false;
@@ -70,7 +70,7 @@ public class FormulaAndFunctionEventQueryGroupBy {
    *
    * @return limit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -92,7 +92,7 @@ public class FormulaAndFunctionEventQueryGroupBy {
    *
    * @return sort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionEventQueryGroupBySort getSort() {

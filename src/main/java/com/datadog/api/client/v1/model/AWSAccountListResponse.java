@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** List of enabled AWS accounts. */
 @JsonPropertyOrder({AWSAccountListResponse.JSON_PROPERTY_ACCOUNTS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSAccountListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class AWSAccountListResponse {
    *
    * @return accounts
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AWSAccount> getAccounts() {

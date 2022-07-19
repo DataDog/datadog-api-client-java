@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** An object that defines a correction to be applied to an SLO. */
 @JsonPropertyOrder({SLOCorrectionCreateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionCreateRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class SLOCorrectionCreateRequest {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOCorrectionCreateData getData() {

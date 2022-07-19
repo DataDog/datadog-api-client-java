@@ -26,7 +26,7 @@ import java.util.Objects;
   OrganizationAttributes.JSON_PROPERTY_SHARING,
   OrganizationAttributes.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -68,7 +68,7 @@ public class OrganizationAttributes {
    *
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -89,7 +89,7 @@ public class OrganizationAttributes {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -110,7 +110,7 @@ public class OrganizationAttributes {
    *
    * @return disabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisabled() {
@@ -131,7 +131,7 @@ public class OrganizationAttributes {
    *
    * @return modifiedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModifiedAt() {
@@ -152,7 +152,7 @@ public class OrganizationAttributes {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -173,7 +173,7 @@ public class OrganizationAttributes {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -194,7 +194,7 @@ public class OrganizationAttributes {
    *
    * @return sharing
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHARING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSharing() {
@@ -215,7 +215,7 @@ public class OrganizationAttributes {
    *
    * @return url
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {

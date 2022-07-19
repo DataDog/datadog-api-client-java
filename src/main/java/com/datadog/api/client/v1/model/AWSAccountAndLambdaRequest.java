@@ -18,7 +18,7 @@ import java.util.Objects;
   AWSAccountAndLambdaRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSAccountAndLambdaRequest.JSON_PROPERTY_LAMBDA_ARN
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSAccountAndLambdaRequest {
   @JsonIgnore public boolean unparsed = false;

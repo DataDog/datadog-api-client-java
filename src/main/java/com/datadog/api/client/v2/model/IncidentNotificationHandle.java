@@ -17,7 +17,7 @@ import java.util.Objects;
   IncidentNotificationHandle.JSON_PROPERTY_DISPLAY_NAME,
   IncidentNotificationHandle.JSON_PROPERTY_HANDLE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentNotificationHandle {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class IncidentNotificationHandle {
    *
    * @return displayName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayName() {
@@ -58,7 +58,7 @@ public class IncidentNotificationHandle {
    *
    * @return handle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHandle() {

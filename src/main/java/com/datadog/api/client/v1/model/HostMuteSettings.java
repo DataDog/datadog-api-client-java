@@ -18,7 +18,7 @@ import java.util.Objects;
   HostMuteSettings.JSON_PROPERTY_MESSAGE,
   HostMuteSettings.JSON_PROPERTY_OVERRIDE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMuteSettings {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class HostMuteSettings {
    *
    * @return end
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
@@ -63,7 +63,7 @@ public class HostMuteSettings {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -84,7 +84,7 @@ public class HostMuteSettings {
    *
    * @return override
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OVERRIDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getOverride() {

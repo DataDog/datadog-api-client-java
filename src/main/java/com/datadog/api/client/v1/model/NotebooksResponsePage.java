@@ -17,7 +17,7 @@ import java.util.Objects;
   NotebooksResponsePage.JSON_PROPERTY_TOTAL_COUNT,
   NotebooksResponsePage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebooksResponsePage {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class NotebooksResponsePage {
    *
    * @return totalCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalCount() {
@@ -59,7 +59,7 @@ public class NotebooksResponsePage {
    *
    * @return totalFilteredCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalFilteredCount() {

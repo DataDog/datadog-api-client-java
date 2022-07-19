@@ -19,7 +19,7 @@ import java.util.Objects;
   IncidentTeamResponseData.JSON_PROPERTY_RELATIONSHIPS,
   IncidentTeamResponseData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentTeamResponseData {
   @JsonIgnore public boolean unparsed = false;
@@ -46,7 +46,7 @@ public class IncidentTeamResponseData {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentTeamResponseAttributes getAttributes() {
@@ -67,7 +67,7 @@ public class IncidentTeamResponseData {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -83,7 +83,7 @@ public class IncidentTeamResponseData {
    *
    * @return relationships
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentTeamRelationships getRelationships() {
@@ -101,7 +101,7 @@ public class IncidentTeamResponseData {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentTeamType getType() {

@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Relationship of AuthN Mapping create object to Role. */
 @JsonPropertyOrder({AuthNMappingCreateRelationships.JSON_PROPERTY_ROLE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingCreateRelationships {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class AuthNMappingCreateRelationships {
    *
    * @return role
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToRole getRole() {

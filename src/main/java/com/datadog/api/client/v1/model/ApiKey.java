@@ -19,7 +19,7 @@ import java.util.Objects;
   ApiKey.JSON_PROPERTY_KEY,
   ApiKey.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApiKey {
   @JsonIgnore public boolean unparsed = false;
@@ -40,7 +40,7 @@ public class ApiKey {
    *
    * @return created
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreated() {
@@ -52,7 +52,7 @@ public class ApiKey {
    *
    * @return createdBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreatedBy() {
@@ -64,7 +64,7 @@ public class ApiKey {
    *
    * @return key
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getKey() {
@@ -81,7 +81,7 @@ public class ApiKey {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

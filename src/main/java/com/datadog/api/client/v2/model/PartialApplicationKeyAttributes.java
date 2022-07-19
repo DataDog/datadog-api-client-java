@@ -22,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   PartialApplicationKeyAttributes.JSON_PROPERTY_NAME,
   PartialApplicationKeyAttributes.JSON_PROPERTY_SCOPES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PartialApplicationKeyAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -43,7 +43,7 @@ public class PartialApplicationKeyAttributes {
    *
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCreatedAt() {
@@ -55,7 +55,7 @@ public class PartialApplicationKeyAttributes {
    *
    * @return last4
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST4)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLast4() {
@@ -72,7 +72,7 @@ public class PartialApplicationKeyAttributes {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -106,7 +106,7 @@ public class PartialApplicationKeyAttributes {
    *
    * @return scopes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<String> getScopes() {
     return scopes.orElse(null);

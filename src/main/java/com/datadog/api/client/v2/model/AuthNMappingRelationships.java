@@ -17,7 +17,7 @@ import java.util.Objects;
   AuthNMappingRelationships.JSON_PROPERTY_ROLE,
   AuthNMappingRelationships.JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingRelationships {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class AuthNMappingRelationships {
    *
    * @return role
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToRole getRole() {
@@ -61,7 +61,7 @@ public class AuthNMappingRelationships {
    *
    * @return samlAssertionAttribute
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToSAMLAssertionAttribute getSamlAssertionAttribute() {

@@ -17,7 +17,7 @@ import java.util.Objects;
 
 /** Object describing how to split the graph to display multiple visualizations per request. */
 @JsonPropertyOrder({NotebookSplitBy.JSON_PROPERTY_KEYS, NotebookSplitBy.JSON_PROPERTY_TAGS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookSplitBy {
   @JsonIgnore public boolean unparsed = false;

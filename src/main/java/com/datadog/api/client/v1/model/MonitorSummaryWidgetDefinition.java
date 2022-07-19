@@ -32,7 +32,7 @@ import java.util.Objects;
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorSummaryWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -99,7 +99,7 @@ public class MonitorSummaryWidgetDefinition {
    *
    * @return colorPreference
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COLOR_PREFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetColorPreference getColorPreference() {
@@ -125,7 +125,7 @@ public class MonitorSummaryWidgetDefinition {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCount() {
@@ -148,7 +148,7 @@ public class MonitorSummaryWidgetDefinition {
    *
    * @return displayFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISPLAY_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetMonitorSummaryDisplayFormat getDisplayFormat() {
@@ -172,7 +172,7 @@ public class MonitorSummaryWidgetDefinition {
    *
    * @return hideZeroCounts
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HIDE_ZERO_COUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHideZeroCounts() {
@@ -213,7 +213,7 @@ public class MonitorSummaryWidgetDefinition {
    *
    * @return showLastTriggered
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_LAST_TRIGGERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowLastTriggered() {
@@ -235,7 +235,7 @@ public class MonitorSummaryWidgetDefinition {
    *
    * @return sort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetMonitorSummarySort getSort() {
@@ -261,7 +261,7 @@ public class MonitorSummaryWidgetDefinition {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStart() {
@@ -283,7 +283,7 @@ public class MonitorSummaryWidgetDefinition {
    *
    * @return summaryType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUMMARY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetSummaryType getSummaryType() {
@@ -307,7 +307,7 @@ public class MonitorSummaryWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -329,7 +329,7 @@ public class MonitorSummaryWidgetDefinition {
    *
    * @return titleAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -353,7 +353,7 @@ public class MonitorSummaryWidgetDefinition {
    *
    * @return titleSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {

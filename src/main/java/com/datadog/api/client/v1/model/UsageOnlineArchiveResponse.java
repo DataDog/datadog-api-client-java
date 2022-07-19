@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Online Archive usage response. */
 @JsonPropertyOrder({UsageOnlineArchiveResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageOnlineArchiveResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class UsageOnlineArchiveResponse {
    *
    * @return usage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageOnlineArchiveHour> getUsage() {

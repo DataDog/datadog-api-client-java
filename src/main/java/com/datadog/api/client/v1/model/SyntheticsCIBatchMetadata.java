@@ -17,7 +17,7 @@ import java.util.Objects;
   SyntheticsCIBatchMetadata.JSON_PROPERTY_CI,
   SyntheticsCIBatchMetadata.JSON_PROPERTY_GIT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCIBatchMetadata {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class SyntheticsCIBatchMetadata {
    *
    * @return ci
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadataCI getCi() {
@@ -60,7 +60,7 @@ public class SyntheticsCIBatchMetadata {
    *
    * @return git
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadataGit getGit() {

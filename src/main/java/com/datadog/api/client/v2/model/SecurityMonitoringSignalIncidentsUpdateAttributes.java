@@ -20,7 +20,7 @@ import java.util.Objects;
   SecurityMonitoringSignalIncidentsUpdateAttributes.JSON_PROPERTY_INCIDENT_IDS,
   SecurityMonitoringSignalIncidentsUpdateAttributes.JSON_PROPERTY_VERSION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalIncidentsUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -74,7 +74,7 @@ public class SecurityMonitoringSignalIncidentsUpdateAttributes {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVersion() {

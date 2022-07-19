@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** A relationship reference for postmortems. */
 @JsonPropertyOrder({RelationshipToIncidentPostmortem.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToIncidentPostmortem {
   @JsonIgnore public boolean unparsed = false;

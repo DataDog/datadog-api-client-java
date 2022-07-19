@@ -29,7 +29,7 @@ import java.util.Objects;
   GroupWidgetDefinition.JSON_PROPERTY_TYPE,
   GroupWidgetDefinition.JSON_PROPERTY_WIDGETS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GroupWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -81,7 +81,7 @@ public class GroupWidgetDefinition {
    *
    * @return backgroundColor
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BACKGROUND_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBackgroundColor() {
@@ -102,7 +102,7 @@ public class GroupWidgetDefinition {
    *
    * @return bannerImg
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BANNER_IMG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBannerImg() {
@@ -147,7 +147,7 @@ public class GroupWidgetDefinition {
    *
    * @return showTitle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowTitle() {
@@ -168,7 +168,7 @@ public class GroupWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -190,7 +190,7 @@ public class GroupWidgetDefinition {
    *
    * @return titleAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {

@@ -18,7 +18,7 @@ import java.util.Objects;
   SyntheticsVariableParser.JSON_PROPERTY_TYPE,
   SyntheticsVariableParser.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsVariableParser {
   @JsonIgnore public boolean unparsed = false;
@@ -72,7 +72,7 @@ public class SyntheticsVariableParser {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {

@@ -17,7 +17,7 @@ import java.util.Objects;
 
 /** The metrics' payload. */
 @JsonPropertyOrder({MetricsPayload.JSON_PROPERTY_SERIES})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsPayload {
   @JsonIgnore public boolean unparsed = false;

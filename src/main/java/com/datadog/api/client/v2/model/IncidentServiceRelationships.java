@@ -17,7 +17,7 @@ import java.util.Objects;
   IncidentServiceRelationships.JSON_PROPERTY_CREATED_BY,
   IncidentServiceRelationships.JSON_PROPERTY_LAST_MODIFIED_BY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentServiceRelationships {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class IncidentServiceRelationships {
    *
    * @return createdBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getCreatedBy() {
@@ -60,7 +60,7 @@ public class IncidentServiceRelationships {
    *
    * @return lastModifiedBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getLastModifiedBy() {

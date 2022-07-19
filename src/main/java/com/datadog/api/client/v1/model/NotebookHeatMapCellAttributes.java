@@ -21,7 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   NotebookHeatMapCellAttributes.JSON_PROPERTY_SPLIT_BY,
   NotebookHeatMapCellAttributes.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookHeatMapCellAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -80,7 +80,7 @@ public class NotebookHeatMapCellAttributes {
    *
    * @return graphSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GRAPH_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookGraphSize getGraphSize() {
@@ -105,7 +105,7 @@ public class NotebookHeatMapCellAttributes {
    *
    * @return splitBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPLIT_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookSplitBy getSplitBy() {
@@ -126,7 +126,7 @@ public class NotebookHeatMapCellAttributes {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public NotebookCellTime getTime() {
     return time.orElse(null);

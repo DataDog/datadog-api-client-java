@@ -18,7 +18,7 @@ import java.util.Objects;
   LogsGrokParserRules.JSON_PROPERTY_MATCH_RULES,
   LogsGrokParserRules.JSON_PROPERTY_SUPPORT_RULES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsGrokParserRules {
   @JsonIgnore public boolean unparsed = false;
@@ -66,7 +66,7 @@ public class LogsGrokParserRules {
    *
    * @return supportRules
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUPPORT_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSupportRules() {

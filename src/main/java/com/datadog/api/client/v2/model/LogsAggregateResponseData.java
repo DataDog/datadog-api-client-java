@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** The query results */
 @JsonPropertyOrder({LogsAggregateResponseData.JSON_PROPERTY_BUCKETS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateResponseData {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class LogsAggregateResponseData {
    *
    * @return buckets
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BUCKETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsAggregateBucket> getBuckets() {

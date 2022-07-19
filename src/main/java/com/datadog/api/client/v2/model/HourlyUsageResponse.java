@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Hourly usage response. */
 @JsonPropertyOrder({HourlyUsageResponse.JSON_PROPERTY_DATA, HourlyUsageResponse.JSON_PROPERTY_META})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HourlyUsageResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -48,7 +48,7 @@ public class HourlyUsageResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<HourlyUsage> getData() {
@@ -70,7 +70,7 @@ public class HourlyUsageResponse {
    *
    * @return meta
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HourlyUsageMetadata getMeta() {

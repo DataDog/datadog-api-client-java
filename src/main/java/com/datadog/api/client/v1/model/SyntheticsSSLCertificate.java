@@ -32,7 +32,7 @@ import java.util.Objects;
   SyntheticsSSLCertificate.JSON_PROPERTY_VALID_FROM,
   SyntheticsSSLCertificate.JSON_PROPERTY_VALID_TO
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsSSLCertificate {
   @JsonIgnore public boolean unparsed = false;
@@ -86,7 +86,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return cipher
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CIPHER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCipher() {
@@ -107,7 +107,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return exponent
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getExponent() {
@@ -136,7 +136,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return extKeyUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXT_KEY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getExtKeyUsage() {
@@ -157,7 +157,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return fingerprint
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFingerprint() {
@@ -178,7 +178,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return fingerprint256
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FINGERPRINT256)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFingerprint256() {
@@ -200,7 +200,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return issuer
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsSSLCertificateIssuer getIssuer() {
@@ -221,7 +221,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return modulus
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODULUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getModulus() {
@@ -242,7 +242,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return protocol
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROTOCOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProtocol() {
@@ -263,7 +263,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return serialNumber
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSerialNumber() {
@@ -285,7 +285,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return subject
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsSSLCertificateSubject getSubject() {
@@ -306,7 +306,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return validFrom
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALID_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getValidFrom() {
@@ -327,7 +327,7 @@ public class SyntheticsSSLCertificate {
    *
    * @return validTo
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALID_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getValidTo() {

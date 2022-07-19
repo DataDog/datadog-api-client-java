@@ -19,7 +19,7 @@ import java.util.Objects;
   Organization.JSON_PROPERTY_ID,
   Organization.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Organization {
   @JsonIgnore public boolean unparsed = false;
@@ -52,7 +52,7 @@ public class Organization {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OrganizationAttributes getAttributes() {
@@ -73,7 +73,7 @@ public class Organization {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {

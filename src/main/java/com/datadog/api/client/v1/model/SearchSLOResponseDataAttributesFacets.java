@@ -25,7 +25,7 @@ import java.util.Objects;
   SearchSLOResponseDataAttributesFacets.JSON_PROPERTY_TEAM_TAGS,
   SearchSLOResponseDataAttributesFacets.JSON_PROPERTY_TIMEFRAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SearchSLOResponseDataAttributesFacets {
   @JsonIgnore public boolean unparsed = false;
@@ -77,7 +77,7 @@ public class SearchSLOResponseDataAttributesFacets {
    *
    * @return allTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALL_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SearchSLOResponseDataAttributesFacetsObjectString> getAllTags() {
@@ -112,7 +112,7 @@ public class SearchSLOResponseDataAttributesFacets {
    *
    * @return creatorName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SearchSLOResponseDataAttributesFacetsObjectString> getCreatorName() {
@@ -147,7 +147,7 @@ public class SearchSLOResponseDataAttributesFacets {
    *
    * @return envTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENV_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SearchSLOResponseDataAttributesFacetsObjectString> getEnvTags() {
@@ -182,7 +182,7 @@ public class SearchSLOResponseDataAttributesFacets {
    *
    * @return serviceTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVICE_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SearchSLOResponseDataAttributesFacetsObjectString> getServiceTags() {
@@ -217,7 +217,7 @@ public class SearchSLOResponseDataAttributesFacets {
    *
    * @return sloType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SLO_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SearchSLOResponseDataAttributesFacetsObjectInt> getSloType() {
@@ -252,7 +252,7 @@ public class SearchSLOResponseDataAttributesFacets {
    *
    * @return target
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SearchSLOResponseDataAttributesFacetsObjectInt> getTarget() {
@@ -287,7 +287,7 @@ public class SearchSLOResponseDataAttributesFacets {
    *
    * @return teamTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEAM_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SearchSLOResponseDataAttributesFacetsObjectString> getTeamTags() {
@@ -322,7 +322,7 @@ public class SearchSLOResponseDataAttributesFacets {
    *
    * @return timeframe
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SearchSLOResponseDataAttributesFacetsObjectString> getTimeframe() {

@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Relationship to user. */
 @JsonPropertyOrder({NullableRelationshipToUser.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NullableRelationshipToUser {
   @JsonIgnore public boolean unparsed = false;
@@ -47,7 +47,7 @@ public class NullableRelationshipToUser {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NullableRelationshipToUserData getData() {

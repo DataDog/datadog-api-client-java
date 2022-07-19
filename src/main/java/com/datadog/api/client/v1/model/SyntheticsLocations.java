@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** List of Synthetics locations. */
 @JsonPropertyOrder({SyntheticsLocations.JSON_PROPERTY_LOCATIONS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsLocations {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class SyntheticsLocations {
    *
    * @return locations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsLocation> getLocations() {

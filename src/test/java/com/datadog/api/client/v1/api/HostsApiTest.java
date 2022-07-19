@@ -16,11 +16,11 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.v1.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.ws.rs.core.GenericType;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.TreeMap;
-import javax.ws.rs.core.GenericType;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

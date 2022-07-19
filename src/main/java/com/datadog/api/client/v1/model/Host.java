@@ -33,7 +33,7 @@ import java.util.Objects;
   Host.JSON_PROPERTY_TAGS_BY_SOURCE,
   Host.JSON_PROPERTY_UP
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Host {
   @JsonIgnore public boolean unparsed = false;
@@ -97,7 +97,7 @@ public class Host {
    *
    * @return aliases
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALIASES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAliases() {
@@ -126,7 +126,7 @@ public class Host {
    *
    * @return apps
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getApps() {
@@ -147,7 +147,7 @@ public class Host {
    *
    * @return awsName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AWS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAwsName() {
@@ -168,7 +168,7 @@ public class Host {
    *
    * @return hostName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHostName() {
@@ -189,7 +189,7 @@ public class Host {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -210,7 +210,7 @@ public class Host {
    *
    * @return isMuted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_MUTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsMuted() {
@@ -231,7 +231,7 @@ public class Host {
    *
    * @return lastReportedTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_REPORTED_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastReportedTime() {
@@ -253,7 +253,7 @@ public class Host {
    *
    * @return meta
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMeta getMeta() {
@@ -275,7 +275,7 @@ public class Host {
    *
    * @return metrics
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HostMetrics getMetrics() {
@@ -296,7 +296,7 @@ public class Host {
    *
    * @return muteTimeout
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MUTE_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMuteTimeout() {
@@ -317,7 +317,7 @@ public class Host {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -346,7 +346,7 @@ public class Host {
    *
    * @return sources
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getSources() {
@@ -375,7 +375,7 @@ public class Host {
    *
    * @return tagsBySource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS_BY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getTagsBySource() {
@@ -397,7 +397,7 @@ public class Host {
    *
    * @return up
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getUp() {

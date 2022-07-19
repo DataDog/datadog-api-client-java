@@ -28,7 +28,7 @@ import java.util.Objects;
   DistributionWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_STYLE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DistributionWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -82,7 +82,7 @@ public class DistributionWidgetRequest {
    *
    * @return apmQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getApmQuery() {
@@ -104,7 +104,7 @@ public class DistributionWidgetRequest {
    *
    * @return apmStatsQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_STATS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApmStatsQueryDefinition getApmStatsQuery() {
@@ -126,7 +126,7 @@ public class DistributionWidgetRequest {
    *
    * @return eventQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getEventQuery() {
@@ -148,7 +148,7 @@ public class DistributionWidgetRequest {
    *
    * @return logQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOG_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getLogQuery() {
@@ -170,7 +170,7 @@ public class DistributionWidgetRequest {
    *
    * @return networkQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getNetworkQuery() {
@@ -192,7 +192,7 @@ public class DistributionWidgetRequest {
    *
    * @return processQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ProcessQueryDefinition getProcessQuery() {
@@ -214,7 +214,7 @@ public class DistributionWidgetRequest {
    *
    * @return profileMetricsQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getProfileMetricsQuery() {
@@ -235,7 +235,7 @@ public class DistributionWidgetRequest {
    *
    * @return q
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQ() {
@@ -257,7 +257,7 @@ public class DistributionWidgetRequest {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DistributionWidgetHistogramRequestQuery getQuery() {
@@ -279,7 +279,7 @@ public class DistributionWidgetRequest {
    *
    * @return requestType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DistributionWidgetHistogramRequestType getRequestType() {
@@ -304,7 +304,7 @@ public class DistributionWidgetRequest {
    *
    * @return rumQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getRumQuery() {
@@ -326,7 +326,7 @@ public class DistributionWidgetRequest {
    *
    * @return securityQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogQueryDefinition getSecurityQuery() {
@@ -348,7 +348,7 @@ public class DistributionWidgetRequest {
    *
    * @return style
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetStyle getStyle() {

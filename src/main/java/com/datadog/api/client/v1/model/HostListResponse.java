@@ -20,7 +20,7 @@ import java.util.Objects;
   HostListResponse.JSON_PROPERTY_TOTAL_MATCHING,
   HostListResponse.JSON_PROPERTY_TOTAL_RETURNED
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class HostListResponse {
    *
    * @return hostList
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Host> getHostList() {
@@ -76,7 +76,7 @@ public class HostListResponse {
    *
    * @return totalMatching
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_MATCHING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalMatching() {
@@ -97,7 +97,7 @@ public class HostListResponse {
    *
    * @return totalReturned
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_RETURNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalReturned() {

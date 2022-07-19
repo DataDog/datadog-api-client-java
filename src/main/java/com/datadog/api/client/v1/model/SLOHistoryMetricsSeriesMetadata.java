@@ -24,7 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_SCOPE,
   SLOHistoryMetricsSeriesMetadata.JSON_PROPERTY_UNIT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMetricsSeriesMetadata {
   @JsonIgnore public boolean unparsed = false;
@@ -57,7 +57,7 @@ public class SLOHistoryMetricsSeriesMetadata {
    *
    * @return aggr
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAggr() {
@@ -78,7 +78,7 @@ public class SLOHistoryMetricsSeriesMetadata {
    *
    * @return expression
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpression() {
@@ -99,7 +99,7 @@ public class SLOHistoryMetricsSeriesMetadata {
    *
    * @return metric
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -120,7 +120,7 @@ public class SLOHistoryMetricsSeriesMetadata {
    *
    * @return queryIndex
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getQueryIndex() {
@@ -141,7 +141,7 @@ public class SLOHistoryMetricsSeriesMetadata {
    *
    * @return scope
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getScope() {
@@ -176,7 +176,7 @@ public class SLOHistoryMetricsSeriesMetadata {
    *
    * @return unit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<SLOHistoryMetricsSeriesMetadataUnit> getUnit() {
     return unit.orElse(null);

@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Optional metadata associated to the response. */
 @JsonPropertyOrder({SecurityFilterMeta.JSON_PROPERTY_WARNING})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityFilterMeta {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class SecurityFilterMeta {
    *
    * @return warning
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWarning() {

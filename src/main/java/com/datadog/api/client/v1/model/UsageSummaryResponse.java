@@ -96,7 +96,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_USAGE,
   UsageSummaryResponse.JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSummaryResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -377,7 +377,7 @@ public class UsageSummaryResponse {
    *
    * @return agentHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGENT_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAgentHostTop99pSum() {
@@ -400,7 +400,7 @@ public class UsageSummaryResponse {
    *
    * @return apmAzureAppServiceHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getApmAzureAppServiceHostTop99pSum() {
@@ -422,7 +422,7 @@ public class UsageSummaryResponse {
    *
    * @return apmHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getApmHostTop99pSum() {
@@ -444,7 +444,7 @@ public class UsageSummaryResponse {
    *
    * @return auditLogsLinesIndexedAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAuditLogsLinesIndexedAggSum() {
@@ -466,7 +466,7 @@ public class UsageSummaryResponse {
    *
    * @return avgProfiledFargateTasksSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAvgProfiledFargateTasksSum() {
@@ -488,7 +488,7 @@ public class UsageSummaryResponse {
    *
    * @return awsHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AWS_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAwsHostTop99pSum() {
@@ -510,7 +510,7 @@ public class UsageSummaryResponse {
    *
    * @return awsLambdaFuncCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAwsLambdaFuncCount() {
@@ -532,7 +532,7 @@ public class UsageSummaryResponse {
    *
    * @return awsLambdaInvocationsSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAwsLambdaInvocationsSum() {
@@ -554,7 +554,7 @@ public class UsageSummaryResponse {
    *
    * @return azureAppServiceTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAzureAppServiceTop99pSum() {
@@ -576,7 +576,7 @@ public class UsageSummaryResponse {
    *
    * @return azureHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AZURE_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAzureHostTop99pSum() {
@@ -598,7 +598,7 @@ public class UsageSummaryResponse {
    *
    * @return billableIngestedBytesAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBillableIngestedBytesAggSum() {
@@ -621,7 +621,7 @@ public class UsageSummaryResponse {
    *
    * @return browserRumLiteSessionCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBrowserRumLiteSessionCountAggSum() {
@@ -644,7 +644,7 @@ public class UsageSummaryResponse {
    *
    * @return browserRumReplaySessionCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBrowserRumReplaySessionCountAggSum() {
@@ -666,7 +666,7 @@ public class UsageSummaryResponse {
    *
    * @return browserRumUnitsAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBrowserRumUnitsAggSum() {
@@ -688,7 +688,7 @@ public class UsageSummaryResponse {
    *
    * @return ciPipelineIndexedSpansAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCiPipelineIndexedSpansAggSum() {
@@ -710,7 +710,7 @@ public class UsageSummaryResponse {
    *
    * @return ciTestIndexedSpansAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCiTestIndexedSpansAggSum() {
@@ -733,7 +733,7 @@ public class UsageSummaryResponse {
    *
    * @return ciVisibilityPipelineCommittersHwmSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCiVisibilityPipelineCommittersHwmSum() {
@@ -756,7 +756,7 @@ public class UsageSummaryResponse {
    *
    * @return ciVisibilityTestCommittersHwmSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCiVisibilityTestCommittersHwmSum() {
@@ -778,7 +778,7 @@ public class UsageSummaryResponse {
    *
    * @return containerAvgSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTAINER_AVG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getContainerAvgSum() {
@@ -800,7 +800,7 @@ public class UsageSummaryResponse {
    *
    * @return containerHwmSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTAINER_HWM_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getContainerHwmSum() {
@@ -822,7 +822,7 @@ public class UsageSummaryResponse {
    *
    * @return cspmAasHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_AAS_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCspmAasHostTop99pSum() {
@@ -844,7 +844,7 @@ public class UsageSummaryResponse {
    *
    * @return cspmAzureHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCspmAzureHostTop99pSum() {
@@ -866,7 +866,7 @@ public class UsageSummaryResponse {
    *
    * @return cspmContainerAvgSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_AVG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCspmContainerAvgSum() {
@@ -888,7 +888,7 @@ public class UsageSummaryResponse {
    *
    * @return cspmContainerHwmSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_HWM_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCspmContainerHwmSum() {
@@ -910,7 +910,7 @@ public class UsageSummaryResponse {
    *
    * @return cspmHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCspmHostTop99pSum() {
@@ -932,7 +932,7 @@ public class UsageSummaryResponse {
    *
    * @return customTsSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_TS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCustomTsSum() {
@@ -954,7 +954,7 @@ public class UsageSummaryResponse {
    *
    * @return cwsContainersAvgSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCwsContainersAvgSum() {
@@ -976,7 +976,7 @@ public class UsageSummaryResponse {
    *
    * @return cwsHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CWS_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCwsHostTop99pSum() {
@@ -998,7 +998,7 @@ public class UsageSummaryResponse {
    *
    * @return dbmHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DBM_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDbmHostTop99pSum() {
@@ -1020,7 +1020,7 @@ public class UsageSummaryResponse {
    *
    * @return dbmQueriesAvgSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DBM_QUERIES_AVG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDbmQueriesAvgSum() {
@@ -1041,7 +1041,7 @@ public class UsageSummaryResponse {
    *
    * @return endDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getEndDate() {
@@ -1063,7 +1063,7 @@ public class UsageSummaryResponse {
    *
    * @return fargateTasksCountAvgSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFargateTasksCountAvgSum() {
@@ -1085,7 +1085,7 @@ public class UsageSummaryResponse {
    *
    * @return fargateTasksCountHwmSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFargateTasksCountHwmSum() {
@@ -1107,7 +1107,7 @@ public class UsageSummaryResponse {
    *
    * @return gcpHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GCP_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getGcpHostTop99pSum() {
@@ -1129,7 +1129,7 @@ public class UsageSummaryResponse {
    *
    * @return herokuHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HEROKU_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getHerokuHostTop99pSum() {
@@ -1152,7 +1152,7 @@ public class UsageSummaryResponse {
    *
    * @return incidentManagementMonthlyActiveUsersHwmSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIncidentManagementMonthlyActiveUsersHwmSum() {
@@ -1175,7 +1175,7 @@ public class UsageSummaryResponse {
    *
    * @return indexedEventsCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIndexedEventsCountAggSum() {
@@ -1197,7 +1197,7 @@ public class UsageSummaryResponse {
    *
    * @return infraHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInfraHostTop99pSum() {
@@ -1219,7 +1219,7 @@ public class UsageSummaryResponse {
    *
    * @return ingestedEventsBytesAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIngestedEventsBytesAggSum() {
@@ -1240,7 +1240,7 @@ public class UsageSummaryResponse {
    *
    * @return iotDeviceAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IOT_DEVICE_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIotDeviceAggSum() {
@@ -1262,7 +1262,7 @@ public class UsageSummaryResponse {
    *
    * @return iotDeviceTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIotDeviceTop99pSum() {
@@ -1284,7 +1284,7 @@ public class UsageSummaryResponse {
    *
    * @return lastUpdated
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getLastUpdated() {
@@ -1306,7 +1306,7 @@ public class UsageSummaryResponse {
    *
    * @return liveIndexedEventsAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIVE_INDEXED_EVENTS_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLiveIndexedEventsAggSum() {
@@ -1328,7 +1328,7 @@ public class UsageSummaryResponse {
    *
    * @return liveIngestedBytesAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIVE_INGESTED_BYTES_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLiveIngestedBytesAggSum() {
@@ -1350,7 +1350,7 @@ public class UsageSummaryResponse {
    *
    * @return logsByRetention
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_BY_RETENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsByRetention getLogsByRetention() {
@@ -1373,7 +1373,7 @@ public class UsageSummaryResponse {
    *
    * @return mobileRumLiteSessionCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumLiteSessionCountAggSum() {
@@ -1395,7 +1395,7 @@ public class UsageSummaryResponse {
    *
    * @return mobileRumSessionCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumSessionCountAggSum() {
@@ -1418,7 +1418,7 @@ public class UsageSummaryResponse {
    *
    * @return mobileRumSessionCountAndroidAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumSessionCountAndroidAggSum() {
@@ -1440,7 +1440,7 @@ public class UsageSummaryResponse {
    *
    * @return mobileRumSessionCountIosAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumSessionCountIosAggSum() {
@@ -1463,7 +1463,7 @@ public class UsageSummaryResponse {
    *
    * @return mobileRumSessionCountReactnativeAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumSessionCountReactnativeAggSum() {
@@ -1486,7 +1486,7 @@ public class UsageSummaryResponse {
    *
    * @return mobileRumUnitsAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumUnitsAggSum() {
@@ -1509,7 +1509,7 @@ public class UsageSummaryResponse {
    *
    * @return netflowIndexedEventsCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNetflowIndexedEventsCountAggSum() {
@@ -1531,7 +1531,7 @@ public class UsageSummaryResponse {
    *
    * @return npmHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NPM_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNpmHostTop99pSum() {
@@ -1554,7 +1554,7 @@ public class UsageSummaryResponse {
    *
    * @return observabilityPipelinesBytesProcessedAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getObservabilityPipelinesBytesProcessedAggSum() {
@@ -1576,7 +1576,7 @@ public class UsageSummaryResponse {
    *
    * @return onlineArchiveEventsCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOnlineArchiveEventsCountAggSum() {
@@ -1598,7 +1598,7 @@ public class UsageSummaryResponse {
    *
    * @return opentelemetryHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOpentelemetryHostTop99pSum() {
@@ -1621,7 +1621,7 @@ public class UsageSummaryResponse {
    *
    * @return profilingContainerAgentCountAvg
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILING_CONTAINER_AGENT_COUNT_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getProfilingContainerAgentCountAvg() {
@@ -1643,7 +1643,7 @@ public class UsageSummaryResponse {
    *
    * @return profilingHostCountTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getProfilingHostCountTop99pSum() {
@@ -1665,7 +1665,7 @@ public class UsageSummaryResponse {
    *
    * @return rehydratedIndexedEventsAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRehydratedIndexedEventsAggSum() {
@@ -1687,7 +1687,7 @@ public class UsageSummaryResponse {
    *
    * @return rehydratedIngestedBytesAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REHYDRATED_INGESTED_BYTES_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRehydratedIngestedBytesAggSum() {
@@ -1710,7 +1710,7 @@ public class UsageSummaryResponse {
    *
    * @return rumBrowserAndMobileSessionCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRumBrowserAndMobileSessionCount() {
@@ -1732,7 +1732,7 @@ public class UsageSummaryResponse {
    *
    * @return rumSessionCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRumSessionCountAggSum() {
@@ -1754,7 +1754,7 @@ public class UsageSummaryResponse {
    *
    * @return rumTotalSessionCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRumTotalSessionCountAggSum() {
@@ -1776,7 +1776,7 @@ public class UsageSummaryResponse {
    *
    * @return rumUnitsAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_UNITS_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRumUnitsAggSum() {
@@ -1798,7 +1798,7 @@ public class UsageSummaryResponse {
    *
    * @return sdsLogsScannedBytesSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSdsLogsScannedBytesSum() {
@@ -1820,7 +1820,7 @@ public class UsageSummaryResponse {
    *
    * @return sdsTotalScannedBytesSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSdsTotalScannedBytesSum() {
@@ -1841,7 +1841,7 @@ public class UsageSummaryResponse {
    *
    * @return startDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getStartDate() {
@@ -1864,7 +1864,7 @@ public class UsageSummaryResponse {
    *
    * @return syntheticsBrowserCheckCallsCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSyntheticsBrowserCheckCallsCountAggSum() {
@@ -1888,7 +1888,7 @@ public class UsageSummaryResponse {
    *
    * @return syntheticsCheckCallsCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSyntheticsCheckCallsCountAggSum() {
@@ -1911,7 +1911,7 @@ public class UsageSummaryResponse {
    *
    * @return traceSearchIndexedEventsCountAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTraceSearchIndexedEventsCountAggSum() {
@@ -1933,7 +1933,7 @@ public class UsageSummaryResponse {
    *
    * @return twolIngestedEventsBytesAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTwolIngestedEventsBytesAggSum() {
@@ -1966,7 +1966,7 @@ public class UsageSummaryResponse {
    *
    * @return usage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageSummaryDate> getUsage() {
@@ -1988,7 +1988,7 @@ public class UsageSummaryResponse {
    *
    * @return vsphereHostTop99pSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVsphereHostTop99pSum() {

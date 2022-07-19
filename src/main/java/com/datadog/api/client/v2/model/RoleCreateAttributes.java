@@ -22,7 +22,7 @@ import java.util.Objects;
   RoleCreateAttributes.JSON_PROPERTY_MODIFIED_AT,
   RoleCreateAttributes.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -52,7 +52,7 @@ public class RoleCreateAttributes {
    *
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -64,7 +64,7 @@ public class RoleCreateAttributes {
    *
    * @return modifiedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModifiedAt() {

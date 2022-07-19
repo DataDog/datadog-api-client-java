@@ -21,7 +21,7 @@ import java.util.Objects;
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_O_U,
   SyntheticsSSLCertificateIssuer.JSON_PROPERTY_S_T
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsSSLCertificateIssuer {
   @JsonIgnore public boolean unparsed = false;
@@ -53,7 +53,7 @@ public class SyntheticsSSLCertificateIssuer {
    *
    * @return C
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_C)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getC() {
@@ -74,7 +74,7 @@ public class SyntheticsSSLCertificateIssuer {
    *
    * @return CN
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_C_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCN() {
@@ -95,7 +95,7 @@ public class SyntheticsSSLCertificateIssuer {
    *
    * @return L
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getL() {
@@ -116,7 +116,7 @@ public class SyntheticsSSLCertificateIssuer {
    *
    * @return O
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_O)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getO() {
@@ -137,7 +137,7 @@ public class SyntheticsSSLCertificateIssuer {
    *
    * @return OU
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_O_U)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOU() {
@@ -158,7 +158,7 @@ public class SyntheticsSSLCertificateIssuer {
    *
    * @return ST
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_S_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getST() {

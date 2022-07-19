@@ -29,7 +29,7 @@ import java.util.Objects;
   HourlyUsageAttributionBody.JSON_PROPERTY_UPDATED_AT,
   HourlyUsageAttributionBody.JSON_PROPERTY_USAGE_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HourlyUsageAttributionBody {
   @JsonIgnore public boolean unparsed = false;
@@ -69,7 +69,7 @@ public class HourlyUsageAttributionBody {
    *
    * @return hour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -90,7 +90,7 @@ public class HourlyUsageAttributionBody {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -111,7 +111,7 @@ public class HourlyUsageAttributionBody {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -135,7 +135,7 @@ public class HourlyUsageAttributionBody {
    *
    * @return tagConfigSource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAG_CONFIG_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagConfigSource() {
@@ -170,7 +170,7 @@ public class HourlyUsageAttributionBody {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getTags() {
@@ -191,7 +191,7 @@ public class HourlyUsageAttributionBody {
    *
    * @return totalUsageSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_USAGE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTotalUsageSum() {
@@ -213,7 +213,7 @@ public class HourlyUsageAttributionBody {
    *
    * @return updatedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUpdatedAt() {
@@ -235,7 +235,7 @@ public class HourlyUsageAttributionBody {
    *
    * @return usageType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HourlyUsageAttributionUsageType getUsageType() {

@@ -26,7 +26,7 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATER,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_VERSION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -73,7 +73,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    *
    * @return category
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCategory() {
@@ -94,7 +94,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    *
    * @return creationDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCreationDate() {
@@ -117,7 +117,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    *
    * @return creator
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CloudWorkloadSecurityAgentRuleCreatorAttributes getCreator() {
@@ -138,7 +138,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    *
    * @return defaultRule
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEFAULT_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDefaultRule() {
@@ -159,7 +159,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -180,7 +180,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    *
    * @return enabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {
@@ -201,7 +201,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    *
    * @return expression
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpression() {
@@ -222,7 +222,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -243,7 +243,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    *
    * @return updatedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getUpdatedAt() {
@@ -266,7 +266,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    *
    * @return updater
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CloudWorkloadSecurityAgentRuleUpdaterAttributes getUpdater() {
@@ -287,7 +287,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVersion() {

@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Status of downgrade */
 @JsonPropertyOrder({OrgDowngradedResponse.JSON_PROPERTY_MESSAGE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrgDowngradedResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class OrgDowngradedResponse {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {

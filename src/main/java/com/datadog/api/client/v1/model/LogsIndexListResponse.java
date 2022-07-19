@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Object with all Index configurations for a given organization. */
 @JsonPropertyOrder({LogsIndexListResponse.JSON_PROPERTY_INDEXES})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsIndexListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class LogsIndexListResponse {
    *
    * @return indexes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LogsIndex> getIndexes() {

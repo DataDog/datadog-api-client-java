@@ -18,7 +18,7 @@ import java.util.Objects;
 
 /** A response list of all service level objective deleted. */
 @JsonPropertyOrder({SLODeleteResponse.JSON_PROPERTY_DATA, SLODeleteResponse.JSON_PROPERTY_ERRORS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLODeleteResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -46,7 +46,7 @@ public class SLODeleteResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getData() {
@@ -75,7 +75,7 @@ public class SLODeleteResponse {
    *
    * @return errors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getErrors() {

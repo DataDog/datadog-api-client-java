@@ -17,7 +17,7 @@ import java.util.Objects;
   LogsMetricResponseGroupBy.JSON_PROPERTY_PATH,
   LogsMetricResponseGroupBy.JSON_PROPERTY_TAG_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricResponseGroupBy {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class LogsMetricResponseGroupBy {
    *
    * @return path
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPath() {
@@ -59,7 +59,7 @@ public class LogsMetricResponseGroupBy {
    *
    * @return tagName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagName() {

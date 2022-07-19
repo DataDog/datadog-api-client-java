@@ -17,7 +17,7 @@ import java.util.Objects;
   MonitorSearchCountItem.JSON_PROPERTY_COUNT,
   MonitorSearchCountItem.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorSearchCountItem {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class MonitorSearchCountItem {
    *
    * @return count
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCount() {
@@ -44,7 +44,7 @@ public class MonitorSearchCountItem {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Object getName() {

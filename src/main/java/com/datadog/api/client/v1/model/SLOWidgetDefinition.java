@@ -31,7 +31,7 @@ import java.util.Objects;
   SLOWidgetDefinition.JSON_PROPERTY_VIEW_MODE,
   SLOWidgetDefinition.JSON_PROPERTY_VIEW_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -86,7 +86,7 @@ public class SLOWidgetDefinition {
    *
    * @return globalTimeTarget
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GLOBAL_TIME_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGlobalTimeTarget() {
@@ -107,7 +107,7 @@ public class SLOWidgetDefinition {
    *
    * @return showErrorBudget
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_ERROR_BUDGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowErrorBudget() {
@@ -128,7 +128,7 @@ public class SLOWidgetDefinition {
    *
    * @return sloId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SLO_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSloId() {
@@ -158,7 +158,7 @@ public class SLOWidgetDefinition {
    *
    * @return timeWindows
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_WINDOWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetTimeWindows> getTimeWindows() {
@@ -179,7 +179,7 @@ public class SLOWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -201,7 +201,7 @@ public class SLOWidgetDefinition {
    *
    * @return titleAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -225,7 +225,7 @@ public class SLOWidgetDefinition {
    *
    * @return titleSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -271,7 +271,7 @@ public class SLOWidgetDefinition {
    *
    * @return viewMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VIEW_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetViewMode getViewMode() {

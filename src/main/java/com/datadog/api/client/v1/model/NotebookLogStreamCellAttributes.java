@@ -20,7 +20,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   NotebookLogStreamCellAttributes.JSON_PROPERTY_GRAPH_SIZE,
   NotebookLogStreamCellAttributes.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookLogStreamCellAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -76,7 +76,7 @@ public class NotebookLogStreamCellAttributes {
    *
    * @return graphSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GRAPH_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookGraphSize getGraphSize() {
@@ -100,7 +100,7 @@ public class NotebookLogStreamCellAttributes {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public NotebookCellTime getTime() {
     return time.orElse(null);

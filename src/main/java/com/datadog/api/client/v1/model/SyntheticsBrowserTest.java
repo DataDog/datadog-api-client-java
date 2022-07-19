@@ -29,7 +29,7 @@ import java.util.Objects;
   SyntheticsBrowserTest.JSON_PROPERTY_TAGS,
   SyntheticsBrowserTest.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTest {
   @JsonIgnore public boolean unparsed = false;
@@ -159,7 +159,7 @@ public class SyntheticsBrowserTest {
    *
    * @return monitorId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorId() {
@@ -212,7 +212,7 @@ public class SyntheticsBrowserTest {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -231,7 +231,7 @@ public class SyntheticsBrowserTest {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestPauseStatus getStatus() {
@@ -267,7 +267,7 @@ public class SyntheticsBrowserTest {
    *
    * @return steps
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsStep> getSteps() {
@@ -296,7 +296,7 @@ public class SyntheticsBrowserTest {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

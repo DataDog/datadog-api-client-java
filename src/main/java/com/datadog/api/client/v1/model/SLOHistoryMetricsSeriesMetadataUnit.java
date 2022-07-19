@@ -22,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOHistoryMetricsSeriesMetadataUnit.JSON_PROPERTY_SCALE_FACTOR,
   SLOHistoryMetricsSeriesMetadataUnit.JSON_PROPERTY_SHORT_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryMetricsSeriesMetadataUnit {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    *
    * @return family
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFamily() {
@@ -76,7 +76,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -97,7 +97,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -118,7 +118,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    *
    * @return plural
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getPlural() {
     return plural.orElse(null);
@@ -149,7 +149,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    *
    * @return scaleFactor
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCALE_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getScaleFactor() {
@@ -170,7 +170,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
    *
    * @return shortName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getShortName() {
     return shortName.orElse(null);

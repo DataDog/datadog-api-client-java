@@ -19,7 +19,7 @@ import java.util.Objects;
   MonitorGroupSearchResponseCounts.JSON_PROPERTY_STATUS,
   MonitorGroupSearchResponseCounts.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorGroupSearchResponseCounts {
   @JsonIgnore public boolean unparsed = false;
@@ -51,7 +51,7 @@ public class MonitorGroupSearchResponseCounts {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorSearchCountItem> getStatus() {
@@ -84,7 +84,7 @@ public class MonitorGroupSearchResponseCounts {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorSearchCountItem> getType() {

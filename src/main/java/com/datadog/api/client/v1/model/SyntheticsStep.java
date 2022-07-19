@@ -21,7 +21,7 @@ import java.util.Objects;
   SyntheticsStep.JSON_PROPERTY_TIMEOUT,
   SyntheticsStep.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsStep {
   @JsonIgnore public boolean unparsed = false;
@@ -53,7 +53,7 @@ public class SyntheticsStep {
    *
    * @return allowFailure
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowFailure() {
@@ -75,7 +75,7 @@ public class SyntheticsStep {
    *
    * @return isCritical
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsCritical() {
@@ -96,7 +96,7 @@ public class SyntheticsStep {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -117,7 +117,7 @@ public class SyntheticsStep {
    *
    * @return params
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PARAMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Object getParams() {
@@ -138,7 +138,7 @@ public class SyntheticsStep {
    *
    * @return timeout
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimeout() {
@@ -160,7 +160,7 @@ public class SyntheticsStep {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsStepType getType() {

@@ -18,7 +18,7 @@ import java.util.Objects;
   LogsArchiveOrderDefinition.JSON_PROPERTY_ATTRIBUTES,
   LogsArchiveOrderDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveOrderDefinition {
   @JsonIgnore public boolean unparsed = false;

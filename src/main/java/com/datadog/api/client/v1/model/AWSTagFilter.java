@@ -17,7 +17,7 @@ import java.util.Objects;
   AWSTagFilter.JSON_PROPERTY_NAMESPACE,
   AWSTagFilter.JSON_PROPERTY_TAG_FILTER_STR
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSTagFilter {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class AWSTagFilter {
    *
    * @return namespace
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AWSNamespace getNamespace() {
@@ -62,7 +62,7 @@ public class AWSTagFilter {
    *
    * @return tagFilterStr
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAG_FILTER_STR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagFilterStr() {

@@ -31,7 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Event.JSON_PROPERTY_TITLE,
   Event.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Event {
   @JsonIgnore public boolean unparsed = false;
@@ -87,7 +87,7 @@ public class Event {
    *
    * @return alertType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALERT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public EventAlertType getAlertType() {
@@ -112,7 +112,7 @@ public class Event {
    *
    * @return dateHappened
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATE_HAPPENED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDateHappened() {
@@ -133,7 +133,7 @@ public class Event {
    *
    * @return deviceName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeviceName() {
@@ -155,7 +155,7 @@ public class Event {
    *
    * @return host
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -171,7 +171,7 @@ public class Event {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -184,7 +184,7 @@ public class Event {
    *
    * @return idStr
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID_STR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIdStr() {
@@ -196,7 +196,7 @@ public class Event {
    *
    * @return payload
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPayload() {
@@ -213,7 +213,7 @@ public class Event {
    *
    * @return priority
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public EventPriority getPriority() {
     return priority.orElse(null);
@@ -250,7 +250,7 @@ public class Event {
    *
    * @return sourceTypeName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSourceTypeName() {
@@ -279,7 +279,7 @@ public class Event {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -302,7 +302,7 @@ public class Event {
    *
    * @return text
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getText() {
@@ -323,7 +323,7 @@ public class Event {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -339,7 +339,7 @@ public class Event {
    *
    * @return url
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {

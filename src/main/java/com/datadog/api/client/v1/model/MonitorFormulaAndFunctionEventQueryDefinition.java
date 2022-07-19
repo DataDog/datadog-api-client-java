@@ -24,7 +24,7 @@ import java.util.Objects;
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_NAME,
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_SEARCH
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionEventQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -133,7 +133,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
    *
    * @return groupBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorFormulaAndFunctionEventQueryGroupBy> getGroupBy() {
@@ -163,7 +163,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
    *
    * @return indexes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getIndexes() {
@@ -206,7 +206,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
    *
    * @return search
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SEARCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorFormulaAndFunctionEventQueryDefinitionSearch getSearch() {

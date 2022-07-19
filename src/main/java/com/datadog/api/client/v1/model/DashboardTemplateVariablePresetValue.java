@@ -17,7 +17,7 @@ import java.util.Objects;
   DashboardTemplateVariablePresetValue.JSON_PROPERTY_NAME,
   DashboardTemplateVariablePresetValue.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardTemplateVariablePresetValue {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class DashboardTemplateVariablePresetValue {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -58,7 +58,7 @@ public class DashboardTemplateVariablePresetValue {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {

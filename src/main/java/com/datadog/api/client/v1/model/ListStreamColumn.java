@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Widget column. */
 @JsonPropertyOrder({ListStreamColumn.JSON_PROPERTY_FIELD, ListStreamColumn.JSON_PROPERTY_WIDTH})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamColumn {
   @JsonIgnore public boolean unparsed = false;

@@ -23,7 +23,7 @@ import java.util.Objects;
   WidgetFormula.JSON_PROPERTY_FORMULA,
   WidgetFormula.JSON_PROPERTY_LIMIT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetFormula {
   @JsonIgnore public boolean unparsed = false;
@@ -60,7 +60,7 @@ public class WidgetFormula {
    *
    * @return alias
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAlias() {
@@ -82,7 +82,7 @@ public class WidgetFormula {
    *
    * @return cellDisplayMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TableWidgetCellDisplayMode getCellDisplayMode() {
@@ -118,7 +118,7 @@ public class WidgetFormula {
    *
    * @return conditionalFormats
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetConditionalFormat> getConditionalFormats() {
@@ -160,7 +160,7 @@ public class WidgetFormula {
    *
    * @return limit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetFormulaLimit getLimit() {

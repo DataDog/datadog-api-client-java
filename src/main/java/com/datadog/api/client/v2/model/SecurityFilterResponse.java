@@ -17,7 +17,7 @@ import java.util.Objects;
   SecurityFilterResponse.JSON_PROPERTY_DATA,
   SecurityFilterResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityFilterResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class SecurityFilterResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityFilter getData() {
@@ -60,7 +60,7 @@ public class SecurityFilterResponse {
    *
    * @return meta
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityFilterMeta getMeta() {

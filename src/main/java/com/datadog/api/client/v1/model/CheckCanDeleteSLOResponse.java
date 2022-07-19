@@ -19,7 +19,7 @@ import java.util.Objects;
   CheckCanDeleteSLOResponse.JSON_PROPERTY_DATA,
   CheckCanDeleteSLOResponse.JSON_PROPERTY_ERRORS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CheckCanDeleteSLOResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -40,7 +40,7 @@ public class CheckCanDeleteSLOResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CheckCanDeleteSLOResponseData getData() {
@@ -69,7 +69,7 @@ public class CheckCanDeleteSLOResponse {
    *
    * @return errors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getErrors() {

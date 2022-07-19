@@ -24,7 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorGroupSearchResult.JSON_PROPERTY_MONITOR_NAME,
   MonitorGroupSearchResult.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorGroupSearchResult {
   @JsonIgnore public boolean unparsed = false;
@@ -54,7 +54,7 @@ public class MonitorGroupSearchResult {
    *
    * @return group
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGroup() {
@@ -66,7 +66,7 @@ public class MonitorGroupSearchResult {
    *
    * @return groupTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupTags() {
@@ -78,7 +78,7 @@ public class MonitorGroupSearchResult {
    *
    * @return lastNodataTs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastNodataTs() {
@@ -90,7 +90,7 @@ public class MonitorGroupSearchResult {
    *
    * @return lastTriggeredTs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getLastTriggeredTs() {
 
@@ -116,7 +116,7 @@ public class MonitorGroupSearchResult {
    *
    * @return monitorId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorId() {
@@ -128,7 +128,7 @@ public class MonitorGroupSearchResult {
    *
    * @return monitorName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMonitorName() {
@@ -140,7 +140,7 @@ public class MonitorGroupSearchResult {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getStatus() {

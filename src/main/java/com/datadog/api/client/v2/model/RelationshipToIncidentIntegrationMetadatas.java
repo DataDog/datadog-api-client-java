@@ -17,7 +17,7 @@ import java.util.Objects;
 
 /** A relationship reference for multiple integration metadata objects. */
 @JsonPropertyOrder({RelationshipToIncidentIntegrationMetadatas.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToIncidentIntegrationMetadatas {
   @JsonIgnore public boolean unparsed = false;

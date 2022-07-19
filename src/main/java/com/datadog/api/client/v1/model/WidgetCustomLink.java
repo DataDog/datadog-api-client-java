@@ -19,7 +19,7 @@ import java.util.Objects;
   WidgetCustomLink.JSON_PROPERTY_LINK,
   WidgetCustomLink.JSON_PROPERTY_OVERRIDE_LABEL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetCustomLink {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class WidgetCustomLink {
    *
    * @return isHidden
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_HIDDEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsHidden() {
@@ -67,7 +67,7 @@ public class WidgetCustomLink {
    *
    * @return label
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLabel() {
@@ -89,7 +89,7 @@ public class WidgetCustomLink {
    *
    * @return link
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLink() {
@@ -112,7 +112,7 @@ public class WidgetCustomLink {
    *
    * @return overrideLabel
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OVERRIDE_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOverrideLabel() {

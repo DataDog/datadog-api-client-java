@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** The attributes of a notebook <code>markdown</code> cell. */
 @JsonPropertyOrder({NotebookMarkdownCellAttributes.JSON_PROPERTY_DEFINITION})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookMarkdownCellAttributes {
   @JsonIgnore public boolean unparsed = false;

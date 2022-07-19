@@ -21,7 +21,7 @@ import java.util.Objects;
   SyntheticsDevice.JSON_PROPERTY_NAME,
   SyntheticsDevice.JSON_PROPERTY_WIDTH
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsDevice {
   @JsonIgnore public boolean unparsed = false;
@@ -109,7 +109,7 @@ public class SyntheticsDevice {
    *
    * @return isMobile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_MOBILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsMobile() {

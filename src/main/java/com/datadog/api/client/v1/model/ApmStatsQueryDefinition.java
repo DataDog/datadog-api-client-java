@@ -25,7 +25,7 @@ import java.util.Objects;
   ApmStatsQueryDefinition.JSON_PROPERTY_ROW_TYPE,
   ApmStatsQueryDefinition.JSON_PROPERTY_SERVICE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApmStatsQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -89,7 +89,7 @@ public class ApmStatsQueryDefinition {
    *
    * @return columns
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ApmStatsQueryColumnType> getColumns() {
@@ -170,7 +170,7 @@ public class ApmStatsQueryDefinition {
    *
    * @return resource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResource() {

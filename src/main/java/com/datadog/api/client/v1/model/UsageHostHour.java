@@ -34,7 +34,7 @@ import java.util.Objects;
   UsageHostHour.JSON_PROPERTY_PUBLIC_ID,
   UsageHostHour.JSON_PROPERTY_VSPHERE_HOST_COUNT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageHostHour {
   @JsonIgnore public boolean unparsed = false;
@@ -100,7 +100,7 @@ public class UsageHostHour {
    *
    * @return agentHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGENT_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAgentHostCount() {
@@ -122,7 +122,7 @@ public class UsageHostHour {
    *
    * @return alibabaHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALIBABA_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAlibabaHostCount() {
@@ -143,7 +143,7 @@ public class UsageHostHour {
    *
    * @return apmAzureAppServiceHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getApmAzureAppServiceHostCount() {
@@ -165,7 +165,7 @@ public class UsageHostHour {
    *
    * @return apmHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getApmHostCount() {
@@ -187,7 +187,7 @@ public class UsageHostHour {
    *
    * @return awsHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AWS_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAwsHostCount() {
@@ -209,7 +209,7 @@ public class UsageHostHour {
    *
    * @return azureHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AZURE_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAzureHostCount() {
@@ -230,7 +230,7 @@ public class UsageHostHour {
    *
    * @return containerCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getContainerCount() {
@@ -252,7 +252,7 @@ public class UsageHostHour {
    *
    * @return gcpHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GCP_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getGcpHostCount() {
@@ -273,7 +273,7 @@ public class UsageHostHour {
    *
    * @return herokuHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HEROKU_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getHerokuHostCount() {
@@ -296,7 +296,7 @@ public class UsageHostHour {
    *
    * @return hostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getHostCount() {
@@ -317,7 +317,7 @@ public class UsageHostHour {
    *
    * @return hour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -339,7 +339,7 @@ public class UsageHostHour {
    *
    * @return infraAzureAppService
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFRA_AZURE_APP_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInfraAzureAppService() {
@@ -361,7 +361,7 @@ public class UsageHostHour {
    *
    * @return opentelemetryHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOpentelemetryHostCount() {
@@ -382,7 +382,7 @@ public class UsageHostHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -403,7 +403,7 @@ public class UsageHostHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -425,7 +425,7 @@ public class UsageHostHour {
    *
    * @return vsphereHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVsphereHostCount() {

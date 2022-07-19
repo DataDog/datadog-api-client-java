@@ -19,7 +19,7 @@ import java.util.Objects;
   SunburstWidgetLegendInlineAutomatic.JSON_PROPERTY_HIDE_VALUE,
   SunburstWidgetLegendInlineAutomatic.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SunburstWidgetLegendInlineAutomatic {
   @JsonIgnore public boolean unparsed = false;
@@ -52,7 +52,7 @@ public class SunburstWidgetLegendInlineAutomatic {
    *
    * @return hidePercent
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HIDE_PERCENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHidePercent() {
@@ -73,7 +73,7 @@ public class SunburstWidgetLegendInlineAutomatic {
    *
    * @return hideValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HIDE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHideValue() {

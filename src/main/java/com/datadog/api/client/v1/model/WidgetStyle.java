@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Widget style definition. */
 @JsonPropertyOrder({WidgetStyle.JSON_PROPERTY_PALETTE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetStyle {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class WidgetStyle {
    *
    * @return palette
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPalette() {

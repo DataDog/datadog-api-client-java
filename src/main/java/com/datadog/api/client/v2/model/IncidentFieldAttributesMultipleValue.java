@@ -20,7 +20,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentFieldAttributesMultipleValue.JSON_PROPERTY_TYPE,
   IncidentFieldAttributesMultipleValue.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentFieldAttributesMultipleValue {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class IncidentFieldAttributesMultipleValue {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentFieldAttributesValueType getType() {
@@ -77,7 +77,7 @@ public class IncidentFieldAttributesMultipleValue {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<String> getValue() {
     return value.orElse(null);

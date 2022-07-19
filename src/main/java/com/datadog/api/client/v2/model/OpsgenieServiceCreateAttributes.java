@@ -20,7 +20,7 @@ import java.util.Objects;
   OpsgenieServiceCreateAttributes.JSON_PROPERTY_OPSGENIE_API_KEY,
   OpsgenieServiceCreateAttributes.JSON_PROPERTY_REGION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OpsgenieServiceCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -60,7 +60,7 @@ public class OpsgenieServiceCreateAttributes {
    *
    * @return customUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomUrl() {

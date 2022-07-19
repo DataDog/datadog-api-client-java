@@ -17,7 +17,7 @@ import java.util.Objects;
   SyntheticsPrivateLocationCreationResponseResultEncryption.JSON_PROPERTY_ID,
   SyntheticsPrivateLocationCreationResponseResultEncryption.JSON_PROPERTY_KEY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsPrivateLocationCreationResponseResultEncryption {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class SyntheticsPrivateLocationCreationResponseResultEncryption {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -58,7 +58,7 @@ public class SyntheticsPrivateLocationCreationResponseResultEncryption {
    *
    * @return key
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getKey() {

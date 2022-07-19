@@ -25,7 +25,7 @@ import java.util.Objects;
   IPRanges.JSON_PROPERTY_VERSION,
   IPRanges.JSON_PROPERTY_WEBHOOKS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IPRanges {
   @JsonIgnore public boolean unparsed = false;
@@ -71,7 +71,7 @@ public class IPRanges {
    *
    * @return agents
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesAgents getAgents() {
@@ -93,7 +93,7 @@ public class IPRanges {
    *
    * @return api
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesAPI getApi() {
@@ -115,7 +115,7 @@ public class IPRanges {
    *
    * @return apm
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesAPM getApm() {
@@ -137,7 +137,7 @@ public class IPRanges {
    *
    * @return logs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesLogs getLogs() {
@@ -158,7 +158,7 @@ public class IPRanges {
    *
    * @return modified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getModified() {
@@ -180,7 +180,7 @@ public class IPRanges {
    *
    * @return process
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesProcess getProcess() {
@@ -202,7 +202,7 @@ public class IPRanges {
    *
    * @return synthetics
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SYNTHETICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesSynthetics getSynthetics() {
@@ -225,7 +225,7 @@ public class IPRanges {
    *
    * @return syntheticsPrivateLocations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_PRIVATE_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesSyntheticsPrivateLocations getSyntheticsPrivateLocations() {
@@ -247,7 +247,7 @@ public class IPRanges {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVersion() {
@@ -269,7 +269,7 @@ public class IPRanges {
    *
    * @return webhooks
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WEBHOOKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IPPrefixesWebhooks getWebhooks() {

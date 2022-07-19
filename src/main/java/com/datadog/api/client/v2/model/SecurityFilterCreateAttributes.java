@@ -23,7 +23,7 @@ import java.util.Objects;
   SecurityFilterCreateAttributes.JSON_PROPERTY_NAME,
   SecurityFilterCreateAttributes.JSON_PROPERTY_QUERY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityFilterCreateAttributes {
   @JsonIgnore public boolean unparsed = false;

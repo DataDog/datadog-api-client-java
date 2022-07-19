@@ -18,7 +18,7 @@ import java.util.Objects;
   SyntheticsStepDetailWarning.JSON_PROPERTY_MESSAGE,
   SyntheticsStepDetailWarning.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsStepDetailWarning {
   @JsonIgnore public boolean unparsed = false;

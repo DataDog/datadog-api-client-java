@@ -45,7 +45,7 @@ import java.util.Objects;
   LogsDateRemapper.JSON_PROPERTY_SOURCES,
   LogsDateRemapper.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsDateRemapper {
   @JsonIgnore public boolean unparsed = false;
@@ -82,7 +82,7 @@ public class LogsDateRemapper {
    *
    * @return isEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -103,7 +103,7 @@ public class LogsDateRemapper {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

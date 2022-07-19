@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Request to create a role by cloning an existing role. */
 @JsonPropertyOrder({RoleCloneRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleCloneRequest {
   @JsonIgnore public boolean unparsed = false;

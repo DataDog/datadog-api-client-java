@@ -21,7 +21,7 @@ import java.util.Objects;
   CheckCanDeleteMonitorResponse.JSON_PROPERTY_DATA,
   CheckCanDeleteMonitorResponse.JSON_PROPERTY_ERRORS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CheckCanDeleteMonitorResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -80,7 +80,7 @@ public class CheckCanDeleteMonitorResponse {
    *
    * @return errors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getErrors() {

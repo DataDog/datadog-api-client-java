@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** User invitations as returned by the API. */
 @JsonPropertyOrder({UserInvitationsResponse.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserInvitationsResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class UserInvitationsResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UserInvitationResponseData> getData() {

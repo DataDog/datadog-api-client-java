@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** The funnel step. */
 @JsonPropertyOrder({FunnelStep.JSON_PROPERTY_FACET, FunnelStep.JSON_PROPERTY_VALUE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FunnelStep {
   @JsonIgnore public boolean unparsed = false;

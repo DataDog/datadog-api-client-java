@@ -19,7 +19,7 @@ import java.util.Objects;
   LogsAggregateSort.JSON_PROPERTY_ORDER,
   LogsAggregateSort.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateSort {
   @JsonIgnore public boolean unparsed = false;
@@ -46,7 +46,7 @@ public class LogsAggregateSort {
    *
    * @return aggregation
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsAggregationFunction getAggregation() {
@@ -70,7 +70,7 @@ public class LogsAggregateSort {
    *
    * @return metric
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -92,7 +92,7 @@ public class LogsAggregateSort {
    *
    * @return order
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsSortOrder getOrder() {
@@ -117,7 +117,7 @@ public class LogsAggregateSort {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsAggregateSortType getType() {

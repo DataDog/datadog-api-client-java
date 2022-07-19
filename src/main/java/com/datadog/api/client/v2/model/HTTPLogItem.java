@@ -25,7 +25,7 @@ import java.util.Objects;
   HTTPLogItem.JSON_PROPERTY_MESSAGE,
   HTTPLogItem.JSON_PROPERTY_SERVICE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HTTPLogItem {
   @JsonIgnore public boolean unparsed = false;
@@ -65,7 +65,7 @@ public class HTTPLogItem {
    *
    * @return ddsource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DDSOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDdsource() {
@@ -86,7 +86,7 @@ public class HTTPLogItem {
    *
    * @return ddtags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DDTAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDdtags() {
@@ -107,7 +107,7 @@ public class HTTPLogItem {
    *
    * @return hostname
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHostname() {
@@ -155,7 +155,7 @@ public class HTTPLogItem {
    *
    * @return service
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getService() {

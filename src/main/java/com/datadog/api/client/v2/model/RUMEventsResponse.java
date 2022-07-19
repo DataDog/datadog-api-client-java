@@ -20,7 +20,7 @@ import java.util.Objects;
   RUMEventsResponse.JSON_PROPERTY_LINKS,
   RUMEventsResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMEventsResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class RUMEventsResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RUMEvent> getData() {
@@ -77,7 +77,7 @@ public class RUMEventsResponse {
    *
    * @return links
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMResponseLinks getLinks() {
@@ -99,7 +99,7 @@ public class RUMEventsResponse {
    *
    * @return meta
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMResponseMetadata getMeta() {

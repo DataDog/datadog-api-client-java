@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Cancel downtimes according to scope. */
 @JsonPropertyOrder({CancelDowntimesByScopeRequest.JSON_PROPERTY_SCOPE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CancelDowntimesByScopeRequest {
   @JsonIgnore public boolean unparsed = false;

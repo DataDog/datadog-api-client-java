@@ -45,7 +45,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_TIMEOUT_H,
   MonitorOptions.JSON_PROPERTY_VARIABLES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorOptions {
   @JsonIgnore public boolean unparsed = false;
@@ -130,7 +130,7 @@ public class MonitorOptions {
    *
    * @return aggregation
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOptionsAggregation getAggregation() {
@@ -144,7 +144,7 @@ public class MonitorOptions {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorDeviceID> getDeviceIds() {
@@ -161,7 +161,7 @@ public class MonitorOptions {
    *
    * @return enableLogsSample
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLE_LOGS_SAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnableLogsSample() {
@@ -186,7 +186,7 @@ public class MonitorOptions {
    *
    * @return escalationMessage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESCALATION_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEscalationMessage() {
@@ -210,7 +210,7 @@ public class MonitorOptions {
    *
    * @return evaluationDelay
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getEvaluationDelay() {
     return evaluationDelay.orElse(null);
@@ -242,7 +242,7 @@ public class MonitorOptions {
    *
    * @return groupbySimpleMonitor
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUPBY_SIMPLE_MONITOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getGroupbySimpleMonitor() {
@@ -268,7 +268,7 @@ public class MonitorOptions {
    *
    * @return includeTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludeTags() {
@@ -292,7 +292,7 @@ public class MonitorOptions {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getLocked() {
@@ -314,7 +314,7 @@ public class MonitorOptions {
    *
    * @return minFailureDuration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getMinFailureDuration() {
     return minFailureDuration.orElse(null);
@@ -347,7 +347,7 @@ public class MonitorOptions {
    *
    * @return minLocationFailed
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getMinLocationFailed() {
     return minLocationFailed.orElse(null);
@@ -383,7 +383,7 @@ public class MonitorOptions {
    *
    * @return newGroupDelay
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getNewGroupDelay() {
     return newGroupDelay.orElse(null);
@@ -419,7 +419,7 @@ public class MonitorOptions {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getNewHostDelay() {
     return newHostDelay.orElse(null);
@@ -452,7 +452,7 @@ public class MonitorOptions {
    *
    * @return noDataTimeframe
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getNoDataTimeframe() {
     return noDataTimeframe.orElse(null);
@@ -483,7 +483,7 @@ public class MonitorOptions {
    *
    * @return notifyAudit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NOTIFY_AUDIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNotifyAudit() {
@@ -504,7 +504,7 @@ public class MonitorOptions {
    *
    * @return notifyNoData
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NOTIFY_NO_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNotifyNoData() {
@@ -526,7 +526,7 @@ public class MonitorOptions {
    *
    * @return renotifyInterval
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getRenotifyInterval() {
     return renotifyInterval.orElse(null);
@@ -558,7 +558,7 @@ public class MonitorOptions {
    *
    * @return renotifyOccurrences
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getRenotifyOccurrences() {
     return renotifyOccurrences.orElse(null);
@@ -601,7 +601,7 @@ public class MonitorOptions {
    *
    * @return renotifyStatuses
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<MonitorRenotifyStatusType> getRenotifyStatuses() {
     return renotifyStatuses.orElse(null);
@@ -635,7 +635,7 @@ public class MonitorOptions {
    *
    * @return requireFullWindow
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUIRE_FULL_WINDOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getRequireFullWindow() {
@@ -666,7 +666,7 @@ public class MonitorOptions {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SILENCED)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Long> getSilenced() {
@@ -689,7 +689,7 @@ public class MonitorOptions {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getSyntheticsCheckId() {
     return syntheticsCheckId.orElse(null);
@@ -721,7 +721,7 @@ public class MonitorOptions {
    *
    * @return thresholdWindows
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_THRESHOLD_WINDOWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorThresholdWindowOptions getThresholdWindows() {
@@ -743,7 +743,7 @@ public class MonitorOptions {
    *
    * @return thresholds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_THRESHOLDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorThresholds getThresholds() {
@@ -765,7 +765,7 @@ public class MonitorOptions {
    *
    * @return timeoutH
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getTimeoutH() {
     return timeoutH.orElse(null);
@@ -809,7 +809,7 @@ public class MonitorOptions {
    *
    * @return variables
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorFormulaAndFunctionQueryDefinition> getVariables() {

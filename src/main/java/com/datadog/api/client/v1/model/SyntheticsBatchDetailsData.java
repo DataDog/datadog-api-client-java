@@ -20,7 +20,7 @@ import java.util.Objects;
   SyntheticsBatchDetailsData.JSON_PROPERTY_RESULTS,
   SyntheticsBatchDetailsData.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBatchDetailsData {
   @JsonIgnore public boolean unparsed = false;
@@ -44,7 +44,7 @@ public class SyntheticsBatchDetailsData {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsCIBatchMetadata getMetadata() {
@@ -77,7 +77,7 @@ public class SyntheticsBatchDetailsData {
    *
    * @return results
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsBatchResult> getResults() {
@@ -99,7 +99,7 @@ public class SyntheticsBatchDetailsData {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsStatus getStatus() {

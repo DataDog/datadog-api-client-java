@@ -22,7 +22,7 @@ import java.util.Objects;
   User.JSON_PROPERTY_NAME,
   User.JSON_PROPERTY_VERIFIED
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class User {
   @JsonIgnore public boolean unparsed = false;
@@ -59,7 +59,7 @@ public class User {
    *
    * @return accessRole
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCESS_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AccessRole getAccessRole() {
@@ -83,7 +83,7 @@ public class User {
    *
    * @return disabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisabled() {
@@ -104,7 +104,7 @@ public class User {
    *
    * @return email
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -125,7 +125,7 @@ public class User {
    *
    * @return handle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHandle() {
@@ -141,7 +141,7 @@ public class User {
    *
    * @return icon
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIcon() {
@@ -158,7 +158,7 @@ public class User {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -174,7 +174,7 @@ public class User {
    *
    * @return verified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getVerified() {

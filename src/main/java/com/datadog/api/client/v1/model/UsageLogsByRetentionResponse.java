@@ -19,7 +19,7 @@ import java.util.Objects;
  * during a given hour.
  */
 @JsonPropertyOrder({UsageLogsByRetentionResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageLogsByRetentionResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -48,7 +48,7 @@ public class UsageLogsByRetentionResponse {
    *
    * @return usage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageLogsByRetentionHour> getUsage() {

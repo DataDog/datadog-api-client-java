@@ -19,7 +19,7 @@ import java.util.Objects;
   SyntheticsTriggerCITestRunResult.JSON_PROPERTY_PUBLIC_ID,
   SyntheticsTriggerCITestRunResult.JSON_PROPERTY_RESULT_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTriggerCITestRunResult {
   @JsonIgnore public boolean unparsed = false;
@@ -46,7 +46,7 @@ public class SyntheticsTriggerCITestRunResult {
    *
    * @return device
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsDeviceID getDevice() {
@@ -70,7 +70,7 @@ public class SyntheticsTriggerCITestRunResult {
    *
    * @return location
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLocation() {
@@ -91,7 +91,7 @@ public class SyntheticsTriggerCITestRunResult {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -112,7 +112,7 @@ public class SyntheticsTriggerCITestRunResult {
    *
    * @return resultId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultId() {

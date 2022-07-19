@@ -29,7 +29,7 @@ import java.util.Objects;
   NoteWidgetDefinition.JSON_PROPERTY_TYPE,
   NoteWidgetDefinition.JSON_PROPERTY_VERTICAL_ALIGN
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NoteWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -84,7 +84,7 @@ public class NoteWidgetDefinition {
    *
    * @return backgroundColor
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BACKGROUND_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBackgroundColor() {
@@ -125,7 +125,7 @@ public class NoteWidgetDefinition {
    *
    * @return fontSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFontSize() {
@@ -146,7 +146,7 @@ public class NoteWidgetDefinition {
    *
    * @return hasPadding
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HAS_PADDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasPadding() {
@@ -167,7 +167,7 @@ public class NoteWidgetDefinition {
    *
    * @return showTick
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_TICK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowTick() {
@@ -189,7 +189,7 @@ public class NoteWidgetDefinition {
    *
    * @return textAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEXT_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTextAlign() {
@@ -214,7 +214,7 @@ public class NoteWidgetDefinition {
    *
    * @return tickEdge
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TICK_EDGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTickEdge getTickEdge() {
@@ -238,7 +238,7 @@ public class NoteWidgetDefinition {
    *
    * @return tickPos
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TICK_POS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTickPos() {
@@ -284,7 +284,7 @@ public class NoteWidgetDefinition {
    *
    * @return verticalAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERTICAL_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetVerticalAlign getVerticalAlign() {

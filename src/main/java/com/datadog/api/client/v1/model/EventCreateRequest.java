@@ -30,7 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   EventCreateRequest.JSON_PROPERTY_TEXT,
   EventCreateRequest.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventCreateRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -88,7 +88,7 @@ public class EventCreateRequest {
    *
    * @return aggregationKey
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAggregationKey() {
@@ -112,7 +112,7 @@ public class EventCreateRequest {
    *
    * @return alertType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALERT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public EventAlertType getAlertType() {
@@ -137,7 +137,7 @@ public class EventCreateRequest {
    *
    * @return dateHappened
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATE_HAPPENED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDateHappened() {
@@ -158,7 +158,7 @@ public class EventCreateRequest {
    *
    * @return deviceName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeviceName() {
@@ -180,7 +180,7 @@ public class EventCreateRequest {
    *
    * @return host
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -201,7 +201,7 @@ public class EventCreateRequest {
    *
    * @return priority
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public EventPriority getPriority() {
     return priority.orElse(null);
@@ -235,7 +235,7 @@ public class EventCreateRequest {
    *
    * @return relatedEventId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATED_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRelatedEventId() {
@@ -259,7 +259,7 @@ public class EventCreateRequest {
    *
    * @return sourceTypeName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSourceTypeName() {
@@ -288,7 +288,7 @@ public class EventCreateRequest {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

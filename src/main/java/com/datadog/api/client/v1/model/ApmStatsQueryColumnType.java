@@ -20,7 +20,7 @@ import java.util.Objects;
   ApmStatsQueryColumnType.JSON_PROPERTY_NAME,
   ApmStatsQueryColumnType.JSON_PROPERTY_ORDER
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApmStatsQueryColumnType {
   @JsonIgnore public boolean unparsed = false;
@@ -54,7 +54,7 @@ public class ApmStatsQueryColumnType {
    *
    * @return alias
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAlias() {
@@ -76,7 +76,7 @@ public class ApmStatsQueryColumnType {
    *
    * @return cellDisplayMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TableWidgetCellDisplayMode getCellDisplayMode() {
@@ -121,7 +121,7 @@ public class ApmStatsQueryColumnType {
    *
    * @return order
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetSort getOrder() {

@@ -38,7 +38,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Monitor.JSON_PROPERTY_TAGS,
   Monitor.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Monitor {
   @JsonIgnore public boolean unparsed = false;
@@ -112,7 +112,7 @@ public class Monitor {
    *
    * @return created
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -124,7 +124,7 @@ public class Monitor {
    *
    * @return creator
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
@@ -136,7 +136,7 @@ public class Monitor {
    *
    * @return deleted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public OffsetDateTime getDeleted() {
 
@@ -162,7 +162,7 @@ public class Monitor {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
@@ -179,7 +179,7 @@ public class Monitor {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -195,7 +195,7 @@ public class Monitor {
    *
    * @return modified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -207,7 +207,7 @@ public class Monitor {
    *
    * @return multi
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MULTI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getMulti() {
@@ -224,7 +224,7 @@ public class Monitor {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -246,7 +246,7 @@ public class Monitor {
    *
    * @return options
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOptions getOptions() {
@@ -262,7 +262,7 @@ public class Monitor {
    *
    * @return overallState
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OVERALL_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getOverallState() {
@@ -279,7 +279,7 @@ public class Monitor {
    *
    * @return priority
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getPriority() {
     return priority.orElse(null);
@@ -350,7 +350,7 @@ public class Monitor {
    *
    * @return restrictedRoles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<String> getRestrictedRoles() {
     return restrictedRoles.orElse(null);
@@ -376,7 +376,7 @@ public class Monitor {
    *
    * @return state
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorState getState() {
@@ -401,7 +401,7 @@ public class Monitor {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

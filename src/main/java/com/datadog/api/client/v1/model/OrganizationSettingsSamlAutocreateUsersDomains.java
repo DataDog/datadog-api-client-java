@@ -22,7 +22,7 @@ import java.util.Objects;
   OrganizationSettingsSamlAutocreateUsersDomains.JSON_PROPERTY_DOMAINS,
   OrganizationSettingsSamlAutocreateUsersDomains.JSON_PROPERTY_ENABLED
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationSettingsSamlAutocreateUsersDomains {
   @JsonIgnore public boolean unparsed = false;
@@ -50,7 +50,7 @@ public class OrganizationSettingsSamlAutocreateUsersDomains {
    *
    * @return domains
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getDomains() {
@@ -71,7 +71,7 @@ public class OrganizationSettingsSamlAutocreateUsersDomains {
    *
    * @return enabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {

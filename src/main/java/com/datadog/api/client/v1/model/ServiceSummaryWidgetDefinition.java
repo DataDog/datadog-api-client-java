@@ -35,7 +35,7 @@ import java.util.Objects;
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ServiceSummaryWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceSummaryWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -116,7 +116,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return displayFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISPLAY_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetServiceSummaryDisplayFormat getDisplayFormat() {
@@ -180,7 +180,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return showBreakdown
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_BREAKDOWN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowBreakdown() {
@@ -201,7 +201,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return showDistribution
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_DISTRIBUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowDistribution() {
@@ -222,7 +222,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return showErrors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowErrors() {
@@ -243,7 +243,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return showHits
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_HITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowHits() {
@@ -264,7 +264,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return showLatency
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_LATENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowLatency() {
@@ -285,7 +285,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return showResourceList
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_RESOURCE_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowResourceList() {
@@ -307,7 +307,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return sizeFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetSizeFormat getSizeFormat() {
@@ -352,7 +352,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -373,7 +373,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -395,7 +395,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return titleAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -419,7 +419,7 @@ public class ServiceSummaryWidgetDefinition {
    *
    * @return titleSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {

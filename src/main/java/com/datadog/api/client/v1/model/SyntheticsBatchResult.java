@@ -25,7 +25,7 @@ import java.util.Objects;
   SyntheticsBatchResult.JSON_PROPERTY_TEST_PUBLIC_ID,
   SyntheticsBatchResult.JSON_PROPERTY_TEST_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBatchResult {
   @JsonIgnore public boolean unparsed = false;
@@ -70,7 +70,7 @@ public class SyntheticsBatchResult {
    *
    * @return device
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsDeviceID getDevice() {
@@ -94,7 +94,7 @@ public class SyntheticsBatchResult {
    *
    * @return duration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDuration() {
@@ -116,7 +116,7 @@ public class SyntheticsBatchResult {
    *
    * @return executionRule
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXECUTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestExecutionRule getExecutionRule() {
@@ -140,7 +140,7 @@ public class SyntheticsBatchResult {
    *
    * @return location
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLocation() {
@@ -161,7 +161,7 @@ public class SyntheticsBatchResult {
    *
    * @return resultId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultId() {
@@ -182,7 +182,7 @@ public class SyntheticsBatchResult {
    *
    * @return retries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getRetries() {
@@ -204,7 +204,7 @@ public class SyntheticsBatchResult {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsStatus getStatus() {
@@ -228,7 +228,7 @@ public class SyntheticsBatchResult {
    *
    * @return testName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTestName() {
@@ -249,7 +249,7 @@ public class SyntheticsBatchResult {
    *
    * @return testPublicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEST_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTestPublicId() {
@@ -271,7 +271,7 @@ public class SyntheticsBatchResult {
    *
    * @return testType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestDetailsType getTestType() {

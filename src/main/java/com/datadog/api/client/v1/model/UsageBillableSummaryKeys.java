@@ -94,7 +94,7 @@ import java.util.Objects;
   UsageBillableSummaryKeys.JSON_PROPERTY_TIMESERIES_AVERAGE,
   UsageBillableSummaryKeys.JSON_PROPERTY_TIMESERIES_SUM
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageBillableSummaryKeys {
   @JsonIgnore public boolean unparsed = false;
@@ -361,7 +361,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return apmFargateAverage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_FARGATE_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getApmFargateAverage() {
@@ -383,7 +383,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return apmFargateSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_FARGATE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getApmFargateSum() {
@@ -405,7 +405,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return apmHostSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getApmHostSum() {
@@ -427,7 +427,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return apmHostTop99p
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getApmHostTop99p() {
@@ -449,7 +449,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return apmProfilerHostSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_PROFILER_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getApmProfilerHostSum() {
@@ -472,7 +472,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return apmProfilerHostTop99p
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_PROFILER_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getApmProfilerHostTop99p() {
@@ -494,7 +494,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return apmTraceSearchSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_TRACE_SEARCH_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getApmTraceSearchSum() {
@@ -517,7 +517,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return applicationSecurityHostSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLICATION_SECURITY_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getApplicationSecurityHostSum() {
@@ -540,7 +540,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return ciPipelineIndexedSpansSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCiPipelineIndexedSpansSum() {
@@ -562,7 +562,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return ciPipelineMaximum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_PIPELINE_MAXIMUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCiPipelineMaximum() {
@@ -584,7 +584,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return ciPipelineSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_PIPELINE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCiPipelineSum() {
@@ -607,7 +607,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return ciTestIndexedSpansSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCiTestIndexedSpansSum() {
@@ -629,7 +629,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return ciTestingMaximum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_TESTING_MAXIMUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCiTestingMaximum() {
@@ -651,7 +651,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return ciTestingSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_TESTING_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCiTestingSum() {
@@ -673,7 +673,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return cspmContainerSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCspmContainerSum() {
@@ -695,7 +695,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return cspmHostSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCspmHostSum() {
@@ -717,7 +717,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return cspmHostTop99p
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCspmHostTop99p() {
@@ -739,7 +739,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return customEventSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_EVENT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCustomEventSum() {
@@ -761,7 +761,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return cwsContainerSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCwsContainerSum() {
@@ -783,7 +783,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return cwsHostSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CWS_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCwsHostSum() {
@@ -805,7 +805,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return cwsHostTop99p
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CWS_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getCwsHostTop99p() {
@@ -827,7 +827,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return dbmHostSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DBM_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getDbmHostSum() {
@@ -849,7 +849,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return dbmHostTop99p
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DBM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getDbmHostTop99p() {
@@ -872,7 +872,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return dbmNormalizedQueriesAverage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DBM_NORMALIZED_QUERIES_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getDbmNormalizedQueriesAverage() {
@@ -895,7 +895,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return dbmNormalizedQueriesSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DBM_NORMALIZED_QUERIES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getDbmNormalizedQueriesSum() {
@@ -918,7 +918,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return fargateContainerApmAndProfilerAverage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_APM_AND_PROFILER_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getFargateContainerApmAndProfilerAverage() {
@@ -942,7 +942,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return fargateContainerApmAndProfilerSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_APM_AND_PROFILER_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getFargateContainerApmAndProfilerSum() {
@@ -966,7 +966,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return fargateContainerAverage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getFargateContainerAverage() {
@@ -989,7 +989,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return fargateContainerProfilerAverage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getFargateContainerProfilerAverage() {
@@ -1013,7 +1013,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return fargateContainerProfilerSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getFargateContainerProfilerSum() {
@@ -1036,7 +1036,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return fargateContainerSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getFargateContainerSum() {
@@ -1059,7 +1059,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return incidentManagementMaximum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MAXIMUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getIncidentManagementMaximum() {
@@ -1082,7 +1082,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return incidentManagementSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getIncidentManagementSum() {
@@ -1104,7 +1104,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return infraAndApmHostSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFRA_AND_APM_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getInfraAndApmHostSum() {
@@ -1127,7 +1127,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return infraAndApmHostTop99p
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFRA_AND_APM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getInfraAndApmHostTop99p() {
@@ -1149,7 +1149,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return infraContainerSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFRA_CONTAINER_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getInfraContainerSum() {
@@ -1171,7 +1171,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return infraHostSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getInfraHostSum() {
@@ -1193,7 +1193,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return infraHostTop99p
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getInfraHostTop99p() {
@@ -1215,7 +1215,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return ingestedSpansSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INGESTED_SPANS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getIngestedSpansSum() {
@@ -1238,7 +1238,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return ingestedTimeseriesAverage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INGESTED_TIMESERIES_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getIngestedTimeseriesAverage() {
@@ -1261,7 +1261,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return ingestedTimeseriesSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INGESTED_TIMESERIES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getIngestedTimeseriesSum() {
@@ -1283,7 +1283,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return iotSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IOT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getIotSum() {
@@ -1305,7 +1305,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return iotTop99p
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IOT_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getIotTop99p() {
@@ -1328,7 +1328,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return lambdaFunctionAverage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAMBDA_FUNCTION_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLambdaFunctionAverage() {
@@ -1350,7 +1350,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return lambdaFunctionSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAMBDA_FUNCTION_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLambdaFunctionSum() {
@@ -1373,7 +1373,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIndexed15daySum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED15DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed15daySum() {
@@ -1396,7 +1396,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIndexed180daySum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED180DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed180daySum() {
@@ -1419,7 +1419,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIndexed30daySum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED30DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed30daySum() {
@@ -1442,7 +1442,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIndexed360daySum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_360DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed360daySum() {
@@ -1464,7 +1464,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIndexed3daySum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED3DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed3daySum() {
@@ -1487,7 +1487,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIndexed45daySum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED45DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed45daySum() {
@@ -1510,7 +1510,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIndexed60daySum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED60DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed60daySum() {
@@ -1532,7 +1532,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIndexed7daySum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED7DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed7daySum() {
@@ -1555,7 +1555,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIndexed90daySum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED90DAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexed90daySum() {
@@ -1578,7 +1578,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIndexedCustomRetentionSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_CUSTOM_RETENTION_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexedCustomRetentionSum() {
@@ -1601,7 +1601,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIndexedSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIndexedSum() {
@@ -1623,7 +1623,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return logsIngestedSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INGESTED_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getLogsIngestedSum() {
@@ -1645,7 +1645,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return networkDeviceSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NETWORK_DEVICE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getNetworkDeviceSum() {
@@ -1668,7 +1668,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return networkDeviceTop99p
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NETWORK_DEVICE_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getNetworkDeviceTop99p() {
@@ -1690,7 +1690,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return npmFlowSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NPM_FLOW_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getNpmFlowSum() {
@@ -1712,7 +1712,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return npmHostSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NPM_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getNpmHostSum() {
@@ -1734,7 +1734,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return npmHostTop99p
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NPM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getNpmHostTop99p() {
@@ -1757,7 +1757,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return observabilityPipelineSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OBSERVABILITY_PIPELINE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getObservabilityPipelineSum() {
@@ -1779,7 +1779,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return onlineArchiveSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getOnlineArchiveSum() {
@@ -1801,7 +1801,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return profContainerSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROF_CONTAINER_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getProfContainerSum() {
@@ -1823,7 +1823,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return profHostSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROF_HOST_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getProfHostSum() {
@@ -1845,7 +1845,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return profHostTop99p
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROF_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getProfHostTop99p() {
@@ -1867,7 +1867,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return rumLiteSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_LITE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getRumLiteSum() {
@@ -1889,7 +1889,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return rumReplaySum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_REPLAY_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getRumReplaySum() {
@@ -1911,7 +1911,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return rumSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getRumSum() {
@@ -1933,7 +1933,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return rumUnitsSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_UNITS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getRumUnitsSum() {
@@ -1956,7 +1956,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return sensitiveDataScannerSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SENSITIVE_DATA_SCANNER_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getSensitiveDataScannerSum() {
@@ -1979,7 +1979,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return serverlessInvocationSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVERLESS_INVOCATION_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getServerlessInvocationSum() {
@@ -2001,7 +2001,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return siemSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIEM_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getSiemSum() {
@@ -2024,7 +2024,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return standardTimeseriesAverage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STANDARD_TIMESERIES_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getStandardTimeseriesAverage() {
@@ -2047,7 +2047,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return syntheticsApiTestsSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_API_TESTS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getSyntheticsApiTestsSum() {
@@ -2070,7 +2070,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return syntheticsBrowserChecksSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_BROWSER_CHECKS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getSyntheticsBrowserChecksSum() {
@@ -2092,7 +2092,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return timeseriesAverage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMESERIES_AVERAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getTimeseriesAverage() {
@@ -2114,7 +2114,7 @@ public class UsageBillableSummaryKeys {
    *
    * @return timeseriesSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMESERIES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageBillableSummaryBody getTimeseriesSum() {

@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** The payload accepted for intake. */
 @JsonPropertyOrder({IntakePayloadAccepted.JSON_PROPERTY_ERRORS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IntakePayloadAccepted {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class IntakePayloadAccepted {
    *
    * @return errors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getErrors() {

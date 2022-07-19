@@ -28,7 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   NotebookAuthor.JSON_PROPERTY_TITLE,
   NotebookAuthor.JSON_PROPERTY_VERIFIED
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookAuthor {
   @JsonIgnore public boolean unparsed = false;
@@ -71,7 +71,7 @@ public class NotebookAuthor {
    *
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -92,7 +92,7 @@ public class NotebookAuthor {
    *
    * @return disabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisabled() {
@@ -113,7 +113,7 @@ public class NotebookAuthor {
    *
    * @return email
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -134,7 +134,7 @@ public class NotebookAuthor {
    *
    * @return handle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHandle() {
@@ -155,7 +155,7 @@ public class NotebookAuthor {
    *
    * @return icon
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIcon() {
@@ -176,7 +176,7 @@ public class NotebookAuthor {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getName() {
     return name.orElse(null);
@@ -207,7 +207,7 @@ public class NotebookAuthor {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -228,7 +228,7 @@ public class NotebookAuthor {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getTitle() {
     return title.orElse(null);
@@ -259,7 +259,7 @@ public class NotebookAuthor {
    *
    * @return verified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getVerified() {

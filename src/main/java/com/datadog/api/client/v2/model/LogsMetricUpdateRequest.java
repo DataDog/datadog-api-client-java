@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** The new log-based metric body. */
 @JsonPropertyOrder({LogsMetricUpdateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricUpdateRequest {
   @JsonIgnore public boolean unparsed = false;

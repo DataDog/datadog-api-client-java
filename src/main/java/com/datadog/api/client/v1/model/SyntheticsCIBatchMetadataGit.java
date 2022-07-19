@@ -17,7 +17,7 @@ import java.util.Objects;
   SyntheticsCIBatchMetadataGit.JSON_PROPERTY_BRANCH,
   SyntheticsCIBatchMetadataGit.JSON_PROPERTY_COMMIT_SHA
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCIBatchMetadataGit {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class SyntheticsCIBatchMetadataGit {
    *
    * @return branch
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BRANCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBranch() {
@@ -58,7 +58,7 @@ public class SyntheticsCIBatchMetadataGit {
    *
    * @return commitSha
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMMIT_SHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCommitSha() {

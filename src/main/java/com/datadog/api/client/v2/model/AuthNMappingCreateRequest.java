@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Request for creating an AuthN Mapping. */
 @JsonPropertyOrder({AuthNMappingCreateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingCreateRequest {
   @JsonIgnore public boolean unparsed = false;

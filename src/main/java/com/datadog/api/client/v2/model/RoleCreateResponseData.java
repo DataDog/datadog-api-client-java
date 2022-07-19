@@ -20,7 +20,7 @@ import java.util.Objects;
   RoleCreateResponseData.JSON_PROPERTY_RELATIONSHIPS,
   RoleCreateResponseData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleCreateResponseData {
   @JsonIgnore public boolean unparsed = false;
@@ -56,7 +56,7 @@ public class RoleCreateResponseData {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RoleCreateAttributes getAttributes() {
@@ -77,7 +77,7 @@ public class RoleCreateResponseData {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -99,7 +99,7 @@ public class RoleCreateResponseData {
    *
    * @return relationships
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RoleResponseRelationships getRelationships() {

@@ -23,7 +23,7 @@ import java.util.Objects;
   DistributionPointsSeries.JSON_PROPERTY_TAGS,
   DistributionPointsSeries.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DistributionPointsSeries {
   @JsonIgnore public boolean unparsed = false;
@@ -63,7 +63,7 @@ public class DistributionPointsSeries {
    *
    * @return host
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHost() {
@@ -138,7 +138,7 @@ public class DistributionPointsSeries {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -160,7 +160,7 @@ public class DistributionPointsSeries {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DistributionPointsType getType() {

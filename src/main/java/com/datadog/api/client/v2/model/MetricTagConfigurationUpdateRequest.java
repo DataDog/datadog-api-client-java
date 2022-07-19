@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Request object that includes the metric that you would like to edit the tag configuration on. */
 @JsonPropertyOrder({MetricTagConfigurationUpdateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricTagConfigurationUpdateRequest {
   @JsonIgnore public boolean unparsed = false;

@@ -17,7 +17,7 @@ import java.util.Objects;
   AWSLogsListServicesResponse.JSON_PROPERTY_ID,
   AWSLogsListServicesResponse.JSON_PROPERTY_LABEL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSLogsListServicesResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class AWSLogsListServicesResponse {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -58,7 +58,7 @@ public class AWSLogsListServicesResponse {
    *
    * @return label
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLabel() {

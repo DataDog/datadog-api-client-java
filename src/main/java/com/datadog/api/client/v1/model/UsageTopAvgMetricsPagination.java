@@ -19,7 +19,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageTopAvgMetricsPagination.JSON_PROPERTY_NEXT_RECORD_ID,
   UsageTopAvgMetricsPagination.JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageTopAvgMetricsPagination {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class UsageTopAvgMetricsPagination {
    *
    * @return limit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -64,7 +64,7 @@ public class UsageTopAvgMetricsPagination {
    *
    * @return nextRecordId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getNextRecordId() {
     return nextRecordId.orElse(null);
@@ -95,7 +95,7 @@ public class UsageTopAvgMetricsPagination {
    *
    * @return totalNumberOfRecords
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalNumberOfRecords() {

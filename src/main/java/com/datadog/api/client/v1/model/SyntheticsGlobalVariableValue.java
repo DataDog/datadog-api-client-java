@@ -17,7 +17,7 @@ import java.util.Objects;
   SyntheticsGlobalVariableValue.JSON_PROPERTY_SECURE,
   SyntheticsGlobalVariableValue.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsGlobalVariableValue {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class SyntheticsGlobalVariableValue {
    *
    * @return secure
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSecure() {
@@ -59,7 +59,7 @@ public class SyntheticsGlobalVariableValue {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {

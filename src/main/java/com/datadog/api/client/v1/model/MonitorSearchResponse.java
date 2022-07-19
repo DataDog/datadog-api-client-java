@@ -19,7 +19,7 @@ import java.util.Objects;
   MonitorSearchResponse.JSON_PROPERTY_METADATA,
   MonitorSearchResponse.JSON_PROPERTY_MONITORS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorSearchResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class MonitorSearchResponse {
    *
    * @return counts
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorSearchResponseCounts getCounts() {
@@ -55,7 +55,7 @@ public class MonitorSearchResponse {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorSearchResponseMetadata getMetadata() {
@@ -71,7 +71,7 @@ public class MonitorSearchResponse {
    *
    * @return monitors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MonitorSearchResult> getMonitors() {

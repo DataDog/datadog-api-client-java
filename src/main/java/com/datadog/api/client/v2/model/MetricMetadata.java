@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Metadata for the metric. */
 @JsonPropertyOrder({MetricMetadata.JSON_PROPERTY_ORIGIN})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricMetadata {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class MetricMetadata {
    *
    * @return origin
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricOrigin getOrigin() {

@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** An API key with its associated metadata. */
 @JsonPropertyOrder({ApiKeyResponse.JSON_PROPERTY_API_KEY})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApiKeyResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class ApiKeyResponse {
    *
    * @return apiKey
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApiKey getApiKey() {

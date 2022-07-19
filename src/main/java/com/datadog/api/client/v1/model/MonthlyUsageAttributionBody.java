@@ -28,7 +28,7 @@ import java.util.Objects;
   MonthlyUsageAttributionBody.JSON_PROPERTY_UPDATED_AT,
   MonthlyUsageAttributionBody.JSON_PROPERTY_VALUES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonthlyUsageAttributionBody {
   @JsonIgnore public boolean unparsed = false;
@@ -67,7 +67,7 @@ public class MonthlyUsageAttributionBody {
    *
    * @return month
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getMonth() {
@@ -88,7 +88,7 @@ public class MonthlyUsageAttributionBody {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -109,7 +109,7 @@ public class MonthlyUsageAttributionBody {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -133,7 +133,7 @@ public class MonthlyUsageAttributionBody {
    *
    * @return tagConfigSource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAG_CONFIG_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagConfigSource() {
@@ -168,7 +168,7 @@ public class MonthlyUsageAttributionBody {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getTags() {
@@ -189,7 +189,7 @@ public class MonthlyUsageAttributionBody {
    *
    * @return updatedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getUpdatedAt() {
@@ -211,7 +211,7 @@ public class MonthlyUsageAttributionBody {
    *
    * @return values
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonthlyUsageAttributionValues getValues() {

@@ -20,7 +20,7 @@ import java.util.Objects;
   SearchSLOResponseLinks.JSON_PROPERTY_PREV,
   SearchSLOResponseLinks.JSON_PROPERTY_SELF
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SearchSLOResponseLinks {
   @JsonIgnore public boolean unparsed = false;
@@ -49,7 +49,7 @@ public class SearchSLOResponseLinks {
    *
    * @return first
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFirst() {
@@ -70,7 +70,7 @@ public class SearchSLOResponseLinks {
    *
    * @return last
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLast() {
@@ -91,7 +91,7 @@ public class SearchSLOResponseLinks {
    *
    * @return next
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNext() {
@@ -112,7 +112,7 @@ public class SearchSLOResponseLinks {
    *
    * @return prev
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrev() {
@@ -133,7 +133,7 @@ public class SearchSLOResponseLinks {
    *
    * @return self
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSelf() {

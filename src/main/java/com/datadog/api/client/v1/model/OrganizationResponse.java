@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Response with an organization. */
 @JsonPropertyOrder({OrganizationResponse.JSON_PROPERTY_ORG})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class OrganizationResponse {
    *
    * @return org
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Organization getOrg() {

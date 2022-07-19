@@ -19,7 +19,7 @@ import java.util.Objects;
   PartialApplicationKey.JSON_PROPERTY_RELATIONSHIPS,
   PartialApplicationKey.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class PartialApplicationKey {
   @JsonIgnore public boolean unparsed = false;
@@ -46,7 +46,7 @@ public class PartialApplicationKey {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PartialApplicationKeyAttributes getAttributes() {
@@ -67,7 +67,7 @@ public class PartialApplicationKey {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -89,7 +89,7 @@ public class PartialApplicationKey {
    *
    * @return relationships
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApplicationKeyRelationships getRelationships() {
@@ -111,7 +111,7 @@ public class PartialApplicationKey {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApplicationKeysType getType() {

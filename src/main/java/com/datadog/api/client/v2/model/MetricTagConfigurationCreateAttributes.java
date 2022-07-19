@@ -22,7 +22,7 @@ import java.util.Objects;
   MetricTagConfigurationCreateAttributes.JSON_PROPERTY_METRIC_TYPE,
   MetricTagConfigurationCreateAttributes.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricTagConfigurationCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -92,7 +92,7 @@ public class MetricTagConfigurationCreateAttributes {
    *
    * @return aggregations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MetricCustomAggregation> getAggregations() {
@@ -114,7 +114,7 @@ public class MetricTagConfigurationCreateAttributes {
    *
    * @return includePercentiles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDE_PERCENTILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludePercentiles() {

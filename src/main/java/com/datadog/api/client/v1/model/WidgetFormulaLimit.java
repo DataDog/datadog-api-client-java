@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Options for limiting results returned. */
 @JsonPropertyOrder({WidgetFormulaLimit.JSON_PROPERTY_COUNT, WidgetFormulaLimit.JSON_PROPERTY_ORDER})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetFormulaLimit {
   @JsonIgnore public boolean unparsed = false;
@@ -34,7 +34,7 @@ public class WidgetFormulaLimit {
    *
    * @return count
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCount() {
@@ -56,7 +56,7 @@ public class WidgetFormulaLimit {
    *
    * @return order
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public QuerySortOrder getOrder() {

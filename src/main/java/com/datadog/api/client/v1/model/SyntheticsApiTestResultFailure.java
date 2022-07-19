@@ -17,7 +17,7 @@ import java.util.Objects;
   SyntheticsApiTestResultFailure.JSON_PROPERTY_CODE,
   SyntheticsApiTestResultFailure.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsApiTestResultFailure {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class SyntheticsApiTestResultFailure {
    *
    * @return code
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsApiTestFailureCode getCode() {
@@ -62,7 +62,7 @@ public class SyntheticsApiTestResultFailure {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {

@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Response with an incident. */
 @JsonPropertyOrder({IncidentResponse.JSON_PROPERTY_DATA, IncidentResponse.JSON_PROPERTY_INCLUDED})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -61,7 +61,7 @@ public class IncidentResponse {
    *
    * @return included
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<IncidentResponseIncludedItem> getIncluded() {

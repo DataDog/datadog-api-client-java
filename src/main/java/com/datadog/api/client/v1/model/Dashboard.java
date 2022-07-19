@@ -41,7 +41,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Dashboard.JSON_PROPERTY_URL,
   Dashboard.JSON_PROPERTY_WIDGETS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Dashboard {
   @JsonIgnore public boolean unparsed = false;
@@ -118,7 +118,7 @@ public class Dashboard {
    *
    * @return authorHandle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHOR_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAuthorHandle() {
@@ -130,7 +130,7 @@ public class Dashboard {
    *
    * @return authorName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getAuthorName() {
 
@@ -156,7 +156,7 @@ public class Dashboard {
    *
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -173,7 +173,7 @@ public class Dashboard {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getDescription() {
     return description.orElse(null);
@@ -199,7 +199,7 @@ public class Dashboard {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -219,7 +219,7 @@ public class Dashboard {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsReadOnly() {
@@ -259,7 +259,7 @@ public class Dashboard {
    *
    * @return modifiedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModifiedAt() {
@@ -288,7 +288,7 @@ public class Dashboard {
    *
    * @return notifyList
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<String> getNotifyList() {
     return notifyList.orElse(null);
@@ -322,7 +322,7 @@ public class Dashboard {
    *
    * @return reflowType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFLOW_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DashboardReflowType getReflowType() {
@@ -355,7 +355,7 @@ public class Dashboard {
    *
    * @return restrictedRoles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRestrictedRoles() {
@@ -392,7 +392,7 @@ public class Dashboard {
    *
    * @return templateVariablePresets
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<DashboardTemplateVariablePreset> getTemplateVariablePresets() {
     return templateVariablePresets.orElse(null);
@@ -439,7 +439,7 @@ public class Dashboard {
    *
    * @return templateVariables
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<DashboardTemplateVariable> getTemplateVariables() {
     return templateVariables.orElse(null);
@@ -486,7 +486,7 @@ public class Dashboard {
    *
    * @return url
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {

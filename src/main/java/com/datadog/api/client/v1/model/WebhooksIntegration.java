@@ -22,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   WebhooksIntegration.JSON_PROPERTY_PAYLOAD,
   WebhooksIntegration.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WebhooksIntegration {
   @JsonIgnore public boolean unparsed = false;
@@ -62,7 +62,7 @@ public class WebhooksIntegration {
    *
    * @return customHeaders
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getCustomHeaders() {
     return customHeaders.orElse(null);
@@ -94,7 +94,7 @@ public class WebhooksIntegration {
    *
    * @return encodeAs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENCODE_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WebhooksIntegrationEncoding getEncodeAs() {
@@ -142,7 +142,7 @@ public class WebhooksIntegration {
    *
    * @return payload
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getPayload() {
     return payload.orElse(null);

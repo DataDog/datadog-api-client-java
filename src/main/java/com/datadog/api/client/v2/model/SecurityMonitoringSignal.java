@@ -18,7 +18,7 @@ import java.util.Objects;
   SecurityMonitoringSignal.JSON_PROPERTY_ID,
   SecurityMonitoringSignal.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignal {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class SecurityMonitoringSignal {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringSignalAttributes getAttributes() {
@@ -63,7 +63,7 @@ public class SecurityMonitoringSignal {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -85,7 +85,7 @@ public class SecurityMonitoringSignal {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringSignalType getType() {

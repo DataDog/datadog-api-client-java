@@ -29,7 +29,7 @@ import java.util.Objects;
   NotebookResponseDataAttributes.JSON_PROPERTY_STATUS,
   NotebookResponseDataAttributes.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -85,7 +85,7 @@ public class NotebookResponseDataAttributes {
    *
    * @return author
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookAuthor getAuthor() {
@@ -130,7 +130,7 @@ public class NotebookResponseDataAttributes {
    *
    * @return created
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -148,7 +148,7 @@ public class NotebookResponseDataAttributes {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookMetadata getMetadata() {
@@ -164,7 +164,7 @@ public class NotebookResponseDataAttributes {
    *
    * @return modified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -202,7 +202,7 @@ public class NotebookResponseDataAttributes {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookStatus getStatus() {

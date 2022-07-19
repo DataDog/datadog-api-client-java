@@ -17,7 +17,7 @@ import java.util.Objects;
   LogsCategoryProcessorCategory.JSON_PROPERTY_FILTER,
   LogsCategoryProcessorCategory.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsCategoryProcessorCategory {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class LogsCategoryProcessorCategory {
    *
    * @return filter
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LogsFilter getFilter() {
@@ -59,7 +59,7 @@ public class LogsCategoryProcessorCategory {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

@@ -18,7 +18,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorThresholdWindowOptions.JSON_PROPERTY_RECOVERY_WINDOW,
   MonitorThresholdWindowOptions.JSON_PROPERTY_TRIGGER_WINDOW
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorThresholdWindowOptions {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class MonitorThresholdWindowOptions {
    *
    * @return recoveryWindow
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getRecoveryWindow() {
     return recoveryWindow.orElse(null);
@@ -69,7 +69,7 @@ public class MonitorThresholdWindowOptions {
    *
    * @return triggerWindow
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getTriggerWindow() {
     return triggerWindow.orElse(null);

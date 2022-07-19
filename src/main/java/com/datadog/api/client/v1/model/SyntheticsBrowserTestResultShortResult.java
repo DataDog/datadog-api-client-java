@@ -20,7 +20,7 @@ import java.util.Objects;
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_STEP_COUNT_COMPLETED,
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_STEP_COUNT_TOTAL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestResultShortResult {
   @JsonIgnore public boolean unparsed = false;
@@ -50,7 +50,7 @@ public class SyntheticsBrowserTestResultShortResult {
    *
    * @return device
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsDevice getDevice() {
@@ -71,7 +71,7 @@ public class SyntheticsBrowserTestResultShortResult {
    *
    * @return duration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDuration() {
@@ -92,7 +92,7 @@ public class SyntheticsBrowserTestResultShortResult {
    *
    * @return errorCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERROR_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getErrorCount() {
@@ -113,7 +113,7 @@ public class SyntheticsBrowserTestResultShortResult {
    *
    * @return stepCountCompleted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STEP_COUNT_COMPLETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStepCountCompleted() {
@@ -134,7 +134,7 @@ public class SyntheticsBrowserTestResultShortResult {
    *
    * @return stepCountTotal
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STEP_COUNT_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStepCountTotal() {

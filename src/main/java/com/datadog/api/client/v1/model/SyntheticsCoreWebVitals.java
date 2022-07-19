@@ -18,7 +18,7 @@ import java.util.Objects;
   SyntheticsCoreWebVitals.JSON_PROPERTY_LCP,
   SyntheticsCoreWebVitals.JSON_PROPERTY_URL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCoreWebVitals {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class SyntheticsCoreWebVitals {
    *
    * @return cls
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCls() {
@@ -62,7 +62,7 @@ public class SyntheticsCoreWebVitals {
    *
    * @return lcp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LCP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLcp() {
@@ -83,7 +83,7 @@ public class SyntheticsCoreWebVitals {
    *
    * @return url
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {

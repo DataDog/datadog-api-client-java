@@ -24,7 +24,7 @@ import java.util.Objects;
   SyntheticsPrivateLocation.JSON_PROPERTY_SECRETS,
   SyntheticsPrivateLocation.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsPrivateLocation {
   @JsonIgnore public boolean unparsed = false;
@@ -83,7 +83,7 @@ public class SyntheticsPrivateLocation {
    *
    * @return id
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -101,7 +101,7 @@ public class SyntheticsPrivateLocation {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsPrivateLocationMetadata getMetadata() {
@@ -138,7 +138,7 @@ public class SyntheticsPrivateLocation {
    *
    * @return secrets
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECRETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsPrivateLocationSecrets getSecrets() {

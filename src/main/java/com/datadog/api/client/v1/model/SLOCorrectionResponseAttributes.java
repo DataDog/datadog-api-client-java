@@ -28,7 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOCorrectionResponseAttributes.JSON_PROPERTY_START,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_TIMEZONE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -80,7 +80,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return category
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOCorrectionCategory getCategory() {
@@ -104,7 +104,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCreatedAt() {
@@ -120,7 +120,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return creator
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Creator getCreator() {
@@ -137,7 +137,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -158,7 +158,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return duration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getDuration() {
     return duration.orElse(null);
@@ -189,7 +189,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return end
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
@@ -210,7 +210,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return modifiedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getModifiedAt() {
@@ -232,7 +232,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return modifier
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public SLOCorrectionResponseAttributesModifier getModifier() {
     return modifier.orElse(null);
@@ -266,7 +266,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return rrule
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getRrule() {
     return rrule.orElse(null);
@@ -297,7 +297,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return sloId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SLO_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSloId() {
@@ -318,7 +318,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return start
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStart() {
@@ -339,7 +339,7 @@ public class SLOCorrectionResponseAttributes {
    *
    * @return timezone
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {

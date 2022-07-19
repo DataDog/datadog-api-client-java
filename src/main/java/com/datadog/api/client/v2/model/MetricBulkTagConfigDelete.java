@@ -19,7 +19,7 @@ import java.util.Objects;
   MetricBulkTagConfigDelete.JSON_PROPERTY_ID,
   MetricBulkTagConfigDelete.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricBulkTagConfigDelete {
   @JsonIgnore public boolean unparsed = false;
@@ -54,7 +54,7 @@ public class MetricBulkTagConfigDelete {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricBulkTagConfigDeleteAttributes getAttributes() {

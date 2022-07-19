@@ -24,7 +24,7 @@ import java.util.Objects;
   UsageTimeseriesHour.JSON_PROPERTY_ORG_NAME,
   UsageTimeseriesHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageTimeseriesHour {
   @JsonIgnore public boolean unparsed = false;
@@ -60,7 +60,7 @@ public class UsageTimeseriesHour {
    *
    * @return hour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -82,7 +82,7 @@ public class UsageTimeseriesHour {
    *
    * @return numCustomInputTimeseries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNumCustomInputTimeseries() {
@@ -104,7 +104,7 @@ public class UsageTimeseriesHour {
    *
    * @return numCustomOutputTimeseries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNumCustomOutputTimeseries() {
@@ -126,7 +126,7 @@ public class UsageTimeseriesHour {
    *
    * @return numCustomTimeseries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNumCustomTimeseries() {
@@ -147,7 +147,7 @@ public class UsageTimeseriesHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -168,7 +168,7 @@ public class UsageTimeseriesHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

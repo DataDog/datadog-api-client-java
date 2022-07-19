@@ -22,7 +22,7 @@ import java.util.Objects;
   SyntheticsBrowserTestResultFull.JSON_PROPERTY_RESULT_ID,
   SyntheticsBrowserTestResultFull.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestResultFull {
   @JsonIgnore public boolean unparsed = false;
@@ -58,7 +58,7 @@ public class SyntheticsBrowserTestResultFull {
    *
    * @return check
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHECK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBrowserTestResultFullCheck getCheck() {
@@ -79,7 +79,7 @@ public class SyntheticsBrowserTestResultFull {
    *
    * @return checkTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHECK_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCheckTime() {
@@ -100,7 +100,7 @@ public class SyntheticsBrowserTestResultFull {
    *
    * @return checkVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHECK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCheckVersion() {
@@ -121,7 +121,7 @@ public class SyntheticsBrowserTestResultFull {
    *
    * @return probeDc
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROBE_DC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProbeDc() {
@@ -143,7 +143,7 @@ public class SyntheticsBrowserTestResultFull {
    *
    * @return result
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBrowserTestResultData getResult() {
@@ -164,7 +164,7 @@ public class SyntheticsBrowserTestResultFull {
    *
    * @return resultId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultId() {
@@ -187,7 +187,7 @@ public class SyntheticsBrowserTestResultFull {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestMonitorStatus getStatus() {

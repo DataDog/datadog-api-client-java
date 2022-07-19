@@ -18,7 +18,7 @@ import java.util.Objects;
  * Response containing the number of netflow events indexed for each hour for a given organization.
  */
 @JsonPropertyOrder({UsageNetworkFlowsResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageNetworkFlowsResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -47,7 +47,7 @@ public class UsageNetworkFlowsResponse {
    *
    * @return usage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageNetworkFlowsHour> getUsage() {

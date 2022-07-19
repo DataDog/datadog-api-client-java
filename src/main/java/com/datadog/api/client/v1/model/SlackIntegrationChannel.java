@@ -17,7 +17,7 @@ import java.util.Objects;
   SlackIntegrationChannel.JSON_PROPERTY_DISPLAY,
   SlackIntegrationChannel.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SlackIntegrationChannel {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class SlackIntegrationChannel {
    *
    * @return display
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SlackIntegrationChannelDisplay getDisplay() {
@@ -59,7 +59,7 @@ public class SlackIntegrationChannel {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

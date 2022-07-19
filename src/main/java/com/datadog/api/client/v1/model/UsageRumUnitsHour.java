@@ -24,7 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageRumUnitsHour.JSON_PROPERTY_PUBLIC_ID,
   UsageRumUnitsHour.JSON_PROPERTY_RUM_UNITS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageRumUnitsHour {
   @JsonIgnore public boolean unparsed = false;
@@ -53,7 +53,7 @@ public class UsageRumUnitsHour {
    *
    * @return browserRumUnits
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBrowserRumUnits() {
@@ -74,7 +74,7 @@ public class UsageRumUnitsHour {
    *
    * @return mobileRumUnits
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMobileRumUnits() {
@@ -95,7 +95,7 @@ public class UsageRumUnitsHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -116,7 +116,7 @@ public class UsageRumUnitsHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -137,7 +137,7 @@ public class UsageRumUnitsHour {
    *
    * @return rumUnits
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getRumUnits() {
     return rumUnits.orElse(null);

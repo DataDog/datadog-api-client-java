@@ -17,7 +17,7 @@ import java.util.Objects;
   Pagination.JSON_PROPERTY_TOTAL_COUNT,
   Pagination.JSON_PROPERTY_TOTAL_FILTERED_COUNT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Pagination {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class Pagination {
    *
    * @return totalCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalCount() {
@@ -58,7 +58,7 @@ public class Pagination {
    *
    * @return totalFilteredCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalFilteredCount() {

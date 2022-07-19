@@ -19,7 +19,7 @@ import java.util.Objects;
   OrganizationCreateResponse.JSON_PROPERTY_ORG,
   OrganizationCreateResponse.JSON_PROPERTY_USER
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationCreateResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -46,7 +46,7 @@ public class OrganizationCreateResponse {
    *
    * @return apiKey
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApiKey getApiKey() {
@@ -68,7 +68,7 @@ public class OrganizationCreateResponse {
    *
    * @return applicationKey
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLICATION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApplicationKey getApplicationKey() {
@@ -90,7 +90,7 @@ public class OrganizationCreateResponse {
    *
    * @return org
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Organization getOrg() {
@@ -112,7 +112,7 @@ public class OrganizationCreateResponse {
    *
    * @return user
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public User getUser() {

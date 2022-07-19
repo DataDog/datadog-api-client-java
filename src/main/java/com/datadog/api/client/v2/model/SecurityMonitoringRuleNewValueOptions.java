@@ -19,7 +19,7 @@ import java.util.Objects;
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_METHOD,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_THRESHOLD
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleNewValueOptions {
   @JsonIgnore public boolean unparsed = false;
@@ -50,7 +50,7 @@ public class SecurityMonitoringRuleNewValueOptions {
    *
    * @return forgetAfter
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FORGET_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleNewValueOptionsForgetAfter getForgetAfter() {
@@ -78,7 +78,7 @@ public class SecurityMonitoringRuleNewValueOptions {
    *
    * @return learningDuration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LEARNING_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleNewValueOptionsLearningDuration getLearningDuration() {
@@ -106,7 +106,7 @@ public class SecurityMonitoringRuleNewValueOptions {
    *
    * @return learningMethod
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LEARNING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleNewValueOptionsLearningMethod getLearningMethod() {
@@ -133,7 +133,7 @@ public class SecurityMonitoringRuleNewValueOptions {
    *
    * @return learningThreshold
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LEARNING_THRESHOLD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleNewValueOptionsLearningThreshold getLearningThreshold() {
