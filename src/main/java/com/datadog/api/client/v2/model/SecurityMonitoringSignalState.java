@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -19,16 +19,19 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** (deprecated) The attribute formerly used to group elements in the widget. */
-@JsonSerialize(using = TreeMapGroupBy.TreeMapGroupBySerializer.class)
-public class TreeMapGroupBy {
+/** The new triage state of the signal. */
+@JsonSerialize(using = SecurityMonitoringSignalState.SecurityMonitoringSignalStateSerializer.class)
+public class SecurityMonitoringSignalState {
 
-  public static final TreeMapGroupBy USER = new TreeMapGroupBy("user");
-  public static final TreeMapGroupBy FAMILY = new TreeMapGroupBy("family");
-  public static final TreeMapGroupBy PROCESS = new TreeMapGroupBy("process");
+  public static final SecurityMonitoringSignalState OPEN =
+      new SecurityMonitoringSignalState("open");
+  public static final SecurityMonitoringSignalState ARCHIVED =
+      new SecurityMonitoringSignalState("archived");
+  public static final SecurityMonitoringSignalState UNDER_REVIEW =
+      new SecurityMonitoringSignalState("under_review");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("user", "family", "process"));
+      new HashSet<String>(Arrays.asList("open", "archived", "under_review"));
 
   private String value;
 
@@ -36,21 +39,23 @@ public class TreeMapGroupBy {
     return allowedValues.contains(this.value);
   }
 
-  TreeMapGroupBy(String value) {
+  SecurityMonitoringSignalState(String value) {
     this.value = value;
   }
 
-  public static class TreeMapGroupBySerializer extends StdSerializer<TreeMapGroupBy> {
-    public TreeMapGroupBySerializer(Class<TreeMapGroupBy> t) {
+  public static class SecurityMonitoringSignalStateSerializer
+      extends StdSerializer<SecurityMonitoringSignalState> {
+    public SecurityMonitoringSignalStateSerializer(Class<SecurityMonitoringSignalState> t) {
       super(t);
     }
 
-    public TreeMapGroupBySerializer() {
+    public SecurityMonitoringSignalStateSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(TreeMapGroupBy value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        SecurityMonitoringSignalState value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -65,7 +70,7 @@ public class TreeMapGroupBy {
     this.value = value;
   }
 
-  /** Return true if this TreeMapGroupBy object is equal to o. */
+  /** Return true if this SecurityMonitoringSignalState object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -74,7 +79,7 @@ public class TreeMapGroupBy {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((TreeMapGroupBy) o).value);
+    return this.value.equals(((SecurityMonitoringSignalState) o).value);
   }
 
   @Override
@@ -88,7 +93,7 @@ public class TreeMapGroupBy {
   }
 
   @JsonCreator
-  public static TreeMapGroupBy fromValue(String value) {
-    return new TreeMapGroupBy(value);
+  public static SecurityMonitoringSignalState fromValue(String value) {
+    return new SecurityMonitoringSignalState(value);
   }
 }

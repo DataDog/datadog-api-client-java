@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The attribute used to determine size in the widget. */
+/** (deprecated) The attribute formerly used to determine size in the widget. */
 @JsonSerialize(using = TreeMapSizeBy.TreeMapSizeBySerializer.class)
 public class TreeMapSizeBy {
 

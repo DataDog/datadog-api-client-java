@@ -1,5 +1,48 @@
 # CHANGELOG
 
+## 2.0.0 / 2022-07-19
+
+### Fixed
+* Fix additionalProperties on SyntheticsAPITestResultData by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1366
+* Fix synthetics vitals type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1367
+* Remove include_percentiles default by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1396
+* Mark message as required for Synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1389
+### Added
+* Add pagination helper method by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1337
+* Add include descendants to monthly and hourly usage attribution APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1362
+* Add v2 endpoints for Opsgenie Integration by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1350
+* Add distribution points intake endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1347
+* Add height and width params to graph snapshot by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1374
+* Add support for defining histogram requests in Distribution widgets by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1360
+* Add DowngradeOrg endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1376
+* Add new options for new value detection type on security monitoring rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1370
+* Add ci execution rule in Synthetics options by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1371
+* Add SLO Search API endpoint  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1287
+* New usage metering endpoint for estimated cost by org by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1399
+* Add estimated indexed spans usage attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1398
+* Handle raw  json for additionalProperties in typescript  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1368
+* Add Application Security Monitoring Hosts Attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1400
+* Add support for security monitoring rule dynamic criticality by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1384
+* Update IP ranges with synthetics private locations section by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1403
+* Add new products to billable summary by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1406
+* Update usage attribution enums by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1401
+* Validate if unstable operations are enabled by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1349
+* Add estimated ingested spans to usage attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1414
+* Add support for zstd by @therve in https://github.com/DataDog/datadog-api-client-java/pull/1418
+* Add v2 Security monitoring signals triage operations. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1407
+### Changed
+* Remove unstable/beta note since Metrics Without Limits is GA by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1359
+* Remove unstable marker on security list signal endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1373
+* Update metric intake v2 accept response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1404
+* Move common classes out of version specific by @therve in https://github.com/DataDog/datadog-api-client-java/pull/1312
+* Add description of metric type enums by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1415
+* remove x-unstable property for usage attribution endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1423
+
+## New Contributors
+* @jybp made their first contribution in https://github.com/DataDog/datadog-api-client-java/pull/1394
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-1.7.1...datadog-api-client-2.0.0
+
 ## 1.7.1 / 2022-06-01
 
 ### Fixed
