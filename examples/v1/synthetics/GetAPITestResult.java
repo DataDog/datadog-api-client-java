@@ -11,7 +11,8 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     try {
-      SyntheticsAPITestResultFull result = apiInstance.getAPITestResult("public_id", "result_id");
+      SyntheticsAPITestResultFull result =
+          apiInstance.getAPITestResult("hwb-332-3xe", "3420446318379485707");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SyntheticsApi#getAPITestResult");
