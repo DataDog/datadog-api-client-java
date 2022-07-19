@@ -1,0 +1,39 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/usage/hourly_usage",
+      "queryStringParameters": {
+        "filter[timestamp][start]": [
+          "2022-07-16T14:57:41.335Z"
+        ],
+        "filter[timestamp][end]": [
+          "2022-07-14T14:57:41.335Z"
+        ],
+        "filter[product_families]": [
+          "infra_hosts"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cc496d18-a216-a654-906e-24e1671e2b27"
+  }
+]
