@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The attribute used to group elements in the widget. */
+/** (deprecated) The attribute formerly used to group elements in the widget. */
 @JsonSerialize(using = TreeMapGroupBy.TreeMapGroupBySerializer.class)
 public class TreeMapGroupBy {
 
