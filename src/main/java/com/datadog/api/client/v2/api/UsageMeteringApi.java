@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CostByOrgResponse;
+import com.datadog.api.client.v2.model.HourlyUsageResponse;
 import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringResponse;
 import com.datadog.api.client.v2.model.UsageLambdaTracedInvocationsResponse;
 import com.datadog.api.client.v2.model.UsageObservabilityPipelinesResponse;
@@ -470,6 +471,389 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CostByOrgResponse>() {});
+  }
+
+  /** Manage optional parameters to getHourlyUsage. */
+  public static class GetHourlyUsageOptionalParameters {
+    private OffsetDateTime filterTimestampEnd;
+    private Boolean filterIncludeDescendants;
+    private String filterVersions;
+    private Integer pageLimit;
+    private String pageNextRecordId;
+
+    /**
+     * Set filterTimestampEnd.
+     *
+     * @param filterTimestampEnd Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+     *     for usage ending <strong>before</strong> this hour. (optional)
+     * @return GetHourlyUsageOptionalParameters
+     */
+    public GetHourlyUsageOptionalParameters filterTimestampEnd(OffsetDateTime filterTimestampEnd) {
+      this.filterTimestampEnd = filterTimestampEnd;
+      return this;
+    }
+
+    /**
+     * Set filterIncludeDescendants.
+     *
+     * @param filterIncludeDescendants Include child org usage in the response. Defaults to false.
+     *     (optional, default to false)
+     * @return GetHourlyUsageOptionalParameters
+     */
+    public GetHourlyUsageOptionalParameters filterIncludeDescendants(
+        Boolean filterIncludeDescendants) {
+      this.filterIncludeDescendants = filterIncludeDescendants;
+      return this;
+    }
+
+    /**
+     * Set filterVersions.
+     *
+     * @param filterVersions Comma separated list of product family versions to use in the format
+     *     <code>product_family:version</code>. For example, <code>infra_hosts:1.0.0</code>. If this
+     *     parameter is not used, the API will use the latest version of each requested product
+     *     family. Currently all families have one version <code>1.0.0</code>. (optional)
+     * @return GetHourlyUsageOptionalParameters
+     */
+    public GetHourlyUsageOptionalParameters filterVersions(String filterVersions) {
+      this.filterVersions = filterVersions;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of results to return (between 1 and 500) - defaults to 500 if
+     *     limit not specified. (optional, default to 500)
+     * @return GetHourlyUsageOptionalParameters
+     */
+    public GetHourlyUsageOptionalParameters pageLimit(Integer pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageNextRecordId.
+     *
+     * @param pageNextRecordId List following results with a next_record_id provided in the previous
+     *     query. (optional)
+     * @return GetHourlyUsageOptionalParameters
+     */
+    public GetHourlyUsageOptionalParameters pageNextRecordId(String pageNextRecordId) {
+      this.pageNextRecordId = pageNextRecordId;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly usage by product family.
+   *
+   * <p>See {@link #getHourlyUsageWithHttpInfo}.
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterProductFamilies Comma separated list of product families to retrieve. Available
+   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
+   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
+   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
+   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     and <code>timeseries</code>. (required)
+   * @return HourlyUsageResponse
+   * @throws ApiException if fails to make API call
+   */
+  public HourlyUsageResponse getHourlyUsage(
+      OffsetDateTime filterTimestampStart, String filterProductFamilies) throws ApiException {
+    return getHourlyUsageWithHttpInfo(
+            filterTimestampStart, filterProductFamilies, new GetHourlyUsageOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get hourly usage by product family.
+   *
+   * <p>See {@link #getHourlyUsageWithHttpInfoAsync}.
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterProductFamilies Comma separated list of product families to retrieve. Available
+   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
+   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
+   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
+   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     and <code>timeseries</code>. (required)
+   * @return CompletableFuture&lt;HourlyUsageResponse&gt;
+   */
+  public CompletableFuture<HourlyUsageResponse> getHourlyUsageAsync(
+      OffsetDateTime filterTimestampStart, String filterProductFamilies) {
+    return getHourlyUsageWithHttpInfoAsync(
+            filterTimestampStart, filterProductFamilies, new GetHourlyUsageOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage by product family.
+   *
+   * <p>See {@link #getHourlyUsageWithHttpInfo}.
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterProductFamilies Comma separated list of product families to retrieve. Available
+   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
+   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
+   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
+   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     and <code>timeseries</code>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return HourlyUsageResponse
+   * @throws ApiException if fails to make API call
+   */
+  public HourlyUsageResponse getHourlyUsage(
+      OffsetDateTime filterTimestampStart,
+      String filterProductFamilies,
+      GetHourlyUsageOptionalParameters parameters)
+      throws ApiException {
+    return getHourlyUsageWithHttpInfo(filterTimestampStart, filterProductFamilies, parameters)
+        .getData();
+  }
+
+  /**
+   * Get hourly usage by product family.
+   *
+   * <p>See {@link #getHourlyUsageWithHttpInfoAsync}.
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterProductFamilies Comma separated list of product families to retrieve. Available
+   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
+   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
+   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
+   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     and <code>timeseries</code>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;HourlyUsageResponse&gt;
+   */
+  public CompletableFuture<HourlyUsageResponse> getHourlyUsageAsync(
+      OffsetDateTime filterTimestampStart,
+      String filterProductFamilies,
+      GetHourlyUsageOptionalParameters parameters) {
+    return getHourlyUsageWithHttpInfoAsync(filterTimestampStart, filterProductFamilies, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage by product family
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterProductFamilies Comma separated list of product families to retrieve. Available
+   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
+   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
+   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
+   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     and <code>timeseries</code>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;HourlyUsageResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<HourlyUsageResponse> getHourlyUsageWithHttpInfo(
+      OffsetDateTime filterTimestampStart,
+      String filterProductFamilies,
+      GetHourlyUsageOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterTimestampStart' is set
+    if (filterTimestampStart == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filterTimestampStart' when calling getHourlyUsage");
+    }
+
+    // verify the required parameter 'filterProductFamilies' is set
+    if (filterProductFamilies == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterProductFamilies' when calling getHourlyUsage");
+    }
+    OffsetDateTime filterTimestampEnd = parameters.filterTimestampEnd;
+    Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    String filterVersions = parameters.filterVersions;
+    Integer pageLimit = parameters.pageLimit;
+    String pageNextRecordId = parameters.pageNextRecordId;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/hourly_usage";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[timestamp][start]", filterTimestampStart));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[product_families]", filterProductFamilies));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[timestamp][end]", filterTimestampEnd));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[versions]", filterVersions));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "page[next_record_id]", pageNextRecordId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getHourlyUsage",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HourlyUsageResponse>() {});
+  }
+
+  /**
+   * Get hourly usage by product family.
+   *
+   * <p>See {@link #getHourlyUsageWithHttpInfo}.
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterProductFamilies Comma separated list of product families to retrieve. Available
+   *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
+   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
+   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
+   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
+   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
+   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     and <code>timeseries</code>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;HourlyUsageResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<HourlyUsageResponse>> getHourlyUsageWithHttpInfoAsync(
+      OffsetDateTime filterTimestampStart,
+      String filterProductFamilies,
+      GetHourlyUsageOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterTimestampStart' is set
+    if (filterTimestampStart == null) {
+      CompletableFuture<ApiResponse<HourlyUsageResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterTimestampStart' when calling getHourlyUsage"));
+      return result;
+    }
+
+    // verify the required parameter 'filterProductFamilies' is set
+    if (filterProductFamilies == null) {
+      CompletableFuture<ApiResponse<HourlyUsageResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterProductFamilies' when calling"
+                  + " getHourlyUsage"));
+      return result;
+    }
+    OffsetDateTime filterTimestampEnd = parameters.filterTimestampEnd;
+    Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    String filterVersions = parameters.filterVersions;
+    Integer pageLimit = parameters.pageLimit;
+    String pageNextRecordId = parameters.pageNextRecordId;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/hourly_usage";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[timestamp][start]", filterTimestampStart));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[product_families]", filterProductFamilies));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[timestamp][end]", filterTimestampEnd));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[versions]", filterVersions));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "page[next_record_id]", pageNextRecordId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getHourlyUsage",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<HourlyUsageResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<HourlyUsageResponse>() {});
   }
 
   /** Manage optional parameters to getUsageApplicationSecurityMonitoring. */
