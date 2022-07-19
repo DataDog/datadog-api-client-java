@@ -15,7 +15,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The metadata for the current pagination. */
 @JsonPropertyOrder({HourlyUsagePagination.JSON_PROPERTY_NEXT_RECORD_ID})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HourlyUsagePagination {
   @JsonIgnore public boolean unparsed = false;
@@ -33,7 +33,7 @@ public class HourlyUsagePagination {
    *
    * @return nextRecordId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getNextRecordId() {
     return nextRecordId.orElse(null);
