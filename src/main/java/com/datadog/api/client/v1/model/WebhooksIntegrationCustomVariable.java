@@ -19,7 +19,7 @@ import java.util.Objects;
   WebhooksIntegrationCustomVariable.JSON_PROPERTY_NAME,
   WebhooksIntegrationCustomVariable.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WebhooksIntegrationCustomVariable {
   @JsonIgnore public boolean unparsed = false;

@@ -20,7 +20,7 @@ import java.util.Objects;
   FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_NAME,
   FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_QUERY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionMetricQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -62,7 +62,7 @@ public class FormulaAndFunctionMetricQueryDefinition {
    *
    * @return aggregator
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionMetricAggregation getAggregator() {

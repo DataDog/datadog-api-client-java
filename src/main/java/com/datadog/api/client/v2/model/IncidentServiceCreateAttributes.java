@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** The incident service's attributes for a create request. */
 @JsonPropertyOrder({IncidentServiceCreateAttributes.JSON_PROPERTY_NAME})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentServiceCreateAttributes {
   @JsonIgnore public boolean unparsed = false;

@@ -27,7 +27,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_ORG_NAME,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageCloudSecurityPostureManagementHour {
   @JsonIgnore public boolean unparsed = false;
@@ -67,7 +67,7 @@ public class UsageCloudSecurityPostureManagementHour {
    *
    * @return aasHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Double getAasHostCount() {
     return aasHostCount.orElse(null);
@@ -98,7 +98,7 @@ public class UsageCloudSecurityPostureManagementHour {
    *
    * @return azureHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Double getAzureHostCount() {
     return azureHostCount.orElse(null);
@@ -129,7 +129,7 @@ public class UsageCloudSecurityPostureManagementHour {
    *
    * @return complianceHostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Double getComplianceHostCount() {
     return complianceHostCount.orElse(null);
@@ -160,7 +160,7 @@ public class UsageCloudSecurityPostureManagementHour {
    *
    * @return containerCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Double getContainerCount() {
     return containerCount.orElse(null);
@@ -191,7 +191,7 @@ public class UsageCloudSecurityPostureManagementHour {
    *
    * @return hostCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Double getHostCount() {
     return hostCount.orElse(null);
@@ -222,7 +222,7 @@ public class UsageCloudSecurityPostureManagementHour {
    *
    * @return hour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -243,7 +243,7 @@ public class UsageCloudSecurityPostureManagementHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -264,7 +264,7 @@ public class UsageCloudSecurityPostureManagementHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

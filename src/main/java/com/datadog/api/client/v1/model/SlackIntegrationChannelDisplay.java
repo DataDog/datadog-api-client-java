@@ -19,7 +19,7 @@ import java.util.Objects;
   SlackIntegrationChannelDisplay.JSON_PROPERTY_SNAPSHOT,
   SlackIntegrationChannelDisplay.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SlackIntegrationChannelDisplay {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class SlackIntegrationChannelDisplay {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getMessage() {
@@ -66,7 +66,7 @@ public class SlackIntegrationChannelDisplay {
    *
    * @return notified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NOTIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNotified() {
@@ -87,7 +87,7 @@ public class SlackIntegrationChannelDisplay {
    *
    * @return snapshot
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SNAPSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSnapshot() {
@@ -108,7 +108,7 @@ public class SlackIntegrationChannelDisplay {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getTags() {

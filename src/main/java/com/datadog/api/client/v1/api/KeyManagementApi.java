@@ -10,14 +10,14 @@ import com.datadog.api.client.v1.model.ApiKeyResponse;
 import com.datadog.api.client.v1.model.ApplicationKey;
 import com.datadog.api.client.v1.model.ApplicationKeyListResponse;
 import com.datadog.api.client.v1.model.ApplicationKeyResponse;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class KeyManagementApi {
   private ApiClient apiClient;

@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Object describing the API test configuration. */
 @JsonPropertyOrder({SyntheticsAPITestResultFullCheck.JSON_PROPERTY_CONFIG})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITestResultFullCheck {
   @JsonIgnore public boolean unparsed = false;

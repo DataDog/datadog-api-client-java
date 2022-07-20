@@ -20,7 +20,7 @@ import java.util.Objects;
   ScatterplotTableRequest.JSON_PROPERTY_QUERIES,
   ScatterplotTableRequest.JSON_PROPERTY_RESPONSE_FORMAT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScatterplotTableRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class ScatterplotTableRequest {
    *
    * @return formulas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ScatterplotWidgetFormula> getFormulas() {
@@ -88,7 +88,7 @@ public class ScatterplotTableRequest {
    *
    * @return queries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<FormulaAndFunctionQueryDefinition> getQueries() {
@@ -110,7 +110,7 @@ public class ScatterplotTableRequest {
    *
    * @return responseFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormulaAndFunctionResponseFormat getResponseFormat() {

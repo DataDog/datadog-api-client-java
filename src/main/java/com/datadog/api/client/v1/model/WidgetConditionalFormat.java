@@ -25,7 +25,7 @@ import java.util.Objects;
   WidgetConditionalFormat.JSON_PROPERTY_TIMEFRAME,
   WidgetConditionalFormat.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetConditionalFormat {
   @JsonIgnore public boolean unparsed = false;
@@ -104,7 +104,7 @@ public class WidgetConditionalFormat {
    *
    * @return customBgColor
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_BG_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomBgColor() {
@@ -125,7 +125,7 @@ public class WidgetConditionalFormat {
    *
    * @return customFgColor
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_FG_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomFgColor() {
@@ -146,7 +146,7 @@ public class WidgetConditionalFormat {
    *
    * @return hideValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HIDE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHideValue() {
@@ -167,7 +167,7 @@ public class WidgetConditionalFormat {
    *
    * @return imageUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IMAGE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getImageUrl() {
@@ -188,7 +188,7 @@ public class WidgetConditionalFormat {
    *
    * @return metric
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -233,7 +233,7 @@ public class WidgetConditionalFormat {
    *
    * @return timeframe
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimeframe() {

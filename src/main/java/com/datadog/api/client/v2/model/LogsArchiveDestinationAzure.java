@@ -22,7 +22,7 @@ import java.util.Objects;
   LogsArchiveDestinationAzure.JSON_PROPERTY_STORAGE_ACCOUNT,
   LogsArchiveDestinationAzure.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveDestinationAzure {
   @JsonIgnore public boolean unparsed = false;
@@ -113,7 +113,7 @@ public class LogsArchiveDestinationAzure {
    *
    * @return path
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPath() {
@@ -134,7 +134,7 @@ public class LogsArchiveDestinationAzure {
    *
    * @return region
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRegion() {

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /** API Exception */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApiException extends Exception {
   private int code = 0;

@@ -20,7 +20,7 @@ import java.util.Objects;
   SyntheticsAssertionTarget.JSON_PROPERTY_TARGET,
   SyntheticsAssertionTarget.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAssertionTarget {
   @JsonIgnore public boolean unparsed = false;
@@ -85,7 +85,7 @@ public class SyntheticsAssertionTarget {
    *
    * @return property
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROPERTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProperty() {

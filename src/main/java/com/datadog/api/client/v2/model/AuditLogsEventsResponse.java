@@ -20,7 +20,7 @@ import java.util.Objects;
   AuditLogsEventsResponse.JSON_PROPERTY_LINKS,
   AuditLogsEventsResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditLogsEventsResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class AuditLogsEventsResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AuditLogsEvent> getData() {
@@ -77,7 +77,7 @@ public class AuditLogsEventsResponse {
    *
    * @return links
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuditLogsResponseLinks getLinks() {
@@ -99,7 +99,7 @@ public class AuditLogsEventsResponse {
    *
    * @return meta
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuditLogsResponseMetadata getMeta() {

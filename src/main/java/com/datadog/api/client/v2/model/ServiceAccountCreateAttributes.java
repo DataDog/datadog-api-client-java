@@ -20,7 +20,7 @@ import java.util.Objects;
   ServiceAccountCreateAttributes.JSON_PROPERTY_SERVICE_ACCOUNT,
   ServiceAccountCreateAttributes.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceAccountCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -77,7 +77,7 @@ public class ServiceAccountCreateAttributes {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -118,7 +118,7 @@ public class ServiceAccountCreateAttributes {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {

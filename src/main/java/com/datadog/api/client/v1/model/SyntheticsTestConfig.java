@@ -21,7 +21,7 @@ import java.util.Objects;
   SyntheticsTestConfig.JSON_PROPERTY_REQUEST,
   SyntheticsTestConfig.JSON_PROPERTY_VARIABLES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestConfig {
   @JsonIgnore public boolean unparsed = false;
@@ -59,7 +59,7 @@ public class SyntheticsTestConfig {
    *
    * @return assertions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsAssertion> getAssertions() {
@@ -92,7 +92,7 @@ public class SyntheticsTestConfig {
    *
    * @return configVariables
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsConfigVariable> getConfigVariables() {
@@ -114,7 +114,7 @@ public class SyntheticsTestConfig {
    *
    * @return request
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestRequest getRequest() {
@@ -147,7 +147,7 @@ public class SyntheticsTestConfig {
    *
    * @return variables
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsBrowserVariable> getVariables() {

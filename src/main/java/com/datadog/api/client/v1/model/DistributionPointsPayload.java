@@ -17,7 +17,7 @@ import java.util.Objects;
 
 /** The distribution points payload. */
 @JsonPropertyOrder({DistributionPointsPayload.JSON_PROPERTY_SERIES})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DistributionPointsPayload {
   @JsonIgnore public boolean unparsed = false;

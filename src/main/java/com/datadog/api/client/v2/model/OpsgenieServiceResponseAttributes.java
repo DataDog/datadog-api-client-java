@@ -19,7 +19,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   OpsgenieServiceResponseAttributes.JSON_PROPERTY_NAME,
   OpsgenieServiceResponseAttributes.JSON_PROPERTY_REGION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OpsgenieServiceResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class OpsgenieServiceResponseAttributes {
    *
    * @return customUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getCustomUrl() {
     return customUrl.orElse(null);
@@ -73,7 +73,7 @@ public class OpsgenieServiceResponseAttributes {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -95,7 +95,7 @@ public class OpsgenieServiceResponseAttributes {
    *
    * @return region
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OpsgenieServiceRegionType getRegion() {

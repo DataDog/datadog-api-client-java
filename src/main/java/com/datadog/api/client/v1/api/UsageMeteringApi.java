@@ -46,16 +46,16 @@ import com.datadog.api.client.v1.model.UsageSyntheticsBrowserResponse;
 import com.datadog.api.client.v1.model.UsageSyntheticsResponse;
 import com.datadog.api.client.v1.model.UsageTimeseriesResponse;
 import com.datadog.api.client.v1.model.UsageTopAvgMetricsResponse;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.core.GenericType;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageMeteringApi {
   private ApiClient apiClient;

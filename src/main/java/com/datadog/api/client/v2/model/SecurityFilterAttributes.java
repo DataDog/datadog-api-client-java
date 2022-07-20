@@ -24,7 +24,7 @@ import java.util.Objects;
   SecurityFilterAttributes.JSON_PROPERTY_QUERY,
   SecurityFilterAttributes.JSON_PROPERTY_VERSION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityFilterAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -73,7 +73,7 @@ public class SecurityFilterAttributes {
    *
    * @return exclusionFilters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityFilterExclusionFilterResponse> getExclusionFilters() {
@@ -96,7 +96,7 @@ public class SecurityFilterAttributes {
    *
    * @return filteredDataType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTERED_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityFilterFilteredDataType getFilteredDataType() {
@@ -120,7 +120,7 @@ public class SecurityFilterAttributes {
    *
    * @return isBuiltin
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_BUILTIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsBuiltin() {
@@ -141,7 +141,7 @@ public class SecurityFilterAttributes {
    *
    * @return isEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -162,7 +162,7 @@ public class SecurityFilterAttributes {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -183,7 +183,7 @@ public class SecurityFilterAttributes {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -204,7 +204,7 @@ public class SecurityFilterAttributes {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getVersion() {

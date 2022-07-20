@@ -21,7 +21,7 @@ import java.util.Objects;
   MonitorStateGroup.JSON_PROPERTY_NAME,
   MonitorStateGroup.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorStateGroup {
   @JsonIgnore public boolean unparsed = false;
@@ -53,7 +53,7 @@ public class MonitorStateGroup {
    *
    * @return lastNodataTs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastNodataTs() {
@@ -74,7 +74,7 @@ public class MonitorStateGroup {
    *
    * @return lastNotifiedTs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_NOTIFIED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastNotifiedTs() {
@@ -95,7 +95,7 @@ public class MonitorStateGroup {
    *
    * @return lastResolvedTs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_RESOLVED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastResolvedTs() {
@@ -116,7 +116,7 @@ public class MonitorStateGroup {
    *
    * @return lastTriggeredTs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastTriggeredTs() {
@@ -137,7 +137,7 @@ public class MonitorStateGroup {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -153,7 +153,7 @@ public class MonitorStateGroup {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MonitorOverallStates getStatus() {

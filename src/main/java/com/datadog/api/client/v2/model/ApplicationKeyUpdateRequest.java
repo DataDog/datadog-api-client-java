@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Request used to update an application key. */
 @JsonPropertyOrder({ApplicationKeyUpdateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKeyUpdateRequest {
   @JsonIgnore public boolean unparsed = false;

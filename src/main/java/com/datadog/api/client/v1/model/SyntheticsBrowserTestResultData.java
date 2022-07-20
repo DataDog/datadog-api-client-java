@@ -29,7 +29,7 @@ import java.util.Objects;
   SyntheticsBrowserTestResultData.JSON_PROPERTY_THUMBNAILS_BUCKET_KEY,
   SyntheticsBrowserTestResultData.JSON_PROPERTY_TIME_TO_INTERACTIVE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestResultData {
   @JsonIgnore public boolean unparsed = false;
@@ -79,7 +79,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return browserType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrowserType() {
@@ -100,7 +100,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return browserVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrowserVersion() {
@@ -122,7 +122,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return device
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsDevice getDevice() {
@@ -143,7 +143,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return duration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getDuration() {
@@ -164,7 +164,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return error
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getError() {
@@ -186,7 +186,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return failure
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsBrowserTestResultFailure getFailure() {
@@ -207,7 +207,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return passed
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPassed() {
@@ -228,7 +228,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return receivedEmailCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RECEIVED_EMAIL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getReceivedEmailCount() {
@@ -249,7 +249,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return startUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartUrl() {
@@ -282,7 +282,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return stepDetails
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STEP_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsStepDetail> getStepDetails() {
@@ -303,7 +303,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return thumbnailsBucketKey
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_THUMBNAILS_BUCKET_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getThumbnailsBucketKey() {
@@ -324,7 +324,7 @@ public class SyntheticsBrowserTestResultData {
    *
    * @return timeToInteractive
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_TO_INTERACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTimeToInteractive() {

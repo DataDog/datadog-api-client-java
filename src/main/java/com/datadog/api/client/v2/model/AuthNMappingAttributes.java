@@ -23,7 +23,7 @@ import java.util.Objects;
   AuthNMappingAttributes.JSON_PROPERTY_MODIFIED_AT,
   AuthNMappingAttributes.JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -57,7 +57,7 @@ public class AuthNMappingAttributes {
    *
    * @return attributeKey
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTE_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAttributeKey() {
@@ -78,7 +78,7 @@ public class AuthNMappingAttributes {
    *
    * @return attributeValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAttributeValue() {
@@ -94,7 +94,7 @@ public class AuthNMappingAttributes {
    *
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -106,7 +106,7 @@ public class AuthNMappingAttributes {
    *
    * @return modifiedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModifiedAt() {
@@ -123,7 +123,7 @@ public class AuthNMappingAttributes {
    *
    * @return samlAssertionAttributeId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSamlAssertionAttributeId() {

@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Configuration of table-based legend. */
 @JsonPropertyOrder({SunburstWidgetLegendTable.JSON_PROPERTY_TYPE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SunburstWidgetLegendTable {
   @JsonIgnore public boolean unparsed = false;

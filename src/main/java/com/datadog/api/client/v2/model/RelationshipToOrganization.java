@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Relationship to an organization. */
 @JsonPropertyOrder({RelationshipToOrganization.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToOrganization {
   @JsonIgnore public boolean unparsed = false;

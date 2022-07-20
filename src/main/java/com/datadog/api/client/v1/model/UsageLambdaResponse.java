@@ -19,7 +19,7 @@ import java.util.Objects;
  * functions for each hour for a given organization.
  */
 @JsonPropertyOrder({UsageLambdaResponse.JSON_PROPERTY_USAGE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageLambdaResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -48,7 +48,7 @@ public class UsageLambdaResponse {
    *
    * @return usage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageLambdaHour> getUsage() {

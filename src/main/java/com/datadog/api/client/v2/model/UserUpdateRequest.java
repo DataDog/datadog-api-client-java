@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Update a user. */
 @JsonPropertyOrder({UserUpdateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserUpdateRequest {
   @JsonIgnore public boolean unparsed = false;

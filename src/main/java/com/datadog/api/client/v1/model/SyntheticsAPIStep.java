@@ -26,7 +26,7 @@ import java.util.Objects;
   SyntheticsAPIStep.JSON_PROPERTY_RETRY,
   SyntheticsAPIStep.JSON_PROPERTY_SUBTYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPIStep {
   @JsonIgnore public boolean unparsed = false;
@@ -82,7 +82,7 @@ public class SyntheticsAPIStep {
    *
    * @return allowFailure
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowFailure() {
@@ -144,7 +144,7 @@ public class SyntheticsAPIStep {
    *
    * @return extractedValues
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTRACTED_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsParsingOptions> getExtractedValues() {
@@ -166,7 +166,7 @@ public class SyntheticsAPIStep {
    *
    * @return isCritical
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsCritical() {
@@ -229,7 +229,7 @@ public class SyntheticsAPIStep {
    *
    * @return retry
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestOptionsRetry getRetry() {

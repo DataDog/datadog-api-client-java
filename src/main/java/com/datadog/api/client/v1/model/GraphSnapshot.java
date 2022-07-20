@@ -18,7 +18,7 @@ import java.util.Objects;
   GraphSnapshot.JSON_PROPERTY_METRIC_QUERY,
   GraphSnapshot.JSON_PROPERTY_SNAPSHOT_URL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GraphSnapshot {
   @JsonIgnore public boolean unparsed = false;
@@ -44,7 +44,7 @@ public class GraphSnapshot {
    *
    * @return graphDef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GRAPH_DEF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGraphDef() {
@@ -65,7 +65,7 @@ public class GraphSnapshot {
    *
    * @return metricQuery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetricQuery() {
@@ -86,7 +86,7 @@ public class GraphSnapshot {
    *
    * @return snapshotUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SNAPSHOT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSnapshotUrl() {

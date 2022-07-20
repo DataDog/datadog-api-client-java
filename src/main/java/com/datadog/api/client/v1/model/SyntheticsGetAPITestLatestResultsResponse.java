@@ -19,7 +19,7 @@ import java.util.Objects;
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_LAST_TIMESTAMP_FETCHED,
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_RESULTS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsGetAPITestLatestResultsResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -39,7 +39,7 @@ public class SyntheticsGetAPITestLatestResultsResponse {
    *
    * @return lastTimestampFetched
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_TIMESTAMP_FETCHED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLastTimestampFetched() {
@@ -74,7 +74,7 @@ public class SyntheticsGetAPITestLatestResultsResponse {
    *
    * @return results
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsAPITestResultShort> getResults() {

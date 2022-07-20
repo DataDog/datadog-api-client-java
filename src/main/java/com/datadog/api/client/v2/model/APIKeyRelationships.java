@@ -17,7 +17,7 @@ import java.util.Objects;
   APIKeyRelationships.JSON_PROPERTY_CREATED_BY,
   APIKeyRelationships.JSON_PROPERTY_MODIFIED_BY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class APIKeyRelationships {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class APIKeyRelationships {
    *
    * @return createdBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getCreatedBy() {
@@ -60,7 +60,7 @@ public class APIKeyRelationships {
    *
    * @return modifiedBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getModifiedBy() {

@@ -18,7 +18,7 @@ import java.util.Objects;
   IncidentResponseMetaPagination.JSON_PROPERTY_OFFSET,
   IncidentResponseMetaPagination.JSON_PROPERTY_SIZE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentResponseMetaPagination {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class IncidentResponseMetaPagination {
    *
    * @return nextOffset
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNextOffset() {
@@ -63,7 +63,7 @@ public class IncidentResponseMetaPagination {
    *
    * @return offset
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOffset() {
@@ -84,7 +84,7 @@ public class IncidentResponseMetaPagination {
    *
    * @return size
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSize() {

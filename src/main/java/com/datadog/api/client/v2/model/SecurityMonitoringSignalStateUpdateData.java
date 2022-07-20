@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Data containing the patch for changing the state of a signal. */
 @JsonPropertyOrder({SecurityMonitoringSignalStateUpdateData.JSON_PROPERTY_ATTRIBUTES})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalStateUpdateData {
   @JsonIgnore public boolean unparsed = false;

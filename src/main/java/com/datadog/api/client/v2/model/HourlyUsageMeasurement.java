@@ -18,7 +18,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   HourlyUsageMeasurement.JSON_PROPERTY_USAGE_TYPE,
   HourlyUsageMeasurement.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HourlyUsageMeasurement {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class HourlyUsageMeasurement {
    *
    * @return usageType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUsageType() {
@@ -59,7 +59,7 @@ public class HourlyUsageMeasurement {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getValue() {
     return value.orElse(null);

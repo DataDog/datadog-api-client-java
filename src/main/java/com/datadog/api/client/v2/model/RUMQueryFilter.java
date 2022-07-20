@@ -18,7 +18,7 @@ import java.util.Objects;
   RUMQueryFilter.JSON_PROPERTY_QUERY,
   RUMQueryFilter.JSON_PROPERTY_TO
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMQueryFilter {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class RUMQueryFilter {
    *
    * @return from
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFrom() {
@@ -63,7 +63,7 @@ public class RUMQueryFilter {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -85,7 +85,7 @@ public class RUMQueryFilter {
    *
    * @return to
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTo() {

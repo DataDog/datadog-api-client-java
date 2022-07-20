@@ -26,7 +26,7 @@ import java.util.Objects;
   SyntheticsAPITestResultData.JSON_PROPERTY_RESPONSE_SIZE,
   SyntheticsAPITestResultData.JSON_PROPERTY_TIMINGS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITestResultData {
   @JsonIgnore public boolean unparsed = false;
@@ -68,7 +68,7 @@ public class SyntheticsAPITestResultData {
    *
    * @return cert
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsSSLCertificate getCert() {
@@ -90,7 +90,7 @@ public class SyntheticsAPITestResultData {
    *
    * @return eventType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTestProcessStatus getEventType() {
@@ -115,7 +115,7 @@ public class SyntheticsAPITestResultData {
    *
    * @return failure
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsApiTestResultFailure getFailure() {
@@ -136,7 +136,7 @@ public class SyntheticsAPITestResultData {
    *
    * @return httpStatusCode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HTTP_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getHttpStatusCode() {
@@ -165,7 +165,7 @@ public class SyntheticsAPITestResultData {
    *
    * @return requestHeaders
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Object> getRequestHeaders() {
@@ -186,7 +186,7 @@ public class SyntheticsAPITestResultData {
    *
    * @return responseBody
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResponseBody() {
@@ -216,7 +216,7 @@ public class SyntheticsAPITestResultData {
    *
    * @return responseHeaders
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESPONSE_HEADERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Object> getResponseHeaders() {
@@ -237,7 +237,7 @@ public class SyntheticsAPITestResultData {
    *
    * @return responseSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESPONSE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getResponseSize() {
@@ -261,7 +261,7 @@ public class SyntheticsAPITestResultData {
    *
    * @return timings
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsTiming getTimings() {

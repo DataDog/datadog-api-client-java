@@ -32,7 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentUpdateAttributes.JSON_PROPERTY_RESOLVED,
   IncidentUpdateAttributes.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -82,7 +82,7 @@ public class IncidentUpdateAttributes {
    *
    * @return customerImpactEnd
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public OffsetDateTime getCustomerImpactEnd() {
     return customerImpactEnd.orElse(null);
@@ -113,7 +113,7 @@ public class IncidentUpdateAttributes {
    *
    * @return customerImpactScope
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomerImpactScope() {
@@ -134,7 +134,7 @@ public class IncidentUpdateAttributes {
    *
    * @return customerImpactStart
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public OffsetDateTime getCustomerImpactStart() {
     return customerImpactStart.orElse(null);
@@ -166,7 +166,7 @@ public class IncidentUpdateAttributes {
    *
    * @return customerImpacted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getCustomerImpacted() {
@@ -187,7 +187,7 @@ public class IncidentUpdateAttributes {
    *
    * @return detected
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public OffsetDateTime getDetected() {
     return detected.orElse(null);
@@ -226,7 +226,7 @@ public class IncidentUpdateAttributes {
    *
    * @return fields
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, IncidentFieldAttributes> getFields() {
@@ -261,7 +261,7 @@ public class IncidentUpdateAttributes {
    *
    * @return notificationHandles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<IncidentNotificationHandle> getNotificationHandles() {
@@ -282,7 +282,7 @@ public class IncidentUpdateAttributes {
    *
    * @return resolved
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public OffsetDateTime getResolved() {
     return resolved.orElse(null);
@@ -313,7 +313,7 @@ public class IncidentUpdateAttributes {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {

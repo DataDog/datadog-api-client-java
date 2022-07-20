@@ -22,7 +22,7 @@ import java.util.Objects;
   SyntheticsBasicAuthSigv4.JSON_PROPERTY_SESSION_TOKEN,
   SyntheticsBasicAuthSigv4.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBasicAuthSigv4 {
   @JsonIgnore public boolean unparsed = false;
@@ -88,7 +88,7 @@ public class SyntheticsBasicAuthSigv4 {
    *
    * @return region
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRegion() {
@@ -129,7 +129,7 @@ public class SyntheticsBasicAuthSigv4 {
    *
    * @return serviceName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getServiceName() {
@@ -150,7 +150,7 @@ public class SyntheticsBasicAuthSigv4 {
    *
    * @return sessionToken
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SESSION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSessionToken() {

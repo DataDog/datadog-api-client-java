@@ -17,7 +17,7 @@ import java.util.Objects;
 
 /** Object containing the ordered list of log index names. */
 @JsonPropertyOrder({LogsIndexesOrder.JSON_PROPERTY_INDEX_NAMES})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsIndexesOrder {
   @JsonIgnore public boolean unparsed = false;

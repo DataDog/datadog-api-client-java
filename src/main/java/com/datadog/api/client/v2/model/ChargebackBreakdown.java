@@ -18,7 +18,7 @@ import java.util.Objects;
   ChargebackBreakdown.JSON_PROPERTY_COST,
   ChargebackBreakdown.JSON_PROPERTY_PRODUCT_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ChargebackBreakdown {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class ChargebackBreakdown {
    *
    * @return chargeType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHARGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getChargeType() {
@@ -62,7 +62,7 @@ public class ChargebackBreakdown {
    *
    * @return cost
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCost() {
@@ -83,7 +83,7 @@ public class ChargebackBreakdown {
    *
    * @return productName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProductName() {

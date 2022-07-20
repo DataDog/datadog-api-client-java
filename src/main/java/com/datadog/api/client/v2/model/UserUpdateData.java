@@ -19,7 +19,7 @@ import java.util.Objects;
   UserUpdateData.JSON_PROPERTY_ID,
   UserUpdateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserUpdateData {
   @JsonIgnore public boolean unparsed = false;

@@ -19,7 +19,7 @@ import java.util.Objects;
   AWSLogsAsyncResponse.JSON_PROPERTY_ERRORS,
   AWSLogsAsyncResponse.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSLogsAsyncResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -51,7 +51,7 @@ public class AWSLogsAsyncResponse {
    *
    * @return errors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AWSLogsAsyncError> getErrors() {
@@ -72,7 +72,7 @@ public class AWSLogsAsyncResponse {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {

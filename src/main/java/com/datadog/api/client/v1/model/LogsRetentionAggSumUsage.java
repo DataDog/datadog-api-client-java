@@ -22,7 +22,7 @@ import java.util.Objects;
   LogsRetentionAggSumUsage.JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_AGG_SUM,
   LogsRetentionAggSumUsage.JSON_PROPERTY_RETENTION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsRetentionAggSumUsage {
   @JsonIgnore public boolean unparsed = false;
@@ -51,7 +51,7 @@ public class LogsRetentionAggSumUsage {
    *
    * @return logsIndexedLogsUsageAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsIndexedLogsUsageAggSum() {
@@ -73,7 +73,7 @@ public class LogsRetentionAggSumUsage {
    *
    * @return logsLiveIndexedLogsUsageAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsLiveIndexedLogsUsageAggSum() {
@@ -95,7 +95,7 @@ public class LogsRetentionAggSumUsage {
    *
    * @return logsRehydratedIndexedLogsUsageAggSum
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsRehydratedIndexedLogsUsageAggSum() {
@@ -116,7 +116,7 @@ public class LogsRetentionAggSumUsage {
    *
    * @return retention
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRetention() {

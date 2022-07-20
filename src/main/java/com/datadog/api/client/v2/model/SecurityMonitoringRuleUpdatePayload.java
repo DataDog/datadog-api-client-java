@@ -27,7 +27,7 @@ import java.util.Objects;
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_TAGS,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_VERSION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleUpdatePayload {
   @JsonIgnore public boolean unparsed = false;
@@ -83,7 +83,7 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return cases
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CASES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringRuleCase> getCases() {
@@ -116,7 +116,7 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return filters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringFilter> getFilters() {
@@ -137,7 +137,7 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return hasExtendedTitle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasExtendedTitle() {
@@ -158,7 +158,7 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return isEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -179,7 +179,7 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -200,7 +200,7 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -222,7 +222,7 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return options
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleOptions getOptions() {
@@ -256,7 +256,7 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return queries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringRuleQuery> getQueries() {
@@ -285,7 +285,7 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -306,7 +306,7 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getVersion() {

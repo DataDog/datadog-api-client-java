@@ -20,7 +20,7 @@ import java.util.Objects;
   AWSLogsListResponse.JSON_PROPERTY_LAMBDAS,
   AWSLogsListResponse.JSON_PROPERTY_SERVICES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSLogsListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -43,7 +43,7 @@ public class AWSLogsListResponse {
    *
    * @return accountId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountId() {
@@ -76,7 +76,7 @@ public class AWSLogsListResponse {
    *
    * @return lambdas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAMBDAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AWSLogsLambda> getLambdas() {
@@ -105,7 +105,7 @@ public class AWSLogsListResponse {
    *
    * @return services
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getServices() {

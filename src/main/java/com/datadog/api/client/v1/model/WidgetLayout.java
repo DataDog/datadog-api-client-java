@@ -24,7 +24,7 @@ import java.util.Objects;
   WidgetLayout.JSON_PROPERTY_X,
   WidgetLayout.JSON_PROPERTY_Y
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetLayout {
   @JsonIgnore public boolean unparsed = false;
@@ -89,7 +89,7 @@ public class WidgetLayout {
    *
    * @return isColumnBreak
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_COLUMN_BREAK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsColumnBreak() {

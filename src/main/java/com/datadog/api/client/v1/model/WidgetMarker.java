@@ -20,7 +20,7 @@ import java.util.Objects;
   WidgetMarker.JSON_PROPERTY_TIME,
   WidgetMarker.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetMarker {
   @JsonIgnore public boolean unparsed = false;
@@ -54,7 +54,7 @@ public class WidgetMarker {
    *
    * @return displayType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISPLAY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayType() {
@@ -75,7 +75,7 @@ public class WidgetMarker {
    *
    * @return label
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLabel() {
@@ -96,7 +96,7 @@ public class WidgetMarker {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTime() {

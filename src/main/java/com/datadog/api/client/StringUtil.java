@@ -9,7 +9,7 @@ package com.datadog.api.client;
 import java.util.Collection;
 import java.util.Iterator;
 
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class StringUtil {
   /**

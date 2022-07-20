@@ -27,7 +27,7 @@ import java.util.Objects;
   SunburstWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   SunburstWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SunburstWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -93,7 +93,7 @@ public class SunburstWidgetDefinition {
    *
    * @return customLinks
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -114,7 +114,7 @@ public class SunburstWidgetDefinition {
    *
    * @return hideTotal
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HIDE_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHideTotal() {
@@ -136,7 +136,7 @@ public class SunburstWidgetDefinition {
    *
    * @return legend
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SunburstWidgetLegend getLegend() {
@@ -187,7 +187,7 @@ public class SunburstWidgetDefinition {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -208,7 +208,7 @@ public class SunburstWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -230,7 +230,7 @@ public class SunburstWidgetDefinition {
    *
    * @return titleAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -254,7 +254,7 @@ public class SunburstWidgetDefinition {
    *
    * @return titleSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {

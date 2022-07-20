@@ -18,7 +18,7 @@ import java.util.Objects;
   HostMetaInstallMethod.JSON_PROPERTY_TOOL,
   HostMetaInstallMethod.JSON_PROPERTY_TOOL_VERSION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMetaInstallMethod {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class HostMetaInstallMethod {
    *
    * @return installerVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INSTALLER_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInstallerVersion() {
@@ -62,7 +62,7 @@ public class HostMetaInstallMethod {
    *
    * @return tool
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTool() {
@@ -83,7 +83,7 @@ public class HostMetaInstallMethod {
    *
    * @return toolVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOOL_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getToolVersion() {

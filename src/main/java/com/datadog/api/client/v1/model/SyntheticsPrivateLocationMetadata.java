@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Object containing metadata about the private location. */
 @JsonPropertyOrder({SyntheticsPrivateLocationMetadata.JSON_PROPERTY_RESTRICTED_ROLES})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsPrivateLocationMetadata {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class SyntheticsPrivateLocationMetadata {
    *
    * @return restrictedRoles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRestrictedRoles() {

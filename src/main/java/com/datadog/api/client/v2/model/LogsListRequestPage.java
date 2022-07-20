@@ -17,7 +17,7 @@ import java.util.Objects;
   LogsListRequestPage.JSON_PROPERTY_CURSOR,
   LogsListRequestPage.JSON_PROPERTY_LIMIT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListRequestPage {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class LogsListRequestPage {
    *
    * @return cursor
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCursor() {
@@ -58,7 +58,7 @@ public class LogsListRequestPage {
    *
    * @return limit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getLimit() {

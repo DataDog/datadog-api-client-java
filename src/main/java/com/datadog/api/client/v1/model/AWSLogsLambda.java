@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Description of the Lambdas. */
 @JsonPropertyOrder({AWSLogsLambda.JSON_PROPERTY_ARN})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSLogsLambda {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class AWSLogsLambda {
    *
    * @return arn
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getArn() {

@@ -21,7 +21,7 @@ import java.util.Objects;
   UsageTopAvgMetricsMetadata.JSON_PROPERTY_MONTH,
   UsageTopAvgMetricsMetadata.JSON_PROPERTY_PAGINATION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageTopAvgMetricsMetadata {
   @JsonIgnore public boolean unparsed = false;
@@ -49,7 +49,7 @@ public class UsageTopAvgMetricsMetadata {
    *
    * @return day
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getDay() {
@@ -71,7 +71,7 @@ public class UsageTopAvgMetricsMetadata {
    *
    * @return month
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getMonth() {
@@ -93,7 +93,7 @@ public class UsageTopAvgMetricsMetadata {
    *
    * @return pagination
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageTopAvgMetricsPagination getPagination() {

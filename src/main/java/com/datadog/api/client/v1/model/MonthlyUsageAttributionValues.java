@@ -51,7 +51,7 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_USAGE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonthlyUsageAttributionValues {
   @JsonIgnore public boolean unparsed = false;
@@ -181,7 +181,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return apiPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApiPercentage() {
@@ -202,7 +202,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return apiUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_API_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApiUsage() {
@@ -223,7 +223,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return apmHostPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApmHostPercentage() {
@@ -244,7 +244,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return apmHostUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APM_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getApmHostUsage() {
@@ -265,7 +265,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return appsecPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPSEC_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getAppsecPercentage() {
@@ -286,7 +286,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return appsecUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPSEC_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getAppsecUsage() {
@@ -307,7 +307,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return browserPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getBrowserPercentage() {
@@ -328,7 +328,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return browserUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getBrowserUsage() {
@@ -349,7 +349,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return containerPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTAINER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getContainerPercentage() {
@@ -370,7 +370,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return containerUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTAINER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getContainerUsage() {
@@ -392,7 +392,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return customTimeseriesPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCustomTimeseriesPercentage() {
@@ -413,7 +413,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return customTimeseriesUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getCustomTimeseriesUsage() {
@@ -435,7 +435,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return estimatedIndexedLogsPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIndexedLogsPercentage() {
@@ -456,7 +456,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return estimatedIndexedLogsUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIndexedLogsUsage() {
@@ -478,7 +478,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return estimatedIndexedSpansPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIndexedSpansPercentage() {
@@ -500,7 +500,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return estimatedIndexedSpansUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIndexedSpansUsage() {
@@ -522,7 +522,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return estimatedIngestedSpansPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIngestedSpansPercentage() {
@@ -544,7 +544,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return estimatedIngestedSpansUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getEstimatedIngestedSpansUsage() {
@@ -565,7 +565,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return fargatePercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FARGATE_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getFargatePercentage() {
@@ -586,7 +586,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return fargateUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FARGATE_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getFargateUsage() {
@@ -607,7 +607,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return functionsPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FUNCTIONS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getFunctionsPercentage() {
@@ -628,7 +628,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return functionsUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FUNCTIONS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getFunctionsUsage() {
@@ -649,7 +649,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return indexedLogsPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEXED_LOGS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getIndexedLogsPercentage() {
@@ -670,7 +670,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return indexedLogsUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEXED_LOGS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getIndexedLogsUsage() {
@@ -691,7 +691,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return infraHostPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getInfraHostPercentage() {
@@ -712,7 +712,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return infraHostUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getInfraHostUsage() {
@@ -733,7 +733,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return invocationsPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INVOCATIONS_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getInvocationsPercentage() {
@@ -754,7 +754,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return invocationsUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INVOCATIONS_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getInvocationsUsage() {
@@ -775,7 +775,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return npmHostPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NPM_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getNpmHostPercentage() {
@@ -796,7 +796,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return npmHostUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NPM_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getNpmHostUsage() {
@@ -818,7 +818,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return profiledContainerPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledContainerPercentage() {
@@ -839,7 +839,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return profiledContainerUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILED_CONTAINER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledContainerUsage() {
@@ -860,7 +860,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return profiledHostPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILED_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledHostPercentage() {
@@ -881,7 +881,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return profiledHostUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILED_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getProfiledHostUsage() {
@@ -902,7 +902,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return snmpPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SNMP_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getSnmpPercentage() {
@@ -923,7 +923,7 @@ public class MonthlyUsageAttributionValues {
    *
    * @return snmpUsage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SNMP_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getSnmpUsage() {

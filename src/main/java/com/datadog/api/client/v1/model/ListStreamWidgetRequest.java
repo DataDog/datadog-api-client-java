@@ -21,7 +21,7 @@ import java.util.Objects;
   ListStreamWidgetRequest.JSON_PROPERTY_QUERY,
   ListStreamWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamWidgetRequest {
   @JsonIgnore public boolean unparsed = false;

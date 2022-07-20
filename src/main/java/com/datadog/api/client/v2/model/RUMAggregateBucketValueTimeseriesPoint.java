@@ -20,7 +20,7 @@ import java.util.Objects;
   RUMAggregateBucketValueTimeseriesPoint.JSON_PROPERTY_TIME,
   RUMAggregateBucketValueTimeseriesPoint.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMAggregateBucketValueTimeseriesPoint {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class RUMAggregateBucketValueTimeseriesPoint {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTime() {
@@ -63,7 +63,7 @@ public class RUMAggregateBucketValueTimeseriesPoint {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getValue() {

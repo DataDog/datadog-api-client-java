@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** A group by rule. */
 @JsonPropertyOrder({LogsMetricGroupBy.JSON_PROPERTY_PATH, LogsMetricGroupBy.JSON_PROPERTY_TAG_NAME})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricGroupBy {
   @JsonIgnore public boolean unparsed = false;
@@ -63,7 +63,7 @@ public class LogsMetricGroupBy {
    *
    * @return tagName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTagName() {

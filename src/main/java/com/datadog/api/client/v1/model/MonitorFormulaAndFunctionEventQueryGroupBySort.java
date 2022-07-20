@@ -19,7 +19,7 @@ import java.util.Objects;
   MonitorFormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_METRIC,
   MonitorFormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_ORDER
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionEventQueryGroupBySort {
   @JsonIgnore public boolean unparsed = false;
@@ -77,7 +77,7 @@ public class MonitorFormulaAndFunctionEventQueryGroupBySort {
    *
    * @return metric
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -99,7 +99,7 @@ public class MonitorFormulaAndFunctionEventQueryGroupBySort {
    *
    * @return order
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public QuerySortOrder getOrder() {

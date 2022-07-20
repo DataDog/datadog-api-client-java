@@ -19,7 +19,7 @@ import java.util.Objects;
   UsageAttributionMetadata.JSON_PROPERTY_AGGREGATES,
   UsageAttributionMetadata.JSON_PROPERTY_PAGINATION
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributionMetadata {
   @JsonIgnore public boolean unparsed = false;
@@ -51,7 +51,7 @@ public class UsageAttributionMetadata {
    *
    * @return aggregates
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageAttributionAggregatesBody> getAggregates() {
@@ -73,7 +73,7 @@ public class UsageAttributionMetadata {
    *
    * @return pagination
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageAttributionPagination getPagination() {

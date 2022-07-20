@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** A point object is of the form <code>{POSIX_timestamp, numeric_value}</code>. */
 @JsonPropertyOrder({MetricPoint.JSON_PROPERTY_TIMESTAMP, MetricPoint.JSON_PROPERTY_VALUE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricPoint {
   @JsonIgnore public boolean unparsed = false;
@@ -35,7 +35,7 @@ public class MetricPoint {
    *
    * @return timestamp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimestamp() {
@@ -56,7 +56,7 @@ public class MetricPoint {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getValue() {

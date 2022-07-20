@@ -23,7 +23,7 @@ import java.util.Objects;
   SyntheticsBrowserTestConfig.JSON_PROPERTY_SET_COOKIE,
   SyntheticsBrowserTestConfig.JSON_PROPERTY_VARIABLES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestConfig {
   @JsonIgnore public boolean unparsed = false;
@@ -107,7 +107,7 @@ public class SyntheticsBrowserTestConfig {
    *
    * @return configVariables
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsConfigVariable> getConfigVariables() {
@@ -151,7 +151,7 @@ public class SyntheticsBrowserTestConfig {
    *
    * @return setCookie
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SET_COOKIE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSetCookie() {
@@ -184,7 +184,7 @@ public class SyntheticsBrowserTestConfig {
    *
    * @return variables
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsBrowserVariable> getVariables() {

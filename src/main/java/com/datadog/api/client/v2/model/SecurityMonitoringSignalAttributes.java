@@ -26,7 +26,7 @@ import java.util.Objects;
   SecurityMonitoringSignalAttributes.JSON_PROPERTY_TAGS,
   SecurityMonitoringSignalAttributes.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -62,7 +62,7 @@ public class SecurityMonitoringSignalAttributes {
    *
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Object> getAttributes() {
@@ -83,7 +83,7 @@ public class SecurityMonitoringSignalAttributes {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -112,7 +112,7 @@ public class SecurityMonitoringSignalAttributes {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {
@@ -133,7 +133,7 @@ public class SecurityMonitoringSignalAttributes {
    *
    * @return timestamp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTimestamp() {

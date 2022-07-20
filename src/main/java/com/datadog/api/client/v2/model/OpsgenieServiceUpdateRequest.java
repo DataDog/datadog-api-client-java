@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Update request for an Opsgenie service. */
 @JsonPropertyOrder({OpsgenieServiceUpdateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OpsgenieServiceUpdateRequest {
   @JsonIgnore public boolean unparsed = false;

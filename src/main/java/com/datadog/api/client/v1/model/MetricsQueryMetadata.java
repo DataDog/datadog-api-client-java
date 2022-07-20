@@ -30,7 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MetricsQueryMetadata.JSON_PROPERTY_TAG_SET,
   MetricsQueryMetadata.JSON_PROPERTY_UNIT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsQueryMetadata {
   @JsonIgnore public boolean unparsed = false;
@@ -78,7 +78,7 @@ public class MetricsQueryMetadata {
    *
    * @return aggr
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getAggr() {
 
@@ -104,7 +104,7 @@ public class MetricsQueryMetadata {
    *
    * @return displayName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayName() {
@@ -116,7 +116,7 @@ public class MetricsQueryMetadata {
    *
    * @return end
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
@@ -128,7 +128,7 @@ public class MetricsQueryMetadata {
    *
    * @return expression
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpression() {
@@ -140,7 +140,7 @@ public class MetricsQueryMetadata {
    *
    * @return interval
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInterval() {
@@ -152,7 +152,7 @@ public class MetricsQueryMetadata {
    *
    * @return length
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LENGTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLength() {
@@ -164,7 +164,7 @@ public class MetricsQueryMetadata {
    *
    * @return metric
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -176,7 +176,7 @@ public class MetricsQueryMetadata {
    *
    * @return pointlist
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POINTLIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<List<Double>> getPointlist() {
@@ -188,7 +188,7 @@ public class MetricsQueryMetadata {
    *
    * @return queryIndex
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getQueryIndex() {
@@ -200,7 +200,7 @@ public class MetricsQueryMetadata {
    *
    * @return scope
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getScope() {
@@ -212,7 +212,7 @@ public class MetricsQueryMetadata {
    *
    * @return start
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStart() {
@@ -224,7 +224,7 @@ public class MetricsQueryMetadata {
    *
    * @return tagSet
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAG_SET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTagSet() {
@@ -238,7 +238,7 @@ public class MetricsQueryMetadata {
    *
    * @return unit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MetricsQueryUnit> getUnit() {

@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Relationships data for user invitation. */
 @JsonPropertyOrder({UserInvitationRelationships.JSON_PROPERTY_USER})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserInvitationRelationships {
   @JsonIgnore public boolean unparsed = false;

@@ -24,7 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DowntimeRecurrence.JSON_PROPERTY_UNTIL_OCCURRENCES,
   DowntimeRecurrence.JSON_PROPERTY_WEEK_DAYS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DowntimeRecurrence {
   @JsonIgnore public boolean unparsed = false;
@@ -57,7 +57,7 @@ public class DowntimeRecurrence {
    *
    * @return period
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getPeriod() {
@@ -88,7 +88,7 @@ public class DowntimeRecurrence {
    *
    * @return rrule
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RRULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRrule() {
@@ -110,7 +110,7 @@ public class DowntimeRecurrence {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -132,7 +132,7 @@ public class DowntimeRecurrence {
    *
    * @return untilDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Long getUntilDate() {
     return untilDate.orElse(null);
@@ -164,7 +164,7 @@ public class DowntimeRecurrence {
    *
    * @return untilOccurrences
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public Integer getUntilOccurrences() {
     return untilOccurrences.orElse(null);
@@ -209,7 +209,7 @@ public class DowntimeRecurrence {
    *
    * @return weekDays
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<String> getWeekDays() {
     return weekDays.orElse(null);

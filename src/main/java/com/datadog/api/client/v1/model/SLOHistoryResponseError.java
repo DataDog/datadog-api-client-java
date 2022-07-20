@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** A list of errors while querying the history data for the service level objective. */
 @JsonPropertyOrder({SLOHistoryResponseError.JSON_PROPERTY_ERROR})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryResponseError {
   @JsonIgnore public boolean unparsed = false;
@@ -31,7 +31,7 @@ public class SLOHistoryResponseError {
    *
    * @return error
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getError() {

@@ -18,7 +18,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentFieldAttributesSingleValue.JSON_PROPERTY_TYPE,
   IncidentFieldAttributesSingleValue.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentFieldAttributesSingleValue {
   @JsonIgnore public boolean unparsed = false;
@@ -40,7 +40,7 @@ public class IncidentFieldAttributesSingleValue {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IncidentFieldAttributesSingleValueType getType() {
@@ -64,7 +64,7 @@ public class IncidentFieldAttributesSingleValue {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public String getValue() {
     return value.orElse(null);

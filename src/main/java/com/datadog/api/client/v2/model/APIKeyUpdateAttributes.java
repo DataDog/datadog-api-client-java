@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Attributes used to update an API Key. */
 @JsonPropertyOrder({APIKeyUpdateAttributes.JSON_PROPERTY_NAME})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class APIKeyUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;

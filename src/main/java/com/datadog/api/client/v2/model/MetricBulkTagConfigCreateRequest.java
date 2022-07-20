@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Wrapper object for a single bulk tag configuration request. */
 @JsonPropertyOrder({MetricBulkTagConfigCreateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricBulkTagConfigCreateRequest {
   @JsonIgnore public boolean unparsed = false;

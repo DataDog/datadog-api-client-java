@@ -19,7 +19,7 @@ import java.util.Objects;
   DistributionWidgetXAxis.JSON_PROPERTY_MIN,
   DistributionWidgetXAxis.JSON_PROPERTY_SCALE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DistributionWidgetXAxis {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class DistributionWidgetXAxis {
    *
    * @return includeZero
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDE_ZERO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludeZero() {
@@ -67,7 +67,7 @@ public class DistributionWidgetXAxis {
    *
    * @return max
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMax() {
@@ -89,7 +89,7 @@ public class DistributionWidgetXAxis {
    *
    * @return min
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMin() {
@@ -110,7 +110,7 @@ public class DistributionWidgetXAxis {
    *
    * @return scale
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getScale() {

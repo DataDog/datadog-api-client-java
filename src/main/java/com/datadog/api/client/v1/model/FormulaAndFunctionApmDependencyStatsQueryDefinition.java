@@ -26,7 +26,7 @@ import java.util.Objects;
   FormulaAndFunctionApmDependencyStatsQueryDefinition.JSON_PROPERTY_SERVICE,
   FormulaAndFunctionApmDependencyStatsQueryDefinition.JSON_PROPERTY_STAT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -139,7 +139,7 @@ public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
    *
    * @return isUpstream
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_UPSTREAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsUpstream() {
@@ -202,7 +202,7 @@ public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
    *
    * @return primaryTagName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrimaryTagName() {
@@ -225,7 +225,7 @@ public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
    *
    * @return primaryTagValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrimaryTagValue() {

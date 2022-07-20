@@ -25,7 +25,7 @@ import java.util.Objects;
   AzureAccount.JSON_PROPERTY_NEW_TENANT_NAME,
   AzureAccount.JSON_PROPERTY_TENANT_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AzureAccount {
   @JsonIgnore public boolean unparsed = false;
@@ -63,7 +63,7 @@ public class AzureAccount {
    *
    * @return automute
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTOMUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAutomute() {
@@ -84,7 +84,7 @@ public class AzureAccount {
    *
    * @return clientId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientId() {
@@ -105,7 +105,7 @@ public class AzureAccount {
    *
    * @return clientSecret
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientSecret() {
@@ -134,7 +134,7 @@ public class AzureAccount {
    *
    * @return errors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getErrors() {
@@ -156,7 +156,7 @@ public class AzureAccount {
    *
    * @return hostFilters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHostFilters() {
@@ -177,7 +177,7 @@ public class AzureAccount {
    *
    * @return newClientId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEW_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNewClientId() {
@@ -198,7 +198,7 @@ public class AzureAccount {
    *
    * @return newTenantName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEW_TENANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNewTenantName() {
@@ -219,7 +219,7 @@ public class AzureAccount {
    *
    * @return tenantName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TENANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTenantName() {

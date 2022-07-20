@@ -33,7 +33,7 @@ import java.util.Objects;
   DistributionWidgetDefinition.JSON_PROPERTY_XAXIS,
   DistributionWidgetDefinition.JSON_PROPERTY_YAXIS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DistributionWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -95,7 +95,7 @@ public class DistributionWidgetDefinition {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegendSize() {
@@ -128,7 +128,7 @@ public class DistributionWidgetDefinition {
    *
    * @return markers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MARKERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetMarker> getMarkers() {
@@ -184,7 +184,7 @@ public class DistributionWidgetDefinition {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowLegend() {
@@ -206,7 +206,7 @@ public class DistributionWidgetDefinition {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -227,7 +227,7 @@ public class DistributionWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -249,7 +249,7 @@ public class DistributionWidgetDefinition {
    *
    * @return titleAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTextAlign getTitleAlign() {
@@ -273,7 +273,7 @@ public class DistributionWidgetDefinition {
    *
    * @return titleSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitleSize() {
@@ -319,7 +319,7 @@ public class DistributionWidgetDefinition {
    *
    * @return xaxis
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_XAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DistributionWidgetXAxis getXaxis() {
@@ -341,7 +341,7 @@ public class DistributionWidgetDefinition {
    *
    * @return yaxis
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_YAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DistributionWidgetYAxis getYaxis() {

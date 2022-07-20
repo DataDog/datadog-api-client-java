@@ -18,7 +18,7 @@ import java.util.Objects;
   ApplicationKey.JSON_PROPERTY_NAME,
   ApplicationKey.JSON_PROPERTY_OWNER
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKey {
   @JsonIgnore public boolean unparsed = false;
@@ -36,7 +36,7 @@ public class ApplicationKey {
    *
    * @return hash
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HASH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHash() {
@@ -53,7 +53,7 @@ public class ApplicationKey {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -69,7 +69,7 @@ public class ApplicationKey {
    *
    * @return owner
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOwner() {

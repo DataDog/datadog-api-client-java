@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** Object describing the IdP configuration. */
 @JsonPropertyOrder({IdpFormData.JSON_PROPERTY_IDP_FILE})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IdpFormData {
   @JsonIgnore public boolean unparsed = false;

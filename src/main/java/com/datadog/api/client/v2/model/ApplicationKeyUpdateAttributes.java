@@ -20,7 +20,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ApplicationKeyUpdateAttributes.JSON_PROPERTY_NAME,
   ApplicationKeyUpdateAttributes.JSON_PROPERTY_SCOPES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKeyUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -40,7 +40,7 @@ public class ApplicationKeyUpdateAttributes {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -74,7 +74,7 @@ public class ApplicationKeyUpdateAttributes {
    *
    * @return scopes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
   public List<String> getScopes() {
     return scopes.orElse(null);

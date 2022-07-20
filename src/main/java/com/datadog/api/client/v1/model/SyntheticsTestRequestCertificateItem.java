@@ -18,7 +18,7 @@ import java.util.Objects;
   SyntheticsTestRequestCertificateItem.JSON_PROPERTY_FILENAME,
   SyntheticsTestRequestCertificateItem.JSON_PROPERTY_UPDATED_AT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestRequestCertificateItem {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class SyntheticsTestRequestCertificateItem {
    *
    * @return content
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getContent() {
@@ -62,7 +62,7 @@ public class SyntheticsTestRequestCertificateItem {
    *
    * @return filename
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILENAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFilename() {
@@ -83,7 +83,7 @@ public class SyntheticsTestRequestCertificateItem {
    *
    * @return updatedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUpdatedAt() {

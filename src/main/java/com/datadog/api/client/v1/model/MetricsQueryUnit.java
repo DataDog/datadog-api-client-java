@@ -20,7 +20,7 @@ import java.util.Objects;
   MetricsQueryUnit.JSON_PROPERTY_SCALE_FACTOR,
   MetricsQueryUnit.JSON_PROPERTY_SHORT_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsQueryUnit {
   @JsonIgnore public boolean unparsed = false;
@@ -44,7 +44,7 @@ public class MetricsQueryUnit {
    *
    * @return family
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFamily() {
@@ -56,7 +56,7 @@ public class MetricsQueryUnit {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -68,7 +68,7 @@ public class MetricsQueryUnit {
    *
    * @return plural
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLURAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPlural() {
@@ -80,7 +80,7 @@ public class MetricsQueryUnit {
    *
    * @return scaleFactor
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCALE_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getScaleFactor() {
@@ -92,7 +92,7 @@ public class MetricsQueryUnit {
    *
    * @return shortName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShortName() {

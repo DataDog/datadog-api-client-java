@@ -34,7 +34,7 @@ import java.util.Objects;
   LogsAttributeRemapper.JSON_PROPERTY_TARGET_TYPE,
   LogsAttributeRemapper.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAttributeRemapper {
   @JsonIgnore public boolean unparsed = false;
@@ -91,7 +91,7 @@ public class LogsAttributeRemapper {
    *
    * @return isEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
@@ -112,7 +112,7 @@ public class LogsAttributeRemapper {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -133,7 +133,7 @@ public class LogsAttributeRemapper {
    *
    * @return overrideOnConflict
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OVERRIDE_ON_CONFLICT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getOverrideOnConflict() {
@@ -154,7 +154,7 @@ public class LogsAttributeRemapper {
    *
    * @return preserveSource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRESERVE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPreserveSource() {
@@ -175,7 +175,7 @@ public class LogsAttributeRemapper {
    *
    * @return sourceType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSourceType() {
@@ -245,7 +245,7 @@ public class LogsAttributeRemapper {
    *
    * @return targetFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TargetFormatType getTargetFormat() {
@@ -270,7 +270,7 @@ public class LogsAttributeRemapper {
    *
    * @return targetType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTargetType() {

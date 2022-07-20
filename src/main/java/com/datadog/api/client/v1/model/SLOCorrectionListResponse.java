@@ -19,7 +19,7 @@ import java.util.Objects;
   SLOCorrectionListResponse.JSON_PROPERTY_DATA,
   SLOCorrectionListResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -51,7 +51,7 @@ public class SLOCorrectionListResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SLOCorrection> getData() {
@@ -73,7 +73,7 @@ public class SLOCorrectionListResponse {
    *
    * @return meta
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResponseMetaAttributes getMeta() {

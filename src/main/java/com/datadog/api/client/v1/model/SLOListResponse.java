@@ -20,7 +20,7 @@ import java.util.Objects;
   SLOListResponse.JSON_PROPERTY_ERRORS,
   SLOListResponse.JSON_PROPERTY_METADATA
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOListResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class SLOListResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ServiceLevelObjective> getData() {
@@ -84,7 +84,7 @@ public class SLOListResponse {
    *
    * @return errors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getErrors() {
@@ -106,7 +106,7 @@ public class SLOListResponse {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOListResponseMetadata getMetadata() {

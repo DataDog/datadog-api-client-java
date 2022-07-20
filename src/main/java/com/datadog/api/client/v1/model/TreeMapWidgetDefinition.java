@@ -30,7 +30,7 @@ import java.util.Objects;
   TreeMapWidgetDefinition.JSON_PROPERTY_TITLE,
   TreeMapWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TreeMapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -83,7 +83,7 @@ public class TreeMapWidgetDefinition {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COLOR_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TreeMapColorBy getColorBy() {
@@ -119,7 +119,7 @@ public class TreeMapWidgetDefinition {
    *
    * @return customLinks
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WidgetCustomLink> getCustomLinks() {
@@ -143,7 +143,7 @@ public class TreeMapWidgetDefinition {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TreeMapGroupBy getGroupBy() {
@@ -199,7 +199,7 @@ public class TreeMapWidgetDefinition {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZE_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TreeMapSizeBy getSizeBy() {
@@ -224,7 +224,7 @@ public class TreeMapWidgetDefinition {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetTime getTime() {
@@ -245,7 +245,7 @@ public class TreeMapWidgetDefinition {
    *
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {

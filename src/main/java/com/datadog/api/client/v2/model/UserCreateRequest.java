@@ -15,7 +15,7 @@ import java.util.Objects;
 
 /** Create a user. */
 @JsonPropertyOrder({UserCreateRequest.JSON_PROPERTY_DATA})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserCreateRequest {
   @JsonIgnore public boolean unparsed = false;

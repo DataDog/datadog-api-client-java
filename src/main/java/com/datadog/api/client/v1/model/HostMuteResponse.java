@@ -19,7 +19,7 @@ import java.util.Objects;
   HostMuteResponse.JSON_PROPERTY_HOSTNAME,
   HostMuteResponse.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMuteResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class HostMuteResponse {
    *
    * @return action
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAction() {
@@ -66,7 +66,7 @@ public class HostMuteResponse {
    *
    * @return end
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
@@ -87,7 +87,7 @@ public class HostMuteResponse {
    *
    * @return hostname
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHostname() {
@@ -108,7 +108,7 @@ public class HostMuteResponse {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {

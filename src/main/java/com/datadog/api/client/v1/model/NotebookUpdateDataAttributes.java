@@ -23,7 +23,7 @@ import java.util.Objects;
   NotebookUpdateDataAttributes.JSON_PROPERTY_STATUS,
   NotebookUpdateDataAttributes.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookUpdateDataAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -95,7 +95,7 @@ public class NotebookUpdateDataAttributes {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookMetadata getMetadata() {
@@ -137,7 +137,7 @@ public class NotebookUpdateDataAttributes {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookStatus getStatus() {

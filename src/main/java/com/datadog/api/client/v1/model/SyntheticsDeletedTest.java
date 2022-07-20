@@ -20,7 +20,7 @@ import java.util.Objects;
   SyntheticsDeletedTest.JSON_PROPERTY_DELETED_AT,
   SyntheticsDeletedTest.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsDeletedTest {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class SyntheticsDeletedTest {
    *
    * @return deletedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELETED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getDeletedAt() {
@@ -63,7 +63,7 @@ public class SyntheticsDeletedTest {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

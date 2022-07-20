@@ -25,7 +25,7 @@ import java.util.Objects;
   CostByOrgAttributes.JSON_PROPERTY_PUBLIC_ID,
   CostByOrgAttributes.JSON_PROPERTY_TOTAL_COST
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CostByOrgAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -68,7 +68,7 @@ public class CostByOrgAttributes {
    *
    * @return charges
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ChargebackBreakdown> getCharges() {
@@ -89,7 +89,7 @@ public class CostByOrgAttributes {
    *
    * @return date
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getDate() {
@@ -110,7 +110,7 @@ public class CostByOrgAttributes {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -131,7 +131,7 @@ public class CostByOrgAttributes {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -152,7 +152,7 @@ public class CostByOrgAttributes {
    *
    * @return totalCost
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_COST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getTotalCost() {

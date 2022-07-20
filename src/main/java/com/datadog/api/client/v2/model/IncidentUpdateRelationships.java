@@ -18,7 +18,7 @@ import java.util.Objects;
   IncidentUpdateRelationships.JSON_PROPERTY_INTEGRATIONS,
   IncidentUpdateRelationships.JSON_PROPERTY_POSTMORTEM
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentUpdateRelationships {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class IncidentUpdateRelationships {
    *
    * @return commanderUser
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NullableRelationshipToUser getCommanderUser() {
@@ -65,7 +65,7 @@ public class IncidentUpdateRelationships {
    *
    * @return integrations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToIncidentIntegrationMetadatas getIntegrations() {
@@ -87,7 +87,7 @@ public class IncidentUpdateRelationships {
    *
    * @return postmortem
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POSTMORTEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToIncidentPostmortem getPostmortem() {

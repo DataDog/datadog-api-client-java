@@ -23,7 +23,7 @@ import java.util.Objects;
   SecurityMonitoringRuleQuery.JSON_PROPERTY_NAME,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_QUERY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleQuery {
   @JsonIgnore public boolean unparsed = false;
@@ -57,7 +57,7 @@ public class SecurityMonitoringRuleQuery {
    *
    * @return aggregation
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringRuleQueryAggregation getAggregation() {
@@ -89,7 +89,7 @@ public class SecurityMonitoringRuleQuery {
    *
    * @return distinctFields
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISTINCT_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getDistinctFields() {
@@ -118,7 +118,7 @@ public class SecurityMonitoringRuleQuery {
    *
    * @return groupByFields
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupByFields() {
@@ -139,7 +139,7 @@ public class SecurityMonitoringRuleQuery {
    *
    * @return metric
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMetric() {
@@ -160,7 +160,7 @@ public class SecurityMonitoringRuleQuery {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -181,7 +181,7 @@ public class SecurityMonitoringRuleQuery {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {

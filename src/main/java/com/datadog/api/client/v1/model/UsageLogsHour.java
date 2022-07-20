@@ -28,7 +28,7 @@ import java.util.Objects;
   UsageLogsHour.JSON_PROPERTY_ORG_NAME,
   UsageLogsHour.JSON_PROPERTY_PUBLIC_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageLogsHour {
   @JsonIgnore public boolean unparsed = false;
@@ -76,7 +76,7 @@ public class UsageLogsHour {
    *
    * @return billableIngestedBytes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBillableIngestedBytes() {
@@ -97,7 +97,7 @@ public class UsageLogsHour {
    *
    * @return hour
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getHour() {
@@ -118,7 +118,7 @@ public class UsageLogsHour {
    *
    * @return indexedEventsCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIndexedEventsCount() {
@@ -139,7 +139,7 @@ public class UsageLogsHour {
    *
    * @return ingestedEventsBytes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIngestedEventsBytes() {
@@ -160,7 +160,7 @@ public class UsageLogsHour {
    *
    * @return logsLiveIndexedCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsLiveIndexedCount() {
@@ -181,7 +181,7 @@ public class UsageLogsHour {
    *
    * @return logsLiveIngestedBytes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INGESTED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsLiveIngestedBytes() {
@@ -202,7 +202,7 @@ public class UsageLogsHour {
    *
    * @return logsRehydratedIndexedCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsRehydratedIndexedCount() {
@@ -223,7 +223,7 @@ public class UsageLogsHour {
    *
    * @return logsRehydratedIngestedBytes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INGESTED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLogsRehydratedIngestedBytes() {
@@ -244,7 +244,7 @@ public class UsageLogsHour {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -265,7 +265,7 @@ public class UsageLogsHour {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {

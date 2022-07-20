@@ -18,7 +18,7 @@ import java.util.Objects;
   RelationshipToIncidentPostmortemData.JSON_PROPERTY_ID,
   RelationshipToIncidentPostmortemData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToIncidentPostmortemData {
   @JsonIgnore public boolean unparsed = false;

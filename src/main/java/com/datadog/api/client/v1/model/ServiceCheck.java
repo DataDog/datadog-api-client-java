@@ -24,7 +24,7 @@ import java.util.Objects;
   ServiceCheck.JSON_PROPERTY_TAGS,
   ServiceCheck.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceCheck {
   @JsonIgnore public boolean unparsed = false;
@@ -111,7 +111,7 @@ public class ServiceCheck {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -181,7 +181,7 @@ public class ServiceCheck {
    *
    * @return timestamp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTimestamp() {

@@ -17,7 +17,7 @@ import java.util.Objects;
   LogsAggregateBucketValueTimeseriesPoint.JSON_PROPERTY_TIME,
   LogsAggregateBucketValueTimeseriesPoint.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateBucketValueTimeseriesPoint {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class LogsAggregateBucketValueTimeseriesPoint {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTime() {
@@ -58,7 +58,7 @@ public class LogsAggregateBucketValueTimeseriesPoint {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getValue() {

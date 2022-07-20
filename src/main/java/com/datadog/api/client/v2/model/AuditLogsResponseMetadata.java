@@ -22,7 +22,7 @@ import java.util.Objects;
   AuditLogsResponseMetadata.JSON_PROPERTY_STATUS,
   AuditLogsResponseMetadata.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditLogsResponseMetadata {
   @JsonIgnore public boolean unparsed = false;
@@ -51,7 +51,7 @@ public class AuditLogsResponseMetadata {
    *
    * @return elapsed
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ELAPSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getElapsed() {
@@ -73,7 +73,7 @@ public class AuditLogsResponseMetadata {
    *
    * @return page
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuditLogsResponsePage getPage() {
@@ -94,7 +94,7 @@ public class AuditLogsResponseMetadata {
    *
    * @return requestId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRequestId() {
@@ -116,7 +116,7 @@ public class AuditLogsResponseMetadata {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuditLogsResponseStatus getStatus() {
@@ -153,7 +153,7 @@ public class AuditLogsResponseMetadata {
    *
    * @return warnings
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AuditLogsWarning> getWarnings() {

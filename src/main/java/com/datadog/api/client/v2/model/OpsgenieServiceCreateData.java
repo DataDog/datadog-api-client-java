@@ -18,7 +18,7 @@ import java.util.Objects;
   OpsgenieServiceCreateData.JSON_PROPERTY_ATTRIBUTES,
   OpsgenieServiceCreateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OpsgenieServiceCreateData {
   @JsonIgnore public boolean unparsed = false;

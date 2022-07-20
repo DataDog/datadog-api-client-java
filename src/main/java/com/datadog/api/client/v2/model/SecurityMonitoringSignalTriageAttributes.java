@@ -27,7 +27,7 @@ import java.util.Objects;
   SecurityMonitoringSignalTriageAttributes.JSON_PROPERTY_STATE_UPDATE_TIMESTAMP,
   SecurityMonitoringSignalTriageAttributes.JSON_PROPERTY_STATE_UPDATE_USER
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalTriageAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -84,7 +84,7 @@ public class SecurityMonitoringSignalTriageAttributes {
    *
    * @return archiveComment
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARCHIVE_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getArchiveComment() {
@@ -106,7 +106,7 @@ public class SecurityMonitoringSignalTriageAttributes {
    *
    * @return archiveCommentTimestamp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARCHIVE_COMMENT_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getArchiveCommentTimestamp() {
@@ -129,7 +129,7 @@ public class SecurityMonitoringSignalTriageAttributes {
    *
    * @return archiveCommentUser
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARCHIVE_COMMENT_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringTriageUser getArchiveCommentUser() {
@@ -152,7 +152,7 @@ public class SecurityMonitoringSignalTriageAttributes {
    *
    * @return archiveReason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARCHIVE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringSignalArchiveReason getArchiveReason() {
@@ -246,7 +246,7 @@ public class SecurityMonitoringSignalTriageAttributes {
    *
    * @return stateUpdateTimestamp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE_UPDATE_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStateUpdateTimestamp() {
@@ -269,7 +269,7 @@ public class SecurityMonitoringSignalTriageAttributes {
    *
    * @return stateUpdateUser
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE_UPDATE_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringTriageUser getStateUpdateUser() {

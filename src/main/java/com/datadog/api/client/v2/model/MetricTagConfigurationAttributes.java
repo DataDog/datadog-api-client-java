@@ -26,7 +26,7 @@ import java.util.Objects;
   MetricTagConfigurationAttributes.JSON_PROPERTY_MODIFIED_AT,
   MetricTagConfigurationAttributes.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricTagConfigurationAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -93,7 +93,7 @@ public class MetricTagConfigurationAttributes {
    *
    * @return aggregations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MetricCustomAggregation> getAggregations() {
@@ -114,7 +114,7 @@ public class MetricTagConfigurationAttributes {
    *
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -136,7 +136,7 @@ public class MetricTagConfigurationAttributes {
    *
    * @return includePercentiles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDE_PERCENTILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIncludePercentiles() {
@@ -158,7 +158,7 @@ public class MetricTagConfigurationAttributes {
    *
    * @return metricType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricTagConfigurationMetricTypes getMetricType() {
@@ -182,7 +182,7 @@ public class MetricTagConfigurationAttributes {
    *
    * @return modifiedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModifiedAt() {
@@ -211,7 +211,7 @@ public class MetricTagConfigurationAttributes {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

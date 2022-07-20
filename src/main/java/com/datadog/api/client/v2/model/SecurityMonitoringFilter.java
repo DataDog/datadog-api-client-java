@@ -17,7 +17,7 @@ import java.util.Objects;
   SecurityMonitoringFilter.JSON_PROPERTY_ACTION,
   SecurityMonitoringFilter.JSON_PROPERTY_QUERY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringFilter {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class SecurityMonitoringFilter {
    *
    * @return action
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SecurityMonitoringFilterAction getAction() {
@@ -62,7 +62,7 @@ public class SecurityMonitoringFilter {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {

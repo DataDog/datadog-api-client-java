@@ -17,7 +17,7 @@ import java.util.Objects;
   SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_COUNT,
   SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOListResponseMetadataPage {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class SLOListResponseMetadataPage {
    *
    * @return totalCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalCount() {
@@ -60,7 +60,7 @@ public class SLOListResponseMetadataPage {
    *
    * @return totalFilteredCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalFilteredCount() {

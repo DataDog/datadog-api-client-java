@@ -17,7 +17,7 @@ import java.util.Objects;
   UsageSpecifiedCustomReportsResponse.JSON_PROPERTY_DATA,
   UsageSpecifiedCustomReportsResponse.JSON_PROPERTY_META
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSpecifiedCustomReportsResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -38,7 +38,7 @@ public class UsageSpecifiedCustomReportsResponse {
    *
    * @return data
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageSpecifiedCustomReportsData getData() {
@@ -60,7 +60,7 @@ public class UsageSpecifiedCustomReportsResponse {
    *
    * @return meta
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageSpecifiedCustomReportsMeta getMeta() {

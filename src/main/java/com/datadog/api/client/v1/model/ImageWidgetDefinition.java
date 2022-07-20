@@ -28,7 +28,7 @@ import java.util.Objects;
   ImageWidgetDefinition.JSON_PROPERTY_URL_DARK_THEME,
   ImageWidgetDefinition.JSON_PROPERTY_VERTICAL_ALIGN
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ImageWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -80,7 +80,7 @@ public class ImageWidgetDefinition {
    *
    * @return hasBackground
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HAS_BACKGROUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasBackground() {
@@ -101,7 +101,7 @@ public class ImageWidgetDefinition {
    *
    * @return hasBorder
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HAS_BORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasBorder() {
@@ -123,7 +123,7 @@ public class ImageWidgetDefinition {
    *
    * @return horizontalAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HORIZONTAL_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetHorizontalAlign getHorizontalAlign() {
@@ -149,7 +149,7 @@ public class ImageWidgetDefinition {
    *
    * @return margin
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MARGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetMargin getMargin() {
@@ -176,7 +176,7 @@ public class ImageWidgetDefinition {
    *
    * @return sizing
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetImageSizing getSizing() {
@@ -244,7 +244,7 @@ public class ImageWidgetDefinition {
    *
    * @return urlDarkTheme
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_URL_DARK_THEME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrlDarkTheme() {
@@ -266,7 +266,7 @@ public class ImageWidgetDefinition {
    *
    * @return verticalAlign
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERTICAL_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetVerticalAlign getVerticalAlign() {

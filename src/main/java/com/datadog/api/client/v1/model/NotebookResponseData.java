@@ -19,7 +19,7 @@ import java.util.Objects;
   NotebookResponseData.JSON_PROPERTY_ID,
   NotebookResponseData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookResponseData {
   @JsonIgnore public boolean unparsed = false;

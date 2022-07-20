@@ -19,7 +19,7 @@ import java.util.Objects;
   UserCreateData.JSON_PROPERTY_RELATIONSHIPS,
   UserCreateData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserCreateData {
   @JsonIgnore public boolean unparsed = false;
@@ -77,7 +77,7 @@ public class UserCreateData {
    *
    * @return relationships
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UserRelationships getRelationships() {

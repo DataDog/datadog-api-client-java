@@ -18,7 +18,7 @@ import java.util.Objects;
   MetricOrigin.JSON_PROPERTY_PRODUCT,
   MetricOrigin.JSON_PROPERTY_SERVICE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricOrigin {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class MetricOrigin {
    *
    * @return metricType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getMetricType() {
@@ -62,7 +62,7 @@ public class MetricOrigin {
    *
    * @return product
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getProduct() {
@@ -83,7 +83,7 @@ public class MetricOrigin {
    *
    * @return service
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getService() {

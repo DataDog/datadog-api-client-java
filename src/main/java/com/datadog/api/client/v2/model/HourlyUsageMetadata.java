@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** The object containing document metadata. */
 @JsonPropertyOrder({HourlyUsageMetadata.JSON_PROPERTY_PAGINATION})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HourlyUsageMetadata {
   @JsonIgnore public boolean unparsed = false;
@@ -32,7 +32,7 @@ public class HourlyUsageMetadata {
    *
    * @return pagination
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HourlyUsagePagination getPagination() {

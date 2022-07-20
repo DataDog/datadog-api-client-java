@@ -30,7 +30,7 @@ import java.util.Objects;
   AWSAccount.JSON_PROPERTY_ROLE_NAME,
   AWSAccount.JSON_PROPERTY_SECRET_ACCESS_KEY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSAccount {
   @JsonIgnore public boolean unparsed = false;
@@ -81,7 +81,7 @@ public class AWSAccount {
    *
    * @return accessKeyId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCESS_KEY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccessKeyId() {
@@ -102,7 +102,7 @@ public class AWSAccount {
    *
    * @return accountId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountId() {
@@ -134,7 +134,7 @@ public class AWSAccount {
    *
    * @return accountSpecificNamespaceRules
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_SPECIFIC_NAMESPACE_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Boolean> getAccountSpecificNamespaceRules() {
@@ -157,7 +157,7 @@ public class AWSAccount {
    *
    * @return cspmResourceCollectionEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CSPM_RESOURCE_COLLECTION_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getCspmResourceCollectionEnabled() {
@@ -186,7 +186,7 @@ public class AWSAccount {
    *
    * @return excludedRegions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXCLUDED_REGIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getExcludedRegions() {
@@ -220,7 +220,7 @@ public class AWSAccount {
    *
    * @return filterTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTER_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getFilterTags() {
@@ -250,7 +250,7 @@ public class AWSAccount {
    *
    * @return hostTags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOST_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getHostTags() {
@@ -271,7 +271,7 @@ public class AWSAccount {
    *
    * @return metricsCollectionEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRICS_COLLECTION_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getMetricsCollectionEnabled() {
@@ -292,7 +292,7 @@ public class AWSAccount {
    *
    * @return resourceCollectionEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getResourceCollectionEnabled() {
@@ -313,7 +313,7 @@ public class AWSAccount {
    *
    * @return roleName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ROLE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRoleName() {
@@ -334,7 +334,7 @@ public class AWSAccount {
    *
    * @return secretAccessKey
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECRET_ACCESS_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSecretAccessKey() {

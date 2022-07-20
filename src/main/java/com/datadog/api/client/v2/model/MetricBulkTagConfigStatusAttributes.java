@@ -20,7 +20,7 @@ import java.util.Objects;
   MetricBulkTagConfigStatusAttributes.JSON_PROPERTY_STATUS,
   MetricBulkTagConfigStatusAttributes.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricBulkTagConfigStatusAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -51,7 +51,7 @@ public class MetricBulkTagConfigStatusAttributes {
    *
    * @return emails
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getEmails() {
@@ -72,7 +72,7 @@ public class MetricBulkTagConfigStatusAttributes {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -101,7 +101,7 @@ public class MetricBulkTagConfigStatusAttributes {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

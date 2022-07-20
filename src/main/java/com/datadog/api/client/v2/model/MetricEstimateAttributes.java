@@ -21,7 +21,7 @@ import java.util.Objects;
   MetricEstimateAttributes.JSON_PROPERTY_ESTIMATED_AT,
   MetricEstimateAttributes.JSON_PROPERTY_ESTIMATED_OUTPUT_SERIES
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricEstimateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -50,7 +50,7 @@ public class MetricEstimateAttributes {
    *
    * @return estimateType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MetricEstimateType getEstimateType() {
@@ -74,7 +74,7 @@ public class MetricEstimateAttributes {
    *
    * @return estimatedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getEstimatedAt() {
@@ -95,7 +95,7 @@ public class MetricEstimateAttributes {
    *
    * @return estimatedOutputSeries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ESTIMATED_OUTPUT_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEstimatedOutputSeries() {

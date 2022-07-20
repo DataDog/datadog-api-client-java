@@ -20,7 +20,7 @@ import java.util.Objects;
   IncidentResponseRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER,
   IncidentResponseRelationships.JSON_PROPERTY_POSTMORTEM
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentResponseRelationships {
   @JsonIgnore public boolean unparsed = false;
@@ -50,7 +50,7 @@ public class IncidentResponseRelationships {
    *
    * @return commanderUser
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NullableRelationshipToUser getCommanderUser() {
@@ -72,7 +72,7 @@ public class IncidentResponseRelationships {
    *
    * @return createdByUser
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getCreatedByUser() {
@@ -95,7 +95,7 @@ public class IncidentResponseRelationships {
    *
    * @return integrations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToIncidentIntegrationMetadatas getIntegrations() {
@@ -117,7 +117,7 @@ public class IncidentResponseRelationships {
    *
    * @return lastModifiedByUser
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToUser getLastModifiedByUser() {
@@ -139,7 +139,7 @@ public class IncidentResponseRelationships {
    *
    * @return postmortem
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POSTMORTEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelationshipToIncidentPostmortem getPostmortem() {

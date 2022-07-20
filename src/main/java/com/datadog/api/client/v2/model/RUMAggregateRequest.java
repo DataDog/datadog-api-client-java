@@ -25,7 +25,7 @@ import java.util.Objects;
   RUMAggregateRequest.JSON_PROPERTY_OPTIONS,
   RUMAggregateRequest.JSON_PROPERTY_PAGE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMAggregateRequest {
   @JsonIgnore public boolean unparsed = false;
@@ -66,7 +66,7 @@ public class RUMAggregateRequest {
    *
    * @return compute
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RUMCompute> getCompute() {
@@ -88,7 +88,7 @@ public class RUMAggregateRequest {
    *
    * @return filter
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMQueryFilter getFilter() {
@@ -121,7 +121,7 @@ public class RUMAggregateRequest {
    *
    * @return groupBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RUMGroupBy> getGroupBy() {
@@ -144,7 +144,7 @@ public class RUMAggregateRequest {
    *
    * @return options
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMQueryOptions getOptions() {
@@ -166,7 +166,7 @@ public class RUMAggregateRequest {
    *
    * @return page
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMQueryPageOptions getPage() {

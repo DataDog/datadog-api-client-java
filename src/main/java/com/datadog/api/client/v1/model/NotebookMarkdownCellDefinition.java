@@ -22,7 +22,7 @@ import java.util.Objects;
   NotebookMarkdownCellDefinition.JSON_PROPERTY_TEXT,
   NotebookMarkdownCellDefinition.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookMarkdownCellDefinition {
   @JsonIgnore public boolean unparsed = false;

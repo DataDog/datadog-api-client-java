@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Has one property enabled (boolean). */
 @JsonPropertyOrder({OrganizationSettingsSamlStrictMode.JSON_PROPERTY_ENABLED})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationSettingsSamlStrictMode {
   @JsonIgnore public boolean unparsed = false;
@@ -33,7 +33,7 @@ public class OrganizationSettingsSamlStrictMode {
    *
    * @return enabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {

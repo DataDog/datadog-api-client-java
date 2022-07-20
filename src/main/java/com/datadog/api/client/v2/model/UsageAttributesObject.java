@@ -22,7 +22,7 @@ import java.util.Objects;
   UsageAttributesObject.JSON_PROPERTY_TIMESERIES,
   UsageAttributesObject.JSON_PROPERTY_USAGE_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributesObject {
   @JsonIgnore public boolean unparsed = false;
@@ -51,7 +51,7 @@ public class UsageAttributesObject {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -72,7 +72,7 @@ public class UsageAttributesObject {
    *
    * @return productFamily
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProductFamily() {
@@ -93,7 +93,7 @@ public class UsageAttributesObject {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -126,7 +126,7 @@ public class UsageAttributesObject {
    *
    * @return timeseries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageTimeSeriesObject> getTimeseries() {
@@ -148,7 +148,7 @@ public class UsageAttributesObject {
    *
    * @return usageType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public HourlyUsageType getUsageType() {

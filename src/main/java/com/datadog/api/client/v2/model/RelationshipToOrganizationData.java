@@ -18,7 +18,7 @@ import java.util.Objects;
   RelationshipToOrganizationData.JSON_PROPERTY_ID,
   RelationshipToOrganizationData.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToOrganizationData {
   @JsonIgnore public boolean unparsed = false;

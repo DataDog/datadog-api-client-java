@@ -9,7 +9,7 @@ from . import formatter
 PACKAGE_NAME = "com.datadog.api.client.{}"
 COMMON_PACKAGE_NAME = "com.datadog.api.client"
 GENERATED_ANNOTATION = (
-    '@javax.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")'
+    '@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")'
 )
 
 

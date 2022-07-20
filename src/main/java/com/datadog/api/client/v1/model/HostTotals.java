@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /** Total number of host currently monitored by Datadog. */
 @JsonPropertyOrder({HostTotals.JSON_PROPERTY_TOTAL_ACTIVE, HostTotals.JSON_PROPERTY_TOTAL_UP})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostTotals {
   @JsonIgnore public boolean unparsed = false;
@@ -34,7 +34,7 @@ public class HostTotals {
    *
    * @return totalActive
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalActive() {
@@ -55,7 +55,7 @@ public class HostTotals {
    *
    * @return totalUp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_UP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalUp() {

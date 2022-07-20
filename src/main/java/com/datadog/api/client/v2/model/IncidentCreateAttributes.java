@@ -25,7 +25,7 @@ import java.util.Objects;
   IncidentCreateAttributes.JSON_PROPERTY_NOTIFICATION_HANDLES,
   IncidentCreateAttributes.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -93,7 +93,7 @@ public class IncidentCreateAttributes {
    *
    * @return fields
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, IncidentFieldAttributes> getFields() {
@@ -128,7 +128,7 @@ public class IncidentCreateAttributes {
    *
    * @return initialCells
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INITIAL_CELLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<IncidentTimelineCellCreateAttributes> getInitialCells() {
@@ -163,7 +163,7 @@ public class IncidentCreateAttributes {
    *
    * @return notificationHandles
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<IncidentNotificationHandle> getNotificationHandles() {

@@ -21,7 +21,7 @@ import java.util.Objects;
   SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_QUERY,
   SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_TO
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalListRequestFilter {
   @JsonIgnore public boolean unparsed = false;
@@ -48,7 +48,7 @@ public class SecurityMonitoringSignalListRequestFilter {
    *
    * @return from
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getFrom() {
@@ -69,7 +69,7 @@ public class SecurityMonitoringSignalListRequestFilter {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQuery() {
@@ -90,7 +90,7 @@ public class SecurityMonitoringSignalListRequestFilter {
    *
    * @return to
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTo() {

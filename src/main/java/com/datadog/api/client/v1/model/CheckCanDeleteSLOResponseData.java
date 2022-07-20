@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** An array of service level objective objects. */
 @JsonPropertyOrder({CheckCanDeleteSLOResponseData.JSON_PROPERTY_OK})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CheckCanDeleteSLOResponseData {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class CheckCanDeleteSLOResponseData {
    *
    * @return ok
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getOk() {

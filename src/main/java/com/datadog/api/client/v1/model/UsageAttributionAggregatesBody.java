@@ -18,7 +18,7 @@ import java.util.Objects;
   UsageAttributionAggregatesBody.JSON_PROPERTY_FIELD,
   UsageAttributionAggregatesBody.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributionAggregatesBody {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class UsageAttributionAggregatesBody {
    *
    * @return aggType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGG_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAggType() {
@@ -62,7 +62,7 @@ public class UsageAttributionAggregatesBody {
    *
    * @return field
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getField() {
@@ -83,7 +83,7 @@ public class UsageAttributionAggregatesBody {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getValue() {

@@ -20,7 +20,7 @@ import java.util.Objects;
  * tag.
  */
 @JsonPropertyOrder({TagToHosts.JSON_PROPERTY_TAGS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TagToHosts {
   @JsonIgnore public boolean unparsed = false;
@@ -45,7 +45,7 @@ public class TagToHosts {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getTags() {

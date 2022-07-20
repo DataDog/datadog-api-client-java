@@ -22,7 +22,7 @@ import java.util.Objects;
   ProcessQueryDefinition.JSON_PROPERTY_METRIC,
   ProcessQueryDefinition.JSON_PROPERTY_SEARCH_BY
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
@@ -64,7 +64,7 @@ public class ProcessQueryDefinition {
    *
    * @return filterBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILTER_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getFilterBy() {
@@ -85,7 +85,7 @@ public class ProcessQueryDefinition {
    *
    * @return limit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -126,7 +126,7 @@ public class ProcessQueryDefinition {
    *
    * @return searchBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SEARCH_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSearchBy() {

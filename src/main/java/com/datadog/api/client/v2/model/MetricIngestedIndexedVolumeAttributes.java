@@ -17,7 +17,7 @@ import java.util.Objects;
   MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INDEXED_VOLUME,
   MetricIngestedIndexedVolumeAttributes.JSON_PROPERTY_INGESTED_VOLUME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricIngestedIndexedVolumeAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class MetricIngestedIndexedVolumeAttributes {
    *
    * @return indexedVolume
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDEXED_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIndexedVolume() {
@@ -58,7 +58,7 @@ public class MetricIngestedIndexedVolumeAttributes {
    *
    * @return ingestedVolume
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INGESTED_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIngestedVolume() {

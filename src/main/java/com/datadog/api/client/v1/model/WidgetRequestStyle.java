@@ -18,7 +18,7 @@ import java.util.Objects;
   WidgetRequestStyle.JSON_PROPERTY_LINE_WIDTH,
   WidgetRequestStyle.JSON_PROPERTY_PALETTE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetRequestStyle {
   @JsonIgnore public boolean unparsed = false;
@@ -42,7 +42,7 @@ public class WidgetRequestStyle {
    *
    * @return lineType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetLineType getLineType() {
@@ -67,7 +67,7 @@ public class WidgetRequestStyle {
    *
    * @return lineWidth
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WidgetLineWidth getLineWidth() {
@@ -91,7 +91,7 @@ public class WidgetRequestStyle {
    *
    * @return palette
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPalette() {

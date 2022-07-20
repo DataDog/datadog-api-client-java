@@ -19,7 +19,7 @@ import java.util.Objects;
   UsageTopAvgMetricsResponse.JSON_PROPERTY_METADATA,
   UsageTopAvgMetricsResponse.JSON_PROPERTY_USAGE
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageTopAvgMetricsResponse {
   @JsonIgnore public boolean unparsed = false;
@@ -40,7 +40,7 @@ public class UsageTopAvgMetricsResponse {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UsageTopAvgMetricsMetadata getMetadata() {
@@ -73,7 +73,7 @@ public class UsageTopAvgMetricsResponse {
    *
    * @return usage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UsageTopAvgMetricsHour> getUsage() {

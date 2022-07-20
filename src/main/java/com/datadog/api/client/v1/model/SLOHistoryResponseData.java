@@ -29,7 +29,7 @@ import java.util.Objects;
   SLOHistoryResponseData.JSON_PROPERTY_TYPE,
   SLOHistoryResponseData.JSON_PROPERTY_TYPE_ID
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOHistoryResponseData {
   @JsonIgnore public boolean unparsed = false;
@@ -73,7 +73,7 @@ public class SLOHistoryResponseData {
    *
    * @return fromTs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFromTs() {
@@ -105,7 +105,7 @@ public class SLOHistoryResponseData {
    *
    * @return groupBy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getGroupBy() {
@@ -140,7 +140,7 @@ public class SLOHistoryResponseData {
    *
    * @return groups
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SLOHistoryMonitor> getGroups() {
@@ -175,7 +175,7 @@ public class SLOHistoryResponseData {
    *
    * @return monitors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SLOHistoryMonitor> getMonitors() {
@@ -199,7 +199,7 @@ public class SLOHistoryResponseData {
    *
    * @return overall
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OVERALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOHistorySLIData getOverall() {
@@ -223,7 +223,7 @@ public class SLOHistoryResponseData {
    *
    * @return series
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOHistoryMetrics getSeries() {
@@ -252,7 +252,7 @@ public class SLOHistoryResponseData {
    *
    * @return thresholds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_THRESHOLDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, SLOThreshold> getThresholds() {
@@ -273,7 +273,7 @@ public class SLOHistoryResponseData {
    *
    * @return toTs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TO_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getToTs() {
@@ -295,7 +295,7 @@ public class SLOHistoryResponseData {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOType getType() {
@@ -322,7 +322,7 @@ public class SLOHistoryResponseData {
    *
    * @return typeId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOTypeNumeric getTypeId() {

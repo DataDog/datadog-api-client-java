@@ -16,7 +16,7 @@ import java.util.Objects;
 
 /** A JSON list of the ID or IDs of the Synthetic tests that you want to delete. */
 @JsonPropertyOrder({SyntheticsDeleteTestsPayload.JSON_PROPERTY_PUBLIC_IDS})
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsDeleteTestsPayload {
   @JsonIgnore public boolean unparsed = false;
@@ -41,7 +41,7 @@ public class SyntheticsDeleteTestsPayload {
    *
    * @return publicIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPublicIds() {

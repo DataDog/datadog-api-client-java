@@ -26,7 +26,7 @@ import java.util.Objects;
   HourlyUsageAttributes.JSON_PROPERTY_REGION,
   HourlyUsageAttributes.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HourlyUsageAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -72,7 +72,7 @@ public class HourlyUsageAttributes {
    *
    * @return measurements
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MEASUREMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<HourlyUsageMeasurement> getMeasurements() {
@@ -93,7 +93,7 @@ public class HourlyUsageAttributes {
    *
    * @return orgName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrgName() {
@@ -114,7 +114,7 @@ public class HourlyUsageAttributes {
    *
    * @return productFamily
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProductFamily() {
@@ -135,7 +135,7 @@ public class HourlyUsageAttributes {
    *
    * @return publicId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -156,7 +156,7 @@ public class HourlyUsageAttributes {
    *
    * @return region
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRegion() {
@@ -177,7 +177,7 @@ public class HourlyUsageAttributes {
    *
    * @return timestamp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTimestamp() {

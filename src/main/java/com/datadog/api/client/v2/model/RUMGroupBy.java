@@ -22,7 +22,7 @@ import java.util.Objects;
   RUMGroupBy.JSON_PROPERTY_SORT,
   RUMGroupBy.JSON_PROPERTY_TOTAL
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMGroupBy {
   @JsonIgnore public boolean unparsed = false;
@@ -83,7 +83,7 @@ public class RUMGroupBy {
    *
    * @return histogram
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HISTOGRAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMGroupByHistogram getHistogram() {
@@ -104,7 +104,7 @@ public class RUMGroupBy {
    *
    * @return limit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getLimit() {
@@ -126,7 +126,7 @@ public class RUMGroupBy {
    *
    * @return missing
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MISSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMGroupByMissing getMissing() {
@@ -148,7 +148,7 @@ public class RUMGroupBy {
    *
    * @return sort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMAggregateSort getSort() {
@@ -170,7 +170,7 @@ public class RUMGroupBy {
    *
    * @return total
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RUMGroupByTotal getTotal() {

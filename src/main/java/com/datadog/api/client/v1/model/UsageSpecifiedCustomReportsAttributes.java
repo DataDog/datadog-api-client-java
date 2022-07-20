@@ -23,7 +23,7 @@ import java.util.Objects;
   UsageSpecifiedCustomReportsAttributes.JSON_PROPERTY_START_DATE,
   UsageSpecifiedCustomReportsAttributes.JSON_PROPERTY_TAGS
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSpecifiedCustomReportsAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -55,7 +55,7 @@ public class UsageSpecifiedCustomReportsAttributes {
    *
    * @return computedOn
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPUTED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getComputedOn() {
@@ -76,7 +76,7 @@ public class UsageSpecifiedCustomReportsAttributes {
    *
    * @return endDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEndDate() {
@@ -97,7 +97,7 @@ public class UsageSpecifiedCustomReportsAttributes {
    *
    * @return location
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLocation() {
@@ -118,7 +118,7 @@ public class UsageSpecifiedCustomReportsAttributes {
    *
    * @return size
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSize() {
@@ -139,7 +139,7 @@ public class UsageSpecifiedCustomReportsAttributes {
    *
    * @return startDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartDate() {
@@ -168,7 +168,7 @@ public class UsageSpecifiedCustomReportsAttributes {
    *
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

@@ -17,7 +17,7 @@ import java.util.Objects;
   SearchSLOResponseDataAttributesFacetsObjectInt.JSON_PROPERTY_COUNT,
   SearchSLOResponseDataAttributesFacetsObjectInt.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SearchSLOResponseDataAttributesFacetsObjectInt {
   @JsonIgnore public boolean unparsed = false;
@@ -37,7 +37,7 @@ public class SearchSLOResponseDataAttributesFacetsObjectInt {
    *
    * @return count
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getCount() {
@@ -58,7 +58,7 @@ public class SearchSLOResponseDataAttributesFacetsObjectInt {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getName() {

@@ -29,7 +29,7 @@ import java.util.Objects;
   NotebooksResponseDataAttributes.JSON_PROPERTY_STATUS,
   NotebooksResponseDataAttributes.JSON_PROPERTY_TIME
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebooksResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
@@ -80,7 +80,7 @@ public class NotebooksResponseDataAttributes {
    *
    * @return author
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookAuthor getAuthor() {
@@ -113,7 +113,7 @@ public class NotebooksResponseDataAttributes {
    *
    * @return cells
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CELLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<NotebookCellResponse> getCells() {
@@ -129,7 +129,7 @@ public class NotebooksResponseDataAttributes {
    *
    * @return created
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
@@ -147,7 +147,7 @@ public class NotebooksResponseDataAttributes {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookMetadata getMetadata() {
@@ -163,7 +163,7 @@ public class NotebooksResponseDataAttributes {
    *
    * @return modified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModified() {
@@ -201,7 +201,7 @@ public class NotebooksResponseDataAttributes {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookStatus getStatus() {
@@ -226,7 +226,7 @@ public class NotebooksResponseDataAttributes {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookGlobalTime getTime() {

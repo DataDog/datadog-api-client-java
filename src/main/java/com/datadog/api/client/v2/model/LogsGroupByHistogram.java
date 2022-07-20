@@ -22,7 +22,7 @@ import java.util.Objects;
   LogsGroupByHistogram.JSON_PROPERTY_MAX,
   LogsGroupByHistogram.JSON_PROPERTY_MIN
 })
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsGroupByHistogram {
   @JsonIgnore public boolean unparsed = false;

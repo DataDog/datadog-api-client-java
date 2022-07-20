@@ -6,6 +6,8 @@ import static org.junit.Assert.assertEquals;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.ws.rs.client.*;
+import jakarta.ws.rs.core.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,8 +18,6 @@ import java.net.URLDecoder;
 import java.util.*;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
-import javax.ws.rs.client.*;
-import javax.ws.rs.core.*;
 
 public class TestClient implements Client {
   public class TestStatus implements Response.StatusType {
