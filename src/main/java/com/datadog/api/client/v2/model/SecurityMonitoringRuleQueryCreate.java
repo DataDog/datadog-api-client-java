@@ -21,6 +21,7 @@ import java.util.Objects;
   SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_DISTINCT_FIELDS,
   SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_GROUP_BY_FIELDS,
   SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_METRIC,
+  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_METRICS,
   SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_NAME,
   SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_QUERY
 })
@@ -39,6 +40,9 @@ public class SecurityMonitoringRuleQueryCreate {
 
   public static final String JSON_PROPERTY_METRIC = "metric";
   private String metric;
+
+  public static final String JSON_PROPERTY_METRICS = "metrics";
+  private List<String> metrics = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -159,6 +163,35 @@ public class SecurityMonitoringRuleQueryCreate {
     this.metric = metric;
   }
 
+  public SecurityMonitoringRuleQueryCreate metrics(List<String> metrics) {
+    this.metrics = metrics;
+    return this;
+  }
+
+  public SecurityMonitoringRuleQueryCreate addMetricsItem(String metricsItem) {
+    if (this.metrics == null) {
+      this.metrics = new ArrayList<>();
+    }
+    this.metrics.add(metricsItem);
+    return this;
+  }
+
+  /**
+   * Group of target fields to aggregate over when using the new value aggregations.
+   *
+   * @return metrics
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRICS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getMetrics() {
+    return metrics;
+  }
+
+  public void setMetrics(List<String> metrics) {
+    this.metrics = metrics;
+  }
+
   public SecurityMonitoringRuleQueryCreate name(String name) {
     this.name = name;
     return this;
@@ -215,13 +248,14 @@ public class SecurityMonitoringRuleQueryCreate {
         && Objects.equals(this.distinctFields, securityMonitoringRuleQueryCreate.distinctFields)
         && Objects.equals(this.groupByFields, securityMonitoringRuleQueryCreate.groupByFields)
         && Objects.equals(this.metric, securityMonitoringRuleQueryCreate.metric)
+        && Objects.equals(this.metrics, securityMonitoringRuleQueryCreate.metrics)
         && Objects.equals(this.name, securityMonitoringRuleQueryCreate.name)
         && Objects.equals(this.query, securityMonitoringRuleQueryCreate.query);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, distinctFields, groupByFields, metric, name, query);
+    return Objects.hash(aggregation, distinctFields, groupByFields, metric, metrics, name, query);
   }
 
   @Override
@@ -232,6 +266,7 @@ public class SecurityMonitoringRuleQueryCreate {
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("}");
