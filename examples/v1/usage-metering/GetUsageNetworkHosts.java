@@ -1,8 +1,8 @@
-// Get hourly usage for Network Hosts returns "OK" response
+// Get hourly usage for network hosts returns "OK" response
+
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
-import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageNetworkHostsOptionalParameters;
 import com.datadog.api.client.v1.model.UsageNetworkHostsResponse;
 import java.time.OffsetDateTime;
 
@@ -13,10 +13,7 @@ public class Example {
 
     try {
       UsageNetworkHostsResponse result =
-          apiInstance.getUsageNetworkHosts(
-              OffsetDateTime.now().plusDays(-5),
-              new GetUsageNetworkHostsOptionalParameters()
-                  .endHr(OffsetDateTime.now().plusDays(-3)));
+          apiInstance.getUsageNetworkHosts(OffsetDateTime.parse("2021-11-11T11:11:11.111+00:00"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsageMeteringApi#getUsageNetworkHosts");

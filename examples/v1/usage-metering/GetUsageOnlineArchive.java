@@ -1,8 +1,8 @@
-// Get hourly usage for Online Archive returns "OK" response
+// Get hourly usage for online archive returns "OK" response
+
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
-import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageOnlineArchiveOptionalParameters;
 import com.datadog.api.client.v1.model.UsageOnlineArchiveResponse;
 import java.time.OffsetDateTime;
 
@@ -13,10 +13,7 @@ public class Example {
 
     try {
       UsageOnlineArchiveResponse result =
-          apiInstance.getUsageOnlineArchive(
-              OffsetDateTime.now().plusDays(-5),
-              new GetUsageOnlineArchiveOptionalParameters()
-                  .endHr(OffsetDateTime.now().plusDays(-3)));
+          apiInstance.getUsageOnlineArchive(OffsetDateTime.parse("2021-11-11T11:11:11.111+00:00"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsageMeteringApi#getUsageOnlineArchive");
