@@ -1,8 +1,8 @@
-// Get hourly usage for Logs returns "OK" response
+// Get hourly usage for logs returns "OK" response
+
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
-import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageLogsOptionalParameters;
 import com.datadog.api.client.v1.model.UsageLogsResponse;
 import java.time.OffsetDateTime;
 
@@ -13,9 +13,7 @@ public class Example {
 
     try {
       UsageLogsResponse result =
-          apiInstance.getUsageLogs(
-              OffsetDateTime.now().plusDays(-5),
-              new GetUsageLogsOptionalParameters().endHr(OffsetDateTime.now().plusDays(-3)));
+          apiInstance.getUsageLogs(OffsetDateTime.parse("2021-11-11T11:11:11.111+00:00"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsageMeteringApi#getUsageLogs");

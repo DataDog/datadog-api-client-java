@@ -1,8 +1,8 @@
-// Get hourly usage for RUM Units returns "OK" response
+// Get hourly usage for RUM units returns "OK" response
+
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
-import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageRumUnitsOptionalParameters;
 import com.datadog.api.client.v1.model.UsageRumUnitsResponse;
 import java.time.OffsetDateTime;
 
@@ -13,9 +13,7 @@ public class Example {
 
     try {
       UsageRumUnitsResponse result =
-          apiInstance.getUsageRumUnits(
-              OffsetDateTime.now().plusDays(-5),
-              new GetUsageRumUnitsOptionalParameters().endHr(OffsetDateTime.now().plusDays(-3)));
+          apiInstance.getUsageRumUnits(OffsetDateTime.parse("2021-11-11T11:11:11.111+00:00"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsageMeteringApi#getUsageRumUnits");

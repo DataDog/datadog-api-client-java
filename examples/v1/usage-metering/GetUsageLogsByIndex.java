@@ -1,8 +1,8 @@
-// Get hourly usage for Logs by Index returns "OK" response
+// Get hourly usage for logs by index returns "OK" response
+
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
-import com.datadog.api.client.v1.api.UsageMeteringApi.GetUsageLogsByIndexOptionalParameters;
 import com.datadog.api.client.v1.model.UsageLogsByIndexResponse;
 import java.time.OffsetDateTime;
 
@@ -13,9 +13,7 @@ public class Example {
 
     try {
       UsageLogsByIndexResponse result =
-          apiInstance.getUsageLogsByIndex(
-              OffsetDateTime.now().plusDays(-5),
-              new GetUsageLogsByIndexOptionalParameters().endHr(OffsetDateTime.now().plusDays(-3)));
+          apiInstance.getUsageLogsByIndex(OffsetDateTime.parse("2021-11-11T11:11:11.111+00:00"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsageMeteringApi#getUsageLogsByIndex");

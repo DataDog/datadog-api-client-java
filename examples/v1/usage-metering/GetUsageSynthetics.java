@@ -1,4 +1,4 @@
-// Get hourly usage for Synthetics Checks returns "OK" response
+// Get hourly usage for synthetics checks returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

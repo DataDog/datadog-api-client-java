@@ -737,7 +737,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for incident management.
+   * Get hourly usage for incident management. <strong>Note:</strong> hourly usage data for all
+   * products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -942,7 +945,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for ingested spans.
+   * Get hourly usage for ingested spans. <strong>Note:</strong> hourly usage data for all products
+   * is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -2094,7 +2100,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for analyzed logs (Security Monitoring).
+   * Get hourly usage for analyzed logs (Security Monitoring). <strong>Note:</strong> hourly usage
+   * data for all products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -2653,7 +2662,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs.
+   * Get hourly usage for audit logs. <strong>Note:</strong> hourly usage data for all products is
+   * now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -2959,7 +2971,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility.
+   * Get hourly usage for CI visibility.
    *
    * <p>See {@link #getUsageCIAppWithHttpInfo}.
    *
@@ -2973,7 +2985,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility.
+   * Get hourly usage for CI visibility.
    *
    * <p>See {@link #getUsageCIAppWithHttpInfoAsync}.
    *
@@ -2990,7 +3002,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility.
+   * Get hourly usage for CI visibility.
    *
    * <p>See {@link #getUsageCIAppWithHttpInfo}.
    *
@@ -3006,7 +3018,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility.
+   * Get hourly usage for CI visibility.
    *
    * <p>See {@link #getUsageCIAppWithHttpInfoAsync}.
    *
@@ -3025,7 +3037,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility (Tests, Pipeline, and Spans).
+   * Get hourly usage for CI visibility (tests, pipeline, and spans). <strong>Note:</strong> hourly
+   * usage data for all products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -3082,7 +3097,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility.
+   * Get hourly usage for CI visibility.
    *
    * <p>See {@link #getUsageCIAppWithHttpInfo}.
    *
@@ -3232,7 +3247,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Security Posture Management (CSPM).
+   * Get hourly usage for cloud security posture management (CSPM). <strong>Note:</strong> hourly
+   * usage data for all products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -3376,7 +3394,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for cloud workload security.
    *
    * <p>See {@link #getUsageCWSWithHttpInfo}.
    *
@@ -3390,7 +3408,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for cloud workload security.
    *
    * <p>See {@link #getUsageCWSWithHttpInfoAsync}.
    *
@@ -3407,7 +3425,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for cloud workload security.
    *
    * <p>See {@link #getUsageCWSWithHttpInfo}.
    *
@@ -3423,7 +3441,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for cloud workload security.
    *
    * <p>See {@link #getUsageCWSWithHttpInfoAsync}.
    *
@@ -3442,7 +3460,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for cloud workload security. <strong>Note:</strong> hourly usage data for all
+   * products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -3499,7 +3520,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security.
+   * Get hourly usage for cloud workload security.
    *
    * <p>See {@link #getUsageCWSWithHttpInfo}.
    *
@@ -3575,7 +3596,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring.
+   * Get hourly usage for database monitoring.
    *
    * <p>See {@link #getUsageDBMWithHttpInfo}.
    *
@@ -3589,7 +3610,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring.
+   * Get hourly usage for database monitoring.
    *
    * <p>See {@link #getUsageDBMWithHttpInfoAsync}.
    *
@@ -3606,7 +3627,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring.
+   * Get hourly usage for database monitoring.
    *
    * <p>See {@link #getUsageDBMWithHttpInfo}.
    *
@@ -3622,7 +3643,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring.
+   * Get hourly usage for database monitoring.
    *
    * <p>See {@link #getUsageDBMWithHttpInfoAsync}.
    *
@@ -3641,7 +3662,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring
+   * Get hourly usage for database monitoring <strong>Note:</strong> hourly usage data for all
+   * products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -3698,7 +3722,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Database Monitoring.
+   * Get hourly usage for database monitoring.
    *
    * <p>See {@link #getUsageDBMWithHttpInfo}.
    *
@@ -3841,7 +3865,10 @@ public class UsageMeteringApi {
 
   /**
    * Get hourly usage for <a
-   * href="https://docs.datadoghq.com/integrations/ecs_fargate/">Fargate</a>.
+   * href="https://docs.datadoghq.com/integrations/ecs_fargate/">Fargate</a>. <strong>Note:</strong>
+   * hourly usage data for all products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4040,7 +4067,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for hosts and containers.
+   * Get hourly usage for hosts and containers. <strong>Note:</strong> hourly usage data for all
+   * products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4244,7 +4274,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed spans.
+   * Get hourly usage for indexed spans. <strong>Note:</strong> hourly usage data for all products
+   * is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -4449,7 +4482,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for IoT.
+   * Get hourly usage for IoT. <strong>Note:</strong> hourly usage data for all products is now
+   * available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -4584,7 +4620,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda.
+   * Get hourly usage for lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
@@ -4598,7 +4634,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda.
+   * Get hourly usage for lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfoAsync}.
    *
@@ -4615,7 +4651,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda.
+   * Get hourly usage for lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
@@ -4631,7 +4667,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda.
+   * Get hourly usage for lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfoAsync}.
    *
@@ -4650,7 +4686,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda.
+   * Get hourly usage for lambda. <strong>Note:</strong> hourly usage data for all products is now
+   * available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4707,7 +4746,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda.
+   * Get hourly usage for lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
@@ -4783,7 +4822,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs.
+   * Get hourly usage for logs.
    *
    * <p>See {@link #getUsageLogsWithHttpInfo}.
    *
@@ -4797,7 +4836,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs.
+   * Get hourly usage for logs.
    *
    * <p>See {@link #getUsageLogsWithHttpInfoAsync}.
    *
@@ -4814,7 +4853,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs.
+   * Get hourly usage for logs.
    *
    * <p>See {@link #getUsageLogsWithHttpInfo}.
    *
@@ -4830,7 +4869,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs.
+   * Get hourly usage for logs.
    *
    * <p>See {@link #getUsageLogsWithHttpInfoAsync}.
    *
@@ -4849,7 +4888,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for logs.
+   * Get hourly usage for logs. <strong>Note:</strong> hourly usage data for all products is now
+   * available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4906,7 +4948,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs.
+   * Get hourly usage for logs.
    *
    * <p>See {@link #getUsageLogsWithHttpInfo}.
    *
@@ -4994,7 +5036,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index.
+   * Get hourly usage for logs by index.
    *
    * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
    *
@@ -5009,7 +5051,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index.
+   * Get hourly usage for logs by index.
    *
    * <p>See {@link #getUsageLogsByIndexWithHttpInfoAsync}.
    *
@@ -5028,7 +5070,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index.
+   * Get hourly usage for logs by index.
    *
    * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
    *
@@ -5045,7 +5087,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index.
+   * Get hourly usage for logs by index.
    *
    * <p>See {@link #getUsageLogsByIndexWithHttpInfoAsync}.
    *
@@ -5124,7 +5166,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Logs by Index.
+   * Get hourly usage for logs by index.
    *
    * <p>See {@link #getUsageLogsByIndexWithHttpInfo}.
    *
@@ -5275,7 +5317,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for indexed logs by retention period.
+   * Get hourly usage for indexed logs by retention period. <strong>Note:</strong> hourly usage data
+   * for all products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -5413,7 +5458,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows.
+   * get hourly usage for network flows.
    *
    * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
    *
@@ -5429,7 +5474,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows.
+   * get hourly usage for network flows.
    *
    * <p>See {@link #getUsageNetworkFlowsWithHttpInfoAsync}.
    *
@@ -5448,7 +5493,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows.
+   * get hourly usage for network flows.
    *
    * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
    *
@@ -5465,7 +5510,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows.
+   * get hourly usage for network flows.
    *
    * <p>See {@link #getUsageNetworkFlowsWithHttpInfoAsync}.
    *
@@ -5484,7 +5529,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for network flows.
+   * Get hourly usage for network flows. <strong>Note:</strong> hourly usage data for all products
+   * is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -5542,7 +5590,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Flows.
+   * get hourly usage for network flows.
    *
    * <p>See {@link #getUsageNetworkFlowsWithHttpInfo}.
    *
@@ -5619,7 +5667,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts.
+   * Get hourly usage for network hosts.
    *
    * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
    *
@@ -5635,7 +5683,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts.
+   * Get hourly usage for network hosts.
    *
    * <p>See {@link #getUsageNetworkHostsWithHttpInfoAsync}.
    *
@@ -5654,7 +5702,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts.
+   * Get hourly usage for network hosts.
    *
    * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
    *
@@ -5671,7 +5719,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts.
+   * Get hourly usage for network hosts.
    *
    * <p>See {@link #getUsageNetworkHostsWithHttpInfoAsync}.
    *
@@ -5690,7 +5738,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for network hosts.
+   * Get hourly usage for network hosts. <strong>Note:</strong> hourly usage data for all products
+   * is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -5748,7 +5799,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Network Hosts.
+   * Get hourly usage for network hosts.
    *
    * <p>See {@link #getUsageNetworkHostsWithHttpInfo}.
    *
@@ -5825,7 +5876,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive.
+   * Get hourly usage for online archive.
    *
    * <p>See {@link #getUsageOnlineArchiveWithHttpInfo}.
    *
@@ -5841,7 +5892,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive.
+   * Get hourly usage for online archive.
    *
    * <p>See {@link #getUsageOnlineArchiveWithHttpInfoAsync}.
    *
@@ -5860,7 +5911,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive.
+   * Get hourly usage for online archive.
    *
    * <p>See {@link #getUsageOnlineArchiveWithHttpInfo}.
    *
@@ -5877,7 +5928,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive.
+   * Get hourly usage for online archive.
    *
    * <p>See {@link #getUsageOnlineArchiveWithHttpInfoAsync}.
    *
@@ -5896,7 +5947,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive.
+   * Get hourly usage for online archive. <strong>Note:</strong> hourly usage data for all products
+   * is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -5954,7 +6008,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Online Archive.
+   * Get hourly usage for online archive.
    *
    * <p>See {@link #getUsageOnlineArchiveWithHttpInfo}.
    *
@@ -6098,7 +6152,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for profiled hosts.
+   * Get hourly usage for profiled hosts. <strong>Note:</strong> hourly usage data for all products
+   * is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -6244,7 +6301,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions.
+   * Get hourly usage for RUM sessions.
    *
    * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
    *
@@ -6259,7 +6316,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions.
+   * Get hourly usage for RUM sessions.
    *
    * <p>See {@link #getUsageRumSessionsWithHttpInfoAsync}.
    *
@@ -6278,7 +6335,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions.
+   * Get hourly usage for RUM sessions.
    *
    * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
    *
@@ -6295,7 +6352,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions.
+   * Get hourly usage for RUM sessions.
    *
    * <p>See {@link #getUsageRumSessionsWithHttpInfoAsync}.
    *
@@ -6315,7 +6372,9 @@ public class UsageMeteringApi {
 
   /**
    * Get hourly usage for <a href="https://docs.datadoghq.com/real_user_monitoring/">RUM</a>
-   * Sessions.
+   * Sessions. <strong>Note:</strong> hourly usage data for all products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -6375,7 +6434,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Sessions.
+   * Get hourly usage for RUM sessions.
    *
    * <p>See {@link #getUsageRumSessionsWithHttpInfo}.
    *
@@ -6454,7 +6513,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units.
+   * Get hourly usage for RUM units.
    *
    * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
    *
@@ -6469,7 +6528,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units.
+   * Get hourly usage for RUM units.
    *
    * <p>See {@link #getUsageRumUnitsWithHttpInfoAsync}.
    *
@@ -6486,7 +6545,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units.
+   * Get hourly usage for RUM units.
    *
    * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
    *
@@ -6502,7 +6561,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units.
+   * Get hourly usage for RUM units.
    *
    * <p>See {@link #getUsageRumUnitsWithHttpInfoAsync}.
    *
@@ -6522,6 +6581,9 @@ public class UsageMeteringApi {
 
   /**
    * Get hourly usage for <a href="https://docs.datadoghq.com/real_user_monitoring/">RUM</a> Units.
+   * <strong>Note:</strong> hourly usage data for all products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -6578,7 +6640,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for RUM Units.
+   * Get hourly usage for RUM units.
    *
    * <p>See {@link #getUsageRumUnitsWithHttpInfo}.
    *
@@ -6654,7 +6716,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for sensitive data scanner.
    *
    * <p>See {@link #getUsageSDSWithHttpInfo}.
    *
@@ -6668,7 +6730,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for sensitive data scanner.
    *
    * <p>See {@link #getUsageSDSWithHttpInfoAsync}.
    *
@@ -6685,7 +6747,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for sensitive data scanner.
    *
    * <p>See {@link #getUsageSDSWithHttpInfo}.
    *
@@ -6701,7 +6763,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for sensitive data scanner.
    *
    * <p>See {@link #getUsageSDSWithHttpInfoAsync}.
    *
@@ -6720,7 +6782,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for sensitive data scanner. <strong>Note:</strong> hourly usage data for all
+   * products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -6777,7 +6842,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Sensitive Data Scanner.
+   * Get hourly usage for sensitive data scanner.
    *
    * <p>See {@link #getUsageSDSWithHttpInfo}.
    *
@@ -6919,7 +6984,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for SNMP devices.
+   * Get hourly usage for SNMP devices. <strong>Note:</strong> hourly usage data for all products is
+   * now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -7270,7 +7338,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks.
+   * Get hourly usage for synthetics checks.
    *
    * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
    *
@@ -7287,7 +7355,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks.
+   * Get hourly usage for synthetics checks.
    *
    * <p>See {@link #getUsageSyntheticsWithHttpInfoAsync}.
    *
@@ -7307,7 +7375,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks.
+   * Get hourly usage for synthetics checks.
    *
    * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
    *
@@ -7325,7 +7393,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks.
+   * Get hourly usage for synthetics checks.
    *
    * <p>See {@link #getUsageSyntheticsWithHttpInfoAsync}.
    *
@@ -7346,7 +7414,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for <a href="https://docs.datadoghq.com/synthetics/">Synthetics checks</a>.
+   * Get hourly usage for <a href="https://docs.datadoghq.com/synthetics/">synthetics checks</a>.
+   * <strong>Note:</strong> hourly usage data for all products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7406,7 +7477,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Checks.
+   * Get hourly usage for synthetics checks.
    *
    * <p>See {@link #getUsageSyntheticsWithHttpInfo}.
    *
@@ -7485,7 +7556,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks.
+   * Get hourly usage for synthetics API checks.
    *
    * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
    *
@@ -7501,7 +7572,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks.
+   * Get hourly usage for synthetics API checks.
    *
    * <p>See {@link #getUsageSyntheticsAPIWithHttpInfoAsync}.
    *
@@ -7520,7 +7591,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks.
+   * Get hourly usage for synthetics API checks.
    *
    * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
    *
@@ -7537,7 +7608,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks.
+   * Get hourly usage for synthetics API checks.
    *
    * <p>See {@link #getUsageSyntheticsAPIWithHttpInfoAsync}.
    *
@@ -7557,7 +7628,10 @@ public class UsageMeteringApi {
 
   /**
    * Get hourly usage for <a href="https://docs.datadoghq.com/synthetics/">synthetics API
-   * checks</a>.
+   * checks</a>. <strong>Note:</strong> hourly usage data for all products is now available in the
+   * <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7615,7 +7689,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks.
+   * Get hourly usage for synthetics API checks.
    *
    * <p>See {@link #getUsageSyntheticsAPIWithHttpInfo}.
    *
@@ -7692,7 +7766,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks.
+   * Get hourly usage for synthetics browser checks.
    *
    * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
    *
@@ -7709,7 +7783,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks.
+   * Get hourly usage for synthetics browser checks.
    *
    * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfoAsync}.
    *
@@ -7728,7 +7802,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks.
+   * Get hourly usage for synthetics browser checks.
    *
    * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
    *
@@ -7745,7 +7819,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks.
+   * Get hourly usage for synthetics browser checks.
    *
    * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfoAsync}.
    *
@@ -7764,7 +7838,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for synthetics browser checks.
+   * Get hourly usage for synthetics browser checks. <strong>Note:</strong> hourly usage data for
+   * all products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7822,7 +7899,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks.
+   * Get hourly usage for synthetics browser checks.
    *
    * <p>See {@link #getUsageSyntheticsBrowserWithHttpInfo}.
    *
@@ -7972,6 +8049,9 @@ public class UsageMeteringApi {
   /**
    * Get hourly usage for <a
    * href="https://docs.datadoghq.com/developers/metrics/custom_metrics/">custom metrics</a>.
+   * <strong>Note:</strong> hourly usage data for all products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)

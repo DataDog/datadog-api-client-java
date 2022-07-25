@@ -874,7 +874,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Application Security.
+   * Get hourly usage for application security.
    *
    * <p>See {@link #getUsageApplicationSecurityMonitoringWithHttpInfo}.
    *
@@ -891,7 +891,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Application Security.
+   * Get hourly usage for application security.
    *
    * <p>See {@link #getUsageApplicationSecurityMonitoringWithHttpInfoAsync}.
    *
@@ -910,7 +910,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Application Security.
+   * Get hourly usage for application security.
    *
    * <p>See {@link #getUsageApplicationSecurityMonitoringWithHttpInfo}.
    *
@@ -927,7 +927,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Application Security.
+   * Get hourly usage for application security.
    *
    * <p>See {@link #getUsageApplicationSecurityMonitoringWithHttpInfoAsync}.
    *
@@ -948,7 +948,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Application Security .
+   * Get hourly usage for application security . <strong>Note:</strong> hourly usage data for all
+   * products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -1010,7 +1013,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Application Security.
+   * Get hourly usage for application security.
    *
    * <p>See {@link #getUsageApplicationSecurityMonitoringWithHttpInfo}.
    *
@@ -1092,7 +1095,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda Traced Invocations.
+   * Get hourly usage for lambda traced invocations.
    *
    * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfo}.
    *
@@ -1109,7 +1112,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda Traced Invocations.
+   * Get hourly usage for lambda traced invocations.
    *
    * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfoAsync}.
    *
@@ -1128,7 +1131,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda Traced Invocations.
+   * Get hourly usage for lambda traced invocations.
    *
    * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfo}.
    *
@@ -1145,7 +1148,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda Traced Invocations.
+   * Get hourly usage for lambda traced invocations.
    *
    * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfoAsync}.
    *
@@ -1165,7 +1168,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda Traced Invocations.
+   * Get hourly usage for lambda traced invocations. <strong>Note:</strong> hourly usage data for
+   * all products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -1225,7 +1231,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda Traced Invocations.
+   * Get hourly usage for lambda traced invocations.
    *
    * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfo}.
    *
@@ -1306,7 +1312,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Observability Pipelines.
+   * Get hourly usage for observability pipelines.
    *
    * <p>See {@link #getUsageObservabilityPipelinesWithHttpInfo}.
    *
@@ -1323,7 +1329,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Observability Pipelines.
+   * Get hourly usage for observability pipelines.
    *
    * <p>See {@link #getUsageObservabilityPipelinesWithHttpInfoAsync}.
    *
@@ -1342,7 +1348,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Observability Pipelines.
+   * Get hourly usage for observability pipelines.
    *
    * <p>See {@link #getUsageObservabilityPipelinesWithHttpInfo}.
    *
@@ -1359,7 +1365,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Observability Pipelines.
+   * Get hourly usage for observability pipelines.
    *
    * <p>See {@link #getUsageObservabilityPipelinesWithHttpInfoAsync}.
    *
@@ -1378,7 +1384,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Observability Pipelines.
+   * Get hourly usage for observability pipelines. <strong>Note:</strong> hourly usage data for all
+   * products is now available in the <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -1438,7 +1447,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Observability Pipelines.
+   * Get hourly usage for observability pipelines.
    *
    * <p>See {@link #getUsageObservabilityPipelinesWithHttpInfo}.
    *
