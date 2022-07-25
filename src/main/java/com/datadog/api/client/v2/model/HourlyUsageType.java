@@ -29,13 +29,16 @@ public class HourlyUsageType {
       new HourlyUsageType("observability_pipelines_bytes_processed");
   public static final HourlyUsageType LAMBDA_TRACED_INVOCATIONS_COUNT =
       new HourlyUsageType("lambda_traced_invocations_count");
+  public static final HourlyUsageType CUSTOM_EVENT_COUNT =
+      new HourlyUsageType("custom_event_count");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
               "app_sec_host_count",
               "observability_pipelines_bytes_processed",
-              "lambda_traced_invocations_count"));
+              "lambda_traced_invocations_count",
+              "custom_event_count"));
 
   private String value;
 

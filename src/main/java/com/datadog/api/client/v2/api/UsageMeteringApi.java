@@ -7,6 +7,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CostByOrgResponse;
 import com.datadog.api.client.v2.model.HourlyUsageResponse;
 import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringResponse;
+import com.datadog.api.client.v2.model.UsageCustomEventsResponse;
 import com.datadog.api.client.v2.model.UsageLambdaTracedInvocationsResponse;
 import com.datadog.api.client.v2.model.UsageObservabilityPipelinesResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -247,6 +248,212 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CostByOrgResponse>() {});
+  }
+
+  /** Manage optional parameters to getCustomEventsCount. */
+  public static class GetCustomEventsCountOptionalParameters {
+    private OffsetDateTime endHr;
+
+    /**
+     * Set endHr.
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+     *     for usage ending <strong>before</strong> this hour. (optional)
+     * @return GetCustomEventsCountOptionalParameters
+     */
+    public GetCustomEventsCountOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly usage for Custom Events.
+   *
+   * <p>See {@link #getCustomEventsCountWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+   *     for usage beginning at this hour. (required)
+   * @return UsageCustomEventsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageCustomEventsResponse getCustomEventsCount(OffsetDateTime startHr)
+      throws ApiException {
+    return getCustomEventsCountWithHttpInfo(startHr, new GetCustomEventsCountOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get hourly usage for Custom Events.
+   *
+   * <p>See {@link #getCustomEventsCountWithHttpInfoAsync}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+   *     for usage beginning at this hour. (required)
+   * @return CompletableFuture&lt;UsageCustomEventsResponse&gt;
+   */
+  public CompletableFuture<UsageCustomEventsResponse> getCustomEventsCountAsync(
+      OffsetDateTime startHr) {
+    return getCustomEventsCountWithHttpInfoAsync(
+            startHr, new GetCustomEventsCountOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for Custom Events.
+   *
+   * <p>See {@link #getCustomEventsCountWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageCustomEventsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageCustomEventsResponse getCustomEventsCount(
+      OffsetDateTime startHr, GetCustomEventsCountOptionalParameters parameters)
+      throws ApiException {
+    return getCustomEventsCountWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Custom Events.
+   *
+   * <p>See {@link #getCustomEventsCountWithHttpInfoAsync}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;UsageCustomEventsResponse&gt;
+   */
+  public CompletableFuture<UsageCustomEventsResponse> getCustomEventsCountAsync(
+      OffsetDateTime startHr, GetCustomEventsCountOptionalParameters parameters) {
+    return getCustomEventsCountWithHttpInfoAsync(startHr, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly usage for Custom Events.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageCustomEventsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageCustomEventsResponse> getCustomEventsCountWithHttpInfo(
+      OffsetDateTime startHr, GetCustomEventsCountOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'startHr' when calling getCustomEventsCount");
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/custom_events";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getCustomEventsCount",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCustomEventsResponse>() {});
+  }
+
+  /**
+   * Get hourly usage for Custom Events.
+   *
+   * <p>See {@link #getCustomEventsCountWithHttpInfo}.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageCustomEventsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageCustomEventsResponse>>
+      getCustomEventsCountWithHttpInfoAsync(
+          OffsetDateTime startHr, GetCustomEventsCountOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      CompletableFuture<ApiResponse<UsageCustomEventsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'startHr' when calling getCustomEventsCount"));
+      return result;
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/custom_events";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getCustomEventsCount",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageCustomEventsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCustomEventsResponse>() {});
   }
 
   /** Manage optional parameters to getEstimatedCostByOrg. */
