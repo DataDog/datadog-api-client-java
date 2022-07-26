@@ -1718,6 +1718,8 @@ public class MetricsApi {
    *   <li>The full payload is approximately 100 bytes.
    * </ul>
    *
+   * <p>Host name is one of the resources in the Resources field.
+   *
    * @param body (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;IntakePayloadAccepted&gt;

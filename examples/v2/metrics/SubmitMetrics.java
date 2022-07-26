@@ -6,6 +6,7 @@ import com.datadog.api.client.v2.model.IntakePayloadAccepted;
 import com.datadog.api.client.v2.model.MetricIntakeType;
 import com.datadog.api.client.v2.model.MetricPayload;
 import com.datadog.api.client.v2.model.MetricPoint;
+import com.datadog.api.client.v2.model.MetricResource;
 import com.datadog.api.client.v2.model.MetricSeries;
 import java.time.OffsetDateTime;
 import java.util.Collections;
@@ -26,7 +27,10 @@ public class Example {
                             Collections.singletonList(
                                 new MetricPoint()
                                     .timestamp(OffsetDateTime.now().toInstant().getEpochSecond())
-                                    .value(0.7)))));
+                                    .value(0.7)))
+                        .resources(
+                            Collections.singletonList(
+                                new MetricResource().name("dummyhost").type("host")))));
 
     try {
       IntakePayloadAccepted result = apiInstance.submitMetrics(body);
