@@ -434,6 +434,8 @@ public class ApiClient {
           put("v1.getUsageAttribution", false);
           put("v1.getSLOHistory", false);
           put("v1.searchSLO", false);
+          put("v2.listEvents", false);
+          put("v2.searchEvents", false);
           put("v2.createIncident", false);
           put("v2.deleteIncident", false);
           put("v2.getIncident", false);

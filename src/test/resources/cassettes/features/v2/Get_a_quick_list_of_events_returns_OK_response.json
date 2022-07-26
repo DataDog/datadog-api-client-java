@@ -1,0 +1,42 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/events",
+      "queryStringParameters": {
+        "filter[query]": [
+          "datadog-agent"
+        ],
+        "filter[from]": [
+          "2020-09-17T11:48:36+01:00"
+        ],
+        "filter[to]": [
+          "2020-09-17T12:48:36+01:00"
+        ],
+        "page[limit]": [
+          "5"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "54f28328-ddef-957c-29be-41d812b0c5e6"
+  }
+]

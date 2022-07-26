@@ -402,7 +402,7 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream.
+   * Get a list of events.
    *
    * <p>See {@link #listEventsWithHttpInfo}.
    *
@@ -416,7 +416,7 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream.
+   * Get a list of events.
    *
    * <p>See {@link #listEventsWithHttpInfoAsync}.
    *
@@ -433,7 +433,7 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream.
+   * Get a list of events.
    *
    * <p>See {@link #listEventsWithHttpInfo}.
    *
@@ -449,7 +449,7 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream.
+   * Get a list of events.
    *
    * <p>See {@link #listEventsWithHttpInfoAsync}.
    *
@@ -552,7 +552,7 @@ public class EventsApi {
   }
 
   /**
-   * Query the event stream.
+   * Get a list of events.
    *
    * <p>See {@link #listEventsWithHttpInfo}.
    *

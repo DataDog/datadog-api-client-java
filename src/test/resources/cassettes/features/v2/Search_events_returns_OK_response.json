@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"from\":\"2020-09-17T11:48:36+01:00\",\"query\":\"datadog-agent\",\"to\":\"2020-09-17T12:48:36+01:00\"},\"page\":{\"limit\":5},\"sort\":\"timestamp\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/events/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "54c1dfaa-d9da-f41e-2ea1-3392189f3592"
+  }
+]
