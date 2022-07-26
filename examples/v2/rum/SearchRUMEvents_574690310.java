@@ -1,6 +1,7 @@
 // Search RUM events returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.RumApi;
 import com.datadog.api.client.v2.model.RUMEvent;
 import com.datadog.api.client.v2.model.RUMQueryFilter;

@@ -1,6 +1,7 @@
 // Search logs returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.LogsApi;
 import com.datadog.api.client.v2.api.LogsApi.ListLogsOptionalParameters;
 import com.datadog.api.client.v2.model.Log;

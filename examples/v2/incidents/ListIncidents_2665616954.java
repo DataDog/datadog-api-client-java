@@ -1,6 +1,7 @@
 // Get a list of incidents returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.IncidentsApi;
 import com.datadog.api.client.v2.api.IncidentsApi.ListIncidentsOptionalParameters;
 import com.datadog.api.client.v2.model.IncidentResponseData;

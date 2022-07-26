@@ -1,6 +1,7 @@
 // Get a list of Audit Logs events returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.AuditApi;
 import com.datadog.api.client.v2.api.AuditApi.ListAuditLogsOptionalParameters;
 import com.datadog.api.client.v2.model.AuditLogsEvent;

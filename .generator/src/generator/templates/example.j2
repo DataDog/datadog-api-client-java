@@ -25,6 +25,7 @@ import {{ api_reponse_type_import}};
 {%- set pagination = operation_spec["x-pagination"] %}
 {%- set paginationReturnType = get_pagination_return_item_type(operation_spec, pagination["resultsPath"]) %}
 import com.datadog.api.client.{{ version }}.model.{{ paginationReturnType }};
+import com.datadog.api.client.PaginationIterable;
 {%- endif %}
 {%- for model in (parameters_models|list + (body_models or [])|list)|unique|sort %}
 import com.datadog.api.client.{{ version }}.model.{{ model }};

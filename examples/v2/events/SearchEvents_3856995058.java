@@ -1,6 +1,7 @@
 // Search events returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.EventsApi;
 import com.datadog.api.client.v2.api.EventsApi.SearchEventsOptionalParameters;
 import com.datadog.api.client.v2.model.EventResponse;
