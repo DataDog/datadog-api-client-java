@@ -30,7 +30,7 @@ public class MetricResource {
   }
 
   /**
-   * The name of the metric.
+   * The name of the resource.
    *
    * @return name
    */
@@ -51,7 +51,7 @@ public class MetricResource {
   }
 
   /**
-   * The type of metric.
+   * The type of the resource.
    *
    * @return type
    */
