@@ -1,17 +1,25 @@
-// Get a list of events returns "OK" response
+// Get a quick list of events returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v1.api.EventsApi;
-import com.datadog.api.client.v1.model.EventListResponse;
+import com.datadog.api.client.v2.api.EventsApi;
+import com.datadog.api.client.v2.api.EventsApi.ListEventsOptionalParameters;
+import com.datadog.api.client.v2.model.EventsListResponse;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.listEvents", true);
     EventsApi apiInstance = new EventsApi(defaultClient);
 
     try {
-      EventListResponse result = apiInstance.listEvents(9223372036854775807L, 9223372036854775807L);
+      EventsListResponse result =
+          apiInstance.listEvents(
+              new ListEventsOptionalParameters()
+                  .filterQuery("datadog-agent")
+                  .filterFrom("2020-09-17T11:48:36+01:00")
+                  .filterTo("2020-09-17T12:48:36+01:00")
+                  .pageLimit(5));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EventsApi#listEvents");

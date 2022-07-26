@@ -2,16 +2,17 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v1.api.EventsApi;
-import com.datadog.api.client.v1.model.EventListResponse;
+import com.datadog.api.client.v2.api.EventsApi;
+import com.datadog.api.client.v2.model.EventsListResponse;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.listEvents", true);
     EventsApi apiInstance = new EventsApi(defaultClient);
 
     try {
-      EventListResponse result = apiInstance.listEvents(9223372036854775807L, 9223372036854775807L);
+      EventsListResponse result = apiInstance.listEvents();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EventsApi#listEvents");
