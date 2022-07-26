@@ -77,7 +77,7 @@ public class Example {
       for ({{ paginationReturnType }} item : iterable) {
        System.out.println(item);
       }
-    } catch (RuntimeException e) {
+    } catch (ApiException|RuntimeException e) {
       System.err.println("Exception when calling {{ context.api_instance.name|camel_case|upperfirst }}Api#{{ context.api_request.operation_id|untitle_case }}WithPagination");
       System.err.println("Reason: " + e.getMessage());
       e.printStackTrace();

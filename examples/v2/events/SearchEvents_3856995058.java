@@ -1,6 +1,7 @@
 // Search events returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.EventsApi;
 import com.datadog.api.client.v2.api.EventsApi.SearchEventsOptionalParameters;
@@ -31,7 +32,7 @@ public class Example {
       for (EventResponse item : iterable) {
         System.out.println(item);
       }
-    } catch (RuntimeException e) {
+    } catch (ApiException | RuntimeException e) {
       System.err.println("Exception when calling EventsApi#searchEventsWithPagination");
       System.err.println("Reason: " + e.getMessage());
       e.printStackTrace();

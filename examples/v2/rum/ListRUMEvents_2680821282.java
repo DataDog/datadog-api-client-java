@@ -1,6 +1,7 @@
 // Get a list of RUM events returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.RumApi;
 import com.datadog.api.client.v2.api.RumApi.ListRUMEventsOptionalParameters;
@@ -19,7 +20,7 @@ public class Example {
       for (RUMEvent item : iterable) {
         System.out.println(item);
       }
-    } catch (RuntimeException e) {
+    } catch (ApiException | RuntimeException e) {
       System.err.println("Exception when calling RumApi#listRUMEventsWithPagination");
       System.err.println("Reason: " + e.getMessage());
       e.printStackTrace();
