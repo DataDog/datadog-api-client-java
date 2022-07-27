@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Query for matching rule. */
 @JsonPropertyOrder({
@@ -42,7 +43,7 @@ public class SecurityMonitoringRuleQueryCreate {
   private String metric;
 
   public static final String JSON_PROPERTY_METRICS = "metrics";
-  private List<String> metrics = null;
+  private JsonNullable<List<String>> metrics = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -164,15 +165,19 @@ public class SecurityMonitoringRuleQueryCreate {
   }
 
   public SecurityMonitoringRuleQueryCreate metrics(List<String> metrics) {
-    this.metrics = metrics;
+    this.metrics = JsonNullable.<List<String>>of(metrics);
     return this;
   }
 
   public SecurityMonitoringRuleQueryCreate addMetricsItem(String metricsItem) {
-    if (this.metrics == null) {
-      this.metrics = new ArrayList<>();
+    if (this.metrics == null || !this.metrics.isPresent()) {
+      this.metrics = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.metrics.add(metricsItem);
+    try {
+      this.metrics.get().add(metricsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -182,14 +187,24 @@ public class SecurityMonitoringRuleQueryCreate {
    * @return metrics
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getMetrics() {
+    return metrics.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getMetrics() {
+  public JsonNullable<List<String>> getMetrics_JsonNullable() {
     return metrics;
   }
 
-  public void setMetrics(List<String> metrics) {
+  @JsonProperty(JSON_PROPERTY_METRICS)
+  public void setMetrics_JsonNullable(JsonNullable<List<String>> metrics) {
     this.metrics = metrics;
+  }
+
+  public void setMetrics(List<String> metrics) {
+    this.metrics = JsonNullable.<List<String>>of(metrics);
   }
 
   public SecurityMonitoringRuleQueryCreate name(String name) {
