@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/usage/estimated_cost",
+      "queryStringParameters": {
+        "start_date": [
+          "2022-07-24T14:22:55.359Z"
+        ],
+        "view": [
+          "sub-org"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7cb949d5-c1ee-ce97-c2e3-7535350712e3"
+  }
+]
