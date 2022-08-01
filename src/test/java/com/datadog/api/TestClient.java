@@ -247,6 +247,18 @@ public class TestClient implements Client {
       return null;
     }
 
+    String getBody(Map respBody) {
+      String body;
+      try {
+        body = (String) respBody.get("body");
+      } catch (ClassCastException e) {
+        LinkedHashMap bodyMap = (LinkedHashMap) respBody.get("body");
+        body = new Gson().toJson(bodyMap.get("json"), LinkedHashMap.class);
+      }
+
+      return body;
+    }
+
     @Override
     public Response method(String s) {
       Map record = (Map) this.client.records.get(this.client.requestCount);
@@ -262,13 +274,7 @@ public class TestClient implements Client {
       for (Map.Entry<String, List<String>> entry : originalHeaders.entrySet()) {
         headers.addAll(entry.getKey(), entry.getValue());
       }
-      String body;
-      try {
-        body = (String) response.get("body");
-      } catch (ClassCastException e) {
-        LinkedHashMap bodyMap = (LinkedHashMap) response.get("body");
-        body = new Gson().toJson(bodyMap.get("json"), LinkedHashMap.class);
-      }
+      String body = getBody(response);
 
       return new TestResponse(statusCode, headers, body, this.client.mapper);
     }
@@ -316,13 +322,7 @@ public class TestClient implements Client {
       for (Map.Entry<String, List<String>> entry : originalHeaders.entrySet()) {
         headers.addAll(entry.getKey(), entry.getValue());
       }
-      String body;
-      try {
-        body = (String) response.get("body");
-      } catch (ClassCastException e) {
-        LinkedHashMap bodyMap = (LinkedHashMap) response.get("body");
-        body = new Gson().toJson(bodyMap.get("json"), LinkedHashMap.class);
-      }
+      String body = getBody(response);
 
       return new TestResponse(statusCode, headers, body, this.client.mapper);
     }
