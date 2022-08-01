@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import jakarta.ws.rs.client.*;
 import jakarta.ws.rs.core.*;
 import java.io.File;
@@ -261,7 +262,13 @@ public class TestClient implements Client {
       for (Map.Entry<String, List<String>> entry : originalHeaders.entrySet()) {
         headers.addAll(entry.getKey(), entry.getValue());
       }
-      String body = (String) response.get("body");
+      String body;
+      try {
+        body = (String) response.get("body");
+      } catch (ClassCastException e) {
+        LinkedHashMap bodyMap = (LinkedHashMap) response.get("body");
+        body = new Gson().toJson(bodyMap.get("json"), LinkedHashMap.class);
+      }
 
       return new TestResponse(statusCode, headers, body, this.client.mapper);
     }
@@ -285,7 +292,12 @@ public class TestClient implements Client {
       if (requestBody == null) {
         assertEquals("", entity.getEntity());
       } else {
-        String json = (String) requestBody.get("json");
+        String json;
+        try {
+          json = (String) requestBody.get("json");
+        } catch (ClassCastException e) {
+          json = new Gson().toJson((LinkedHashMap) requestBody.get("json"), LinkedHashMap.class).toString();
+        }
         String inputJson = "";
         try {
           inputJson = this.client.mapper.writeValueAsString(entity.getEntity());
@@ -304,7 +316,13 @@ public class TestClient implements Client {
       for (Map.Entry<String, List<String>> entry : originalHeaders.entrySet()) {
         headers.addAll(entry.getKey(), entry.getValue());
       }
-      String body = (String) response.get("body");
+      String body;
+      try {
+        body = (String) response.get("body");
+      } catch (ClassCastException e) {
+        LinkedHashMap bodyMap = (LinkedHashMap) response.get("body");
+        body = new Gson().toJson(bodyMap.get("json"), LinkedHashMap.class);
+      }
 
       return new TestResponse(statusCode, headers, body, this.client.mapper);
     }

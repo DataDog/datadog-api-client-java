@@ -276,7 +276,8 @@ public class TestUtils {
           if (!header.getName().equals("DD-API-KEY")
               && !header.getName().equals("DD-APPLICATION-KEY")
               && !header.getName().equals("Host")
-              && !header.getName().equals("x-datadog-trace-id")
+              // TODO: figure out how to handle unique requests
+              // && !header.getName().equals("x-datadog-trace-id")
               && !header.getName().equals("x-datadog-parent-id")
               && !header.getName().equals("x-datadog-sampling-priority")
               && !header.getName().equals("User-Agent")
