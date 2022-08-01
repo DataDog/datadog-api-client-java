@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 2.1.0 / 2022-08-01
+
+### Fixed
+* Add synthetics results api replay only tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1425
+* Remove `zstd` compression support by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1439
+### Added
+* docs(dataviz): update Treemap widget definition with deprecated properties + updated description [VIZZ-2305] by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1426
+* Add hourly usage v2 endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1410
+* Add metrics field in the RuleQuery by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1411
+* Add support for Events V2 endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1387
+* [RQ-2492]: Add custom_events to list of product families in hourly-usage api. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1434
+* Re-introduce Estimated Cost API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1441
+### Changed
+* Bump jersey to major version 3 by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1424
+
+## New Contributors
+* @ganeshkumarsv made their first contribution in https://github.com/DataDog/datadog-api-client-java/pull/1421
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.0.0...datadog-api-client-2.1.0
+
 ## 2.0.0 / 2022-07-19
 
 ### Fixed

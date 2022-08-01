@@ -17,7 +17,7 @@ import org.glassfish.jersey.spi.ContentEncoder;
 @Priority(Priorities.ENTITY_CODER)
 public class ZstdEncoder extends ContentEncoder {
   public ZstdEncoder() {
-    super("zstd", "zstd1");
+    super("zstd1");
   }
 
   @Override

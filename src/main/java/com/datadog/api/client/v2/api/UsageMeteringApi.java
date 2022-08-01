@@ -261,7 +261,7 @@ public class UsageMeteringApi {
      *
      * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
      *     for cost beginning this month. Either start_month or start_date should be specified, but
-     *     not both. (optional)
+     *     not both. (start_month cannot go beyond two months in the past) (optional)
      * @return GetEstimatedCostByOrgOptionalParameters
      */
     public GetEstimatedCostByOrgOptionalParameters startMonth(OffsetDateTime startMonth) {
@@ -286,7 +286,7 @@ public class UsageMeteringApi {
      *
      * @param startDate Datetime in ISO-8601 format, UTC, precise to day: <code>[YYYY-MM-DD]</code>
      *     for cost beginning this day. Either start_month or start_date should be specified, but
-     *     not both. (optional)
+     *     not both. (start_date cannot go beyond two months in the past) (optional)
      * @return GetEstimatedCostByOrgOptionalParameters
      */
     public GetEstimatedCostByOrgOptionalParameters startDate(OffsetDateTime startDate) {
@@ -308,27 +308,32 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get estimated cost across multi-org account.
+   * Get estimated cost across your account.
    *
    * <p>See {@link #getEstimatedCostByOrgWithHttpInfo}.
    *
+   * @param view String to specify whether cost is broken down at a parent-org level or at the
+   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @return CostByOrgResponse
    * @throws ApiException if fails to make API call
    */
-  public CostByOrgResponse getEstimatedCostByOrg() throws ApiException {
-    return getEstimatedCostByOrgWithHttpInfo(new GetEstimatedCostByOrgOptionalParameters())
+  public CostByOrgResponse getEstimatedCostByOrg(String view) throws ApiException {
+    return getEstimatedCostByOrgWithHttpInfo(view, new GetEstimatedCostByOrgOptionalParameters())
         .getData();
   }
 
   /**
-   * Get estimated cost across multi-org account.
+   * Get estimated cost across your account.
    *
    * <p>See {@link #getEstimatedCostByOrgWithHttpInfoAsync}.
    *
+   * @param view String to specify whether cost is broken down at a parent-org level or at the
+   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @return CompletableFuture&lt;CostByOrgResponse&gt;
    */
-  public CompletableFuture<CostByOrgResponse> getEstimatedCostByOrgAsync() {
-    return getEstimatedCostByOrgWithHttpInfoAsync(new GetEstimatedCostByOrgOptionalParameters())
+  public CompletableFuture<CostByOrgResponse> getEstimatedCostByOrgAsync(String view) {
+    return getEstimatedCostByOrgWithHttpInfoAsync(
+            view, new GetEstimatedCostByOrgOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -336,30 +341,34 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get estimated cost across multi-org account.
+   * Get estimated cost across your account.
    *
    * <p>See {@link #getEstimatedCostByOrgWithHttpInfo}.
    *
+   * @param view String to specify whether cost is broken down at a parent-org level or at the
+   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @param parameters Optional parameters for the request.
    * @return CostByOrgResponse
    * @throws ApiException if fails to make API call
    */
-  public CostByOrgResponse getEstimatedCostByOrg(GetEstimatedCostByOrgOptionalParameters parameters)
-      throws ApiException {
-    return getEstimatedCostByOrgWithHttpInfo(parameters).getData();
+  public CostByOrgResponse getEstimatedCostByOrg(
+      String view, GetEstimatedCostByOrgOptionalParameters parameters) throws ApiException {
+    return getEstimatedCostByOrgWithHttpInfo(view, parameters).getData();
   }
 
   /**
-   * Get estimated cost across multi-org account.
+   * Get estimated cost across your account.
    *
    * <p>See {@link #getEstimatedCostByOrgWithHttpInfoAsync}.
    *
+   * @param view String to specify whether cost is broken down at a parent-org level or at the
+   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;CostByOrgResponse&gt;
    */
   public CompletableFuture<CostByOrgResponse> getEstimatedCostByOrgAsync(
-      GetEstimatedCostByOrgOptionalParameters parameters) {
-    return getEstimatedCostByOrgWithHttpInfoAsync(parameters)
+      String view, GetEstimatedCostByOrgOptionalParameters parameters) {
+    return getEstimatedCostByOrgWithHttpInfoAsync(view, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -367,8 +376,12 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get estimated cost across multi-org account.
+   * Get estimated cost across multi-org and single root-org accounts. Estimated cost data is only
+   * available for the current month and previous month. To access historical costs prior to this,
+   * use the /cost_by_org endpoint.
    *
+   * @param view String to specify whether cost is broken down at a parent-org level or at the
+   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CostByOrgResponse&gt;
    * @throws ApiException if fails to make API call
@@ -383,18 +396,32 @@ public class UsageMeteringApi {
    *     </table>
    */
   public ApiResponse<CostByOrgResponse> getEstimatedCostByOrgWithHttpInfo(
-      GetEstimatedCostByOrgOptionalParameters parameters) throws ApiException {
+      String view, GetEstimatedCostByOrgOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getEstimatedCostByOrg";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
+
+    // verify the required parameter 'view' is set
+    if (view == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'view' when calling getEstimatedCostByOrg");
+    }
     OffsetDateTime startMonth = parameters.startMonth;
     OffsetDateTime endMonth = parameters.endMonth;
     OffsetDateTime startDate = parameters.startDate;
     OffsetDateTime endDate = parameters.endDate;
     // create path and map variables
-    String localVarPath = "/api/v2/usage/estimated_cost_by_org";
+    String localVarPath = "/api/v2/usage/estimated_cost";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "view", view));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
@@ -421,26 +448,48 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get estimated cost across multi-org account.
+   * Get estimated cost across your account.
    *
    * <p>See {@link #getEstimatedCostByOrgWithHttpInfo}.
    *
+   * @param view String to specify whether cost is broken down at a parent-org level or at the
+   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;CostByOrgResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CostByOrgResponse>> getEstimatedCostByOrgWithHttpInfoAsync(
-      GetEstimatedCostByOrgOptionalParameters parameters) {
+      String view, GetEstimatedCostByOrgOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getEstimatedCostByOrg";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CostByOrgResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
+
+    // verify the required parameter 'view' is set
+    if (view == null) {
+      CompletableFuture<ApiResponse<CostByOrgResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'view' when calling getEstimatedCostByOrg"));
+      return result;
+    }
     OffsetDateTime startMonth = parameters.startMonth;
     OffsetDateTime endMonth = parameters.endMonth;
     OffsetDateTime startDate = parameters.startDate;
     OffsetDateTime endDate = parameters.endDate;
     // create path and map variables
-    String localVarPath = "/api/v2/usage/estimated_cost_by_org";
+    String localVarPath = "/api/v2/usage/estimated_cost";
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "view", view));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
@@ -555,14 +604,14 @@ public class UsageMeteringApi {
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
    *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
-   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
-   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
-   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
-   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
-   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
-   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     and <code>timeseries</code>. (required)
+   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
+   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
+   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
+   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
+   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
+   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
+   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
    * @return HourlyUsageResponse
    * @throws ApiException if fails to make API call
    */
@@ -583,14 +632,14 @@ public class UsageMeteringApi {
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
    *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
-   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
-   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
-   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
-   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
-   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
-   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     and <code>timeseries</code>. (required)
+   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
+   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
+   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
+   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
+   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
+   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
+   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
    * @return CompletableFuture&lt;HourlyUsageResponse&gt;
    */
   public CompletableFuture<HourlyUsageResponse> getHourlyUsageAsync(
@@ -613,14 +662,14 @@ public class UsageMeteringApi {
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
    *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
-   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
-   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
-   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
-   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
-   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
-   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     and <code>timeseries</code>. (required)
+   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
+   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
+   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
+   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
+   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
+   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
+   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return HourlyUsageResponse
    * @throws ApiException if fails to make API call
@@ -644,14 +693,14 @@ public class UsageMeteringApi {
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
    *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
-   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
-   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
-   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
-   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
-   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
-   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     and <code>timeseries</code>. (required)
+   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
+   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
+   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
+   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
+   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
+   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
+   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;HourlyUsageResponse&gt;
    */
@@ -674,14 +723,14 @@ public class UsageMeteringApi {
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
    *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
-   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
-   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
-   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
-   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
-   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
-   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     and <code>timeseries</code>. (required)
+   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
+   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
+   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
+   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
+   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
+   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
+   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HourlyUsageResponse&gt;
    * @throws ApiException if fails to make API call
@@ -768,14 +817,14 @@ public class UsageMeteringApi {
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
    *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>cws</code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>
-   *     , <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>,
-   *     <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>,
-   *     <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
-   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
-   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
-   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
-   *     and <code>timeseries</code>. (required)
+   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
+   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
+   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
+   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
+   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
+   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
+   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;HourlyUsageResponse&gt;&gt;
    */
