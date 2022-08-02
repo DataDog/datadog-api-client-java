@@ -192,7 +192,7 @@ public class EventsApi {
    *
    * @return PaginationIterable&lt;EventResponse&gt;
    */
-  public PaginationIterable<EventResponse> listEventsWithPagination() throws ApiException {
+  public PaginationIterable<EventResponse> listEventsWithPagination() {
     ListEventsOptionalParameters parameters = new ListEventsOptionalParameters();
     return listEventsWithPagination(parameters);
   }
@@ -453,7 +453,7 @@ public class EventsApi {
    *
    * @return PaginationIterable&lt;EventResponse&gt;
    */
-  public PaginationIterable<EventResponse> searchEventsWithPagination() throws ApiException {
+  public PaginationIterable<EventResponse> searchEventsWithPagination() {
     SearchEventsOptionalParameters parameters = new SearchEventsOptionalParameters();
     return searchEventsWithPagination(parameters);
   }

@@ -1,7 +1,6 @@
 // Get a list of events returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.EventsApi;
 import com.datadog.api.client.v2.api.EventsApi.ListEventsOptionalParameters;
@@ -24,7 +23,7 @@ public class Example {
       for (EventResponse item : iterable) {
         System.out.println(item);
       }
-    } catch (ApiException | RuntimeException e) {
+    } catch (RuntimeException e) {
       System.err.println("Exception when calling EventsApi#listEventsWithPagination");
       System.err.println("Reason: " + e.getMessage());
       e.printStackTrace();

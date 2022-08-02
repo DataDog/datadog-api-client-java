@@ -677,8 +677,7 @@ public class IncidentsApi {
    *
    * @return PaginationIterable&lt;IncidentResponseData&gt;
    */
-  public PaginationIterable<IncidentResponseData> listIncidentsWithPagination()
-      throws ApiException {
+  public PaginationIterable<IncidentResponseData> listIncidentsWithPagination() {
     ListIncidentsOptionalParameters parameters = new ListIncidentsOptionalParameters();
     return listIncidentsWithPagination(parameters);
   }

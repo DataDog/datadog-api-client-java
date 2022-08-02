@@ -268,7 +268,7 @@ public class {{ name }} {
   {%- set paginationReturnType = "PaginationIterable<" ~  get_pagination_return_item_type(operation, pagination["resultsPath"]) ~ ">" %}
 
   {{ endpointDocAndAnnotation(throwsApiException=False, overrideReturn=paginationReturnType) }}
-  public {{ paginationReturnType }} {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {
+  public {{ paginationReturnType }} {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) {
     {%- if optionalParams %}
     {{ operationId|upperfirst }}OptionalParameters parameters = new {{ operationId|upperfirst }}OptionalParameters();
     return {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ name|variable_name }}, {% endfor %}parameters);

@@ -193,7 +193,7 @@ public class AuditApi {
    *
    * @return PaginationIterable&lt;AuditLogsEvent&gt;
    */
-  public PaginationIterable<AuditLogsEvent> listAuditLogsWithPagination() throws ApiException {
+  public PaginationIterable<AuditLogsEvent> listAuditLogsWithPagination() {
     ListAuditLogsOptionalParameters parameters = new ListAuditLogsOptionalParameters();
     return listAuditLogsWithPagination(parameters);
   }
@@ -437,7 +437,7 @@ public class AuditApi {
    *
    * @return PaginationIterable&lt;AuditLogsEvent&gt;
    */
-  public PaginationIterable<AuditLogsEvent> searchAuditLogsWithPagination() throws ApiException {
+  public PaginationIterable<AuditLogsEvent> searchAuditLogsWithPagination() {
     SearchAuditLogsOptionalParameters parameters = new SearchAuditLogsOptionalParameters();
     return searchAuditLogsWithPagination(parameters);
   }

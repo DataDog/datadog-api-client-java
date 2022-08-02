@@ -1,7 +1,6 @@
 // Search logs returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.LogsApi;
 import com.datadog.api.client.v2.api.LogsApi.ListLogsOptionalParameters;
@@ -36,7 +35,7 @@ public class Example {
       for (Log item : iterable) {
         System.out.println(item);
       }
-    } catch (ApiException | RuntimeException e) {
+    } catch (RuntimeException e) {
       System.err.println("Exception when calling LogsApi#listLogsWithPagination");
       System.err.println("Reason: " + e.getMessage());
       e.printStackTrace();

@@ -330,7 +330,7 @@ public class RumApi {
    *
    * @return PaginationIterable&lt;RUMEvent&gt;
    */
-  public PaginationIterable<RUMEvent> listRUMEventsWithPagination() throws ApiException {
+  public PaginationIterable<RUMEvent> listRUMEventsWithPagination() {
     ListRUMEventsOptionalParameters parameters = new ListRUMEventsOptionalParameters();
     return listRUMEventsWithPagination(parameters);
   }
@@ -530,8 +530,7 @@ public class RumApi {
    * @param body (required)
    * @return PaginationIterable&lt;RUMEvent&gt;
    */
-  public PaginationIterable<RUMEvent> searchRUMEventsWithPagination(RUMSearchEventsRequest body)
-      throws ApiException {
+  public PaginationIterable<RUMEvent> searchRUMEventsWithPagination(RUMSearchEventsRequest body) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "body.getPage.setCursor";
