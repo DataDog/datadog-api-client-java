@@ -26,7 +26,7 @@ import {{ package_name }}.model.{{ model }};
 {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
 {%- if operation["x-pagination"] %}
 {%- set pagination = operation["x-pagination"] %}
-import {{ package_name }}.model.{{ get_pagintion_return_item_type(operation, pagination["resultsPath"]) }};
+import {{ package_name }}.model.{{ get_pagination_return_item_type(operation, pagination["resultsPath"]) }};
 
 {%- set limitParamParts = pagination.limitParam.split(".") %}
 {%- for i in range(1, limitParamParts|length) %}
@@ -265,7 +265,7 @@ public class {{ name }} {
 
   {%- if operation["x-pagination"] %}
   {%- set pagination = operation["x-pagination"] %}
-  {%- set paginationReturnType = "PaginationIterable<" ~  get_pagintion_return_item_type(operation, pagination["resultsPath"]) ~ ">" %}
+  {%- set paginationReturnType = "PaginationIterable<" ~  get_pagination_return_item_type(operation, pagination["resultsPath"]) ~ ">" %}
 
   {{ endpointDocAndAnnotation(throwsApiException=False, overrideReturn=paginationReturnType) }}
   public {{ paginationReturnType }} {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) throws ApiException {

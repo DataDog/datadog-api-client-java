@@ -184,7 +184,7 @@ def get_parameter_schema_from_name(name, all_params):
             return parameter
 
 
-def get_pagintion_return_item_type(operation, resultsPath):
+def get_pagination_return_item_type(operation, resultsPath):
     resultsPath = resultsPath.split(".")
     for response in operation.get("responses", {}).values():
         for content in response.get("content", {}).values():

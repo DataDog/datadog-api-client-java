@@ -73,6 +73,7 @@ JINJA_ENV.filters["upperfirst"] = upperfirst
 JINJA_ENV.globals["format_data_with_schema"] = format_data_with_schema
 JINJA_ENV.globals["format_parameters"] = format_parameters
 JINJA_ENV.globals["get_response_type"] = get_response_type
+JINJA_ENV.globals["get_pagination_return_item_type"] = openapi.get_pagination_return_item_type
 
 JAVA_EXAMPLE_J2 = JINJA_ENV.get_template("example.j2")
 
@@ -116,7 +117,7 @@ def pytest_bdd_after_scenario(request, feature, scenario):
 
 def pytest_bdd_apply_tag(tag, function):
     """Register tags as custom markers and skip test for '@skip' ones."""
-    skip_tags = {"with-pagination"}
+    skip_tags = {}
     if tag in skip_tags:
         marker = pytest.mark.skip(reason=f"skipped because '{tag}' in {skip_tags}")
         marker(function)
@@ -456,6 +457,7 @@ def execute_request(context, api_version):
 @when("the request with pagination is sent")
 def execute_request_with_pagination(context):
     """Execute the prepared request paginated."""
+    context["pagination"] = True
 
 
 @then(parsers.parse("the response status is {status:d} {description}"))
