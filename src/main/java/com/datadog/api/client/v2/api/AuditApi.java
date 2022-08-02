@@ -206,7 +206,7 @@ public class AuditApi {
    * @return AuditLogsEventsResponse
    */
   public PaginationIterable<AuditLogsEvent> listAuditLogsWithPagination(
-      ListAuditLogsOptionalParameters parameters) throws ApiException {
+      ListAuditLogsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";
@@ -450,7 +450,7 @@ public class AuditApi {
    * @return AuditLogsEventsResponse
    */
   public PaginationIterable<AuditLogsEvent> searchAuditLogsWithPagination(
-      SearchAuditLogsOptionalParameters parameters) throws ApiException {
+      SearchAuditLogsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "body.getPage.setCursor";

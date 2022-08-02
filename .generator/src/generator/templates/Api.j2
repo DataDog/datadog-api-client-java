@@ -280,7 +280,7 @@ public class {{ name }} {
   {%- if optionalParams %}
 
   {{ endpointDocAndAnnotation(throwsApiException=False, overrideReturn=returnType) }}
-  public {{ paginationReturnType }} {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) throws ApiException {
+  public {{ paginationReturnType }} {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}, {% endfor %}{{ operationId|upperfirst }}OptionalParameters parameters) {
     {{- paginatedEndpointMacro(pagination) }}
   }
   {%- endif %}

@@ -690,7 +690,7 @@ public class IncidentsApi {
    * @return IncidentsResponse
    */
   public PaginationIterable<IncidentResponseData> listIncidentsWithPagination(
-      ListIncidentsOptionalParameters parameters) throws ApiException {
+      ListIncidentsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "";
     String valueSetterPath = "pageOffset";

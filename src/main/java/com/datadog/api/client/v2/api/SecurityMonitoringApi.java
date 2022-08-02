@@ -1876,7 +1876,7 @@ public class SecurityMonitoringApi {
    * @return SecurityMonitoringSignalsListResponse
    */
   public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination(
-      ListSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+      ListSecurityMonitoringSignalsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";
@@ -2129,7 +2129,7 @@ public class SecurityMonitoringApi {
    * @return SecurityMonitoringSignalsListResponse
    */
   public PaginationIterable<SecurityMonitoringSignal> searchSecurityMonitoringSignalsWithPagination(
-      SearchSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+      SearchSecurityMonitoringSignalsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "body.getPage.setCursor";

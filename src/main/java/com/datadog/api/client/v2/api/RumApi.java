@@ -343,7 +343,7 @@ public class RumApi {
    * @return RUMEventsResponse
    */
   public PaginationIterable<RUMEvent> listRUMEventsWithPagination(
-      ListRUMEventsOptionalParameters parameters) throws ApiException {
+      ListRUMEventsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";

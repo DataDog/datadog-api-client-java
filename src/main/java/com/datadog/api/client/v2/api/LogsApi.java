@@ -277,8 +277,7 @@ public class LogsApi {
    *
    * @return LogsListResponse
    */
-  public PaginationIterable<Log> listLogsWithPagination(ListLogsOptionalParameters parameters)
-      throws ApiException {
+  public PaginationIterable<Log> listLogsWithPagination(ListLogsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "body.getPage.setCursor";
@@ -579,8 +578,8 @@ public class LogsApi {
    *
    * @return LogsListResponse
    */
-  public PaginationIterable<Log> listLogsGetWithPagination(ListLogsGetOptionalParameters parameters)
-      throws ApiException {
+  public PaginationIterable<Log> listLogsGetWithPagination(
+      ListLogsGetOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";

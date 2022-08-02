@@ -208,7 +208,7 @@ public class ProcessesApi {
    * @return ProcessSummariesResponse
    */
   public PaginationIterable<ProcessSummary> listProcessesWithPagination(
-      ListProcessesOptionalParameters parameters) throws ApiException {
+      ListProcessesOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";
