@@ -1,7 +1,6 @@
 // Get all processes returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.ProcessesApi;
 import com.datadog.api.client.v2.api.ProcessesApi.ListProcessesOptionalParameters;
@@ -20,7 +19,7 @@ public class Example {
       for (ProcessSummary item : iterable) {
         System.out.println(item);
       }
-    } catch (ApiException | RuntimeException e) {
+    } catch (RuntimeException e) {
       System.err.println("Exception when calling ProcessesApi#listProcessesWithPagination");
       System.err.println("Reason: " + e.getMessage());
       e.printStackTrace();

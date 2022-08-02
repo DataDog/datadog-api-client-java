@@ -192,7 +192,7 @@ public class EventsApi {
    *
    * @return PaginationIterable&lt;EventResponse&gt;
    */
-  public PaginationIterable<EventResponse> listEventsWithPagination() throws ApiException {
+  public PaginationIterable<EventResponse> listEventsWithPagination() {
     ListEventsOptionalParameters parameters = new ListEventsOptionalParameters();
     return listEventsWithPagination(parameters);
   }
@@ -205,7 +205,7 @@ public class EventsApi {
    * @return EventsListResponse
    */
   public PaginationIterable<EventResponse> listEventsWithPagination(
-      ListEventsOptionalParameters parameters) throws ApiException {
+      ListEventsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";
@@ -453,7 +453,7 @@ public class EventsApi {
    *
    * @return PaginationIterable&lt;EventResponse&gt;
    */
-  public PaginationIterable<EventResponse> searchEventsWithPagination() throws ApiException {
+  public PaginationIterable<EventResponse> searchEventsWithPagination() {
     SearchEventsOptionalParameters parameters = new SearchEventsOptionalParameters();
     return searchEventsWithPagination(parameters);
   }
@@ -466,7 +466,7 @@ public class EventsApi {
    * @return EventsListResponse
    */
   public PaginationIterable<EventResponse> searchEventsWithPagination(
-      SearchEventsOptionalParameters parameters) throws ApiException {
+      SearchEventsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "body.getPage.setCursor";
