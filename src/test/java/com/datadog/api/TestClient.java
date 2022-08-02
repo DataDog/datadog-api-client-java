@@ -302,7 +302,10 @@ public class TestClient implements Client {
         try {
           json = (String) requestBody.get("json");
         } catch (ClassCastException e) {
-          json = new Gson().toJson((LinkedHashMap) requestBody.get("json"), LinkedHashMap.class).toString();
+          json =
+              new Gson()
+                  .toJson((LinkedHashMap) requestBody.get("json"), LinkedHashMap.class)
+                  .toString();
         }
         String inputJson = "";
         try {
