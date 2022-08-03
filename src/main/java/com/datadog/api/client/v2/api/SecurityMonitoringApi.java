@@ -1861,8 +1861,8 @@ public class SecurityMonitoringApi {
    *
    * @return PaginationIterable&lt;SecurityMonitoringSignal&gt;
    */
-  public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination()
-      throws ApiException {
+  public PaginationIterable<SecurityMonitoringSignal>
+      listSecurityMonitoringSignalsWithPagination() {
     ListSecurityMonitoringSignalsOptionalParameters parameters =
         new ListSecurityMonitoringSignalsOptionalParameters();
     return listSecurityMonitoringSignalsWithPagination(parameters);
@@ -1876,7 +1876,7 @@ public class SecurityMonitoringApi {
    * @return SecurityMonitoringSignalsListResponse
    */
   public PaginationIterable<SecurityMonitoringSignal> listSecurityMonitoringSignalsWithPagination(
-      ListSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+      ListSecurityMonitoringSignalsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "pageCursor";
@@ -2115,7 +2115,7 @@ public class SecurityMonitoringApi {
    * @return PaginationIterable&lt;SecurityMonitoringSignal&gt;
    */
   public PaginationIterable<SecurityMonitoringSignal>
-      searchSecurityMonitoringSignalsWithPagination() throws ApiException {
+      searchSecurityMonitoringSignalsWithPagination() {
     SearchSecurityMonitoringSignalsOptionalParameters parameters =
         new SearchSecurityMonitoringSignalsOptionalParameters();
     return searchSecurityMonitoringSignalsWithPagination(parameters);
@@ -2129,7 +2129,7 @@ public class SecurityMonitoringApi {
    * @return SecurityMonitoringSignalsListResponse
    */
   public PaginationIterable<SecurityMonitoringSignal> searchSecurityMonitoringSignalsWithPagination(
-      SearchSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+      SearchSecurityMonitoringSignalsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "getMeta.getPage.getAfter";
     String valueSetterPath = "body.getPage.setCursor";

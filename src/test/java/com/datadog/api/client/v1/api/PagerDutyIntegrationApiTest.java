@@ -96,7 +96,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     // Delete Service Object
     ApiResponse<Void> serviceDeleteResponse =
         api.deletePagerDutyIntegrationServiceWithHttpInfo(serviceName);
-    assertEquals(200, serviceDeleteResponse.getStatusCode());
+    assertEquals(204, serviceDeleteResponse.getStatusCode());
 
     // Make sure the service object was deleted
     try {

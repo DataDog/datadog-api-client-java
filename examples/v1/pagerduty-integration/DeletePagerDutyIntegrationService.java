@@ -1,4 +1,4 @@
-// Delete a single service object returns "OK" response
+// Delete a single service object returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

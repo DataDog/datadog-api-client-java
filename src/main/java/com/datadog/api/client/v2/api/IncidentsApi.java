@@ -677,8 +677,7 @@ public class IncidentsApi {
    *
    * @return PaginationIterable&lt;IncidentResponseData&gt;
    */
-  public PaginationIterable<IncidentResponseData> listIncidentsWithPagination()
-      throws ApiException {
+  public PaginationIterable<IncidentResponseData> listIncidentsWithPagination() {
     ListIncidentsOptionalParameters parameters = new ListIncidentsOptionalParameters();
     return listIncidentsWithPagination(parameters);
   }
@@ -691,7 +690,7 @@ public class IncidentsApi {
    * @return IncidentsResponse
    */
   public PaginationIterable<IncidentResponseData> listIncidentsWithPagination(
-      ListIncidentsOptionalParameters parameters) throws ApiException {
+      ListIncidentsOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "";
     String valueSetterPath = "pageOffset";

@@ -21,6 +21,12 @@ import com.datadog.api.client.{{ version }}.api.{{ context.api_instance.name|cam
 {%- if api_reponse_type_import %}
 import {{ api_reponse_type_import}};
 {%- endif %}
+{%- if context.pagination %}
+{%- set pagination = operation_spec["x-pagination"] %}
+{%- set paginationReturnType = get_pagination_return_item_type(operation_spec, pagination["resultsPath"]) %}
+import com.datadog.api.client.{{ version }}.model.{{ paginationReturnType }};
+import com.datadog.api.client.PaginationIterable;
+{%- endif %}
 {%- for model in (parameters_models|list + (body_models or [])|list)|unique|sort %}
 import com.datadog.api.client.{{ version }}.model.{{ model }};
 {%- endfor %}
@@ -61,6 +67,23 @@ public class Example {
     {{ body_type }} body = {{ body }};
 {%- endif %}
 
+{%- if context.pagination %}
+{%- set pagination = operation_spec["x-pagination"] %}
+{%- set paginationReturnType = get_pagination_return_item_type(operation_spec, pagination["resultsPath"]) %}
+
+    try {
+      PaginationIterable<{{ paginationReturnType }}> iterable = apiInstance.{{ context.api_request.operation_id|untitle_case }}WithPagination({% if required_parameters %}{{ required_parameters }}{% endif %}{% if optional_parameters %}{% if required_parameters %}{{ "," }}{% endif %}{{ optional_parameters }}{% endif %});
+
+      for ({{ paginationReturnType }} item : iterable) {
+       System.out.println(item);
+      }
+    } catch (RuntimeException e) {
+      System.err.println("Exception when calling {{ context.api_instance.name|camel_case|upperfirst }}Api#{{ context.api_request.operation_id|untitle_case }}WithPagination");
+      System.err.println("Reason: " + e.getMessage());
+      e.printStackTrace();
+    }
+{%- else %}
+
     try {
       {% if api_response_type %}{{api_response_type}} result = {% endif %}apiInstance.{{ context.api_request.operation_id|untitle_case }}({% if required_parameters %}{{ required_parameters }}{% endif %}{% if optional_parameters %}{% if required_parameters %}{{ "," }}{% endif %}{{ optional_parameters }}{% endif %});
       {%- if api_response_type %}
@@ -73,5 +96,7 @@ public class Example {
       System.err.println("Response headers: " + e.getResponseHeaders());
       e.printStackTrace();
     }
+
+{%-endif %}
   }
 }
