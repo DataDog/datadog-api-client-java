@@ -1,0 +1,74 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"test_name_create\",\"type\":\"browser\"},\"type\":\"rum_application_create\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/rum/applications",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"updated_by_handle\":\"frog@datadoghq.com\",\"application_id\":\"3afb7cd0-d141-4065-9fb3-eef0b4216d8c\",\"name\":\"test_name_create\",\"created_by_handle\":\"frog@datadoghq.com\",\"created_at\":1659974732224,\"org_id\":321813,\"updated_at\":1659974732224,\"hash\":\"pubb39e078225631468dca5cf1be278eaab\",\"type\":\"browser\"},\"type\":\"rum_application\",\"id\":\"3afb7cd0-d141-4065-9fb3-eef0b4216d8c\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "74945625-c01a-a598-e538-65a53ceb0686"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/rum/applications/3afb7cd0-d141-4065-9fb3-eef0b4216d8c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5f17f943-ad14-2f56-3259-318f194a9ff1"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/rum/applications/3afb7cd0-d141-4065-9fb3-eef0b4216d8c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5f17f943-ad14-2f56-3259-318f194a9ff2"
+  }
+]

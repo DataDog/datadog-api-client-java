@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"my_new_rum_application\",\"type\":\"ios\"},\"type\":\"rum_application_create\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/rum/applications",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"updated_by_handle\":\"frog@datadoghq.com\",\"application_id\":\"0e3f5c84-1d29-4d03-83aa-ed8d4a8d9553\",\"name\":\"my_new_rum_application\",\"created_by_handle\":\"frog@datadoghq.com\",\"created_at\":1659974731712,\"org_id\":321813,\"updated_at\":1659974731712,\"hash\":\"pubfd2f098023c1b1051e32e437d3d7a89f\",\"type\":\"ios\"},\"type\":\"rum_application\",\"id\":\"0e3f5c84-1d29-4d03-83aa-ed8d4a8d9553\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f8f702ea-b48e-20df-059a-1913bb826430"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/rum/applications/0e3f5c84-1d29-4d03-83aa-ed8d4a8d9553",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "75ee22c0-e1fd-b551-4665-3d36c0dd1658"
+  }
+]

@@ -331,7 +331,11 @@ public class World {
   public void given(String apiVersion, Given step) throws Exception {
     // find API service based on step tag value
     Class<?> givenAPIClass =
-        Class.forName("com.datadog.api.client." + apiVersion + ".api." + toClassName(step.getAPIName() + "Api"));
+        Class.forName(
+            "com.datadog.api.client."
+                + apiVersion
+                + ".api."
+                + toClassName(step.getAPIName() + "Api"));
     // import com.datadog.api.{{ apiVersion }}.client.ApiClient
     Class<?> apiClientClass = Class.forName("com.datadog.api.client.ApiClient");
     Object clientAPI = apiClientClass.getConstructor().newInstance();
@@ -424,7 +428,10 @@ public class World {
     // find API service based on undo tag value
     Class<?> undoAPIClass =
         Class.forName(
-            "com.datadog.api.client." + apiVersion + ".api." + toClassName(undoSettings.getAPIName() + "Api"));
+            "com.datadog.api.client."
+                + apiVersion
+                + ".api."
+                + toClassName(undoSettings.getAPIName() + "Api"));
     Class<?> apiClientClass = Class.forName("com.datadog.api.client.ApiClient");
     Object clientAPI = apiClientClass.getConstructor().newInstance();
     configureClient(apiClientClass, clientAPI);
