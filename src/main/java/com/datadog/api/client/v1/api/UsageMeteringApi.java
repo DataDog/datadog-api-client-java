@@ -740,9 +740,7 @@ public class UsageMeteringApi {
    * Get hourly usage for incident management. <strong>Note:</strong> hourly usage data for all
    * products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -950,9 +948,7 @@ public class UsageMeteringApi {
    * Get hourly usage for ingested spans. <strong>Note:</strong> hourly usage data for all products
    * is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -2107,9 +2103,7 @@ public class UsageMeteringApi {
    * Get hourly usage for analyzed logs (Security Monitoring). <strong>Note:</strong> hourly usage
    * data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -2671,9 +2665,7 @@ public class UsageMeteringApi {
    * Get hourly usage for audit logs. <strong>Note:</strong> hourly usage data for all products is
    * now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -3048,9 +3040,7 @@ public class UsageMeteringApi {
    * Get hourly usage for CI visibility (tests, pipeline, and spans). <strong>Note:</strong> hourly
    * usage data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -3260,9 +3250,7 @@ public class UsageMeteringApi {
    * Get hourly usage for cloud security posture management (CSPM). <strong>Note:</strong> hourly
    * usage data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -3475,9 +3463,7 @@ public class UsageMeteringApi {
    * Get hourly usage for cloud workload security. <strong>Note:</strong> hourly usage data for all
    * products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -3679,9 +3665,7 @@ public class UsageMeteringApi {
    * Get hourly usage for database monitoring <strong>Note:</strong> hourly usage data for all
    * products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -3884,9 +3868,7 @@ public class UsageMeteringApi {
    * href="https://docs.datadoghq.com/integrations/ecs_fargate/">Fargate</a>. <strong>Note:</strong>
    * hourly usage data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4088,9 +4070,7 @@ public class UsageMeteringApi {
    * Get hourly usage for hosts and containers. <strong>Note:</strong> hourly usage data for all
    * products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4297,9 +4277,7 @@ public class UsageMeteringApi {
    * Get hourly usage for indexed spans. <strong>Note:</strong> hourly usage data for all products
    * is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -4507,9 +4485,7 @@ public class UsageMeteringApi {
    * Get hourly usage for IoT. <strong>Note:</strong> hourly usage data for all products is now
    * available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -4713,9 +4689,7 @@ public class UsageMeteringApi {
    * Get hourly usage for lambda. <strong>Note:</strong> hourly usage data for all products is now
    * available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -4917,9 +4891,7 @@ public class UsageMeteringApi {
    * Get hourly usage for logs. <strong>Note:</strong> hourly usage data for all products is now
    * available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -5348,9 +5320,7 @@ public class UsageMeteringApi {
    * Get hourly usage for indexed logs by retention period. <strong>Note:</strong> hourly usage data
    * for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -5562,9 +5532,7 @@ public class UsageMeteringApi {
    * Get hourly usage for network flows. <strong>Note:</strong> hourly usage data for all products
    * is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -5773,9 +5741,7 @@ public class UsageMeteringApi {
    * Get hourly usage for network hosts. <strong>Note:</strong> hourly usage data for all products
    * is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -5984,9 +5950,7 @@ public class UsageMeteringApi {
    * Get hourly usage for online archive. <strong>Note:</strong> hourly usage data for all products
    * is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -6191,9 +6155,7 @@ public class UsageMeteringApi {
    * Get hourly usage for profiled hosts. <strong>Note:</strong> hourly usage data for all products
    * is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -6412,9 +6374,7 @@ public class UsageMeteringApi {
    * Get hourly usage for <a href="https://docs.datadoghq.com/real_user_monitoring/">RUM</a>
    * Sessions. <strong>Note:</strong> hourly usage data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -6623,9 +6583,7 @@ public class UsageMeteringApi {
    * Get hourly usage for <a href="https://docs.datadoghq.com/real_user_monitoring/">RUM</a> Units.
    * <strong>Note:</strong> hourly usage data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -6827,9 +6785,7 @@ public class UsageMeteringApi {
    * Get hourly usage for sensitive data scanner. <strong>Note:</strong> hourly usage data for all
    * products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -7031,9 +6987,7 @@ public class UsageMeteringApi {
    * Get hourly usage for SNMP devices. <strong>Note:</strong> hourly usage data for all products is
    * now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -7463,9 +7417,7 @@ public class UsageMeteringApi {
    * Get hourly usage for <a href="https://docs.datadoghq.com/synthetics/">synthetics checks</a>.
    * <strong>Note:</strong> hourly usage data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7679,9 +7631,7 @@ public class UsageMeteringApi {
    * checks</a>. <strong>Note:</strong> hourly usage data for all products is now available in the
    * <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -7891,9 +7841,7 @@ public class UsageMeteringApi {
    * Get hourly usage for synthetics browser checks. <strong>Note:</strong> hourly usage data for
    * all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
@@ -8103,9 +8051,7 @@ public class UsageMeteringApi {
    * href="https://docs.datadoghq.com/developers/metrics/custom_metrics/">custom metrics</a>.
    * <strong>Note:</strong> hourly usage data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * hourly usage by product family API</a>
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
    *     beginning at this hour. (required)
