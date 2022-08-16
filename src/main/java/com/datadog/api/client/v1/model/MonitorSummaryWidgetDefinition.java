@@ -24,6 +24,7 @@ import java.util.Objects;
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_HIDE_ZERO_COUNTS,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_QUERY,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_SHOW_LAST_TRIGGERED,
+  MonitorSummaryWidgetDefinition.JSON_PROPERTY_SHOW_PRIORITY,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_SORT,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_START,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_SUMMARY_TYPE,
@@ -53,6 +54,9 @@ public class MonitorSummaryWidgetDefinition {
 
   public static final String JSON_PROPERTY_SHOW_LAST_TRIGGERED = "show_last_triggered";
   private Boolean showLastTriggered;
+
+  public static final String JSON_PROPERTY_SHOW_PRIORITY = "show_priority";
+  private Boolean showPriority = false;
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private WidgetMonitorSummarySort sort;
@@ -222,6 +226,27 @@ public class MonitorSummaryWidgetDefinition {
 
   public void setShowLastTriggered(Boolean showLastTriggered) {
     this.showLastTriggered = showLastTriggered;
+  }
+
+  public MonitorSummaryWidgetDefinition showPriority(Boolean showPriority) {
+    this.showPriority = showPriority;
+    return this;
+  }
+
+  /**
+   * Whether to show the priorities column.
+   *
+   * @return showPriority
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowPriority() {
+    return showPriority;
+  }
+
+  public void setShowPriority(Boolean showPriority) {
+    this.showPriority = showPriority;
   }
 
   public MonitorSummaryWidgetDefinition sort(WidgetMonitorSummarySort sort) {
@@ -405,6 +430,7 @@ public class MonitorSummaryWidgetDefinition {
         && Objects.equals(this.hideZeroCounts, monitorSummaryWidgetDefinition.hideZeroCounts)
         && Objects.equals(this.query, monitorSummaryWidgetDefinition.query)
         && Objects.equals(this.showLastTriggered, monitorSummaryWidgetDefinition.showLastTriggered)
+        && Objects.equals(this.showPriority, monitorSummaryWidgetDefinition.showPriority)
         && Objects.equals(this.sort, monitorSummaryWidgetDefinition.sort)
         && Objects.equals(this.start, monitorSummaryWidgetDefinition.start)
         && Objects.equals(this.summaryType, monitorSummaryWidgetDefinition.summaryType)
@@ -423,6 +449,7 @@ public class MonitorSummaryWidgetDefinition {
         hideZeroCounts,
         query,
         showLastTriggered,
+        showPriority,
         sort,
         start,
         summaryType,
@@ -442,6 +469,7 @@ public class MonitorSummaryWidgetDefinition {
     sb.append("    hideZeroCounts: ").append(toIndentedString(hideZeroCounts)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    showLastTriggered: ").append(toIndentedString(showLastTriggered)).append("\n");
+    sb.append("    showPriority: ").append(toIndentedString(showPriority)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    summaryType: ").append(toIndentedString(summaryType)).append("\n");

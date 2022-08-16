@@ -49,6 +49,10 @@ public class WidgetMonitorSummarySort {
       new WidgetMonitorSummarySort("triggered,asc");
   public static final WidgetMonitorSummarySort TRIGGERED_DESCENDING =
       new WidgetMonitorSummarySort("triggered,desc");
+  public static final WidgetMonitorSummarySort PRIORITY_ASCENDING =
+      new WidgetMonitorSummarySort("priority,asc");
+  public static final WidgetMonitorSummarySort PRIORITY_DESCENDING =
+      new WidgetMonitorSummarySort("priority,desc");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -67,7 +71,9 @@ public class WidgetMonitorSummarySort {
               "tags,asc",
               "tags,desc",
               "triggered,asc",
-              "triggered,desc"));
+              "triggered,desc",
+              "priority,asc",
+              "priority,desc"));
 
   private String value;
 
