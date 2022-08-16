@@ -330,6 +330,8 @@
                         <includes>
                             <include>org.glassfish.jersey.core:jersey-client</include>
                             <include>jakarta.ws.rs:jakarta.ws.rs-api</include>
+                            <include>jakarta.inject:jakarta.inject-api</include>
+                            <include>jakarta.annotation:jakarta.annotation-api</include>
                             <include>org.glassfish.jersey.core:jersey-common</include>
                             <include>org.glassfish.hk2:osgi-resource-locator</include>
                             <include>org.glassfish.hk2.external:jakarta.inject</include>
@@ -350,6 +352,16 @@
                             <include>com.fasterxml.jackson.datatype:jackson-datatype-jsr310</include>
                             <include>com.fasterxml.jackson.core:jackson-databind</include>
                             <include>org.openapitools:jackson-databind-nullable</include>
+                            <include>com.github.scribejava:scribejava-core</include>
+                            <include>com.github.scribejava:scribejava-java8</include>
+                            <include>com.sun.activation:jakarta.activation</include>
+                            <include>commons-logging:commons-logging</include>
+                            <include>commons-codec:commons-codec</include>
+                            <include>org.javassist:javassist</include>
+                            <include>org.jvnet.mimepull:mimepull</include>
+                            <include>com.fasterxml.jackson.module:jackson-module-jakarta-xmlbind-annotations</include>
+                            <include>jakarta.xml.bind:jakarta.xml.bind-api</include>
+                            <include>com.github.luben:zstd-jni</include>
                         </includes>
                     </artifactSet>
                     <transformers>
@@ -403,7 +415,6 @@
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>${jakarta-annotation-version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- HTTP client: jersey-client -->
