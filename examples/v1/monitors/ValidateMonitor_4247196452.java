@@ -1,4 +1,4 @@
-// Validate a monitor returns "OK" response
+// Validate a multi-alert monitor returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -17,21 +17,23 @@ public class Example {
 
     Monitor body =
         new Monitor()
-            .name("Example-Validate_a_monitor_returns_OK_response")
+            .name("Example-Validate_a_multi_alert_monitor_returns_OK_response")
             .type(MonitorType.LOG_ALERT)
             .query(
                 """
 logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2
 """)
             .message("some message Notify: @hipchat-channel")
-            .tags(Arrays.asList("test:examplevalidateamonitorreturnsokresponse", "env:ci"))
+            .tags(
+                Arrays.asList("test:examplevalidateamultialertmonitorreturnsokresponse", "env:ci"))
             .priority(3L)
             .options(
                 new MonitorOptions()
                     .enableLogsSample(true)
                     .escalationMessage("the situation has escalated")
                     .evaluationDelay(700L)
-                    .groupbySimpleMonitor(true)
+                    .groupRetentionDuration("2d")
+                    .groupbySimpleMonitor(false)
                     .includeTags(true)
                     .locked(false)
                     .newHostDelay(600L)

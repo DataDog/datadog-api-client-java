@@ -7,6 +7,7 @@ import com.datadog.api.client.v1.model.Monitor;
 import com.datadog.api.client.v1.model.MonitorOptions;
 import com.datadog.api.client.v1.model.MonitorThresholds;
 import com.datadog.api.client.v1.model.MonitorType;
+import com.datadog.api.client.v1.model.OnMissingDataOption;
 import java.util.Arrays;
 
 public class Example {
@@ -40,6 +41,7 @@ logs("service:foo AND type:error").index("main").rollup("count").by("source").la
                     .noDataTimeframe(null)
                     .notifyAudit(false)
                     .notifyNoData(false)
+                    .onMissingData(OnMissingDataOption.SHOW_AND_NOTIFY_NO_DATA)
                     .renotifyInterval(60L)
                     .requireFullWindow(true)
                     .timeoutH(24L)
