@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 2.2.0 / 2022-08-17
+
+### Fixed
+* Update Pagerduty operation `DeletePagerDutyIntegrationService` response status code by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1438
+* Add missing package relocations in the shaded jar by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1456
+### Added
+* Cleanup exceptions for pagination helper methods by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1446
+* Add support for digest auth in synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1448
+* Add support for RUM application endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1449
+* add priority parameters for dashboard monitor summary widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1454
+* Add missing dependencies into the shaded jar by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1453
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.1.0...datadog-api-client-2.2.0
+
 ## 2.1.0 / 2022-08-01
 
 ### Fixed
