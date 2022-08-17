@@ -210,7 +210,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get daily custom reports.
+   * Get daily custom reports. <strong>Note:</strong> This endpoint will be fully deprecated on
+   * December 1, 2022. Refer to <a
+   * href="https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/">Migrating
+   * from v1 to v2 of the Usage Attribution API</a> for the associated migration guide.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
@@ -229,13 +232,6 @@ public class UsageMeteringApi {
   @Deprecated
   public ApiResponse<UsageCustomReportsResponse> getDailyCustomReportsWithHttpInfo(
       GetDailyCustomReportsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getDailyCustomReports";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -284,16 +280,6 @@ public class UsageMeteringApi {
   @Deprecated
   public CompletableFuture<ApiResponse<UsageCustomReportsResponse>>
       getDailyCustomReportsWithHttpInfoAsync(GetDailyCustomReportsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getDailyCustomReports";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -1192,7 +1178,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get monthly custom reports.
+   * Get monthly custom reports. <strong>Note:</strong> This endpoint will be fully deprecated on
+   * December 1, 2022. Refer to <a
+   * href="https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/">Migrating
+   * from v1 to v2 of the Usage Attribution API</a> for the associated migration guide.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
@@ -1211,13 +1200,6 @@ public class UsageMeteringApi {
   @Deprecated
   public ApiResponse<UsageCustomReportsResponse> getMonthlyCustomReportsWithHttpInfo(
       GetMonthlyCustomReportsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getMonthlyCustomReports";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -1267,16 +1249,6 @@ public class UsageMeteringApi {
   public CompletableFuture<ApiResponse<UsageCustomReportsResponse>>
       getMonthlyCustomReportsWithHttpInfoAsync(
           GetMonthlyCustomReportsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getMonthlyCustomReports";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -1711,7 +1683,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified daily custom reports.
+   * Get specified daily custom reports. <strong>Note:</strong> This endpoint will be fully
+   * deprecated on December 1, 2022. Refer to <a
+   * href="https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/">Migrating
+   * from v1 to v2 of the Usage Attribution API</a> for the associated migration guide.
    *
    * @param reportId Date of the report in the format <code>YYYY-MM-DD</code>. (required)
    * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
@@ -1731,13 +1706,6 @@ public class UsageMeteringApi {
   @Deprecated
   public ApiResponse<UsageSpecifiedCustomReportsResponse>
       getSpecifiedDailyCustomReportsWithHttpInfo(String reportId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getSpecifiedDailyCustomReports";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'reportId' is set
@@ -1785,17 +1753,6 @@ public class UsageMeteringApi {
   @Deprecated
   public CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>>
       getSpecifiedDailyCustomReportsWithHttpInfoAsync(String reportId) {
-    // Check if unstable operation is enabled
-    String operationId = "getSpecifiedDailyCustomReports";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'reportId' is set
@@ -1880,7 +1837,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get specified monthly custom reports.
+   * Get specified monthly custom reports. <strong>Note:</strong> This endpoint will be fully
+   * deprecated on December 1, 2022. Refer to <a
+   * href="https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/">Migrating
+   * from v1 to v2 of the Usage Attribution API</a> for the associated migration guide.
    *
    * @param reportId Date of the report in the format <code>YYYY-MM-DD</code>. (required)
    * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
@@ -1901,13 +1861,6 @@ public class UsageMeteringApi {
   @Deprecated
   public ApiResponse<UsageSpecifiedCustomReportsResponse>
       getSpecifiedMonthlyCustomReportsWithHttpInfo(String reportId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getSpecifiedMonthlyCustomReports";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'reportId' is set
@@ -1956,17 +1909,6 @@ public class UsageMeteringApi {
   @Deprecated
   public CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>>
       getSpecifiedMonthlyCustomReportsWithHttpInfoAsync(String reportId) {
-    // Check if unstable operation is enabled
-    String operationId = "getSpecifiedMonthlyCustomReports";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'reportId' is set
@@ -2398,7 +2340,10 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage attribution.
+   * Get usage attribution. <strong>Note:</strong> This endpoint will be fully deprecated on
+   * December 1, 2022. Refer to <a
+   * href="https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/">Migrating
+   * from v1 to v2 of the Usage Attribution API</a> for the associated migration guide.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
@@ -2424,13 +2369,6 @@ public class UsageMeteringApi {
       UsageAttributionSupportedMetrics fields,
       GetUsageAttributionOptionalParameters parameters)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getUsageAttribution";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startMonth' is set
@@ -2505,16 +2443,6 @@ public class UsageMeteringApi {
           OffsetDateTime startMonth,
           UsageAttributionSupportedMetrics fields,
           GetUsageAttributionOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getUsageAttribution";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<UsageAttributionResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startMonth' is set

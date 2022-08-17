@@ -8,7 +8,6 @@ import com.datadog.api.client.v1.model.UsageCustomReportsResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v1.getDailyCustomReports", true);
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {
