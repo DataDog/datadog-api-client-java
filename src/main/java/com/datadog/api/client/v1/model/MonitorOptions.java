@@ -24,6 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_ENABLE_LOGS_SAMPLE,
   MonitorOptions.JSON_PROPERTY_ESCALATION_MESSAGE,
   MonitorOptions.JSON_PROPERTY_EVALUATION_DELAY,
+  MonitorOptions.JSON_PROPERTY_GROUP_RETENTION_DURATION,
   MonitorOptions.JSON_PROPERTY_GROUPBY_SIMPLE_MONITOR,
   MonitorOptions.JSON_PROPERTY_INCLUDE_TAGS,
   MonitorOptions.JSON_PROPERTY_LOCKED,
@@ -34,6 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_NO_DATA_TIMEFRAME,
   MonitorOptions.JSON_PROPERTY_NOTIFY_AUDIT,
   MonitorOptions.JSON_PROPERTY_NOTIFY_NO_DATA,
+  MonitorOptions.JSON_PROPERTY_ON_MISSING_DATA,
   MonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL,
   MonitorOptions.JSON_PROPERTY_RENOTIFY_OCCURRENCES,
   MonitorOptions.JSON_PROPERTY_RENOTIFY_STATUSES,
@@ -64,6 +66,9 @@ public class MonitorOptions {
   public static final String JSON_PROPERTY_EVALUATION_DELAY = "evaluation_delay";
   private JsonNullable<Long> evaluationDelay = JsonNullable.<Long>undefined();
 
+  public static final String JSON_PROPERTY_GROUP_RETENTION_DURATION = "group_retention_duration";
+  private String groupRetentionDuration;
+
   public static final String JSON_PROPERTY_GROUPBY_SIMPLE_MONITOR = "groupby_simple_monitor";
   private Boolean groupbySimpleMonitor;
 
@@ -93,6 +98,9 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_NOTIFY_NO_DATA = "notify_no_data";
   private Boolean notifyNoData = false;
+
+  public static final String JSON_PROPERTY_ON_MISSING_DATA = "on_missing_data";
+  private OnMissingDataOption onMissingData;
 
   public static final String JSON_PROPERTY_RENOTIFY_INTERVAL = "renotify_interval";
   private JsonNullable<Long> renotifyInterval = JsonNullable.<Long>undefined();
@@ -229,6 +237,30 @@ public class MonitorOptions {
 
   public void setEvaluationDelay(Long evaluationDelay) {
     this.evaluationDelay = JsonNullable.<Long>of(evaluationDelay);
+  }
+
+  public MonitorOptions groupRetentionDuration(String groupRetentionDuration) {
+    this.groupRetentionDuration = groupRetentionDuration;
+    return this;
+  }
+
+  /**
+   * The time span after which groups with missing data are dropped from the monitor state. The
+   * minimum value is one hour, and the maximum value is 72 hours. Example values are: "60m", "1h",
+   * and "2d". This option is only available for APM Trace Analytics, Audit Trail, CI, Error
+   * Tracking, Event, Logs, and RUM monitors.
+   *
+   * @return groupRetentionDuration
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_RETENTION_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getGroupRetentionDuration() {
+    return groupRetentionDuration;
+  }
+
+  public void setGroupRetentionDuration(String groupRetentionDuration) {
+    this.groupRetentionDuration = groupRetentionDuration;
   }
 
   public MonitorOptions groupbySimpleMonitor(Boolean groupbySimpleMonitor) {
@@ -513,6 +545,36 @@ public class MonitorOptions {
 
   public void setNotifyNoData(Boolean notifyNoData) {
     this.notifyNoData = notifyNoData;
+  }
+
+  public MonitorOptions onMissingData(OnMissingDataOption onMissingData) {
+    this.onMissingData = onMissingData;
+    this.unparsed |= !onMissingData.isValid();
+    return this;
+  }
+
+  /**
+   * Controls how groups or monitors are treated if an evaluation does not return any data points.
+   * The default option results in different behavior depending on the monitor query type. For
+   * monitors using Count queries, an empty monitor evaluation is treated as 0 and is compared to
+   * the threshold conditions. For monitor using any query type other than Count, for example Gauge
+   * or Rate, the monitor shows the last known status. This option is only available for APM Trace
+   * Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+   *
+   * @return onMissingData
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ON_MISSING_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OnMissingDataOption getOnMissingData() {
+    return onMissingData;
+  }
+
+  public void setOnMissingData(OnMissingDataOption onMissingData) {
+    if (!onMissingData.isValid()) {
+      this.unparsed = true;
+    }
+    this.onMissingData = onMissingData;
   }
 
   public MonitorOptions renotifyInterval(Long renotifyInterval) {
@@ -835,6 +897,7 @@ public class MonitorOptions {
         && Objects.equals(this.enableLogsSample, monitorOptions.enableLogsSample)
         && Objects.equals(this.escalationMessage, monitorOptions.escalationMessage)
         && Objects.equals(this.evaluationDelay, monitorOptions.evaluationDelay)
+        && Objects.equals(this.groupRetentionDuration, monitorOptions.groupRetentionDuration)
         && Objects.equals(this.groupbySimpleMonitor, monitorOptions.groupbySimpleMonitor)
         && Objects.equals(this.includeTags, monitorOptions.includeTags)
         && Objects.equals(this.locked, monitorOptions.locked)
@@ -845,6 +908,7 @@ public class MonitorOptions {
         && Objects.equals(this.noDataTimeframe, monitorOptions.noDataTimeframe)
         && Objects.equals(this.notifyAudit, monitorOptions.notifyAudit)
         && Objects.equals(this.notifyNoData, monitorOptions.notifyNoData)
+        && Objects.equals(this.onMissingData, monitorOptions.onMissingData)
         && Objects.equals(this.renotifyInterval, monitorOptions.renotifyInterval)
         && Objects.equals(this.renotifyOccurrences, monitorOptions.renotifyOccurrences)
         && Objects.equals(this.renotifyStatuses, monitorOptions.renotifyStatuses)
@@ -865,6 +929,7 @@ public class MonitorOptions {
         enableLogsSample,
         escalationMessage,
         evaluationDelay,
+        groupRetentionDuration,
         groupbySimpleMonitor,
         includeTags,
         locked,
@@ -875,6 +940,7 @@ public class MonitorOptions {
         noDataTimeframe,
         notifyAudit,
         notifyNoData,
+        onMissingData,
         renotifyInterval,
         renotifyOccurrences,
         renotifyStatuses,
@@ -896,6 +962,9 @@ public class MonitorOptions {
     sb.append("    enableLogsSample: ").append(toIndentedString(enableLogsSample)).append("\n");
     sb.append("    escalationMessage: ").append(toIndentedString(escalationMessage)).append("\n");
     sb.append("    evaluationDelay: ").append(toIndentedString(evaluationDelay)).append("\n");
+    sb.append("    groupRetentionDuration: ")
+        .append(toIndentedString(groupRetentionDuration))
+        .append("\n");
     sb.append("    groupbySimpleMonitor: ")
         .append(toIndentedString(groupbySimpleMonitor))
         .append("\n");
@@ -908,6 +977,7 @@ public class MonitorOptions {
     sb.append("    noDataTimeframe: ").append(toIndentedString(noDataTimeframe)).append("\n");
     sb.append("    notifyAudit: ").append(toIndentedString(notifyAudit)).append("\n");
     sb.append("    notifyNoData: ").append(toIndentedString(notifyNoData)).append("\n");
+    sb.append("    onMissingData: ").append(toIndentedString(onMissingData)).append("\n");
     sb.append("    renotifyInterval: ").append(toIndentedString(renotifyInterval)).append("\n");
     sb.append("    renotifyOccurrences: ")
         .append(toIndentedString(renotifyOccurrences))

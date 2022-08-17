@@ -427,11 +427,6 @@ public class ApiClient {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
-          put("v1.getDailyCustomReports", false);
-          put("v1.getMonthlyCustomReports", false);
-          put("v1.getSpecifiedDailyCustomReports", false);
-          put("v1.getSpecifiedMonthlyCustomReports", false);
-          put("v1.getUsageAttribution", false);
           put("v1.getSLOHistory", false);
           put("v1.searchSLO", false);
           put("v2.listEvents", false);
