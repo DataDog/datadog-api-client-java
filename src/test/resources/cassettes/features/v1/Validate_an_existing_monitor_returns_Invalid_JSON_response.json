@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Validate_an_existing_monitor_returns_Invalid_JSON_response-1649064877\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"groupby_simple_monitor\": true, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notify_audit\": false, \"notify_no_data\": false, \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 24}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testvalidateanexistingmonitorreturnsinvalidjsonresponse1649064877\", \"env:ci\"], \"type\": \"log alert\"}"
+        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Validate_an_existing_monitor_returns_Invalid_JSON_response-1660586687\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"groupby_simple_monitor\": true, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notify_audit\": false, \"notify_no_data\": false, \"on_missing_data\": \"show_and_notify_no_data\", \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 24}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testvalidateanexistingmonitorreturnsinvalidjsonresponse1660586687\", \"env:ci\"], \"type\": \"log alert\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"restricted_roles\":null,\"tags\":[\"test:testvalidateanexistingmonitorreturnsinvalidjsonresponse1649064877\",\"env:ci\"],\"deleted\":null,\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"message\":\"some message Notify: @hipchat-channel\",\"id\":67817255,\"multi\":true,\"name\":\"Test-Validate_an_existing_monitor_returns_Invalid_JSON_response-1649064877\",\"created\":\"2022-04-04T09:34:38.039976+00:00\",\"created_at\":1649064878000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2022-04-04T09:34:38.039976+00:00\",\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"log alert\",\"options\":{\"notify_audit\":false,\"locked\":false,\"timeout_h\":24,\"renotify_interval\":60,\"include_tags\":true,\"no_data_timeframe\":null,\"silenced\":{},\"new_host_delay\":600,\"require_full_window\":true,\"notify_no_data\":false,\"enable_logs_sample\":true,\"groupby_simple_monitor\":true,\"escalation_message\":\"the situation has escalated\",\"evaluation_delay\":700,\"thresholds\":{\"critical\":2.0,\"warning\":1.0}}}",
+      "body": "{\"restricted_roles\":null,\"tags\":[\"test:testvalidateanexistingmonitorreturnsinvalidjsonresponse1660586687\",\"env:ci\"],\"deleted\":null,\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"message\":\"some message Notify: @hipchat-channel\",\"id\":80119053,\"multi\":true,\"name\":\"Test-Validate_an_existing_monitor_returns_Invalid_JSON_response-1660586687\",\"created\":\"2022-08-15T18:04:47.439397+00:00\",\"created_at\":1660586687000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2022-08-15T18:04:47.439397+00:00\",\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"log alert\",\"options\":{\"notify_audit\":false,\"locked\":false,\"timeout_h\":24,\"renotify_interval\":60,\"include_tags\":true,\"no_data_timeframe\":null,\"silenced\":{},\"new_host_delay\":600,\"on_missing_data\":\"show_and_notify_no_data\",\"require_full_window\":true,\"notify_no_data\":false,\"enable_logs_sample\":true,\"groupby_simple_monitor\":true,\"escalation_message\":\"the situation has escalated\",\"evaluation_delay\":700,\"thresholds\":{\"critical\":2.0,\"warning\":1.0}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "722cecdd-779e-5997-d507-cee4e27cf6fc"
+    "id": "6a53061a-13ff-a0d5-411c-e96a5b12425d"
   },
   {
     "httpRequest": {
@@ -37,7 +37,7 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v1/monitor/67817255/validate",
+      "path": "/api/v1/monitor/80119053/validate",
       "keepAlive": false,
       "secure": true
     },
@@ -57,18 +57,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "80eaa4bb-3952-a66e-d91a-d562d5bb781c"
+    "id": "77a3458a-4913-4b35-0973-473899a1d95b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/monitor/67817255",
+      "path": "/api/v1/monitor/80119053",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_monitor_id\":67817255}",
+      "body": "{\"deleted_monitor_id\":80119053}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -83,6 +83,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "01ed89ff-2c04-3ab4-d023-2b19c15711d7"
+    "id": "ef721ef8-dee1-335e-b25a-e940bfdce685"
   }
 ]
