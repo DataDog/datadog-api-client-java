@@ -54,7 +54,8 @@ public class RUMApplicationUpdateAttributes {
   }
 
   /**
-   * Type of the RUM application.
+   * Type of the RUM application. Supported values are <code>browser</code>, <code>ios</code>,
+   * <code>android</code>, <code>react-native</code>, <code>flutter</code>.
    *
    * @return type
    */
