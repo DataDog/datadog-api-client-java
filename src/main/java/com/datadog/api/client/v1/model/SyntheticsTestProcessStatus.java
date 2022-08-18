@@ -27,8 +27,6 @@ public class SyntheticsTestProcessStatus {
       new SyntheticsTestProcessStatus("not_scheduled");
   public static final SyntheticsTestProcessStatus SCHEDULED =
       new SyntheticsTestProcessStatus("scheduled");
-  public static final SyntheticsTestProcessStatus STARTED =
-      new SyntheticsTestProcessStatus("started");
   public static final SyntheticsTestProcessStatus FINISHED =
       new SyntheticsTestProcessStatus("finished");
   public static final SyntheticsTestProcessStatus FINISHED_WITH_ERROR =
@@ -36,8 +34,7 @@ public class SyntheticsTestProcessStatus {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList(
-              "not_scheduled", "scheduled", "started", "finished", "finished_with_error"));
+          Arrays.asList("not_scheduled", "scheduled", "finished", "finished_with_error"));
 
   private String value;
 
