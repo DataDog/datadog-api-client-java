@@ -23,6 +23,9 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- set isRequired = attr in model.get("required", []) %}
   {%- set isNullable = schema.nullable %}
   {%- set defaultValue = schema.get("default", None) %}
+  {%- if schema.deprecated %}
+  @Deprecated
+  {%- endif %}
   public static final String JSON_PROPERTY_{{ attr|snake_case|upper }} = "{{ attr }}";
 
   {%- if schema.format == "date-time" %}
@@ -230,7 +233,9 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
         return {{ variableName }};
         {%- endif %}
       }
-
+  {%- if schema.deprecated %}
+  @Deprecated
+  {%- endif %}
   {%- if not isRequired and isNullable %}
   @JsonProperty(JSON_PROPERTY_{{ attr|snake_case|upper }})
   @JsonInclude(
@@ -244,6 +249,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     this.{{ variableName }} = {{ variableName }};
   }
   {%- endif %}
+
   {%- if not schema.get("readOnly", False) %}
   public void set{{ attr|camel_case|upperfirst }}({{  dataType }} {{ variableName }}) {
     {%- if schema.enum is defined %}
