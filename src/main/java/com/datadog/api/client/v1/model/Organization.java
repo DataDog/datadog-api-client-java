@@ -27,7 +27,7 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Organization {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_BILLING = "billing";
+  @Deprecated public static final String JSON_PROPERTY_BILLING = "billing";
   private OrganizationBilling billing;
 
   public static final String JSON_PROPERTY_CREATED = "created";
@@ -45,7 +45,7 @@ public class Organization {
   public static final String JSON_PROPERTY_SETTINGS = "settings";
   private OrganizationSettings settings;
 
-  public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
+  @Deprecated public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
   private OrganizationSubscription subscription;
 
   public static final String JSON_PROPERTY_TRIAL = "trial";
@@ -71,6 +71,7 @@ public class Organization {
     return billing;
   }
 
+  @Deprecated
   public void setBilling(OrganizationBilling billing) {
     this.billing = billing;
   }
@@ -192,6 +193,7 @@ public class Organization {
     return subscription;
   }
 
+  @Deprecated
   public void setSubscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
   }

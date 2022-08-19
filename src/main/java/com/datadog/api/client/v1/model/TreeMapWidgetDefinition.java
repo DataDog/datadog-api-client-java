@@ -34,19 +34,19 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TreeMapWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COLOR_BY = "color_by";
+  @Deprecated public static final String JSON_PROPERTY_COLOR_BY = "color_by";
   private TreeMapColorBy colorBy = TreeMapColorBy.USER;
 
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
-  public static final String JSON_PROPERTY_GROUP_BY = "group_by";
+  @Deprecated public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private TreeMapGroupBy groupBy;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<TreeMapWidgetRequest> requests = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_SIZE_BY = "size_by";
+  @Deprecated public static final String JSON_PROPERTY_SIZE_BY = "size_by";
   private TreeMapSizeBy sizeBy;
 
   public static final String JSON_PROPERTY_TIME = "time";
@@ -90,6 +90,7 @@ public class TreeMapWidgetDefinition {
     return colorBy;
   }
 
+  @Deprecated
   public void setColorBy(TreeMapColorBy colorBy) {
     if (!colorBy.isValid()) {
       this.unparsed = true;
@@ -150,6 +151,7 @@ public class TreeMapWidgetDefinition {
     return groupBy;
   }
 
+  @Deprecated
   public void setGroupBy(TreeMapGroupBy groupBy) {
     if (!groupBy.isValid()) {
       this.unparsed = true;
@@ -206,6 +208,7 @@ public class TreeMapWidgetDefinition {
     return sizeBy;
   }
 
+  @Deprecated
   public void setSizeBy(TreeMapSizeBy sizeBy) {
     if (!sizeBy.isValid()) {
       this.unparsed = true;

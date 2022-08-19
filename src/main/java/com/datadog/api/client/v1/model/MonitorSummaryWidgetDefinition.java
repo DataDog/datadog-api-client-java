@@ -40,7 +40,7 @@ public class MonitorSummaryWidgetDefinition {
   public static final String JSON_PROPERTY_COLOR_PREFERENCE = "color_preference";
   private WidgetColorPreference colorPreference;
 
-  public static final String JSON_PROPERTY_COUNT = "count";
+  @Deprecated public static final String JSON_PROPERTY_COUNT = "count";
   private Long count;
 
   public static final String JSON_PROPERTY_DISPLAY_FORMAT = "display_format";
@@ -61,7 +61,7 @@ public class MonitorSummaryWidgetDefinition {
   public static final String JSON_PROPERTY_SORT = "sort";
   private WidgetMonitorSummarySort sort;
 
-  public static final String JSON_PROPERTY_START = "start";
+  @Deprecated public static final String JSON_PROPERTY_START = "start";
   private Long start;
 
   public static final String JSON_PROPERTY_SUMMARY_TYPE = "summary_type";
@@ -136,6 +136,7 @@ public class MonitorSummaryWidgetDefinition {
     return count;
   }
 
+  @Deprecated
   public void setCount(Long count) {
     this.count = count;
   }
@@ -293,6 +294,7 @@ public class MonitorSummaryWidgetDefinition {
     return start;
   }
 
+  @Deprecated
   public void setStart(Long start) {
     this.start = start;
   }

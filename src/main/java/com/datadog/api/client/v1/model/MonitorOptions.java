@@ -54,7 +54,7 @@ public class MonitorOptions {
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private MonitorOptionsAggregation aggregation;
 
-  public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
+  @Deprecated public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
   private List<MonitorDeviceID> deviceIds = null;
 
   public static final String JSON_PROPERTY_ENABLE_LOGS_SAMPLE = "enable_logs_sample";
@@ -75,7 +75,7 @@ public class MonitorOptions {
   public static final String JSON_PROPERTY_INCLUDE_TAGS = "include_tags";
   private Boolean includeTags = true;
 
-  public static final String JSON_PROPERTY_LOCKED = "locked";
+  @Deprecated public static final String JSON_PROPERTY_LOCKED = "locked";
   private Boolean locked;
 
   public static final String JSON_PROPERTY_MIN_FAILURE_DURATION = "min_failure_duration";
@@ -87,7 +87,7 @@ public class MonitorOptions {
   public static final String JSON_PROPERTY_NEW_GROUP_DELAY = "new_group_delay";
   private JsonNullable<Long> newGroupDelay = JsonNullable.<Long>undefined();
 
-  public static final String JSON_PROPERTY_NEW_HOST_DELAY = "new_host_delay";
+  @Deprecated public static final String JSON_PROPERTY_NEW_HOST_DELAY = "new_host_delay";
   private JsonNullable<Long> newHostDelay = JsonNullable.<Long>of(300l);
 
   public static final String JSON_PROPERTY_NO_DATA_TIMEFRAME = "no_data_timeframe";
@@ -115,10 +115,10 @@ public class MonitorOptions {
   public static final String JSON_PROPERTY_REQUIRE_FULL_WINDOW = "require_full_window";
   private Boolean requireFullWindow;
 
-  public static final String JSON_PROPERTY_SILENCED = "silenced";
+  @Deprecated public static final String JSON_PROPERTY_SILENCED = "silenced";
   private Map<String, Long> silenced = null;
 
-  public static final String JSON_PROPERTY_SYNTHETICS_CHECK_ID = "synthetics_check_id";
+  @Deprecated public static final String JSON_PROPERTY_SYNTHETICS_CHECK_ID = "synthetics_check_id";
   private JsonNullable<String> syntheticsCheckId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_THRESHOLD_WINDOWS = "threshold_windows";
@@ -159,6 +159,7 @@ public class MonitorOptions {
     return deviceIds;
   }
 
+  @Deprecated
   public MonitorOptions enableLogsSample(Boolean enableLogsSample) {
     this.enableLogsSample = enableLogsSample;
     return this;
@@ -331,6 +332,7 @@ public class MonitorOptions {
     return locked;
   }
 
+  @Deprecated
   public void setLocked(Boolean locked) {
     this.locked = locked;
   }
@@ -457,6 +459,7 @@ public class MonitorOptions {
     return newHostDelay.orElse(null);
   }
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_NEW_HOST_DELAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getNewHostDelay_JsonNullable() {
@@ -735,6 +738,7 @@ public class MonitorOptions {
     return silenced;
   }
 
+  @Deprecated
   public void setSilenced(Map<String, Long> silenced) {
     this.silenced = silenced;
   }
@@ -757,6 +761,7 @@ public class MonitorOptions {
     return syntheticsCheckId.orElse(null);
   }
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getSyntheticsCheckId_JsonNullable() {

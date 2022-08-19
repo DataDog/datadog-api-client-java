@@ -60,7 +60,7 @@ public class SLOHistoryMonitor {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_PRECISION = "precision";
+  @Deprecated public static final String JSON_PROPERTY_PRECISION = "precision";
   private Double precision;
 
   public static final String JSON_PROPERTY_PREVIEW = "preview";
@@ -72,7 +72,7 @@ public class SLOHistoryMonitor {
   public static final String JSON_PROPERTY_SPAN_PRECISION = "span_precision";
   private Double spanPrecision;
 
-  public static final String JSON_PROPERTY_UPTIME = "uptime";
+  @Deprecated public static final String JSON_PROPERTY_UPTIME = "uptime";
   private Double uptime;
 
   public SLOHistoryMonitor errorBudgetRemaining(Map<String, Double> errorBudgetRemaining) {
@@ -276,6 +276,7 @@ public class SLOHistoryMonitor {
     return precision;
   }
 
+  @Deprecated
   public void setPrecision(Double precision) {
     this.precision = precision;
   }
@@ -364,6 +365,7 @@ public class SLOHistoryMonitor {
     return uptime;
   }
 
+  @Deprecated
   public void setUptime(Double uptime) {
     this.uptime = uptime;
   }
