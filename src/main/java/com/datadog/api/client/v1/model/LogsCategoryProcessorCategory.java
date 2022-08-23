@@ -6,21 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object describing the logs filter. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object describing the logs filter.</p>
+ */
 @JsonPropertyOrder({
   LogsCategoryProcessorCategory.JSON_PROPERTY_FILTER,
   LogsCategoryProcessorCategory.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsCategoryProcessorCategory {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsFilter filter;
 
@@ -34,43 +54,42 @@ public class LogsCategoryProcessorCategory {
   }
 
   /**
-   * Filter for logs.
-   *
+   * <p>Filter for logs.</p>
    * @return filter
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsFilter getFilter() {
-    return filter;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FILTER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogsFilter getFilter() {
+        return filter;
+      }
   public void setFilter(LogsFilter filter) {
     this.filter = filter;
   }
-
   public LogsCategoryProcessorCategory name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Value to assign to the target attribute.
-   *
+   * <p>Value to assign to the target attribute.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
 
-  /** Return true if this LogsCategoryProcessorCategory object is equal to o. */
+  /**
+   * Return true if this LogsCategoryProcessorCategory object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -80,13 +99,13 @@ public class LogsCategoryProcessorCategory {
       return false;
     }
     LogsCategoryProcessorCategory logsCategoryProcessorCategory = (LogsCategoryProcessorCategory) o;
-    return Objects.equals(this.filter, logsCategoryProcessorCategory.filter)
-        && Objects.equals(this.name, logsCategoryProcessorCategory.name);
+    return Objects.equals(this.filter, logsCategoryProcessorCategory.filter) && Objects.equals(this.name, logsCategoryProcessorCategory.name);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, name);
+    return Objects.hash(filter,name);
   }
 
   @Override
@@ -100,7 +119,8 @@ public class LogsCategoryProcessorCategory {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

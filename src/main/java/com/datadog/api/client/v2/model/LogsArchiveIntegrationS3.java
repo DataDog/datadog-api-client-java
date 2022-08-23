@@ -6,22 +6,41 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The S3 Archive's integration destination. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The S3 Archive's integration destination.</p>
+ */
 @JsonPropertyOrder({
   LogsArchiveIntegrationS3.JSON_PROPERTY_ACCOUNT_ID,
   LogsArchiveIntegrationS3.JSON_PROPERTY_ROLE_NAME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveIntegrationS3 {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
@@ -32,53 +51,51 @@ public class LogsArchiveIntegrationS3 {
 
   @JsonCreator
   public LogsArchiveIntegrationS3(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_ID) String accountId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ROLE_NAME) String roleName) {
-    this.accountId = accountId;
-    this.roleName = roleName;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ACCOUNT_ID)String accountId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ROLE_NAME)String roleName) {
+        this.accountId = accountId;
+        this.roleName = roleName;
   }
-
   public LogsArchiveIntegrationS3 accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
 
   /**
-   * The account ID for the integration.
-   *
+   * <p>The account ID for the integration.</p>
    * @return accountId
-   */
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAccountId() {
-    return accountId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAccountId() {
+        return accountId;
+      }
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
-
   public LogsArchiveIntegrationS3 roleName(String roleName) {
     this.roleName = roleName;
     return this;
   }
 
   /**
-   * The path of the integration.
-   *
+   * <p>The path of the integration.</p>
    * @return roleName
-   */
-  @JsonProperty(JSON_PROPERTY_ROLE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getRoleName() {
-    return roleName;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ROLE_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getRoleName() {
+        return roleName;
+      }
   public void setRoleName(String roleName) {
     this.roleName = roleName;
   }
 
-  /** Return true if this LogsArchiveIntegrationS3 object is equal to o. */
+  /**
+   * Return true if this LogsArchiveIntegrationS3 object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,13 +105,13 @@ public class LogsArchiveIntegrationS3 {
       return false;
     }
     LogsArchiveIntegrationS3 logsArchiveIntegrationS3 = (LogsArchiveIntegrationS3) o;
-    return Objects.equals(this.accountId, logsArchiveIntegrationS3.accountId)
-        && Objects.equals(this.roleName, logsArchiveIntegrationS3.roleName);
+    return Objects.equals(this.accountId, logsArchiveIntegrationS3.accountId) && Objects.equals(this.roleName, logsArchiveIntegrationS3.roleName);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, roleName);
+    return Objects.hash(accountId,roleName);
   }
 
   @Override
@@ -108,7 +125,8 @@ public class LogsArchiveIntegrationS3 {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,23 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Defined items in the group. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Defined items in the group.</p>
+ */
 @JsonPropertyOrder({
   LogQueryDefinitionGroupBy.JSON_PROPERTY_FACET,
   LogQueryDefinitionGroupBy.JSON_PROPERTY_LIMIT,
   LogQueryDefinitionGroupBy.JSON_PROPERTY_SORT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogQueryDefinitionGroupBy {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
   private String facet;
 
@@ -36,51 +55,46 @@ public class LogQueryDefinitionGroupBy {
 
   @JsonCreator
   public LogQueryDefinitionGroupBy(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FACET) String facet) {
-    this.facet = facet;
+            @JsonProperty(required=true, value=JSON_PROPERTY_FACET)String facet) {
+        this.facet = facet;
   }
-
   public LogQueryDefinitionGroupBy facet(String facet) {
     this.facet = facet;
     return this;
   }
 
   /**
-   * Facet name.
-   *
+   * <p>Facet name.</p>
    * @return facet
-   */
-  @JsonProperty(JSON_PROPERTY_FACET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getFacet() {
-    return facet;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FACET)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getFacet() {
+        return facet;
+      }
   public void setFacet(String facet) {
     this.facet = facet;
   }
-
   public LogQueryDefinitionGroupBy limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * Maximum number of items in the group.
-   *
+   * <p>Maximum number of items in the group.</p>
    * @return limit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLimit() {
-    return limit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIMIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLimit() {
+        return limit;
+      }
   public void setLimit(Long limit) {
     this.limit = limit;
   }
-
   public LogQueryDefinitionGroupBy sort(LogQueryDefinitionGroupBySort sort) {
     this.sort = sort;
     this.unparsed |= sort.unparsed;
@@ -88,22 +102,23 @@ public class LogQueryDefinitionGroupBy {
   }
 
   /**
-   * Define a sorting method.
-   *
+   * <p>Define a sorting method.</p>
    * @return sort
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinitionGroupBySort getSort() {
-    return sort;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SORT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinitionGroupBySort getSort() {
+        return sort;
+      }
   public void setSort(LogQueryDefinitionGroupBySort sort) {
     this.sort = sort;
   }
 
-  /** Return true if this LogQueryDefinitionGroupBy object is equal to o. */
+  /**
+   * Return true if this LogQueryDefinitionGroupBy object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -113,14 +128,13 @@ public class LogQueryDefinitionGroupBy {
       return false;
     }
     LogQueryDefinitionGroupBy logQueryDefinitionGroupBy = (LogQueryDefinitionGroupBy) o;
-    return Objects.equals(this.facet, logQueryDefinitionGroupBy.facet)
-        && Objects.equals(this.limit, logQueryDefinitionGroupBy.limit)
-        && Objects.equals(this.sort, logQueryDefinitionGroupBy.sort);
+    return Objects.equals(this.facet, logQueryDefinitionGroupBy.facet) && Objects.equals(this.limit, logQueryDefinitionGroupBy.limit) && Objects.equals(this.sort, logQueryDefinitionGroupBy.sort);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(facet, limit, sort);
+    return Objects.hash(facet,limit,sort);
   }
 
   @Override
@@ -135,7 +149,8 @@ public class LogQueryDefinitionGroupBy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

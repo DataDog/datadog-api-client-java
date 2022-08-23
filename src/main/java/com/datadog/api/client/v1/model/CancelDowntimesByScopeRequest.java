@@ -6,19 +6,40 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Cancel downtimes according to scope. */
-@JsonPropertyOrder({CancelDowntimesByScopeRequest.JSON_PROPERTY_SCOPE})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Cancel downtimes according to scope.</p>
+ */
+@JsonPropertyOrder({
+  CancelDowntimesByScopeRequest.JSON_PROPERTY_SCOPE
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CancelDowntimesByScopeRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
 
@@ -26,34 +47,33 @@ public class CancelDowntimesByScopeRequest {
 
   @JsonCreator
   public CancelDowntimesByScopeRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SCOPE) String scope) {
-    this.scope = scope;
+            @JsonProperty(required=true, value=JSON_PROPERTY_SCOPE)String scope) {
+        this.scope = scope;
   }
-
   public CancelDowntimesByScopeRequest scope(String scope) {
     this.scope = scope;
     return this;
   }
 
   /**
-   * The scope(s) to which the downtime applies. For example, <code>host:app2</code>. Provide
-   * multiple scopes as a comma-separated list like <code>env:dev,env:prod</code>. The resulting
-   * downtime applies to sources that matches ALL provided scopes (<code>env:dev</code>
-   * <strong>AND</strong> <code>env:prod</code>).
-   *
+   * <p>The scope(s) to which the downtime applies. For example, <code>host:app2</code>.
+   * Provide multiple scopes as a comma-separated list like <code>env:dev,env:prod</code>.
+   * The resulting downtime applies to sources that matches ALL provided scopes (<code>env:dev</code> <strong>AND</strong> <code>env:prod</code>).</p>
    * @return scope
-   */
-  @JsonProperty(JSON_PROPERTY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getScope() {
-    return scope;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SCOPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getScope() {
+        return scope;
+      }
   public void setScope(String scope) {
     this.scope = scope;
   }
 
-  /** Return true if this CancelDowntimesByScopeRequest object is equal to o. */
+  /**
+   * Return true if this CancelDowntimesByScopeRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -65,6 +85,7 @@ public class CancelDowntimesByScopeRequest {
     CancelDowntimesByScopeRequest cancelDowntimesByScopeRequest = (CancelDowntimesByScopeRequest) o;
     return Objects.equals(this.scope, cancelDowntimesByScopeRequest.scope);
   }
+
 
   @Override
   public int hashCode() {
@@ -81,7 +102,8 @@ public class CancelDowntimesByScopeRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

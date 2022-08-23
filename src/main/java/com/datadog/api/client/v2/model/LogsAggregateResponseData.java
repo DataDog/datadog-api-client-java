@@ -6,20 +6,40 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The query results */
-@JsonPropertyOrder({LogsAggregateResponseData.JSON_PROPERTY_BUCKETS})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The query results</p>
+ */
+@JsonPropertyOrder({
+  LogsAggregateResponseData.JSON_PROPERTY_BUCKETS
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateResponseData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUCKETS = "buckets";
   private List<LogsAggregateBucket> buckets = null;
 
@@ -30,7 +50,6 @@ public class LogsAggregateResponseData {
     }
     return this;
   }
-
   public LogsAggregateResponseData addBucketsItem(LogsAggregateBucket bucketsItem) {
     if (this.buckets == null) {
       this.buckets = new ArrayList<>();
@@ -41,22 +60,23 @@ public class LogsAggregateResponseData {
   }
 
   /**
-   * The list of matching buckets, one item per bucket
-   *
+   * <p>The list of matching buckets, one item per bucket</p>
    * @return buckets
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BUCKETS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LogsAggregateBucket> getBuckets() {
-    return buckets;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BUCKETS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<LogsAggregateBucket> getBuckets() {
+        return buckets;
+      }
   public void setBuckets(List<LogsAggregateBucket> buckets) {
     this.buckets = buckets;
   }
 
-  /** Return true if this LogsAggregateResponseData object is equal to o. */
+  /**
+   * Return true if this LogsAggregateResponseData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -68,6 +88,7 @@ public class LogsAggregateResponseData {
     LogsAggregateResponseData logsAggregateResponseData = (LogsAggregateResponseData) o;
     return Objects.equals(this.buckets, logsAggregateResponseData.buckets);
   }
+
 
   @Override
   public int hashCode() {
@@ -84,7 +105,8 @@ public class LogsAggregateResponseData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

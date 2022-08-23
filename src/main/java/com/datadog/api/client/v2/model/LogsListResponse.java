@@ -6,24 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Response object with all logs matching the request and pagination information. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Response object with all logs matching the request and pagination information.</p>
+ */
 @JsonPropertyOrder({
   LogsListResponse.JSON_PROPERTY_DATA,
   LogsListResponse.JSON_PROPERTY_LINKS,
   LogsListResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<Log> data = null;
 
@@ -40,7 +58,6 @@ public class LogsListResponse {
     }
     return this;
   }
-
   public LogsListResponse addDataItem(Log dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
@@ -51,21 +68,19 @@ public class LogsListResponse {
   }
 
   /**
-   * Array of logs matching the request.
-   *
+   * <p>Array of logs matching the request.</p>
    * @return data
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Log> getData() {
-    return data;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<Log> getData() {
+        return data;
+      }
   public void setData(List<Log> data) {
     this.data = data;
   }
-
   public LogsListResponse links(LogsListResponseLinks links) {
     this.links = links;
     this.unparsed |= links.unparsed;
@@ -73,21 +88,19 @@ public class LogsListResponse {
   }
 
   /**
-   * Links attributes.
-   *
+   * <p>Links attributes.</p>
    * @return links
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsListResponseLinks getLinks() {
-    return links;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LINKS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogsListResponseLinks getLinks() {
+        return links;
+      }
   public void setLinks(LogsListResponseLinks links) {
     this.links = links;
   }
-
   public LogsListResponse meta(LogsResponseMetadata meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -95,22 +108,23 @@ public class LogsListResponse {
   }
 
   /**
-   * The metadata associated with a request
-   *
+   * <p>The metadata associated with a request</p>
    * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsResponseMetadata getMeta() {
-    return meta;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_META)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogsResponseMetadata getMeta() {
+        return meta;
+      }
   public void setMeta(LogsResponseMetadata meta) {
     this.meta = meta;
   }
 
-  /** Return true if this LogsListResponse object is equal to o. */
+  /**
+   * Return true if this LogsListResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -120,14 +134,13 @@ public class LogsListResponse {
       return false;
     }
     LogsListResponse logsListResponse = (LogsListResponse) o;
-    return Objects.equals(this.data, logsListResponse.data)
-        && Objects.equals(this.links, logsListResponse.links)
-        && Objects.equals(this.meta, logsListResponse.meta);
+    return Objects.equals(this.data, logsListResponse.data) && Objects.equals(this.links, logsListResponse.links) && Objects.equals(this.meta, logsListResponse.meta);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, meta);
+    return Objects.hash(data,links,meta);
   }
 
   @Override
@@ -142,7 +155,8 @@ public class LogsListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

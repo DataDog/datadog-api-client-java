@@ -6,19 +6,40 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The incident team's attributes for a create request. */
-@JsonPropertyOrder({IncidentTeamCreateAttributes.JSON_PROPERTY_NAME})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The incident team's attributes for a create request.</p>
+ */
+@JsonPropertyOrder({
+  IncidentTeamCreateAttributes.JSON_PROPERTY_NAME
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentTeamCreateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -26,31 +47,31 @@ public class IncidentTeamCreateAttributes {
 
   @JsonCreator
   public IncidentTeamCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.name = name;
   }
-
   public IncidentTeamCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the incident team.
-   *
+   * <p>Name of the incident team.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
 
-  /** Return true if this IncidentTeamCreateAttributes object is equal to o. */
+  /**
+   * Return true if this IncidentTeamCreateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -62,6 +83,7 @@ public class IncidentTeamCreateAttributes {
     IncidentTeamCreateAttributes incidentTeamCreateAttributes = (IncidentTeamCreateAttributes) o;
     return Objects.equals(this.name, incidentTeamCreateAttributes.name);
   }
+
 
   @Override
   public int hashCode() {
@@ -78,7 +100,8 @@ public class IncidentTeamCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

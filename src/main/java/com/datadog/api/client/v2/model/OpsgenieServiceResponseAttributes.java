@@ -6,23 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes from an Opsgenie service response. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The attributes from an Opsgenie service response.</p>
+ */
 @JsonPropertyOrder({
   OpsgenieServiceResponseAttributes.JSON_PROPERTY_CUSTOM_URL,
   OpsgenieServiceResponseAttributes.JSON_PROPERTY_NAME,
   OpsgenieServiceResponseAttributes.JSON_PROPERTY_REGION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OpsgenieServiceResponseAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_URL = "custom_url";
   private JsonNullable<String> customUrl = JsonNullable.<String>undefined();
 
@@ -38,52 +57,45 @@ public class OpsgenieServiceResponseAttributes {
   }
 
   /**
-   * The custom URL for a custom region.
-   *
+   * <p>The custom URL for a custom region.</p>
    * @return customUrl
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getCustomUrl() {
-    return customUrl.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getCustomUrl() {
+        return customUrl.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_CUSTOM_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getCustomUrl_JsonNullable() {
     return customUrl;
   }
-
-  @JsonProperty(JSON_PROPERTY_CUSTOM_URL)
-  public void setCustomUrl_JsonNullable(JsonNullable<String> customUrl) {
+  @JsonProperty(JSON_PROPERTY_CUSTOM_URL)public void setCustomUrl_JsonNullable(JsonNullable<String> customUrl) {
     this.customUrl = customUrl;
   }
-
   public void setCustomUrl(String customUrl) {
     this.customUrl = JsonNullable.<String>of(customUrl);
   }
-
   public OpsgenieServiceResponseAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name for the Opsgenie service.
-   *
+   * <p>The name for the Opsgenie service.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public OpsgenieServiceResponseAttributes region(OpsgenieServiceRegionType region) {
     this.region = region;
     this.unparsed |= !region.isValid();
@@ -91,25 +103,26 @@ public class OpsgenieServiceResponseAttributes {
   }
 
   /**
-   * The region for the Opsgenie service.
-   *
+   * <p>The region for the Opsgenie service.</p>
    * @return region
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REGION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OpsgenieServiceRegionType getRegion() {
-    return region;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REGION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OpsgenieServiceRegionType getRegion() {
+        return region;
+      }
   public void setRegion(OpsgenieServiceRegionType region) {
     if (!region.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.region = region;
   }
 
-  /** Return true if this OpsgenieServiceResponseAttributes object is equal to o. */
+  /**
+   * Return true if this OpsgenieServiceResponseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -118,16 +131,14 @@ public class OpsgenieServiceResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OpsgenieServiceResponseAttributes opsgenieServiceResponseAttributes =
-        (OpsgenieServiceResponseAttributes) o;
-    return Objects.equals(this.customUrl, opsgenieServiceResponseAttributes.customUrl)
-        && Objects.equals(this.name, opsgenieServiceResponseAttributes.name)
-        && Objects.equals(this.region, opsgenieServiceResponseAttributes.region);
+    OpsgenieServiceResponseAttributes opsgenieServiceResponseAttributes = (OpsgenieServiceResponseAttributes) o;
+    return Objects.equals(this.customUrl, opsgenieServiceResponseAttributes.customUrl) && Objects.equals(this.name, opsgenieServiceResponseAttributes.name) && Objects.equals(this.region, opsgenieServiceResponseAttributes.region);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUrl, name, region);
+    return Objects.hash(customUrl,name,region);
   }
 
   @Override
@@ -142,7 +153,8 @@ public class OpsgenieServiceResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

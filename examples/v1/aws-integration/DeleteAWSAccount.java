@@ -1,17 +1,24 @@
 // Delete an AWS integration returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.AwsIntegrationApi;
 import com.datadog.api.client.v1.model.AWSAccountDeleteRequest;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
 
-    AWSAccountDeleteRequest body =
-        new AWSAccountDeleteRequest().accountId("1234567").roleName("DatadogAWSIntegrationRole");
+    AWSAccountDeleteRequest body = new AWSAccountDeleteRequest()
+.accountId("1234567")
+.roleName("DatadogAWSIntegrationRole");
 
     try {
       apiInstance.deleteAWSAccount(body);

@@ -6,17 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Object defining a variable that can be used in your browser test. Learn more in the <a
- * href="https://docs.datadoghq.com/synthetics/browser_tests/actions#variable">Browser test Actions
- * documentation</a>.
+   * <p>Object defining a variable that can be used in your browser test.
+   * Learn more in the <a href="https://docs.datadoghq.com/synthetics/browser_tests/actions#variable">Browser test Actions documentation</a>.</p>
  */
 @JsonPropertyOrder({
   SyntheticsBrowserVariable.JSON_PROPERTY_EXAMPLE,
@@ -25,10 +41,10 @@ import java.util.Objects;
   SyntheticsBrowserVariable.JSON_PROPERTY_PATTERN,
   SyntheticsBrowserVariable.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserVariable {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXAMPLE = "example";
   private String example;
 
@@ -48,97 +64,87 @@ public class SyntheticsBrowserVariable {
 
   @JsonCreator
   public SyntheticsBrowserVariable(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          SyntheticsBrowserVariableType type) {
-    this.name = name;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SyntheticsBrowserVariableType type) {
+        this.name = name;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public SyntheticsBrowserVariable example(String example) {
     this.example = example;
     return this;
   }
 
   /**
-   * Example for the variable.
-   *
+   * <p>Example for the variable.</p>
    * @return example
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXAMPLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getExample() {
-    return example;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EXAMPLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getExample() {
+        return example;
+      }
   public void setExample(String example) {
     this.example = example;
   }
-
   public SyntheticsBrowserVariable id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * ID for the variable. Global variables require an ID.
-   *
+   * <p>ID for the variable. Global variables require an ID.</p>
    * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public SyntheticsBrowserVariable name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the variable.
-   *
+   * <p>Name of the variable.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public SyntheticsBrowserVariable pattern(String pattern) {
     this.pattern = pattern;
     return this;
   }
 
   /**
-   * Pattern of the variable.
-   *
+   * <p>Pattern of the variable.</p>
    * @return pattern
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PATTERN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPattern() {
-    return pattern;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PATTERN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPattern() {
+        return pattern;
+      }
   public void setPattern(String pattern) {
     this.pattern = pattern;
   }
-
   public SyntheticsBrowserVariable type(SyntheticsBrowserVariableType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -146,24 +152,25 @@ public class SyntheticsBrowserVariable {
   }
 
   /**
-   * Type of browser test variable.
-   *
+   * <p>Type of browser test variable.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsBrowserVariableType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SyntheticsBrowserVariableType getType() {
+        return type;
+      }
   public void setType(SyntheticsBrowserVariableType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this SyntheticsBrowserVariable object is equal to o. */
+  /**
+   * Return true if this SyntheticsBrowserVariable object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -173,16 +180,13 @@ public class SyntheticsBrowserVariable {
       return false;
     }
     SyntheticsBrowserVariable syntheticsBrowserVariable = (SyntheticsBrowserVariable) o;
-    return Objects.equals(this.example, syntheticsBrowserVariable.example)
-        && Objects.equals(this.id, syntheticsBrowserVariable.id)
-        && Objects.equals(this.name, syntheticsBrowserVariable.name)
-        && Objects.equals(this.pattern, syntheticsBrowserVariable.pattern)
-        && Objects.equals(this.type, syntheticsBrowserVariable.type);
+    return Objects.equals(this.example, syntheticsBrowserVariable.example) && Objects.equals(this.id, syntheticsBrowserVariable.id) && Objects.equals(this.name, syntheticsBrowserVariable.name) && Objects.equals(this.pattern, syntheticsBrowserVariable.pattern) && Objects.equals(this.type, syntheticsBrowserVariable.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(example, id, name, pattern, type);
+    return Objects.hash(example,id,name,pattern,type);
   }
 
   @Override
@@ -199,7 +203,8 @@ public class SyntheticsBrowserVariable {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

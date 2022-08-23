@@ -6,14 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** RUM application attributes. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>RUM application attributes.</p>
+ */
 @JsonPropertyOrder({
   RUMApplicationAttributes.JSON_PROPERTY_APPLICATION_ID,
   RUMApplicationAttributes.JSON_PROPERTY_CREATED_AT,
@@ -25,10 +44,10 @@ import java.util.Objects;
   RUMApplicationAttributes.JSON_PROPERTY_UPDATED_AT,
   RUMApplicationAttributes.JSON_PROPERTY_UPDATED_BY_HANDLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMApplicationAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION_ID = "application_id";
   private String applicationId;
 
@@ -60,209 +79,190 @@ public class RUMApplicationAttributes {
 
   @JsonCreator
   public RUMApplicationAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) String applicationId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) Long createdAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY_HANDLE)
-          String createdByHandle,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ORG_ID) Integer orgId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type,
-      @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_AT) Long updatedAt,
-      @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_BY_HANDLE)
-          String updatedByHandle) {
-    this.applicationId = applicationId;
-    this.createdAt = createdAt;
-    this.createdByHandle = createdByHandle;
-    this.name = name;
-    this.orgId = orgId;
-    this.type = type;
-    this.updatedAt = updatedAt;
-    this.updatedByHandle = updatedByHandle;
+            @JsonProperty(required=true, value=JSON_PROPERTY_APPLICATION_ID)String applicationId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_AT)Long createdAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_CREATED_BY_HANDLE)String createdByHandle,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ORG_ID)Integer orgId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)String type,
+            @JsonProperty(required=true, value=JSON_PROPERTY_UPDATED_AT)Long updatedAt,
+            @JsonProperty(required=true, value=JSON_PROPERTY_UPDATED_BY_HANDLE)String updatedByHandle) {
+        this.applicationId = applicationId;
+        this.createdAt = createdAt;
+        this.createdByHandle = createdByHandle;
+        this.name = name;
+        this.orgId = orgId;
+        this.type = type;
+        this.updatedAt = updatedAt;
+        this.updatedByHandle = updatedByHandle;
   }
-
   public RUMApplicationAttributes applicationId(String applicationId) {
     this.applicationId = applicationId;
     return this;
   }
 
   /**
-   * ID of the RUM application.
-   *
+   * <p>ID of the RUM application.</p>
    * @return applicationId
-   */
-  @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getApplicationId() {
-    return applicationId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getApplicationId() {
+        return applicationId;
+      }
   public void setApplicationId(String applicationId) {
     this.applicationId = applicationId;
   }
-
   public RUMApplicationAttributes createdAt(Long createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * Timestamp in ms of the creation date.
-   *
+   * <p>Timestamp in ms of the creation date.</p>
    * @return createdAt
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(Long createdAt) {
     this.createdAt = createdAt;
   }
-
   public RUMApplicationAttributes createdByHandle(String createdByHandle) {
     this.createdByHandle = createdByHandle;
     return this;
   }
 
   /**
-   * Handle of the creator user.
-   *
+   * <p>Handle of the creator user.</p>
    * @return createdByHandle
-   */
-  @JsonProperty(JSON_PROPERTY_CREATED_BY_HANDLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getCreatedByHandle() {
-    return createdByHandle;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CREATED_BY_HANDLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getCreatedByHandle() {
+        return createdByHandle;
+      }
   public void setCreatedByHandle(String createdByHandle) {
     this.createdByHandle = createdByHandle;
   }
-
   public RUMApplicationAttributes hash(String hash) {
     this.hash = hash;
     return this;
   }
 
   /**
-   * Client token of the RUM application.
-   *
+   * <p>Client token of the RUM application.</p>
    * @return hash
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HASH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHash() {
-    return hash;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HASH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getHash() {
+        return hash;
+      }
   public void setHash(String hash) {
     this.hash = hash;
   }
-
   public RUMApplicationAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the RUM application.
-   *
+   * <p>Name of the RUM application.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public RUMApplicationAttributes orgId(Integer orgId) {
     this.orgId = orgId;
     return this;
   }
 
   /**
-   * Org ID of the RUM application.
-   *
+   * <p>Org ID of the RUM application.</p>
    * @return orgId
-   */
-  @JsonProperty(JSON_PROPERTY_ORG_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getOrgId() {
-    return orgId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ORG_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Integer getOrgId() {
+        return orgId;
+      }
   public void setOrgId(Integer orgId) {
     this.orgId = orgId;
   }
-
   public RUMApplicationAttributes type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Type of the RUM application. Supported values are <code>browser</code>, <code>ios</code>,
-   * <code>android</code>, <code>react-native</code>, <code>flutter</code>.
-   *
+   * <p>Type of the RUM application. Supported values are <code>browser</code>, <code>ios</code>, <code>android</code>, <code>react-native</code>, <code>flutter</code>.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
-
   public RUMApplicationAttributes updatedAt(Long updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * Timestamp in ms of the last update date.
-   *
+   * <p>Timestamp in ms of the last update date.</p>
    * @return updatedAt
-   */
-  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getUpdatedAt() {
-    return updatedAt;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Long getUpdatedAt() {
+        return updatedAt;
+      }
   public void setUpdatedAt(Long updatedAt) {
     this.updatedAt = updatedAt;
   }
-
   public RUMApplicationAttributes updatedByHandle(String updatedByHandle) {
     this.updatedByHandle = updatedByHandle;
     return this;
   }
 
   /**
-   * Handle of the updater user.
-   *
+   * <p>Handle of the updater user.</p>
    * @return updatedByHandle
-   */
-  @JsonProperty(JSON_PROPERTY_UPDATED_BY_HANDLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getUpdatedByHandle() {
-    return updatedByHandle;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_UPDATED_BY_HANDLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getUpdatedByHandle() {
+        return updatedByHandle;
+      }
   public void setUpdatedByHandle(String updatedByHandle) {
     this.updatedByHandle = updatedByHandle;
   }
 
-  /** Return true if this RUMApplicationAttributes object is equal to o. */
+  /**
+   * Return true if this RUMApplicationAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -272,29 +272,13 @@ public class RUMApplicationAttributes {
       return false;
     }
     RUMApplicationAttributes rumApplicationAttributes = (RUMApplicationAttributes) o;
-    return Objects.equals(this.applicationId, rumApplicationAttributes.applicationId)
-        && Objects.equals(this.createdAt, rumApplicationAttributes.createdAt)
-        && Objects.equals(this.createdByHandle, rumApplicationAttributes.createdByHandle)
-        && Objects.equals(this.hash, rumApplicationAttributes.hash)
-        && Objects.equals(this.name, rumApplicationAttributes.name)
-        && Objects.equals(this.orgId, rumApplicationAttributes.orgId)
-        && Objects.equals(this.type, rumApplicationAttributes.type)
-        && Objects.equals(this.updatedAt, rumApplicationAttributes.updatedAt)
-        && Objects.equals(this.updatedByHandle, rumApplicationAttributes.updatedByHandle);
+    return Objects.equals(this.applicationId, rumApplicationAttributes.applicationId) && Objects.equals(this.createdAt, rumApplicationAttributes.createdAt) && Objects.equals(this.createdByHandle, rumApplicationAttributes.createdByHandle) && Objects.equals(this.hash, rumApplicationAttributes.hash) && Objects.equals(this.name, rumApplicationAttributes.name) && Objects.equals(this.orgId, rumApplicationAttributes.orgId) && Objects.equals(this.type, rumApplicationAttributes.type) && Objects.equals(this.updatedAt, rumApplicationAttributes.updatedAt) && Objects.equals(this.updatedByHandle, rumApplicationAttributes.updatedByHandle);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        applicationId,
-        createdAt,
-        createdByHandle,
-        hash,
-        name,
-        orgId,
-        type,
-        updatedAt,
-        updatedByHandle);
+    return Objects.hash(applicationId,createdAt,createdByHandle,hash,name,orgId,type,updatedAt,updatedByHandle);
   }
 
   @Override
@@ -315,7 +299,8 @@ public class RUMApplicationAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

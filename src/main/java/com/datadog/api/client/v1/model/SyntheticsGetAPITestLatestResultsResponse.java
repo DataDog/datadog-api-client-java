@@ -6,23 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object with the latest Synthetic API test run. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object with the latest Synthetic API test run.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_LAST_TIMESTAMP_FETCHED,
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_RESULTS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsGetAPITestLatestResultsResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_LAST_TIMESTAMP_FETCHED = "last_timestamp_fetched";
   private Long lastTimestampFetched;
 
@@ -35,32 +53,27 @@ public class SyntheticsGetAPITestLatestResultsResponse {
   }
 
   /**
-   * Timestamp of the latest API test run.
-   *
+   * <p>Timestamp of the latest API test run.</p>
    * @return lastTimestampFetched
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LAST_TIMESTAMP_FETCHED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLastTimestampFetched() {
-    return lastTimestampFetched;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LAST_TIMESTAMP_FETCHED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLastTimestampFetched() {
+        return lastTimestampFetched;
+      }
   public void setLastTimestampFetched(Long lastTimestampFetched) {
     this.lastTimestampFetched = lastTimestampFetched;
   }
-
-  public SyntheticsGetAPITestLatestResultsResponse results(
-      List<SyntheticsAPITestResultShort> results) {
+  public SyntheticsGetAPITestLatestResultsResponse results(List<SyntheticsAPITestResultShort> results) {
     this.results = results;
     for (SyntheticsAPITestResultShort item : results) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public SyntheticsGetAPITestLatestResultsResponse addResultsItem(
-      SyntheticsAPITestResultShort resultsItem) {
+  public SyntheticsGetAPITestLatestResultsResponse addResultsItem(SyntheticsAPITestResultShort resultsItem) {
     if (this.results == null) {
       this.results = new ArrayList<>();
     }
@@ -70,22 +83,23 @@ public class SyntheticsGetAPITestLatestResultsResponse {
   }
 
   /**
-   * Result of the latest API test run.
-   *
+   * <p>Result of the latest API test run.</p>
    * @return results
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsAPITestResultShort> getResults() {
-    return results;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESULTS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SyntheticsAPITestResultShort> getResults() {
+        return results;
+      }
   public void setResults(List<SyntheticsAPITestResultShort> results) {
     this.results = results;
   }
 
-  /** Return true if this SyntheticsGetAPITestLatestResultsResponse object is equal to o. */
+  /**
+   * Return true if this SyntheticsGetAPITestLatestResultsResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,33 +108,29 @@ public class SyntheticsGetAPITestLatestResultsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsGetAPITestLatestResultsResponse syntheticsGetApiTestLatestResultsResponse =
-        (SyntheticsGetAPITestLatestResultsResponse) o;
-    return Objects.equals(
-            this.lastTimestampFetched,
-            syntheticsGetApiTestLatestResultsResponse.lastTimestampFetched)
-        && Objects.equals(this.results, syntheticsGetApiTestLatestResultsResponse.results);
+    SyntheticsGetAPITestLatestResultsResponse syntheticsGetApiTestLatestResultsResponse = (SyntheticsGetAPITestLatestResultsResponse) o;
+    return Objects.equals(this.lastTimestampFetched, syntheticsGetApiTestLatestResultsResponse.lastTimestampFetched) && Objects.equals(this.results, syntheticsGetApiTestLatestResultsResponse.results);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastTimestampFetched, results);
+    return Objects.hash(lastTimestampFetched,results);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsGetAPITestLatestResultsResponse {\n");
-    sb.append("    lastTimestampFetched: ")
-        .append(toIndentedString(lastTimestampFetched))
-        .append("\n");
+    sb.append("    lastTimestampFetched: ").append(toIndentedString(lastTimestampFetched)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

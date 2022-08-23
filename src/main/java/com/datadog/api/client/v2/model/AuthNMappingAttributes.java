@@ -6,16 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.time.OffsetDateTime;
-import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of AuthN Mapping. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of AuthN Mapping.</p>
+ */
 @JsonPropertyOrder({
   AuthNMappingAttributes.JSON_PROPERTY_ATTRIBUTE_KEY,
   AuthNMappingAttributes.JSON_PROPERTY_ATTRIBUTE_VALUE,
@@ -23,10 +40,10 @@ import java.util.Objects;
   AuthNMappingAttributes.JSON_PROPERTY_MODIFIED_AT,
   AuthNMappingAttributes.JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTE_KEY = "attribute_key";
   private String attributeKey;
 
@@ -34,17 +51,14 @@ public class AuthNMappingAttributes {
   private String attributeValue;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modifiedAt;
 
-  public static final String JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE_ID =
-      "saml_assertion_attribute_id";
+  public static final String JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE_ID = "saml_assertion_attribute_id";
   private String samlAssertionAttributeId;
 
   public AuthNMappingAttributes attributeKey(String attributeKey) {
@@ -53,88 +67,85 @@ public class AuthNMappingAttributes {
   }
 
   /**
-   * Key portion of a key/value pair of the attribute sent from the Identity Provider.
-   *
+   * <p>Key portion of a key/value pair of the attribute sent from the Identity Provider.</p>
    * @return attributeKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTE_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAttributeKey() {
-    return attributeKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTE_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAttributeKey() {
+        return attributeKey;
+      }
   public void setAttributeKey(String attributeKey) {
     this.attributeKey = attributeKey;
   }
-
   public AuthNMappingAttributes attributeValue(String attributeValue) {
     this.attributeValue = attributeValue;
     return this;
   }
 
   /**
-   * Value portion of a key/value pair of the attribute sent from the Identity Provider.
-   *
+   * <p>Value portion of a key/value pair of the attribute sent from the Identity Provider.</p>
    * @return attributeValue
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTE_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAttributeValue() {
-    return attributeValue;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTE_VALUE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAttributeValue() {
+        return attributeValue;
+      }
   public void setAttributeValue(String attributeValue) {
     this.attributeValue = attributeValue;
   }
 
   /**
-   * Creation time of the AuthN Mapping.
-   *
+   * <p>Creation time of the AuthN Mapping.</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
 
   /**
-   * Time of last AuthN Mapping modification.
-   *
+   * <p>Time of last AuthN Mapping modification.</p>
    * @return modifiedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getModifiedAt() {
+        return modifiedAt;
+      }
   public AuthNMappingAttributes samlAssertionAttributeId(String samlAssertionAttributeId) {
     this.samlAssertionAttributeId = samlAssertionAttributeId;
     return this;
   }
 
   /**
-   * The ID of the SAML assertion attribute.
-   *
+   * <p>The ID of the SAML assertion attribute.</p>
    * @return samlAssertionAttributeId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSamlAssertionAttributeId() {
-    return samlAssertionAttributeId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSamlAssertionAttributeId() {
+        return samlAssertionAttributeId;
+      }
   public void setSamlAssertionAttributeId(String samlAssertionAttributeId) {
     this.samlAssertionAttributeId = samlAssertionAttributeId;
   }
 
-  /** Return true if this AuthNMappingAttributes object is equal to o. */
+  /**
+   * Return true if this AuthNMappingAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -144,18 +155,13 @@ public class AuthNMappingAttributes {
       return false;
     }
     AuthNMappingAttributes authNMappingAttributes = (AuthNMappingAttributes) o;
-    return Objects.equals(this.attributeKey, authNMappingAttributes.attributeKey)
-        && Objects.equals(this.attributeValue, authNMappingAttributes.attributeValue)
-        && Objects.equals(this.createdAt, authNMappingAttributes.createdAt)
-        && Objects.equals(this.modifiedAt, authNMappingAttributes.modifiedAt)
-        && Objects.equals(
-            this.samlAssertionAttributeId, authNMappingAttributes.samlAssertionAttributeId);
+    return Objects.equals(this.attributeKey, authNMappingAttributes.attributeKey) && Objects.equals(this.attributeValue, authNMappingAttributes.attributeValue) && Objects.equals(this.createdAt, authNMappingAttributes.createdAt) && Objects.equals(this.modifiedAt, authNMappingAttributes.modifiedAt) && Objects.equals(this.samlAssertionAttributeId, authNMappingAttributes.samlAssertionAttributeId);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        attributeKey, attributeValue, createdAt, modifiedAt, samlAssertionAttributeId);
+    return Objects.hash(attributeKey,attributeValue,createdAt,modifiedAt,samlAssertionAttributeId);
   }
 
   @Override
@@ -166,15 +172,14 @@ public class AuthNMappingAttributes {
     sb.append("    attributeValue: ").append(toIndentedString(attributeValue)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
-    sb.append("    samlAssertionAttributeId: ")
-        .append(toIndentedString(samlAssertionAttributeId))
-        .append("\n");
+    sb.append("    samlAssertionAttributeId: ").append(toIndentedString(samlAssertionAttributeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -1,9 +1,15 @@
 // Get all Cloud Workload Security Agent rules returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.CloudWorkloadSecurityApi;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRulesListResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,12 +17,10 @@ public class Example {
     CloudWorkloadSecurityApi apiInstance = new CloudWorkloadSecurityApi(defaultClient);
 
     try {
-      CloudWorkloadSecurityAgentRulesListResponse result =
-          apiInstance.listCloudWorkloadSecurityAgentRules();
+      CloudWorkloadSecurityAgentRulesListResponse result = apiInstance.listCloudWorkloadSecurityAgentRules();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println(
-          "Exception when calling CloudWorkloadSecurityApi#listCloudWorkloadSecurityAgentRules");
+      System.err.println("Exception when calling CloudWorkloadSecurityApi#listCloudWorkloadSecurityAgentRules");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

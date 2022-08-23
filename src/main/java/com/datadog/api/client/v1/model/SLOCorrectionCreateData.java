@@ -6,22 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The data object associated with the SLO correction to be created. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The data object associated with the SLO correction to be created.</p>
+ */
 @JsonPropertyOrder({
   SLOCorrectionCreateData.JSON_PROPERTY_ATTRIBUTES,
   SLOCorrectionCreateData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOCorrectionCreateData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private SLOCorrectionCreateRequestAttributes attributes;
 
@@ -32,11 +51,10 @@ public class SLOCorrectionCreateData {
 
   @JsonCreator
   public SLOCorrectionCreateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SLOCorrectionType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SLOCorrectionType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public SLOCorrectionCreateData attributes(SLOCorrectionCreateRequestAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -44,21 +62,19 @@ public class SLOCorrectionCreateData {
   }
 
   /**
-   * The attribute object associated with the SLO correction to be created.
-   *
+   * <p>The attribute object associated with the SLO correction to be created.</p>
    * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SLOCorrectionCreateRequestAttributes getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SLOCorrectionCreateRequestAttributes getAttributes() {
+        return attributes;
+      }
   public void setAttributes(SLOCorrectionCreateRequestAttributes attributes) {
     this.attributes = attributes;
   }
-
   public SLOCorrectionCreateData type(SLOCorrectionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -66,24 +82,25 @@ public class SLOCorrectionCreateData {
   }
 
   /**
-   * SLO correction resource type.
-   *
+   * <p>SLO correction resource type.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SLOCorrectionType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SLOCorrectionType getType() {
+        return type;
+      }
   public void setType(SLOCorrectionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this SLOCorrectionCreateData object is equal to o. */
+  /**
+   * Return true if this SLOCorrectionCreateData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -93,13 +110,13 @@ public class SLOCorrectionCreateData {
       return false;
     }
     SLOCorrectionCreateData sloCorrectionCreateData = (SLOCorrectionCreateData) o;
-    return Objects.equals(this.attributes, sloCorrectionCreateData.attributes)
-        && Objects.equals(this.type, sloCorrectionCreateData.type);
+    return Objects.equals(this.attributes, sloCorrectionCreateData.attributes) && Objects.equals(this.type, sloCorrectionCreateData.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type);
+    return Objects.hash(attributes,type);
   }
 
   @Override
@@ -113,7 +130,8 @@ public class SLOCorrectionCreateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
