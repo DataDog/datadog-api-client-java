@@ -6,40 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Optional metadata associated to the response.</p>
- */
-@JsonPropertyOrder({
-  SecurityFilterMeta.JSON_PROPERTY_WARNING
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Optional metadata associated to the response. */
+@JsonPropertyOrder({SecurityFilterMeta.JSON_PROPERTY_WARNING})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityFilterMeta {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_WARNING = "warning";
   private String warning;
 
@@ -49,23 +27,22 @@ public class SecurityFilterMeta {
   }
 
   /**
-   * <p>A warning message.</p>
+   * A warning message.
+   *
    * @return warning
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_WARNING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getWarning() {
-        return warning;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WARNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getWarning() {
+    return warning;
+  }
+
   public void setWarning(String warning) {
     this.warning = warning;
   }
 
-  /**
-   * Return true if this SecurityFilterMeta object is equal to o.
-   */
+  /** Return true if this SecurityFilterMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -77,7 +54,6 @@ public class SecurityFilterMeta {
     SecurityFilterMeta securityFilterMeta = (SecurityFilterMeta) o;
     return Objects.equals(this.warning, securityFilterMeta.warning);
   }
-
 
   @Override
   public int hashCode() {
@@ -94,8 +70,7 @@ public class SecurityFilterMeta {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

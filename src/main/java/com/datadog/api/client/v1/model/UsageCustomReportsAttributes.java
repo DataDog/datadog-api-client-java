@@ -6,33 +6,15 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The response containing attributes for custom reports.</p>
- */
+/** The response containing attributes for custom reports. */
 @JsonPropertyOrder({
   UsageCustomReportsAttributes.JSON_PROPERTY_COMPUTED_ON,
   UsageCustomReportsAttributes.JSON_PROPERTY_END_DATE,
@@ -40,10 +22,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   UsageCustomReportsAttributes.JSON_PROPERTY_START_DATE,
   UsageCustomReportsAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageCustomReportsAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTED_ON = "computed_on";
   private String computedOn;
 
@@ -65,80 +47,89 @@ public class UsageCustomReportsAttributes {
   }
 
   /**
-   * <p>The date the specified custom report was computed.</p>
+   * The date the specified custom report was computed.
+   *
    * @return computedOn
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPUTED_ON)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getComputedOn() {
-        return computedOn;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPUTED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getComputedOn() {
+    return computedOn;
+  }
+
   public void setComputedOn(String computedOn) {
     this.computedOn = computedOn;
   }
+
   public UsageCustomReportsAttributes endDate(String endDate) {
     this.endDate = endDate;
     return this;
   }
 
   /**
-   * <p>The ending date of custom report.</p>
+   * The ending date of custom report.
+   *
    * @return endDate
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_END_DATE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getEndDate() {
-        return endDate;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_END_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEndDate() {
+    return endDate;
+  }
+
   public void setEndDate(String endDate) {
     this.endDate = endDate;
   }
+
   public UsageCustomReportsAttributes size(Long size) {
     this.size = size;
     return this;
   }
 
   /**
-   * <p>size</p>
+   * size
+   *
    * @return size
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getSize() {
-        return size;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSize() {
+    return size;
+  }
+
   public void setSize(Long size) {
     this.size = size;
   }
+
   public UsageCustomReportsAttributes startDate(String startDate) {
     this.startDate = startDate;
     return this;
   }
 
   /**
-   * <p>The starting date of custom report.</p>
+   * The starting date of custom report.
+   *
    * @return startDate
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_START_DATE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStartDate() {
-        return startDate;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStartDate() {
+    return startDate;
+  }
+
   public void setStartDate(String startDate) {
     this.startDate = startDate;
   }
+
   public UsageCustomReportsAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public UsageCustomReportsAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -148,23 +139,22 @@ public class UsageCustomReportsAttributes {
   }
 
   /**
-   * <p>A list of tags to apply to custom reports.</p>
+   * A list of tags to apply to custom reports.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
-  /**
-   * Return true if this UsageCustomReportsAttributes object is equal to o.
-   */
+  /** Return true if this UsageCustomReportsAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,13 +164,16 @@ public class UsageCustomReportsAttributes {
       return false;
     }
     UsageCustomReportsAttributes usageCustomReportsAttributes = (UsageCustomReportsAttributes) o;
-    return Objects.equals(this.computedOn, usageCustomReportsAttributes.computedOn) && Objects.equals(this.endDate, usageCustomReportsAttributes.endDate) && Objects.equals(this.size, usageCustomReportsAttributes.size) && Objects.equals(this.startDate, usageCustomReportsAttributes.startDate) && Objects.equals(this.tags, usageCustomReportsAttributes.tags);
+    return Objects.equals(this.computedOn, usageCustomReportsAttributes.computedOn)
+        && Objects.equals(this.endDate, usageCustomReportsAttributes.endDate)
+        && Objects.equals(this.size, usageCustomReportsAttributes.size)
+        && Objects.equals(this.startDate, usageCustomReportsAttributes.startDate)
+        && Objects.equals(this.tags, usageCustomReportsAttributes.tags);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(computedOn,endDate,size,startDate,tags);
+    return Objects.hash(computedOn, endDate, size, startDate, tags);
   }
 
   @Override
@@ -197,8 +190,7 @@ public class UsageCustomReportsAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

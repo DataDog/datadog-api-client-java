@@ -6,50 +6,28 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
-/**
-   * <p>The metric estimate resource type.</p>
- */
+/** The metric estimate resource type. */
 @JsonSerialize(using = MetricEstimateResourceType.MetricEstimateResourceTypeSerializer.class)
 public class MetricEstimateResourceType {
 
-  public static final MetricEstimateResourceType METRIC_CARDINALITY_ESTIMATE = new MetricEstimateResourceType("metric_cardinality_estimate");
+  public static final MetricEstimateResourceType METRIC_CARDINALITY_ESTIMATE =
+      new MetricEstimateResourceType("metric_cardinality_estimate");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("metric_cardinality_estimate"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("metric_cardinality_estimate"));
 
   private String value;
 
@@ -61,19 +39,22 @@ public class MetricEstimateResourceType {
     this.value = value;
   }
 
-  public static class MetricEstimateResourceTypeSerializer extends StdSerializer<MetricEstimateResourceType> {
-      public MetricEstimateResourceTypeSerializer(Class<MetricEstimateResourceType> t) {
-          super(t);
-      }
+  public static class MetricEstimateResourceTypeSerializer
+      extends StdSerializer<MetricEstimateResourceType> {
+    public MetricEstimateResourceTypeSerializer(Class<MetricEstimateResourceType> t) {
+      super(t);
+    }
 
-      public MetricEstimateResourceTypeSerializer() {
-          this(null);
-      }
+    public MetricEstimateResourceTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(MetricEstimateResourceType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        MetricEstimateResourceType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -85,9 +66,7 @@ public class MetricEstimateResourceType {
     this.value = value;
   }
 
-  /**
-   * Return true if this MetricEstimateResourceType object is equal to o.
-   */
+  /** Return true if this MetricEstimateResourceType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,7 +80,7 @@ public class MetricEstimateResourceType {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override

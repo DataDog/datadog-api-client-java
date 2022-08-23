@@ -6,33 +6,15 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The metadata associated with a request.</p>
- */
+/** The metadata associated with a request. */
 @JsonPropertyOrder({
   RUMResponseMetadata.JSON_PROPERTY_ELAPSED,
   RUMResponseMetadata.JSON_PROPERTY_PAGE,
@@ -40,10 +22,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   RUMResponseMetadata.JSON_PROPERTY_STATUS,
   RUMResponseMetadata.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMResponseMetadata {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ELAPSED = "elapsed";
   private Long elapsed;
 
@@ -65,19 +47,21 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * <p>The time elapsed in milliseconds.</p>
+   * The time elapsed in milliseconds.
+   *
    * @return elapsed
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ELAPSED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getElapsed() {
-        return elapsed;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ELAPSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getElapsed() {
+    return elapsed;
+  }
+
   public void setElapsed(Long elapsed) {
     this.elapsed = elapsed;
   }
+
   public RUMResponseMetadata page(RUMResponsePage page) {
     this.page = page;
     this.unparsed |= page.unparsed;
@@ -85,38 +69,42 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * <p>Paging attributes.</p>
+   * Paging attributes.
+   *
    * @return page
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public RUMResponsePage getPage() {
-        return page;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RUMResponsePage getPage() {
+    return page;
+  }
+
   public void setPage(RUMResponsePage page) {
     this.page = page;
   }
+
   public RUMResponseMetadata requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
 
   /**
-   * <p>The identifier of the request.</p>
+   * The identifier of the request.
+   *
    * @return requestId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REQUEST_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRequestId() {
-        return requestId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRequestId() {
+    return requestId;
+  }
+
   public void setRequestId(String requestId) {
     this.requestId = requestId;
   }
+
   public RUMResponseMetadata status(RUMResponseStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -124,22 +112,24 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * <p>The status of the response.</p>
+   * The status of the response.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public RUMResponseStatus getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RUMResponseStatus getStatus() {
+    return status;
+  }
+
   public void setStatus(RUMResponseStatus status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
+
   public RUMResponseMetadata warnings(List<RUMWarning> warnings) {
     this.warnings = warnings;
     for (RUMWarning item : warnings) {
@@ -147,6 +137,7 @@ public class RUMResponseMetadata {
     }
     return this;
   }
+
   public RUMResponseMetadata addWarningsItem(RUMWarning warningsItem) {
     if (this.warnings == null) {
       this.warnings = new ArrayList<>();
@@ -157,24 +148,23 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * <p>A list of warnings (non-fatal errors) encountered. Partial results may return if
-   * warnings are present in the response.</p>
+   * A list of warnings (non-fatal errors) encountered. Partial results may return if warnings are
+   * present in the response.
+   *
    * @return warnings
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_WARNINGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<RUMWarning> getWarnings() {
-        return warnings;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<RUMWarning> getWarnings() {
+    return warnings;
+  }
+
   public void setWarnings(List<RUMWarning> warnings) {
     this.warnings = warnings;
   }
 
-  /**
-   * Return true if this RUMResponseMetadata object is equal to o.
-   */
+  /** Return true if this RUMResponseMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -184,13 +174,16 @@ public class RUMResponseMetadata {
       return false;
     }
     RUMResponseMetadata rumResponseMetadata = (RUMResponseMetadata) o;
-    return Objects.equals(this.elapsed, rumResponseMetadata.elapsed) && Objects.equals(this.page, rumResponseMetadata.page) && Objects.equals(this.requestId, rumResponseMetadata.requestId) && Objects.equals(this.status, rumResponseMetadata.status) && Objects.equals(this.warnings, rumResponseMetadata.warnings);
+    return Objects.equals(this.elapsed, rumResponseMetadata.elapsed)
+        && Objects.equals(this.page, rumResponseMetadata.page)
+        && Objects.equals(this.requestId, rumResponseMetadata.requestId)
+        && Objects.equals(this.status, rumResponseMetadata.status)
+        && Objects.equals(this.warnings, rumResponseMetadata.warnings);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(elapsed,page,requestId,status,warnings);
+    return Objects.hash(elapsed, page, requestId, status, warnings);
   }
 
   @Override
@@ -207,8 +200,7 @@ public class RUMResponseMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

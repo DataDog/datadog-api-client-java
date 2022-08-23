@@ -6,40 +6,19 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The metadata for the current pagination.</p>
- */
-@JsonPropertyOrder({
-  HourlyUsageAttributionPagination.JSON_PROPERTY_NEXT_RECORD_ID
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** The metadata for the current pagination. */
+@JsonPropertyOrder({HourlyUsageAttributionPagination.JSON_PROPERTY_NEXT_RECORD_ID})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HourlyUsageAttributionPagination {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NEXT_RECORD_ID = "next_record_id";
   private JsonNullable<String> nextRecordId = JsonNullable.<String>undefined();
 
@@ -49,30 +28,33 @@ public class HourlyUsageAttributionPagination {
   }
 
   /**
-   * <p>The cursor to get the next results (if any). To make the next request, use the same parameters and add <code>next_record_id</code>.</p>
+   * The cursor to get the next results (if any). To make the next request, use the same parameters
+   * and add <code>next_record_id</code>.
+   *
    * @return nextRecordId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getNextRecordId() {
-        return nextRecordId.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getNextRecordId() {
+    return nextRecordId.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NEXT_RECORD_ID)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getNextRecordId_JsonNullable() {
     return nextRecordId;
   }
-  @JsonProperty(JSON_PROPERTY_NEXT_RECORD_ID)public void setNextRecordId_JsonNullable(JsonNullable<String> nextRecordId) {
+
+  @JsonProperty(JSON_PROPERTY_NEXT_RECORD_ID)
+  public void setNextRecordId_JsonNullable(JsonNullable<String> nextRecordId) {
     this.nextRecordId = nextRecordId;
   }
+
   public void setNextRecordId(String nextRecordId) {
     this.nextRecordId = JsonNullable.<String>of(nextRecordId);
   }
 
-  /**
-   * Return true if this HourlyUsageAttributionPagination object is equal to o.
-   */
+  /** Return true if this HourlyUsageAttributionPagination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -81,10 +63,10 @@ public class HourlyUsageAttributionPagination {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HourlyUsageAttributionPagination hourlyUsageAttributionPagination = (HourlyUsageAttributionPagination) o;
+    HourlyUsageAttributionPagination hourlyUsageAttributionPagination =
+        (HourlyUsageAttributionPagination) o;
     return Objects.equals(this.nextRecordId, hourlyUsageAttributionPagination.nextRecordId);
   }
-
 
   @Override
   public int hashCode() {
@@ -101,8 +83,7 @@ public class HourlyUsageAttributionPagination {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

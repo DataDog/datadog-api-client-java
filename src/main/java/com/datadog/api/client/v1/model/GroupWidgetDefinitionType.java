@@ -6,44 +6,20 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
-/**
-   * <p>Type of the group widget.</p>
- */
+/** Type of the group widget. */
 @JsonSerialize(using = GroupWidgetDefinitionType.GroupWidgetDefinitionTypeSerializer.class)
 public class GroupWidgetDefinitionType {
 
@@ -61,19 +37,22 @@ public class GroupWidgetDefinitionType {
     this.value = value;
   }
 
-  public static class GroupWidgetDefinitionTypeSerializer extends StdSerializer<GroupWidgetDefinitionType> {
-      public GroupWidgetDefinitionTypeSerializer(Class<GroupWidgetDefinitionType> t) {
-          super(t);
-      }
+  public static class GroupWidgetDefinitionTypeSerializer
+      extends StdSerializer<GroupWidgetDefinitionType> {
+    public GroupWidgetDefinitionTypeSerializer(Class<GroupWidgetDefinitionType> t) {
+      super(t);
+    }
 
-      public GroupWidgetDefinitionTypeSerializer() {
-          this(null);
-      }
+    public GroupWidgetDefinitionTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(GroupWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        GroupWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -85,9 +64,7 @@ public class GroupWidgetDefinitionType {
     this.value = value;
   }
 
-  /**
-   * Return true if this GroupWidgetDefinitionType object is equal to o.
-   */
+  /** Return true if this GroupWidgetDefinitionType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,7 +78,7 @@ public class GroupWidgetDefinitionType {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override

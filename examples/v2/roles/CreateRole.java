@@ -1,30 +1,27 @@
 // Create role returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RolesApi;
-import com.datadog.api.client.v2.model.RoleCreateResponse;
 import com.datadog.api.client.v2.model.RoleCreateAttributes;
 import com.datadog.api.client.v2.model.RoleCreateData;
 import com.datadog.api.client.v2.model.RoleCreateRequest;
+import com.datadog.api.client.v2.model.RoleCreateResponse;
 import com.datadog.api.client.v2.model.RolesType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);
 
-    RoleCreateRequest body = new RoleCreateRequest()
-.data(new RoleCreateData()
-.type(RolesType.ROLES)
-.attributes(new RoleCreateAttributes()
-.name("Example-Create_role_returns_OK_response")));
+    RoleCreateRequest body =
+        new RoleCreateRequest()
+            .data(
+                new RoleCreateData()
+                    .type(RolesType.ROLES)
+                    .attributes(
+                        new RoleCreateAttributes()
+                            .name("Example-Create_role_returns_OK_response")));
 
     try {
       RoleCreateResponse result = apiInstance.createRole(body);

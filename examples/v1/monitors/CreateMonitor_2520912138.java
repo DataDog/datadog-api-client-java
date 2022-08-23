@@ -1,37 +1,31 @@
 // Create a ci-tests monitor returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.MonitorsApi;
-import com.datadog.api.client.v1.model.Monitor;
 import com.datadog.api.client.v1.model.Monitor;
 import com.datadog.api.client.v1.model.MonitorOptions;
 import com.datadog.api.client.v1.model.MonitorThresholds;
 import com.datadog.api.client.v1.model.MonitorType;
-import java.io.File;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
-    Monitor body = new Monitor()
-.name("Example-Create_a_ci_tests_monitor_returns_OK_response")
-.type(MonitorType.CI_TESTS_ALERT)
-.query("""
+    Monitor body =
+        new Monitor()
+            .name("Example-Create_a_ci_tests_monitor_returns_OK_response")
+            .type(MonitorType.CI_TESTS_ALERT)
+            .query(
+                """
 ci-tests("type:test @git.branch:staging* @test.status:fail").rollup("count").by("@test.name").last("5m") >= 1
 """)
-.message("some message Notify: @hipchat-channel")
-.tags(Arrays.asList("test:examplecreateacitestsmonitorreturnsokresponse", "env:ci"))
-.priority(3L)
-.options(new MonitorOptions()
-.thresholds(new MonitorThresholds()
-.critical(1.0)));
+            .message("some message Notify: @hipchat-channel")
+            .tags(Arrays.asList("test:examplecreateacitestsmonitorreturnsokresponse", "env:ci"))
+            .priority(3L)
+            .options(new MonitorOptions().thresholds(new MonitorThresholds().critical(1.0)));
 
     try {
       Monitor result = apiInstance.createMonitor(body);

@@ -1,24 +1,23 @@
 // Send logs returns "Response from server (always 200 empty JSON)." response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.LogsApi;
 import com.datadog.api.client.v1.model.HTTPLogItem;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
-    List<HTTPLogItem> body = Collections.singletonList(new HTTPLogItem()
-.message("Example-Send_logs_returns_Response_from_server_always_200_empty_JSON_response")
-.ddtags("host:ExampleSendlogsreturnsResponsefromserveralways200emptyJSONresponse"));
+    List<HTTPLogItem> body =
+        Collections.singletonList(
+            new HTTPLogItem()
+                .message(
+                    "Example-Send_logs_returns_Response_from_server_always_200_empty_JSON_response")
+                .ddtags("host:ExampleSendlogsreturnsResponsefromserveralways200emptyJSONresponse"));
 
     try {
       apiInstance.submitLog(body);

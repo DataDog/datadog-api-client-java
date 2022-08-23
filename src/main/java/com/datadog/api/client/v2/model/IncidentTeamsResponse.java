@@ -6,42 +6,25 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Response with a list of incident team payloads.</p>
- */
+/** Response with a list of incident team payloads. */
 @JsonPropertyOrder({
   IncidentTeamsResponse.JSON_PROPERTY_DATA,
   IncidentTeamsResponse.JSON_PROPERTY_INCLUDED,
   IncidentTeamsResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentTeamsResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<IncidentTeamResponseData> data = new ArrayList<>();
 
@@ -55,9 +38,11 @@ public class IncidentTeamsResponse {
 
   @JsonCreator
   public IncidentTeamsResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)List<IncidentTeamResponseData> data) {
-        this.data = data;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<IncidentTeamResponseData> data) {
+    this.data = data;
   }
+
   public IncidentTeamsResponse data(List<IncidentTeamResponseData> data) {
     this.data = data;
     for (IncidentTeamResponseData item : data) {
@@ -65,6 +50,7 @@ public class IncidentTeamsResponse {
     }
     return this;
   }
+
   public IncidentTeamsResponse addDataItem(IncidentTeamResponseData dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
@@ -72,46 +58,45 @@ public class IncidentTeamsResponse {
   }
 
   /**
-   * <p>An array of incident teams.</p>
+   * An array of incident teams.
+   *
    * @return data
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<IncidentTeamResponseData> getData() {
-        return data;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<IncidentTeamResponseData> getData() {
+    return data;
+  }
+
   public void setData(List<IncidentTeamResponseData> data) {
     this.data = data;
   }
 
   /**
-   * <p>Included related resources which the user requested.</p>
+   * Included related resources which the user requested.
+   *
    * @return included
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCLUDED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentTeamIncludedItems> getIncluded() {
-        return included;
-      }
-
-  /**
-   * <p>The metadata object containing pagination metadata.</p>
-   * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public IncidentResponseMeta getMeta() {
-        return meta;
-      }
-
-  /**
-   * Return true if this IncidentTeamsResponse object is equal to o.
    */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentTeamIncludedItems> getIncluded() {
+    return included;
+  }
+
+  /**
+   * The metadata object containing pagination metadata.
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentResponseMeta getMeta() {
+    return meta;
+  }
+
+  /** Return true if this IncidentTeamsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -121,13 +106,14 @@ public class IncidentTeamsResponse {
       return false;
     }
     IncidentTeamsResponse incidentTeamsResponse = (IncidentTeamsResponse) o;
-    return Objects.equals(this.data, incidentTeamsResponse.data) && Objects.equals(this.included, incidentTeamsResponse.included) && Objects.equals(this.meta, incidentTeamsResponse.meta);
+    return Objects.equals(this.data, incidentTeamsResponse.data)
+        && Objects.equals(this.included, incidentTeamsResponse.included)
+        && Objects.equals(this.meta, incidentTeamsResponse.meta);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,included,meta);
+    return Objects.hash(data, included, meta);
   }
 
   @Override
@@ -142,8 +128,7 @@ public class IncidentTeamsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

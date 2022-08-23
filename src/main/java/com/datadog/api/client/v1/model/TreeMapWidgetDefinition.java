@@ -6,32 +6,19 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
-   * <p>The treemap visualization enables you to display hierarchical and nested data. It is well suited for queries that describe part-whole relationships, such as resource usage by availability zone, data center, or team.</p>
+ * The treemap visualization enables you to display hierarchical and nested data. It is well suited
+ * for queries that describe part-whole relationships, such as resource usage by availability zone,
+ * data center, or team.
  */
 @JsonPropertyOrder({
   TreeMapWidgetDefinition.JSON_PROPERTY_COLOR_BY,
@@ -43,10 +30,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   TreeMapWidgetDefinition.JSON_PROPERTY_TITLE,
   TreeMapWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TreeMapWidgetDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLOR_BY = "color_by";
   private TreeMapColorBy colorBy = TreeMapColorBy.USER;
 
@@ -75,12 +62,14 @@ public class TreeMapWidgetDefinition {
 
   @JsonCreator
   public TreeMapWidgetDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS)List<TreeMapWidgetRequest> requests,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)TreeMapWidgetDefinitionType type) {
-        this.requests = requests;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<TreeMapWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TreeMapWidgetDefinitionType type) {
+    this.requests = requests;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public TreeMapWidgetDefinition colorBy(TreeMapColorBy colorBy) {
     this.colorBy = colorBy;
     this.unparsed |= !colorBy.isValid();
@@ -88,24 +77,26 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * <p>(deprecated) The attribute formerly used to determine color in the widget.</p>
+   * (deprecated) The attribute formerly used to determine color in the widget.
+   *
    * @return colorBy
    * @deprecated
-  **/
-      @Deprecated
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COLOR_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TreeMapColorBy getColorBy() {
-        return colorBy;
-      }
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COLOR_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TreeMapColorBy getColorBy() {
+    return colorBy;
+  }
+
   public void setColorBy(TreeMapColorBy colorBy) {
     if (!colorBy.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.colorBy = colorBy;
   }
+
   public TreeMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
     for (WidgetCustomLink item : customLinks) {
@@ -113,6 +104,7 @@ public class TreeMapWidgetDefinition {
     }
     return this;
   }
+
   public TreeMapWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
     if (this.customLinks == null) {
       this.customLinks = new ArrayList<>();
@@ -123,19 +115,21 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * <p>List of custom links.</p>
+   * List of custom links.
+   *
    * @return customLinks
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<WidgetCustomLink> getCustomLinks() {
-        return customLinks;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
   }
+
   public TreeMapWidgetDefinition groupBy(TreeMapGroupBy groupBy) {
     this.groupBy = groupBy;
     this.unparsed |= !groupBy.isValid();
@@ -143,24 +137,26 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * <p>(deprecated) The attribute formerly used to group elements in the widget.</p>
+   * (deprecated) The attribute formerly used to group elements in the widget.
+   *
    * @return groupBy
    * @deprecated
-  **/
-      @Deprecated
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TreeMapGroupBy getGroupBy() {
-        return groupBy;
-      }
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TreeMapGroupBy getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(TreeMapGroupBy groupBy) {
     if (!groupBy.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.groupBy = groupBy;
   }
+
   public TreeMapWidgetDefinition requests(List<TreeMapWidgetRequest> requests) {
     this.requests = requests;
     for (TreeMapWidgetRequest item : requests) {
@@ -168,6 +164,7 @@ public class TreeMapWidgetDefinition {
     }
     return this;
   }
+
   public TreeMapWidgetDefinition addRequestsItem(TreeMapWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
@@ -175,18 +172,20 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * <p>List of treemap widget requests.</p>
+   * List of treemap widget requests.
+   *
    * @return requests
-  **/
-      @JsonProperty(JSON_PROPERTY_REQUESTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<TreeMapWidgetRequest> getRequests() {
-        return requests;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REQUESTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<TreeMapWidgetRequest> getRequests() {
+    return requests;
+  }
+
   public void setRequests(List<TreeMapWidgetRequest> requests) {
     this.requests = requests;
   }
+
   public TreeMapWidgetDefinition sizeBy(TreeMapSizeBy sizeBy) {
     this.sizeBy = sizeBy;
     this.unparsed |= !sizeBy.isValid();
@@ -194,24 +193,26 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * <p>(deprecated) The attribute formerly used to determine size in the widget.</p>
+   * (deprecated) The attribute formerly used to determine size in the widget.
+   *
    * @return sizeBy
    * @deprecated
-  **/
-      @Deprecated
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SIZE_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TreeMapSizeBy getSizeBy() {
-        return sizeBy;
-      }
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIZE_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TreeMapSizeBy getSizeBy() {
+    return sizeBy;
+  }
+
   public void setSizeBy(TreeMapSizeBy sizeBy) {
     if (!sizeBy.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.sizeBy = sizeBy;
   }
+
   public TreeMapWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -219,38 +220,42 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * <p>Time setting for the widget.</p>
+   * Time setting for the widget.
+   *
    * @return time
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTime getTime() {
-        return time;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
   public TreeMapWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>Title of your widget.</p>
+   * Title of your widget.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
+
   public TreeMapWidgetDefinition type(TreeMapWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -258,25 +263,24 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * <p>Type of the treemap widget.</p>
+   * Type of the treemap widget.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public TreeMapWidgetDefinitionType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TreeMapWidgetDefinitionType getType() {
+    return type;
+  }
+
   public void setType(TreeMapWidgetDefinitionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this TreeMapWidgetDefinition object is equal to o.
-   */
+  /** Return true if this TreeMapWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -286,13 +290,19 @@ public class TreeMapWidgetDefinition {
       return false;
     }
     TreeMapWidgetDefinition treeMapWidgetDefinition = (TreeMapWidgetDefinition) o;
-    return Objects.equals(this.colorBy, treeMapWidgetDefinition.colorBy) && Objects.equals(this.customLinks, treeMapWidgetDefinition.customLinks) && Objects.equals(this.groupBy, treeMapWidgetDefinition.groupBy) && Objects.equals(this.requests, treeMapWidgetDefinition.requests) && Objects.equals(this.sizeBy, treeMapWidgetDefinition.sizeBy) && Objects.equals(this.time, treeMapWidgetDefinition.time) && Objects.equals(this.title, treeMapWidgetDefinition.title) && Objects.equals(this.type, treeMapWidgetDefinition.type);
+    return Objects.equals(this.colorBy, treeMapWidgetDefinition.colorBy)
+        && Objects.equals(this.customLinks, treeMapWidgetDefinition.customLinks)
+        && Objects.equals(this.groupBy, treeMapWidgetDefinition.groupBy)
+        && Objects.equals(this.requests, treeMapWidgetDefinition.requests)
+        && Objects.equals(this.sizeBy, treeMapWidgetDefinition.sizeBy)
+        && Objects.equals(this.time, treeMapWidgetDefinition.time)
+        && Objects.equals(this.title, treeMapWidgetDefinition.title)
+        && Objects.equals(this.type, treeMapWidgetDefinition.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorBy,customLinks,groupBy,requests,sizeBy,time,title,type);
+    return Objects.hash(colorBy, customLinks, groupBy, requests, sizeBy, time, title, type);
   }
 
   @Override
@@ -312,8 +322,7 @@ public class TreeMapWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

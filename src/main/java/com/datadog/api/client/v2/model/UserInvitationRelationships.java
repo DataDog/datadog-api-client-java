@@ -6,40 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Relationships data for user invitation.</p>
- */
-@JsonPropertyOrder({
-  UserInvitationRelationships.JSON_PROPERTY_USER
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Relationships data for user invitation. */
+@JsonPropertyOrder({UserInvitationRelationships.JSON_PROPERTY_USER})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserInvitationRelationships {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USER = "user";
   private RelationshipToUser user;
 
@@ -47,10 +26,11 @@ public class UserInvitationRelationships {
 
   @JsonCreator
   public UserInvitationRelationships(
-            @JsonProperty(required=true, value=JSON_PROPERTY_USER)RelationshipToUser user) {
-        this.user = user;
-        this.unparsed |= user.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_USER) RelationshipToUser user) {
+    this.user = user;
+    this.unparsed |= user.unparsed;
   }
+
   public UserInvitationRelationships user(RelationshipToUser user) {
     this.user = user;
     this.unparsed |= user.unparsed;
@@ -58,22 +38,21 @@ public class UserInvitationRelationships {
   }
 
   /**
-   * <p>Relationship to user.</p>
+   * Relationship to user.
+   *
    * @return user
-  **/
-      @JsonProperty(JSON_PROPERTY_USER)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public RelationshipToUser getUser() {
-        return user;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RelationshipToUser getUser() {
+    return user;
+  }
+
   public void setUser(RelationshipToUser user) {
     this.user = user;
   }
 
-  /**
-   * Return true if this UserInvitationRelationships object is equal to o.
-   */
+  /** Return true if this UserInvitationRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,7 +64,6 @@ public class UserInvitationRelationships {
     UserInvitationRelationships userInvitationRelationships = (UserInvitationRelationships) o;
     return Objects.equals(this.user, userInvitationRelationships.user);
   }
-
 
   @Override
   public int hashCode() {
@@ -102,8 +80,7 @@ public class UserInvitationRelationships {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,46 +6,31 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.Objects;
 
 /**
-   * <p>Information about widget.</p>
-   * <p><strong>Note</strong>: The <code>layout</code> property is required for widgets in dashboards with <code>free</code> <code>layout_type</code>.
-   *       For the <strong>new dashboard layout</strong>, the <code>layout</code> property depends on the <code>reflow_type</code> of the dashboard.
-   *       - If <code>reflow_type</code> is <code>fixed</code>, <code>layout</code> is required.
-   *       - If <code>reflow_type</code> is <code>auto</code>, <code>layout</code> should not be set.</p>
+ * Information about widget.
+ *
+ * <p><strong>Note</strong>: The <code>layout</code> property is required for widgets in dashboards
+ * with <code>free</code> <code>layout_type</code>. For the <strong>new dashboard layout</strong>,
+ * the <code>layout</code> property depends on the <code>reflow_type</code> of the dashboard. - If
+ * <code>reflow_type</code> is <code>fixed</code>, <code>layout</code> is required. - If <code>
+ * reflow_type</code> is <code>auto</code>, <code>layout</code> should not be set.
  */
 @JsonPropertyOrder({
   Widget.JSON_PROPERTY_DEFINITION,
   Widget.JSON_PROPERTY_ID,
   Widget.JSON_PROPERTY_LAYOUT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Widget {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
   private WidgetDefinition definition;
 
@@ -59,10 +44,12 @@ public class Widget {
 
   @JsonCreator
   public Widget(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DEFINITION)WidgetDefinition definition) {
-        this.definition = definition;
-        this.unparsed |= definition.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
+          WidgetDefinition definition) {
+    this.definition = definition;
+    this.unparsed |= definition.unparsed;
   }
+
   public Widget definition(WidgetDefinition definition) {
     this.definition = definition;
     this.unparsed |= definition.unparsed;
@@ -70,37 +57,41 @@ public class Widget {
   }
 
   /**
-   * <p><a href="https://docs.datadoghq.com/dashboards/widgets/">Definition of the widget</a>.</p>
+   * <a href="https://docs.datadoghq.com/dashboards/widgets/">Definition of the widget</a>.
+   *
    * @return definition
-  **/
-      @JsonProperty(JSON_PROPERTY_DEFINITION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public WidgetDefinition getDefinition() {
-        return definition;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DEFINITION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public WidgetDefinition getDefinition() {
+    return definition;
+  }
+
   public void setDefinition(WidgetDefinition definition) {
     this.definition = definition;
   }
+
   public Widget id(Long id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>ID of the widget.</p>
+   * ID of the widget.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getId() {
+    return id;
+  }
+
   public void setId(Long id) {
     this.id = id;
   }
+
   public Widget layout(WidgetLayout layout) {
     this.layout = layout;
     this.unparsed |= layout.unparsed;
@@ -108,23 +99,23 @@ public class Widget {
   }
 
   /**
-   * <p>The layout for a widget on a <code>free</code> or <strong>new dashboard layout</strong> dashboard.</p>
+   * The layout for a widget on a <code>free</code> or <strong>new dashboard layout</strong>
+   * dashboard.
+   *
    * @return layout
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LAYOUT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetLayout getLayout() {
-        return layout;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAYOUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetLayout getLayout() {
+    return layout;
+  }
+
   public void setLayout(WidgetLayout layout) {
     this.layout = layout;
   }
 
-  /**
-   * Return true if this Widget object is equal to o.
-   */
+  /** Return true if this Widget object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -134,13 +125,14 @@ public class Widget {
       return false;
     }
     Widget widget = (Widget) o;
-    return Objects.equals(this.definition, widget.definition) && Objects.equals(this.id, widget.id) && Objects.equals(this.layout, widget.layout);
+    return Objects.equals(this.definition, widget.definition)
+        && Objects.equals(this.id, widget.id)
+        && Objects.equals(this.layout, widget.layout);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(definition,id,layout);
+    return Objects.hash(definition, id, layout);
   }
 
   @Override
@@ -155,8 +147,7 @@ public class Widget {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

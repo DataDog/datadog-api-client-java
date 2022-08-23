@@ -1,31 +1,33 @@
 // Create an application key for current user returns "Created" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.KeyManagementApi;
-import com.datadog.api.client.v2.model.ApplicationKeyResponse;
 import com.datadog.api.client.v2.model.ApplicationKeyCreateAttributes;
 import com.datadog.api.client.v2.model.ApplicationKeyCreateData;
 import com.datadog.api.client.v2.model.ApplicationKeyCreateRequest;
+import com.datadog.api.client.v2.model.ApplicationKeyResponse;
 import com.datadog.api.client.v2.model.ApplicationKeysType;
-import java.io.File;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
 
-    ApplicationKeyCreateRequest body = new ApplicationKeyCreateRequest()
-.data(new ApplicationKeyCreateData()
-.attributes(new ApplicationKeyCreateAttributes()
-.name("Application Key for managing dashboards")
-.scopes(Arrays.asList("dashboards_read", "dashboards_write", "dashboards_public_share")))
-.type(ApplicationKeysType.APPLICATION_KEYS));
+    ApplicationKeyCreateRequest body =
+        new ApplicationKeyCreateRequest()
+            .data(
+                new ApplicationKeyCreateData()
+                    .attributes(
+                        new ApplicationKeyCreateAttributes()
+                            .name("Application Key for managing dashboards")
+                            .scopes(
+                                Arrays.asList(
+                                    "dashboards_read",
+                                    "dashboards_write",
+                                    "dashboards_public_share")))
+                    .type(ApplicationKeysType.APPLICATION_KEYS));
 
     try {
       ApplicationKeyResponse result = apiInstance.createCurrentUserApplicationKey(body);

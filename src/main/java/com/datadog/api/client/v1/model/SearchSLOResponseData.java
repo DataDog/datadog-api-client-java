@@ -6,41 +6,21 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Data from search SLO response.</p>
- */
+/** Data from search SLO response. */
 @JsonPropertyOrder({
   SearchSLOResponseData.JSON_PROPERTY_ATTRIBUTES,
   SearchSLOResponseData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SearchSLOResponseData {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private SearchSLOResponseDataAttributes attributes;
 
@@ -54,42 +34,43 @@ public class SearchSLOResponseData {
   }
 
   /**
-   * <p>Attributes</p>
+   * Attributes
+   *
    * @return attributes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SearchSLOResponseDataAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SearchSLOResponseDataAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(SearchSLOResponseDataAttributes attributes) {
     this.attributes = attributes;
   }
+
   public SearchSLOResponseData type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * <p>Type of service level objective result.</p>
+   * Type of service level objective result.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getType() {
+    return type;
+  }
+
   public void setType(String type) {
     this.type = type;
   }
 
-  /**
-   * Return true if this SearchSLOResponseData object is equal to o.
-   */
+  /** Return true if this SearchSLOResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,13 +80,13 @@ public class SearchSLOResponseData {
       return false;
     }
     SearchSLOResponseData searchSloResponseData = (SearchSLOResponseData) o;
-    return Objects.equals(this.attributes, searchSloResponseData.attributes) && Objects.equals(this.type, searchSloResponseData.type);
+    return Objects.equals(this.attributes, searchSloResponseData.attributes)
+        && Objects.equals(this.type, searchSloResponseData.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,type);
+    return Objects.hash(attributes, type);
   }
 
   @Override
@@ -119,8 +100,7 @@ public class SearchSLOResponseData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

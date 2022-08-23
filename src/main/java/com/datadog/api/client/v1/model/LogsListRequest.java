@@ -6,33 +6,14 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object to send with the request to retrieve a list of logs from your Organization.</p>
- */
+/** Object to send with the request to retrieve a list of logs from your Organization. */
 @JsonPropertyOrder({
   LogsListRequest.JSON_PROPERTY_INDEX,
   LogsListRequest.JSON_PROPERTY_LIMIT,
@@ -41,10 +22,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   LogsListRequest.JSON_PROPERTY_START_AT,
   LogsListRequest.JSON_PROPERTY_TIME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
 
@@ -67,69 +48,75 @@ public class LogsListRequest {
 
   @JsonCreator
   public LogsListRequest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_TIME)LogsListRequestTime time) {
-        this.time = time;
-        this.unparsed |= time.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIME) LogsListRequestTime time) {
+    this.time = time;
+    this.unparsed |= time.unparsed;
   }
+
   public LogsListRequest index(String index) {
     this.index = index;
     return this;
   }
 
   /**
-   * <p>The log index on which the request is performed. For multi-index organizations,
-   * the default is all live indexes. Historical indexes of rehydrated logs must be specified.</p>
+   * The log index on which the request is performed. For multi-index organizations, the default is
+   * all live indexes. Historical indexes of rehydrated logs must be specified.
+   *
    * @return index
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INDEX)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getIndex() {
-        return index;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIndex() {
+    return index;
+  }
+
   public void setIndex(String index) {
     this.index = index;
   }
+
   public LogsListRequest limit(Integer limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * <p>Number of logs return in the response.</p>
-   * maximum: 1000
+   * Number of logs return in the response. maximum: 1000
+   *
    * @return limit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LIMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Integer getLimit() {
-        return limit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getLimit() {
+    return limit;
+  }
+
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
+
   public LogsListRequest query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * <p>The search query - following the log search syntax.</p>
+   * The search query - following the log search syntax.
+   *
    * @return query
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getQuery() {
-        return query;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQuery() {
+    return query;
+  }
+
   public void setQuery(String query) {
     this.query = query;
   }
+
   public LogsListRequest sort(LogsSort sort) {
     this.sort = sort;
     this.unparsed |= !sort.isValid();
@@ -137,44 +124,49 @@ public class LogsListRequest {
   }
 
   /**
-   * <p>Time-ascending <code>asc</code> or time-descending <code>desc</code> results.</p>
+   * Time-ascending <code>asc</code> or time-descending <code>desc</code> results.
+   *
    * @return sort
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogsSort getSort() {
-        return sort;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsSort getSort() {
+    return sort;
+  }
+
   public void setSort(LogsSort sort) {
     if (!sort.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.sort = sort;
   }
+
   public LogsListRequest startAt(String startAt) {
     this.startAt = startAt;
     return this;
   }
 
   /**
-   * <p>Hash identifier of the first log to return in the list, available in a log <code>id</code> attribute.
-   * This parameter is used for the pagination feature.</p>
-   * <p><strong>Note</strong>: This parameter is ignored if the corresponding log
-   * is out of the scope of the specified time window.</p>
+   * Hash identifier of the first log to return in the list, available in a log <code>id</code>
+   * attribute. This parameter is used for the pagination feature.
+   *
+   * <p><strong>Note</strong>: This parameter is ignored if the corresponding log is out of the
+   * scope of the specified time window.
+   *
    * @return startAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_START_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStartAt() {
-        return startAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_START_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStartAt() {
+    return startAt;
+  }
+
   public void setStartAt(String startAt) {
     this.startAt = startAt;
   }
+
   public LogsListRequest time(LogsListRequestTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -182,22 +174,21 @@ public class LogsListRequest {
   }
 
   /**
-   * <p>Timeframe to retrieve the log from.</p>
+   * Timeframe to retrieve the log from.
+   *
    * @return time
-  **/
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public LogsListRequestTime getTime() {
-        return time;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LogsListRequestTime getTime() {
+    return time;
+  }
+
   public void setTime(LogsListRequestTime time) {
     this.time = time;
   }
 
-  /**
-   * Return true if this LogsListRequest object is equal to o.
-   */
+  /** Return true if this LogsListRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -207,13 +198,17 @@ public class LogsListRequest {
       return false;
     }
     LogsListRequest logsListRequest = (LogsListRequest) o;
-    return Objects.equals(this.index, logsListRequest.index) && Objects.equals(this.limit, logsListRequest.limit) && Objects.equals(this.query, logsListRequest.query) && Objects.equals(this.sort, logsListRequest.sort) && Objects.equals(this.startAt, logsListRequest.startAt) && Objects.equals(this.time, logsListRequest.time);
+    return Objects.equals(this.index, logsListRequest.index)
+        && Objects.equals(this.limit, logsListRequest.limit)
+        && Objects.equals(this.query, logsListRequest.query)
+        && Objects.equals(this.sort, logsListRequest.sort)
+        && Objects.equals(this.startAt, logsListRequest.startAt)
+        && Objects.equals(this.time, logsListRequest.time);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(index,limit,query,sort,startAt,time);
+    return Objects.hash(index, limit, query, sort, startAt, time);
   }
 
   @Override
@@ -231,8 +226,7 @@ public class LogsListRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

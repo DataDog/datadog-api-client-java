@@ -1,19 +1,13 @@
 // Update a Cloud Workload Security Agent rule returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CloudWorkloadSecurityApi;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleType;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleUpdateAttributes;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleUpdateData;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleUpdateRequest;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -23,21 +17,26 @@ public class Example {
     // there is a valid "agent_rule" in the system
     String AGENT_RULE_DATA_ID = System.getenv("AGENT_RULE_DATA_ID");
 
-    CloudWorkloadSecurityAgentRuleUpdateRequest body = new CloudWorkloadSecurityAgentRuleUpdateRequest()
-.data(new CloudWorkloadSecurityAgentRuleUpdateData()
-.attributes(new CloudWorkloadSecurityAgentRuleUpdateAttributes()
-.description("Test Agent rule")
-.enabled(true)
-.expression("""
+    CloudWorkloadSecurityAgentRuleUpdateRequest body =
+        new CloudWorkloadSecurityAgentRuleUpdateRequest()
+            .data(
+                new CloudWorkloadSecurityAgentRuleUpdateData()
+                    .attributes(
+                        new CloudWorkloadSecurityAgentRuleUpdateAttributes()
+                            .description("Test Agent rule")
+                            .enabled(true)
+                            .expression("""
 exec.file.name == "sh"
 """))
-.type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
+                    .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
 
     try {
-      CloudWorkloadSecurityAgentRuleResponse result = apiInstance.updateCloudWorkloadSecurityAgentRule(AGENT_RULE_DATA_ID, body);
+      CloudWorkloadSecurityAgentRuleResponse result =
+          apiInstance.updateCloudWorkloadSecurityAgentRule(AGENT_RULE_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CloudWorkloadSecurityApi#updateCloudWorkloadSecurityAgentRule");
+      System.err.println(
+          "Exception when calling CloudWorkloadSecurityApi#updateCloudWorkloadSecurityAgentRule");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

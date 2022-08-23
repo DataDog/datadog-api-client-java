@@ -6,33 +6,15 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Datadog-Webhooks integration.</p>
- */
+/** Datadog-Webhooks integration. */
 @JsonPropertyOrder({
   WebhooksIntegration.JSON_PROPERTY_CUSTOM_HEADERS,
   WebhooksIntegration.JSON_PROPERTY_ENCODE_AS,
@@ -40,10 +22,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   WebhooksIntegration.JSON_PROPERTY_PAYLOAD,
   WebhooksIntegration.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WebhooksIntegration {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_HEADERS = "custom_headers";
   private JsonNullable<String> customHeaders = JsonNullable.<String>undefined();
 
@@ -63,38 +45,44 @@ public class WebhooksIntegration {
 
   @JsonCreator
   public WebhooksIntegration(
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_URL)String url) {
-        this.name = name;
-        this.url = url;
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_URL) String url) {
+    this.name = name;
+    this.url = url;
   }
+
   public WebhooksIntegration customHeaders(String customHeaders) {
     this.customHeaders = JsonNullable.<String>of(customHeaders);
     return this;
   }
 
   /**
-   * <p>If <code>null</code>, uses no header.
-   * If given a JSON payload, these will be headers attached to your webhook.</p>
+   * If <code>null</code>, uses no header. If given a JSON payload, these will be headers attached
+   * to your webhook.
+   *
    * @return customHeaders
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getCustomHeaders() {
-        return customHeaders.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getCustomHeaders() {
+    return customHeaders.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CUSTOM_HEADERS)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getCustomHeaders_JsonNullable() {
     return customHeaders;
   }
-  @JsonProperty(JSON_PROPERTY_CUSTOM_HEADERS)public void setCustomHeaders_JsonNullable(JsonNullable<String> customHeaders) {
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_HEADERS)
+  public void setCustomHeaders_JsonNullable(JsonNullable<String> customHeaders) {
     this.customHeaders = customHeaders;
   }
+
   public void setCustomHeaders(String customHeaders) {
     this.customHeaders = JsonNullable.<String>of(customHeaders);
   }
+
   public WebhooksIntegration encodeAs(WebhooksIntegrationEncoding encodeAs) {
     this.encodeAs = encodeAs;
     this.unparsed |= !encodeAs.isValid();
@@ -102,93 +90,100 @@ public class WebhooksIntegration {
   }
 
   /**
-   * <p>Encoding type. Can be given either <code>json</code> or <code>form</code>.</p>
+   * Encoding type. Can be given either <code>json</code> or <code>form</code>.
+   *
    * @return encodeAs
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENCODE_AS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WebhooksIntegrationEncoding getEncodeAs() {
-        return encodeAs;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENCODE_AS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WebhooksIntegrationEncoding getEncodeAs() {
+    return encodeAs;
+  }
+
   public void setEncodeAs(WebhooksIntegrationEncoding encodeAs) {
     if (!encodeAs.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.encodeAs = encodeAs;
   }
+
   public WebhooksIntegration name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the webhook. It corresponds with <code>&lt;WEBHOOK_NAME&gt;</code>.
-   * Learn more on how to use it in
-   * <a href="https://docs.datadoghq.com/monitors/notify">monitor notifications</a>.</p>
+   * The name of the webhook. It corresponds with <code>&lt;WEBHOOK_NAME&gt;</code>. Learn more on
+   * how to use it in <a href="https://docs.datadoghq.com/monitors/notify">monitor
+   * notifications</a>.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public WebhooksIntegration payload(String payload) {
     this.payload = JsonNullable.<String>of(payload);
     return this;
   }
 
   /**
-   * <p>If <code>null</code>, uses the default payload.
-   * If given a JSON payload, the webhook returns the payload
-   * specified by the given payload.
-   * <a href="https://docs.datadoghq.com/integrations/webhooks/#usage">Webhooks variable usage</a>.</p>
+   * If <code>null</code>, uses the default payload. If given a JSON payload, the webhook returns
+   * the payload specified by the given payload. <a
+   * href="https://docs.datadoghq.com/integrations/webhooks/#usage">Webhooks variable usage</a>.
+   *
    * @return payload
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getPayload() {
-        return payload.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getPayload() {
+    return payload.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_PAYLOAD)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getPayload_JsonNullable() {
     return payload;
   }
-  @JsonProperty(JSON_PROPERTY_PAYLOAD)public void setPayload_JsonNullable(JsonNullable<String> payload) {
+
+  @JsonProperty(JSON_PROPERTY_PAYLOAD)
+  public void setPayload_JsonNullable(JsonNullable<String> payload) {
     this.payload = payload;
   }
+
   public void setPayload(String payload) {
     this.payload = JsonNullable.<String>of(payload);
   }
+
   public WebhooksIntegration url(String url) {
     this.url = url;
     return this;
   }
 
   /**
-   * <p>URL of the webhook.</p>
+   * URL of the webhook.
+   *
    * @return url
-  **/
-      @JsonProperty(JSON_PROPERTY_URL)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getUrl() {
-        return url;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getUrl() {
+    return url;
+  }
+
   public void setUrl(String url) {
     this.url = url;
   }
 
-  /**
-   * Return true if this WebhooksIntegration object is equal to o.
-   */
+  /** Return true if this WebhooksIntegration object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -198,13 +193,16 @@ public class WebhooksIntegration {
       return false;
     }
     WebhooksIntegration webhooksIntegration = (WebhooksIntegration) o;
-    return Objects.equals(this.customHeaders, webhooksIntegration.customHeaders) && Objects.equals(this.encodeAs, webhooksIntegration.encodeAs) && Objects.equals(this.name, webhooksIntegration.name) && Objects.equals(this.payload, webhooksIntegration.payload) && Objects.equals(this.url, webhooksIntegration.url);
+    return Objects.equals(this.customHeaders, webhooksIntegration.customHeaders)
+        && Objects.equals(this.encodeAs, webhooksIntegration.encodeAs)
+        && Objects.equals(this.name, webhooksIntegration.name)
+        && Objects.equals(this.payload, webhooksIntegration.payload)
+        && Objects.equals(this.url, webhooksIntegration.url);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(customHeaders,encodeAs,name,payload,url);
+    return Objects.hash(customHeaders, encodeAs, name, payload, url);
   }
 
   @Override
@@ -221,8 +219,7 @@ public class WebhooksIntegration {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

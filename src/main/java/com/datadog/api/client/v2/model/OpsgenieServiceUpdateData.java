@@ -6,42 +6,23 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Opsgenie service for an update request.</p>
- */
+/** Opsgenie service for an update request. */
 @JsonPropertyOrder({
   OpsgenieServiceUpdateData.JSON_PROPERTY_ATTRIBUTES,
   OpsgenieServiceUpdateData.JSON_PROPERTY_ID,
   OpsgenieServiceUpdateData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OpsgenieServiceUpdateData {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private OpsgenieServiceUpdateAttributes attributes;
 
@@ -55,15 +36,17 @@ public class OpsgenieServiceUpdateData {
 
   @JsonCreator
   public OpsgenieServiceUpdateData(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES)OpsgenieServiceUpdateAttributes attributes,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)OpsgenieServiceType type) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        this.id = id;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          OpsgenieServiceUpdateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) OpsgenieServiceType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public OpsgenieServiceUpdateData attributes(OpsgenieServiceUpdateAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -71,36 +54,40 @@ public class OpsgenieServiceUpdateData {
   }
 
   /**
-   * <p>The Opsgenie service attributes for an update request.</p>
+   * The Opsgenie service attributes for an update request.
+   *
    * @return attributes
-  **/
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OpsgenieServiceUpdateAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OpsgenieServiceUpdateAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(OpsgenieServiceUpdateAttributes attributes) {
     this.attributes = attributes;
   }
+
   public OpsgenieServiceUpdateData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The ID of the Opsgenie service.</p>
+   * The ID of the Opsgenie service.
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public OpsgenieServiceUpdateData type(OpsgenieServiceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -108,25 +95,24 @@ public class OpsgenieServiceUpdateData {
   }
 
   /**
-   * <p>Opsgenie service resource type.</p>
+   * Opsgenie service resource type.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OpsgenieServiceType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OpsgenieServiceType getType() {
+    return type;
+  }
+
   public void setType(OpsgenieServiceType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this OpsgenieServiceUpdateData object is equal to o.
-   */
+  /** Return true if this OpsgenieServiceUpdateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -136,13 +122,14 @@ public class OpsgenieServiceUpdateData {
       return false;
     }
     OpsgenieServiceUpdateData opsgenieServiceUpdateData = (OpsgenieServiceUpdateData) o;
-    return Objects.equals(this.attributes, opsgenieServiceUpdateData.attributes) && Objects.equals(this.id, opsgenieServiceUpdateData.id) && Objects.equals(this.type, opsgenieServiceUpdateData.type);
+    return Objects.equals(this.attributes, opsgenieServiceUpdateData.attributes)
+        && Objects.equals(this.id, opsgenieServiceUpdateData.id)
+        && Objects.equals(this.type, opsgenieServiceUpdateData.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,id,type);
+    return Objects.hash(attributes, id, type);
   }
 
   @Override
@@ -157,8 +144,7 @@ public class OpsgenieServiceUpdateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

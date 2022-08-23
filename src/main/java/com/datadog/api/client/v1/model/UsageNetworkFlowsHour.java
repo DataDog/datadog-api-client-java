@@ -6,44 +6,28 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Number of netflow events indexed for each hour for a given organization.</p>
- */
+/** Number of netflow events indexed for each hour for a given organization. */
 @JsonPropertyOrder({
   UsageNetworkFlowsHour.JSON_PROPERTY_HOUR,
   UsageNetworkFlowsHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT,
   UsageNetworkFlowsHour.JSON_PROPERTY_ORG_NAME,
   UsageNetworkFlowsHour.JSON_PROPERTY_PUBLIC_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageNetworkFlowsHour {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime hour;
 
@@ -62,80 +46,85 @@ public class UsageNetworkFlowsHour {
   }
 
   /**
-   * <p>The hour for the usage.</p>
+   * The hour for the usage.
+   *
    * @return hour
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOUR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getHour() {
-        return hour;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getHour() {
+    return hour;
+  }
+
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
+
   public UsageNetworkFlowsHour indexedEventsCount(Long indexedEventsCount) {
     this.indexedEventsCount = indexedEventsCount;
     return this;
   }
 
   /**
-   * <p>Contains the number of netflow events indexed.</p>
+   * Contains the number of netflow events indexed.
+   *
    * @return indexedEventsCount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getIndexedEventsCount() {
-        return indexedEventsCount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getIndexedEventsCount() {
+    return indexedEventsCount;
+  }
+
   public void setIndexedEventsCount(Long indexedEventsCount) {
     this.indexedEventsCount = indexedEventsCount;
   }
+
   public UsageNetworkFlowsHour orgName(String orgName) {
     this.orgName = orgName;
     return this;
   }
 
   /**
-   * <p>The organization name.</p>
+   * The organization name.
+   *
    * @return orgName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORG_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOrgName() {
-        return orgName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
+
   public UsageNetworkFlowsHour publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * <p>The organization public ID.</p>
+   * The organization public ID.
+   *
    * @return publicId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublicId() {
-        return publicId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
 
-  /**
-   * Return true if this UsageNetworkFlowsHour object is equal to o.
-   */
+  /** Return true if this UsageNetworkFlowsHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,13 +134,15 @@ public class UsageNetworkFlowsHour {
       return false;
     }
     UsageNetworkFlowsHour usageNetworkFlowsHour = (UsageNetworkFlowsHour) o;
-    return Objects.equals(this.hour, usageNetworkFlowsHour.hour) && Objects.equals(this.indexedEventsCount, usageNetworkFlowsHour.indexedEventsCount) && Objects.equals(this.orgName, usageNetworkFlowsHour.orgName) && Objects.equals(this.publicId, usageNetworkFlowsHour.publicId);
+    return Objects.equals(this.hour, usageNetworkFlowsHour.hour)
+        && Objects.equals(this.indexedEventsCount, usageNetworkFlowsHour.indexedEventsCount)
+        && Objects.equals(this.orgName, usageNetworkFlowsHour.orgName)
+        && Objects.equals(this.publicId, usageNetworkFlowsHour.publicId);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour,indexedEventsCount,orgName,publicId);
+    return Objects.hash(hour, indexedEventsCount, orgName, publicId);
   }
 
   @Override
@@ -167,8 +158,7 @@ public class UsageNetworkFlowsHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

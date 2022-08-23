@@ -6,32 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.Objects;
 
 /**
-   * <p>The notes and links widget is similar to free text widget, but allows for more formatting options.</p>
+ * The notes and links widget is similar to free text widget, but allows for more formatting
+ * options.
  */
 @JsonPropertyOrder({
   NoteWidgetDefinition.JSON_PROPERTY_BACKGROUND_COLOR,
@@ -45,10 +29,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   NoteWidgetDefinition.JSON_PROPERTY_TYPE,
   NoteWidgetDefinition.JSON_PROPERTY_VERTICAL_ALIGN
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NoteWidgetDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BACKGROUND_COLOR = "background_color";
   private String backgroundColor;
 
@@ -83,106 +67,117 @@ public class NoteWidgetDefinition {
 
   @JsonCreator
   public NoteWidgetDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CONTENT)String content,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)NoteWidgetDefinitionType type) {
-        this.content = content;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT) String content,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) NoteWidgetDefinitionType type) {
+    this.content = content;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public NoteWidgetDefinition backgroundColor(String backgroundColor) {
     this.backgroundColor = backgroundColor;
     return this;
   }
 
   /**
-   * <p>Background color of the note.</p>
+   * Background color of the note.
+   *
    * @return backgroundColor
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BACKGROUND_COLOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getBackgroundColor() {
-        return backgroundColor;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BACKGROUND_COLOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBackgroundColor() {
+    return backgroundColor;
+  }
+
   public void setBackgroundColor(String backgroundColor) {
     this.backgroundColor = backgroundColor;
   }
+
   public NoteWidgetDefinition content(String content) {
     this.content = content;
     return this;
   }
 
   /**
-   * <p>Content of the note.</p>
+   * Content of the note.
+   *
    * @return content
-  **/
-      @JsonProperty(JSON_PROPERTY_CONTENT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getContent() {
-        return content;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getContent() {
+    return content;
+  }
+
   public void setContent(String content) {
     this.content = content;
   }
+
   public NoteWidgetDefinition fontSize(String fontSize) {
     this.fontSize = fontSize;
     return this;
   }
 
   /**
-   * <p>Size of the text.</p>
+   * Size of the text.
+   *
    * @return fontSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FONT_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getFontSize() {
-        return fontSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFontSize() {
+    return fontSize;
+  }
+
   public void setFontSize(String fontSize) {
     this.fontSize = fontSize;
   }
+
   public NoteWidgetDefinition hasPadding(Boolean hasPadding) {
     this.hasPadding = hasPadding;
     return this;
   }
 
   /**
-   * <p>Whether to add padding or not.</p>
+   * Whether to add padding or not.
+   *
    * @return hasPadding
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HAS_PADDING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getHasPadding() {
-        return hasPadding;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HAS_PADDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasPadding() {
+    return hasPadding;
+  }
+
   public void setHasPadding(Boolean hasPadding) {
     this.hasPadding = hasPadding;
   }
+
   public NoteWidgetDefinition showTick(Boolean showTick) {
     this.showTick = showTick;
     return this;
   }
 
   /**
-   * <p>Whether to show a tick or not.</p>
+   * Whether to show a tick or not.
+   *
    * @return showTick
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHOW_TICK)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getShowTick() {
-        return showTick;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_TICK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowTick() {
+    return showTick;
+  }
+
   public void setShowTick(Boolean showTick) {
     this.showTick = showTick;
   }
+
   public NoteWidgetDefinition textAlign(WidgetTextAlign textAlign) {
     this.textAlign = textAlign;
     this.unparsed |= !textAlign.isValid();
@@ -190,22 +185,24 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * <p>How to align the text on the widget.</p>
+   * How to align the text on the widget.
+   *
    * @return textAlign
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TEXT_ALIGN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTextAlign getTextAlign() {
-        return textAlign;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEXT_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTextAlign() {
+    return textAlign;
+  }
+
   public void setTextAlign(WidgetTextAlign textAlign) {
     if (!textAlign.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.textAlign = textAlign;
   }
+
   public NoteWidgetDefinition tickEdge(WidgetTickEdge tickEdge) {
     this.tickEdge = tickEdge;
     this.unparsed |= !tickEdge.isValid();
@@ -213,41 +210,45 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * <p>Define how you want to align the text on the widget.</p>
+   * Define how you want to align the text on the widget.
+   *
    * @return tickEdge
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TICK_EDGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTickEdge getTickEdge() {
-        return tickEdge;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TICK_EDGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTickEdge getTickEdge() {
+    return tickEdge;
+  }
+
   public void setTickEdge(WidgetTickEdge tickEdge) {
     if (!tickEdge.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.tickEdge = tickEdge;
   }
+
   public NoteWidgetDefinition tickPos(String tickPos) {
     this.tickPos = tickPos;
     return this;
   }
 
   /**
-   * <p>Where to position the tick on an edge.</p>
+   * Where to position the tick on an edge.
+   *
    * @return tickPos
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TICK_POS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTickPos() {
-        return tickPos;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TICK_POS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTickPos() {
+    return tickPos;
+  }
+
   public void setTickPos(String tickPos) {
     this.tickPos = tickPos;
   }
+
   public NoteWidgetDefinition type(NoteWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -255,21 +256,23 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * <p>Type of the note widget.</p>
+   * Type of the note widget.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public NoteWidgetDefinitionType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public NoteWidgetDefinitionType getType() {
+    return type;
+  }
+
   public void setType(NoteWidgetDefinitionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public NoteWidgetDefinition verticalAlign(WidgetVerticalAlign verticalAlign) {
     this.verticalAlign = verticalAlign;
     this.unparsed |= !verticalAlign.isValid();
@@ -277,26 +280,25 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * <p>Vertical alignment.</p>
+   * Vertical alignment.
+   *
    * @return verticalAlign
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERTICAL_ALIGN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetVerticalAlign getVerticalAlign() {
-        return verticalAlign;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERTICAL_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetVerticalAlign getVerticalAlign() {
+    return verticalAlign;
+  }
+
   public void setVerticalAlign(WidgetVerticalAlign verticalAlign) {
     if (!verticalAlign.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.verticalAlign = verticalAlign;
   }
 
-  /**
-   * Return true if this NoteWidgetDefinition object is equal to o.
-   */
+  /** Return true if this NoteWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -306,13 +308,31 @@ public class NoteWidgetDefinition {
       return false;
     }
     NoteWidgetDefinition noteWidgetDefinition = (NoteWidgetDefinition) o;
-    return Objects.equals(this.backgroundColor, noteWidgetDefinition.backgroundColor) && Objects.equals(this.content, noteWidgetDefinition.content) && Objects.equals(this.fontSize, noteWidgetDefinition.fontSize) && Objects.equals(this.hasPadding, noteWidgetDefinition.hasPadding) && Objects.equals(this.showTick, noteWidgetDefinition.showTick) && Objects.equals(this.textAlign, noteWidgetDefinition.textAlign) && Objects.equals(this.tickEdge, noteWidgetDefinition.tickEdge) && Objects.equals(this.tickPos, noteWidgetDefinition.tickPos) && Objects.equals(this.type, noteWidgetDefinition.type) && Objects.equals(this.verticalAlign, noteWidgetDefinition.verticalAlign);
+    return Objects.equals(this.backgroundColor, noteWidgetDefinition.backgroundColor)
+        && Objects.equals(this.content, noteWidgetDefinition.content)
+        && Objects.equals(this.fontSize, noteWidgetDefinition.fontSize)
+        && Objects.equals(this.hasPadding, noteWidgetDefinition.hasPadding)
+        && Objects.equals(this.showTick, noteWidgetDefinition.showTick)
+        && Objects.equals(this.textAlign, noteWidgetDefinition.textAlign)
+        && Objects.equals(this.tickEdge, noteWidgetDefinition.tickEdge)
+        && Objects.equals(this.tickPos, noteWidgetDefinition.tickPos)
+        && Objects.equals(this.type, noteWidgetDefinition.type)
+        && Objects.equals(this.verticalAlign, noteWidgetDefinition.verticalAlign);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(backgroundColor,content,fontSize,hasPadding,showTick,textAlign,tickEdge,tickPos,type,verticalAlign);
+    return Objects.hash(
+        backgroundColor,
+        content,
+        fontSize,
+        hasPadding,
+        showTick,
+        textAlign,
+        tickEdge,
+        tickPos,
+        type,
+        verticalAlign);
   }
 
   @Override
@@ -334,8 +354,7 @@ public class NoteWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

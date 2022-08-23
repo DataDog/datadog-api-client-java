@@ -6,43 +6,24 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object representing a given user entity.</p>
- */
+/** Object representing a given user entity. */
 @JsonPropertyOrder({
   SecurityMonitoringTriageUser.JSON_PROPERTY_HANDLE,
   SecurityMonitoringTriageUser.JSON_PROPERTY_ID,
   SecurityMonitoringTriageUser.JSON_PROPERTY_NAME,
   SecurityMonitoringTriageUser.JSON_PROPERTY_UUID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringTriageUser {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
 
@@ -59,88 +40,94 @@ public class SecurityMonitoringTriageUser {
 
   @JsonCreator
   public SecurityMonitoringTriageUser(
-            @JsonProperty(required=true, value=JSON_PROPERTY_UUID)String uuid) {
-        this.uuid = uuid;
+      @JsonProperty(required = true, value = JSON_PROPERTY_UUID) String uuid) {
+    this.uuid = uuid;
   }
+
   public SecurityMonitoringTriageUser handle(String handle) {
     this.handle = handle;
     return this;
   }
 
   /**
-   * <p>The handle for this user account.</p>
+   * The handle for this user account.
+   *
    * @return handle
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HANDLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHandle() {
-        return handle;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HANDLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHandle() {
+    return handle;
+  }
+
   public void setHandle(String handle) {
     this.handle = handle;
   }
+
   public SecurityMonitoringTriageUser id(Long id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>Numerical ID assigned by Datadog to this user account.</p>
+   * Numerical ID assigned by Datadog to this user account.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getId() {
+    return id;
+  }
+
   public void setId(Long id) {
     this.id = id;
   }
+
   public SecurityMonitoringTriageUser name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name for this user account.</p>
+   * The name for this user account.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public SecurityMonitoringTriageUser uuid(String uuid) {
     this.uuid = uuid;
     return this;
   }
 
   /**
-   * <p>UUID assigned by Datadog to this user account.</p>
+   * UUID assigned by Datadog to this user account.
+   *
    * @return uuid
-  **/
-      @JsonProperty(JSON_PROPERTY_UUID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getUuid() {
-        return uuid;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_UUID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getUuid() {
+    return uuid;
+  }
+
   public void setUuid(String uuid) {
     this.uuid = uuid;
   }
 
-  /**
-   * Return true if this SecurityMonitoringTriageUser object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringTriageUser object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -150,13 +137,15 @@ public class SecurityMonitoringTriageUser {
       return false;
     }
     SecurityMonitoringTriageUser securityMonitoringTriageUser = (SecurityMonitoringTriageUser) o;
-    return Objects.equals(this.handle, securityMonitoringTriageUser.handle) && Objects.equals(this.id, securityMonitoringTriageUser.id) && Objects.equals(this.name, securityMonitoringTriageUser.name) && Objects.equals(this.uuid, securityMonitoringTriageUser.uuid);
+    return Objects.equals(this.handle, securityMonitoringTriageUser.handle)
+        && Objects.equals(this.id, securityMonitoringTriageUser.id)
+        && Objects.equals(this.name, securityMonitoringTriageUser.name)
+        && Objects.equals(this.uuid, securityMonitoringTriageUser.uuid);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(handle,id,name,uuid);
+    return Objects.hash(handle, id, name, uuid);
   }
 
   @Override
@@ -172,8 +161,7 @@ public class SecurityMonitoringTriageUser {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

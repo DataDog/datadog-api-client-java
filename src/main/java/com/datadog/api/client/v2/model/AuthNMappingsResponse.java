@@ -6,42 +6,24 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Array of AuthN Mappings response.</p>
- */
+/** Array of AuthN Mappings response. */
 @JsonPropertyOrder({
   AuthNMappingsResponse.JSON_PROPERTY_DATA,
   AuthNMappingsResponse.JSON_PROPERTY_INCLUDED,
   AuthNMappingsResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuthNMappingsResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<AuthNMapping> data = null;
 
@@ -58,6 +40,7 @@ public class AuthNMappingsResponse {
     }
     return this;
   }
+
   public AuthNMappingsResponse addDataItem(AuthNMapping dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
@@ -68,19 +51,21 @@ public class AuthNMappingsResponse {
   }
 
   /**
-   * <p>Array of returned AuthN Mappings.</p>
+   * Array of returned AuthN Mappings.
+   *
    * @return data
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<AuthNMapping> getData() {
-        return data;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AuthNMapping> getData() {
+    return data;
+  }
+
   public void setData(List<AuthNMapping> data) {
     this.data = data;
   }
+
   public AuthNMappingsResponse included(List<AuthNMappingIncluded> included) {
     this.included = included;
     for (AuthNMappingIncluded item : included) {
@@ -88,6 +73,7 @@ public class AuthNMappingsResponse {
     }
     return this;
   }
+
   public AuthNMappingsResponse addIncludedItem(AuthNMappingIncluded includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
@@ -98,19 +84,21 @@ public class AuthNMappingsResponse {
   }
 
   /**
-   * <p>Included data in the AuthN Mapping response.</p>
+   * Included data in the AuthN Mapping response.
+   *
    * @return included
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCLUDED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<AuthNMappingIncluded> getIncluded() {
-        return included;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AuthNMappingIncluded> getIncluded() {
+    return included;
+  }
+
   public void setIncluded(List<AuthNMappingIncluded> included) {
     this.included = included;
   }
+
   public AuthNMappingsResponse meta(ResponseMetaAttributes meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -118,23 +106,22 @@ public class AuthNMappingsResponse {
   }
 
   /**
-   * <p>Object describing meta attributes of response.</p>
+   * Object describing meta attributes of response.
+   *
    * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ResponseMetaAttributes getMeta() {
-        return meta;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ResponseMetaAttributes getMeta() {
+    return meta;
+  }
+
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
   }
 
-  /**
-   * Return true if this AuthNMappingsResponse object is equal to o.
-   */
+  /** Return true if this AuthNMappingsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -144,13 +131,14 @@ public class AuthNMappingsResponse {
       return false;
     }
     AuthNMappingsResponse authNMappingsResponse = (AuthNMappingsResponse) o;
-    return Objects.equals(this.data, authNMappingsResponse.data) && Objects.equals(this.included, authNMappingsResponse.included) && Objects.equals(this.meta, authNMappingsResponse.meta);
+    return Objects.equals(this.data, authNMappingsResponse.data)
+        && Objects.equals(this.included, authNMappingsResponse.included)
+        && Objects.equals(this.meta, authNMappingsResponse.meta);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,included,meta);
+    return Objects.hash(data, included, meta);
   }
 
   @Override
@@ -165,8 +153,7 @@ public class AuthNMappingsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

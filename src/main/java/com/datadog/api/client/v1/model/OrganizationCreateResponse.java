@@ -6,43 +6,23 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Response object for an organization creation.</p>
- */
+/** Response object for an organization creation. */
 @JsonPropertyOrder({
   OrganizationCreateResponse.JSON_PROPERTY_API_KEY,
   OrganizationCreateResponse.JSON_PROPERTY_APPLICATION_KEY,
   OrganizationCreateResponse.JSON_PROPERTY_ORG,
   OrganizationCreateResponse.JSON_PROPERTY_USER
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationCreateResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
   private ApiKey apiKey;
 
@@ -62,19 +42,21 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * <p>Datadog API key.</p>
+   * Datadog API key.
+   *
    * @return apiKey
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_API_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ApiKey getApiKey() {
-        return apiKey;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ApiKey getApiKey() {
+    return apiKey;
+  }
+
   public void setApiKey(ApiKey apiKey) {
     this.apiKey = apiKey;
   }
+
   public OrganizationCreateResponse applicationKey(ApplicationKey applicationKey) {
     this.applicationKey = applicationKey;
     this.unparsed |= applicationKey.unparsed;
@@ -82,19 +64,21 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * <p>An application key with its associated metadata.</p>
+   * An application key with its associated metadata.
+   *
    * @return applicationKey
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_APPLICATION_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ApplicationKey getApplicationKey() {
-        return applicationKey;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ApplicationKey getApplicationKey() {
+    return applicationKey;
+  }
+
   public void setApplicationKey(ApplicationKey applicationKey) {
     this.applicationKey = applicationKey;
   }
+
   public OrganizationCreateResponse org(Organization org) {
     this.org = org;
     this.unparsed |= org.unparsed;
@@ -102,19 +86,21 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * <p>Create, edit, and manage organizations.</p>
+   * Create, edit, and manage organizations.
+   *
    * @return org
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORG)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Organization getOrg() {
-        return org;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Organization getOrg() {
+    return org;
+  }
+
   public void setOrg(Organization org) {
     this.org = org;
   }
+
   public OrganizationCreateResponse user(User user) {
     this.user = user;
     this.unparsed |= user.unparsed;
@@ -122,23 +108,22 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * <p>Create, edit, and disable users.</p>
+   * Create, edit, and disable users.
+   *
    * @return user
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_USER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public User getUser() {
-        return user;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public User getUser() {
+    return user;
+  }
+
   public void setUser(User user) {
     this.user = user;
   }
 
-  /**
-   * Return true if this OrganizationCreateResponse object is equal to o.
-   */
+  /** Return true if this OrganizationCreateResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -148,13 +133,15 @@ public class OrganizationCreateResponse {
       return false;
     }
     OrganizationCreateResponse organizationCreateResponse = (OrganizationCreateResponse) o;
-    return Objects.equals(this.apiKey, organizationCreateResponse.apiKey) && Objects.equals(this.applicationKey, organizationCreateResponse.applicationKey) && Objects.equals(this.org, organizationCreateResponse.org) && Objects.equals(this.user, organizationCreateResponse.user);
+    return Objects.equals(this.apiKey, organizationCreateResponse.apiKey)
+        && Objects.equals(this.applicationKey, organizationCreateResponse.applicationKey)
+        && Objects.equals(this.org, organizationCreateResponse.org)
+        && Objects.equals(this.user, organizationCreateResponse.user);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey,applicationKey,org,user);
+    return Objects.hash(apiKey, applicationKey, org, user);
   }
 
   @Override
@@ -170,8 +157,7 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
