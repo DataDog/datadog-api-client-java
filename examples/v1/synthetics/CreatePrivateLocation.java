@@ -1,17 +1,12 @@
 // Create a private location returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
-import com.datadog.api.client.v1.model.SyntheticsPrivateLocationCreationResponse;
 import com.datadog.api.client.v1.model.SyntheticsPrivateLocation;
+import com.datadog.api.client.v1.model.SyntheticsPrivateLocationCreationResponse;
 import com.datadog.api.client.v1.model.SyntheticsPrivateLocationMetadata;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,12 +16,14 @@ public class Example {
     // there is a valid "role" in the system
     String ROLE_DATA_ID = System.getenv("ROLE_DATA_ID");
 
-    SyntheticsPrivateLocation body = new SyntheticsPrivateLocation()
-.description("Test Example-Create_a_private_location_returns_OK_response description")
-.metadata(new SyntheticsPrivateLocationMetadata()
-.restrictedRoles(Collections.singletonList(ROLE_DATA_ID)))
-.name("Example-Create_a_private_location_returns_OK_response")
-.tags(Collections.singletonList("test:examplecreateaprivatelocationreturnsokresponse"));
+    SyntheticsPrivateLocation body =
+        new SyntheticsPrivateLocation()
+            .description("Test Example-Create_a_private_location_returns_OK_response description")
+            .metadata(
+                new SyntheticsPrivateLocationMetadata()
+                    .restrictedRoles(Collections.singletonList(ROLE_DATA_ID)))
+            .name("Example-Create_a_private_location_returns_OK_response")
+            .tags(Collections.singletonList("test:examplecreateaprivatelocationreturnsokresponse"));
 
     try {
       SyntheticsPrivateLocationCreationResponse result = apiInstance.createPrivateLocation(body);

@@ -6,42 +6,23 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object describing an organization to create.</p>
- */
+/** Object describing an organization to create. */
 @JsonPropertyOrder({
   OrganizationCreateBody.JSON_PROPERTY_BILLING,
   OrganizationCreateBody.JSON_PROPERTY_NAME,
   OrganizationCreateBody.JSON_PROPERTY_SUBSCRIPTION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationCreateBody {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BILLING = "billing";
   private OrganizationBilling billing;
 
@@ -55,9 +36,10 @@ public class OrganizationCreateBody {
 
   @JsonCreator
   public OrganizationCreateBody(
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
-        this.name = name;
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
   }
+
   public OrganizationCreateBody billing(OrganizationBilling billing) {
     this.billing = billing;
     this.unparsed |= billing.unparsed;
@@ -65,39 +47,43 @@ public class OrganizationCreateBody {
   }
 
   /**
-   * <p>A JSON array of billing type.</p>
+   * A JSON array of billing type.
+   *
    * @return billing
    * @deprecated
-  **/
-      @Deprecated
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BILLING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OrganizationBilling getBilling() {
-        return billing;
-      }
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BILLING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OrganizationBilling getBilling() {
+    return billing;
+  }
+
   public void setBilling(OrganizationBilling billing) {
     this.billing = billing;
   }
+
   public OrganizationCreateBody name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the new child-organization, limited to 32 characters.</p>
+   * The name of the new child-organization, limited to 32 characters.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public OrganizationCreateBody subscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
     this.unparsed |= subscription.unparsed;
@@ -105,25 +91,24 @@ public class OrganizationCreateBody {
   }
 
   /**
-   * <p>Subscription definition.</p>
+   * Subscription definition.
+   *
    * @return subscription
    * @deprecated
-  **/
-      @Deprecated
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OrganizationSubscription getSubscription() {
-        return subscription;
-      }
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OrganizationSubscription getSubscription() {
+    return subscription;
+  }
+
   public void setSubscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
   }
 
-  /**
-   * Return true if this OrganizationCreateBody object is equal to o.
-   */
+  /** Return true if this OrganizationCreateBody object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,13 +118,14 @@ public class OrganizationCreateBody {
       return false;
     }
     OrganizationCreateBody organizationCreateBody = (OrganizationCreateBody) o;
-    return Objects.equals(this.billing, organizationCreateBody.billing) && Objects.equals(this.name, organizationCreateBody.name) && Objects.equals(this.subscription, organizationCreateBody.subscription);
+    return Objects.equals(this.billing, organizationCreateBody.billing)
+        && Objects.equals(this.name, organizationCreateBody.name)
+        && Objects.equals(this.subscription, organizationCreateBody.subscription);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(billing,name,subscription);
+    return Objects.hash(billing, name, subscription);
   }
 
   @Override
@@ -154,8 +140,7 @@ public class OrganizationCreateBody {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,42 +6,22 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object for a single metric's distinct volume.</p>
- */
+/** Object for a single metric's distinct volume. */
 @JsonPropertyOrder({
   MetricDistinctVolume.JSON_PROPERTY_ATTRIBUTES,
   MetricDistinctVolume.JSON_PROPERTY_ID,
   MetricDistinctVolume.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricDistinctVolume {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private MetricDistinctVolumeAttributes attributes;
 
@@ -58,38 +38,42 @@ public class MetricDistinctVolume {
   }
 
   /**
-   * <p>Object containing the definition of a metric's distinct volume.</p>
+   * Object containing the definition of a metric's distinct volume.
+   *
    * @return attributes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public MetricDistinctVolumeAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MetricDistinctVolumeAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(MetricDistinctVolumeAttributes attributes) {
     this.attributes = attributes;
   }
+
   public MetricDistinctVolume id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The metric name for this resource.</p>
+   * The metric name for this resource.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public MetricDistinctVolume type(MetricDistinctVolumeType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -97,26 +81,25 @@ public class MetricDistinctVolume {
   }
 
   /**
-   * <p>The metric distinct volume type.</p>
+   * The metric distinct volume type.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public MetricDistinctVolumeType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MetricDistinctVolumeType getType() {
+    return type;
+  }
+
   public void setType(MetricDistinctVolumeType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this MetricDistinctVolume object is equal to o.
-   */
+  /** Return true if this MetricDistinctVolume object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -126,13 +109,14 @@ public class MetricDistinctVolume {
       return false;
     }
     MetricDistinctVolume metricDistinctVolume = (MetricDistinctVolume) o;
-    return Objects.equals(this.attributes, metricDistinctVolume.attributes) && Objects.equals(this.id, metricDistinctVolume.id) && Objects.equals(this.type, metricDistinctVolume.type);
+    return Objects.equals(this.attributes, metricDistinctVolume.attributes)
+        && Objects.equals(this.id, metricDistinctVolume.id)
+        && Objects.equals(this.type, metricDistinctVolume.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,id,type);
+    return Objects.hash(attributes, id, type);
   }
 
   @Override
@@ -147,8 +131,7 @@ public class MetricDistinctVolume {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,75 +6,52 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A notification triggered by the monitor.</p>
- */
+/** A notification triggered by the monitor. */
 @JsonPropertyOrder({
   MonitorSearchResultNotification.JSON_PROPERTY_HANDLE,
   MonitorSearchResultNotification.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorSearchResultNotification {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-
   /**
-   * <p>The email address that received the notification.</p>
+   * The email address that received the notification.
+   *
    * @return handle
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HANDLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHandle() {
-        return handle;
-      }
-
-  /**
-   * <p>The username receiving the notification</p>
-   * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
-
-  /**
-   * Return true if this MonitorSearchResultNotification object is equal to o.
    */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HANDLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHandle() {
+    return handle;
+  }
+
+  /**
+   * The username receiving the notification
+   *
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  /** Return true if this MonitorSearchResultNotification object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,14 +60,15 @@ public class MonitorSearchResultNotification {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorSearchResultNotification monitorSearchResultNotification = (MonitorSearchResultNotification) o;
-    return Objects.equals(this.handle, monitorSearchResultNotification.handle) && Objects.equals(this.name, monitorSearchResultNotification.name);
+    MonitorSearchResultNotification monitorSearchResultNotification =
+        (MonitorSearchResultNotification) o;
+    return Objects.equals(this.handle, monitorSearchResultNotification.handle)
+        && Objects.equals(this.name, monitorSearchResultNotification.name);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(handle,name);
+    return Objects.hash(handle, name);
   }
 
   @Override
@@ -104,8 +82,7 @@ public class MonitorSearchResultNotification {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

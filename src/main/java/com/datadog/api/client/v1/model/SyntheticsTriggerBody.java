@@ -6,40 +6,21 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object describing the synthetics tests to trigger.</p>
- */
-@JsonPropertyOrder({
-  SyntheticsTriggerBody.JSON_PROPERTY_TESTS
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Object describing the synthetics tests to trigger. */
+@JsonPropertyOrder({SyntheticsTriggerBody.JSON_PROPERTY_TESTS})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTriggerBody {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TESTS = "tests";
   private List<SyntheticsTriggerTest> tests = new ArrayList<>();
 
@@ -47,9 +28,11 @@ public class SyntheticsTriggerBody {
 
   @JsonCreator
   public SyntheticsTriggerBody(
-            @JsonProperty(required=true, value=JSON_PROPERTY_TESTS)List<SyntheticsTriggerTest> tests) {
-        this.tests = tests;
+      @JsonProperty(required = true, value = JSON_PROPERTY_TESTS)
+          List<SyntheticsTriggerTest> tests) {
+    this.tests = tests;
   }
+
   public SyntheticsTriggerBody tests(List<SyntheticsTriggerTest> tests) {
     this.tests = tests;
     for (SyntheticsTriggerTest item : tests) {
@@ -57,6 +40,7 @@ public class SyntheticsTriggerBody {
     }
     return this;
   }
+
   public SyntheticsTriggerBody addTestsItem(SyntheticsTriggerTest testsItem) {
     this.tests.add(testsItem);
     this.unparsed |= testsItem.unparsed;
@@ -64,22 +48,21 @@ public class SyntheticsTriggerBody {
   }
 
   /**
-   * <p>Individual synthetics test.</p>
+   * Individual synthetics test.
+   *
    * @return tests
-  **/
-      @JsonProperty(JSON_PROPERTY_TESTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<SyntheticsTriggerTest> getTests() {
-        return tests;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TESTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<SyntheticsTriggerTest> getTests() {
+    return tests;
+  }
+
   public void setTests(List<SyntheticsTriggerTest> tests) {
     this.tests = tests;
   }
 
-  /**
-   * Return true if this SyntheticsTriggerBody object is equal to o.
-   */
+  /** Return true if this SyntheticsTriggerBody object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,7 +74,6 @@ public class SyntheticsTriggerBody {
     SyntheticsTriggerBody syntheticsTriggerBody = (SyntheticsTriggerBody) o;
     return Objects.equals(this.tests, syntheticsTriggerBody.tests);
   }
-
 
   @Override
   public int hashCode() {
@@ -108,8 +90,7 @@ public class SyntheticsTriggerBody {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

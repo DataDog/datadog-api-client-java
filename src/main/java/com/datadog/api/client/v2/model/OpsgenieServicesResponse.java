@@ -6,40 +6,21 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Response with a list of Opsgenie services.</p>
- */
-@JsonPropertyOrder({
-  OpsgenieServicesResponse.JSON_PROPERTY_DATA
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Response with a list of Opsgenie services. */
+@JsonPropertyOrder({OpsgenieServicesResponse.JSON_PROPERTY_DATA})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OpsgenieServicesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<OpsgenieServiceResponseData> data = new ArrayList<>();
 
@@ -47,9 +28,11 @@ public class OpsgenieServicesResponse {
 
   @JsonCreator
   public OpsgenieServicesResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)List<OpsgenieServiceResponseData> data) {
-        this.data = data;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<OpsgenieServiceResponseData> data) {
+    this.data = data;
   }
+
   public OpsgenieServicesResponse data(List<OpsgenieServiceResponseData> data) {
     this.data = data;
     for (OpsgenieServiceResponseData item : data) {
@@ -57,6 +40,7 @@ public class OpsgenieServicesResponse {
     }
     return this;
   }
+
   public OpsgenieServicesResponse addDataItem(OpsgenieServiceResponseData dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
@@ -64,22 +48,21 @@ public class OpsgenieServicesResponse {
   }
 
   /**
-   * <p>An array of Opsgenie services.</p>
+   * An array of Opsgenie services.
+   *
    * @return data
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<OpsgenieServiceResponseData> getData() {
-        return data;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<OpsgenieServiceResponseData> getData() {
+    return data;
+  }
+
   public void setData(List<OpsgenieServiceResponseData> data) {
     this.data = data;
   }
 
-  /**
-   * Return true if this OpsgenieServicesResponse object is equal to o.
-   */
+  /** Return true if this OpsgenieServicesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,7 +74,6 @@ public class OpsgenieServicesResponse {
     OpsgenieServicesResponse opsgenieServicesResponse = (OpsgenieServicesResponse) o;
     return Objects.equals(this.data, opsgenieServicesResponse.data);
   }
-
 
   @Override
   public int hashCode() {
@@ -108,8 +90,7 @@ public class OpsgenieServicesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

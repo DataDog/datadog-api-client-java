@@ -1,19 +1,13 @@
 // Create a new role by cloning an existing role returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RolesApi;
-import com.datadog.api.client.v2.model.RoleResponse;
 import com.datadog.api.client.v2.model.RoleClone;
 import com.datadog.api.client.v2.model.RoleCloneAttributes;
 import com.datadog.api.client.v2.model.RoleCloneRequest;
+import com.datadog.api.client.v2.model.RoleResponse;
 import com.datadog.api.client.v2.model.RolesType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -23,11 +17,16 @@ public class Example {
     // there is a valid "role" in the system
     String ROLE_DATA_ID = System.getenv("ROLE_DATA_ID");
 
-    RoleCloneRequest body = new RoleCloneRequest()
-.data(new RoleClone()
-.attributes(new RoleCloneAttributes()
-.name("Example-Create_a_new_role_by_cloning_an_existing_role_returns_OK_response clone"))
-.type(RolesType.ROLES));
+    RoleCloneRequest body =
+        new RoleCloneRequest()
+            .data(
+                new RoleClone()
+                    .attributes(
+                        new RoleCloneAttributes()
+                            .name(
+                                "Example-Create_a_new_role_by_cloning_an_existing_role_returns_OK_response"
+                                    + " clone"))
+                    .type(RolesType.ROLES));
 
     try {
       RoleResponse result = apiInstance.cloneRole(ROLE_DATA_ID, body);

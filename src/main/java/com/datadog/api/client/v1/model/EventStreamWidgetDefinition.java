@@ -6,33 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.Objects;
 
 /**
-   * <p>The event stream is a widget version of the stream of events
-   * on the Event Stream view. Only available on FREE layout dashboards.</p>
+ * The event stream is a widget version of the stream of events on the Event Stream view. Only
+ * available on FREE layout dashboards.
  */
 @JsonPropertyOrder({
   EventStreamWidgetDefinition.JSON_PROPERTY_EVENT_SIZE,
@@ -44,10 +27,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   EventStreamWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   EventStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventStreamWidgetDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";
   private WidgetEventSize eventSize;
 
@@ -76,12 +59,14 @@ public class EventStreamWidgetDefinition {
 
   @JsonCreator
   public EventStreamWidgetDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)EventStreamWidgetDefinitionType type) {
-        this.query = query;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          EventStreamWidgetDefinitionType type) {
+    this.query = query;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public EventStreamWidgetDefinition eventSize(WidgetEventSize eventSize) {
     this.eventSize = eventSize;
     this.unparsed |= !eventSize.isValid();
@@ -89,59 +74,65 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * <p>Size to use to display an event.</p>
+   * Size to use to display an event.
+   *
    * @return eventSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EVENT_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetEventSize getEventSize() {
-        return eventSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetEventSize getEventSize() {
+    return eventSize;
+  }
+
   public void setEventSize(WidgetEventSize eventSize) {
     if (!eventSize.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.eventSize = eventSize;
   }
+
   public EventStreamWidgetDefinition query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * <p>Query to filter the event stream with.</p>
+   * Query to filter the event stream with.
+   *
    * @return query
-  **/
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getQuery() {
-        return query;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQuery() {
+    return query;
+  }
+
   public void setQuery(String query) {
     this.query = query;
   }
+
   public EventStreamWidgetDefinition tagsExecution(String tagsExecution) {
     this.tagsExecution = tagsExecution;
     return this;
   }
 
   /**
-   * <p>The execution method for multi-value filters. Can be either and or or.</p>
+   * The execution method for multi-value filters. Can be either and or or.
+   *
    * @return tagsExecution
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTagsExecution() {
-        return tagsExecution;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTagsExecution() {
+    return tagsExecution;
+  }
+
   public void setTagsExecution(String tagsExecution) {
     this.tagsExecution = tagsExecution;
   }
+
   public EventStreamWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -149,38 +140,42 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * <p>Time setting for the widget.</p>
+   * Time setting for the widget.
+   *
    * @return time
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTime getTime() {
-        return time;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
   public EventStreamWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>Title of the widget.</p>
+   * Title of the widget.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
+
   public EventStreamWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -188,41 +183,45 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * <p>How to align the text on the widget.</p>
+   * How to align the text on the widget.
+   *
    * @return titleAlign
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTextAlign getTitleAlign() {
-        return titleAlign;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
   public EventStreamWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * <p>Size of the title.</p>
+   * Size of the title.
+   *
    * @return titleSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitleSize() {
-        return titleSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitleSize() {
+    return titleSize;
+  }
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
   public EventStreamWidgetDefinition type(EventStreamWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -230,25 +229,24 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * <p>Type of the event stream widget.</p>
+   * Type of the event stream widget.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public EventStreamWidgetDefinitionType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public EventStreamWidgetDefinitionType getType() {
+    return type;
+  }
+
   public void setType(EventStreamWidgetDefinitionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this EventStreamWidgetDefinition object is equal to o.
-   */
+  /** Return true if this EventStreamWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -258,13 +256,19 @@ public class EventStreamWidgetDefinition {
       return false;
     }
     EventStreamWidgetDefinition eventStreamWidgetDefinition = (EventStreamWidgetDefinition) o;
-    return Objects.equals(this.eventSize, eventStreamWidgetDefinition.eventSize) && Objects.equals(this.query, eventStreamWidgetDefinition.query) && Objects.equals(this.tagsExecution, eventStreamWidgetDefinition.tagsExecution) && Objects.equals(this.time, eventStreamWidgetDefinition.time) && Objects.equals(this.title, eventStreamWidgetDefinition.title) && Objects.equals(this.titleAlign, eventStreamWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, eventStreamWidgetDefinition.titleSize) && Objects.equals(this.type, eventStreamWidgetDefinition.type);
+    return Objects.equals(this.eventSize, eventStreamWidgetDefinition.eventSize)
+        && Objects.equals(this.query, eventStreamWidgetDefinition.query)
+        && Objects.equals(this.tagsExecution, eventStreamWidgetDefinition.tagsExecution)
+        && Objects.equals(this.time, eventStreamWidgetDefinition.time)
+        && Objects.equals(this.title, eventStreamWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, eventStreamWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, eventStreamWidgetDefinition.titleSize)
+        && Objects.equals(this.type, eventStreamWidgetDefinition.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventSize,query,tagsExecution,time,title,titleAlign,titleSize,type);
+    return Objects.hash(eventSize, query, tagsExecution, time, title, titleAlign, titleSize, type);
   }
 
   @Override
@@ -284,8 +288,7 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

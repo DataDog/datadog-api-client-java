@@ -6,50 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object containing indexed logs usage grouped by retention period and summed.</p>
- */
+/** Object containing indexed logs usage grouped by retention period and summed. */
 @JsonPropertyOrder({
   LogsRetentionSumUsage.JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_SUM,
   LogsRetentionSumUsage.JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_SUM,
   LogsRetentionSumUsage.JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_SUM,
   LogsRetentionSumUsage.JSON_PROPERTY_RETENTION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsRetentionSumUsage {
-  @JsonIgnore
-  public boolean unparsed = false;
-  public static final String JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_SUM = "logs_indexed_logs_usage_sum";
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_SUM =
+      "logs_indexed_logs_usage_sum";
   private Long logsIndexedLogsUsageSum;
 
-  public static final String JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_SUM = "logs_live_indexed_logs_usage_sum";
+  public static final String JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_SUM =
+      "logs_live_indexed_logs_usage_sum";
   private Long logsLiveIndexedLogsUsageSum;
 
-  public static final String JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_SUM = "logs_rehydrated_indexed_logs_usage_sum";
+  public static final String JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_SUM =
+      "logs_rehydrated_indexed_logs_usage_sum";
   private Long logsRehydratedIndexedLogsUsageSum;
 
   public static final String JSON_PROPERTY_RETENTION = "retention";
@@ -61,80 +44,86 @@ public class LogsRetentionSumUsage {
   }
 
   /**
-   * <p>Total indexed logs for this retention period.</p>
+   * Total indexed logs for this retention period.
+   *
    * @return logsIndexedLogsUsageSum
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_SUM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getLogsIndexedLogsUsageSum() {
-        return logsIndexedLogsUsageSum;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLogsIndexedLogsUsageSum() {
+    return logsIndexedLogsUsageSum;
+  }
+
   public void setLogsIndexedLogsUsageSum(Long logsIndexedLogsUsageSum) {
     this.logsIndexedLogsUsageSum = logsIndexedLogsUsageSum;
   }
+
   public LogsRetentionSumUsage logsLiveIndexedLogsUsageSum(Long logsLiveIndexedLogsUsageSum) {
     this.logsLiveIndexedLogsUsageSum = logsLiveIndexedLogsUsageSum;
     return this;
   }
 
   /**
-   * <p>Live indexed logs for this retention period.</p>
+   * Live indexed logs for this retention period.
+   *
    * @return logsLiveIndexedLogsUsageSum
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_SUM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getLogsLiveIndexedLogsUsageSum() {
-        return logsLiveIndexedLogsUsageSum;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLogsLiveIndexedLogsUsageSum() {
+    return logsLiveIndexedLogsUsageSum;
+  }
+
   public void setLogsLiveIndexedLogsUsageSum(Long logsLiveIndexedLogsUsageSum) {
     this.logsLiveIndexedLogsUsageSum = logsLiveIndexedLogsUsageSum;
   }
-  public LogsRetentionSumUsage logsRehydratedIndexedLogsUsageSum(Long logsRehydratedIndexedLogsUsageSum) {
+
+  public LogsRetentionSumUsage logsRehydratedIndexedLogsUsageSum(
+      Long logsRehydratedIndexedLogsUsageSum) {
     this.logsRehydratedIndexedLogsUsageSum = logsRehydratedIndexedLogsUsageSum;
     return this;
   }
 
   /**
-   * <p>Rehydrated indexed logs for this retention period.</p>
+   * Rehydrated indexed logs for this retention period.
+   *
    * @return logsRehydratedIndexedLogsUsageSum
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_SUM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getLogsRehydratedIndexedLogsUsageSum() {
-        return logsRehydratedIndexedLogsUsageSum;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLogsRehydratedIndexedLogsUsageSum() {
+    return logsRehydratedIndexedLogsUsageSum;
+  }
+
   public void setLogsRehydratedIndexedLogsUsageSum(Long logsRehydratedIndexedLogsUsageSum) {
     this.logsRehydratedIndexedLogsUsageSum = logsRehydratedIndexedLogsUsageSum;
   }
+
   public LogsRetentionSumUsage retention(String retention) {
     this.retention = retention;
     return this;
   }
 
   /**
-   * <p>The retention period in days or "custom" for all custom retention periods.</p>
+   * The retention period in days or "custom" for all custom retention periods.
+   *
    * @return retention
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RETENTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getRetention() {
-        return retention;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RETENTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRetention() {
+    return retention;
+  }
+
   public void setRetention(String retention) {
     this.retention = retention;
   }
 
-  /**
-   * Return true if this LogsRetentionSumUsage object is equal to o.
-   */
+  /** Return true if this LogsRetentionSumUsage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -144,30 +133,45 @@ public class LogsRetentionSumUsage {
       return false;
     }
     LogsRetentionSumUsage logsRetentionSumUsage = (LogsRetentionSumUsage) o;
-    return Objects.equals(this.logsIndexedLogsUsageSum, logsRetentionSumUsage.logsIndexedLogsUsageSum) && Objects.equals(this.logsLiveIndexedLogsUsageSum, logsRetentionSumUsage.logsLiveIndexedLogsUsageSum) && Objects.equals(this.logsRehydratedIndexedLogsUsageSum, logsRetentionSumUsage.logsRehydratedIndexedLogsUsageSum) && Objects.equals(this.retention, logsRetentionSumUsage.retention);
+    return Objects.equals(
+            this.logsIndexedLogsUsageSum, logsRetentionSumUsage.logsIndexedLogsUsageSum)
+        && Objects.equals(
+            this.logsLiveIndexedLogsUsageSum, logsRetentionSumUsage.logsLiveIndexedLogsUsageSum)
+        && Objects.equals(
+            this.logsRehydratedIndexedLogsUsageSum,
+            logsRetentionSumUsage.logsRehydratedIndexedLogsUsageSum)
+        && Objects.equals(this.retention, logsRetentionSumUsage.retention);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(logsIndexedLogsUsageSum,logsLiveIndexedLogsUsageSum,logsRehydratedIndexedLogsUsageSum,retention);
+    return Objects.hash(
+        logsIndexedLogsUsageSum,
+        logsLiveIndexedLogsUsageSum,
+        logsRehydratedIndexedLogsUsageSum,
+        retention);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsRetentionSumUsage {\n");
-    sb.append("    logsIndexedLogsUsageSum: ").append(toIndentedString(logsIndexedLogsUsageSum)).append("\n");
-    sb.append("    logsLiveIndexedLogsUsageSum: ").append(toIndentedString(logsLiveIndexedLogsUsageSum)).append("\n");
-    sb.append("    logsRehydratedIndexedLogsUsageSum: ").append(toIndentedString(logsRehydratedIndexedLogsUsageSum)).append("\n");
+    sb.append("    logsIndexedLogsUsageSum: ")
+        .append(toIndentedString(logsIndexedLogsUsageSum))
+        .append("\n");
+    sb.append("    logsLiveIndexedLogsUsageSum: ")
+        .append(toIndentedString(logsLiveIndexedLogsUsageSum))
+        .append("\n");
+    sb.append("    logsRehydratedIndexedLogsUsageSum: ")
+        .append(toIndentedString(logsRehydratedIndexedLogsUsageSum))
+        .append("\n");
     sb.append("    retention: ").append(toIndentedString(retention)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

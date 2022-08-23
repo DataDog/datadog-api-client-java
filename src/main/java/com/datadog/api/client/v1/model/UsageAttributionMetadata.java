@@ -6,41 +6,23 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The object containing document metadata.</p>
- */
+/** The object containing document metadata. */
 @JsonPropertyOrder({
   UsageAttributionMetadata.JSON_PROPERTY_AGGREGATES,
   UsageAttributionMetadata.JSON_PROPERTY_PAGINATION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributionMetadata {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATES = "aggregates";
   private List<UsageAttributionAggregatesBody> aggregates = null;
 
@@ -54,6 +36,7 @@ public class UsageAttributionMetadata {
     }
     return this;
   }
+
   public UsageAttributionMetadata addAggregatesItem(UsageAttributionAggregatesBody aggregatesItem) {
     if (this.aggregates == null) {
       this.aggregates = new ArrayList<>();
@@ -64,19 +47,21 @@ public class UsageAttributionMetadata {
   }
 
   /**
-   * <p>An array of available aggregates.</p>
+   * An array of available aggregates.
+   *
    * @return aggregates
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AGGREGATES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<UsageAttributionAggregatesBody> getAggregates() {
-        return aggregates;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AGGREGATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<UsageAttributionAggregatesBody> getAggregates() {
+    return aggregates;
+  }
+
   public void setAggregates(List<UsageAttributionAggregatesBody> aggregates) {
     this.aggregates = aggregates;
   }
+
   public UsageAttributionMetadata pagination(UsageAttributionPagination pagination) {
     this.pagination = pagination;
     this.unparsed |= pagination.unparsed;
@@ -84,23 +69,22 @@ public class UsageAttributionMetadata {
   }
 
   /**
-   * <p>The metadata for the current pagination.</p>
+   * The metadata for the current pagination.
+   *
    * @return pagination
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PAGINATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public UsageAttributionPagination getPagination() {
-        return pagination;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGINATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageAttributionPagination getPagination() {
+    return pagination;
+  }
+
   public void setPagination(UsageAttributionPagination pagination) {
     this.pagination = pagination;
   }
 
-  /**
-   * Return true if this UsageAttributionMetadata object is equal to o.
-   */
+  /** Return true if this UsageAttributionMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -110,13 +94,13 @@ public class UsageAttributionMetadata {
       return false;
     }
     UsageAttributionMetadata usageAttributionMetadata = (UsageAttributionMetadata) o;
-    return Objects.equals(this.aggregates, usageAttributionMetadata.aggregates) && Objects.equals(this.pagination, usageAttributionMetadata.pagination);
+    return Objects.equals(this.aggregates, usageAttributionMetadata.aggregates)
+        && Objects.equals(this.pagination, usageAttributionMetadata.pagination);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregates,pagination);
+    return Objects.hash(aggregates, pagination);
   }
 
   @Override
@@ -130,8 +114,7 @@ public class UsageAttributionMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,42 +6,22 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Process summary object.</p>
- */
+/** Process summary object. */
 @JsonPropertyOrder({
   ProcessSummary.JSON_PROPERTY_ATTRIBUTES,
   ProcessSummary.JSON_PROPERTY_ID,
   ProcessSummary.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessSummary {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private ProcessSummaryAttributes attributes;
 
@@ -58,38 +38,42 @@ public class ProcessSummary {
   }
 
   /**
-   * <p>Attributes for a process summary.</p>
+   * Attributes for a process summary.
+   *
    * @return attributes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ProcessSummaryAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProcessSummaryAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(ProcessSummaryAttributes attributes) {
     this.attributes = attributes;
   }
+
   public ProcessSummary id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>Process ID.</p>
+   * Process ID.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public ProcessSummary type(ProcessSummaryType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -97,26 +81,25 @@ public class ProcessSummary {
   }
 
   /**
-   * <p>Type of process summary.</p>
+   * Type of process summary.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ProcessSummaryType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProcessSummaryType getType() {
+    return type;
+  }
+
   public void setType(ProcessSummaryType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this ProcessSummary object is equal to o.
-   */
+  /** Return true if this ProcessSummary object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -126,13 +109,14 @@ public class ProcessSummary {
       return false;
     }
     ProcessSummary processSummary = (ProcessSummary) o;
-    return Objects.equals(this.attributes, processSummary.attributes) && Objects.equals(this.id, processSummary.id) && Objects.equals(this.type, processSummary.type);
+    return Objects.equals(this.attributes, processSummary.attributes)
+        && Objects.equals(this.id, processSummary.id)
+        && Objects.equals(this.type, processSummary.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,id,type);
+    return Objects.hash(attributes, id, type);
   }
 
   @Override
@@ -147,8 +131,7 @@ public class ProcessSummary {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

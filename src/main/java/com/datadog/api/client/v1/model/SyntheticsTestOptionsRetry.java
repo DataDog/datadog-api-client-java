@@ -6,41 +6,21 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object describing the retry strategy to apply to a Synthetic test.</p>
- */
+/** Object describing the retry strategy to apply to a Synthetic test. */
 @JsonPropertyOrder({
   SyntheticsTestOptionsRetry.JSON_PROPERTY_COUNT,
   SyntheticsTestOptionsRetry.JSON_PROPERTY_INTERVAL
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestOptionsRetry {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNT = "count";
   private Long count;
 
@@ -53,44 +33,43 @@ public class SyntheticsTestOptionsRetry {
   }
 
   /**
-   * <p>Number of times a test needs to be retried before marking a
-   * location as failed. Defaults to 0.</p>
+   * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
+   *
    * @return count
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getCount() {
-        return count;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCount() {
+    return count;
+  }
+
   public void setCount(Long count) {
     this.count = count;
   }
+
   public SyntheticsTestOptionsRetry interval(Double interval) {
     this.interval = interval;
     return this;
   }
 
   /**
-   * <p>Time interval between retries (in milliseconds). Defaults to
-   * 300ms.</p>
+   * Time interval between retries (in milliseconds). Defaults to 300ms.
+   *
    * @return interval
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INTERVAL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getInterval() {
-        return interval;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getInterval() {
+    return interval;
+  }
+
   public void setInterval(Double interval) {
     this.interval = interval;
   }
 
-  /**
-   * Return true if this SyntheticsTestOptionsRetry object is equal to o.
-   */
+  /** Return true if this SyntheticsTestOptionsRetry object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -100,13 +79,13 @@ public class SyntheticsTestOptionsRetry {
       return false;
     }
     SyntheticsTestOptionsRetry syntheticsTestOptionsRetry = (SyntheticsTestOptionsRetry) o;
-    return Objects.equals(this.count, syntheticsTestOptionsRetry.count) && Objects.equals(this.interval, syntheticsTestOptionsRetry.interval);
+    return Objects.equals(this.count, syntheticsTestOptionsRetry.count)
+        && Objects.equals(this.interval, syntheticsTestOptionsRetry.interval);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(count,interval);
+    return Objects.hash(count, interval);
   }
 
   @Override
@@ -120,8 +99,7 @@ public class SyntheticsTestOptionsRetry {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,40 +6,23 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
-   * <p>Response containing the number of Synthetics Browser tests run for each hour for a given organization.</p>
+ * Response containing the number of Synthetics Browser tests run for each hour for a given
+ * organization.
  */
-@JsonPropertyOrder({
-  UsageSyntheticsBrowserResponse.JSON_PROPERTY_USAGE
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@JsonPropertyOrder({UsageSyntheticsBrowserResponse.JSON_PROPERTY_USAGE})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSyntheticsBrowserResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageSyntheticsBrowserHour> usage = null;
 
@@ -50,6 +33,7 @@ public class UsageSyntheticsBrowserResponse {
     }
     return this;
   }
+
   public UsageSyntheticsBrowserResponse addUsageItem(UsageSyntheticsBrowserHour usageItem) {
     if (this.usage == null) {
       this.usage = new ArrayList<>();
@@ -60,23 +44,22 @@ public class UsageSyntheticsBrowserResponse {
   }
 
   /**
-   * <p>Get hourly usage for Synthetics Browser tests.</p>
+   * Get hourly usage for Synthetics Browser tests.
+   *
    * @return usage
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_USAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<UsageSyntheticsBrowserHour> getUsage() {
-        return usage;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<UsageSyntheticsBrowserHour> getUsage() {
+    return usage;
+  }
+
   public void setUsage(List<UsageSyntheticsBrowserHour> usage) {
     this.usage = usage;
   }
 
-  /**
-   * Return true if this UsageSyntheticsBrowserResponse object is equal to o.
-   */
+  /** Return true if this UsageSyntheticsBrowserResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,10 +68,10 @@ public class UsageSyntheticsBrowserResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSyntheticsBrowserResponse usageSyntheticsBrowserResponse = (UsageSyntheticsBrowserResponse) o;
+    UsageSyntheticsBrowserResponse usageSyntheticsBrowserResponse =
+        (UsageSyntheticsBrowserResponse) o;
     return Objects.equals(this.usage, usageSyntheticsBrowserResponse.usage);
   }
-
 
   @Override
   public int hashCode() {
@@ -105,8 +88,7 @@ public class UsageSyntheticsBrowserResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

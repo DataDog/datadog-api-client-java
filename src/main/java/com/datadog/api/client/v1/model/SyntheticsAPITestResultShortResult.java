@@ -6,41 +6,21 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Result of the last API test run.</p>
- */
+/** Result of the last API test run. */
 @JsonPropertyOrder({
   SyntheticsAPITestResultShortResult.JSON_PROPERTY_PASSED,
   SyntheticsAPITestResultShortResult.JSON_PROPERTY_TIMINGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITestResultShortResult {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PASSED = "passed";
   private Boolean passed;
 
@@ -53,19 +33,21 @@ public class SyntheticsAPITestResultShortResult {
   }
 
   /**
-   * <p>Describes if the test run has passed or failed.</p>
+   * Describes if the test run has passed or failed.
+   *
    * @return passed
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PASSED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getPassed() {
-        return passed;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PASSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getPassed() {
+    return passed;
+  }
+
   public void setPassed(Boolean passed) {
     this.passed = passed;
   }
+
   public SyntheticsAPITestResultShortResult timings(SyntheticsTiming timings) {
     this.timings = timings;
     this.unparsed |= timings.unparsed;
@@ -73,24 +55,24 @@ public class SyntheticsAPITestResultShortResult {
   }
 
   /**
-   * <p>Object containing all metrics and their values collected for a Synthetic API test.
-   * Learn more about those metrics in <a href="https://docs.datadoghq.com/synthetics/#metrics">Synthetics documentation</a>.</p>
+   * Object containing all metrics and their values collected for a Synthetic API test. Learn more
+   * about those metrics in <a href="https://docs.datadoghq.com/synthetics/#metrics">Synthetics
+   * documentation</a>.
+   *
    * @return timings
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMINGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTiming getTimings() {
-        return timings;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTiming getTimings() {
+    return timings;
+  }
+
   public void setTimings(SyntheticsTiming timings) {
     this.timings = timings;
   }
 
-  /**
-   * Return true if this SyntheticsAPITestResultShortResult object is equal to o.
-   */
+  /** Return true if this SyntheticsAPITestResultShortResult object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,14 +81,15 @@ public class SyntheticsAPITestResultShortResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITestResultShortResult syntheticsApiTestResultShortResult = (SyntheticsAPITestResultShortResult) o;
-    return Objects.equals(this.passed, syntheticsApiTestResultShortResult.passed) && Objects.equals(this.timings, syntheticsApiTestResultShortResult.timings);
+    SyntheticsAPITestResultShortResult syntheticsApiTestResultShortResult =
+        (SyntheticsAPITestResultShortResult) o;
+    return Objects.equals(this.passed, syntheticsApiTestResultShortResult.passed)
+        && Objects.equals(this.timings, syntheticsApiTestResultShortResult.timings);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(passed,timings);
+    return Objects.hash(passed, timings);
   }
 
   @Override
@@ -120,8 +103,7 @@ public class SyntheticsAPITestResultShortResult {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

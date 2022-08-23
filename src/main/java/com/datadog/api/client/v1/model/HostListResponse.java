@@ -6,42 +6,24 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Response with Host information from Datadog.</p>
- */
+/** Response with Host information from Datadog. */
 @JsonPropertyOrder({
   HostListResponse.JSON_PROPERTY_HOST_LIST,
   HostListResponse.JSON_PROPERTY_TOTAL_MATCHING,
   HostListResponse.JSON_PROPERTY_TOTAL_RETURNED
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostListResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOST_LIST = "host_list";
   private List<Host> hostList = null;
 
@@ -58,6 +40,7 @@ public class HostListResponse {
     }
     return this;
   }
+
   public HostListResponse addHostListItem(Host hostListItem) {
     if (this.hostList == null) {
       this.hostList = new ArrayList<>();
@@ -68,61 +51,64 @@ public class HostListResponse {
   }
 
   /**
-   * <p>Array of hosts.</p>
+   * Array of hosts.
+   *
    * @return hostList
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOST_LIST)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<Host> getHostList() {
-        return hostList;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOST_LIST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Host> getHostList() {
+    return hostList;
+  }
+
   public void setHostList(List<Host> hostList) {
     this.hostList = hostList;
   }
+
   public HostListResponse totalMatching(Long totalMatching) {
     this.totalMatching = totalMatching;
     return this;
   }
 
   /**
-   * <p>Number of host matching the query.</p>
+   * Number of host matching the query.
+   *
    * @return totalMatching
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOTAL_MATCHING)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTotalMatching() {
-        return totalMatching;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL_MATCHING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotalMatching() {
+    return totalMatching;
+  }
+
   public void setTotalMatching(Long totalMatching) {
     this.totalMatching = totalMatching;
   }
+
   public HostListResponse totalReturned(Long totalReturned) {
     this.totalReturned = totalReturned;
     return this;
   }
 
   /**
-   * <p>Number of host returned.</p>
+   * Number of host returned.
+   *
    * @return totalReturned
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOTAL_RETURNED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTotalReturned() {
-        return totalReturned;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL_RETURNED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotalReturned() {
+    return totalReturned;
+  }
+
   public void setTotalReturned(Long totalReturned) {
     this.totalReturned = totalReturned;
   }
 
-  /**
-   * Return true if this HostListResponse object is equal to o.
-   */
+  /** Return true if this HostListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -132,13 +118,14 @@ public class HostListResponse {
       return false;
     }
     HostListResponse hostListResponse = (HostListResponse) o;
-    return Objects.equals(this.hostList, hostListResponse.hostList) && Objects.equals(this.totalMatching, hostListResponse.totalMatching) && Objects.equals(this.totalReturned, hostListResponse.totalReturned);
+    return Objects.equals(this.hostList, hostListResponse.hostList)
+        && Objects.equals(this.totalMatching, hostListResponse.totalMatching)
+        && Objects.equals(this.totalReturned, hostListResponse.totalReturned);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostList,totalMatching,totalReturned);
+    return Objects.hash(hostList, totalMatching, totalReturned);
   }
 
   @Override
@@ -153,8 +140,7 @@ public class HostListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

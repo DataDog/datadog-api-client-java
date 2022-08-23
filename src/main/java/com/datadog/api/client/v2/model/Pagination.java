@@ -6,41 +6,21 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Pagination object.</p>
- */
+/** Pagination object. */
 @JsonPropertyOrder({
   Pagination.JSON_PROPERTY_TOTAL_COUNT,
   Pagination.JSON_PROPERTY_TOTAL_FILTERED_COUNT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Pagination {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";
   private Long totalCount;
 
@@ -53,42 +33,43 @@ public class Pagination {
   }
 
   /**
-   * <p>Total count.</p>
+   * Total count.
+   *
    * @return totalCount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTotalCount() {
-        return totalCount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotalCount() {
+    return totalCount;
+  }
+
   public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
+
   public Pagination totalFilteredCount(Long totalFilteredCount) {
     this.totalFilteredCount = totalFilteredCount;
     return this;
   }
 
   /**
-   * <p>Total count of elements matched by the filter.</p>
+   * Total count of elements matched by the filter.
+   *
    * @return totalFilteredCount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTotalFilteredCount() {
-        return totalFilteredCount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotalFilteredCount() {
+    return totalFilteredCount;
+  }
+
   public void setTotalFilteredCount(Long totalFilteredCount) {
     this.totalFilteredCount = totalFilteredCount;
   }
 
-  /**
-   * Return true if this Pagination object is equal to o.
-   */
+  /** Return true if this Pagination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -98,13 +79,13 @@ public class Pagination {
       return false;
     }
     Pagination pagination = (Pagination) o;
-    return Objects.equals(this.totalCount, pagination.totalCount) && Objects.equals(this.totalFilteredCount, pagination.totalFilteredCount);
+    return Objects.equals(this.totalCount, pagination.totalCount)
+        && Objects.equals(this.totalFilteredCount, pagination.totalFilteredCount);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount,totalFilteredCount);
+    return Objects.hash(totalCount, totalFilteredCount);
   }
 
   @Override
@@ -118,8 +99,7 @@ public class Pagination {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

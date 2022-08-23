@@ -1,26 +1,22 @@
 // Post an event returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.EventsApi;
-import com.datadog.api.client.v1.model.EventCreateResponse;
 import com.datadog.api.client.v1.model.EventCreateRequest;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
+import com.datadog.api.client.v1.model.EventCreateResponse;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     EventsApi apiInstance = new EventsApi(defaultClient);
 
-    EventCreateRequest body = new EventCreateRequest()
-.title("Example-Post_an_event_returns_OK_response")
-.text("A text message.")
-.tags(Collections.singletonList("test:ExamplePostaneventreturnsOKresponse"));
+    EventCreateRequest body =
+        new EventCreateRequest()
+            .title("Example-Post_an_event_returns_OK_response")
+            .text("A text message.")
+            .tags(Collections.singletonList("test:ExamplePostaneventreturnsOKresponse"));
 
     try {
       EventCreateResponse result = apiInstance.createEvent(body);

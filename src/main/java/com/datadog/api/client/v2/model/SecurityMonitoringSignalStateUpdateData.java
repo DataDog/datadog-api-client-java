@@ -6,40 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Data containing the patch for changing the state of a signal.</p>
- */
-@JsonPropertyOrder({
-  SecurityMonitoringSignalStateUpdateData.JSON_PROPERTY_ATTRIBUTES
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Data containing the patch for changing the state of a signal. */
+@JsonPropertyOrder({SecurityMonitoringSignalStateUpdateData.JSON_PROPERTY_ATTRIBUTES})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalStateUpdateData {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private SecurityMonitoringSignalStateUpdateAttributes attributes;
 
@@ -47,33 +26,35 @@ public class SecurityMonitoringSignalStateUpdateData {
 
   @JsonCreator
   public SecurityMonitoringSignalStateUpdateData(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES)SecurityMonitoringSignalStateUpdateAttributes attributes) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          SecurityMonitoringSignalStateUpdateAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
   }
-  public SecurityMonitoringSignalStateUpdateData attributes(SecurityMonitoringSignalStateUpdateAttributes attributes) {
+
+  public SecurityMonitoringSignalStateUpdateData attributes(
+      SecurityMonitoringSignalStateUpdateAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * <p>Attributes describing the change of state of a security signal.</p>
+   * Attributes describing the change of state of a security signal.
+   *
    * @return attributes
-  **/
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SecurityMonitoringSignalStateUpdateAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SecurityMonitoringSignalStateUpdateAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(SecurityMonitoringSignalStateUpdateAttributes attributes) {
     this.attributes = attributes;
   }
 
-  /**
-   * Return true if this SecurityMonitoringSignalStateUpdateData object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringSignalStateUpdateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -82,10 +63,10 @@ public class SecurityMonitoringSignalStateUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalStateUpdateData securityMonitoringSignalStateUpdateData = (SecurityMonitoringSignalStateUpdateData) o;
+    SecurityMonitoringSignalStateUpdateData securityMonitoringSignalStateUpdateData =
+        (SecurityMonitoringSignalStateUpdateData) o;
     return Objects.equals(this.attributes, securityMonitoringSignalStateUpdateData.attributes);
   }
-
 
   @Override
   public int hashCode() {
@@ -102,8 +83,7 @@ public class SecurityMonitoringSignalStateUpdateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

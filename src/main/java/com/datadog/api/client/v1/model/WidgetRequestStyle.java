@@ -6,42 +6,22 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Define request widget style.</p>
- */
+/** Define request widget style. */
 @JsonPropertyOrder({
   WidgetRequestStyle.JSON_PROPERTY_LINE_TYPE,
   WidgetRequestStyle.JSON_PROPERTY_LINE_WIDTH,
   WidgetRequestStyle.JSON_PROPERTY_PALETTE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetRequestStyle {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LINE_TYPE = "line_type";
   private WidgetLineType lineType;
 
@@ -58,22 +38,24 @@ public class WidgetRequestStyle {
   }
 
   /**
-   * <p>Type of lines displayed.</p>
+   * Type of lines displayed.
+   *
    * @return lineType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LINE_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetLineType getLineType() {
-        return lineType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetLineType getLineType() {
+    return lineType;
+  }
+
   public void setLineType(WidgetLineType lineType) {
     if (!lineType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.lineType = lineType;
   }
+
   public WidgetRequestStyle lineWidth(WidgetLineWidth lineWidth) {
     this.lineWidth = lineWidth;
     this.unparsed |= !lineWidth.isValid();
@@ -81,45 +63,46 @@ public class WidgetRequestStyle {
   }
 
   /**
-   * <p>Width of line displayed.</p>
+   * Width of line displayed.
+   *
    * @return lineWidth
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LINE_WIDTH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetLineWidth getLineWidth() {
-        return lineWidth;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINE_WIDTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetLineWidth getLineWidth() {
+    return lineWidth;
+  }
+
   public void setLineWidth(WidgetLineWidth lineWidth) {
     if (!lineWidth.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.lineWidth = lineWidth;
   }
+
   public WidgetRequestStyle palette(String palette) {
     this.palette = palette;
     return this;
   }
 
   /**
-   * <p>Color palette to apply to the widget.</p>
+   * Color palette to apply to the widget.
+   *
    * @return palette
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PALETTE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPalette() {
-        return palette;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PALETTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPalette() {
+    return palette;
+  }
+
   public void setPalette(String palette) {
     this.palette = palette;
   }
 
-  /**
-   * Return true if this WidgetRequestStyle object is equal to o.
-   */
+  /** Return true if this WidgetRequestStyle object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,13 +112,14 @@ public class WidgetRequestStyle {
       return false;
     }
     WidgetRequestStyle widgetRequestStyle = (WidgetRequestStyle) o;
-    return Objects.equals(this.lineType, widgetRequestStyle.lineType) && Objects.equals(this.lineWidth, widgetRequestStyle.lineWidth) && Objects.equals(this.palette, widgetRequestStyle.palette);
+    return Objects.equals(this.lineType, widgetRequestStyle.lineType)
+        && Objects.equals(this.lineWidth, widgetRequestStyle.lineWidth)
+        && Objects.equals(this.palette, widgetRequestStyle.palette);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(lineType,lineWidth,palette);
+    return Objects.hash(lineType, lineWidth, palette);
   }
 
   @Override
@@ -150,8 +134,7 @@ public class WidgetRequestStyle {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
