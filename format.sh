@@ -8,6 +8,6 @@ if [ $# -ne 0 ]; then
         find "$@" -name '*.java' | xargs java -jar $JAR_FILE -i
     else
         docker build -t google-java-format -f Dockerfile.format .
-        docker run --rm -v ${PWD}:/app/src --workdir /app/src google-java-format --replace $(find "$@" -name '*.java')
+        docker run --rm -v ${PWD}:/app/src --workdir /app/src google-java-format --replace --set-exit-if-changed $(find "$@" -name '*.java')
     fi
 fi
