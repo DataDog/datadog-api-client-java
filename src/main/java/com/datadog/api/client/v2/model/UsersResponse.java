@@ -6,24 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Response containing information about multiple users. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Response containing information about multiple users.</p>
+ */
 @JsonPropertyOrder({
   UsersResponse.JSON_PROPERTY_DATA,
   UsersResponse.JSON_PROPERTY_INCLUDED,
   UsersResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsersResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<User> data = null;
 
@@ -40,7 +58,6 @@ public class UsersResponse {
     }
     return this;
   }
-
   public UsersResponse addDataItem(User dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
@@ -51,21 +68,19 @@ public class UsersResponse {
   }
 
   /**
-   * Array of returned users.
-   *
+   * <p>Array of returned users.</p>
    * @return data
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<User> getData() {
-    return data;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<User> getData() {
+        return data;
+      }
   public void setData(List<User> data) {
     this.data = data;
   }
-
   public UsersResponse included(List<UserResponseIncludedItem> included) {
     this.included = included;
     for (UserResponseIncludedItem item : included) {
@@ -73,7 +88,6 @@ public class UsersResponse {
     }
     return this;
   }
-
   public UsersResponse addIncludedItem(UserResponseIncludedItem includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
@@ -84,21 +98,19 @@ public class UsersResponse {
   }
 
   /**
-   * Array of objects related to the users.
-   *
+   * <p>Array of objects related to the users.</p>
    * @return included
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<UserResponseIncludedItem> getIncluded() {
-    return included;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INCLUDED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<UserResponseIncludedItem> getIncluded() {
+        return included;
+      }
   public void setIncluded(List<UserResponseIncludedItem> included) {
     this.included = included;
   }
-
   public UsersResponse meta(ResponseMetaAttributes meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -106,22 +118,23 @@ public class UsersResponse {
   }
 
   /**
-   * Object describing meta attributes of response.
-   *
+   * <p>Object describing meta attributes of response.</p>
    * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ResponseMetaAttributes getMeta() {
-    return meta;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_META)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ResponseMetaAttributes getMeta() {
+        return meta;
+      }
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
   }
 
-  /** Return true if this UsersResponse object is equal to o. */
+  /**
+   * Return true if this UsersResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -131,14 +144,13 @@ public class UsersResponse {
       return false;
     }
     UsersResponse usersResponse = (UsersResponse) o;
-    return Objects.equals(this.data, usersResponse.data)
-        && Objects.equals(this.included, usersResponse.included)
-        && Objects.equals(this.meta, usersResponse.meta);
+    return Objects.equals(this.data, usersResponse.data) && Objects.equals(this.included, usersResponse.included) && Objects.equals(this.meta, usersResponse.meta);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, meta);
+    return Objects.hash(data,included,meta);
   }
 
   @Override
@@ -153,7 +165,8 @@ public class UsersResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

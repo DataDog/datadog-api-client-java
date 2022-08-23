@@ -6,23 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Response with the list of muted host for your organization. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Response with the list of muted host for your organization.</p>
+ */
 @JsonPropertyOrder({
   HostMuteResponse.JSON_PROPERTY_ACTION,
   HostMuteResponse.JSON_PROPERTY_END,
   HostMuteResponse.JSON_PROPERTY_HOSTNAME,
   HostMuteResponse.JSON_PROPERTY_MESSAGE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMuteResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTION = "action";
   private String action;
 
@@ -41,85 +61,80 @@ public class HostMuteResponse {
   }
 
   /**
-   * Action applied to the hosts.
-   *
+   * <p>Action applied to the hosts.</p>
    * @return action
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAction() {
-    return action;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ACTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAction() {
+        return action;
+      }
   public void setAction(String action) {
     this.action = action;
   }
-
   public HostMuteResponse end(Long end) {
     this.end = end;
     return this;
   }
 
   /**
-   * POSIX timestamp in seconds when the host is unmuted.
-   *
+   * <p>POSIX timestamp in seconds when the host is unmuted.</p>
    * @return end
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_END)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEnd() {
-    return end;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_END)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getEnd() {
+        return end;
+      }
   public void setEnd(Long end) {
     this.end = end;
   }
-
   public HostMuteResponse hostname(String hostname) {
     this.hostname = hostname;
     return this;
   }
 
   /**
-   * The host name.
-   *
+   * <p>The host name.</p>
    * @return hostname
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOSTNAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHostname() {
-    return hostname;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HOSTNAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getHostname() {
+        return hostname;
+      }
   public void setHostname(String hostname) {
     this.hostname = hostname;
   }
-
   public HostMuteResponse message(String message) {
     this.message = message;
     return this;
   }
 
   /**
-   * Message associated with the mute.
-   *
+   * <p>Message associated with the mute.</p>
    * @return message
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMessage() {
-    return message;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MESSAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getMessage() {
+        return message;
+      }
   public void setMessage(String message) {
     this.message = message;
   }
 
-  /** Return true if this HostMuteResponse object is equal to o. */
+  /**
+   * Return true if this HostMuteResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,15 +144,13 @@ public class HostMuteResponse {
       return false;
     }
     HostMuteResponse hostMuteResponse = (HostMuteResponse) o;
-    return Objects.equals(this.action, hostMuteResponse.action)
-        && Objects.equals(this.end, hostMuteResponse.end)
-        && Objects.equals(this.hostname, hostMuteResponse.hostname)
-        && Objects.equals(this.message, hostMuteResponse.message);
+    return Objects.equals(this.action, hostMuteResponse.action) && Objects.equals(this.end, hostMuteResponse.end) && Objects.equals(this.hostname, hostMuteResponse.hostname) && Objects.equals(this.message, hostMuteResponse.message);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, end, hostname, message);
+    return Objects.hash(action,end,hostname,message);
   }
 
   @Override
@@ -153,7 +166,8 @@ public class HostMuteResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

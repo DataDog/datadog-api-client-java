@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Composed target for <code>validatesJSONPath</code> operator. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Composed target for <code>validatesJSONPath</code> operator.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_JSON_PATH,
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_OPERATOR,
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_TARGET_VALUE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAssertionJSONPathTargetTarget {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_JSON_PATH = "jsonPath";
   private String jsonPath;
 
@@ -37,64 +57,61 @@ public class SyntheticsAssertionJSONPathTargetTarget {
   }
 
   /**
-   * The JSON path to assert.
-   *
+   * <p>The JSON path to assert.</p>
    * @return jsonPath
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_JSON_PATH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getJsonPath() {
-    return jsonPath;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_JSON_PATH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getJsonPath() {
+        return jsonPath;
+      }
   public void setJsonPath(String jsonPath) {
     this.jsonPath = jsonPath;
   }
-
   public SyntheticsAssertionJSONPathTargetTarget operator(String operator) {
     this.operator = operator;
     return this;
   }
 
   /**
-   * The specific operator to use on the path.
-   *
+   * <p>The specific operator to use on the path.</p>
    * @return operator
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPERATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getOperator() {
-    return operator;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OPERATOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getOperator() {
+        return operator;
+      }
   public void setOperator(String operator) {
     this.operator = operator;
   }
-
   public SyntheticsAssertionJSONPathTargetTarget targetValue(Object targetValue) {
     this.targetValue = targetValue;
     return this;
   }
 
   /**
-   * The path target value to compare to.
-   *
+   * <p>The path target value to compare to.</p>
    * @return targetValue
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getTargetValue() {
-    return targetValue;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Object getTargetValue() {
+        return targetValue;
+      }
   public void setTargetValue(Object targetValue) {
     this.targetValue = targetValue;
   }
 
-  /** Return true if this SyntheticsAssertionJSONPathTargetTarget object is equal to o. */
+  /**
+   * Return true if this SyntheticsAssertionJSONPathTargetTarget object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,16 +120,14 @@ public class SyntheticsAssertionJSONPathTargetTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAssertionJSONPathTargetTarget syntheticsAssertionJsonPathTargetTarget =
-        (SyntheticsAssertionJSONPathTargetTarget) o;
-    return Objects.equals(this.jsonPath, syntheticsAssertionJsonPathTargetTarget.jsonPath)
-        && Objects.equals(this.operator, syntheticsAssertionJsonPathTargetTarget.operator)
-        && Objects.equals(this.targetValue, syntheticsAssertionJsonPathTargetTarget.targetValue);
+    SyntheticsAssertionJSONPathTargetTarget syntheticsAssertionJsonPathTargetTarget = (SyntheticsAssertionJSONPathTargetTarget) o;
+    return Objects.equals(this.jsonPath, syntheticsAssertionJsonPathTargetTarget.jsonPath) && Objects.equals(this.operator, syntheticsAssertionJsonPathTargetTarget.operator) && Objects.equals(this.targetValue, syntheticsAssertionJsonPathTargetTarget.targetValue);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(jsonPath, operator, targetValue);
+    return Objects.hash(jsonPath,operator,targetValue);
   }
 
   @Override
@@ -127,7 +142,8 @@ public class SyntheticsAssertionJSONPathTargetTarget {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

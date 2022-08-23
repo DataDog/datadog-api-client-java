@@ -6,30 +6,43 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** JSON object containing all event attributes and their associated values. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>JSON object containing all event attributes and their associated values.</p>
+ */
 @JsonPropertyOrder({
   AuditLogsEventAttributes.JSON_PROPERTY_ATTRIBUTES,
   AuditLogsEventAttributes.JSON_PROPERTY_SERVICE,
   AuditLogsEventAttributes.JSON_PROPERTY_TAGS,
   AuditLogsEventAttributes.JSON_PROPERTY_TIMESTAMP
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditLogsEventAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private Map<String, Object> attributes = null;
 
@@ -40,7 +53,6 @@ public class AuditLogsEventAttributes {
   private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime timestamp;
 
@@ -48,7 +60,6 @@ public class AuditLogsEventAttributes {
     this.attributes = attributes;
     return this;
   }
-
   public AuditLogsEventAttributes putAttributesItem(String key, Object attributesItem) {
     if (this.attributes == null) {
       this.attributes = new HashMap<>();
@@ -58,48 +69,44 @@ public class AuditLogsEventAttributes {
   }
 
   /**
-   * JSON object of attributes from Audit Logs events.
-   *
+   * <p>JSON object of attributes from Audit Logs events.</p>
    * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Object> getAttributes() {
+        return attributes;
+      }
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
-
   public AuditLogsEventAttributes service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * Name of the application or service generating Audit Logs events. This name is used to correlate
-   * Audit Logs to APM, so make sure you specify the same value when you use both products.
-   *
+   * <p>Name of the application or service generating Audit Logs events.
+   * This name is used to correlate Audit Logs to APM, so make sure you specify the same
+   * value when you use both products.</p>
    * @return service
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getService() {
-    return service;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVICE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getService() {
+        return service;
+      }
   public void setService(String service) {
     this.service = service;
   }
-
   public AuditLogsEventAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public AuditLogsEventAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -109,43 +116,42 @@ public class AuditLogsEventAttributes {
   }
 
   /**
-   * Array of tags associated with your event.
-   *
+   * <p>Array of tags associated with your event.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
   public AuditLogsEventAttributes timestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
     return this;
   }
 
   /**
-   * Timestamp of your event.
-   *
+   * <p>Timestamp of your event.</p>
    * @return timestamp
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getTimestamp() {
-    return timestamp;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getTimestamp() {
+        return timestamp;
+      }
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
   }
 
-  /** Return true if this AuditLogsEventAttributes object is equal to o. */
+  /**
+   * Return true if this AuditLogsEventAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -155,15 +161,13 @@ public class AuditLogsEventAttributes {
       return false;
     }
     AuditLogsEventAttributes auditLogsEventAttributes = (AuditLogsEventAttributes) o;
-    return Objects.equals(this.attributes, auditLogsEventAttributes.attributes)
-        && Objects.equals(this.service, auditLogsEventAttributes.service)
-        && Objects.equals(this.tags, auditLogsEventAttributes.tags)
-        && Objects.equals(this.timestamp, auditLogsEventAttributes.timestamp);
+    return Objects.equals(this.attributes, auditLogsEventAttributes.attributes) && Objects.equals(this.service, auditLogsEventAttributes.service) && Objects.equals(this.tags, auditLogsEventAttributes.tags) && Objects.equals(this.timestamp, auditLogsEventAttributes.timestamp);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, service, tags, timestamp);
+    return Objects.hash(attributes,service,tags,timestamp);
   }
 
   @Override
@@ -179,7 +183,8 @@ public class AuditLogsEventAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

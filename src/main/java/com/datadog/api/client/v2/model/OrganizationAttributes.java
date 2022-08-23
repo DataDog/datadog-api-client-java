@@ -6,16 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.time.OffsetDateTime;
-import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of the organization. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of the organization.</p>
+ */
 @JsonPropertyOrder({
   OrganizationAttributes.JSON_PROPERTY_CREATED_AT,
   OrganizationAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -26,12 +43,11 @@ import java.util.Objects;
   OrganizationAttributes.JSON_PROPERTY_SHARING,
   OrganizationAttributes.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime createdAt;
 
@@ -42,7 +58,6 @@ public class OrganizationAttributes {
   private Boolean disabled;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modifiedAt;
 
@@ -64,169 +79,156 @@ public class OrganizationAttributes {
   }
 
   /**
-   * Creation time of the organization.
-   *
+   * <p>Creation time of the organization.</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public OrganizationAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Description of the organization.
-   *
+   * <p>Description of the organization.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public OrganizationAttributes disabled(Boolean disabled) {
     this.disabled = disabled;
     return this;
   }
 
   /**
-   * Whether or not the organization is disabled.
-   *
+   * <p>Whether or not the organization is disabled.</p>
    * @return disabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getDisabled() {
-    return disabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DISABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getDisabled() {
+        return disabled;
+      }
   public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
-
   public OrganizationAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * Time of last organization modification.
-   *
+   * <p>Time of last organization modification.</p>
    * @return modifiedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getModifiedAt() {
+        return modifiedAt;
+      }
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
-
   public OrganizationAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the organization.
-   *
+   * <p>Name of the organization.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public OrganizationAttributes publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * Public ID of the organization.
-   *
+   * <p>Public ID of the organization.</p>
    * @return publicId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPublicId() {
-    return publicId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPublicId() {
+        return publicId;
+      }
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
-
   public OrganizationAttributes sharing(String sharing) {
     this.sharing = sharing;
     return this;
   }
 
   /**
-   * Sharing type of the organization.
-   *
+   * <p>Sharing type of the organization.</p>
    * @return sharing
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHARING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSharing() {
-    return sharing;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SHARING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSharing() {
+        return sharing;
+      }
   public void setSharing(String sharing) {
     this.sharing = sharing;
   }
-
   public OrganizationAttributes url(String url) {
     this.url = url;
     return this;
   }
 
   /**
-   * URL of the site that this organization exists at.
-   *
+   * <p>URL of the site that this organization exists at.</p>
    * @return url
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUrl() {
-    return url;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getUrl() {
+        return url;
+      }
   public void setUrl(String url) {
     this.url = url;
   }
 
-  /** Return true if this OrganizationAttributes object is equal to o. */
+  /**
+   * Return true if this OrganizationAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -236,19 +238,13 @@ public class OrganizationAttributes {
       return false;
     }
     OrganizationAttributes organizationAttributes = (OrganizationAttributes) o;
-    return Objects.equals(this.createdAt, organizationAttributes.createdAt)
-        && Objects.equals(this.description, organizationAttributes.description)
-        && Objects.equals(this.disabled, organizationAttributes.disabled)
-        && Objects.equals(this.modifiedAt, organizationAttributes.modifiedAt)
-        && Objects.equals(this.name, organizationAttributes.name)
-        && Objects.equals(this.publicId, organizationAttributes.publicId)
-        && Objects.equals(this.sharing, organizationAttributes.sharing)
-        && Objects.equals(this.url, organizationAttributes.url);
+    return Objects.equals(this.createdAt, organizationAttributes.createdAt) && Objects.equals(this.description, organizationAttributes.description) && Objects.equals(this.disabled, organizationAttributes.disabled) && Objects.equals(this.modifiedAt, organizationAttributes.modifiedAt) && Objects.equals(this.name, organizationAttributes.name) && Objects.equals(this.publicId, organizationAttributes.publicId) && Objects.equals(this.sharing, organizationAttributes.sharing) && Objects.equals(this.url, organizationAttributes.url);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, disabled, modifiedAt, name, publicId, sharing, url);
+    return Objects.hash(createdAt,description,disabled,modifiedAt,name,publicId,sharing,url);
   }
 
   @Override
@@ -268,7 +264,8 @@ public class OrganizationAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

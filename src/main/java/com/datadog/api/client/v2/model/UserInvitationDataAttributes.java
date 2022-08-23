@@ -6,33 +6,48 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.time.OffsetDateTime;
-import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of a user invitation. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of a user invitation.</p>
+ */
 @JsonPropertyOrder({
   UserInvitationDataAttributes.JSON_PROPERTY_CREATED_AT,
   UserInvitationDataAttributes.JSON_PROPERTY_EXPIRES_AT,
   UserInvitationDataAttributes.JSON_PROPERTY_INVITE_TYPE,
   UserInvitationDataAttributes.JSON_PROPERTY_UUID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserInvitationDataAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime expiresAt;
 
@@ -48,85 +63,80 @@ public class UserInvitationDataAttributes {
   }
 
   /**
-   * Creation time of the user invitation.
-   *
+   * <p>Creation time of the user invitation.</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
   public UserInvitationDataAttributes expiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
     return this;
   }
 
   /**
-   * Time of invitation expiration.
-   *
+   * <p>Time of invitation expiration.</p>
    * @return expiresAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getExpiresAt() {
-    return expiresAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getExpiresAt() {
+        return expiresAt;
+      }
   public void setExpiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
   }
-
   public UserInvitationDataAttributes inviteType(String inviteType) {
     this.inviteType = inviteType;
     return this;
   }
 
   /**
-   * Type of invitation.
-   *
+   * <p>Type of invitation.</p>
    * @return inviteType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INVITE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getInviteType() {
-    return inviteType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INVITE_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getInviteType() {
+        return inviteType;
+      }
   public void setInviteType(String inviteType) {
     this.inviteType = inviteType;
   }
-
   public UserInvitationDataAttributes uuid(String uuid) {
     this.uuid = uuid;
     return this;
   }
 
   /**
-   * UUID of the user invitation.
-   *
+   * <p>UUID of the user invitation.</p>
    * @return uuid
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUuid() {
-    return uuid;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UUID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getUuid() {
+        return uuid;
+      }
   public void setUuid(String uuid) {
     this.uuid = uuid;
   }
 
-  /** Return true if this UserInvitationDataAttributes object is equal to o. */
+  /**
+   * Return true if this UserInvitationDataAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -136,15 +146,13 @@ public class UserInvitationDataAttributes {
       return false;
     }
     UserInvitationDataAttributes userInvitationDataAttributes = (UserInvitationDataAttributes) o;
-    return Objects.equals(this.createdAt, userInvitationDataAttributes.createdAt)
-        && Objects.equals(this.expiresAt, userInvitationDataAttributes.expiresAt)
-        && Objects.equals(this.inviteType, userInvitationDataAttributes.inviteType)
-        && Objects.equals(this.uuid, userInvitationDataAttributes.uuid);
+    return Objects.equals(this.createdAt, userInvitationDataAttributes.createdAt) && Objects.equals(this.expiresAt, userInvitationDataAttributes.expiresAt) && Objects.equals(this.inviteType, userInvitationDataAttributes.inviteType) && Objects.equals(this.uuid, userInvitationDataAttributes.uuid);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, expiresAt, inviteType, uuid);
+    return Objects.hash(createdAt,expiresAt,inviteType,uuid);
   }
 
   @Override
@@ -160,7 +168,8 @@ public class UserInvitationDataAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

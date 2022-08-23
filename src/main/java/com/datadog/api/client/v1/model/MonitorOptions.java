@@ -6,18 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** List of options associated with your monitor. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>List of options associated with your monitor.</p>
+ */
 @JsonPropertyOrder({
   MonitorOptions.JSON_PROPERTY_AGGREGATION,
   MonitorOptions.JSON_PROPERTY_DEVICE_IDS,
@@ -47,10 +62,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_TIMEOUT_H,
   MonitorOptions.JSON_PROPERTY_VARIABLES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorOptions {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private MonitorOptionsAggregation aggregation;
 
@@ -109,8 +124,7 @@ public class MonitorOptions {
   private JsonNullable<Long> renotifyOccurrences = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_RENOTIFY_STATUSES = "renotify_statuses";
-  private JsonNullable<List<MonitorRenotifyStatusType>> renotifyStatuses =
-      JsonNullable.<List<MonitorRenotifyStatusType>>undefined();
+  private JsonNullable<List<MonitorRenotifyStatusType>> renotifyStatuses = JsonNullable.<List<MonitorRenotifyStatusType>>undefined();
 
   public static final String JSON_PROPERTY_REQUIRE_FULL_WINDOW = "require_full_window";
   private Boolean requireFullWindow;
@@ -133,420 +147,366 @@ public class MonitorOptions {
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private List<MonitorFormulaAndFunctionQueryDefinition> variables = null;
 
-  /**
-   * Type of aggregation performed in the monitor query.
-   *
-   * @return aggregation
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AGGREGATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorOptionsAggregation getAggregation() {
-    return aggregation;
-  }
 
   /**
-   * IDs of the device the Synthetics monitor is running on.
-   *
+   * <p>Type of aggregation performed in the monitor query.</p>
+   * @return aggregation
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AGGREGATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public MonitorOptionsAggregation getAggregation() {
+        return aggregation;
+      }
+
+  /**
+   * <p>IDs of the device the Synthetics monitor is running on.</p>
    * @return deviceIds
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<MonitorDeviceID> getDeviceIds() {
-    return deviceIds;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<MonitorDeviceID> getDeviceIds() {
+        return deviceIds;
+      }
   public MonitorOptions enableLogsSample(Boolean enableLogsSample) {
     this.enableLogsSample = enableLogsSample;
     return this;
   }
 
   /**
-   * Whether or not to send a log sample when the log monitor triggers.
-   *
+   * <p>Whether or not to send a log sample when the log monitor triggers.</p>
    * @return enableLogsSample
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLE_LOGS_SAMPLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getEnableLogsSample() {
-    return enableLogsSample;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENABLE_LOGS_SAMPLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getEnableLogsSample() {
+        return enableLogsSample;
+      }
   public void setEnableLogsSample(Boolean enableLogsSample) {
     this.enableLogsSample = enableLogsSample;
   }
-
   public MonitorOptions escalationMessage(String escalationMessage) {
     this.escalationMessage = escalationMessage;
     return this;
   }
 
   /**
-   * We recommend using the <a
-   * href="https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify">is_renotify</a>, block
-   * in the original message instead. A message to include with a re-notification. Supports the
-   * <code>@username</code> notification we allow elsewhere. Not applicable if <code>
-   * renotify_interval</code> is <code>None</code>.
-   *
+   * <p>We recommend using the <a href="https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify">is_renotify</a>,
+   * block in the original message instead.
+   * A message to include with a re-notification. Supports the <code>@username</code> notification we allow elsewhere.
+   * Not applicable if <code>renotify_interval</code> is <code>None</code>.</p>
    * @return escalationMessage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ESCALATION_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEscalationMessage() {
-    return escalationMessage;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ESCALATION_MESSAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEscalationMessage() {
+        return escalationMessage;
+      }
   public void setEscalationMessage(String escalationMessage) {
     this.escalationMessage = escalationMessage;
   }
-
   public MonitorOptions evaluationDelay(Long evaluationDelay) {
     this.evaluationDelay = JsonNullable.<Long>of(evaluationDelay);
     return this;
   }
 
   /**
-   * Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is
-   * set to <code>300</code> (5min), the timeframe is set to <code>last_5m</code> and the time is
-   * 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other
-   * backfilled metrics to ensure the monitor always has data during evaluation.
-   *
+   * <p>Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to <code>300</code> (5min),
+   * the timeframe is set to <code>last_5m</code> and the time is 7:00, the monitor evaluates data from 6:50 to 6:55.
+   * This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.</p>
    * @return evaluationDelay
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getEvaluationDelay() {
-    return evaluationDelay.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getEvaluationDelay() {
+        return evaluationDelay.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_EVALUATION_DELAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getEvaluationDelay_JsonNullable() {
     return evaluationDelay;
   }
-
-  @JsonProperty(JSON_PROPERTY_EVALUATION_DELAY)
-  public void setEvaluationDelay_JsonNullable(JsonNullable<Long> evaluationDelay) {
+  @JsonProperty(JSON_PROPERTY_EVALUATION_DELAY)public void setEvaluationDelay_JsonNullable(JsonNullable<Long> evaluationDelay) {
     this.evaluationDelay = evaluationDelay;
   }
-
   public void setEvaluationDelay(Long evaluationDelay) {
     this.evaluationDelay = JsonNullable.<Long>of(evaluationDelay);
   }
-
   public MonitorOptions groupRetentionDuration(String groupRetentionDuration) {
     this.groupRetentionDuration = groupRetentionDuration;
     return this;
   }
 
   /**
-   * The time span after which groups with missing data are dropped from the monitor state. The
-   * minimum value is one hour, and the maximum value is 72 hours. Example values are: "60m", "1h",
-   * and "2d". This option is only available for APM Trace Analytics, Audit Trail, CI, Error
-   * Tracking, Event, Logs, and RUM monitors.
-   *
+   * <p>The time span after which groups with missing data are dropped from the monitor state.
+   * The minimum value is one hour, and the maximum value is 72 hours.
+   * Example values are: "60m", "1h", and "2d".
+   * This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.</p>
    * @return groupRetentionDuration
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP_RETENTION_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getGroupRetentionDuration() {
-    return groupRetentionDuration;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GROUP_RETENTION_DURATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getGroupRetentionDuration() {
+        return groupRetentionDuration;
+      }
   public void setGroupRetentionDuration(String groupRetentionDuration) {
     this.groupRetentionDuration = groupRetentionDuration;
   }
-
   public MonitorOptions groupbySimpleMonitor(Boolean groupbySimpleMonitor) {
     this.groupbySimpleMonitor = groupbySimpleMonitor;
     return this;
   }
 
   /**
-   * Whether the log alert monitor triggers a single alert or multiple alerts when any group
-   * breaches a threshold.
-   *
+   * <p>Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.</p>
    * @return groupbySimpleMonitor
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUPBY_SIMPLE_MONITOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getGroupbySimpleMonitor() {
-    return groupbySimpleMonitor;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GROUPBY_SIMPLE_MONITOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getGroupbySimpleMonitor() {
+        return groupbySimpleMonitor;
+      }
   public void setGroupbySimpleMonitor(Boolean groupbySimpleMonitor) {
     this.groupbySimpleMonitor = groupbySimpleMonitor;
   }
-
   public MonitorOptions includeTags(Boolean includeTags) {
     this.includeTags = includeTags;
     return this;
   }
 
   /**
-   * A Boolean indicating whether notifications from this monitor automatically inserts its
-   * triggering tags into the title.
-   *
-   * <p><strong>Examples</strong> - If <code>True</code>, <code>
-   * [Triggered on {host:h1}] Monitor Title</code> - If <code>False</code>, <code>
-   * [Triggered] Monitor Title</code>
-   *
+   * <p>A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.</p>
+   * <p><strong>Examples</strong>
+   * - If <code>True</code>, <code>[Triggered on {host:h1}] Monitor Title</code>
+   * - If <code>False</code>, <code>[Triggered] Monitor Title</code></p>
    * @return includeTags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIncludeTags() {
-    return includeTags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIncludeTags() {
+        return includeTags;
+      }
   public void setIncludeTags(Boolean includeTags) {
     this.includeTags = includeTags;
   }
-
   public MonitorOptions locked(Boolean locked) {
     this.locked = locked;
     return this;
   }
 
   /**
-   * Whether or not the monitor is locked (only editable by creator and admins). Use <code>
-   * restricted_roles</code> instead.
-   *
+   * <p>Whether or not the monitor is locked (only editable by creator and admins). Use <code>restricted_roles</code> instead.</p>
    * @return locked
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOCKED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getLocked() {
-    return locked;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LOCKED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getLocked() {
+        return locked;
+      }
   public void setLocked(Boolean locked) {
     this.locked = locked;
   }
-
   public MonitorOptions minFailureDuration(Long minFailureDuration) {
     this.minFailureDuration = JsonNullable.<Long>of(minFailureDuration);
     return this;
   }
 
   /**
-   * How long the test should be in failure before alerting (integer, number of seconds, max 7200).
-   * minimum: 0 maximum: 7200
-   *
+   * <p>How long the test should be in failure before alerting (integer, number of seconds, max 7200).</p>
+   * minimum: 0
+   * maximum: 7200
    * @return minFailureDuration
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getMinFailureDuration() {
-    return minFailureDuration.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getMinFailureDuration() {
+        return minFailureDuration.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getMinFailureDuration_JsonNullable() {
     return minFailureDuration;
   }
-
-  @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)
-  public void setMinFailureDuration_JsonNullable(JsonNullable<Long> minFailureDuration) {
+  @JsonProperty(JSON_PROPERTY_MIN_FAILURE_DURATION)public void setMinFailureDuration_JsonNullable(JsonNullable<Long> minFailureDuration) {
     this.minFailureDuration = minFailureDuration;
   }
-
   public void setMinFailureDuration(Long minFailureDuration) {
     this.minFailureDuration = JsonNullable.<Long>of(minFailureDuration);
   }
-
   public MonitorOptions minLocationFailed(Long minLocationFailed) {
     this.minLocationFailed = JsonNullable.<Long>of(minLocationFailed);
     return this;
   }
 
   /**
-   * The minimum number of locations in failure at the same time during at least one moment in the
-   * <code>min_failure_duration</code> period (<code>min_location_failed</code> and <code>
-   * min_failure_duration</code> are part of the advanced alerting rules - integer, &gt;= 1).
-   *
+   * <p>The minimum number of locations in failure at the same time during
+   * at least one moment in the <code>min_failure_duration</code> period (<code>min_location_failed</code> and <code>min_failure_duration</code>
+   * are part of the advanced alerting rules - integer, &gt;= 1).</p>
    * @return minLocationFailed
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getMinLocationFailed() {
-    return minLocationFailed.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getMinLocationFailed() {
+        return minLocationFailed.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getMinLocationFailed_JsonNullable() {
     return minLocationFailed;
   }
-
-  @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)
-  public void setMinLocationFailed_JsonNullable(JsonNullable<Long> minLocationFailed) {
+  @JsonProperty(JSON_PROPERTY_MIN_LOCATION_FAILED)public void setMinLocationFailed_JsonNullable(JsonNullable<Long> minLocationFailed) {
     this.minLocationFailed = minLocationFailed;
   }
-
   public void setMinLocationFailed(Long minLocationFailed) {
     this.minLocationFailed = JsonNullable.<Long>of(minLocationFailed);
   }
-
   public MonitorOptions newGroupDelay(Long newGroupDelay) {
     this.newGroupDelay = JsonNullable.<Long>of(newGroupDelay);
     return this;
   }
 
   /**
-   * Time (in seconds) to skip evaluations for new groups.
-   *
-   * <p>For example, this option can be used to skip evaluations for new hosts while they
-   * initialize.
-   *
-   * <p>Must be a non negative integer.
-   *
+   * <p>Time (in seconds) to skip evaluations for new groups.</p>
+   * <p>For example, this option can be used to skip evaluations for new hosts while they initialize.</p>
+   * <p>Must be a non negative integer.</p>
    * @return newGroupDelay
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getNewGroupDelay() {
-    return newGroupDelay.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getNewGroupDelay() {
+        return newGroupDelay.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_NEW_GROUP_DELAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getNewGroupDelay_JsonNullable() {
     return newGroupDelay;
   }
-
-  @JsonProperty(JSON_PROPERTY_NEW_GROUP_DELAY)
-  public void setNewGroupDelay_JsonNullable(JsonNullable<Long> newGroupDelay) {
+  @JsonProperty(JSON_PROPERTY_NEW_GROUP_DELAY)public void setNewGroupDelay_JsonNullable(JsonNullable<Long> newGroupDelay) {
     this.newGroupDelay = newGroupDelay;
   }
-
   public void setNewGroupDelay(Long newGroupDelay) {
     this.newGroupDelay = JsonNullable.<Long>of(newGroupDelay);
   }
-
   public MonitorOptions newHostDelay(Long newHostDelay) {
     this.newHostDelay = JsonNullable.<Long>of(newHostDelay);
     return this;
   }
 
   /**
-   * Time (in seconds) to allow a host to boot and applications to fully start before starting the
-   * evaluation of monitor results. Should be a non negative integer.
-   *
-   * <p>Use new_group_delay instead.
-   *
+   * <p>Time (in seconds) to allow a host to boot and applications
+   * to fully start before starting the evaluation of monitor results.
+   * Should be a non negative integer.</p>
+   * <p>Use new_group_delay instead.</p>
    * @return newHostDelay
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getNewHostDelay() {
-    return newHostDelay.orElse(null);
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getNewHostDelay() {
+        return newHostDelay.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_NEW_HOST_DELAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getNewHostDelay_JsonNullable() {
     return newHostDelay;
   }
-
-  @JsonProperty(JSON_PROPERTY_NEW_HOST_DELAY)
-  public void setNewHostDelay_JsonNullable(JsonNullable<Long> newHostDelay) {
+  @JsonProperty(JSON_PROPERTY_NEW_HOST_DELAY)public void setNewHostDelay_JsonNullable(JsonNullable<Long> newHostDelay) {
     this.newHostDelay = newHostDelay;
   }
-
   public void setNewHostDelay(Long newHostDelay) {
     this.newHostDelay = JsonNullable.<Long>of(newHostDelay);
   }
-
   public MonitorOptions noDataTimeframe(Long noDataTimeframe) {
     this.noDataTimeframe = JsonNullable.<Long>of(noDataTimeframe);
     return this;
   }
 
   /**
-   * The number of minutes before a monitor notifies after data stops reporting. Datadog recommends
-   * at least 2x the monitor timeframe for query alerts or 2 minutes for service checks. If omitted,
-   * 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.
-   *
+   * <p>The number of minutes before a monitor notifies after data stops reporting.
+   * Datadog recommends at least 2x the monitor timeframe for query alerts or 2 minutes for service checks.
+   * If omitted, 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.</p>
    * @return noDataTimeframe
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getNoDataTimeframe() {
-    return noDataTimeframe.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getNoDataTimeframe() {
+        return noDataTimeframe.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_NO_DATA_TIMEFRAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getNoDataTimeframe_JsonNullable() {
     return noDataTimeframe;
   }
-
-  @JsonProperty(JSON_PROPERTY_NO_DATA_TIMEFRAME)
-  public void setNoDataTimeframe_JsonNullable(JsonNullable<Long> noDataTimeframe) {
+  @JsonProperty(JSON_PROPERTY_NO_DATA_TIMEFRAME)public void setNoDataTimeframe_JsonNullable(JsonNullable<Long> noDataTimeframe) {
     this.noDataTimeframe = noDataTimeframe;
   }
-
   public void setNoDataTimeframe(Long noDataTimeframe) {
     this.noDataTimeframe = JsonNullable.<Long>of(noDataTimeframe);
   }
-
   public MonitorOptions notifyAudit(Boolean notifyAudit) {
     this.notifyAudit = notifyAudit;
     return this;
   }
 
   /**
-   * A Boolean indicating whether tagged users is notified on changes to this monitor.
-   *
+   * <p>A Boolean indicating whether tagged users is notified on changes to this monitor.</p>
    * @return notifyAudit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NOTIFY_AUDIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getNotifyAudit() {
-    return notifyAudit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NOTIFY_AUDIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getNotifyAudit() {
+        return notifyAudit;
+      }
   public void setNotifyAudit(Boolean notifyAudit) {
     this.notifyAudit = notifyAudit;
   }
-
   public MonitorOptions notifyNoData(Boolean notifyNoData) {
     this.notifyNoData = notifyNoData;
     return this;
   }
 
   /**
-   * A Boolean indicating whether this monitor notifies when data stops reporting.
-   *
+   * <p>A Boolean indicating whether this monitor notifies when data stops reporting.</p>
    * @return notifyNoData
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NOTIFY_NO_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getNotifyNoData() {
-    return notifyNoData;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NOTIFY_NO_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getNotifyNoData() {
+        return notifyNoData;
+      }
   public void setNotifyNoData(Boolean notifyNoData) {
     this.notifyNoData = notifyNoData;
   }
-
   public MonitorOptions onMissingData(OnMissingDataOption onMissingData) {
     this.onMissingData = onMissingData;
     this.unparsed |= !onMissingData.isValid();
@@ -554,98 +514,83 @@ public class MonitorOptions {
   }
 
   /**
-   * Controls how groups or monitors are treated if an evaluation does not return any data points.
-   * The default option results in different behavior depending on the monitor query type. For
-   * monitors using Count queries, an empty monitor evaluation is treated as 0 and is compared to
-   * the threshold conditions. For monitor using any query type other than Count, for example Gauge
-   * or Rate, the monitor shows the last known status. This option is only available for APM Trace
-   * Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
-   *
+   * <p>Controls how groups or monitors are treated if an evaluation does not return any data points.
+   * The default option results in different behavior depending on the monitor query type.
+   * For monitors using Count queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions.
+   * For monitor using any query type other than Count, for example Gauge or Rate, the monitor shows the last known status.
+   * This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.</p>
    * @return onMissingData
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ON_MISSING_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OnMissingDataOption getOnMissingData() {
-    return onMissingData;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ON_MISSING_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OnMissingDataOption getOnMissingData() {
+        return onMissingData;
+      }
   public void setOnMissingData(OnMissingDataOption onMissingData) {
     if (!onMissingData.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.onMissingData = onMissingData;
   }
-
   public MonitorOptions renotifyInterval(Long renotifyInterval) {
     this.renotifyInterval = JsonNullable.<Long>of(renotifyInterval);
     return this;
   }
 
   /**
-   * The number of minutes after the last notification before a monitor re-notifies on the current
-   * status. It only re-notifies if it’s not resolved.
-   *
+   * <p>The number of minutes after the last notification before a monitor re-notifies on the current status.
+   * It only re-notifies if it’s not resolved.</p>
    * @return renotifyInterval
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getRenotifyInterval() {
-    return renotifyInterval.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getRenotifyInterval() {
+        return renotifyInterval.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getRenotifyInterval_JsonNullable() {
     return renotifyInterval;
   }
-
-  @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)
-  public void setRenotifyInterval_JsonNullable(JsonNullable<Long> renotifyInterval) {
+  @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)public void setRenotifyInterval_JsonNullable(JsonNullable<Long> renotifyInterval) {
     this.renotifyInterval = renotifyInterval;
   }
-
   public void setRenotifyInterval(Long renotifyInterval) {
     this.renotifyInterval = JsonNullable.<Long>of(renotifyInterval);
   }
-
   public MonitorOptions renotifyOccurrences(Long renotifyOccurrences) {
     this.renotifyOccurrences = JsonNullable.<Long>of(renotifyOccurrences);
     return this;
   }
 
   /**
-   * The number of times re-notification messages should be sent on the current status at the
-   * provided re-notification interval.
-   *
+   * <p>The number of times re-notification messages should be sent on the current status at the provided re-notification interval.</p>
    * @return renotifyOccurrences
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getRenotifyOccurrences() {
-    return renotifyOccurrences.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getRenotifyOccurrences() {
+        return renotifyOccurrences.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_RENOTIFY_OCCURRENCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getRenotifyOccurrences_JsonNullable() {
     return renotifyOccurrences;
   }
-
-  @JsonProperty(JSON_PROPERTY_RENOTIFY_OCCURRENCES)
-  public void setRenotifyOccurrences_JsonNullable(JsonNullable<Long> renotifyOccurrences) {
+  @JsonProperty(JSON_PROPERTY_RENOTIFY_OCCURRENCES)public void setRenotifyOccurrences_JsonNullable(JsonNullable<Long> renotifyOccurrences) {
     this.renotifyOccurrences = renotifyOccurrences;
   }
-
   public void setRenotifyOccurrences(Long renotifyOccurrences) {
     this.renotifyOccurrences = JsonNullable.<Long>of(renotifyOccurrences);
   }
-
   public MonitorOptions renotifyStatuses(List<MonitorRenotifyStatusType> renotifyStatuses) {
     this.renotifyStatuses = JsonNullable.<List<MonitorRenotifyStatusType>>of(renotifyStatuses);
     return this;
   }
-
   public MonitorOptions addRenotifyStatusesItem(MonitorRenotifyStatusType renotifyStatusesItem) {
     if (this.renotifyStatuses == null || !this.renotifyStatuses.isPresent()) {
       this.renotifyStatuses = JsonNullable.<List<MonitorRenotifyStatusType>>of(new ArrayList<>());
@@ -659,60 +604,51 @@ public class MonitorOptions {
   }
 
   /**
-   * The types of monitor statuses for which re-notification messages are sent.
-   *
+   * <p>The types of monitor statuses for which re-notification messages are sent.</p>
    * @return renotifyStatuses
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<MonitorRenotifyStatusType> getRenotifyStatuses() {
-    return renotifyStatuses.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public List<MonitorRenotifyStatusType> getRenotifyStatuses() {
+        return renotifyStatuses.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_RENOTIFY_STATUSES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<MonitorRenotifyStatusType>> getRenotifyStatuses_JsonNullable() {
     return renotifyStatuses;
   }
-
-  @JsonProperty(JSON_PROPERTY_RENOTIFY_STATUSES)
-  public void setRenotifyStatuses_JsonNullable(
-      JsonNullable<List<MonitorRenotifyStatusType>> renotifyStatuses) {
+  @JsonProperty(JSON_PROPERTY_RENOTIFY_STATUSES)public void setRenotifyStatuses_JsonNullable(JsonNullable<List<MonitorRenotifyStatusType>> renotifyStatuses) {
     this.renotifyStatuses = renotifyStatuses;
   }
-
   public void setRenotifyStatuses(List<MonitorRenotifyStatusType> renotifyStatuses) {
     this.renotifyStatuses = JsonNullable.<List<MonitorRenotifyStatusType>>of(renotifyStatuses);
   }
-
   public MonitorOptions requireFullWindow(Boolean requireFullWindow) {
     this.requireFullWindow = requireFullWindow;
     return this;
   }
 
   /**
-   * A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We
-   * highly recommend you set this to <code>false</code> for sparse metrics, otherwise some
-   * evaluations are skipped. Default is false.
-   *
+   * <p>A Boolean indicating whether this monitor needs a full window of data before it’s evaluated.
+   * We highly recommend you set this to <code>false</code> for sparse metrics,
+   * otherwise some evaluations are skipped. Default is false.</p>
    * @return requireFullWindow
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUIRE_FULL_WINDOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getRequireFullWindow() {
-    return requireFullWindow;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REQUIRE_FULL_WINDOW)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getRequireFullWindow() {
+        return requireFullWindow;
+      }
   public void setRequireFullWindow(Boolean requireFullWindow) {
     this.requireFullWindow = requireFullWindow;
   }
-
   public MonitorOptions silenced(Map<String, Long> silenced) {
     this.silenced = silenced;
     return this;
   }
-
   public MonitorOptions putSilencedItem(String key, Long silencedItem) {
     if (this.silenced == null) {
       this.silenced = new HashMap<>();
@@ -722,56 +658,49 @@ public class MonitorOptions {
   }
 
   /**
-   * Information about the downtime applied to the monitor.
-   *
+   * <p>Information about the downtime applied to the monitor.</p>
    * @return silenced
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SILENCED)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Long> getSilenced() {
-    return silenced;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SILENCED)
+      @JsonInclude(content = JsonInclude.Include.ALWAYS,
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Long> getSilenced() {
+        return silenced;
+      }
   public void setSilenced(Map<String, Long> silenced) {
     this.silenced = silenced;
   }
-
   public MonitorOptions syntheticsCheckId(String syntheticsCheckId) {
     this.syntheticsCheckId = JsonNullable.<String>of(syntheticsCheckId);
     return this;
   }
 
   /**
-   * ID of the corresponding Synthetic check.
-   *
+   * <p>ID of the corresponding Synthetic check.</p>
    * @return syntheticsCheckId
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getSyntheticsCheckId() {
-    return syntheticsCheckId.orElse(null);
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getSyntheticsCheckId() {
+        return syntheticsCheckId.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getSyntheticsCheckId_JsonNullable() {
     return syntheticsCheckId;
   }
-
-  @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
-  public void setSyntheticsCheckId_JsonNullable(JsonNullable<String> syntheticsCheckId) {
+  @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)public void setSyntheticsCheckId_JsonNullable(JsonNullable<String> syntheticsCheckId) {
     this.syntheticsCheckId = syntheticsCheckId;
   }
-
   public void setSyntheticsCheckId(String syntheticsCheckId) {
     this.syntheticsCheckId = JsonNullable.<String>of(syntheticsCheckId);
   }
-
   public MonitorOptions thresholdWindows(MonitorThresholdWindowOptions thresholdWindows) {
     this.thresholdWindows = thresholdWindows;
     this.unparsed |= thresholdWindows.unparsed;
@@ -779,21 +708,19 @@ public class MonitorOptions {
   }
 
   /**
-   * Alerting time window options.
-   *
+   * <p>Alerting time window options.</p>
    * @return thresholdWindows
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_THRESHOLD_WINDOWS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorThresholdWindowOptions getThresholdWindows() {
-    return thresholdWindows;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_THRESHOLD_WINDOWS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public MonitorThresholdWindowOptions getThresholdWindows() {
+        return thresholdWindows;
+      }
   public void setThresholdWindows(MonitorThresholdWindowOptions thresholdWindows) {
     this.thresholdWindows = thresholdWindows;
   }
-
   public MonitorOptions thresholds(MonitorThresholds thresholds) {
     this.thresholds = thresholds;
     this.unparsed |= thresholds.unparsed;
@@ -801,53 +728,45 @@ public class MonitorOptions {
   }
 
   /**
-   * List of the different monitor threshold available.
-   *
+   * <p>List of the different monitor threshold available.</p>
    * @return thresholds
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_THRESHOLDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorThresholds getThresholds() {
-    return thresholds;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_THRESHOLDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public MonitorThresholds getThresholds() {
+        return thresholds;
+      }
   public void setThresholds(MonitorThresholds thresholds) {
     this.thresholds = thresholds;
   }
-
   public MonitorOptions timeoutH(Long timeoutH) {
     this.timeoutH = JsonNullable.<Long>of(timeoutH);
     return this;
   }
 
   /**
-   * The number of hours of the monitor not reporting data before it automatically resolves from a
-   * triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
-   *
+   * <p>The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.</p>
    * @return timeoutH
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getTimeoutH() {
-    return timeoutH.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getTimeoutH() {
+        return timeoutH.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_TIMEOUT_H)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getTimeoutH_JsonNullable() {
     return timeoutH;
   }
-
-  @JsonProperty(JSON_PROPERTY_TIMEOUT_H)
-  public void setTimeoutH_JsonNullable(JsonNullable<Long> timeoutH) {
+  @JsonProperty(JSON_PROPERTY_TIMEOUT_H)public void setTimeoutH_JsonNullable(JsonNullable<Long> timeoutH) {
     this.timeoutH = timeoutH;
   }
-
   public void setTimeoutH(Long timeoutH) {
     this.timeoutH = JsonNullable.<Long>of(timeoutH);
   }
-
   public MonitorOptions variables(List<MonitorFormulaAndFunctionQueryDefinition> variables) {
     this.variables = variables;
     for (MonitorFormulaAndFunctionQueryDefinition item : variables) {
@@ -855,7 +774,6 @@ public class MonitorOptions {
     }
     return this;
   }
-
   public MonitorOptions addVariablesItem(MonitorFormulaAndFunctionQueryDefinition variablesItem) {
     if (this.variables == null) {
       this.variables = new ArrayList<>();
@@ -866,23 +784,23 @@ public class MonitorOptions {
   }
 
   /**
-   * List of requests that can be used in the monitor query. <strong>This feature is currently in
-   * beta.</strong>
-   *
+   * <p>List of requests that can be used in the monitor query. <strong>This feature is currently in beta.</strong></p>
    * @return variables
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VARIABLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<MonitorFormulaAndFunctionQueryDefinition> getVariables() {
-    return variables;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VARIABLES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<MonitorFormulaAndFunctionQueryDefinition> getVariables() {
+        return variables;
+      }
   public void setVariables(List<MonitorFormulaAndFunctionQueryDefinition> variables) {
     this.variables = variables;
   }
 
-  /** Return true if this MonitorOptions object is equal to o. */
+  /**
+   * Return true if this MonitorOptions object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -892,65 +810,13 @@ public class MonitorOptions {
       return false;
     }
     MonitorOptions monitorOptions = (MonitorOptions) o;
-    return Objects.equals(this.aggregation, monitorOptions.aggregation)
-        && Objects.equals(this.deviceIds, monitorOptions.deviceIds)
-        && Objects.equals(this.enableLogsSample, monitorOptions.enableLogsSample)
-        && Objects.equals(this.escalationMessage, monitorOptions.escalationMessage)
-        && Objects.equals(this.evaluationDelay, monitorOptions.evaluationDelay)
-        && Objects.equals(this.groupRetentionDuration, monitorOptions.groupRetentionDuration)
-        && Objects.equals(this.groupbySimpleMonitor, monitorOptions.groupbySimpleMonitor)
-        && Objects.equals(this.includeTags, monitorOptions.includeTags)
-        && Objects.equals(this.locked, monitorOptions.locked)
-        && Objects.equals(this.minFailureDuration, monitorOptions.minFailureDuration)
-        && Objects.equals(this.minLocationFailed, monitorOptions.minLocationFailed)
-        && Objects.equals(this.newGroupDelay, monitorOptions.newGroupDelay)
-        && Objects.equals(this.newHostDelay, monitorOptions.newHostDelay)
-        && Objects.equals(this.noDataTimeframe, monitorOptions.noDataTimeframe)
-        && Objects.equals(this.notifyAudit, monitorOptions.notifyAudit)
-        && Objects.equals(this.notifyNoData, monitorOptions.notifyNoData)
-        && Objects.equals(this.onMissingData, monitorOptions.onMissingData)
-        && Objects.equals(this.renotifyInterval, monitorOptions.renotifyInterval)
-        && Objects.equals(this.renotifyOccurrences, monitorOptions.renotifyOccurrences)
-        && Objects.equals(this.renotifyStatuses, monitorOptions.renotifyStatuses)
-        && Objects.equals(this.requireFullWindow, monitorOptions.requireFullWindow)
-        && Objects.equals(this.silenced, monitorOptions.silenced)
-        && Objects.equals(this.syntheticsCheckId, monitorOptions.syntheticsCheckId)
-        && Objects.equals(this.thresholdWindows, monitorOptions.thresholdWindows)
-        && Objects.equals(this.thresholds, monitorOptions.thresholds)
-        && Objects.equals(this.timeoutH, monitorOptions.timeoutH)
-        && Objects.equals(this.variables, monitorOptions.variables);
+    return Objects.equals(this.aggregation, monitorOptions.aggregation) && Objects.equals(this.deviceIds, monitorOptions.deviceIds) && Objects.equals(this.enableLogsSample, monitorOptions.enableLogsSample) && Objects.equals(this.escalationMessage, monitorOptions.escalationMessage) && Objects.equals(this.evaluationDelay, monitorOptions.evaluationDelay) && Objects.equals(this.groupRetentionDuration, monitorOptions.groupRetentionDuration) && Objects.equals(this.groupbySimpleMonitor, monitorOptions.groupbySimpleMonitor) && Objects.equals(this.includeTags, monitorOptions.includeTags) && Objects.equals(this.locked, monitorOptions.locked) && Objects.equals(this.minFailureDuration, monitorOptions.minFailureDuration) && Objects.equals(this.minLocationFailed, monitorOptions.minLocationFailed) && Objects.equals(this.newGroupDelay, monitorOptions.newGroupDelay) && Objects.equals(this.newHostDelay, monitorOptions.newHostDelay) && Objects.equals(this.noDataTimeframe, monitorOptions.noDataTimeframe) && Objects.equals(this.notifyAudit, monitorOptions.notifyAudit) && Objects.equals(this.notifyNoData, monitorOptions.notifyNoData) && Objects.equals(this.onMissingData, monitorOptions.onMissingData) && Objects.equals(this.renotifyInterval, monitorOptions.renotifyInterval) && Objects.equals(this.renotifyOccurrences, monitorOptions.renotifyOccurrences) && Objects.equals(this.renotifyStatuses, monitorOptions.renotifyStatuses) && Objects.equals(this.requireFullWindow, monitorOptions.requireFullWindow) && Objects.equals(this.silenced, monitorOptions.silenced) && Objects.equals(this.syntheticsCheckId, monitorOptions.syntheticsCheckId) && Objects.equals(this.thresholdWindows, monitorOptions.thresholdWindows) && Objects.equals(this.thresholds, monitorOptions.thresholds) && Objects.equals(this.timeoutH, monitorOptions.timeoutH) && Objects.equals(this.variables, monitorOptions.variables);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        aggregation,
-        deviceIds,
-        enableLogsSample,
-        escalationMessage,
-        evaluationDelay,
-        groupRetentionDuration,
-        groupbySimpleMonitor,
-        includeTags,
-        locked,
-        minFailureDuration,
-        minLocationFailed,
-        newGroupDelay,
-        newHostDelay,
-        noDataTimeframe,
-        notifyAudit,
-        notifyNoData,
-        onMissingData,
-        renotifyInterval,
-        renotifyOccurrences,
-        renotifyStatuses,
-        requireFullWindow,
-        silenced,
-        syntheticsCheckId,
-        thresholdWindows,
-        thresholds,
-        timeoutH,
-        variables);
+    return Objects.hash(aggregation,deviceIds,enableLogsSample,escalationMessage,evaluationDelay,groupRetentionDuration,groupbySimpleMonitor,includeTags,locked,minFailureDuration,minLocationFailed,newGroupDelay,newHostDelay,noDataTimeframe,notifyAudit,notifyNoData,onMissingData,renotifyInterval,renotifyOccurrences,renotifyStatuses,requireFullWindow,silenced,syntheticsCheckId,thresholdWindows,thresholds,timeoutH,variables);
   }
 
   @Override
@@ -962,12 +828,8 @@ public class MonitorOptions {
     sb.append("    enableLogsSample: ").append(toIndentedString(enableLogsSample)).append("\n");
     sb.append("    escalationMessage: ").append(toIndentedString(escalationMessage)).append("\n");
     sb.append("    evaluationDelay: ").append(toIndentedString(evaluationDelay)).append("\n");
-    sb.append("    groupRetentionDuration: ")
-        .append(toIndentedString(groupRetentionDuration))
-        .append("\n");
-    sb.append("    groupbySimpleMonitor: ")
-        .append(toIndentedString(groupbySimpleMonitor))
-        .append("\n");
+    sb.append("    groupRetentionDuration: ").append(toIndentedString(groupRetentionDuration)).append("\n");
+    sb.append("    groupbySimpleMonitor: ").append(toIndentedString(groupbySimpleMonitor)).append("\n");
     sb.append("    includeTags: ").append(toIndentedString(includeTags)).append("\n");
     sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
     sb.append("    minFailureDuration: ").append(toIndentedString(minFailureDuration)).append("\n");
@@ -979,9 +841,7 @@ public class MonitorOptions {
     sb.append("    notifyNoData: ").append(toIndentedString(notifyNoData)).append("\n");
     sb.append("    onMissingData: ").append(toIndentedString(onMissingData)).append("\n");
     sb.append("    renotifyInterval: ").append(toIndentedString(renotifyInterval)).append("\n");
-    sb.append("    renotifyOccurrences: ")
-        .append(toIndentedString(renotifyOccurrences))
-        .append("\n");
+    sb.append("    renotifyOccurrences: ").append(toIndentedString(renotifyOccurrences)).append("\n");
     sb.append("    renotifyStatuses: ").append(toIndentedString(renotifyStatuses)).append("\n");
     sb.append("    requireFullWindow: ").append(toIndentedString(requireFullWindow)).append("\n");
     sb.append("    silenced: ").append(toIndentedString(silenced)).append("\n");
@@ -995,7 +855,8 @@ public class MonitorOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

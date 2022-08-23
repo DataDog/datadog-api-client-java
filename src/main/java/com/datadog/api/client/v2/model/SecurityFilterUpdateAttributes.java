@@ -6,15 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The security filters properties to be updated. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The security filters properties to be updated.</p>
+ */
 @JsonPropertyOrder({
   SecurityFilterUpdateAttributes.JSON_PROPERTY_EXCLUSION_FILTERS,
   SecurityFilterUpdateAttributes.JSON_PROPERTY_FILTERED_DATA_TYPE,
@@ -23,10 +41,10 @@ import java.util.Objects;
   SecurityFilterUpdateAttributes.JSON_PROPERTY_QUERY,
   SecurityFilterUpdateAttributes.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityFilterUpdateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXCLUSION_FILTERS = "exclusion_filters";
   private List<SecurityFilterExclusionFilter> exclusionFilters = null;
 
@@ -45,17 +63,14 @@ public class SecurityFilterUpdateAttributes {
   public static final String JSON_PROPERTY_VERSION = "version";
   private Integer version;
 
-  public SecurityFilterUpdateAttributes exclusionFilters(
-      List<SecurityFilterExclusionFilter> exclusionFilters) {
+  public SecurityFilterUpdateAttributes exclusionFilters(List<SecurityFilterExclusionFilter> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
     for (SecurityFilterExclusionFilter item : exclusionFilters) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public SecurityFilterUpdateAttributes addExclusionFiltersItem(
-      SecurityFilterExclusionFilter exclusionFiltersItem) {
+  public SecurityFilterUpdateAttributes addExclusionFiltersItem(SecurityFilterExclusionFilter exclusionFiltersItem) {
     if (this.exclusionFilters == null) {
       this.exclusionFilters = new ArrayList<>();
     }
@@ -65,132 +80,123 @@ public class SecurityFilterUpdateAttributes {
   }
 
   /**
-   * Exclusion filters to exclude some logs from the security filter.
-   *
+   * <p>Exclusion filters to exclude some logs from the security filter.</p>
    * @return exclusionFilters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityFilterExclusionFilter> getExclusionFilters() {
-    return exclusionFilters;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SecurityFilterExclusionFilter> getExclusionFilters() {
+        return exclusionFilters;
+      }
   public void setExclusionFilters(List<SecurityFilterExclusionFilter> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
   }
-
-  public SecurityFilterUpdateAttributes filteredDataType(
-      SecurityFilterFilteredDataType filteredDataType) {
+  public SecurityFilterUpdateAttributes filteredDataType(SecurityFilterFilteredDataType filteredDataType) {
     this.filteredDataType = filteredDataType;
     this.unparsed |= !filteredDataType.isValid();
     return this;
   }
 
   /**
-   * The filtered data type.
-   *
+   * <p>The filtered data type.</p>
    * @return filteredDataType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTERED_DATA_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityFilterFilteredDataType getFilteredDataType() {
-    return filteredDataType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FILTERED_DATA_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SecurityFilterFilteredDataType getFilteredDataType() {
+        return filteredDataType;
+      }
   public void setFilteredDataType(SecurityFilterFilteredDataType filteredDataType) {
     if (!filteredDataType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.filteredDataType = filteredDataType;
   }
-
   public SecurityFilterUpdateAttributes isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
   /**
-   * Whether the security filter is enabled.
-   *
+   * <p>Whether the security filter is enabled.</p>
    * @return isEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsEnabled() {
+        return isEnabled;
+      }
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
-
   public SecurityFilterUpdateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the security filter.
-   *
+   * <p>The name of the security filter.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public SecurityFilterUpdateAttributes query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * The query of the security filter.
-   *
+   * <p>The query of the security filter.</p>
    * @return query
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getQuery() {
-    return query;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getQuery() {
+        return query;
+      }
   public void setQuery(String query) {
     this.query = query;
   }
-
   public SecurityFilterUpdateAttributes version(Integer version) {
     this.version = version;
     return this;
   }
 
   /**
-   * The version of the security filter to update. maximum: 2147483647
-   *
+   * <p>The version of the security filter to update.</p>
+   * maximum: 2147483647
    * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getVersion() {
-    return version;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Integer getVersion() {
+        return version;
+      }
   public void setVersion(Integer version) {
     this.version = version;
   }
 
-  /** Return true if this SecurityFilterUpdateAttributes object is equal to o. */
+  /**
+   * Return true if this SecurityFilterUpdateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -199,19 +205,14 @@ public class SecurityFilterUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityFilterUpdateAttributes securityFilterUpdateAttributes =
-        (SecurityFilterUpdateAttributes) o;
-    return Objects.equals(this.exclusionFilters, securityFilterUpdateAttributes.exclusionFilters)
-        && Objects.equals(this.filteredDataType, securityFilterUpdateAttributes.filteredDataType)
-        && Objects.equals(this.isEnabled, securityFilterUpdateAttributes.isEnabled)
-        && Objects.equals(this.name, securityFilterUpdateAttributes.name)
-        && Objects.equals(this.query, securityFilterUpdateAttributes.query)
-        && Objects.equals(this.version, securityFilterUpdateAttributes.version);
+    SecurityFilterUpdateAttributes securityFilterUpdateAttributes = (SecurityFilterUpdateAttributes) o;
+    return Objects.equals(this.exclusionFilters, securityFilterUpdateAttributes.exclusionFilters) && Objects.equals(this.filteredDataType, securityFilterUpdateAttributes.filteredDataType) && Objects.equals(this.isEnabled, securityFilterUpdateAttributes.isEnabled) && Objects.equals(this.name, securityFilterUpdateAttributes.name) && Objects.equals(this.query, securityFilterUpdateAttributes.query) && Objects.equals(this.version, securityFilterUpdateAttributes.version);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(exclusionFilters, filteredDataType, isEnabled, name, query, version);
+    return Objects.hash(exclusionFilters,filteredDataType,isEnabled,name,query,version);
   }
 
   @Override
@@ -229,7 +230,8 @@ public class SecurityFilterUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

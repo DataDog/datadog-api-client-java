@@ -1,17 +1,23 @@
 // Create an AuthN Mapping returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.AuthNMappingsApi;
+import com.datadog.api.client.v2.model.AuthNMappingResponse;
 import com.datadog.api.client.v2.model.AuthNMappingCreateAttributes;
 import com.datadog.api.client.v2.model.AuthNMappingCreateData;
 import com.datadog.api.client.v2.model.AuthNMappingCreateRelationships;
 import com.datadog.api.client.v2.model.AuthNMappingCreateRequest;
-import com.datadog.api.client.v2.model.AuthNMappingResponse;
 import com.datadog.api.client.v2.model.AuthNMappingsType;
 import com.datadog.api.client.v2.model.RelationshipToRole;
 import com.datadog.api.client.v2.model.RelationshipToRoleData;
 import com.datadog.api.client.v2.model.RolesType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,23 +27,17 @@ public class Example {
     // there is a valid "role" in the system
     String ROLE_DATA_ID = System.getenv("ROLE_DATA_ID");
 
-    AuthNMappingCreateRequest body =
-        new AuthNMappingCreateRequest()
-            .data(
-                new AuthNMappingCreateData()
-                    .attributes(
-                        new AuthNMappingCreateAttributes()
-                            .attributeKey("examplecreateanauthnmappingreturnsokresponse")
-                            .attributeValue("Example-Create_an_AuthN_Mapping_returns_OK_response"))
-                    .relationships(
-                        new AuthNMappingCreateRelationships()
-                            .role(
-                                new RelationshipToRole()
-                                    .data(
-                                        new RelationshipToRoleData()
-                                            .id(ROLE_DATA_ID)
-                                            .type(RolesType.ROLES))))
-                    .type(AuthNMappingsType.AUTHN_MAPPINGS));
+    AuthNMappingCreateRequest body = new AuthNMappingCreateRequest()
+.data(new AuthNMappingCreateData()
+.attributes(new AuthNMappingCreateAttributes()
+.attributeKey("examplecreateanauthnmappingreturnsokresponse")
+.attributeValue("Example-Create_an_AuthN_Mapping_returns_OK_response"))
+.relationships(new AuthNMappingCreateRelationships()
+.role(new RelationshipToRole()
+.data(new RelationshipToRoleData()
+.id(ROLE_DATA_ID)
+.type(RolesType.ROLES))))
+.type(AuthNMappingsType.AUTHN_MAPPINGS));
 
     try {
       AuthNMappingResponse result = apiInstance.createAuthNMapping(body);

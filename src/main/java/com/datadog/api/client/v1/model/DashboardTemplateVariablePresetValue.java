@@ -6,21 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Template variables saved views. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Template variables saved views.</p>
+ */
 @JsonPropertyOrder({
   DashboardTemplateVariablePresetValue.JSON_PROPERTY_NAME,
   DashboardTemplateVariablePresetValue.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardTemplateVariablePresetValue {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -33,43 +53,42 @@ public class DashboardTemplateVariablePresetValue {
   }
 
   /**
-   * The name of the variable.
-   *
+   * <p>The name of the variable.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public DashboardTemplateVariablePresetValue value(String value) {
     this.value = value;
     return this;
   }
 
   /**
-   * The value of the template variable within the saved view.
-   *
+   * <p>The value of the template variable within the saved view.</p>
    * @return value
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getValue() {
-    return value;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VALUE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getValue() {
+        return value;
+      }
   public void setValue(String value) {
     this.value = value;
   }
 
-  /** Return true if this DashboardTemplateVariablePresetValue object is equal to o. */
+  /**
+   * Return true if this DashboardTemplateVariablePresetValue object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -78,15 +97,14 @@ public class DashboardTemplateVariablePresetValue {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DashboardTemplateVariablePresetValue dashboardTemplateVariablePresetValue =
-        (DashboardTemplateVariablePresetValue) o;
-    return Objects.equals(this.name, dashboardTemplateVariablePresetValue.name)
-        && Objects.equals(this.value, dashboardTemplateVariablePresetValue.value);
+    DashboardTemplateVariablePresetValue dashboardTemplateVariablePresetValue = (DashboardTemplateVariablePresetValue) o;
+    return Objects.equals(this.name, dashboardTemplateVariablePresetValue.name) && Objects.equals(this.value, dashboardTemplateVariablePresetValue.value);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value);
+    return Objects.hash(name,value);
   }
 
   @Override
@@ -100,7 +118,8 @@ public class DashboardTemplateVariablePresetValue {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

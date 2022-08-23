@@ -6,20 +6,40 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object containing array of IDs of canceled downtimes. */
-@JsonPropertyOrder({CanceledDowntimesIds.JSON_PROPERTY_CANCELLED_IDS})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object containing array of IDs of canceled downtimes.</p>
+ */
+@JsonPropertyOrder({
+  CanceledDowntimesIds.JSON_PROPERTY_CANCELLED_IDS
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CanceledDowntimesIds {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CANCELLED_IDS = "cancelled_ids";
   private List<Long> cancelledIds = null;
 
@@ -27,7 +47,6 @@ public class CanceledDowntimesIds {
     this.cancelledIds = cancelledIds;
     return this;
   }
-
   public CanceledDowntimesIds addCancelledIdsItem(Long cancelledIdsItem) {
     if (this.cancelledIds == null) {
       this.cancelledIds = new ArrayList<>();
@@ -37,22 +56,23 @@ public class CanceledDowntimesIds {
   }
 
   /**
-   * ID of downtimes that were canceled.
-   *
+   * <p>ID of downtimes that were canceled.</p>
    * @return cancelledIds
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CANCELLED_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Long> getCancelledIds() {
-    return cancelledIds;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CANCELLED_IDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<Long> getCancelledIds() {
+        return cancelledIds;
+      }
   public void setCancelledIds(List<Long> cancelledIds) {
     this.cancelledIds = cancelledIds;
   }
 
-  /** Return true if this CanceledDowntimesIds object is equal to o. */
+  /**
+   * Return true if this CanceledDowntimesIds object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -64,6 +84,7 @@ public class CanceledDowntimesIds {
     CanceledDowntimesIds canceledDowntimesIds = (CanceledDowntimesIds) o;
     return Objects.equals(this.cancelledIds, canceledDowntimesIds.cancelledIds);
   }
+
 
   @Override
   public int hashCode() {
@@ -80,7 +101,8 @@ public class CanceledDowntimesIds {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

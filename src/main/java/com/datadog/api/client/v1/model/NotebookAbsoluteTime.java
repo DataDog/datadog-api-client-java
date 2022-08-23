@@ -6,28 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.time.OffsetDateTime;
-import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Absolute timeframe. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Absolute timeframe.</p>
+ */
 @JsonPropertyOrder({
   NotebookAbsoluteTime.JSON_PROPERTY_END,
   NotebookAbsoluteTime.JSON_PROPERTY_LIVE,
   NotebookAbsoluteTime.JSON_PROPERTY_START
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookAbsoluteTime {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_END = "end";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime end;
 
@@ -35,7 +50,6 @@ public class NotebookAbsoluteTime {
   private Boolean live;
 
   public static final String JSON_PROPERTY_START = "start";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime start;
 
@@ -43,74 +57,70 @@ public class NotebookAbsoluteTime {
 
   @JsonCreator
   public NotebookAbsoluteTime(
-      @JsonProperty(required = true, value = JSON_PROPERTY_END) OffsetDateTime end,
-      @JsonProperty(required = true, value = JSON_PROPERTY_START) OffsetDateTime start) {
-    this.end = end;
-    this.start = start;
+            @JsonProperty(required=true, value=JSON_PROPERTY_END)OffsetDateTime end,
+            @JsonProperty(required=true, value=JSON_PROPERTY_START)OffsetDateTime start) {
+        this.end = end;
+        this.start = start;
   }
-
   public NotebookAbsoluteTime end(OffsetDateTime end) {
     this.end = end;
     return this;
   }
 
   /**
-   * The end time.
-   *
+   * <p>The end time.</p>
    * @return end
-   */
-  @JsonProperty(JSON_PROPERTY_END)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getEnd() {
-    return end;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_END)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getEnd() {
+        return end;
+      }
   public void setEnd(OffsetDateTime end) {
     this.end = end;
   }
-
   public NotebookAbsoluteTime live(Boolean live) {
     this.live = live;
     return this;
   }
 
   /**
-   * Indicates whether the timeframe should be shifted to end at the current time.
-   *
+   * <p>Indicates whether the timeframe should be shifted to end at the current time.</p>
    * @return live
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getLive() {
-    return live;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIVE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getLive() {
+        return live;
+      }
   public void setLive(Boolean live) {
     this.live = live;
   }
-
   public NotebookAbsoluteTime start(OffsetDateTime start) {
     this.start = start;
     return this;
   }
 
   /**
-   * The start time.
-   *
+   * <p>The start time.</p>
    * @return start
-   */
-  @JsonProperty(JSON_PROPERTY_START)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public OffsetDateTime getStart() {
-    return start;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_START)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public OffsetDateTime getStart() {
+        return start;
+      }
   public void setStart(OffsetDateTime start) {
     this.start = start;
   }
 
-  /** Return true if this NotebookAbsoluteTime object is equal to o. */
+  /**
+   * Return true if this NotebookAbsoluteTime object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -120,14 +130,13 @@ public class NotebookAbsoluteTime {
       return false;
     }
     NotebookAbsoluteTime notebookAbsoluteTime = (NotebookAbsoluteTime) o;
-    return Objects.equals(this.end, notebookAbsoluteTime.end)
-        && Objects.equals(this.live, notebookAbsoluteTime.live)
-        && Objects.equals(this.start, notebookAbsoluteTime.start);
+    return Objects.equals(this.end, notebookAbsoluteTime.end) && Objects.equals(this.live, notebookAbsoluteTime.live) && Objects.equals(this.start, notebookAbsoluteTime.start);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(end, live, start);
+    return Objects.hash(end,live,start);
   }
 
   @Override
@@ -142,7 +151,8 @@ public class NotebookAbsoluteTime {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
