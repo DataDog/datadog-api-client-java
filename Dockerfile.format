@@ -5,6 +5,6 @@ WORKDIR /app
 
 ADD https://github.com/google/google-java-format/releases/download/v1.15.0/google-java-format-1.15.0-all-deps.jar /app/google-java-format.jar
 
-RUN [ "1d98720a5984de85a822aa32a378eeacd4d17480d31cba6e730caae313466b97  /app/google-java-format.jar" = "$(sha256sum /app/google-java-format.jar)" ]
+RUN [ "a356bb0236b29c57a3ab678f17a7b027aad603b0960c183a18f1fe322e4f38ea  /app/google-java-format.jar" = "$(sha256sum /app/google-java-format.jar)" ]
 
 ENTRYPOINT ["java", "-jar", "/app/google-java-format.jar"]
