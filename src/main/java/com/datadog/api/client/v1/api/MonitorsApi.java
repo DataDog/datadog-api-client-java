@@ -337,7 +337,8 @@ public class MonitorsApi {
    *
    * <p><strong>Event V2 Alert Query</strong>
    *
-   * <p>Example: <code>events(query).rollup(rollup_method[, measure]).last(time_window) operator #
+   * <p>Example: <code>
+   * events(query).rollup(rollup_method[, measure]).by("group_by").last(time_window) operator #
    * </code>
    *
    * <ul>
@@ -347,6 +348,8 @@ public class MonitorsApi {
    *       avg</code> and <code>cardinality</code>.
    *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
    *       specify the measure or the facet name you want to use.
+   *   <li><code>group_by</code> defines a separate alert for each facet in the group (multi-alert).
+   *       Each facet must be separated by a comma.
    *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
    *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
    *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
@@ -373,7 +376,7 @@ public class MonitorsApi {
    * <p><strong>Logs Alert Query</strong>
    *
    * <p>Example: <code>
-   * logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #
+   * logs(query).index(index_name).rollup(rollup_method[, measure]).by("group_by").last(time_window) operator #
    * </code>
    *
    * <ul>
@@ -385,6 +388,8 @@ public class MonitorsApi {
    *       avg</code> and <code>cardinality</code>.
    *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
    *       specify the measure or the facet name you want to use.
+   *   <li><code>group_by</code> defines a separate alert for each facet in the group (multi-alert).
+   *       Each facet must be separated by a comma.
    *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
    *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
    *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
@@ -423,7 +428,8 @@ public class MonitorsApi {
    *
    * <p><strong>Audit Alert Query</strong>
    *
-   * <p>Example: <code>audits(query).rollup(rollup_method[, measure]).last(time_window) operator #
+   * <p>Example: <code>
+   * audits(query).rollup(rollup_method[, measure]).by("group_by").last(time_window) operator #
    * </code>
    *
    * <ul>
@@ -433,6 +439,8 @@ public class MonitorsApi {
    *       avg</code> and <code>cardinality</code>.
    *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
    *       specify the measure or the facet name you want to use.
+   *   <li><code>group_by</code> defines a separate alert for each facet in the group (multi-alert).
+   *       Each facet must be separated by a comma.
    *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
    *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
    *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
@@ -444,7 +452,8 @@ public class MonitorsApi {
    * <p><strong>CI Pipelines Alert Query</strong>
    *
    * <p>Example: <code>
-   * ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #</code>
+   * ci-pipelines(query).rollup(rollup_method[, measure]).by("group_by").last(time_window) operator #
+   * </code>
    *
    * <ul>
    *   <li><code>query</code> The search query - following the <a
@@ -453,6 +462,8 @@ public class MonitorsApi {
    *       avg</code>, and <code>cardinality</code>.
    *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
    *       specify the measure or the facet name you want to use.
+   *   <li><code>group_by</code> defines a separate alert for each facet in the group (multi-alert).
+   *       Each facet must be separated by a comma.
    *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
    *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
    *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
@@ -463,7 +474,8 @@ public class MonitorsApi {
    *
    * <p><strong>CI Tests Alert Query</strong>
    *
-   * <p>Example: <code>ci-tests(query).rollup(rollup_method[, measure]).last(time_window) operator #
+   * <p>Example: <code>
+   * ci-tests(query).rollup(rollup_method[, measure]).by("group_by").last(time_window) operator #
    * </code>
    *
    * <ul>
@@ -473,6 +485,8 @@ public class MonitorsApi {
    *       avg</code>, and <code>cardinality</code>.
    *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
    *       specify the measure or the facet name you want to use.
+   *   <li><code>group_by</code> defines a separate alert for each facet in the group (multi-alert).
+   *       Each facet must be separated by a comma.
    *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
    *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
    *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
