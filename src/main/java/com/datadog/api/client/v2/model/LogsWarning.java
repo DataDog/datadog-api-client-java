@@ -37,7 +37,7 @@ public class LogsWarning {
   }
 
   /**
-   * A unique code for this type of warning
+   * A unique code for this type of warning updated
    *
    * @return code
    */
