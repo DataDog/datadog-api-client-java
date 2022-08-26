@@ -34,6 +34,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_CSPM_AWS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_CONTAINER_HWM,
@@ -153,6 +154,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_CSPM_AAS_HOST_TOP99P = "cspm_aas_host_top99p";
   private Long cspmAasHostTop99p;
+
+  public static final String JSON_PROPERTY_CSPM_AWS_HOST_TOP99P = "cspm_aws_host_top99p";
+  private Long cspmAwsHostTop99p;
 
   public static final String JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P = "cspm_azure_host_top99p";
   private Long cspmAzureHostTop99p;
@@ -742,6 +746,28 @@ public class UsageSummaryDateOrg {
 
   public void setCspmAasHostTop99p(Long cspmAasHostTop99p) {
     this.cspmAasHostTop99p = cspmAasHostTop99p;
+  }
+
+  public UsageSummaryDateOrg cspmAwsHostTop99p(Long cspmAwsHostTop99p) {
+    this.cspmAwsHostTop99p = cspmAwsHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in
+   * the current date for the given org.
+   *
+   * @return cspmAwsHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_AWS_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmAwsHostTop99p() {
+    return cspmAwsHostTop99p;
+  }
+
+  public void setCspmAwsHostTop99p(Long cspmAwsHostTop99p) {
+    this.cspmAwsHostTop99p = cspmAwsHostTop99p;
   }
 
   public UsageSummaryDateOrg cspmAzureHostTop99p(Long cspmAzureHostTop99p) {
@@ -1769,6 +1795,7 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg)
         && Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm)
         && Objects.equals(this.cspmAasHostTop99p, usageSummaryDateOrg.cspmAasHostTop99p)
+        && Objects.equals(this.cspmAwsHostTop99p, usageSummaryDateOrg.cspmAwsHostTop99p)
         && Objects.equals(this.cspmAzureHostTop99p, usageSummaryDateOrg.cspmAzureHostTop99p)
         && Objects.equals(this.cspmContainerAvg, usageSummaryDateOrg.cspmContainerAvg)
         && Objects.equals(this.cspmContainerHwm, usageSummaryDateOrg.cspmContainerHwm)
@@ -1860,6 +1887,7 @@ public class UsageSummaryDateOrg {
         containerAvg,
         containerHwm,
         cspmAasHostTop99p,
+        cspmAwsHostTop99p,
         cspmAzureHostTop99p,
         cspmContainerAvg,
         cspmContainerHwm,
@@ -1955,6 +1983,7 @@ public class UsageSummaryDateOrg {
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
     sb.append("    cspmAasHostTop99p: ").append(toIndentedString(cspmAasHostTop99p)).append("\n");
+    sb.append("    cspmAwsHostTop99p: ").append(toIndentedString(cspmAwsHostTop99p)).append("\n");
     sb.append("    cspmAzureHostTop99p: ")
         .append(toIndentedString(cspmAzureHostTop99p))
         .append("\n");
