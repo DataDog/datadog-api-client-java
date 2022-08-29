@@ -6,33 +6,47 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.time.OffsetDateTime;
-import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of the created role. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of the created role.</p>
+ */
 @JsonPropertyOrder({
   RoleCreateAttributes.JSON_PROPERTY_CREATED_AT,
   RoleCreateAttributes.JSON_PROPERTY_MODIFIED_AT,
   RoleCreateAttributes.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleCreateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modifiedAt;
 
@@ -43,55 +57,55 @@ public class RoleCreateAttributes {
 
   @JsonCreator
   public RoleCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.name = name;
   }
 
   /**
-   * Creation time of the role.
-   *
+   * <p>Creation time of the role.</p>
    * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreatedAt() {
+        return createdAt;
+      }
 
   /**
-   * Time of last role modification.
-   *
+   * <p>Time of last role modification.</p>
    * @return modifiedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getModifiedAt() {
+        return modifiedAt;
+      }
   public RoleCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the role.
-   *
+   * <p>Name of the role.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
 
-  /** Return true if this RoleCreateAttributes object is equal to o. */
+  /**
+   * Return true if this RoleCreateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,14 +115,13 @@ public class RoleCreateAttributes {
       return false;
     }
     RoleCreateAttributes roleCreateAttributes = (RoleCreateAttributes) o;
-    return Objects.equals(this.createdAt, roleCreateAttributes.createdAt)
-        && Objects.equals(this.modifiedAt, roleCreateAttributes.modifiedAt)
-        && Objects.equals(this.name, roleCreateAttributes.name);
+    return Objects.equals(this.createdAt, roleCreateAttributes.createdAt) && Objects.equals(this.modifiedAt, roleCreateAttributes.modifiedAt) && Objects.equals(this.name, roleCreateAttributes.name);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, modifiedAt, name);
+    return Objects.hash(createdAt,modifiedAt,name);
   }
 
   @Override
@@ -123,7 +136,8 @@ public class RoleCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

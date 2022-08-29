@@ -6,20 +6,18 @@
 
 package com.datadog.api.client.auth;
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.ApiException;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HttpBasicAuth implements Authentication {
   private String username;
   private String password;
-
   public String getUsername() {
     return username;
   }
@@ -37,20 +35,11 @@ public class HttpBasicAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(
-      List<Pair> queryParams,
-      Map<String, String> headerParams,
-      Map<String, String> cookieParams,
-      String payload,
-      String method,
-      URI uri)
-      throws ApiException {
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException {
     if (username == null && password == null) {
       return;
     }
     String str = (username == null ? "" : username) + ":" + (password == null ? "" : password);
-    headerParams.put(
-        "Authorization",
-        "Basic " + Base64.getEncoder().encodeToString(str.getBytes(StandardCharsets.UTF_8)));
+    headerParams.put("Authorization", "Basic " + Base64.getEncoder().encodeToString(str.getBytes(StandardCharsets.UTF_8)));
   }
 }

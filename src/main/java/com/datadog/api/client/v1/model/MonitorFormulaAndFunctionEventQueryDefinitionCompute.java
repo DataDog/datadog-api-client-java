@@ -6,23 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Compute options. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Compute options.</p>
+ */
 @JsonPropertyOrder({
   MonitorFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_AGGREGATION,
   MonitorFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_INTERVAL,
   MonitorFormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_METRIC
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private MonitorFormulaAndFunctionEventAggregation aggregation;
 
@@ -36,75 +55,67 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
 
   @JsonCreator
   public MonitorFormulaAndFunctionEventQueryDefinitionCompute(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
-          MonitorFormulaAndFunctionEventAggregation aggregation) {
-    this.aggregation = aggregation;
-    this.unparsed |= !aggregation.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)MonitorFormulaAndFunctionEventAggregation aggregation) {
+        this.aggregation = aggregation;
+        this.unparsed |= !aggregation.isValid();
   }
-
-  public MonitorFormulaAndFunctionEventQueryDefinitionCompute aggregation(
-      MonitorFormulaAndFunctionEventAggregation aggregation) {
+  public MonitorFormulaAndFunctionEventQueryDefinitionCompute aggregation(MonitorFormulaAndFunctionEventAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
     return this;
   }
 
   /**
-   * Aggregation methods for event platform queries.
-   *
+   * <p>Aggregation methods for event platform queries.</p>
    * @return aggregation
-   */
-  @JsonProperty(JSON_PROPERTY_AGGREGATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MonitorFormulaAndFunctionEventAggregation getAggregation() {
-    return aggregation;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AGGREGATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public MonitorFormulaAndFunctionEventAggregation getAggregation() {
+        return aggregation;
+      }
   public void setAggregation(MonitorFormulaAndFunctionEventAggregation aggregation) {
     if (!aggregation.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.aggregation = aggregation;
   }
-
   public MonitorFormulaAndFunctionEventQueryDefinitionCompute interval(Long interval) {
     this.interval = interval;
     return this;
   }
 
   /**
-   * A time interval in milliseconds.
-   *
+   * <p>A time interval in milliseconds.</p>
    * @return interval
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInterval() {
-    return interval;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INTERVAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInterval() {
+        return interval;
+      }
   public void setInterval(Long interval) {
     this.interval = interval;
   }
-
   public MonitorFormulaAndFunctionEventQueryDefinitionCompute metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * Measurable attribute to compute.
-   *
+   * <p>Measurable attribute to compute.</p>
    * @return metric
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRIC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMetric() {
-    return metric;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METRIC)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getMetric() {
+        return metric;
+      }
   public void setMetric(String metric) {
     this.metric = metric;
   }
@@ -120,19 +131,14 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorFormulaAndFunctionEventQueryDefinitionCompute
-        monitorFormulaAndFunctionEventQueryDefinitionCompute =
-            (MonitorFormulaAndFunctionEventQueryDefinitionCompute) o;
-    return Objects.equals(
-            this.aggregation, monitorFormulaAndFunctionEventQueryDefinitionCompute.aggregation)
-        && Objects.equals(
-            this.interval, monitorFormulaAndFunctionEventQueryDefinitionCompute.interval)
-        && Objects.equals(this.metric, monitorFormulaAndFunctionEventQueryDefinitionCompute.metric);
+    MonitorFormulaAndFunctionEventQueryDefinitionCompute monitorFormulaAndFunctionEventQueryDefinitionCompute = (MonitorFormulaAndFunctionEventQueryDefinitionCompute) o;
+    return Objects.equals(this.aggregation, monitorFormulaAndFunctionEventQueryDefinitionCompute.aggregation) && Objects.equals(this.interval, monitorFormulaAndFunctionEventQueryDefinitionCompute.interval) && Objects.equals(this.metric, monitorFormulaAndFunctionEventQueryDefinitionCompute.metric);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, interval, metric);
+    return Objects.hash(aggregation,interval,metric);
   }
 
   @Override
@@ -147,7 +153,8 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,18 +6,40 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** An application key response. */
-@JsonPropertyOrder({ApplicationKeyResponse.JSON_PROPERTY_APPLICATION_KEY})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>An application key response.</p>
+ */
+@JsonPropertyOrder({
+  ApplicationKeyResponse.JSON_PROPERTY_APPLICATION_KEY
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKeyResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION_KEY = "application_key";
   private ApplicationKey applicationKey;
 
@@ -28,22 +50,23 @@ public class ApplicationKeyResponse {
   }
 
   /**
-   * An application key with its associated metadata.
-   *
+   * <p>An application key with its associated metadata.</p>
    * @return applicationKey
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPLICATION_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ApplicationKey getApplicationKey() {
-    return applicationKey;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APPLICATION_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ApplicationKey getApplicationKey() {
+        return applicationKey;
+      }
   public void setApplicationKey(ApplicationKey applicationKey) {
     this.applicationKey = applicationKey;
   }
 
-  /** Return true if this ApplicationKeyResponse object is equal to o. */
+  /**
+   * Return true if this ApplicationKeyResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -55,6 +78,7 @@ public class ApplicationKeyResponse {
     ApplicationKeyResponse applicationKeyResponse = (ApplicationKeyResponse) o;
     return Objects.equals(this.applicationKey, applicationKeyResponse.applicationKey);
   }
+
 
   @Override
   public int hashCode() {
@@ -71,7 +95,8 @@ public class ApplicationKeyResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

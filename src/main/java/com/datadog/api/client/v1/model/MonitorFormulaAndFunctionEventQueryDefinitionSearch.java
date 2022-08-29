@@ -6,19 +6,40 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Search options. */
-@JsonPropertyOrder({MonitorFormulaAndFunctionEventQueryDefinitionSearch.JSON_PROPERTY_QUERY})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Search options.</p>
+ */
+@JsonPropertyOrder({
+  MonitorFormulaAndFunctionEventQueryDefinitionSearch.JSON_PROPERTY_QUERY
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -26,26 +47,24 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
 
   @JsonCreator
   public MonitorFormulaAndFunctionEventQueryDefinitionSearch(
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.query = query;
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query) {
+        this.query = query;
   }
-
   public MonitorFormulaAndFunctionEventQueryDefinitionSearch query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * Events search string.
-   *
+   * <p>Events search string.</p>
    * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getQuery() {
+        return query;
+      }
   public void setQuery(String query) {
     this.query = query;
   }
@@ -61,11 +80,10 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorFormulaAndFunctionEventQueryDefinitionSearch
-        monitorFormulaAndFunctionEventQueryDefinitionSearch =
-            (MonitorFormulaAndFunctionEventQueryDefinitionSearch) o;
+    MonitorFormulaAndFunctionEventQueryDefinitionSearch monitorFormulaAndFunctionEventQueryDefinitionSearch = (MonitorFormulaAndFunctionEventQueryDefinitionSearch) o;
     return Objects.equals(this.query, monitorFormulaAndFunctionEventQueryDefinitionSearch.query);
   }
+
 
   @Override
   public int hashCode() {
@@ -82,7 +100,8 @@ public class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

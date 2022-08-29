@@ -6,14 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A group by rule */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A group by rule</p>
+ */
 @JsonPropertyOrder({
   LogsGroupBy.JSON_PROPERTY_FACET,
   LogsGroupBy.JSON_PROPERTY_HISTOGRAM,
@@ -22,10 +41,10 @@ import java.util.Objects;
   LogsGroupBy.JSON_PROPERTY_SORT,
   LogsGroupBy.JSON_PROPERTY_TOTAL
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsGroupBy {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
   private String facet;
 
@@ -47,30 +66,28 @@ public class LogsGroupBy {
   public LogsGroupBy() {}
 
   @JsonCreator
-  public LogsGroupBy(@JsonProperty(required = true, value = JSON_PROPERTY_FACET) String facet) {
-    this.facet = facet;
+  public LogsGroupBy(
+            @JsonProperty(required=true, value=JSON_PROPERTY_FACET)String facet) {
+        this.facet = facet;
   }
-
   public LogsGroupBy facet(String facet) {
     this.facet = facet;
     return this;
   }
 
   /**
-   * The name of the facet to use (required)
-   *
+   * <p>The name of the facet to use (required)</p>
    * @return facet
-   */
-  @JsonProperty(JSON_PROPERTY_FACET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getFacet() {
-    return facet;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FACET)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getFacet() {
+        return facet;
+      }
   public void setFacet(String facet) {
     this.facet = facet;
   }
-
   public LogsGroupBy histogram(LogsGroupByHistogram histogram) {
     this.histogram = histogram;
     this.unparsed |= histogram.unparsed;
@@ -78,43 +95,39 @@ public class LogsGroupBy {
   }
 
   /**
-   * Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets
-   * are allowed, the number of buckets is (max - min)/interval.
-   *
+   * <p>Used to perform a histogram computation (only for measure facets).
+   * Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.</p>
    * @return histogram
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HISTOGRAM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsGroupByHistogram getHistogram() {
-    return histogram;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HISTOGRAM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogsGroupByHistogram getHistogram() {
+        return histogram;
+      }
   public void setHistogram(LogsGroupByHistogram histogram) {
     this.histogram = histogram;
   }
-
   public LogsGroupBy limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * The maximum buckets to return for this group by
-   *
+   * <p>The maximum buckets to return for this group by</p>
    * @return limit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLimit() {
-    return limit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIMIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLimit() {
+        return limit;
+      }
   public void setLimit(Long limit) {
     this.limit = limit;
   }
-
   public LogsGroupBy missing(LogsGroupByMissing missing) {
     this.missing = missing;
     this.unparsed |= missing.unparsed;
@@ -122,21 +135,19 @@ public class LogsGroupBy {
   }
 
   /**
-   * The value to use for logs that don't have the facet used to group by
-   *
+   * <p>The value to use for logs that don't have the facet used to group by</p>
    * @return missing
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MISSING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsGroupByMissing getMissing() {
-    return missing;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MISSING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogsGroupByMissing getMissing() {
+        return missing;
+      }
   public void setMissing(LogsGroupByMissing missing) {
     this.missing = missing;
   }
-
   public LogsGroupBy sort(LogsAggregateSort sort) {
     this.sort = sort;
     this.unparsed |= sort.unparsed;
@@ -144,21 +155,19 @@ public class LogsGroupBy {
   }
 
   /**
-   * A sort rule
-   *
+   * <p>A sort rule</p>
    * @return sort
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsAggregateSort getSort() {
-    return sort;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SORT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogsAggregateSort getSort() {
+        return sort;
+      }
   public void setSort(LogsAggregateSort sort) {
     this.sort = sort;
   }
-
   public LogsGroupBy total(LogsGroupByTotal total) {
     this.total = total;
     this.unparsed |= total.unparsed;
@@ -166,22 +175,23 @@ public class LogsGroupBy {
   }
 
   /**
-   * A resulting object to put the given computes in over all the matching records.
-   *
+   * <p>A resulting object to put the given computes in over all the matching records.</p>
    * @return total
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsGroupByTotal getTotal() {
-    return total;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TOTAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogsGroupByTotal getTotal() {
+        return total;
+      }
   public void setTotal(LogsGroupByTotal total) {
     this.total = total;
   }
 
-  /** Return true if this LogsGroupBy object is equal to o. */
+  /**
+   * Return true if this LogsGroupBy object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -191,17 +201,13 @@ public class LogsGroupBy {
       return false;
     }
     LogsGroupBy logsGroupBy = (LogsGroupBy) o;
-    return Objects.equals(this.facet, logsGroupBy.facet)
-        && Objects.equals(this.histogram, logsGroupBy.histogram)
-        && Objects.equals(this.limit, logsGroupBy.limit)
-        && Objects.equals(this.missing, logsGroupBy.missing)
-        && Objects.equals(this.sort, logsGroupBy.sort)
-        && Objects.equals(this.total, logsGroupBy.total);
+    return Objects.equals(this.facet, logsGroupBy.facet) && Objects.equals(this.histogram, logsGroupBy.histogram) && Objects.equals(this.limit, logsGroupBy.limit) && Objects.equals(this.missing, logsGroupBy.missing) && Objects.equals(this.sort, logsGroupBy.sort) && Objects.equals(this.total, logsGroupBy.total);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(facet, histogram, limit, missing, sort, total);
+    return Objects.hash(facet,histogram,limit,missing,sort,total);
   }
 
   @Override
@@ -219,7 +225,8 @@ public class LogsGroupBy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

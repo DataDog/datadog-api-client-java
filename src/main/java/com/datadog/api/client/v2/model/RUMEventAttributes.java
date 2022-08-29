@@ -6,30 +6,43 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** JSON object containing all event attributes and their associated values. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>JSON object containing all event attributes and their associated values.</p>
+ */
 @JsonPropertyOrder({
   RUMEventAttributes.JSON_PROPERTY_ATTRIBUTES,
   RUMEventAttributes.JSON_PROPERTY_SERVICE,
   RUMEventAttributes.JSON_PROPERTY_TAGS,
   RUMEventAttributes.JSON_PROPERTY_TIMESTAMP
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMEventAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private Map<String, Object> attributes = null;
 
@@ -40,7 +53,6 @@ public class RUMEventAttributes {
   private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime timestamp;
 
@@ -48,7 +60,6 @@ public class RUMEventAttributes {
     this.attributes = attributes;
     return this;
   }
-
   public RUMEventAttributes putAttributesItem(String key, Object attributesItem) {
     if (this.attributes == null) {
       this.attributes = new HashMap<>();
@@ -58,48 +69,44 @@ public class RUMEventAttributes {
   }
 
   /**
-   * JSON object of attributes from RUM events.
-   *
+   * <p>JSON object of attributes from RUM events.</p>
    * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Map<String, Object> getAttributes() {
+        return attributes;
+      }
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
-
   public RUMEventAttributes service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * The name of the application or service generating RUM events. It is used to switch from RUM to
-   * APM, so make sure you define the same value when you use both products.
-   *
+   * <p>The name of the application or service generating RUM events.
+   * It is used to switch from RUM to APM, so make sure you define the same
+   * value when you use both products.</p>
    * @return service
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getService() {
-    return service;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SERVICE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getService() {
+        return service;
+      }
   public void setService(String service) {
     this.service = service;
   }
-
   public RUMEventAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public RUMEventAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -109,43 +116,42 @@ public class RUMEventAttributes {
   }
 
   /**
-   * Array of tags associated with your event.
-   *
+   * <p>Array of tags associated with your event.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
   public RUMEventAttributes timestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
     return this;
   }
 
   /**
-   * Timestamp of your event.
-   *
+   * <p>Timestamp of your event.</p>
    * @return timestamp
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getTimestamp() {
-    return timestamp;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getTimestamp() {
+        return timestamp;
+      }
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
   }
 
-  /** Return true if this RUMEventAttributes object is equal to o. */
+  /**
+   * Return true if this RUMEventAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -155,15 +161,13 @@ public class RUMEventAttributes {
       return false;
     }
     RUMEventAttributes rumEventAttributes = (RUMEventAttributes) o;
-    return Objects.equals(this.attributes, rumEventAttributes.attributes)
-        && Objects.equals(this.service, rumEventAttributes.service)
-        && Objects.equals(this.tags, rumEventAttributes.tags)
-        && Objects.equals(this.timestamp, rumEventAttributes.timestamp);
+    return Objects.equals(this.attributes, rumEventAttributes.attributes) && Objects.equals(this.service, rumEventAttributes.service) && Objects.equals(this.tags, rumEventAttributes.tags) && Objects.equals(this.timestamp, rumEventAttributes.timestamp);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, service, tags, timestamp);
+    return Objects.hash(attributes,service,tags,timestamp);
   }
 
   @Override
@@ -179,7 +183,8 @@ public class RUMEventAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

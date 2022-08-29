@@ -6,24 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Optional attributes for the status of a bulk tag configuration request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Optional attributes for the status of a bulk tag configuration request.</p>
+ */
 @JsonPropertyOrder({
   MetricBulkTagConfigStatusAttributes.JSON_PROPERTY_EMAILS,
   MetricBulkTagConfigStatusAttributes.JSON_PROPERTY_STATUS,
   MetricBulkTagConfigStatusAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricBulkTagConfigStatusAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAILS = "emails";
   private List<String> emails = null;
 
@@ -37,7 +55,6 @@ public class MetricBulkTagConfigStatusAttributes {
     this.emails = emails;
     return this;
   }
-
   public MetricBulkTagConfigStatusAttributes addEmailsItem(String emailsItem) {
     if (this.emails == null) {
       this.emails = new ArrayList<>();
@@ -47,47 +64,42 @@ public class MetricBulkTagConfigStatusAttributes {
   }
 
   /**
-   * A list of account emails to notify when the configuration is applied.
-   *
+   * <p>A list of account emails to notify when the configuration is applied.</p>
    * @return emails
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAILS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getEmails() {
-    return emails;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EMAILS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getEmails() {
+        return emails;
+      }
   public void setEmails(List<String> emails) {
     this.emails = emails;
   }
-
   public MetricBulkTagConfigStatusAttributes status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * The status of the request.
-   *
+   * <p>The status of the request.</p>
    * @return status
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStatus() {
-    return status;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getStatus() {
+        return status;
+      }
   public void setStatus(String status) {
     this.status = status;
   }
-
   public MetricBulkTagConfigStatusAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public MetricBulkTagConfigStatusAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -97,22 +109,23 @@ public class MetricBulkTagConfigStatusAttributes {
   }
 
   /**
-   * A list of tag names to apply to the configuration.
-   *
+   * <p>A list of tag names to apply to the configuration.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
-  /** Return true if this MetricBulkTagConfigStatusAttributes object is equal to o. */
+  /**
+   * Return true if this MetricBulkTagConfigStatusAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -121,16 +134,14 @@ public class MetricBulkTagConfigStatusAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricBulkTagConfigStatusAttributes metricBulkTagConfigStatusAttributes =
-        (MetricBulkTagConfigStatusAttributes) o;
-    return Objects.equals(this.emails, metricBulkTagConfigStatusAttributes.emails)
-        && Objects.equals(this.status, metricBulkTagConfigStatusAttributes.status)
-        && Objects.equals(this.tags, metricBulkTagConfigStatusAttributes.tags);
+    MetricBulkTagConfigStatusAttributes metricBulkTagConfigStatusAttributes = (MetricBulkTagConfigStatusAttributes) o;
+    return Objects.equals(this.emails, metricBulkTagConfigStatusAttributes.emails) && Objects.equals(this.status, metricBulkTagConfigStatusAttributes.status) && Objects.equals(this.tags, metricBulkTagConfigStatusAttributes.tags);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(emails, status, tags);
+    return Objects.hash(emails,status,tags);
   }
 
   @Override
@@ -145,7 +156,8 @@ public class MetricBulkTagConfigStatusAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

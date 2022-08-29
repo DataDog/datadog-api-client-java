@@ -6,22 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Dashboard bulk action request data. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Dashboard bulk action request data.</p>
+ */
 @JsonPropertyOrder({
   DashboardBulkActionData.JSON_PROPERTY_ID,
   DashboardBulkActionData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardBulkActionData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -32,33 +51,30 @@ public class DashboardBulkActionData {
 
   @JsonCreator
   public DashboardBulkActionData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DashboardResourceType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)DashboardResourceType type) {
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public DashboardBulkActionData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Dashboard resource ID.
-   *
+   * <p>Dashboard resource ID.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public DashboardBulkActionData type(DashboardResourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -66,24 +82,25 @@ public class DashboardBulkActionData {
   }
 
   /**
-   * Dashboard resource type.
-   *
+   * <p>Dashboard resource type.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DashboardResourceType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public DashboardResourceType getType() {
+        return type;
+      }
   public void setType(DashboardResourceType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this DashboardBulkActionData object is equal to o. */
+  /**
+   * Return true if this DashboardBulkActionData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -93,13 +110,13 @@ public class DashboardBulkActionData {
       return false;
     }
     DashboardBulkActionData dashboardBulkActionData = (DashboardBulkActionData) o;
-    return Objects.equals(this.id, dashboardBulkActionData.id)
-        && Objects.equals(this.type, dashboardBulkActionData.type);
+    return Objects.equals(this.id, dashboardBulkActionData.id) && Objects.equals(this.type, dashboardBulkActionData.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type);
+    return Objects.hash(id,type);
   }
 
   @Override
@@ -113,7 +130,8 @@ public class DashboardBulkActionData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

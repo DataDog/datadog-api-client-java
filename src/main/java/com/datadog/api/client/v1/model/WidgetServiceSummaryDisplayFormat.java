@@ -6,33 +6,52 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import java.io.IOException;
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
 
-/** Number of columns to display. */
-@JsonSerialize(
-    using = WidgetServiceSummaryDisplayFormat.WidgetServiceSummaryDisplayFormatSerializer.class)
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Number of columns to display.</p>
+ */
+@JsonSerialize(using = WidgetServiceSummaryDisplayFormat.WidgetServiceSummaryDisplayFormatSerializer.class)
 public class WidgetServiceSummaryDisplayFormat {
 
-  public static final WidgetServiceSummaryDisplayFormat ONE_COLUMN =
-      new WidgetServiceSummaryDisplayFormat("one_column");
-  public static final WidgetServiceSummaryDisplayFormat TWO_COLUMN =
-      new WidgetServiceSummaryDisplayFormat("two_column");
-  public static final WidgetServiceSummaryDisplayFormat THREE_COLUMN =
-      new WidgetServiceSummaryDisplayFormat("three_column");
+  public static final WidgetServiceSummaryDisplayFormat ONE_COLUMN = new WidgetServiceSummaryDisplayFormat("one_column");
+  public static final WidgetServiceSummaryDisplayFormat TWO_COLUMN = new WidgetServiceSummaryDisplayFormat("two_column");
+  public static final WidgetServiceSummaryDisplayFormat THREE_COLUMN = new WidgetServiceSummaryDisplayFormat("three_column");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("one_column", "two_column", "three_column"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("one_column", "two_column", "three_column"));
 
   private String value;
 
@@ -44,22 +63,19 @@ public class WidgetServiceSummaryDisplayFormat {
     this.value = value;
   }
 
-  public static class WidgetServiceSummaryDisplayFormatSerializer
-      extends StdSerializer<WidgetServiceSummaryDisplayFormat> {
-    public WidgetServiceSummaryDisplayFormatSerializer(Class<WidgetServiceSummaryDisplayFormat> t) {
-      super(t);
-    }
+  public static class WidgetServiceSummaryDisplayFormatSerializer extends StdSerializer<WidgetServiceSummaryDisplayFormat> {
+      public WidgetServiceSummaryDisplayFormatSerializer(Class<WidgetServiceSummaryDisplayFormat> t) {
+          super(t);
+      }
 
-    public WidgetServiceSummaryDisplayFormatSerializer() {
-      this(null);
-    }
+      public WidgetServiceSummaryDisplayFormatSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        WidgetServiceSummaryDisplayFormat value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(WidgetServiceSummaryDisplayFormat value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -71,7 +87,9 @@ public class WidgetServiceSummaryDisplayFormat {
     this.value = value;
   }
 
-  /** Return true if this WidgetServiceSummaryDisplayFormat object is equal to o. */
+  /**
+   * Return true if this WidgetServiceSummaryDisplayFormat object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,7 +103,7 @@ public class WidgetServiceSummaryDisplayFormat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override

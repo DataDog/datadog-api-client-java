@@ -6,24 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object containing logs usage data broken down by retention period. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object containing logs usage data broken down by retention period.</p>
+ */
 @JsonPropertyOrder({
   LogsByRetention.JSON_PROPERTY_ORGS,
   LogsByRetention.JSON_PROPERTY_USAGE,
   LogsByRetention.JSON_PROPERTY_USAGE_BY_MONTH
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsByRetention {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private LogsByRetentionOrgs orgs;
 
@@ -40,21 +58,19 @@ public class LogsByRetention {
   }
 
   /**
-   * Indexed logs usage summary for each organization for each retention period with usage.
-   *
+   * <p>Indexed logs usage summary for each organization for each retention period with usage.</p>
    * @return orgs
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsByRetentionOrgs getOrgs() {
-    return orgs;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ORGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogsByRetentionOrgs getOrgs() {
+        return orgs;
+      }
   public void setOrgs(LogsByRetentionOrgs orgs) {
     this.orgs = orgs;
   }
-
   public LogsByRetention usage(List<LogsRetentionAggSumUsage> usage) {
     this.usage = usage;
     for (LogsRetentionAggSumUsage item : usage) {
@@ -62,7 +78,6 @@ public class LogsByRetention {
     }
     return this;
   }
-
   public LogsByRetention addUsageItem(LogsRetentionAggSumUsage usageItem) {
     if (this.usage == null) {
       this.usage = new ArrayList<>();
@@ -73,21 +88,19 @@ public class LogsByRetention {
   }
 
   /**
-   * Aggregated index logs usage for each retention period with usage.
-   *
+   * <p>Aggregated index logs usage for each retention period with usage.</p>
    * @return usage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LogsRetentionAggSumUsage> getUsage() {
-    return usage;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<LogsRetentionAggSumUsage> getUsage() {
+        return usage;
+      }
   public void setUsage(List<LogsRetentionAggSumUsage> usage) {
     this.usage = usage;
   }
-
   public LogsByRetention usageByMonth(LogsByRetentionMonthlyUsage usageByMonth) {
     this.usageByMonth = usageByMonth;
     this.unparsed |= usageByMonth.unparsed;
@@ -95,22 +108,23 @@ public class LogsByRetention {
   }
 
   /**
-   * Object containing a summary of indexed logs usage by retention period for a single month.
-   *
+   * <p>Object containing a summary of indexed logs usage by retention period for a single month.</p>
    * @return usageByMonth
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USAGE_BY_MONTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsByRetentionMonthlyUsage getUsageByMonth() {
-    return usageByMonth;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USAGE_BY_MONTH)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogsByRetentionMonthlyUsage getUsageByMonth() {
+        return usageByMonth;
+      }
   public void setUsageByMonth(LogsByRetentionMonthlyUsage usageByMonth) {
     this.usageByMonth = usageByMonth;
   }
 
-  /** Return true if this LogsByRetention object is equal to o. */
+  /**
+   * Return true if this LogsByRetention object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -120,14 +134,13 @@ public class LogsByRetention {
       return false;
     }
     LogsByRetention logsByRetention = (LogsByRetention) o;
-    return Objects.equals(this.orgs, logsByRetention.orgs)
-        && Objects.equals(this.usage, logsByRetention.usage)
-        && Objects.equals(this.usageByMonth, logsByRetention.usageByMonth);
+    return Objects.equals(this.orgs, logsByRetention.orgs) && Objects.equals(this.usage, logsByRetention.usage) && Objects.equals(this.usageByMonth, logsByRetention.usageByMonth);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(orgs, usage, usageByMonth);
+    return Objects.hash(orgs,usage,usageByMonth);
   }
 
   @Override
@@ -142,7 +155,8 @@ public class LogsByRetention {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

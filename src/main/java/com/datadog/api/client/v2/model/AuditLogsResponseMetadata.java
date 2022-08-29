@@ -6,15 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The metadata associated with a request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The metadata associated with a request.</p>
+ */
 @JsonPropertyOrder({
   AuditLogsResponseMetadata.JSON_PROPERTY_ELAPSED,
   AuditLogsResponseMetadata.JSON_PROPERTY_PAGE,
@@ -22,10 +40,10 @@ import java.util.Objects;
   AuditLogsResponseMetadata.JSON_PROPERTY_STATUS,
   AuditLogsResponseMetadata.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AuditLogsResponseMetadata {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ELAPSED = "elapsed";
   private Long elapsed;
 
@@ -47,21 +65,19 @@ public class AuditLogsResponseMetadata {
   }
 
   /**
-   * Time elapsed in milliseconds.
-   *
+   * <p>Time elapsed in milliseconds.</p>
    * @return elapsed
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ELAPSED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getElapsed() {
-    return elapsed;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ELAPSED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getElapsed() {
+        return elapsed;
+      }
   public void setElapsed(Long elapsed) {
     this.elapsed = elapsed;
   }
-
   public AuditLogsResponseMetadata page(AuditLogsResponsePage page) {
     this.page = page;
     this.unparsed |= page.unparsed;
@@ -69,42 +85,38 @@ public class AuditLogsResponseMetadata {
   }
 
   /**
-   * Paging attributes.
-   *
+   * <p>Paging attributes.</p>
    * @return page
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AuditLogsResponsePage getPage() {
-    return page;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public AuditLogsResponsePage getPage() {
+        return page;
+      }
   public void setPage(AuditLogsResponsePage page) {
     this.page = page;
   }
-
   public AuditLogsResponseMetadata requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
 
   /**
-   * The identifier of the request.
-   *
+   * <p>The identifier of the request.</p>
    * @return requestId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRequestId() {
-    return requestId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getRequestId() {
+        return requestId;
+      }
   public void setRequestId(String requestId) {
     this.requestId = requestId;
   }
-
   public AuditLogsResponseMetadata status(AuditLogsResponseStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -112,24 +124,22 @@ public class AuditLogsResponseMetadata {
   }
 
   /**
-   * The status of the response.
-   *
+   * <p>The status of the response.</p>
    * @return status
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AuditLogsResponseStatus getStatus() {
-    return status;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public AuditLogsResponseStatus getStatus() {
+        return status;
+      }
   public void setStatus(AuditLogsResponseStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
-
   public AuditLogsResponseMetadata warnings(List<AuditLogsWarning> warnings) {
     this.warnings = warnings;
     for (AuditLogsWarning item : warnings) {
@@ -137,7 +147,6 @@ public class AuditLogsResponseMetadata {
     }
     return this;
   }
-
   public AuditLogsResponseMetadata addWarningsItem(AuditLogsWarning warningsItem) {
     if (this.warnings == null) {
       this.warnings = new ArrayList<>();
@@ -148,23 +157,24 @@ public class AuditLogsResponseMetadata {
   }
 
   /**
-   * A list of warnings (non-fatal errors) encountered. Partial results may return if warnings are
-   * present in the response.
-   *
+   * <p>A list of warnings (non-fatal errors) encountered. Partial results may return if
+   * warnings are present in the response.</p>
    * @return warnings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AuditLogsWarning> getWarnings() {
-    return warnings;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WARNINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<AuditLogsWarning> getWarnings() {
+        return warnings;
+      }
   public void setWarnings(List<AuditLogsWarning> warnings) {
     this.warnings = warnings;
   }
 
-  /** Return true if this AuditLogsResponseMetadata object is equal to o. */
+  /**
+   * Return true if this AuditLogsResponseMetadata object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,16 +184,13 @@ public class AuditLogsResponseMetadata {
       return false;
     }
     AuditLogsResponseMetadata auditLogsResponseMetadata = (AuditLogsResponseMetadata) o;
-    return Objects.equals(this.elapsed, auditLogsResponseMetadata.elapsed)
-        && Objects.equals(this.page, auditLogsResponseMetadata.page)
-        && Objects.equals(this.requestId, auditLogsResponseMetadata.requestId)
-        && Objects.equals(this.status, auditLogsResponseMetadata.status)
-        && Objects.equals(this.warnings, auditLogsResponseMetadata.warnings);
+    return Objects.equals(this.elapsed, auditLogsResponseMetadata.elapsed) && Objects.equals(this.page, auditLogsResponseMetadata.page) && Objects.equals(this.requestId, auditLogsResponseMetadata.requestId) && Objects.equals(this.status, auditLogsResponseMetadata.status) && Objects.equals(this.warnings, auditLogsResponseMetadata.warnings);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(elapsed, page, requestId, status, warnings);
+    return Objects.hash(elapsed,page,requestId,status,warnings);
   }
 
   @Override
@@ -200,7 +207,8 @@ public class AuditLogsResponseMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

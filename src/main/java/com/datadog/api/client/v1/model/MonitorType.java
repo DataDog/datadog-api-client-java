@@ -6,22 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import java.io.IOException;
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
+import java.util.Set;
+import java.util.HashSet;
 
 /**
- * The type of the monitor. For more information about <code>type</code>, see the <a
- * href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.
+   * <p>The type of the monitor. For more information about <code>type</code>, see the <a href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.</p>
  */
 @JsonSerialize(using = MonitorType.MonitorTypeSerializer.class)
 public class MonitorType {
@@ -43,25 +64,7 @@ public class MonitorType {
   public static final MonitorType CI_TESTS_ALERT = new MonitorType("ci-tests alert");
   public static final MonitorType ERROR_TRACKING_ALERT = new MonitorType("error-tracking alert");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "composite",
-              "event alert",
-              "log alert",
-              "metric alert",
-              "process alert",
-              "query alert",
-              "rum alert",
-              "service check",
-              "synthetics alert",
-              "trace-analytics alert",
-              "slo alert",
-              "event-v2 alert",
-              "audit alert",
-              "ci-pipelines alert",
-              "ci-tests alert",
-              "error-tracking alert"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("composite", "event alert", "log alert", "metric alert", "process alert", "query alert", "rum alert", "service check", "synthetics alert", "trace-analytics alert", "slo alert", "event-v2 alert", "audit alert", "ci-pipelines alert", "ci-tests alert", "error-tracking alert"));
 
   private String value;
 
@@ -74,19 +77,18 @@ public class MonitorType {
   }
 
   public static class MonitorTypeSerializer extends StdSerializer<MonitorType> {
-    public MonitorTypeSerializer(Class<MonitorType> t) {
-      super(t);
-    }
+      public MonitorTypeSerializer(Class<MonitorType> t) {
+          super(t);
+      }
 
-    public MonitorTypeSerializer() {
-      this(null);
-    }
+      public MonitorTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(MonitorType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(MonitorType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -98,7 +100,9 @@ public class MonitorType {
     this.value = value;
   }
 
-  /** Return true if this MonitorType object is equal to o. */
+  /**
+   * Return true if this MonitorType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,7 +116,7 @@ public class MonitorType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override

@@ -6,14 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** SLO thresholds (target and optionally warning) for a single time window. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>SLO thresholds (target and optionally warning) for a single time window.</p>
+ */
 @JsonPropertyOrder({
   SLOThreshold.JSON_PROPERTY_TARGET,
   SLOThreshold.JSON_PROPERTY_TARGET_DISPLAY,
@@ -21,10 +40,10 @@ import java.util.Objects;
   SLOThreshold.JSON_PROPERTY_WARNING,
   SLOThreshold.JSON_PROPERTY_WARNING_DISPLAY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOThreshold {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_TARGET = "target";
   private Double target;
 
@@ -44,57 +63,53 @@ public class SLOThreshold {
 
   @JsonCreator
   public SLOThreshold(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) Double target,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIMEFRAME) SLOTimeframe timeframe) {
-    this.target = target;
-    this.timeframe = timeframe;
-    this.unparsed |= !timeframe.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TARGET)Double target,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TIMEFRAME)SLOTimeframe timeframe) {
+        this.target = target;
+        this.timeframe = timeframe;
+        this.unparsed |= !timeframe.isValid();
   }
-
   public SLOThreshold target(Double target) {
     this.target = target;
     return this;
   }
 
   /**
-   * The target value for the service level indicator within the corresponding timeframe.
-   *
+   * <p>The target value for the service level indicator within the corresponding
+   * timeframe.</p>
    * @return target
-   */
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getTarget() {
-    return target;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TARGET)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getTarget() {
+        return target;
+      }
   public void setTarget(Double target) {
     this.target = target;
   }
-
   public SLOThreshold targetDisplay(String targetDisplay) {
     this.targetDisplay = targetDisplay;
     return this;
   }
 
   /**
-   * A string representation of the target that indicates its precision. It uses trailing zeros to
-   * show significant decimal places (for example <code>98.00</code>).
-   *
-   * <p>Always included in service level objective responses. Ignored in create/update requests.
-   *
+   * <p>A string representation of the target that indicates its precision.
+   * It uses trailing zeros to show significant decimal places (for example <code>98.00</code>).</p>
+   * <p>Always included in service level objective responses. Ignored in
+   * create/update requests.</p>
    * @return targetDisplay
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TARGET_DISPLAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTargetDisplay() {
-    return targetDisplay;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TARGET_DISPLAY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTargetDisplay() {
+        return targetDisplay;
+      }
   public void setTargetDisplay(String targetDisplay) {
     this.targetDisplay = targetDisplay;
   }
-
   public SLOThreshold timeframe(SLOTimeframe timeframe) {
     this.timeframe = timeframe;
     this.unparsed |= !timeframe.isValid();
@@ -102,70 +117,66 @@ public class SLOThreshold {
   }
 
   /**
-   * The SLO time window options.
-   *
+   * <p>The SLO time window options.</p>
    * @return timeframe
-   */
-  @JsonProperty(JSON_PROPERTY_TIMEFRAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SLOTimeframe getTimeframe() {
-    return timeframe;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TIMEFRAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SLOTimeframe getTimeframe() {
+        return timeframe;
+      }
   public void setTimeframe(SLOTimeframe timeframe) {
     if (!timeframe.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.timeframe = timeframe;
   }
-
   public SLOThreshold warning(Double warning) {
     this.warning = warning;
     return this;
   }
 
   /**
-   * The warning value for the service level objective.
-   *
+   * <p>The warning value for the service level objective.</p>
    * @return warning
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getWarning() {
-    return warning;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WARNING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getWarning() {
+        return warning;
+      }
   public void setWarning(Double warning) {
     this.warning = warning;
   }
-
   public SLOThreshold warningDisplay(String warningDisplay) {
     this.warningDisplay = warningDisplay;
     return this;
   }
 
   /**
-   * A string representation of the warning target (see the description of the <code>target_display
-   * </code> field for details).
-   *
-   * <p>Included in service level objective responses if a warning target exists. Ignored in
-   * create/update requests.
-   *
+   * <p>A string representation of the warning target (see the description of
+   * the <code>target_display</code> field for details).</p>
+   * <p>Included in service level objective responses if a warning target exists.
+   * Ignored in create/update requests.</p>
    * @return warningDisplay
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNING_DISPLAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getWarningDisplay() {
-    return warningDisplay;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_WARNING_DISPLAY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getWarningDisplay() {
+        return warningDisplay;
+      }
   public void setWarningDisplay(String warningDisplay) {
     this.warningDisplay = warningDisplay;
   }
 
-  /** Return true if this SLOThreshold object is equal to o. */
+  /**
+   * Return true if this SLOThreshold object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -175,16 +186,13 @@ public class SLOThreshold {
       return false;
     }
     SLOThreshold sloThreshold = (SLOThreshold) o;
-    return Objects.equals(this.target, sloThreshold.target)
-        && Objects.equals(this.targetDisplay, sloThreshold.targetDisplay)
-        && Objects.equals(this.timeframe, sloThreshold.timeframe)
-        && Objects.equals(this.warning, sloThreshold.warning)
-        && Objects.equals(this.warningDisplay, sloThreshold.warningDisplay);
+    return Objects.equals(this.target, sloThreshold.target) && Objects.equals(this.targetDisplay, sloThreshold.targetDisplay) && Objects.equals(this.timeframe, sloThreshold.timeframe) && Objects.equals(this.warning, sloThreshold.warning) && Objects.equals(this.warningDisplay, sloThreshold.warningDisplay);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(target, targetDisplay, timeframe, warning, warningDisplay);
+    return Objects.hash(target,targetDisplay,timeframe,warning,warningDisplay);
   }
 
   @Override
@@ -201,7 +209,8 @@ public class SLOThreshold {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

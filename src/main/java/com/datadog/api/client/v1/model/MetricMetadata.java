@@ -6,13 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object with all metric related metadata. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object with all metric related metadata.</p>
+ */
 @JsonPropertyOrder({
   MetricMetadata.JSON_PROPERTY_DESCRIPTION,
   MetricMetadata.JSON_PROPERTY_INTEGRATION,
@@ -22,10 +42,10 @@ import java.util.Objects;
   MetricMetadata.JSON_PROPERTY_TYPE,
   MetricMetadata.JSON_PROPERTY_UNIT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricMetadata {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -53,139 +73,130 @@ public class MetricMetadata {
   }
 
   /**
-   * Metric description.
-   *
+   * <p>Metric description.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
 
   /**
-   * Name of the integration that sent the metric if applicable.
-   *
+   * <p>Name of the integration that sent the metric if applicable.</p>
    * @return integration
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INTEGRATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIntegration() {
-    return integration;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INTEGRATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIntegration() {
+        return integration;
+      }
   public MetricMetadata perUnit(String perUnit) {
     this.perUnit = perUnit;
     return this;
   }
 
   /**
-   * Per unit of the metric such as <code>second</code> in <code>bytes per second</code>.
-   *
+   * <p>Per unit of the metric such as <code>second</code> in <code>bytes per second</code>.</p>
    * @return perUnit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PER_UNIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPerUnit() {
-    return perUnit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PER_UNIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPerUnit() {
+        return perUnit;
+      }
   public void setPerUnit(String perUnit) {
     this.perUnit = perUnit;
   }
-
   public MetricMetadata shortName(String shortName) {
     this.shortName = shortName;
     return this;
   }
 
   /**
-   * A more human-readable and abbreviated version of the metric name.
-   *
+   * <p>A more human-readable and abbreviated version of the metric name.</p>
    * @return shortName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getShortName() {
-    return shortName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SHORT_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getShortName() {
+        return shortName;
+      }
   public void setShortName(String shortName) {
     this.shortName = shortName;
   }
-
   public MetricMetadata statsdInterval(Long statsdInterval) {
     this.statsdInterval = statsdInterval;
     return this;
   }
 
   /**
-   * StatsD flush interval of the metric in seconds if applicable.
-   *
+   * <p>StatsD flush interval of the metric in seconds if applicable.</p>
    * @return statsdInterval
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATSD_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getStatsdInterval() {
-    return statsdInterval;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STATSD_INTERVAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getStatsdInterval() {
+        return statsdInterval;
+      }
   public void setStatsdInterval(Long statsdInterval) {
     this.statsdInterval = statsdInterval;
   }
-
   public MetricMetadata type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Metric type such as <code>gauge</code> or <code>rate</code>.
-   *
+   * <p>Metric type such as <code>gauge</code> or <code>rate</code>.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
-
   public MetricMetadata unit(String unit) {
     this.unit = unit;
     return this;
   }
 
   /**
-   * Primary unit of the metric such as <code>byte</code> or <code>operation</code>.
-   *
+   * <p>Primary unit of the metric such as <code>byte</code> or <code>operation</code>.</p>
    * @return unit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UNIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUnit() {
-    return unit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UNIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getUnit() {
+        return unit;
+      }
   public void setUnit(String unit) {
     this.unit = unit;
   }
 
-  /** Return true if this MetricMetadata object is equal to o. */
+  /**
+   * Return true if this MetricMetadata object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -195,18 +206,13 @@ public class MetricMetadata {
       return false;
     }
     MetricMetadata metricMetadata = (MetricMetadata) o;
-    return Objects.equals(this.description, metricMetadata.description)
-        && Objects.equals(this.integration, metricMetadata.integration)
-        && Objects.equals(this.perUnit, metricMetadata.perUnit)
-        && Objects.equals(this.shortName, metricMetadata.shortName)
-        && Objects.equals(this.statsdInterval, metricMetadata.statsdInterval)
-        && Objects.equals(this.type, metricMetadata.type)
-        && Objects.equals(this.unit, metricMetadata.unit);
+    return Objects.equals(this.description, metricMetadata.description) && Objects.equals(this.integration, metricMetadata.integration) && Objects.equals(this.perUnit, metricMetadata.perUnit) && Objects.equals(this.shortName, metricMetadata.shortName) && Objects.equals(this.statsdInterval, metricMetadata.statsdInterval) && Objects.equals(this.type, metricMetadata.type) && Objects.equals(this.unit, metricMetadata.unit);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, integration, perUnit, shortName, statsdInterval, type, unit);
+    return Objects.hash(description,integration,perUnit,shortName,statsdInterval,type,unit);
   }
 
   @Override
@@ -225,7 +231,8 @@ public class MetricMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

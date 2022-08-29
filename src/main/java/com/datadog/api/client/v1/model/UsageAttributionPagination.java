@@ -6,13 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The metadata for the current pagination. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The metadata for the current pagination.</p>
+ */
 @JsonPropertyOrder({
   UsageAttributionPagination.JSON_PROPERTY_LIMIT,
   UsageAttributionPagination.JSON_PROPERTY_OFFSET,
@@ -20,10 +40,10 @@ import java.util.Objects;
   UsageAttributionPagination.JSON_PROPERTY_SORT_NAME,
   UsageAttributionPagination.JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAttributionPagination {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Long limit;
 
@@ -45,106 +65,99 @@ public class UsageAttributionPagination {
   }
 
   /**
-   * Maximum amount of records to be returned.
-   *
+   * <p>Maximum amount of records to be returned.</p>
    * @return limit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLimit() {
-    return limit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIMIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLimit() {
+        return limit;
+      }
   public void setLimit(Long limit) {
     this.limit = limit;
   }
-
   public UsageAttributionPagination offset(Long offset) {
     this.offset = offset;
     return this;
   }
 
   /**
-   * Records to be skipped before beginning to return.
-   *
+   * <p>Records to be skipped before beginning to return.</p>
    * @return offset
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OFFSET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOffset() {
-    return offset;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_OFFSET)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getOffset() {
+        return offset;
+      }
   public void setOffset(Long offset) {
     this.offset = offset;
   }
-
   public UsageAttributionPagination sortDirection(String sortDirection) {
     this.sortDirection = sortDirection;
     return this;
   }
 
   /**
-   * Direction to sort by.
-   *
+   * <p>Direction to sort by.</p>
    * @return sortDirection
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SORT_DIRECTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSortDirection() {
-    return sortDirection;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SORT_DIRECTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSortDirection() {
+        return sortDirection;
+      }
   public void setSortDirection(String sortDirection) {
     this.sortDirection = sortDirection;
   }
-
   public UsageAttributionPagination sortName(String sortName) {
     this.sortName = sortName;
     return this;
   }
 
   /**
-   * Field to sort by.
-   *
+   * <p>Field to sort by.</p>
    * @return sortName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SORT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSortName() {
-    return sortName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SORT_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSortName() {
+        return sortName;
+      }
   public void setSortName(String sortName) {
     this.sortName = sortName;
   }
-
   public UsageAttributionPagination totalNumberOfRecords(Long totalNumberOfRecords) {
     this.totalNumberOfRecords = totalNumberOfRecords;
     return this;
   }
 
   /**
-   * Total number of records.
-   *
+   * <p>Total number of records.</p>
    * @return totalNumberOfRecords
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTotalNumberOfRecords() {
-    return totalNumberOfRecords;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getTotalNumberOfRecords() {
+        return totalNumberOfRecords;
+      }
   public void setTotalNumberOfRecords(Long totalNumberOfRecords) {
     this.totalNumberOfRecords = totalNumberOfRecords;
   }
 
-  /** Return true if this UsageAttributionPagination object is equal to o. */
+  /**
+   * Return true if this UsageAttributionPagination object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -154,17 +167,13 @@ public class UsageAttributionPagination {
       return false;
     }
     UsageAttributionPagination usageAttributionPagination = (UsageAttributionPagination) o;
-    return Objects.equals(this.limit, usageAttributionPagination.limit)
-        && Objects.equals(this.offset, usageAttributionPagination.offset)
-        && Objects.equals(this.sortDirection, usageAttributionPagination.sortDirection)
-        && Objects.equals(this.sortName, usageAttributionPagination.sortName)
-        && Objects.equals(
-            this.totalNumberOfRecords, usageAttributionPagination.totalNumberOfRecords);
+    return Objects.equals(this.limit, usageAttributionPagination.limit) && Objects.equals(this.offset, usageAttributionPagination.offset) && Objects.equals(this.sortDirection, usageAttributionPagination.sortDirection) && Objects.equals(this.sortName, usageAttributionPagination.sortName) && Objects.equals(this.totalNumberOfRecords, usageAttributionPagination.totalNumberOfRecords);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, sortDirection, sortName, totalNumberOfRecords);
+    return Objects.hash(limit,offset,sortDirection,sortName,totalNumberOfRecords);
   }
 
   @Override
@@ -175,15 +184,14 @@ public class UsageAttributionPagination {
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    sortDirection: ").append(toIndentedString(sortDirection)).append("\n");
     sb.append("    sortName: ").append(toIndentedString(sortName)).append("\n");
-    sb.append("    totalNumberOfRecords: ")
-        .append(toIndentedString(totalNumberOfRecords))
-        .append("\n");
+    sb.append("    totalNumberOfRecords: ").append(toIndentedString(totalNumberOfRecords)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

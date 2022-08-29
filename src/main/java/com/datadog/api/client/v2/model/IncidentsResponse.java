@@ -6,25 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Response with a list of incidents. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Response with a list of incidents.</p>
+ */
 @JsonPropertyOrder({
   IncidentsResponse.JSON_PROPERTY_DATA,
   IncidentsResponse.JSON_PROPERTY_INCLUDED,
   IncidentsResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentsResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<IncidentResponseData> data = new ArrayList<>();
 
@@ -38,10 +55,9 @@ public class IncidentsResponse {
 
   @JsonCreator
   public IncidentsResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<IncidentResponseData> data) {
-    this.data = data;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)List<IncidentResponseData> data) {
+        this.data = data;
   }
-
   public IncidentsResponse data(List<IncidentResponseData> data) {
     this.data = data;
     for (IncidentResponseData item : data) {
@@ -49,7 +65,6 @@ public class IncidentsResponse {
     }
     return this;
   }
-
   public IncidentsResponse addDataItem(IncidentResponseData dataItem) {
     this.data.add(dataItem);
     this.unparsed |= dataItem.unparsed;
@@ -57,45 +72,46 @@ public class IncidentsResponse {
   }
 
   /**
-   * An array of incidents.
-   *
+   * <p>An array of incidents.</p>
    * @return data
-   */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<IncidentResponseData> getData() {
-    return data;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<IncidentResponseData> getData() {
+        return data;
+      }
   public void setData(List<IncidentResponseData> data) {
     this.data = data;
   }
 
   /**
-   * Included related resources that the user requested.
-   *
+   * <p>Included related resources that the user requested.</p>
    * @return included
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<IncidentResponseIncludedItem> getIncluded() {
-    return included;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INCLUDED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<IncidentResponseIncludedItem> getIncluded() {
+        return included;
+      }
 
   /**
-   * The metadata object containing pagination metadata.
-   *
+   * <p>The metadata object containing pagination metadata.</p>
    * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentResponseMeta getMeta() {
-    return meta;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_META)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IncidentResponseMeta getMeta() {
+        return meta;
+      }
 
-  /** Return true if this IncidentsResponse object is equal to o. */
+  /**
+   * Return true if this IncidentsResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -105,14 +121,13 @@ public class IncidentsResponse {
       return false;
     }
     IncidentsResponse incidentsResponse = (IncidentsResponse) o;
-    return Objects.equals(this.data, incidentsResponse.data)
-        && Objects.equals(this.included, incidentsResponse.included)
-        && Objects.equals(this.meta, incidentsResponse.meta);
+    return Objects.equals(this.data, incidentsResponse.data) && Objects.equals(this.included, incidentsResponse.included) && Objects.equals(this.meta, incidentsResponse.meta);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, meta);
+    return Objects.hash(data,included,meta);
   }
 
   @Override
@@ -127,7 +142,8 @@ public class IncidentsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

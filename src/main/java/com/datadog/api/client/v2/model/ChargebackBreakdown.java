@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Charges breakdown. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Charges breakdown.</p>
+ */
 @JsonPropertyOrder({
   ChargebackBreakdown.JSON_PROPERTY_CHARGE_TYPE,
   ChargebackBreakdown.JSON_PROPERTY_COST,
   ChargebackBreakdown.JSON_PROPERTY_PRODUCT_NAME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ChargebackBreakdown {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHARGE_TYPE = "charge_type";
   private String chargeType;
 
@@ -37,64 +57,61 @@ public class ChargebackBreakdown {
   }
 
   /**
-   * The type of charge for a particular product.
-   *
+   * <p>The type of charge for a particular product.</p>
    * @return chargeType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHARGE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getChargeType() {
-    return chargeType;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CHARGE_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getChargeType() {
+        return chargeType;
+      }
   public void setChargeType(String chargeType) {
     this.chargeType = chargeType;
   }
-
   public ChargebackBreakdown cost(Double cost) {
     this.cost = cost;
     return this;
   }
 
   /**
-   * The cost for a particular product and charge type during a given month.
-   *
+   * <p>The cost for a particular product and charge type during a given month.</p>
    * @return cost
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getCost() {
-    return cost;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Double getCost() {
+        return cost;
+      }
   public void setCost(Double cost) {
     this.cost = cost;
   }
-
   public ChargebackBreakdown productName(String productName) {
     this.productName = productName;
     return this;
   }
 
   /**
-   * The product for which cost is being reported.
-   *
+   * <p>The product for which cost is being reported.</p>
    * @return productName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProductName() {
-    return productName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getProductName() {
+        return productName;
+      }
   public void setProductName(String productName) {
     this.productName = productName;
   }
 
-  /** Return true if this ChargebackBreakdown object is equal to o. */
+  /**
+   * Return true if this ChargebackBreakdown object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,14 +121,13 @@ public class ChargebackBreakdown {
       return false;
     }
     ChargebackBreakdown chargebackBreakdown = (ChargebackBreakdown) o;
-    return Objects.equals(this.chargeType, chargebackBreakdown.chargeType)
-        && Objects.equals(this.cost, chargebackBreakdown.cost)
-        && Objects.equals(this.productName, chargebackBreakdown.productName);
+    return Objects.equals(this.chargeType, chargebackBreakdown.chargeType) && Objects.equals(this.cost, chargebackBreakdown.cost) && Objects.equals(this.productName, chargebackBreakdown.productName);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, cost, productName);
+    return Objects.hash(chargeType,cost,productName);
   }
 
   @Override
@@ -126,7 +142,8 @@ public class ChargebackBreakdown {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

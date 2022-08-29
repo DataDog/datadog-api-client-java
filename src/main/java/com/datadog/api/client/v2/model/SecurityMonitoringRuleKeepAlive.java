@@ -6,50 +6,60 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import java.io.IOException;
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
+import java.util.Set;
+import java.util.HashSet;
 
 /**
- * Once a signal is generated, the signal will remain “open” if a case is matched at least once
- * within this keep alive window.
+   * <p>Once a signal is generated, the signal will remain “open” if a case is matched at least once within
+   * this keep alive window.</p>
  */
-@JsonSerialize(
-    using = SecurityMonitoringRuleKeepAlive.SecurityMonitoringRuleKeepAliveSerializer.class)
+@JsonSerialize(using = SecurityMonitoringRuleKeepAlive.SecurityMonitoringRuleKeepAliveSerializer.class)
 public class SecurityMonitoringRuleKeepAlive {
 
-  public static final SecurityMonitoringRuleKeepAlive ZERO_MINUTES =
-      new SecurityMonitoringRuleKeepAlive(0);
-  public static final SecurityMonitoringRuleKeepAlive ONE_MINUTE =
-      new SecurityMonitoringRuleKeepAlive(60);
-  public static final SecurityMonitoringRuleKeepAlive FIVE_MINUTES =
-      new SecurityMonitoringRuleKeepAlive(300);
-  public static final SecurityMonitoringRuleKeepAlive TEN_MINUTES =
-      new SecurityMonitoringRuleKeepAlive(600);
-  public static final SecurityMonitoringRuleKeepAlive FIFTEEN_MINUTES =
-      new SecurityMonitoringRuleKeepAlive(900);
-  public static final SecurityMonitoringRuleKeepAlive THIRTY_MINUTES =
-      new SecurityMonitoringRuleKeepAlive(1800);
-  public static final SecurityMonitoringRuleKeepAlive ONE_HOUR =
-      new SecurityMonitoringRuleKeepAlive(3600);
-  public static final SecurityMonitoringRuleKeepAlive TWO_HOURS =
-      new SecurityMonitoringRuleKeepAlive(7200);
-  public static final SecurityMonitoringRuleKeepAlive THREE_HOURS =
-      new SecurityMonitoringRuleKeepAlive(10800);
-  public static final SecurityMonitoringRuleKeepAlive SIX_HOURS =
-      new SecurityMonitoringRuleKeepAlive(21600);
+  public static final SecurityMonitoringRuleKeepAlive ZERO_MINUTES = new SecurityMonitoringRuleKeepAlive(0);
+  public static final SecurityMonitoringRuleKeepAlive ONE_MINUTE = new SecurityMonitoringRuleKeepAlive(60);
+  public static final SecurityMonitoringRuleKeepAlive FIVE_MINUTES = new SecurityMonitoringRuleKeepAlive(300);
+  public static final SecurityMonitoringRuleKeepAlive TEN_MINUTES = new SecurityMonitoringRuleKeepAlive(600);
+  public static final SecurityMonitoringRuleKeepAlive FIFTEEN_MINUTES = new SecurityMonitoringRuleKeepAlive(900);
+  public static final SecurityMonitoringRuleKeepAlive THIRTY_MINUTES = new SecurityMonitoringRuleKeepAlive(1800);
+  public static final SecurityMonitoringRuleKeepAlive ONE_HOUR = new SecurityMonitoringRuleKeepAlive(3600);
+  public static final SecurityMonitoringRuleKeepAlive TWO_HOURS = new SecurityMonitoringRuleKeepAlive(7200);
+  public static final SecurityMonitoringRuleKeepAlive THREE_HOURS = new SecurityMonitoringRuleKeepAlive(10800);
+  public static final SecurityMonitoringRuleKeepAlive SIX_HOURS = new SecurityMonitoringRuleKeepAlive(21600);
 
-  private static final Set<Integer> allowedValues =
-      new HashSet<Integer>(Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600));
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600));
 
   private Integer value;
 
@@ -61,22 +71,19 @@ public class SecurityMonitoringRuleKeepAlive {
     this.value = value;
   }
 
-  public static class SecurityMonitoringRuleKeepAliveSerializer
-      extends StdSerializer<SecurityMonitoringRuleKeepAlive> {
-    public SecurityMonitoringRuleKeepAliveSerializer(Class<SecurityMonitoringRuleKeepAlive> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringRuleKeepAliveSerializer extends StdSerializer<SecurityMonitoringRuleKeepAlive> {
+      public SecurityMonitoringRuleKeepAliveSerializer(Class<SecurityMonitoringRuleKeepAlive> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringRuleKeepAliveSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringRuleKeepAliveSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringRuleKeepAlive value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringRuleKeepAlive value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -88,7 +95,9 @@ public class SecurityMonitoringRuleKeepAlive {
     this.value = value;
   }
 
-  /** Return true if this SecurityMonitoringRuleKeepAlive object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringRuleKeepAlive object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,7 +111,7 @@ public class SecurityMonitoringRuleKeepAlive {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override

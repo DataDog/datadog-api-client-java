@@ -6,16 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The APM stats query for table and distributions widgets. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The APM stats query for table and distributions widgets.</p>
+ */
 @JsonPropertyOrder({
   ApmStatsQueryDefinition.JSON_PROPERTY_COLUMNS,
   ApmStatsQueryDefinition.JSON_PROPERTY_ENV,
@@ -25,10 +42,10 @@ import java.util.Objects;
   ApmStatsQueryDefinition.JSON_PROPERTY_ROW_TYPE,
   ApmStatsQueryDefinition.JSON_PROPERTY_SERVICE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApmStatsQueryDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<ApmStatsQueryColumnType> columns = null;
 
@@ -54,19 +71,18 @@ public class ApmStatsQueryDefinition {
 
   @JsonCreator
   public ApmStatsQueryDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENV) String env,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PRIMARY_TAG) String primaryTag,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ROW_TYPE) ApmStatsQueryRowType rowType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service) {
-    this.env = env;
-    this.name = name;
-    this.primaryTag = primaryTag;
-    this.rowType = rowType;
-    this.unparsed |= !rowType.isValid();
-    this.service = service;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ENV)String env,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PRIMARY_TAG)String primaryTag,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ROW_TYPE)ApmStatsQueryRowType rowType,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE)String service) {
+        this.env = env;
+        this.name = name;
+        this.primaryTag = primaryTag;
+        this.rowType = rowType;
+        this.unparsed |= !rowType.isValid();
+        this.service = service;
   }
-
   public ApmStatsQueryDefinition columns(List<ApmStatsQueryColumnType> columns) {
     this.columns = columns;
     for (ApmStatsQueryColumnType item : columns) {
@@ -74,7 +90,6 @@ public class ApmStatsQueryDefinition {
     }
     return this;
   }
-
   public ApmStatsQueryDefinition addColumnsItem(ApmStatsQueryColumnType columnsItem) {
     if (this.columns == null) {
       this.columns = new ArrayList<>();
@@ -85,102 +100,92 @@ public class ApmStatsQueryDefinition {
   }
 
   /**
-   * Column properties used by the front end for display.
-   *
+   * <p>Column properties used by the front end for display.</p>
    * @return columns
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COLUMNS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ApmStatsQueryColumnType> getColumns() {
-    return columns;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_COLUMNS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<ApmStatsQueryColumnType> getColumns() {
+        return columns;
+      }
   public void setColumns(List<ApmStatsQueryColumnType> columns) {
     this.columns = columns;
   }
-
   public ApmStatsQueryDefinition env(String env) {
     this.env = env;
     return this;
   }
 
   /**
-   * Environment name.
-   *
+   * <p>Environment name.</p>
    * @return env
-   */
-  @JsonProperty(JSON_PROPERTY_ENV)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getEnv() {
-    return env;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ENV)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getEnv() {
+        return env;
+      }
   public void setEnv(String env) {
     this.env = env;
   }
-
   public ApmStatsQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Operation name associated with service.
-   *
+   * <p>Operation name associated with service.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public ApmStatsQueryDefinition primaryTag(String primaryTag) {
     this.primaryTag = primaryTag;
     return this;
   }
 
   /**
-   * The organization's host group name and value.
-   *
+   * <p>The organization's host group name and value.</p>
    * @return primaryTag
-   */
-  @JsonProperty(JSON_PROPERTY_PRIMARY_TAG)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getPrimaryTag() {
-    return primaryTag;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PRIMARY_TAG)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getPrimaryTag() {
+        return primaryTag;
+      }
   public void setPrimaryTag(String primaryTag) {
     this.primaryTag = primaryTag;
   }
-
   public ApmStatsQueryDefinition resource(String resource) {
     this.resource = resource;
     return this;
   }
 
   /**
-   * Resource name.
-   *
+   * <p>Resource name.</p>
    * @return resource
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getResource() {
-    return resource;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RESOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getResource() {
+        return resource;
+      }
   public void setResource(String resource) {
     this.resource = resource;
   }
-
   public ApmStatsQueryDefinition rowType(ApmStatsQueryRowType rowType) {
     this.rowType = rowType;
     this.unparsed |= !rowType.isValid();
@@ -188,44 +193,43 @@ public class ApmStatsQueryDefinition {
   }
 
   /**
-   * The level of detail for the request.
-   *
+   * <p>The level of detail for the request.</p>
    * @return rowType
-   */
-  @JsonProperty(JSON_PROPERTY_ROW_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ApmStatsQueryRowType getRowType() {
-    return rowType;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ROW_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ApmStatsQueryRowType getRowType() {
+        return rowType;
+      }
   public void setRowType(ApmStatsQueryRowType rowType) {
     if (!rowType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.rowType = rowType;
   }
-
   public ApmStatsQueryDefinition service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * Service name.
-   *
+   * <p>Service name.</p>
    * @return service
-   */
-  @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getService() {
-    return service;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SERVICE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getService() {
+        return service;
+      }
   public void setService(String service) {
     this.service = service;
   }
 
-  /** Return true if this ApmStatsQueryDefinition object is equal to o. */
+  /**
+   * Return true if this ApmStatsQueryDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -235,18 +239,13 @@ public class ApmStatsQueryDefinition {
       return false;
     }
     ApmStatsQueryDefinition apmStatsQueryDefinition = (ApmStatsQueryDefinition) o;
-    return Objects.equals(this.columns, apmStatsQueryDefinition.columns)
-        && Objects.equals(this.env, apmStatsQueryDefinition.env)
-        && Objects.equals(this.name, apmStatsQueryDefinition.name)
-        && Objects.equals(this.primaryTag, apmStatsQueryDefinition.primaryTag)
-        && Objects.equals(this.resource, apmStatsQueryDefinition.resource)
-        && Objects.equals(this.rowType, apmStatsQueryDefinition.rowType)
-        && Objects.equals(this.service, apmStatsQueryDefinition.service);
+    return Objects.equals(this.columns, apmStatsQueryDefinition.columns) && Objects.equals(this.env, apmStatsQueryDefinition.env) && Objects.equals(this.name, apmStatsQueryDefinition.name) && Objects.equals(this.primaryTag, apmStatsQueryDefinition.primaryTag) && Objects.equals(this.resource, apmStatsQueryDefinition.resource) && Objects.equals(this.rowType, apmStatsQueryDefinition.rowType) && Objects.equals(this.service, apmStatsQueryDefinition.service);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns, env, name, primaryTag, resource, rowType, service);
+    return Objects.hash(columns,env,name,primaryTag,resource,rowType,service);
   }
 
   @Override
@@ -265,7 +264,8 @@ public class ApmStatsQueryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

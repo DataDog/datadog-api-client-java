@@ -6,22 +6,35 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Nested Pipelines are pipelines within a pipeline. Use Nested Pipelines to split the processing
- * into two steps. For example, first use a high-level filtering such as team and then a second
- * level of filtering based on the integration, service, or any other tag or attribute.
- *
- * <p>A pipeline can contain Nested Pipelines and Processors whereas a Nested Pipeline can only
- * contain Processors.
+   * <p>Nested Pipelines are pipelines within a pipeline. Use Nested Pipelines to split the processing into two steps.
+   * For example, first use a high-level filtering such as team and then a second level of filtering based on the
+   * integration, service, or any other tag or attribute.</p>
+   * <p>A pipeline can contain Nested Pipelines and Processors whereas a Nested Pipeline can only contain Processors.</p>
  */
 @JsonPropertyOrder({
   LogsPipelineProcessor.JSON_PROPERTY_FILTER,
@@ -30,10 +43,10 @@ import java.util.Objects;
   LogsPipelineProcessor.JSON_PROPERTY_PROCESSORS,
   LogsPipelineProcessor.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsPipelineProcessor {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsFilter filter;
 
@@ -53,11 +66,10 @@ public class LogsPipelineProcessor {
 
   @JsonCreator
   public LogsPipelineProcessor(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsPipelineProcessorType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)LogsPipelineProcessorType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public LogsPipelineProcessor filter(LogsFilter filter) {
     this.filter = filter;
     this.unparsed |= filter.unparsed;
@@ -65,63 +77,57 @@ public class LogsPipelineProcessor {
   }
 
   /**
-   * Filter for logs.
-   *
+   * <p>Filter for logs.</p>
    * @return filter
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsFilter getFilter() {
-    return filter;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FILTER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogsFilter getFilter() {
+        return filter;
+      }
   public void setFilter(LogsFilter filter) {
     this.filter = filter;
   }
-
   public LogsPipelineProcessor isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
   /**
-   * Whether or not the processor is enabled.
-   *
+   * <p>Whether or not the processor is enabled.</p>
    * @return isEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsEnabled() {
+        return isEnabled;
+      }
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
-
   public LogsPipelineProcessor name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the processor.
-   *
+   * <p>Name of the processor.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public LogsPipelineProcessor processors(List<LogsProcessor> processors) {
     this.processors = processors;
     for (LogsProcessor item : processors) {
@@ -129,7 +135,6 @@ public class LogsPipelineProcessor {
     }
     return this;
   }
-
   public LogsPipelineProcessor addProcessorsItem(LogsProcessor processorsItem) {
     if (this.processors == null) {
       this.processors = new ArrayList<>();
@@ -140,21 +145,19 @@ public class LogsPipelineProcessor {
   }
 
   /**
-   * Ordered list of processors in this pipeline.
-   *
+   * <p>Ordered list of processors in this pipeline.</p>
    * @return processors
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROCESSORS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LogsProcessor> getProcessors() {
-    return processors;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROCESSORS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<LogsProcessor> getProcessors() {
+        return processors;
+      }
   public void setProcessors(List<LogsProcessor> processors) {
     this.processors = processors;
   }
-
   public LogsPipelineProcessor type(LogsPipelineProcessorType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -162,24 +165,25 @@ public class LogsPipelineProcessor {
   }
 
   /**
-   * Type of logs pipeline processor.
-   *
+   * <p>Type of logs pipeline processor.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LogsPipelineProcessorType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public LogsPipelineProcessorType getType() {
+        return type;
+      }
   public void setType(LogsPipelineProcessorType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this LogsPipelineProcessor object is equal to o. */
+  /**
+   * Return true if this LogsPipelineProcessor object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -189,16 +193,13 @@ public class LogsPipelineProcessor {
       return false;
     }
     LogsPipelineProcessor logsPipelineProcessor = (LogsPipelineProcessor) o;
-    return Objects.equals(this.filter, logsPipelineProcessor.filter)
-        && Objects.equals(this.isEnabled, logsPipelineProcessor.isEnabled)
-        && Objects.equals(this.name, logsPipelineProcessor.name)
-        && Objects.equals(this.processors, logsPipelineProcessor.processors)
-        && Objects.equals(this.type, logsPipelineProcessor.type);
+    return Objects.equals(this.filter, logsPipelineProcessor.filter) && Objects.equals(this.isEnabled, logsPipelineProcessor.isEnabled) && Objects.equals(this.name, logsPipelineProcessor.name) && Objects.equals(this.processors, logsPipelineProcessor.processors) && Objects.equals(this.type, logsPipelineProcessor.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, isEnabled, name, processors, type);
+    return Objects.hash(filter,isEnabled,name,processors,type);
   }
 
   @Override
@@ -215,7 +216,8 @@ public class LogsPipelineProcessor {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
