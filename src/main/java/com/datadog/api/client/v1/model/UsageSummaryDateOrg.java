@@ -69,6 +69,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PUBLIC_ID,
+  UsageSummaryDateOrg.JSON_PROPERTY_REGION,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM,
@@ -268,6 +269,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
+
+  public static final String JSON_PROPERTY_REGION = "region";
+  private String region;
 
   public static final String JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT =
       "rum_browser_and_mobile_session_count";
@@ -1512,6 +1516,27 @@ public class UsageSummaryDateOrg {
     this.publicId = publicId;
   }
 
+  public UsageSummaryDateOrg region(String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * The region of the organization.
+   *
+   * @return region
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
   public UsageSummaryDateOrg rumBrowserAndMobileSessionCount(Long rumBrowserAndMobileSessionCount) {
     this.rumBrowserAndMobileSessionCount = rumBrowserAndMobileSessionCount;
     return this;
@@ -1843,6 +1868,7 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDateOrg.opentelemetryHostTop99p)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDateOrg.profilingHostTop99p)
         && Objects.equals(this.publicId, usageSummaryDateOrg.publicId)
+        && Objects.equals(this.region, usageSummaryDateOrg.region)
         && Objects.equals(
             this.rumBrowserAndMobileSessionCount,
             usageSummaryDateOrg.rumBrowserAndMobileSessionCount)
@@ -1922,6 +1948,7 @@ public class UsageSummaryDateOrg {
         opentelemetryHostTop99p,
         profilingHostTop99p,
         publicId,
+        region,
         rumBrowserAndMobileSessionCount,
         rumSessionCountSum,
         rumTotalSessionCountSum,
@@ -2052,6 +2079,7 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(profilingHostTop99p))
         .append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    rumBrowserAndMobileSessionCount: ")
         .append(toIndentedString(rumBrowserAndMobileSessionCount))
         .append("\n");
