@@ -17,6 +17,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   RoleUpdateData.JSON_PROPERTY_ATTRIBUTES,
   RoleUpdateData.JSON_PROPERTY_ID,
+  RoleUpdateData.JSON_PROPERTY_RELATIONSHIPS,
   RoleUpdateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -28,6 +29,9 @@ public class RoleUpdateData {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private RoleRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private RolesType type = RolesType.ROLES;
@@ -88,6 +92,28 @@ public class RoleUpdateData {
     this.id = id;
   }
 
+  public RoleUpdateData relationships(RoleRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationships of the role object.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RoleRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(RoleRelationships relationships) {
+    this.relationships = relationships;
+  }
+
   public RoleUpdateData type(RolesType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -124,12 +150,13 @@ public class RoleUpdateData {
     RoleUpdateData roleUpdateData = (RoleUpdateData) o;
     return Objects.equals(this.attributes, roleUpdateData.attributes)
         && Objects.equals(this.id, roleUpdateData.id)
+        && Objects.equals(this.relationships, roleUpdateData.relationships)
         && Objects.equals(this.type, roleUpdateData.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type);
+    return Objects.hash(attributes, id, relationships, type);
   }
 
   @Override
@@ -138,6 +165,7 @@ public class RoleUpdateData {
     sb.append("class RoleUpdateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

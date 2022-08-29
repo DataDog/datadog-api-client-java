@@ -3,11 +3,16 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RolesApi;
+import com.datadog.api.client.v2.model.PermissionsType;
+import com.datadog.api.client.v2.model.RelationshipToPermissionData;
+import com.datadog.api.client.v2.model.RelationshipToPermissions;
+import com.datadog.api.client.v2.model.RoleRelationships;
 import com.datadog.api.client.v2.model.RoleUpdateAttributes;
 import com.datadog.api.client.v2.model.RoleUpdateData;
 import com.datadog.api.client.v2.model.RoleUpdateRequest;
 import com.datadog.api.client.v2.model.RoleUpdateResponse;
 import com.datadog.api.client.v2.model.RolesType;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -18,13 +23,25 @@ public class Example {
     String ROLE_DATA_ATTRIBUTES_NAME = System.getenv("ROLE_DATA_ATTRIBUTES_NAME");
     String ROLE_DATA_ID = System.getenv("ROLE_DATA_ID");
 
+    // there is a valid "permission" in the system
+    String PERMISSION_ID = System.getenv("PERMISSION_ID");
+
     RoleUpdateRequest body =
         new RoleUpdateRequest()
             .data(
                 new RoleUpdateData()
                     .id(ROLE_DATA_ID)
                     .type(RolesType.ROLES)
-                    .attributes(new RoleUpdateAttributes().name("developers-updated")));
+                    .attributes(new RoleUpdateAttributes().name("developers-updated"))
+                    .relationships(
+                        new RoleRelationships()
+                            .permissions(
+                                new RelationshipToPermissions()
+                                    .data(
+                                        Collections.singletonList(
+                                            new RelationshipToPermissionData()
+                                                .id(PERMISSION_ID)
+                                                .type(PermissionsType.PERMISSIONS))))));
 
     try {
       RoleUpdateResponse result = apiInstance.updateRole(ROLE_DATA_ID, body);
