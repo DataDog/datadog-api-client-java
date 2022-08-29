@@ -6,41 +6,23 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Available prefix information for the Process endpoints.</p>
- */
+/** Available prefix information for the Process endpoints. */
 @JsonPropertyOrder({
   IPPrefixesProcess.JSON_PROPERTY_PREFIXES_IPV4,
   IPPrefixesProcess.JSON_PROPERTY_PREFIXES_IPV6
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IPPrefixesProcess {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PREFIXES_IPV4 = "prefixes_ipv4";
   private List<String> prefixesIpv4 = null;
 
@@ -51,6 +33,7 @@ public class IPPrefixesProcess {
     this.prefixesIpv4 = prefixesIpv4;
     return this;
   }
+
   public IPPrefixesProcess addPrefixesIpv4Item(String prefixesIpv4Item) {
     if (this.prefixesIpv4 == null) {
       this.prefixesIpv4 = new ArrayList<>();
@@ -60,23 +43,26 @@ public class IPPrefixesProcess {
   }
 
   /**
-   * <p>List of IPv4 prefixes.</p>
+   * List of IPv4 prefixes.
+   *
    * @return prefixesIpv4
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PREFIXES_IPV4)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getPrefixesIpv4() {
-        return prefixesIpv4;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PREFIXES_IPV4)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getPrefixesIpv4() {
+    return prefixesIpv4;
+  }
+
   public void setPrefixesIpv4(List<String> prefixesIpv4) {
     this.prefixesIpv4 = prefixesIpv4;
   }
+
   public IPPrefixesProcess prefixesIpv6(List<String> prefixesIpv6) {
     this.prefixesIpv6 = prefixesIpv6;
     return this;
   }
+
   public IPPrefixesProcess addPrefixesIpv6Item(String prefixesIpv6Item) {
     if (this.prefixesIpv6 == null) {
       this.prefixesIpv6 = new ArrayList<>();
@@ -86,23 +72,22 @@ public class IPPrefixesProcess {
   }
 
   /**
-   * <p>List of IPv6 prefixes.</p>
+   * List of IPv6 prefixes.
+   *
    * @return prefixesIpv6
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PREFIXES_IPV6)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getPrefixesIpv6() {
-        return prefixesIpv6;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PREFIXES_IPV6)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getPrefixesIpv6() {
+    return prefixesIpv6;
+  }
+
   public void setPrefixesIpv6(List<String> prefixesIpv6) {
     this.prefixesIpv6 = prefixesIpv6;
   }
 
-  /**
-   * Return true if this IPPrefixesProcess object is equal to o.
-   */
+  /** Return true if this IPPrefixesProcess object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,13 +97,13 @@ public class IPPrefixesProcess {
       return false;
     }
     IPPrefixesProcess ipPrefixesProcess = (IPPrefixesProcess) o;
-    return Objects.equals(this.prefixesIpv4, ipPrefixesProcess.prefixesIpv4) && Objects.equals(this.prefixesIpv6, ipPrefixesProcess.prefixesIpv6);
+    return Objects.equals(this.prefixesIpv4, ipPrefixesProcess.prefixesIpv4)
+        && Objects.equals(this.prefixesIpv6, ipPrefixesProcess.prefixesIpv6);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(prefixesIpv4,prefixesIpv6);
+    return Objects.hash(prefixesIpv4, prefixesIpv6);
   }
 
   @Override
@@ -132,8 +117,7 @@ public class IPPrefixesProcess {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

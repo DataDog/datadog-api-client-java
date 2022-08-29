@@ -6,40 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>AuthN Mapping relationship to SAML Assertion Attribute.</p>
- */
-@JsonPropertyOrder({
-  RelationshipToSAMLAssertionAttribute.JSON_PROPERTY_DATA
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** AuthN Mapping relationship to SAML Assertion Attribute. */
+@JsonPropertyOrder({RelationshipToSAMLAssertionAttribute.JSON_PROPERTY_DATA})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToSAMLAssertionAttribute {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private RelationshipToSAMLAssertionAttributeData data;
 
@@ -47,10 +26,12 @@ public class RelationshipToSAMLAssertionAttribute {
 
   @JsonCreator
   public RelationshipToSAMLAssertionAttribute(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)RelationshipToSAMLAssertionAttributeData data) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          RelationshipToSAMLAssertionAttributeData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
   }
+
   public RelationshipToSAMLAssertionAttribute data(RelationshipToSAMLAssertionAttributeData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
@@ -58,22 +39,21 @@ public class RelationshipToSAMLAssertionAttribute {
   }
 
   /**
-   * <p>Data of AuthN Mapping relationship to SAML Assertion Attribute.</p>
+   * Data of AuthN Mapping relationship to SAML Assertion Attribute.
+   *
    * @return data
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public RelationshipToSAMLAssertionAttributeData getData() {
-        return data;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RelationshipToSAMLAssertionAttributeData getData() {
+    return data;
+  }
+
   public void setData(RelationshipToSAMLAssertionAttributeData data) {
     this.data = data;
   }
 
-  /**
-   * Return true if this RelationshipToSAMLAssertionAttribute object is equal to o.
-   */
+  /** Return true if this RelationshipToSAMLAssertionAttribute object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -82,10 +62,10 @@ public class RelationshipToSAMLAssertionAttribute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToSAMLAssertionAttribute relationshipToSamlAssertionAttribute = (RelationshipToSAMLAssertionAttribute) o;
+    RelationshipToSAMLAssertionAttribute relationshipToSamlAssertionAttribute =
+        (RelationshipToSAMLAssertionAttribute) o;
     return Objects.equals(this.data, relationshipToSamlAssertionAttribute.data);
   }
-
 
   @Override
   public int hashCode() {
@@ -102,8 +82,7 @@ public class RelationshipToSAMLAssertionAttribute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,41 +6,20 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.Objects;
 
 /**
-   * <p>Object containing the options for a Synthetic test as a monitor
-   * (for example, renotification).</p>
+ * Object containing the options for a Synthetic test as a monitor (for example, renotification).
  */
-@JsonPropertyOrder({
-  SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@JsonPropertyOrder({SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestOptionsMonitorOptions {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RENOTIFY_INTERVAL = "renotify_interval";
   private Long renotifyInterval;
 
@@ -50,26 +29,23 @@ public class SyntheticsTestOptionsMonitorOptions {
   }
 
   /**
-   * <p>Time interval before renotifying if the test is still failing
-   * (in minutes).</p>
-   * minimum: 0
-   * maximum: 1440
+   * Time interval before renotifying if the test is still failing (in minutes). minimum: 0 maximum:
+   * 1440
+   *
    * @return renotifyInterval
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getRenotifyInterval() {
-        return renotifyInterval;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRenotifyInterval() {
+    return renotifyInterval;
+  }
+
   public void setRenotifyInterval(Long renotifyInterval) {
     this.renotifyInterval = renotifyInterval;
   }
 
-  /**
-   * Return true if this SyntheticsTestOptionsMonitorOptions object is equal to o.
-   */
+  /** Return true if this SyntheticsTestOptionsMonitorOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -78,10 +54,11 @@ public class SyntheticsTestOptionsMonitorOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestOptionsMonitorOptions syntheticsTestOptionsMonitorOptions = (SyntheticsTestOptionsMonitorOptions) o;
-    return Objects.equals(this.renotifyInterval, syntheticsTestOptionsMonitorOptions.renotifyInterval);
+    SyntheticsTestOptionsMonitorOptions syntheticsTestOptionsMonitorOptions =
+        (SyntheticsTestOptionsMonitorOptions) o;
+    return Objects.equals(
+        this.renotifyInterval, syntheticsTestOptionsMonitorOptions.renotifyInterval);
   }
-
 
   @Override
   public int hashCode() {
@@ -98,8 +75,7 @@ public class SyntheticsTestOptionsMonitorOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,43 +6,24 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
-   * <p>Estimate type based on the queried configuration. By default, <code>count_or_gauge</code> is returned. <code>distribution</code> is returned for distribution metrics without percentiles enabled. Lastly, <code>percentile</code> is returned if <code>filter[pct]=true</code> is queried with a distribution metric.</p>
+ * Estimate type based on the queried configuration. By default, <code>count_or_gauge</code> is
+ * returned. <code>distribution</code> is returned for distribution metrics without percentiles
+ * enabled. Lastly, <code>percentile</code> is returned if <code>filter[pct]=true</code> is queried
+ * with a distribution metric.
  */
 @JsonSerialize(using = MetricEstimateType.MetricEstimateTypeSerializer.class)
 public class MetricEstimateType {
@@ -51,7 +32,8 @@ public class MetricEstimateType {
   public static final MetricEstimateType DISTRIBUTION = new MetricEstimateType("distribution");
   public static final MetricEstimateType PERCENTILE = new MetricEstimateType("percentile");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("count_or_gauge", "distribution", "percentile"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("count_or_gauge", "distribution", "percentile"));
 
   private String value;
 
@@ -64,18 +46,19 @@ public class MetricEstimateType {
   }
 
   public static class MetricEstimateTypeSerializer extends StdSerializer<MetricEstimateType> {
-      public MetricEstimateTypeSerializer(Class<MetricEstimateType> t) {
-          super(t);
-      }
+    public MetricEstimateTypeSerializer(Class<MetricEstimateType> t) {
+      super(t);
+    }
 
-      public MetricEstimateTypeSerializer() {
-          this(null);
-      }
+    public MetricEstimateTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(MetricEstimateType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(MetricEstimateType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -87,9 +70,7 @@ public class MetricEstimateType {
     this.value = value;
   }
 
-  /**
-   * Return true if this MetricEstimateType object is equal to o.
-   */
+  /** Return true if this MetricEstimateType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,7 +84,7 @@ public class MetricEstimateType {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override

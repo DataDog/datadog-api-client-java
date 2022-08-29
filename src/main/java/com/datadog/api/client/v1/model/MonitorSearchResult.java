@@ -6,33 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Holds search results.</p>
- */
+/** Holds search results. */
 @JsonPropertyOrder({
   MonitorSearchResult.JSON_PROPERTY_CLASSIFICATION,
   MonitorSearchResult.JSON_PROPERTY_CREATOR,
@@ -48,10 +31,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   MonitorSearchResult.JSON_PROPERTY_TAGS,
   MonitorSearchResult.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorSearchResult {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CLASSIFICATION = "classification";
   private String classification;
 
@@ -91,136 +74,142 @@ public class MonitorSearchResult {
   public static final String JSON_PROPERTY_TYPE = "type";
   private MonitorType type;
 
-
   /**
-   * <p>Classification of the monitor.</p>
+   * Classification of the monitor.
+   *
    * @return classification
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CLASSIFICATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getClassification() {
-        return classification;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLASSIFICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getClassification() {
+    return classification;
+  }
 
   /**
-   * <p>Object describing the creator of the shared element.</p>
+   * Object describing the creator of the shared element.
+   *
    * @return creator
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Creator getCreator() {
-        return creator;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Creator getCreator() {
+    return creator;
+  }
 
   /**
-   * <p>ID of the monitor.</p>
+   * ID of the monitor.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getId() {
+    return id;
+  }
 
   /**
-   * <p>Latest timestamp the monitor triggered.</p>
+   * Latest timestamp the monitor triggered.
+   *
    * @return lastTriggeredTs
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getLastTriggeredTs() {
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLastTriggeredTs() {
 
-        if (lastTriggeredTs == null) {
-          lastTriggeredTs = JsonNullable.<Long>undefined();
-        }
-        return lastTriggeredTs.orElse(null);
-      }
+    if (lastTriggeredTs == null) {
+      lastTriggeredTs = JsonNullable.<Long>undefined();
+    }
+    return lastTriggeredTs.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getLastTriggeredTs_JsonNullable() {
     return lastTriggeredTs;
   }
-  @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)private void setLastTriggeredTs_JsonNullable(JsonNullable<Long> lastTriggeredTs) {
+
+  @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
+  private void setLastTriggeredTs_JsonNullable(JsonNullable<Long> lastTriggeredTs) {
     this.lastTriggeredTs = lastTriggeredTs;
   }
 
   /**
-   * <p>Metrics used by the monitor.</p>
+   * Metrics used by the monitor.
+   *
    * @return metrics
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METRICS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getMetrics() {
-        return metrics;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRICS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getMetrics() {
+    return metrics;
+  }
 
   /**
-   * <p>The monitor name.</p>
+   * The monitor name.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
 
   /**
-   * <p>The notification triggered by the monitor.</p>
+   * The notification triggered by the monitor.
+   *
    * @return notifications
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<MonitorSearchResultNotification> getNotifications() {
-        return notifications;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorSearchResultNotification> getNotifications() {
+    return notifications;
+  }
 
   /**
-   * <p>The ID of the organization.</p>
+   * The ID of the organization.
+   *
    * @return orgId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORG_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getOrgId() {
-        return orgId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOrgId() {
+    return orgId;
+  }
+
   public MonitorSearchResult query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * <p>The monitor query.</p>
+   * The monitor query.
+   *
    * @return query
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getQuery() {
-        return query;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQuery() {
+    return query;
+  }
+
   public void setQuery(String query) {
     this.query = query;
   }
+
   public MonitorSearchResult scopes(List<String> scopes) {
     this.scopes = scopes;
     return this;
   }
+
   public MonitorSearchResult addScopesItem(String scopesItem) {
     if (this.scopes == null) {
       this.scopes = new ArrayList<>();
@@ -230,46 +219,48 @@ public class MonitorSearchResult {
   }
 
   /**
-   * <p>The scope(s) to which the downtime applies, for example <code>host:app2</code>.
-   * Provide multiple scopes as a comma-separated list, for example <code>env:dev,env:prod</code>.
-   * The resulting downtime applies to sources that matches ALL provided scopes
-   * (that is <code>env:dev AND env:prod</code>), NOT any of them.</p>
+   * The scope(s) to which the downtime applies, for example <code>host:app2</code>. Provide
+   * multiple scopes as a comma-separated list, for example <code>env:dev,env:prod</code>. The
+   * resulting downtime applies to sources that matches ALL provided scopes (that is <code>
+   * env:dev AND env:prod</code>), NOT any of them.
+   *
    * @return scopes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SCOPES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getScopes() {
-        return scopes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getScopes() {
+    return scopes;
+  }
+
   public void setScopes(List<String> scopes) {
     this.scopes = scopes;
   }
 
   /**
-   * <p>The different states your monitor can be in.</p>
+   * The different states your monitor can be in.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public MonitorOverallStates getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorOverallStates getStatus() {
+    return status;
+  }
 
   /**
-   * <p>Tags associated with the monitor.</p>
+   * Tags associated with the monitor.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public MonitorSearchResult type(MonitorType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -277,26 +268,26 @@ public class MonitorSearchResult {
   }
 
   /**
-   * <p>The type of the monitor. For more information about <code>type</code>, see the <a href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.</p>
+   * The type of the monitor. For more information about <code>type</code>, see the <a
+   * href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public MonitorType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorType getType() {
+    return type;
+  }
+
   public void setType(MonitorType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this MonitorSearchResult object is equal to o.
-   */
+  /** Return true if this MonitorSearchResult object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -306,13 +297,37 @@ public class MonitorSearchResult {
       return false;
     }
     MonitorSearchResult monitorSearchResult = (MonitorSearchResult) o;
-    return Objects.equals(this.classification, monitorSearchResult.classification) && Objects.equals(this.creator, monitorSearchResult.creator) && Objects.equals(this.id, monitorSearchResult.id) && Objects.equals(this.lastTriggeredTs, monitorSearchResult.lastTriggeredTs) && Objects.equals(this.metrics, monitorSearchResult.metrics) && Objects.equals(this.name, monitorSearchResult.name) && Objects.equals(this.notifications, monitorSearchResult.notifications) && Objects.equals(this.orgId, monitorSearchResult.orgId) && Objects.equals(this.query, monitorSearchResult.query) && Objects.equals(this.scopes, monitorSearchResult.scopes) && Objects.equals(this.status, monitorSearchResult.status) && Objects.equals(this.tags, monitorSearchResult.tags) && Objects.equals(this.type, monitorSearchResult.type);
+    return Objects.equals(this.classification, monitorSearchResult.classification)
+        && Objects.equals(this.creator, monitorSearchResult.creator)
+        && Objects.equals(this.id, monitorSearchResult.id)
+        && Objects.equals(this.lastTriggeredTs, monitorSearchResult.lastTriggeredTs)
+        && Objects.equals(this.metrics, monitorSearchResult.metrics)
+        && Objects.equals(this.name, monitorSearchResult.name)
+        && Objects.equals(this.notifications, monitorSearchResult.notifications)
+        && Objects.equals(this.orgId, monitorSearchResult.orgId)
+        && Objects.equals(this.query, monitorSearchResult.query)
+        && Objects.equals(this.scopes, monitorSearchResult.scopes)
+        && Objects.equals(this.status, monitorSearchResult.status)
+        && Objects.equals(this.tags, monitorSearchResult.tags)
+        && Objects.equals(this.type, monitorSearchResult.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(classification,creator,id,lastTriggeredTs,metrics,name,notifications,orgId,query,scopes,status,tags,type);
+    return Objects.hash(
+        classification,
+        creator,
+        id,
+        lastTriggeredTs,
+        metrics,
+        name,
+        notifications,
+        orgId,
+        query,
+        scopes,
+        status,
+        tags,
+        type);
   }
 
   @Override
@@ -337,8 +352,7 @@ public class MonitorSearchResult {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,40 +6,20 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Dashboard summary response.</p>
- */
-@JsonPropertyOrder({
-  DashboardSummary.JSON_PROPERTY_DASHBOARDS
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Dashboard summary response. */
+@JsonPropertyOrder({DashboardSummary.JSON_PROPERTY_DASHBOARDS})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardSummary {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DASHBOARDS = "dashboards";
   private List<DashboardSummaryDefinition> dashboards = null;
 
@@ -50,6 +30,7 @@ public class DashboardSummary {
     }
     return this;
   }
+
   public DashboardSummary addDashboardsItem(DashboardSummaryDefinition dashboardsItem) {
     if (this.dashboards == null) {
       this.dashboards = new ArrayList<>();
@@ -60,23 +41,22 @@ public class DashboardSummary {
   }
 
   /**
-   * <p>List of dashboard definitions.</p>
+   * List of dashboard definitions.
+   *
    * @return dashboards
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DASHBOARDS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<DashboardSummaryDefinition> getDashboards() {
-        return dashboards;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DASHBOARDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<DashboardSummaryDefinition> getDashboards() {
+    return dashboards;
+  }
+
   public void setDashboards(List<DashboardSummaryDefinition> dashboards) {
     this.dashboards = dashboards;
   }
 
-  /**
-   * Return true if this DashboardSummary object is equal to o.
-   */
+  /** Return true if this DashboardSummary object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,7 +68,6 @@ public class DashboardSummary {
     DashboardSummary dashboardSummary = (DashboardSummary) o;
     return Objects.equals(this.dashboards, dashboardSummary.dashboards);
   }
-
 
   @Override
   public int hashCode() {
@@ -105,8 +84,7 @@ public class DashboardSummary {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

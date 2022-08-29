@@ -6,41 +6,20 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Hourly usage response.</p>
- */
-@JsonPropertyOrder({
-  HourlyUsageResponse.JSON_PROPERTY_DATA,
-  HourlyUsageResponse.JSON_PROPERTY_META
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Hourly usage response. */
+@JsonPropertyOrder({HourlyUsageResponse.JSON_PROPERTY_DATA, HourlyUsageResponse.JSON_PROPERTY_META})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HourlyUsageResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<HourlyUsage> data = null;
 
@@ -54,6 +33,7 @@ public class HourlyUsageResponse {
     }
     return this;
   }
+
   public HourlyUsageResponse addDataItem(HourlyUsage dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
@@ -64,19 +44,21 @@ public class HourlyUsageResponse {
   }
 
   /**
-   * <p>Response containing hourly usage.</p>
+   * Response containing hourly usage.
+   *
    * @return data
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<HourlyUsage> getData() {
-        return data;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<HourlyUsage> getData() {
+    return data;
+  }
+
   public void setData(List<HourlyUsage> data) {
     this.data = data;
   }
+
   public HourlyUsageResponse meta(HourlyUsageMetadata meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -84,23 +66,22 @@ public class HourlyUsageResponse {
   }
 
   /**
-   * <p>The object containing document metadata.</p>
+   * The object containing document metadata.
+   *
    * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public HourlyUsageMetadata getMeta() {
-        return meta;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public HourlyUsageMetadata getMeta() {
+    return meta;
+  }
+
   public void setMeta(HourlyUsageMetadata meta) {
     this.meta = meta;
   }
 
-  /**
-   * Return true if this HourlyUsageResponse object is equal to o.
-   */
+  /** Return true if this HourlyUsageResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -110,13 +91,13 @@ public class HourlyUsageResponse {
       return false;
     }
     HourlyUsageResponse hourlyUsageResponse = (HourlyUsageResponse) o;
-    return Objects.equals(this.data, hourlyUsageResponse.data) && Objects.equals(this.meta, hourlyUsageResponse.meta);
+    return Objects.equals(this.data, hourlyUsageResponse.data)
+        && Objects.equals(this.meta, hourlyUsageResponse.meta);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,meta);
+    return Objects.hash(data, meta);
   }
 
   @Override
@@ -130,8 +111,7 @@ public class HourlyUsageResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

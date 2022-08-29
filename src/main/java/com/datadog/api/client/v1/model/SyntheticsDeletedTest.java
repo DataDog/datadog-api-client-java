@@ -6,43 +6,26 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object containing a deleted Synthetic test ID with the associated
-   * deletion timestamp.</p>
- */
+/** Object containing a deleted Synthetic test ID with the associated deletion timestamp. */
 @JsonPropertyOrder({
   SyntheticsDeletedTest.JSON_PROPERTY_DELETED_AT,
   SyntheticsDeletedTest.JSON_PROPERTY_PUBLIC_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsDeletedTest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELETED_AT = "deleted_at";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime deletedAt;
 
@@ -55,42 +38,43 @@ public class SyntheticsDeletedTest {
   }
 
   /**
-   * <p>Deletion timestamp of the Synthetic test ID.</p>
+   * Deletion timestamp of the Synthetic test ID.
+   *
    * @return deletedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DELETED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getDeletedAt() {
-        return deletedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DELETED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getDeletedAt() {
+    return deletedAt;
+  }
+
   public void setDeletedAt(OffsetDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
+
   public SyntheticsDeletedTest publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * <p>The Synthetic test ID deleted.</p>
+   * The Synthetic test ID deleted.
+   *
    * @return publicId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublicId() {
-        return publicId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
 
-  /**
-   * Return true if this SyntheticsDeletedTest object is equal to o.
-   */
+  /** Return true if this SyntheticsDeletedTest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -100,13 +84,13 @@ public class SyntheticsDeletedTest {
       return false;
     }
     SyntheticsDeletedTest syntheticsDeletedTest = (SyntheticsDeletedTest) o;
-    return Objects.equals(this.deletedAt, syntheticsDeletedTest.deletedAt) && Objects.equals(this.publicId, syntheticsDeletedTest.publicId);
+    return Objects.equals(this.deletedAt, syntheticsDeletedTest.deletedAt)
+        && Objects.equals(this.publicId, syntheticsDeletedTest.publicId);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletedAt,publicId);
+    return Objects.hash(deletedAt, publicId);
   }
 
   @Override
@@ -120,8 +104,7 @@ public class SyntheticsDeletedTest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

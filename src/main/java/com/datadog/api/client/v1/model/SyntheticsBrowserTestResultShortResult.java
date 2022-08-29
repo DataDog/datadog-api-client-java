@@ -6,33 +6,13 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object with the result of the last browser test run.</p>
- */
+/** Object with the result of the last browser test run. */
 @JsonPropertyOrder({
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_DEVICE,
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_DURATION,
@@ -40,10 +20,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_STEP_COUNT_COMPLETED,
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_STEP_COUNT_TOTAL
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestResultShortResult {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEVICE = "device";
   private SyntheticsDevice device;
 
@@ -66,99 +46,106 @@ public class SyntheticsBrowserTestResultShortResult {
   }
 
   /**
-   * <p>Object describing the device used to perform the Synthetic test.</p>
+   * Object describing the device used to perform the Synthetic test.
+   *
    * @return device
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DEVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsDevice getDevice() {
-        return device;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsDevice getDevice() {
+    return device;
+  }
+
   public void setDevice(SyntheticsDevice device) {
     this.device = device;
   }
+
   public SyntheticsBrowserTestResultShortResult duration(Double duration) {
     this.duration = duration;
     return this;
   }
 
   /**
-   * <p>Length in milliseconds of the browser test run.</p>
+   * Length in milliseconds of the browser test run.
+   *
    * @return duration
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DURATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getDuration() {
-        return duration;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDuration() {
+    return duration;
+  }
+
   public void setDuration(Double duration) {
     this.duration = duration;
   }
+
   public SyntheticsBrowserTestResultShortResult errorCount(Long errorCount) {
     this.errorCount = errorCount;
     return this;
   }
 
   /**
-   * <p>Amount of errors collected for a single browser test run.</p>
+   * Amount of errors collected for a single browser test run.
+   *
    * @return errorCount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ERROR_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getErrorCount() {
-        return errorCount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getErrorCount() {
+    return errorCount;
+  }
+
   public void setErrorCount(Long errorCount) {
     this.errorCount = errorCount;
   }
+
   public SyntheticsBrowserTestResultShortResult stepCountCompleted(Long stepCountCompleted) {
     this.stepCountCompleted = stepCountCompleted;
     return this;
   }
 
   /**
-   * <p>Amount of browser test steps completed before failing.</p>
+   * Amount of browser test steps completed before failing.
+   *
    * @return stepCountCompleted
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STEP_COUNT_COMPLETED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getStepCountCompleted() {
-        return stepCountCompleted;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STEP_COUNT_COMPLETED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getStepCountCompleted() {
+    return stepCountCompleted;
+  }
+
   public void setStepCountCompleted(Long stepCountCompleted) {
     this.stepCountCompleted = stepCountCompleted;
   }
+
   public SyntheticsBrowserTestResultShortResult stepCountTotal(Long stepCountTotal) {
     this.stepCountTotal = stepCountTotal;
     return this;
   }
 
   /**
-   * <p>Total amount of browser test steps.</p>
+   * Total amount of browser test steps.
+   *
    * @return stepCountTotal
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STEP_COUNT_TOTAL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getStepCountTotal() {
-        return stepCountTotal;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STEP_COUNT_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getStepCountTotal() {
+    return stepCountTotal;
+  }
+
   public void setStepCountTotal(Long stepCountTotal) {
     this.stepCountTotal = stepCountTotal;
   }
 
-  /**
-   * Return true if this SyntheticsBrowserTestResultShortResult object is equal to o.
-   */
+  /** Return true if this SyntheticsBrowserTestResultShortResult object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -167,14 +154,20 @@ public class SyntheticsBrowserTestResultShortResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsBrowserTestResultShortResult syntheticsBrowserTestResultShortResult = (SyntheticsBrowserTestResultShortResult) o;
-    return Objects.equals(this.device, syntheticsBrowserTestResultShortResult.device) && Objects.equals(this.duration, syntheticsBrowserTestResultShortResult.duration) && Objects.equals(this.errorCount, syntheticsBrowserTestResultShortResult.errorCount) && Objects.equals(this.stepCountCompleted, syntheticsBrowserTestResultShortResult.stepCountCompleted) && Objects.equals(this.stepCountTotal, syntheticsBrowserTestResultShortResult.stepCountTotal);
+    SyntheticsBrowserTestResultShortResult syntheticsBrowserTestResultShortResult =
+        (SyntheticsBrowserTestResultShortResult) o;
+    return Objects.equals(this.device, syntheticsBrowserTestResultShortResult.device)
+        && Objects.equals(this.duration, syntheticsBrowserTestResultShortResult.duration)
+        && Objects.equals(this.errorCount, syntheticsBrowserTestResultShortResult.errorCount)
+        && Objects.equals(
+            this.stepCountCompleted, syntheticsBrowserTestResultShortResult.stepCountCompleted)
+        && Objects.equals(
+            this.stepCountTotal, syntheticsBrowserTestResultShortResult.stepCountTotal);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(device,duration,errorCount,stepCountCompleted,stepCountTotal);
+    return Objects.hash(device, duration, errorCount, stepCountCompleted, stepCountTotal);
   }
 
   @Override
@@ -191,8 +184,7 @@ public class SyntheticsBrowserTestResultShortResult {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

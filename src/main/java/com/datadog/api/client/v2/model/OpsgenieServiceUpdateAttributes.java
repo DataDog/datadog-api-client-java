@@ -6,43 +6,24 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The Opsgenie service attributes for an update request.</p>
- */
+/** The Opsgenie service attributes for an update request. */
 @JsonPropertyOrder({
   OpsgenieServiceUpdateAttributes.JSON_PROPERTY_CUSTOM_URL,
   OpsgenieServiceUpdateAttributes.JSON_PROPERTY_NAME,
   OpsgenieServiceUpdateAttributes.JSON_PROPERTY_OPSGENIE_API_KEY,
   OpsgenieServiceUpdateAttributes.JSON_PROPERTY_REGION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OpsgenieServiceUpdateAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_URL = "custom_url";
   private JsonNullable<String> customUrl = JsonNullable.<String>undefined();
 
@@ -61,64 +42,73 @@ public class OpsgenieServiceUpdateAttributes {
   }
 
   /**
-   * <p>The custom URL for a custom region.</p>
+   * The custom URL for a custom region.
+   *
    * @return customUrl
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getCustomUrl() {
-        return customUrl.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getCustomUrl() {
+    return customUrl.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CUSTOM_URL)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getCustomUrl_JsonNullable() {
     return customUrl;
   }
-  @JsonProperty(JSON_PROPERTY_CUSTOM_URL)public void setCustomUrl_JsonNullable(JsonNullable<String> customUrl) {
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_URL)
+  public void setCustomUrl_JsonNullable(JsonNullable<String> customUrl) {
     this.customUrl = customUrl;
   }
+
   public void setCustomUrl(String customUrl) {
     this.customUrl = JsonNullable.<String>of(customUrl);
   }
+
   public OpsgenieServiceUpdateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name for the Opsgenie service.</p>
+   * The name for the Opsgenie service.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public OpsgenieServiceUpdateAttributes opsgenieApiKey(String opsgenieApiKey) {
     this.opsgenieApiKey = opsgenieApiKey;
     return this;
   }
 
   /**
-   * <p>The Opsgenie API key for your Opsgenie service.</p>
+   * The Opsgenie API key for your Opsgenie service.
+   *
    * @return opsgenieApiKey
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPSGENIE_API_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOpsgenieApiKey() {
-        return opsgenieApiKey;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPSGENIE_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOpsgenieApiKey() {
+    return opsgenieApiKey;
+  }
+
   public void setOpsgenieApiKey(String opsgenieApiKey) {
     this.opsgenieApiKey = opsgenieApiKey;
   }
+
   public OpsgenieServiceUpdateAttributes region(OpsgenieServiceRegionType region) {
     this.region = region;
     this.unparsed |= !region.isValid();
@@ -126,26 +116,25 @@ public class OpsgenieServiceUpdateAttributes {
   }
 
   /**
-   * <p>The region for the Opsgenie service.</p>
+   * The region for the Opsgenie service.
+   *
    * @return region
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REGION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OpsgenieServiceRegionType getRegion() {
-        return region;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OpsgenieServiceRegionType getRegion() {
+    return region;
+  }
+
   public void setRegion(OpsgenieServiceRegionType region) {
     if (!region.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.region = region;
   }
 
-  /**
-   * Return true if this OpsgenieServiceUpdateAttributes object is equal to o.
-   */
+  /** Return true if this OpsgenieServiceUpdateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -154,14 +143,17 @@ public class OpsgenieServiceUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OpsgenieServiceUpdateAttributes opsgenieServiceUpdateAttributes = (OpsgenieServiceUpdateAttributes) o;
-    return Objects.equals(this.customUrl, opsgenieServiceUpdateAttributes.customUrl) && Objects.equals(this.name, opsgenieServiceUpdateAttributes.name) && Objects.equals(this.opsgenieApiKey, opsgenieServiceUpdateAttributes.opsgenieApiKey) && Objects.equals(this.region, opsgenieServiceUpdateAttributes.region);
+    OpsgenieServiceUpdateAttributes opsgenieServiceUpdateAttributes =
+        (OpsgenieServiceUpdateAttributes) o;
+    return Objects.equals(this.customUrl, opsgenieServiceUpdateAttributes.customUrl)
+        && Objects.equals(this.name, opsgenieServiceUpdateAttributes.name)
+        && Objects.equals(this.opsgenieApiKey, opsgenieServiceUpdateAttributes.opsgenieApiKey)
+        && Objects.equals(this.region, opsgenieServiceUpdateAttributes.region);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUrl,name,opsgenieApiKey,region);
+    return Objects.hash(customUrl, name, opsgenieApiKey, region);
   }
 
   @Override
@@ -177,8 +169,7 @@ public class OpsgenieServiceUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

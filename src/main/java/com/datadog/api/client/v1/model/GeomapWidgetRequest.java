@@ -6,33 +6,15 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>An updated geomap widget.</p>
- */
+/** An updated geomap widget. */
 @JsonPropertyOrder({
   GeomapWidgetRequest.JSON_PROPERTY_FORMULAS,
   GeomapWidgetRequest.JSON_PROPERTY_LOG_QUERY,
@@ -42,10 +24,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   GeomapWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   GeomapWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GeomapWidgetRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORMULAS = "formulas";
   private List<WidgetFormula> formulas = null;
 
@@ -74,6 +56,7 @@ public class GeomapWidgetRequest {
     }
     return this;
   }
+
   public GeomapWidgetRequest addFormulasItem(WidgetFormula formulasItem) {
     if (this.formulas == null) {
       this.formulas = new ArrayList<>();
@@ -84,19 +67,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>List of formulas that operate on queries.</p>
+   * List of formulas that operate on queries.
+   *
    * @return formulas
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FORMULAS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<WidgetFormula> getFormulas() {
-        return formulas;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORMULAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetFormula> getFormulas() {
+    return formulas;
+  }
+
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
   }
+
   public GeomapWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
     this.unparsed |= logQuery.unparsed;
@@ -104,38 +89,42 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return logQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOG_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getLogQuery() {
-        return logQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOG_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getLogQuery() {
+    return logQuery;
+  }
+
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
   }
+
   public GeomapWidgetRequest q(String q) {
     this.q = q;
     return this;
   }
 
   /**
-   * <p>The widget metrics query.</p>
+   * The widget metrics query.
+   *
    * @return q
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_Q)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getQ() {
-        return q;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_Q)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQ() {
+    return q;
+  }
+
   public void setQ(String q) {
     this.q = q;
   }
+
   public GeomapWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
     for (FormulaAndFunctionQueryDefinition item : queries) {
@@ -143,6 +132,7 @@ public class GeomapWidgetRequest {
     }
     return this;
   }
+
   public GeomapWidgetRequest addQueriesItem(FormulaAndFunctionQueryDefinition queriesItem) {
     if (this.queries == null) {
       this.queries = new ArrayList<>();
@@ -153,19 +143,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>List of queries that can be returned directly or used in formulas.</p>
+   * List of queries that can be returned directly or used in formulas.
+   *
    * @return queries
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUERIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<FormulaAndFunctionQueryDefinition> getQueries() {
-        return queries;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FormulaAndFunctionQueryDefinition> getQueries() {
+    return queries;
+  }
+
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
   }
+
   public GeomapWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
     this.unparsed |= !responseFormat.isValid();
@@ -173,22 +165,24 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>Timeseries or Scalar response.</p>
+   * Timeseries or Scalar response.
+   *
    * @return responseFormat
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FormulaAndFunctionResponseFormat getResponseFormat() {
-        return responseFormat;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionResponseFormat getResponseFormat() {
+    return responseFormat;
+  }
+
   public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     if (!responseFormat.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.responseFormat = responseFormat;
   }
+
   public GeomapWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     this.unparsed |= rumQuery.unparsed;
@@ -196,19 +190,21 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return rumQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RUM_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getRumQuery() {
-        return rumQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getRumQuery() {
+    return rumQuery;
+  }
+
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
   }
+
   public GeomapWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
     this.unparsed |= securityQuery.unparsed;
@@ -216,23 +212,22 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return securityQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getSecurityQuery() {
-        return securityQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
   }
 
-  /**
-   * Return true if this GeomapWidgetRequest object is equal to o.
-   */
+  /** Return true if this GeomapWidgetRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -242,13 +237,18 @@ public class GeomapWidgetRequest {
       return false;
     }
     GeomapWidgetRequest geomapWidgetRequest = (GeomapWidgetRequest) o;
-    return Objects.equals(this.formulas, geomapWidgetRequest.formulas) && Objects.equals(this.logQuery, geomapWidgetRequest.logQuery) && Objects.equals(this.q, geomapWidgetRequest.q) && Objects.equals(this.queries, geomapWidgetRequest.queries) && Objects.equals(this.responseFormat, geomapWidgetRequest.responseFormat) && Objects.equals(this.rumQuery, geomapWidgetRequest.rumQuery) && Objects.equals(this.securityQuery, geomapWidgetRequest.securityQuery);
+    return Objects.equals(this.formulas, geomapWidgetRequest.formulas)
+        && Objects.equals(this.logQuery, geomapWidgetRequest.logQuery)
+        && Objects.equals(this.q, geomapWidgetRequest.q)
+        && Objects.equals(this.queries, geomapWidgetRequest.queries)
+        && Objects.equals(this.responseFormat, geomapWidgetRequest.responseFormat)
+        && Objects.equals(this.rumQuery, geomapWidgetRequest.rumQuery)
+        && Objects.equals(this.securityQuery, geomapWidgetRequest.securityQuery);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(formulas,logQuery,q,queries,responseFormat,rumQuery,securityQuery);
+    return Objects.hash(formulas, logQuery, q, queries, responseFormat, rumQuery, securityQuery);
   }
 
   @Override
@@ -267,8 +267,7 @@ public class GeomapWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

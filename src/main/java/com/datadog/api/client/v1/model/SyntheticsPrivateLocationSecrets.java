@@ -6,91 +6,78 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.Objects;
 
 /**
-   * <p>Secrets for the private location. Only present in the response when creating the private location.</p>
+ * Secrets for the private location. Only present in the response when creating the private
+ * location.
  */
 @JsonPropertyOrder({
   SyntheticsPrivateLocationSecrets.JSON_PROPERTY_AUTHENTICATION,
   SyntheticsPrivateLocationSecrets.JSON_PROPERTY_CONFIG_DECRYPTION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsPrivateLocationSecrets {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHENTICATION = "authentication";
   private SyntheticsPrivateLocationSecretsAuthentication authentication;
 
   public static final String JSON_PROPERTY_CONFIG_DECRYPTION = "config_decryption";
   private SyntheticsPrivateLocationSecretsConfigDecryption configDecryption;
 
-  public SyntheticsPrivateLocationSecrets authentication(SyntheticsPrivateLocationSecretsAuthentication authentication) {
+  public SyntheticsPrivateLocationSecrets authentication(
+      SyntheticsPrivateLocationSecretsAuthentication authentication) {
     this.authentication = authentication;
     this.unparsed |= authentication.unparsed;
     return this;
   }
 
   /**
-   * <p>Authentication part of the secrets.</p>
+   * Authentication part of the secrets.
+   *
    * @return authentication
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsPrivateLocationSecretsAuthentication getAuthentication() {
-        return authentication;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsPrivateLocationSecretsAuthentication getAuthentication() {
+    return authentication;
+  }
+
   public void setAuthentication(SyntheticsPrivateLocationSecretsAuthentication authentication) {
     this.authentication = authentication;
   }
-  public SyntheticsPrivateLocationSecrets configDecryption(SyntheticsPrivateLocationSecretsConfigDecryption configDecryption) {
+
+  public SyntheticsPrivateLocationSecrets configDecryption(
+      SyntheticsPrivateLocationSecretsConfigDecryption configDecryption) {
     this.configDecryption = configDecryption;
     this.unparsed |= configDecryption.unparsed;
     return this;
   }
 
   /**
-   * <p>Private key for the private location.</p>
+   * Private key for the private location.
+   *
    * @return configDecryption
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CONFIG_DECRYPTION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsPrivateLocationSecretsConfigDecryption getConfigDecryption() {
-        return configDecryption;
-      }
-  public void setConfigDecryption(SyntheticsPrivateLocationSecretsConfigDecryption configDecryption) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONFIG_DECRYPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsPrivateLocationSecretsConfigDecryption getConfigDecryption() {
+    return configDecryption;
+  }
+
+  public void setConfigDecryption(
+      SyntheticsPrivateLocationSecretsConfigDecryption configDecryption) {
     this.configDecryption = configDecryption;
   }
 
-  /**
-   * Return true if this SyntheticsPrivateLocationSecrets object is equal to o.
-   */
+  /** Return true if this SyntheticsPrivateLocationSecrets object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,14 +86,15 @@ public class SyntheticsPrivateLocationSecrets {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsPrivateLocationSecrets syntheticsPrivateLocationSecrets = (SyntheticsPrivateLocationSecrets) o;
-    return Objects.equals(this.authentication, syntheticsPrivateLocationSecrets.authentication) && Objects.equals(this.configDecryption, syntheticsPrivateLocationSecrets.configDecryption);
+    SyntheticsPrivateLocationSecrets syntheticsPrivateLocationSecrets =
+        (SyntheticsPrivateLocationSecrets) o;
+    return Objects.equals(this.authentication, syntheticsPrivateLocationSecrets.authentication)
+        && Objects.equals(this.configDecryption, syntheticsPrivateLocationSecrets.configDecryption);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(authentication,configDecryption);
+    return Objects.hash(authentication, configDecryption);
   }
 
   @Override
@@ -120,8 +108,7 @@ public class SyntheticsPrivateLocationSecrets {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

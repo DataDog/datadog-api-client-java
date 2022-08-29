@@ -6,33 +6,14 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A formula and functions APM dependency stats query.</p>
- */
+/** A formula and functions APM dependency stats query. */
 @JsonPropertyOrder({
   FormulaAndFunctionApmDependencyStatsQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
   FormulaAndFunctionApmDependencyStatsQueryDefinition.JSON_PROPERTY_ENV,
@@ -45,10 +26,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   FormulaAndFunctionApmDependencyStatsQueryDefinition.JSON_PROPERTY_SERVICE,
   FormulaAndFunctionApmDependencyStatsQueryDefinition.JSON_PROPERTY_STAT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private FormulaAndFunctionApmDependencyStatsDataSource dataSource;
 
@@ -83,211 +64,239 @@ public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
 
   @JsonCreator
   public FormulaAndFunctionApmDependencyStatsQueryDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)FormulaAndFunctionApmDependencyStatsDataSource dataSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ENV)String env,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_OPERATION_NAME)String operationName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RESOURCE_NAME)String resourceName,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE)String service,
-            @JsonProperty(required=true, value=JSON_PROPERTY_STAT)FormulaAndFunctionApmDependencyStatName stat) {
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.env = env;
-        this.name = name;
-        this.operationName = operationName;
-        this.resourceName = resourceName;
-        this.service = service;
-        this.stat = stat;
-        this.unparsed |= !stat.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          FormulaAndFunctionApmDependencyStatsDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENV) String env,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPERATION_NAME) String operationName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_NAME) String resourceName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STAT)
+          FormulaAndFunctionApmDependencyStatName stat) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.env = env;
+    this.name = name;
+    this.operationName = operationName;
+    this.resourceName = resourceName;
+    this.service = service;
+    this.stat = stat;
+    this.unparsed |= !stat.isValid();
   }
-  public FormulaAndFunctionApmDependencyStatsQueryDefinition dataSource(FormulaAndFunctionApmDependencyStatsDataSource dataSource) {
+
+  public FormulaAndFunctionApmDependencyStatsQueryDefinition dataSource(
+      FormulaAndFunctionApmDependencyStatsDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     return this;
   }
 
   /**
-   * <p>Data source for APM dependency stats queries.</p>
+   * Data source for APM dependency stats queries.
+   *
    * @return dataSource
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public FormulaAndFunctionApmDependencyStatsDataSource getDataSource() {
-        return dataSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FormulaAndFunctionApmDependencyStatsDataSource getDataSource() {
+    return dataSource;
+  }
+
   public void setDataSource(FormulaAndFunctionApmDependencyStatsDataSource dataSource) {
     if (!dataSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
+
   public FormulaAndFunctionApmDependencyStatsQueryDefinition env(String env) {
     this.env = env;
     return this;
   }
 
   /**
-   * <p>APM environment.</p>
+   * APM environment.
+   *
    * @return env
-  **/
-      @JsonProperty(JSON_PROPERTY_ENV)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getEnv() {
-        return env;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ENV)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getEnv() {
+    return env;
+  }
+
   public void setEnv(String env) {
     this.env = env;
   }
+
   public FormulaAndFunctionApmDependencyStatsQueryDefinition isUpstream(Boolean isUpstream) {
     this.isUpstream = isUpstream;
     return this;
   }
 
   /**
-   * <p>Determines whether stats for upstream or downstream dependencies should be queried.</p>
+   * Determines whether stats for upstream or downstream dependencies should be queried.
+   *
    * @return isUpstream
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IS_UPSTREAM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getIsUpstream() {
-        return isUpstream;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_UPSTREAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsUpstream() {
+    return isUpstream;
+  }
+
   public void setIsUpstream(Boolean isUpstream) {
     this.isUpstream = isUpstream;
   }
+
   public FormulaAndFunctionApmDependencyStatsQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of query to use in formulas.</p>
+   * Name of query to use in formulas.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public FormulaAndFunctionApmDependencyStatsQueryDefinition operationName(String operationName) {
     this.operationName = operationName;
     return this;
   }
 
   /**
-   * <p>Name of operation on service.</p>
+   * Name of operation on service.
+   *
    * @return operationName
-  **/
-      @JsonProperty(JSON_PROPERTY_OPERATION_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getOperationName() {
-        return operationName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_OPERATION_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getOperationName() {
+    return operationName;
+  }
+
   public void setOperationName(String operationName) {
     this.operationName = operationName;
   }
+
   public FormulaAndFunctionApmDependencyStatsQueryDefinition primaryTagName(String primaryTagName) {
     this.primaryTagName = primaryTagName;
     return this;
   }
 
   /**
-   * <p>The name of the second primary tag used within APM; required when <code>primary_tag_value</code> is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog.</p>
+   * The name of the second primary tag used within APM; required when <code>primary_tag_value
+   * </code> is specified. See
+   * https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog.
+   *
    * @return primaryTagName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPrimaryTagName() {
-        return primaryTagName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPrimaryTagName() {
+    return primaryTagName;
+  }
+
   public void setPrimaryTagName(String primaryTagName) {
     this.primaryTagName = primaryTagName;
   }
-  public FormulaAndFunctionApmDependencyStatsQueryDefinition primaryTagValue(String primaryTagValue) {
+
+  public FormulaAndFunctionApmDependencyStatsQueryDefinition primaryTagValue(
+      String primaryTagValue) {
     this.primaryTagValue = primaryTagValue;
     return this;
   }
 
   /**
-   * <p>Filter APM data by the second primary tag. <code>primary_tag_name</code> must also be specified.</p>
+   * Filter APM data by the second primary tag. <code>primary_tag_name</code> must also be
+   * specified.
+   *
    * @return primaryTagValue
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPrimaryTagValue() {
-        return primaryTagValue;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPrimaryTagValue() {
+    return primaryTagValue;
+  }
+
   public void setPrimaryTagValue(String primaryTagValue) {
     this.primaryTagValue = primaryTagValue;
   }
+
   public FormulaAndFunctionApmDependencyStatsQueryDefinition resourceName(String resourceName) {
     this.resourceName = resourceName;
     return this;
   }
 
   /**
-   * <p>APM resource.</p>
+   * APM resource.
+   *
    * @return resourceName
-  **/
-      @JsonProperty(JSON_PROPERTY_RESOURCE_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getResourceName() {
-        return resourceName;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RESOURCE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getResourceName() {
+    return resourceName;
+  }
+
   public void setResourceName(String resourceName) {
     this.resourceName = resourceName;
   }
+
   public FormulaAndFunctionApmDependencyStatsQueryDefinition service(String service) {
     this.service = service;
     return this;
   }
 
   /**
-   * <p>APM service.</p>
+   * APM service.
+   *
    * @return service
-  **/
-      @JsonProperty(JSON_PROPERTY_SERVICE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getService() {
-        return service;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getService() {
+    return service;
+  }
+
   public void setService(String service) {
     this.service = service;
   }
-  public FormulaAndFunctionApmDependencyStatsQueryDefinition stat(FormulaAndFunctionApmDependencyStatName stat) {
+
+  public FormulaAndFunctionApmDependencyStatsQueryDefinition stat(
+      FormulaAndFunctionApmDependencyStatName stat) {
     this.stat = stat;
     this.unparsed |= !stat.isValid();
     return this;
   }
 
   /**
-   * <p>APM statistic.</p>
+   * APM statistic.
+   *
    * @return stat
-  **/
-      @JsonProperty(JSON_PROPERTY_STAT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public FormulaAndFunctionApmDependencyStatName getStat() {
-        return stat;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_STAT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FormulaAndFunctionApmDependencyStatName getStat() {
+    return stat;
+  }
+
   public void setStat(FormulaAndFunctionApmDependencyStatName stat) {
     if (!stat.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.stat = stat;
   }
@@ -303,14 +312,41 @@ public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormulaAndFunctionApmDependencyStatsQueryDefinition formulaAndFunctionApmDependencyStatsQueryDefinition = (FormulaAndFunctionApmDependencyStatsQueryDefinition) o;
-    return Objects.equals(this.dataSource, formulaAndFunctionApmDependencyStatsQueryDefinition.dataSource) && Objects.equals(this.env, formulaAndFunctionApmDependencyStatsQueryDefinition.env) && Objects.equals(this.isUpstream, formulaAndFunctionApmDependencyStatsQueryDefinition.isUpstream) && Objects.equals(this.name, formulaAndFunctionApmDependencyStatsQueryDefinition.name) && Objects.equals(this.operationName, formulaAndFunctionApmDependencyStatsQueryDefinition.operationName) && Objects.equals(this.primaryTagName, formulaAndFunctionApmDependencyStatsQueryDefinition.primaryTagName) && Objects.equals(this.primaryTagValue, formulaAndFunctionApmDependencyStatsQueryDefinition.primaryTagValue) && Objects.equals(this.resourceName, formulaAndFunctionApmDependencyStatsQueryDefinition.resourceName) && Objects.equals(this.service, formulaAndFunctionApmDependencyStatsQueryDefinition.service) && Objects.equals(this.stat, formulaAndFunctionApmDependencyStatsQueryDefinition.stat);
+    FormulaAndFunctionApmDependencyStatsQueryDefinition
+        formulaAndFunctionApmDependencyStatsQueryDefinition =
+            (FormulaAndFunctionApmDependencyStatsQueryDefinition) o;
+    return Objects.equals(
+            this.dataSource, formulaAndFunctionApmDependencyStatsQueryDefinition.dataSource)
+        && Objects.equals(this.env, formulaAndFunctionApmDependencyStatsQueryDefinition.env)
+        && Objects.equals(
+            this.isUpstream, formulaAndFunctionApmDependencyStatsQueryDefinition.isUpstream)
+        && Objects.equals(this.name, formulaAndFunctionApmDependencyStatsQueryDefinition.name)
+        && Objects.equals(
+            this.operationName, formulaAndFunctionApmDependencyStatsQueryDefinition.operationName)
+        && Objects.equals(
+            this.primaryTagName, formulaAndFunctionApmDependencyStatsQueryDefinition.primaryTagName)
+        && Objects.equals(
+            this.primaryTagValue,
+            formulaAndFunctionApmDependencyStatsQueryDefinition.primaryTagValue)
+        && Objects.equals(
+            this.resourceName, formulaAndFunctionApmDependencyStatsQueryDefinition.resourceName)
+        && Objects.equals(this.service, formulaAndFunctionApmDependencyStatsQueryDefinition.service)
+        && Objects.equals(this.stat, formulaAndFunctionApmDependencyStatsQueryDefinition.stat);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataSource,env,isUpstream,name,operationName,primaryTagName,primaryTagValue,resourceName,service,stat);
+    return Objects.hash(
+        dataSource,
+        env,
+        isUpstream,
+        name,
+        operationName,
+        primaryTagName,
+        primaryTagValue,
+        resourceName,
+        service,
+        stat);
   }
 
   @Override
@@ -332,8 +368,7 @@ public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

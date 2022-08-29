@@ -6,43 +6,23 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Parsing options for variables to extract.</p>
- */
+/** Parsing options for variables to extract. */
 @JsonPropertyOrder({
   SyntheticsParsingOptions.JSON_PROPERTY_FIELD,
   SyntheticsParsingOptions.JSON_PROPERTY_NAME,
   SyntheticsParsingOptions.JSON_PROPERTY_PARSER,
   SyntheticsParsingOptions.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsParsingOptions {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
@@ -61,38 +41,42 @@ public class SyntheticsParsingOptions {
   }
 
   /**
-   * <p>When type is <code>http_header</code>, name of the header to use to extract the value.</p>
+   * When type is <code>http_header</code>, name of the header to use to extract the value.
+   *
    * @return field
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FIELD)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getField() {
-        return field;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getField() {
+    return field;
+  }
+
   public void setField(String field) {
     this.field = field;
   }
+
   public SyntheticsParsingOptions name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the variable to extract.</p>
+   * Name of the variable to extract.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public SyntheticsParsingOptions parser(SyntheticsVariableParser parser) {
     this.parser = parser;
     this.unparsed |= parser.unparsed;
@@ -100,19 +84,21 @@ public class SyntheticsParsingOptions {
   }
 
   /**
-   * <p>Details of the parser to use for the global variable.</p>
+   * Details of the parser to use for the global variable.
+   *
    * @return parser
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PARSER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsVariableParser getParser() {
-        return parser;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PARSER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsVariableParser getParser() {
+    return parser;
+  }
+
   public void setParser(SyntheticsVariableParser parser) {
     this.parser = parser;
   }
+
   public SyntheticsParsingOptions type(SyntheticsGlobalVariableParseTestOptionsType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -120,26 +106,25 @@ public class SyntheticsParsingOptions {
   }
 
   /**
-   * <p>Property of the Synthetics Test Response to use for a Synthetics global variable.</p>
+   * Property of the Synthetics Test Response to use for a Synthetics global variable.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsGlobalVariableParseTestOptionsType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsGlobalVariableParseTestOptionsType getType() {
+    return type;
+  }
+
   public void setType(SyntheticsGlobalVariableParseTestOptionsType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this SyntheticsParsingOptions object is equal to o.
-   */
+  /** Return true if this SyntheticsParsingOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,13 +134,15 @@ public class SyntheticsParsingOptions {
       return false;
     }
     SyntheticsParsingOptions syntheticsParsingOptions = (SyntheticsParsingOptions) o;
-    return Objects.equals(this.field, syntheticsParsingOptions.field) && Objects.equals(this.name, syntheticsParsingOptions.name) && Objects.equals(this.parser, syntheticsParsingOptions.parser) && Objects.equals(this.type, syntheticsParsingOptions.type);
+    return Objects.equals(this.field, syntheticsParsingOptions.field)
+        && Objects.equals(this.name, syntheticsParsingOptions.name)
+        && Objects.equals(this.parser, syntheticsParsingOptions.parser)
+        && Objects.equals(this.type, syntheticsParsingOptions.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(field,name,parser,type);
+    return Objects.hash(field, name, parser, type);
   }
 
   @Override
@@ -171,8 +158,7 @@ public class SyntheticsParsingOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

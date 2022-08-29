@@ -6,33 +6,19 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
-   * <p>A metric to submit to Datadog.
-   * See <a href="https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties">Datadog metrics</a>.</p>
+ * A metric to submit to Datadog. See <a
+ * href="https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties">Datadog
+ * metrics</a>.
  */
 @JsonPropertyOrder({
   MetricSeries.JSON_PROPERTY_INTERVAL,
@@ -45,10 +31,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   MetricSeries.JSON_PROPERTY_TYPE,
   MetricSeries.JSON_PROPERTY_UNIT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricSeries {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INTERVAL = "interval";
   private Long interval;
 
@@ -80,30 +66,33 @@ public class MetricSeries {
 
   @JsonCreator
   public MetricSeries(
-            @JsonProperty(required=true, value=JSON_PROPERTY_METRIC)String metric,
-            @JsonProperty(required=true, value=JSON_PROPERTY_POINTS)List<MetricPoint> points) {
-        this.metric = metric;
-        this.points = points;
+      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC) String metric,
+      @JsonProperty(required = true, value = JSON_PROPERTY_POINTS) List<MetricPoint> points) {
+    this.metric = metric;
+    this.points = points;
   }
+
   public MetricSeries interval(Long interval) {
     this.interval = interval;
     return this;
   }
 
   /**
-   * <p>If the type of the metric is rate or count, define the corresponding interval.</p>
+   * If the type of the metric is rate or count, define the corresponding interval.
+   *
    * @return interval
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INTERVAL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getInterval() {
-        return interval;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInterval() {
+    return interval;
+  }
+
   public void setInterval(Long interval) {
     this.interval = interval;
   }
+
   public MetricSeries metadata(MetricMetadata metadata) {
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
@@ -111,37 +100,41 @@ public class MetricSeries {
   }
 
   /**
-   * <p>Metadata for the metric.</p>
+   * Metadata for the metric.
+   *
    * @return metadata
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METADATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public MetricMetadata getMetadata() {
-        return metadata;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MetricMetadata getMetadata() {
+    return metadata;
+  }
+
   public void setMetadata(MetricMetadata metadata) {
     this.metadata = metadata;
   }
+
   public MetricSeries metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * <p>The name of the timeseries.</p>
+   * The name of the timeseries.
+   *
    * @return metric
-  **/
-      @JsonProperty(JSON_PROPERTY_METRIC)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getMetric() {
-        return metric;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_METRIC)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMetric() {
+    return metric;
+  }
+
   public void setMetric(String metric) {
     this.metric = metric;
   }
+
   public MetricSeries points(List<MetricPoint> points) {
     this.points = points;
     for (MetricPoint item : points) {
@@ -149,6 +142,7 @@ public class MetricSeries {
     }
     return this;
   }
+
   public MetricSeries addPointsItem(MetricPoint pointsItem) {
     this.points.add(pointsItem);
     this.unparsed |= pointsItem.unparsed;
@@ -156,18 +150,22 @@ public class MetricSeries {
   }
 
   /**
-   * <p>Points relating to a metric. All points must be objects with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.</p>
+   * Points relating to a metric. All points must be objects with timestamp and a scalar value
+   * (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than
+   * ten minutes in the future or more than one hour in the past.
+   *
    * @return points
-  **/
-      @JsonProperty(JSON_PROPERTY_POINTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<MetricPoint> getPoints() {
-        return points;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_POINTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<MetricPoint> getPoints() {
+    return points;
+  }
+
   public void setPoints(List<MetricPoint> points) {
     this.points = points;
   }
+
   public MetricSeries resources(List<MetricResource> resources) {
     this.resources = resources;
     for (MetricResource item : resources) {
@@ -175,6 +173,7 @@ public class MetricSeries {
     }
     return this;
   }
+
   public MetricSeries addResourcesItem(MetricResource resourcesItem) {
     if (this.resources == null) {
       this.resources = new ArrayList<>();
@@ -185,42 +184,47 @@ public class MetricSeries {
   }
 
   /**
-   * <p>A list of resources to associate with this metric.</p>
+   * A list of resources to associate with this metric.
+   *
    * @return resources
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESOURCES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<MetricResource> getResources() {
-        return resources;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MetricResource> getResources() {
+    return resources;
+  }
+
   public void setResources(List<MetricResource> resources) {
     this.resources = resources;
   }
+
   public MetricSeries sourceTypeName(String sourceTypeName) {
     this.sourceTypeName = sourceTypeName;
     return this;
   }
 
   /**
-   * <p>The source type name.</p>
+   * The source type name.
+   *
    * @return sourceTypeName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SOURCE_TYPE_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getSourceTypeName() {
-        return sourceTypeName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE_TYPE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSourceTypeName() {
+    return sourceTypeName;
+  }
+
   public void setSourceTypeName(String sourceTypeName) {
     this.sourceTypeName = sourceTypeName;
   }
+
   public MetricSeries tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public MetricSeries addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -230,19 +234,21 @@ public class MetricSeries {
   }
 
   /**
-   * <p>A list of tags associated with the metric.</p>
+   * A list of tags associated with the metric.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public MetricSeries type(MetricIntakeType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -250,45 +256,47 @@ public class MetricSeries {
   }
 
   /**
-   * <p>The type of metric. The available types are <code>0</code> (unspecified), <code>1</code> (count), <code>2</code> (rate), and <code>3</code> (gauge).</p>
+   * The type of metric. The available types are <code>0</code> (unspecified), <code>1</code>
+   * (count), <code>2</code> (rate), and <code>3</code> (gauge).
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public MetricIntakeType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MetricIntakeType getType() {
+    return type;
+  }
+
   public void setType(MetricIntakeType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public MetricSeries unit(String unit) {
     this.unit = unit;
     return this;
   }
 
   /**
-   * <p>The unit of point value.</p>
+   * The unit of point value.
+   *
    * @return unit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_UNIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getUnit() {
-        return unit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UNIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUnit() {
+    return unit;
+  }
+
   public void setUnit(String unit) {
     this.unit = unit;
   }
 
-  /**
-   * Return true if this MetricSeries object is equal to o.
-   */
+  /** Return true if this MetricSeries object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -298,13 +306,21 @@ public class MetricSeries {
       return false;
     }
     MetricSeries metricSeries = (MetricSeries) o;
-    return Objects.equals(this.interval, metricSeries.interval) && Objects.equals(this.metadata, metricSeries.metadata) && Objects.equals(this.metric, metricSeries.metric) && Objects.equals(this.points, metricSeries.points) && Objects.equals(this.resources, metricSeries.resources) && Objects.equals(this.sourceTypeName, metricSeries.sourceTypeName) && Objects.equals(this.tags, metricSeries.tags) && Objects.equals(this.type, metricSeries.type) && Objects.equals(this.unit, metricSeries.unit);
+    return Objects.equals(this.interval, metricSeries.interval)
+        && Objects.equals(this.metadata, metricSeries.metadata)
+        && Objects.equals(this.metric, metricSeries.metric)
+        && Objects.equals(this.points, metricSeries.points)
+        && Objects.equals(this.resources, metricSeries.resources)
+        && Objects.equals(this.sourceTypeName, metricSeries.sourceTypeName)
+        && Objects.equals(this.tags, metricSeries.tags)
+        && Objects.equals(this.type, metricSeries.type)
+        && Objects.equals(this.unit, metricSeries.unit);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(interval,metadata,metric,points,resources,sourceTypeName,tags,type,unit);
+    return Objects.hash(
+        interval, metadata, metric, points, resources, sourceTypeName, tags, type, unit);
   }
 
   @Override
@@ -325,8 +341,7 @@ public class MetricSeries {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

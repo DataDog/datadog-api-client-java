@@ -6,41 +6,23 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A bucket values</p>
- */
+/** A bucket values */
 @JsonPropertyOrder({
   LogsAggregateBucket.JSON_PROPERTY_BY,
   LogsAggregateBucket.JSON_PROPERTY_COMPUTES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsAggregateBucket {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BY = "by";
   private Map<String, String> by = null;
 
@@ -51,6 +33,7 @@ public class LogsAggregateBucket {
     this.by = by;
     return this;
   }
+
   public LogsAggregateBucket putByItem(String key, String byItem) {
     if (this.by == null) {
       this.by = new HashMap<>();
@@ -60,23 +43,26 @@ public class LogsAggregateBucket {
   }
 
   /**
-   * <p>The key, value pairs for each group by</p>
+   * The key, value pairs for each group by
+   *
    * @return by
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, String> getBy() {
-        return by;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getBy() {
+    return by;
+  }
+
   public void setBy(Map<String, String> by) {
     this.by = by;
   }
+
   public LogsAggregateBucket computes(Map<String, LogsAggregateBucketValue> computes) {
     this.computes = computes;
     return this;
   }
+
   public LogsAggregateBucket putComputesItem(String key, LogsAggregateBucketValue computesItem) {
     if (this.computes == null) {
       this.computes = new HashMap<>();
@@ -86,23 +72,22 @@ public class LogsAggregateBucket {
   }
 
   /**
-   * <p>A map of the metric name -&gt; value for regular compute or list of values for a timeseries</p>
+   * A map of the metric name -&gt; value for regular compute or list of values for a timeseries
+   *
    * @return computes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Map<String, LogsAggregateBucketValue> getComputes() {
-        return computes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, LogsAggregateBucketValue> getComputes() {
+    return computes;
+  }
+
   public void setComputes(Map<String, LogsAggregateBucketValue> computes) {
     this.computes = computes;
   }
 
-  /**
-   * Return true if this LogsAggregateBucket object is equal to o.
-   */
+  /** Return true if this LogsAggregateBucket object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,13 +97,13 @@ public class LogsAggregateBucket {
       return false;
     }
     LogsAggregateBucket logsAggregateBucket = (LogsAggregateBucket) o;
-    return Objects.equals(this.by, logsAggregateBucket.by) && Objects.equals(this.computes, logsAggregateBucket.computes);
+    return Objects.equals(this.by, logsAggregateBucket.by)
+        && Objects.equals(this.computes, logsAggregateBucket.computes);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(by,computes);
+    return Objects.hash(by, computes);
   }
 
   @Override
@@ -132,8 +117,7 @@ public class LogsAggregateBucket {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

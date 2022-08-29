@@ -6,33 +6,15 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.List;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A single monitor group search result.</p>
- */
+/** A single monitor group search result. */
 @JsonPropertyOrder({
   MonitorGroupSearchResult.JSON_PROPERTY_GROUP,
   MonitorGroupSearchResult.JSON_PROPERTY_GROUP_TAGS,
@@ -42,10 +24,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   MonitorGroupSearchResult.JSON_PROPERTY_MONITOR_NAME,
   MonitorGroupSearchResult.JSON_PROPERTY_STATUS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorGroupSearchResult {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GROUP = "group";
   private String group;
 
@@ -67,105 +49,105 @@ public class MonitorGroupSearchResult {
   public static final String JSON_PROPERTY_STATUS = "status";
   private MonitorOverallStates status;
 
-
   /**
-   * <p>The name of the group.</p>
+   * The name of the group.
+   *
    * @return group
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getGroup() {
-        return group;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getGroup() {
+    return group;
+  }
 
   /**
-   * <p>The list of tags of the monitor group.</p>
+   * The list of tags of the monitor group.
+   *
    * @return groupTags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getGroupTags() {
-        return groupTags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getGroupTags() {
+    return groupTags;
+  }
 
   /**
-   * <p>Latest timestamp the monitor group was in NO_DATA state.</p>
+   * Latest timestamp the monitor group was in NO_DATA state.
+   *
    * @return lastNodataTs
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getLastNodataTs() {
-        return lastNodataTs;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLastNodataTs() {
+    return lastNodataTs;
+  }
 
   /**
-   * <p>Latest timestamp the monitor group triggered.</p>
+   * Latest timestamp the monitor group triggered.
+   *
    * @return lastTriggeredTs
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getLastTriggeredTs() {
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLastTriggeredTs() {
 
-        if (lastTriggeredTs == null) {
-          lastTriggeredTs = JsonNullable.<Long>undefined();
-        }
-        return lastTriggeredTs.orElse(null);
-      }
+    if (lastTriggeredTs == null) {
+      lastTriggeredTs = JsonNullable.<Long>undefined();
+    }
+    return lastTriggeredTs.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getLastTriggeredTs_JsonNullable() {
     return lastTriggeredTs;
   }
-  @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)private void setLastTriggeredTs_JsonNullable(JsonNullable<Long> lastTriggeredTs) {
+
+  @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
+  private void setLastTriggeredTs_JsonNullable(JsonNullable<Long> lastTriggeredTs) {
     this.lastTriggeredTs = lastTriggeredTs;
   }
 
   /**
-   * <p>The ID of the monitor.</p>
+   * The ID of the monitor.
+   *
    * @return monitorId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MONITOR_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getMonitorId() {
-        return monitorId;
-      }
-
-  /**
-   * <p>The name of the monitor.</p>
-   * @return monitorName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getMonitorName() {
-        return monitorName;
-      }
-
-  /**
-   * <p>The different states your monitor can be in.</p>
-   * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public MonitorOverallStates getStatus() {
-        return status;
-      }
-
-  /**
-   * Return true if this MonitorGroupSearchResult object is equal to o.
    */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONITOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMonitorId() {
+    return monitorId;
+  }
+
+  /**
+   * The name of the monitor.
+   *
+   * @return monitorName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMonitorName() {
+    return monitorName;
+  }
+
+  /**
+   * The different states your monitor can be in.
+   *
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorOverallStates getStatus() {
+    return status;
+  }
+
+  /** Return true if this MonitorGroupSearchResult object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -175,13 +157,19 @@ public class MonitorGroupSearchResult {
       return false;
     }
     MonitorGroupSearchResult monitorGroupSearchResult = (MonitorGroupSearchResult) o;
-    return Objects.equals(this.group, monitorGroupSearchResult.group) && Objects.equals(this.groupTags, monitorGroupSearchResult.groupTags) && Objects.equals(this.lastNodataTs, monitorGroupSearchResult.lastNodataTs) && Objects.equals(this.lastTriggeredTs, monitorGroupSearchResult.lastTriggeredTs) && Objects.equals(this.monitorId, monitorGroupSearchResult.monitorId) && Objects.equals(this.monitorName, monitorGroupSearchResult.monitorName) && Objects.equals(this.status, monitorGroupSearchResult.status);
+    return Objects.equals(this.group, monitorGroupSearchResult.group)
+        && Objects.equals(this.groupTags, monitorGroupSearchResult.groupTags)
+        && Objects.equals(this.lastNodataTs, monitorGroupSearchResult.lastNodataTs)
+        && Objects.equals(this.lastTriggeredTs, monitorGroupSearchResult.lastTriggeredTs)
+        && Objects.equals(this.monitorId, monitorGroupSearchResult.monitorId)
+        && Objects.equals(this.monitorName, monitorGroupSearchResult.monitorName)
+        && Objects.equals(this.status, monitorGroupSearchResult.status);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(group,groupTags,lastNodataTs,lastTriggeredTs,monitorId,monitorName,status);
+    return Objects.hash(
+        group, groupTags, lastNodataTs, lastTriggeredTs, monitorId, monitorName, status);
   }
 
   @Override
@@ -200,8 +188,7 @@ public class MonitorGroupSearchResult {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

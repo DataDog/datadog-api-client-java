@@ -6,32 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
-   * <p>The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.</p>
+ * The table visualization is available on timeboards and screenboards. It displays columns of
+ * metrics grouped by tag key.
  */
 @JsonPropertyOrder({
   TableWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
@@ -43,10 +29,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   TableWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   TableWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TableWidgetDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -75,12 +61,14 @@ public class TableWidgetDefinition {
 
   @JsonCreator
   public TableWidgetDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS)List<TableWidgetRequest> requests,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)TableWidgetDefinitionType type) {
-        this.requests = requests;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<TableWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TableWidgetDefinitionType type) {
+    this.requests = requests;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public TableWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
     for (WidgetCustomLink item : customLinks) {
@@ -88,6 +76,7 @@ public class TableWidgetDefinition {
     }
     return this;
   }
+
   public TableWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
     if (this.customLinks == null) {
       this.customLinks = new ArrayList<>();
@@ -98,19 +87,21 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * <p>List of custom links.</p>
+   * List of custom links.
+   *
    * @return customLinks
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<WidgetCustomLink> getCustomLinks() {
-        return customLinks;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
   }
+
   public TableWidgetDefinition hasSearchBar(TableWidgetHasSearchBar hasSearchBar) {
     this.hasSearchBar = hasSearchBar;
     this.unparsed |= !hasSearchBar.isValid();
@@ -118,22 +109,24 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * <p>Controls the display of the search bar.</p>
+   * Controls the display of the search bar.
+   *
    * @return hasSearchBar
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HAS_SEARCH_BAR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public TableWidgetHasSearchBar getHasSearchBar() {
-        return hasSearchBar;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HAS_SEARCH_BAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TableWidgetHasSearchBar getHasSearchBar() {
+    return hasSearchBar;
+  }
+
   public void setHasSearchBar(TableWidgetHasSearchBar hasSearchBar) {
     if (!hasSearchBar.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.hasSearchBar = hasSearchBar;
   }
+
   public TableWidgetDefinition requests(List<TableWidgetRequest> requests) {
     this.requests = requests;
     for (TableWidgetRequest item : requests) {
@@ -141,6 +134,7 @@ public class TableWidgetDefinition {
     }
     return this;
   }
+
   public TableWidgetDefinition addRequestsItem(TableWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
@@ -148,18 +142,20 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * <p>Widget definition.</p>
+   * Widget definition.
+   *
    * @return requests
-  **/
-      @JsonProperty(JSON_PROPERTY_REQUESTS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<TableWidgetRequest> getRequests() {
-        return requests;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_REQUESTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<TableWidgetRequest> getRequests() {
+    return requests;
+  }
+
   public void setRequests(List<TableWidgetRequest> requests) {
     this.requests = requests;
   }
+
   public TableWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -167,38 +163,42 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * <p>Time setting for the widget.</p>
+   * Time setting for the widget.
+   *
    * @return time
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTime getTime() {
-        return time;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
   public TableWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>Title of your widget.</p>
+   * Title of your widget.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
+
   public TableWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -206,41 +206,45 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * <p>How to align the text on the widget.</p>
+   * How to align the text on the widget.
+   *
    * @return titleAlign
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public WidgetTextAlign getTitleAlign() {
-        return titleAlign;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
   public TableWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * <p>Size of the title.</p>
+   * Size of the title.
+   *
    * @return titleSize
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitleSize() {
-        return titleSize;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitleSize() {
+    return titleSize;
+  }
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
   public TableWidgetDefinition type(TableWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -248,25 +252,24 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * <p>Type of the table widget.</p>
+   * Type of the table widget.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public TableWidgetDefinitionType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TableWidgetDefinitionType getType() {
+    return type;
+  }
+
   public void setType(TableWidgetDefinitionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this TableWidgetDefinition object is equal to o.
-   */
+  /** Return true if this TableWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -276,13 +279,20 @@ public class TableWidgetDefinition {
       return false;
     }
     TableWidgetDefinition tableWidgetDefinition = (TableWidgetDefinition) o;
-    return Objects.equals(this.customLinks, tableWidgetDefinition.customLinks) && Objects.equals(this.hasSearchBar, tableWidgetDefinition.hasSearchBar) && Objects.equals(this.requests, tableWidgetDefinition.requests) && Objects.equals(this.time, tableWidgetDefinition.time) && Objects.equals(this.title, tableWidgetDefinition.title) && Objects.equals(this.titleAlign, tableWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, tableWidgetDefinition.titleSize) && Objects.equals(this.type, tableWidgetDefinition.type);
+    return Objects.equals(this.customLinks, tableWidgetDefinition.customLinks)
+        && Objects.equals(this.hasSearchBar, tableWidgetDefinition.hasSearchBar)
+        && Objects.equals(this.requests, tableWidgetDefinition.requests)
+        && Objects.equals(this.time, tableWidgetDefinition.time)
+        && Objects.equals(this.title, tableWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, tableWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, tableWidgetDefinition.titleSize)
+        && Objects.equals(this.type, tableWidgetDefinition.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(customLinks,hasSearchBar,requests,time,title,titleAlign,titleSize,type);
+    return Objects.hash(
+        customLinks, hasSearchBar, requests, time, title, titleAlign, titleSize, type);
   }
 
   @Override
@@ -302,8 +312,7 @@ public class TableWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

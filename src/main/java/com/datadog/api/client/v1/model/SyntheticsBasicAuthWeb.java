@@ -6,42 +6,23 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object to handle basic authentication when performing the test.</p>
- */
+/** Object to handle basic authentication when performing the test. */
 @JsonPropertyOrder({
   SyntheticsBasicAuthWeb.JSON_PROPERTY_PASSWORD,
   SyntheticsBasicAuthWeb.JSON_PROPERTY_TYPE,
   SyntheticsBasicAuthWeb.JSON_PROPERTY_USERNAME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBasicAuthWeb {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
 
@@ -55,29 +36,32 @@ public class SyntheticsBasicAuthWeb {
 
   @JsonCreator
   public SyntheticsBasicAuthWeb(
-            @JsonProperty(required=true, value=JSON_PROPERTY_PASSWORD)String password,
-            @JsonProperty(required=true, value=JSON_PROPERTY_USERNAME)String username) {
-        this.password = password;
-        this.username = username;
+      @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
+      @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
+    this.password = password;
+    this.username = username;
   }
+
   public SyntheticsBasicAuthWeb password(String password) {
     this.password = password;
     return this;
   }
 
   /**
-   * <p>Password to use for the basic authentication.</p>
+   * Password to use for the basic authentication.
+   *
    * @return password
-  **/
-      @JsonProperty(JSON_PROPERTY_PASSWORD)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getPassword() {
-        return password;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getPassword() {
+    return password;
+  }
+
   public void setPassword(String password) {
     this.password = password;
   }
+
   public SyntheticsBasicAuthWeb type(SyntheticsBasicAuthWebType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -85,44 +69,45 @@ public class SyntheticsBasicAuthWeb {
   }
 
   /**
-   * <p>The type of basic authentication to use when performing the test.</p>
+   * The type of basic authentication to use when performing the test.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsBasicAuthWebType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsBasicAuthWebType getType() {
+    return type;
+  }
+
   public void setType(SyntheticsBasicAuthWebType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public SyntheticsBasicAuthWeb username(String username) {
     this.username = username;
     return this;
   }
 
   /**
-   * <p>Username to use for the basic authentication.</p>
+   * Username to use for the basic authentication.
+   *
    * @return username
-  **/
-      @JsonProperty(JSON_PROPERTY_USERNAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getUsername() {
-        return username;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getUsername() {
+    return username;
+  }
+
   public void setUsername(String username) {
     this.username = username;
   }
 
-  /**
-   * Return true if this SyntheticsBasicAuthWeb object is equal to o.
-   */
+  /** Return true if this SyntheticsBasicAuthWeb object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -132,13 +117,14 @@ public class SyntheticsBasicAuthWeb {
       return false;
     }
     SyntheticsBasicAuthWeb syntheticsBasicAuthWeb = (SyntheticsBasicAuthWeb) o;
-    return Objects.equals(this.password, syntheticsBasicAuthWeb.password) && Objects.equals(this.type, syntheticsBasicAuthWeb.type) && Objects.equals(this.username, syntheticsBasicAuthWeb.username);
+    return Objects.equals(this.password, syntheticsBasicAuthWeb.password)
+        && Objects.equals(this.type, syntheticsBasicAuthWeb.type)
+        && Objects.equals(this.username, syntheticsBasicAuthWeb.username);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(password,type,username);
+    return Objects.hash(password, type, username);
   }
 
   @Override
@@ -153,8 +139,7 @@ public class SyntheticsBasicAuthWeb {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

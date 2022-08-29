@@ -6,42 +6,24 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.Objects;
 
 /**
-   * <p>Global query options that are used during the query.
-   * Note: Only supply timezone or time offset, not both. Otherwise, the query fails.</p>
+ * Global query options that are used during the query. Note: Only supply timezone or time offset,
+ * not both. Otherwise, the query fails.
  */
 @JsonPropertyOrder({
   RUMQueryOptions.JSON_PROPERTY_TIME_OFFSET,
   RUMQueryOptions.JSON_PROPERTY_TIMEZONE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMQueryOptions {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TIME_OFFSET = "time_offset";
   private Long timeOffset;
 
@@ -54,42 +36,43 @@ public class RUMQueryOptions {
   }
 
   /**
-   * <p>The time offset (in seconds) to apply to the query.</p>
+   * The time offset (in seconds) to apply to the query.
+   *
    * @return timeOffset
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME_OFFSET)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTimeOffset() {
-        return timeOffset;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTimeOffset() {
+    return timeOffset;
+  }
+
   public void setTimeOffset(Long timeOffset) {
     this.timeOffset = timeOffset;
   }
+
   public RUMQueryOptions timezone(String timezone) {
     this.timezone = timezone;
     return this;
   }
 
   /**
-   * <p>The timezone can be specified both as an offset, for example: "UTC+03:00".</p>
+   * The timezone can be specified both as an offset, for example: "UTC+03:00".
+   *
    * @return timezone
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMEZONE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTimezone() {
-        return timezone;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMEZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTimezone() {
+    return timezone;
+  }
+
   public void setTimezone(String timezone) {
     this.timezone = timezone;
   }
 
-  /**
-   * Return true if this RUMQueryOptions object is equal to o.
-   */
+  /** Return true if this RUMQueryOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,13 +82,13 @@ public class RUMQueryOptions {
       return false;
     }
     RUMQueryOptions rumQueryOptions = (RUMQueryOptions) o;
-    return Objects.equals(this.timeOffset, rumQueryOptions.timeOffset) && Objects.equals(this.timezone, rumQueryOptions.timezone);
+    return Objects.equals(this.timeOffset, rumQueryOptions.timeOffset)
+        && Objects.equals(this.timezone, rumQueryOptions.timezone);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(timeOffset,timezone);
+    return Objects.hash(timeOffset, timezone);
   }
 
   @Override
@@ -119,8 +102,7 @@ public class RUMQueryOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

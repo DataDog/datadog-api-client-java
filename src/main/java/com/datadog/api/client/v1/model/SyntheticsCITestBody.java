@@ -6,40 +6,20 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object describing the synthetics tests to trigger.</p>
- */
-@JsonPropertyOrder({
-  SyntheticsCITestBody.JSON_PROPERTY_TESTS
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Object describing the synthetics tests to trigger. */
+@JsonPropertyOrder({SyntheticsCITestBody.JSON_PROPERTY_TESTS})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsCITestBody {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TESTS = "tests";
   private List<SyntheticsCITest> tests = null;
 
@@ -50,6 +30,7 @@ public class SyntheticsCITestBody {
     }
     return this;
   }
+
   public SyntheticsCITestBody addTestsItem(SyntheticsCITest testsItem) {
     if (this.tests == null) {
       this.tests = new ArrayList<>();
@@ -60,23 +41,22 @@ public class SyntheticsCITestBody {
   }
 
   /**
-   * <p>Individual synthetics test.</p>
+   * Individual synthetics test.
+   *
    * @return tests
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TESTS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SyntheticsCITest> getTests() {
-        return tests;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TESTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsCITest> getTests() {
+    return tests;
+  }
+
   public void setTests(List<SyntheticsCITest> tests) {
     this.tests = tests;
   }
 
-  /**
-   * Return true if this SyntheticsCITestBody object is equal to o.
-   */
+  /** Return true if this SyntheticsCITestBody object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,7 +68,6 @@ public class SyntheticsCITestBody {
     SyntheticsCITestBody syntheticsCiTestBody = (SyntheticsCITestBody) o;
     return Objects.equals(this.tests, syntheticsCiTestBody.tests);
   }
-
 
   @Override
   public int hashCode() {
@@ -105,8 +84,7 @@ public class SyntheticsCITestBody {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

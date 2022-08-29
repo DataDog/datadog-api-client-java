@@ -6,33 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.Objects;
 
 /**
-   * <p>Object containing all metrics and their values collected for a Synthetic API test.
-   * Learn more about those metrics in <a href="https://docs.datadoghq.com/synthetics/#metrics">Synthetics documentation</a>.</p>
+ * Object containing all metrics and their values collected for a Synthetic API test. Learn more
+ * about those metrics in <a href="https://docs.datadoghq.com/synthetics/#metrics">Synthetics
+ * documentation</a>.
  */
 @JsonPropertyOrder({
   SyntheticsTiming.JSON_PROPERTY_DNS,
@@ -45,10 +28,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsTiming.JSON_PROPERTY_TOTAL,
   SyntheticsTiming.JSON_PROPERTY_WAIT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTiming {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DNS = "dns";
   private Double dns;
 
@@ -82,175 +65,190 @@ public class SyntheticsTiming {
   }
 
   /**
-   * <p>The duration in millisecond of the DNS lookup.</p>
+   * The duration in millisecond of the DNS lookup.
+   *
    * @return dns
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DNS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getDns() {
-        return dns;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DNS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDns() {
+    return dns;
+  }
+
   public void setDns(Double dns) {
     this.dns = dns;
   }
+
   public SyntheticsTiming download(Double download) {
     this.download = download;
     return this;
   }
 
   /**
-   * <p>The time in millisecond to download the response.</p>
+   * The time in millisecond to download the response.
+   *
    * @return download
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DOWNLOAD)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getDownload() {
-        return download;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DOWNLOAD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDownload() {
+    return download;
+  }
+
   public void setDownload(Double download) {
     this.download = download;
   }
+
   public SyntheticsTiming firstByte(Double firstByte) {
     this.firstByte = firstByte;
     return this;
   }
 
   /**
-   * <p>The time in millisecond to first byte.</p>
+   * The time in millisecond to first byte.
+   *
    * @return firstByte
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FIRST_BYTE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getFirstByte() {
-        return firstByte;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIRST_BYTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getFirstByte() {
+    return firstByte;
+  }
+
   public void setFirstByte(Double firstByte) {
     this.firstByte = firstByte;
   }
+
   public SyntheticsTiming handshake(Double handshake) {
     this.handshake = handshake;
     return this;
   }
 
   /**
-   * <p>The duration in millisecond of the TLS handshake.</p>
+   * The duration in millisecond of the TLS handshake.
+   *
    * @return handshake
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HANDSHAKE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getHandshake() {
-        return handshake;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HANDSHAKE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getHandshake() {
+    return handshake;
+  }
+
   public void setHandshake(Double handshake) {
     this.handshake = handshake;
   }
+
   public SyntheticsTiming redirect(Double redirect) {
     this.redirect = redirect;
     return this;
   }
 
   /**
-   * <p>The time in millisecond spent during redirections.</p>
+   * The time in millisecond spent during redirections.
+   *
    * @return redirect
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_REDIRECT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getRedirect() {
-        return redirect;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REDIRECT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getRedirect() {
+    return redirect;
+  }
+
   public void setRedirect(Double redirect) {
     this.redirect = redirect;
   }
+
   public SyntheticsTiming ssl(Double ssl) {
     this.ssl = ssl;
     return this;
   }
 
   /**
-   * <p>The duration in millisecond of the TLS handshake.</p>
+   * The duration in millisecond of the TLS handshake.
+   *
    * @return ssl
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SSL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getSsl() {
-        return ssl;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SSL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSsl() {
+    return ssl;
+  }
+
   public void setSsl(Double ssl) {
     this.ssl = ssl;
   }
+
   public SyntheticsTiming tcp(Double tcp) {
     this.tcp = tcp;
     return this;
   }
 
   /**
-   * <p>Time in millisecond to establish the TCP connection.</p>
+   * Time in millisecond to establish the TCP connection.
+   *
    * @return tcp
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TCP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getTcp() {
-        return tcp;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TCP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getTcp() {
+    return tcp;
+  }
+
   public void setTcp(Double tcp) {
     this.tcp = tcp;
   }
+
   public SyntheticsTiming total(Double total) {
     this.total = total;
     return this;
   }
 
   /**
-   * <p>The overall time in millisecond the request took to be processed.</p>
+   * The overall time in millisecond the request took to be processed.
+   *
    * @return total
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOTAL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getTotal() {
-        return total;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getTotal() {
+    return total;
+  }
+
   public void setTotal(Double total) {
     this.total = total;
   }
+
   public SyntheticsTiming wait(Double wait) {
     this.wait = wait;
     return this;
   }
 
   /**
-   * <p>Time spent in millisecond waiting for a response.</p>
+   * Time spent in millisecond waiting for a response.
+   *
    * @return wait
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_WAIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getWait() {
-        return wait;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WAIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getWait() {
+    return wait;
+  }
+
   public void setWait(Double wait) {
     this.wait = wait;
   }
 
-  /**
-   * Return true if this SyntheticsTiming object is equal to o.
-   */
+  /** Return true if this SyntheticsTiming object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -260,13 +258,20 @@ public class SyntheticsTiming {
       return false;
     }
     SyntheticsTiming syntheticsTiming = (SyntheticsTiming) o;
-    return Objects.equals(this.dns, syntheticsTiming.dns) && Objects.equals(this.download, syntheticsTiming.download) && Objects.equals(this.firstByte, syntheticsTiming.firstByte) && Objects.equals(this.handshake, syntheticsTiming.handshake) && Objects.equals(this.redirect, syntheticsTiming.redirect) && Objects.equals(this.ssl, syntheticsTiming.ssl) && Objects.equals(this.tcp, syntheticsTiming.tcp) && Objects.equals(this.total, syntheticsTiming.total) && Objects.equals(this.wait, syntheticsTiming.wait);
+    return Objects.equals(this.dns, syntheticsTiming.dns)
+        && Objects.equals(this.download, syntheticsTiming.download)
+        && Objects.equals(this.firstByte, syntheticsTiming.firstByte)
+        && Objects.equals(this.handshake, syntheticsTiming.handshake)
+        && Objects.equals(this.redirect, syntheticsTiming.redirect)
+        && Objects.equals(this.ssl, syntheticsTiming.ssl)
+        && Objects.equals(this.tcp, syntheticsTiming.tcp)
+        && Objects.equals(this.total, syntheticsTiming.total)
+        && Objects.equals(this.wait, syntheticsTiming.wait);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(dns,download,firstByte,handshake,redirect,ssl,tcp,total,wait);
+    return Objects.hash(dns, download, firstByte, handshake, redirect, ssl, tcp, total, wait);
   }
 
   @Override
@@ -287,8 +292,7 @@ public class SyntheticsTiming {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

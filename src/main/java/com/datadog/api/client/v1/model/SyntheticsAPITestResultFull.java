@@ -6,33 +6,13 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object returned describing a API test result.</p>
- */
+/** Object returned describing a API test result. */
 @JsonPropertyOrder({
   SyntheticsAPITestResultFull.JSON_PROPERTY_CHECK,
   SyntheticsAPITestResultFull.JSON_PROPERTY_CHECK_TIME,
@@ -42,10 +22,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsAPITestResultFull.JSON_PROPERTY_RESULT_ID,
   SyntheticsAPITestResultFull.JSON_PROPERTY_STATUS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITestResultFull {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHECK = "check";
   private SyntheticsAPITestResultFullCheck check;
 
@@ -74,76 +54,84 @@ public class SyntheticsAPITestResultFull {
   }
 
   /**
-   * <p>Object describing the API test configuration.</p>
+   * Object describing the API test configuration.
+   *
    * @return check
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CHECK)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsAPITestResultFullCheck getCheck() {
-        return check;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHECK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsAPITestResultFullCheck getCheck() {
+    return check;
+  }
+
   public void setCheck(SyntheticsAPITestResultFullCheck check) {
     this.check = check;
   }
+
   public SyntheticsAPITestResultFull checkTime(Double checkTime) {
     this.checkTime = checkTime;
     return this;
   }
 
   /**
-   * <p>When the API test was conducted.</p>
+   * When the API test was conducted.
+   *
    * @return checkTime
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CHECK_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getCheckTime() {
-        return checkTime;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHECK_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCheckTime() {
+    return checkTime;
+  }
+
   public void setCheckTime(Double checkTime) {
     this.checkTime = checkTime;
   }
+
   public SyntheticsAPITestResultFull checkVersion(Long checkVersion) {
     this.checkVersion = checkVersion;
     return this;
   }
 
   /**
-   * <p>Version of the API test used.</p>
+   * Version of the API test used.
+   *
    * @return checkVersion
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CHECK_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getCheckVersion() {
-        return checkVersion;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHECK_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCheckVersion() {
+    return checkVersion;
+  }
+
   public void setCheckVersion(Long checkVersion) {
     this.checkVersion = checkVersion;
   }
+
   public SyntheticsAPITestResultFull probeDc(String probeDc) {
     this.probeDc = probeDc;
     return this;
   }
 
   /**
-   * <p>Locations for which to query the API test results.</p>
+   * Locations for which to query the API test results.
+   *
    * @return probeDc
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PROBE_DC)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getProbeDc() {
-        return probeDc;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROBE_DC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProbeDc() {
+    return probeDc;
+  }
+
   public void setProbeDc(String probeDc) {
     this.probeDc = probeDc;
   }
+
   public SyntheticsAPITestResultFull result(SyntheticsAPITestResultData result) {
     this.result = result;
     this.unparsed |= result.unparsed;
@@ -151,38 +139,42 @@ public class SyntheticsAPITestResultFull {
   }
 
   /**
-   * <p>Object containing results for your Synthetic API test.</p>
+   * Object containing results for your Synthetic API test.
+   *
    * @return result
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESULT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsAPITestResultData getResult() {
-        return result;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsAPITestResultData getResult() {
+    return result;
+  }
+
   public void setResult(SyntheticsAPITestResultData result) {
     this.result = result;
   }
+
   public SyntheticsAPITestResultFull resultId(String resultId) {
     this.resultId = resultId;
     return this;
   }
 
   /**
-   * <p>ID of the API test result.</p>
+   * ID of the API test result.
+   *
    * @return resultId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESULT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getResultId() {
-        return resultId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESULT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getResultId() {
+    return resultId;
+  }
+
   public void setResultId(String resultId) {
     this.resultId = resultId;
   }
+
   public SyntheticsAPITestResultFull status(SyntheticsTestMonitorStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -190,29 +182,26 @@ public class SyntheticsAPITestResultFull {
   }
 
   /**
-   * <p>The status of your Synthetic monitor.
-   * * <code>O</code> for not triggered
-   * * <code>1</code> for triggered
-   * * <code>2</code> for no data</p>
+   * The status of your Synthetic monitor. * <code>O</code> for not triggered * <code>1</code> for
+   * triggered * <code>2</code> for no data
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestMonitorStatus getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestMonitorStatus getStatus() {
+    return status;
+  }
+
   public void setStatus(SyntheticsTestMonitorStatus status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
 
-  /**
-   * Return true if this SyntheticsAPITestResultFull object is equal to o.
-   */
+  /** Return true if this SyntheticsAPITestResultFull object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -222,13 +211,18 @@ public class SyntheticsAPITestResultFull {
       return false;
     }
     SyntheticsAPITestResultFull syntheticsApiTestResultFull = (SyntheticsAPITestResultFull) o;
-    return Objects.equals(this.check, syntheticsApiTestResultFull.check) && Objects.equals(this.checkTime, syntheticsApiTestResultFull.checkTime) && Objects.equals(this.checkVersion, syntheticsApiTestResultFull.checkVersion) && Objects.equals(this.probeDc, syntheticsApiTestResultFull.probeDc) && Objects.equals(this.result, syntheticsApiTestResultFull.result) && Objects.equals(this.resultId, syntheticsApiTestResultFull.resultId) && Objects.equals(this.status, syntheticsApiTestResultFull.status);
+    return Objects.equals(this.check, syntheticsApiTestResultFull.check)
+        && Objects.equals(this.checkTime, syntheticsApiTestResultFull.checkTime)
+        && Objects.equals(this.checkVersion, syntheticsApiTestResultFull.checkVersion)
+        && Objects.equals(this.probeDc, syntheticsApiTestResultFull.probeDc)
+        && Objects.equals(this.result, syntheticsApiTestResultFull.result)
+        && Objects.equals(this.resultId, syntheticsApiTestResultFull.resultId)
+        && Objects.equals(this.status, syntheticsApiTestResultFull.status);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(check,checkTime,checkVersion,probeDc,result,resultId,status);
+    return Objects.hash(check, checkTime, checkVersion, probeDc, result, resultId, status);
   }
 
   @Override
@@ -247,8 +241,7 @@ public class SyntheticsAPITestResultFull {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

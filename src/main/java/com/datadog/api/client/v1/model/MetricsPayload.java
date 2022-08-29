@@ -6,40 +6,21 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The metrics' payload.</p>
- */
-@JsonPropertyOrder({
-  MetricsPayload.JSON_PROPERTY_SERIES
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** The metrics' payload. */
+@JsonPropertyOrder({MetricsPayload.JSON_PROPERTY_SERIES})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsPayload {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_SERIES = "series";
   private List<Series> series = new ArrayList<>();
 
@@ -47,9 +28,10 @@ public class MetricsPayload {
 
   @JsonCreator
   public MetricsPayload(
-            @JsonProperty(required=true, value=JSON_PROPERTY_SERIES)List<Series> series) {
-        this.series = series;
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERIES) List<Series> series) {
+    this.series = series;
   }
+
   public MetricsPayload series(List<Series> series) {
     this.series = series;
     for (Series item : series) {
@@ -57,6 +39,7 @@ public class MetricsPayload {
     }
     return this;
   }
+
   public MetricsPayload addSeriesItem(Series seriesItem) {
     this.series.add(seriesItem);
     this.unparsed |= seriesItem.unparsed;
@@ -64,22 +47,21 @@ public class MetricsPayload {
   }
 
   /**
-   * <p>A list of time series to submit to Datadog.</p>
+   * A list of time series to submit to Datadog.
+   *
    * @return series
-  **/
-      @JsonProperty(JSON_PROPERTY_SERIES)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<Series> getSeries() {
-        return series;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SERIES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<Series> getSeries() {
+    return series;
+  }
+
   public void setSeries(List<Series> series) {
     this.series = series;
   }
 
-  /**
-   * Return true if this MetricsPayload object is equal to o.
-   */
+  /** Return true if this MetricsPayload object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,7 +73,6 @@ public class MetricsPayload {
     MetricsPayload metricsPayload = (MetricsPayload) o;
     return Objects.equals(this.series, metricsPayload.series);
   }
-
 
   @Override
   public int hashCode() {
@@ -108,8 +89,7 @@ public class MetricsPayload {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,33 +6,17 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of user object returned by the API.</p>
- */
+/** Attributes of user object returned by the API. */
 @JsonPropertyOrder({
   UserAttributes.JSON_PROPERTY_CREATED_AT,
   UserAttributes.JSON_PROPERTY_DISABLED,
@@ -46,11 +30,12 @@ import com.datadog.api.client.JsonTimeSerializer;
   UserAttributes.JSON_PROPERTY_TITLE,
   UserAttributes.JSON_PROPERTY_VERIFIED
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime createdAt;
 
@@ -67,6 +52,7 @@ public class UserAttributes {
   private String icon;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modifiedAt;
 
@@ -91,227 +77,252 @@ public class UserAttributes {
   }
 
   /**
-   * <p>Creation time of the user.</p>
+   * Creation time of the user.
+   *
    * @return createdAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
+
   public UserAttributes disabled(Boolean disabled) {
     this.disabled = disabled;
     return this;
   }
 
   /**
-   * <p>Whether the user is disabled.</p>
+   * Whether the user is disabled.
+   *
    * @return disabled
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DISABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getDisabled() {
-        return disabled;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDisabled() {
+    return disabled;
+  }
+
   public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
+
   public UserAttributes email(String email) {
     this.email = email;
     return this;
   }
 
   /**
-   * <p>Email of the user.</p>
+   * Email of the user.
+   *
    * @return email
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EMAIL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getEmail() {
-        return email;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEmail() {
+    return email;
+  }
+
   public void setEmail(String email) {
     this.email = email;
   }
+
   public UserAttributes handle(String handle) {
     this.handle = handle;
     return this;
   }
 
   /**
-   * <p>Handle of the user.</p>
+   * Handle of the user.
+   *
    * @return handle
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HANDLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHandle() {
-        return handle;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HANDLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHandle() {
+    return handle;
+  }
+
   public void setHandle(String handle) {
     this.handle = handle;
   }
+
   public UserAttributes icon(String icon) {
     this.icon = icon;
     return this;
   }
 
   /**
-   * <p>URL of the user's icon.</p>
+   * URL of the user's icon.
+   *
    * @return icon
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ICON)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getIcon() {
-        return icon;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ICON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIcon() {
+    return icon;
+  }
+
   public void setIcon(String icon) {
     this.icon = icon;
   }
+
   public UserAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
   /**
-   * <p>Time that the user was last modified.</p>
+   * Time that the user was last modified.
+   *
    * @return modifiedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getModifiedAt() {
-        return modifiedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
+
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
+
   public UserAttributes name(String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
 
   /**
-   * <p>Name of the user.</p>
+   * Name of the user.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getName() {
-        return name.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getName() {
+    return name.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-  @JsonProperty(JSON_PROPERTY_NAME)public void setName_JsonNullable(JsonNullable<String> name) {
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
   }
+
   public void setName(String name) {
     this.name = JsonNullable.<String>of(name);
   }
+
   public UserAttributes serviceAccount(Boolean serviceAccount) {
     this.serviceAccount = serviceAccount;
     return this;
   }
 
   /**
-   * <p>Whether the user is a service account.</p>
+   * Whether the user is a service account.
+   *
    * @return serviceAccount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getServiceAccount() {
-        return serviceAccount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getServiceAccount() {
+    return serviceAccount;
+  }
+
   public void setServiceAccount(Boolean serviceAccount) {
     this.serviceAccount = serviceAccount;
   }
+
   public UserAttributes status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * <p>Status of the user.</p>
+   * Status of the user.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatus() {
+    return status;
+  }
+
   public void setStatus(String status) {
     this.status = status;
   }
+
   public UserAttributes title(String title) {
     this.title = JsonNullable.<String>of(title);
     return this;
   }
 
   /**
-   * <p>Title of the user.</p>
+   * Title of the user.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public String getTitle() {
-        return title.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getTitle() {
+    return title.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
-  @JsonProperty(JSON_PROPERTY_TITLE)public void setTitle_JsonNullable(JsonNullable<String> title) {
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
     this.title = title;
   }
+
   public void setTitle(String title) {
     this.title = JsonNullable.<String>of(title);
   }
+
   public UserAttributes verified(Boolean verified) {
     this.verified = verified;
     return this;
   }
 
   /**
-   * <p>Whether the user is verified.</p>
+   * Whether the user is verified.
+   *
    * @return verified
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERIFIED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getVerified() {
-        return verified;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getVerified() {
+    return verified;
+  }
+
   public void setVerified(Boolean verified) {
     this.verified = verified;
   }
 
-  /**
-   * Return true if this UserAttributes object is equal to o.
-   */
+  /** Return true if this UserAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -321,13 +332,33 @@ public class UserAttributes {
       return false;
     }
     UserAttributes userAttributes = (UserAttributes) o;
-    return Objects.equals(this.createdAt, userAttributes.createdAt) && Objects.equals(this.disabled, userAttributes.disabled) && Objects.equals(this.email, userAttributes.email) && Objects.equals(this.handle, userAttributes.handle) && Objects.equals(this.icon, userAttributes.icon) && Objects.equals(this.modifiedAt, userAttributes.modifiedAt) && Objects.equals(this.name, userAttributes.name) && Objects.equals(this.serviceAccount, userAttributes.serviceAccount) && Objects.equals(this.status, userAttributes.status) && Objects.equals(this.title, userAttributes.title) && Objects.equals(this.verified, userAttributes.verified);
+    return Objects.equals(this.createdAt, userAttributes.createdAt)
+        && Objects.equals(this.disabled, userAttributes.disabled)
+        && Objects.equals(this.email, userAttributes.email)
+        && Objects.equals(this.handle, userAttributes.handle)
+        && Objects.equals(this.icon, userAttributes.icon)
+        && Objects.equals(this.modifiedAt, userAttributes.modifiedAt)
+        && Objects.equals(this.name, userAttributes.name)
+        && Objects.equals(this.serviceAccount, userAttributes.serviceAccount)
+        && Objects.equals(this.status, userAttributes.status)
+        && Objects.equals(this.title, userAttributes.title)
+        && Objects.equals(this.verified, userAttributes.verified);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt,disabled,email,handle,icon,modifiedAt,name,serviceAccount,status,title,verified);
+    return Objects.hash(
+        createdAt,
+        disabled,
+        email,
+        handle,
+        icon,
+        modifiedAt,
+        name,
+        serviceAccount,
+        status,
+        title,
+        verified);
   }
 
   @Override
@@ -350,8 +381,7 @@ public class UserAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
