@@ -1,6 +1,36 @@
 [
   {
     "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_a_role_returns_Bad_Request_response-1661551042\"},\"type\":\"roles\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/roles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"10475ae6-258a-11ed-b455-da7ad0900002\",\"attributes\":{\"name\":\"Test-Update_a_role_returns_Bad_Request_response-1661551042\",\"created_at\":\"2022-08-26T21:57:22.716898+00:00\",\"modified_at\":\"2022-08-26T21:57:22.941930+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"b6bf9ac6-9a59-11ec-8480-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"f8e941cf-e746-11ec-b22d-da7ad0900002\"}]}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7a9c8af0-cf65-cfc2-b414-ef7b3c2444ac"
+  },
+  {
+    "httpRequest": {
       "headers": {},
       "method": "GET",
       "path": "/api/v2/permissions",
@@ -23,29 +53,29 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ab2c08c1-60c7-9278-3246-d650bb892172"
+    "id": "ab2c08c1-60c7-9278-3246-d650bb892175"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"updated\"},\"id\":\"00000000-dead-beef-dead-ffffffffffff\",\"relationships\":{\"permissions\":{\"data\":[{\"id\":\"984a2bd4-d3b4-11e8-a1ff-a7f660d43029\",\"type\":\"permissions\"}]}},\"type\":\"roles\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_a_role_returns_Bad_Request_response-1661551042-updated\"},\"id\":\"10475ae6-258a-11ed-b455-da7ad0900002\",\"relationships\":{\"permissions\":{\"data\":[{\"id\":\"11111111-dead-beef-dead-ffffffffffff\",\"type\":\"permissions\"}]}},\"type\":\"roles\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/roles/00000000-dead-beef-dead-ffffffffffff",
+      "path": "/api/v2/roles/10475ae6-258a-11ed-b455-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"00000000-dead-beef-dead-ffffffffffff not found\"]}\n",
+      "body": "{\"errors\":[\"Invalid input \"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
         ]
       },
-      "statusCode": 404,
-      "reasonPhrase": "Not Found"
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
     },
     "times": {
       "remainingTimes": 1
@@ -53,6 +83,31 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f3656e96-c78f-b3b1-8de9-f03d434ab7cc"
+    "id": "51712603-6a9f-56dc-58b3-69d190ade35e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/roles/10475ae6-258a-11ed-b455-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2c74b44b-7f61-5434-ad31-373b80a09fff"
   }
 ]
