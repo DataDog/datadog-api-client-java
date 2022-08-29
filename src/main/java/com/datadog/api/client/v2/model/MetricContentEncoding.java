@@ -24,8 +24,11 @@ import java.util.Set;
 public class MetricContentEncoding {
 
   public static final MetricContentEncoding DEFLATE = new MetricContentEncoding("deflate");
+  public static final MetricContentEncoding ZSTD1 = new MetricContentEncoding("zstd1");
+  public static final MetricContentEncoding GZIP = new MetricContentEncoding("gzip");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("deflate"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("deflate", "zstd1", "gzip"));
 
   private String value;
 
