@@ -68,6 +68,10 @@ public class UsageAttributionSort {
       new UsageAttributionSort("estimated_indexed_logs_usage");
   public static final UsageAttributionSort ESTIMATED_INDEXED_LOGS_PERCENTAGE =
       new UsageAttributionSort("estimated_indexed_logs_percentage");
+  public static final UsageAttributionSort ESTIMATED_INGESTED_LOGS_USAGE =
+      new UsageAttributionSort("estimated_ingested_logs_usage");
+  public static final UsageAttributionSort ESTIMATED_INGESTED_LOGS_PERCENTAGE =
+      new UsageAttributionSort("estimated_ingested_logs_percentage");
   public static final UsageAttributionSort ESTIMATED_INDEXED_SPANS_USAGE =
       new UsageAttributionSort("estimated_indexed_spans_usage");
   public static final UsageAttributionSort ESTIMATED_INDEXED_SPANS_PERCENTAGE =
@@ -104,6 +108,8 @@ public class UsageAttributionSort {
               "lambda_invocations_percentage",
               "estimated_indexed_logs_usage",
               "estimated_indexed_logs_percentage",
+              "estimated_ingested_logs_usage",
+              "estimated_ingested_logs_percentage",
               "estimated_indexed_spans_usage",
               "estimated_indexed_spans_percentage",
               "estimated_ingested_spans_usage",
