@@ -42,6 +42,8 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
@@ -151,6 +153,14 @@ public class UsageAttributionValues {
   public static final String JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE =
       "estimated_indexed_spans_usage";
   private Double estimatedIndexedSpansUsage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_PERCENTAGE =
+      "estimated_ingested_logs_percentage";
+  private Double estimatedIngestedLogsPercentage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_USAGE =
+      "estimated_ingested_logs_usage";
+  private Double estimatedIngestedLogsUsage;
 
   public static final String JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE =
       "estimated_ingested_spans_percentage";
@@ -796,6 +806,50 @@ public class UsageAttributionValues {
     this.estimatedIndexedSpansUsage = estimatedIndexedSpansUsage;
   }
 
+  public UsageAttributionValues estimatedIngestedLogsPercentage(
+      Double estimatedIngestedLogsPercentage) {
+    this.estimatedIngestedLogsPercentage = estimatedIngestedLogsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of estimated live ingested logs usage by tag(s). Note this field is in private
+   * beta.
+   *
+   * @return estimatedIngestedLogsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIngestedLogsPercentage() {
+    return estimatedIngestedLogsPercentage;
+  }
+
+  public void setEstimatedIngestedLogsPercentage(Double estimatedIngestedLogsPercentage) {
+    this.estimatedIngestedLogsPercentage = estimatedIngestedLogsPercentage;
+  }
+
+  public UsageAttributionValues estimatedIngestedLogsUsage(Double estimatedIngestedLogsUsage) {
+    this.estimatedIngestedLogsUsage = estimatedIngestedLogsUsage;
+    return this;
+  }
+
+  /**
+   * The estimated live ingested logs usage by tag(s). Note this field is in private beta.
+   *
+   * @return estimatedIngestedLogsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIngestedLogsUsage() {
+    return estimatedIngestedLogsUsage;
+  }
+
+  public void setEstimatedIngestedLogsUsage(Double estimatedIngestedLogsUsage) {
+    this.estimatedIngestedLogsUsage = estimatedIngestedLogsUsage;
+  }
+
   public UsageAttributionValues estimatedIngestedSpansPercentage(
       Double estimatedIngestedSpansPercentage) {
     this.estimatedIngestedSpansPercentage = estimatedIngestedSpansPercentage;
@@ -1181,6 +1235,11 @@ public class UsageAttributionValues {
         && Objects.equals(
             this.estimatedIndexedSpansUsage, usageAttributionValues.estimatedIndexedSpansUsage)
         && Objects.equals(
+            this.estimatedIngestedLogsPercentage,
+            usageAttributionValues.estimatedIngestedLogsPercentage)
+        && Objects.equals(
+            this.estimatedIngestedLogsUsage, usageAttributionValues.estimatedIngestedLogsUsage)
+        && Objects.equals(
             this.estimatedIngestedSpansPercentage,
             usageAttributionValues.estimatedIngestedSpansPercentage)
         && Objects.equals(
@@ -1238,6 +1297,8 @@ public class UsageAttributionValues {
         estimatedIndexedLogsUsage,
         estimatedIndexedSpansPercentage,
         estimatedIndexedSpansUsage,
+        estimatedIngestedLogsPercentage,
+        estimatedIngestedLogsUsage,
         estimatedIngestedSpansPercentage,
         estimatedIngestedSpansUsage,
         infraHostPercentage,
@@ -1307,6 +1368,12 @@ public class UsageAttributionValues {
         .append("\n");
     sb.append("    estimatedIndexedSpansUsage: ")
         .append(toIndentedString(estimatedIndexedSpansUsage))
+        .append("\n");
+    sb.append("    estimatedIngestedLogsPercentage: ")
+        .append(toIndentedString(estimatedIngestedLogsPercentage))
+        .append("\n");
+    sb.append("    estimatedIngestedLogsUsage: ")
+        .append(toIndentedString(estimatedIngestedLogsUsage))
         .append("\n");
     sb.append("    estimatedIngestedSpansPercentage: ")
         .append(toIndentedString(estimatedIngestedSpansPercentage))

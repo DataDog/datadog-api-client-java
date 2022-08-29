@@ -50,6 +50,8 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("dbm_queries_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_LOGS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_indexed_logs_usage");
+  public static final HourlyUsageAttributionUsageType ESTIMATED_INGESTED_LOGS_USAGE =
+      new HourlyUsageAttributionUsageType("estimated_ingested_logs_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_SPANS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_indexed_spans_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INGESTED_SPANS_USAGE =
@@ -89,6 +91,7 @@ public class HourlyUsageAttributionUsageType {
               "dbm_hosts_usage",
               "dbm_queries_usage",
               "estimated_indexed_logs_usage",
+              "estimated_ingested_logs_usage",
               "estimated_indexed_spans_usage",
               "estimated_ingested_spans_usage",
               "fargate_usage",
