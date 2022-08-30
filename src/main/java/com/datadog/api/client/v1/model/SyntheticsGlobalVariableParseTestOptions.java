@@ -19,6 +19,7 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_FIELD,
+  SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_LOCAL_VARIABLE_NAME,
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_PARSER,
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_TYPE
 })
@@ -28,6 +29,9 @@ public class SyntheticsGlobalVariableParseTestOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
+
+  public static final String JSON_PROPERTY_LOCAL_VARIABLE_NAME = "localVariableName";
+  private String localVariableName;
 
   public static final String JSON_PROPERTY_PARSER = "parser";
   private SyntheticsVariableParser parser;
@@ -39,11 +43,8 @@ public class SyntheticsGlobalVariableParseTestOptions {
 
   @JsonCreator
   public SyntheticsGlobalVariableParseTestOptions(
-      @JsonProperty(required = true, value = JSON_PROPERTY_PARSER) SyntheticsVariableParser parser,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           SyntheticsGlobalVariableParseTestOptionsType type) {
-    this.parser = parser;
-    this.unparsed |= parser.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -69,6 +70,28 @@ public class SyntheticsGlobalVariableParseTestOptions {
     this.field = field;
   }
 
+  public SyntheticsGlobalVariableParseTestOptions localVariableName(String localVariableName) {
+    this.localVariableName = localVariableName;
+    return this;
+  }
+
+  /**
+   * When type is <code>local_variable</code>, name of the local variable to use to extract the
+   * value.
+   *
+   * @return localVariableName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOCAL_VARIABLE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLocalVariableName() {
+    return localVariableName;
+  }
+
+  public void setLocalVariableName(String localVariableName) {
+    this.localVariableName = localVariableName;
+  }
+
   public SyntheticsGlobalVariableParseTestOptions parser(SyntheticsVariableParser parser) {
     this.parser = parser;
     this.unparsed |= parser.unparsed;
@@ -80,8 +103,9 @@ public class SyntheticsGlobalVariableParseTestOptions {
    *
    * @return parser
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PARSER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsVariableParser getParser() {
     return parser;
   }
@@ -127,13 +151,15 @@ public class SyntheticsGlobalVariableParseTestOptions {
     SyntheticsGlobalVariableParseTestOptions syntheticsGlobalVariableParseTestOptions =
         (SyntheticsGlobalVariableParseTestOptions) o;
     return Objects.equals(this.field, syntheticsGlobalVariableParseTestOptions.field)
+        && Objects.equals(
+            this.localVariableName, syntheticsGlobalVariableParseTestOptions.localVariableName)
         && Objects.equals(this.parser, syntheticsGlobalVariableParseTestOptions.parser)
         && Objects.equals(this.type, syntheticsGlobalVariableParseTestOptions.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, parser, type);
+    return Objects.hash(field, localVariableName, parser, type);
   }
 
   @Override
@@ -141,6 +167,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsGlobalVariableParseTestOptions {\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    localVariableName: ").append(toIndentedString(localVariableName)).append("\n");
     sb.append("    parser: ").append(toIndentedString(parser)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
