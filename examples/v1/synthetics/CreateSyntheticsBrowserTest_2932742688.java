@@ -39,7 +39,8 @@ public class Example {
                     .request(
                         new SyntheticsTestRequest()
                             .method(HTTPMethod.GET)
-                            .url("https://datadoghq.com"))
+                            .url("https://datadoghq.com")
+                            .certificateDomains(Collections.singletonList("https://datadoghq.com")))
                     .setCookie("name:test"))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("Test message")
@@ -63,7 +64,10 @@ public class Example {
                     .tickEvery(300L)
                     .ci(
                         new SyntheticsTestCiOptions()
-                            .executionRule(SyntheticsTestExecutionRule.SKIPPED)))
+                            .executionRule(SyntheticsTestExecutionRule.SKIPPED))
+                    .ignoreServerCertificateError(true)
+                    .disableCsp(true)
+                    .initialNavigationTimeout(200L))
             .tags(Collections.singletonList("testing:browser"))
             .type(SyntheticsBrowserTestType.BROWSER)
             .steps(
