@@ -30,9 +30,11 @@ public class SyntheticsGlobalVariableParseTestOptionsType {
       new SyntheticsGlobalVariableParseTestOptionsType("http_body");
   public static final SyntheticsGlobalVariableParseTestOptionsType HTTP_HEADER =
       new SyntheticsGlobalVariableParseTestOptionsType("http_header");
+  public static final SyntheticsGlobalVariableParseTestOptionsType LOCAL_VARIABLE =
+      new SyntheticsGlobalVariableParseTestOptionsType("local_variable");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("http_body", "http_header"));
+      new HashSet<String>(Arrays.asList("http_body", "http_header", "local_variable"));
 
   private String value;
 
