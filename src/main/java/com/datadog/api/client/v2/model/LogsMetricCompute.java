@@ -16,6 +16,7 @@ import java.util.Objects;
 /** The compute rule to compute the log-based metric. */
 @JsonPropertyOrder({
   LogsMetricCompute.JSON_PROPERTY_AGGREGATION_TYPE,
+  LogsMetricCompute.JSON_PROPERTY_INCLUDE_PERCENTILES,
   LogsMetricCompute.JSON_PROPERTY_PATH
 })
 @jakarta.annotation.Generated(
@@ -24,6 +25,9 @@ public class LogsMetricCompute {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION_TYPE = "aggregation_type";
   private LogsMetricComputeAggregationType aggregationType;
+
+  public static final String JSON_PROPERTY_INCLUDE_PERCENTILES = "includePercentiles";
+  private Boolean includePercentiles;
 
   public static final String JSON_PROPERTY_PATH = "path";
   private String path;
@@ -62,6 +66,27 @@ public class LogsMetricCompute {
     this.aggregationType = aggregationType;
   }
 
+  public LogsMetricCompute includePercentiles(Boolean includePercentiles) {
+    this.includePercentiles = includePercentiles;
+    return this;
+  }
+
+  /**
+   * Whether to calculate percentiles for the metric
+   *
+   * @return includePercentiles
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDE_PERCENTILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIncludePercentiles() {
+    return includePercentiles;
+  }
+
+  public void setIncludePercentiles(Boolean includePercentiles) {
+    this.includePercentiles = includePercentiles;
+  }
+
   public LogsMetricCompute path(String path) {
     this.path = path;
     return this;
@@ -95,12 +120,13 @@ public class LogsMetricCompute {
     }
     LogsMetricCompute logsMetricCompute = (LogsMetricCompute) o;
     return Objects.equals(this.aggregationType, logsMetricCompute.aggregationType)
+        && Objects.equals(this.includePercentiles, logsMetricCompute.includePercentiles)
         && Objects.equals(this.path, logsMetricCompute.path);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregationType, path);
+    return Objects.hash(aggregationType, includePercentiles, path);
   }
 
   @Override
@@ -108,6 +134,7 @@ public class LogsMetricCompute {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsMetricCompute {\n");
     sb.append("    aggregationType: ").append(toIndentedString(aggregationType)).append("\n");
+    sb.append("    includePercentiles: ").append(toIndentedString(includePercentiles)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("}");
     return sb.toString();
