@@ -1,4 +1,4 @@
-// List tag configurations with a tag filter returns "Success" response
+// Get a list of metrics with a tag filter returns "Success" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -15,7 +15,7 @@ public class Example {
       MetricsAndMetricTagConfigurationsResponse result =
           apiInstance.listTagConfigurations(
               new ListTagConfigurationsOptionalParameters()
-                  .filterTags("ExampleListtagconfigurationswithatagfilterreturnsSuccessresponse"));
+                  .filterTags("ExampleGetalistofmetricswithatagfilterreturnsSuccessresponse"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#listTagConfigurations");
