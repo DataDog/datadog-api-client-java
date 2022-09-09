@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_returns_OK_response-1652349187\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metric\":\"\",\"query\":\"@test:true\"}],\"tags\":[]}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_returns_OK_response-1662712143\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"query\":\"@test:true\"}],\"tags\":[]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1652349187595,\"filters\":[],\"queries\":[{\"distinctFields\":[],\"name\":\"\",\"metric\":\"\",\"aggregation\":\"count\",\"groupByFields\":[],\"query\":\"@test:true\"}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"8tp-n1t-i19\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_returns_OK_response-1652349187\"}\n",
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1662712143493,\"filters\":[],\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"miu-hfg-og4\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_returns_OK_response-1662712143\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cdb5f475-fce0-a7af-01e2-4228e5fd1bc7"
+    "id": "51d5a1eb-9a62-d412-8baf-d03eb04c0289"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/8tp-n1t-i19",
+      "path": "/api/v2/security_monitoring/rules/miu-hfg-og4",
       "keepAlive": false,
       "secure": true
     },
@@ -48,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "13fb9de8-cbe0-1fcd-e99f-b09568ee9f4f"
+    "id": "1ceafbd2-215e-f4e0-aad5-3710841fbc0f"
   }
 ]

@@ -27,8 +27,7 @@ public class Example {
                 Collections.singletonList(
                     new SecurityMonitoringRuleQueryCreate()
                         .query("@test:true")
-                        .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
-                        .metric("")))
+                        .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)))
             .cases(
                 Collections.singletonList(
                     new SecurityMonitoringRuleCaseCreate()
