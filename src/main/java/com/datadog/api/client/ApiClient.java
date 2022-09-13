@@ -223,6 +223,7 @@ public class ApiClient {
                                       new HashSet<String>(
                                           Arrays.asList(
                                               "datadoghq.com",
+                                              "datadoghq.eu",
                                               "us3.datadoghq.com",
                                               "us5.datadoghq.com",
                                               "ddog-gov.com"))));
