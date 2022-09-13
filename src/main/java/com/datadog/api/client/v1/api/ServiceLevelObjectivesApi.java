@@ -1535,11 +1535,14 @@ public class ServiceLevelObjectivesApi {
     private String query;
     private Long pageSize;
     private Long pageNumber;
+    private Boolean includeFacets;
 
     /**
      * Set query.
      *
-     * @param query The query string to filter results based on SLO names. (optional)
+     * @param query The query string to filter results based on SLO names. Some examples of queries
+     *     include <code>service:&lt;service-name&gt;</code> and <code>&lt;slo-name&gt;</code>.
+     *     (optional)
      * @return SearchSLOOptionalParameters
      */
     public SearchSLOOptionalParameters query(String query) {
@@ -1568,6 +1571,18 @@ public class ServiceLevelObjectivesApi {
      */
     public SearchSLOOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set includeFacets.
+     *
+     * @param includeFacets Whether or not to return facet information in the response <code>
+     *     [default=false]</code>. (optional)
+     * @return SearchSLOOptionalParameters
+     */
+    public SearchSLOOptionalParameters includeFacets(Boolean includeFacets) {
+      this.includeFacets = includeFacets;
       return this;
     }
   }
@@ -1658,6 +1673,7 @@ public class ServiceLevelObjectivesApi {
     String query = parameters.query;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
+    Boolean includeFacets = parameters.includeFacets;
     // create path and map variables
     String localVarPath = "/api/v1/slo/search";
 
@@ -1667,6 +1683,7 @@ public class ServiceLevelObjectivesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_facets", includeFacets));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1712,6 +1729,7 @@ public class ServiceLevelObjectivesApi {
     String query = parameters.query;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
+    Boolean includeFacets = parameters.includeFacets;
     // create path and map variables
     String localVarPath = "/api/v1/slo/search";
 
@@ -1721,6 +1739,7 @@ public class ServiceLevelObjectivesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_facets", includeFacets));
 
     Invocation.Builder builder;
     try {

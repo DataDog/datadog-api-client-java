@@ -27,7 +27,7 @@ public class SearchSLOResponseDataAttributes {
   private SearchSLOResponseDataAttributesFacets facets;
 
   public static final String JSON_PROPERTY_SLO = "slo";
-  private List<ServiceLevelObjective> slo = null;
+  private List<SearchServiceLevelObjective> slo = null;
 
   public SearchSLOResponseDataAttributes facets(SearchSLOResponseDataAttributesFacets facets) {
     this.facets = facets;
@@ -51,15 +51,15 @@ public class SearchSLOResponseDataAttributes {
     this.facets = facets;
   }
 
-  public SearchSLOResponseDataAttributes slo(List<ServiceLevelObjective> slo) {
+  public SearchSLOResponseDataAttributes slo(List<SearchServiceLevelObjective> slo) {
     this.slo = slo;
-    for (ServiceLevelObjective item : slo) {
+    for (SearchServiceLevelObjective item : slo) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public SearchSLOResponseDataAttributes addSloItem(ServiceLevelObjective sloItem) {
+  public SearchSLOResponseDataAttributes addSloItem(SearchServiceLevelObjective sloItem) {
     if (this.slo == null) {
       this.slo = new ArrayList<>();
     }
@@ -76,11 +76,11 @@ public class SearchSLOResponseDataAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SLO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ServiceLevelObjective> getSlo() {
+  public List<SearchServiceLevelObjective> getSlo() {
     return slo;
   }
 
-  public void setSlo(List<ServiceLevelObjective> slo) {
+  public void setSlo(List<SearchServiceLevelObjective> slo) {
     this.slo = slo;
   }
 
