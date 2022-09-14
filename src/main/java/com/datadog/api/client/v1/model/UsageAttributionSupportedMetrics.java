@@ -107,6 +107,10 @@ public class UsageAttributionSupportedMetrics {
       new UsageAttributionSupportedMetrics("estimated_ingested_spans_usage");
   public static final UsageAttributionSupportedMetrics ESTIMATED_INGESTED_SPANS_PERCENTAGE =
       new UsageAttributionSupportedMetrics("estimated_ingested_spans_percentage");
+  public static final UsageAttributionSupportedMetrics APM_FARGATE_USAGE =
+      new UsageAttributionSupportedMetrics("apm_fargate_usage");
+  public static final UsageAttributionSupportedMetrics APM_FARGATE_PERCENTAGE =
+      new UsageAttributionSupportedMetrics("apm_fargate_percentage");
   public static final UsageAttributionSupportedMetrics ALL =
       new UsageAttributionSupportedMetrics("*");
 
@@ -153,6 +157,8 @@ public class UsageAttributionSupportedMetrics {
               "estimated_indexed_spans_percentage",
               "estimated_ingested_spans_usage",
               "estimated_ingested_spans_percentage",
+              "apm_fargate_usage",
+              "apm_fargate_percentage",
               "*"));
 
   private String value;

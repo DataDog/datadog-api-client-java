@@ -17,6 +17,7 @@ import java.util.Objects;
 
 /** Number of Fargate tasks run and hourly usage. */
 @JsonPropertyOrder({
+  UsageFargateHour.JSON_PROPERTY_APM_FARGATE_COUNT,
   UsageFargateHour.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
   UsageFargateHour.JSON_PROPERTY_HOUR,
   UsageFargateHour.JSON_PROPERTY_ORG_NAME,
@@ -27,6 +28,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageFargateHour {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_APM_FARGATE_COUNT = "apm_fargate_count";
+  private Long apmFargateCount;
+
   public static final String JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS =
       "avg_profiled_fargate_tasks";
   private Long avgProfiledFargateTasks;
@@ -44,6 +48,27 @@ public class UsageFargateHour {
 
   public static final String JSON_PROPERTY_TASKS_COUNT = "tasks_count";
   private Long tasksCount;
+
+  public UsageFargateHour apmFargateCount(Long apmFargateCount) {
+    this.apmFargateCount = apmFargateCount;
+    return this;
+  }
+
+  /**
+   * The high-water mark of APM ECS Fargate tasks during the given hour.
+   *
+   * @return apmFargateCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_FARGATE_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmFargateCount() {
+    return apmFargateCount;
+  }
+
+  public void setApmFargateCount(Long apmFargateCount) {
+    this.apmFargateCount = apmFargateCount;
+  }
 
   public UsageFargateHour avgProfiledFargateTasks(Long avgProfiledFargateTasks) {
     this.avgProfiledFargateTasks = avgProfiledFargateTasks;
@@ -160,7 +185,8 @@ public class UsageFargateHour {
       return false;
     }
     UsageFargateHour usageFargateHour = (UsageFargateHour) o;
-    return Objects.equals(this.avgProfiledFargateTasks, usageFargateHour.avgProfiledFargateTasks)
+    return Objects.equals(this.apmFargateCount, usageFargateHour.apmFargateCount)
+        && Objects.equals(this.avgProfiledFargateTasks, usageFargateHour.avgProfiledFargateTasks)
         && Objects.equals(this.hour, usageFargateHour.hour)
         && Objects.equals(this.orgName, usageFargateHour.orgName)
         && Objects.equals(this.publicId, usageFargateHour.publicId)
@@ -169,13 +195,15 @@ public class UsageFargateHour {
 
   @Override
   public int hashCode() {
-    return Objects.hash(avgProfiledFargateTasks, hour, orgName, publicId, tasksCount);
+    return Objects.hash(
+        apmFargateCount, avgProfiledFargateTasks, hour, orgName, publicId, tasksCount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageFargateHour {\n");
+    sb.append("    apmFargateCount: ").append(toIndentedString(apmFargateCount)).append("\n");
     sb.append("    avgProfiledFargateTasks: ")
         .append(toIndentedString(avgProfiledFargateTasks))
         .append("\n");
