@@ -26,6 +26,8 @@ public class HourlyUsageAttributionUsageType {
 
   public static final HourlyUsageAttributionUsageType API_USAGE =
       new HourlyUsageAttributionUsageType("api_usage");
+  public static final HourlyUsageAttributionUsageType APM_FARGATE_USAGE =
+      new HourlyUsageAttributionUsageType("apm_fargate_usage");
   public static final HourlyUsageAttributionUsageType APM_HOST_USAGE =
       new HourlyUsageAttributionUsageType("apm_host_usage");
   public static final HourlyUsageAttributionUsageType APPSEC_USAGE =
@@ -79,6 +81,7 @@ public class HourlyUsageAttributionUsageType {
       new HashSet<String>(
           Arrays.asList(
               "api_usage",
+              "apm_fargate_usage",
               "apm_host_usage",
               "appsec_usage",
               "browser_usage",

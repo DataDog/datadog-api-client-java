@@ -16,6 +16,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageSummaryDateOrg.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_APM_FARGATE_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
@@ -92,6 +93,9 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P =
       "apm_azure_app_service_host_top99p";
   private Long apmAzureAppServiceHostTop99p;
+
+  public static final String JSON_PROPERTY_APM_FARGATE_COUNT_AVG = "apm_fargate_count_avg";
+  private Long apmFargateCountAvg;
 
   public static final String JSON_PROPERTY_APM_HOST_TOP99P = "apm_host_top99p";
   private Long apmHostTop99p;
@@ -356,6 +360,28 @@ public class UsageSummaryDateOrg {
 
   public void setApmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
     this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
+  }
+
+  public UsageSummaryDateOrg apmFargateCountAvg(Long apmFargateCountAvg) {
+    this.apmFargateCountAvg = apmFargateCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all APM ECS Fargate tasks over all hours in the current months for the
+   * given org.
+   *
+   * @return apmFargateCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_FARGATE_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmFargateCountAvg() {
+    return apmFargateCountAvg;
+  }
+
+  public void setApmFargateCountAvg(Long apmFargateCountAvg) {
+    this.apmFargateCountAvg = apmFargateCountAvg;
   }
 
   public UsageSummaryDateOrg apmHostTop99p(Long apmHostTop99p) {
@@ -1793,6 +1819,7 @@ public class UsageSummaryDateOrg {
     return Objects.equals(this.agentHostTop99p, usageSummaryDateOrg.agentHostTop99p)
         && Objects.equals(
             this.apmAzureAppServiceHostTop99p, usageSummaryDateOrg.apmAzureAppServiceHostTop99p)
+        && Objects.equals(this.apmFargateCountAvg, usageSummaryDateOrg.apmFargateCountAvg)
         && Objects.equals(this.apmHostTop99p, usageSummaryDateOrg.apmHostTop99p)
         && Objects.equals(
             this.auditLogsLinesIndexedSum, usageSummaryDateOrg.auditLogsLinesIndexedSum)
@@ -1895,6 +1922,7 @@ public class UsageSummaryDateOrg {
     return Objects.hash(
         agentHostTop99p,
         apmAzureAppServiceHostTop99p,
+        apmFargateCountAvg,
         apmHostTop99p,
         auditLogsLinesIndexedSum,
         avgProfiledFargateTasks,
@@ -1970,6 +1998,7 @@ public class UsageSummaryDateOrg {
     sb.append("    apmAzureAppServiceHostTop99p: ")
         .append(toIndentedString(apmAzureAppServiceHostTop99p))
         .append("\n");
+    sb.append("    apmFargateCountAvg: ").append(toIndentedString(apmFargateCountAvg)).append("\n");
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
     sb.append("    auditLogsLinesIndexedSum: ")
         .append(toIndentedString(auditLogsLinesIndexedSum))
