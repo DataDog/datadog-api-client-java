@@ -26,11 +26,14 @@ public class SecurityMonitoringRuleTypeCreate {
 
   public static final SecurityMonitoringRuleTypeCreate LOG_DETECTION =
       new SecurityMonitoringRuleTypeCreate("log_detection");
+  public static final SecurityMonitoringRuleTypeCreate SIGNAL_CORRELATION =
+      new SecurityMonitoringRuleTypeCreate("signal_correlation");
   public static final SecurityMonitoringRuleTypeCreate WORKLOAD_SECURITY =
       new SecurityMonitoringRuleTypeCreate("workload_security");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("log_detection", "workload_security"));
+      new HashSet<String>(
+          Arrays.asList("log_detection", "signal_correlation", "workload_security"));
 
   private String value;
 

@@ -17,12 +17,15 @@ import java.util.Objects;
 /** Query for matching rule. */
 @JsonPropertyOrder({
   SecurityMonitoringRuleQuery.JSON_PROPERTY_AGGREGATION,
+  SecurityMonitoringRuleQuery.JSON_PROPERTY_CORRELATED_BY_FIELDS,
+  SecurityMonitoringRuleQuery.JSON_PROPERTY_CORRELATED_QUERY_INDEX,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_DISTINCT_FIELDS,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_METRIC,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_METRICS,
   SecurityMonitoringRuleQuery.JSON_PROPERTY_NAME,
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_QUERY
+  SecurityMonitoringRuleQuery.JSON_PROPERTY_QUERY,
+  SecurityMonitoringRuleQuery.JSON_PROPERTY_RULE_ID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -30,6 +33,12 @@ public class SecurityMonitoringRuleQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private SecurityMonitoringRuleQueryAggregation aggregation;
+
+  public static final String JSON_PROPERTY_CORRELATED_BY_FIELDS = "correlatedByFields";
+  private List<String> correlatedByFields = null;
+
+  public static final String JSON_PROPERTY_CORRELATED_QUERY_INDEX = "correlatedQueryIndex";
+  private Integer correlatedQueryIndex;
 
   public static final String JSON_PROPERTY_DISTINCT_FIELDS = "distinctFields";
   private List<String> distinctFields = null;
@@ -48,6 +57,9 @@ public class SecurityMonitoringRuleQuery {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public static final String JSON_PROPERTY_RULE_ID = "ruleId";
+  private String ruleId;
 
   public SecurityMonitoringRuleQuery aggregation(
       SecurityMonitoringRuleQueryAggregation aggregation) {
@@ -73,6 +85,57 @@ public class SecurityMonitoringRuleQuery {
       this.unparsed = true;
     }
     this.aggregation = aggregation;
+  }
+
+  public SecurityMonitoringRuleQuery correlatedByFields(List<String> correlatedByFields) {
+    this.correlatedByFields = correlatedByFields;
+    return this;
+  }
+
+  public SecurityMonitoringRuleQuery addCorrelatedByFieldsItem(String correlatedByFieldsItem) {
+    if (this.correlatedByFields == null) {
+      this.correlatedByFields = new ArrayList<>();
+    }
+    this.correlatedByFields.add(correlatedByFieldsItem);
+    return this;
+  }
+
+  /**
+   * Fields to group by for Signal Correlation rules.
+   *
+   * @return correlatedByFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CORRELATED_BY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCorrelatedByFields() {
+    return correlatedByFields;
+  }
+
+  public void setCorrelatedByFields(List<String> correlatedByFields) {
+    this.correlatedByFields = correlatedByFields;
+  }
+
+  public SecurityMonitoringRuleQuery correlatedQueryIndex(Integer correlatedQueryIndex) {
+    this.correlatedQueryIndex = correlatedQueryIndex;
+    return this;
+  }
+
+  /**
+   * Index of the rule query used to retrieve the correlated field for Signal Correlation rules.
+   * maximum: 9
+   *
+   * @return correlatedQueryIndex
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CORRELATED_QUERY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getCorrelatedQueryIndex() {
+    return correlatedQueryIndex;
+  }
+
+  public void setCorrelatedQueryIndex(Integer correlatedQueryIndex) {
+    this.correlatedQueryIndex = correlatedQueryIndex;
   }
 
   public SecurityMonitoringRuleQuery distinctFields(List<String> distinctFields) {
@@ -225,6 +288,27 @@ public class SecurityMonitoringRuleQuery {
     this.query = query;
   }
 
+  public SecurityMonitoringRuleQuery ruleId(String ruleId) {
+    this.ruleId = ruleId;
+    return this;
+  }
+
+  /**
+   * Rule ID to match on signals for Signal Correlation rules.
+   *
+   * @return ruleId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RULE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRuleId() {
+    return ruleId;
+  }
+
+  public void setRuleId(String ruleId) {
+    this.ruleId = ruleId;
+  }
+
   /** Return true if this SecurityMonitoringRuleQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -236,17 +320,31 @@ public class SecurityMonitoringRuleQuery {
     }
     SecurityMonitoringRuleQuery securityMonitoringRuleQuery = (SecurityMonitoringRuleQuery) o;
     return Objects.equals(this.aggregation, securityMonitoringRuleQuery.aggregation)
+        && Objects.equals(this.correlatedByFields, securityMonitoringRuleQuery.correlatedByFields)
+        && Objects.equals(
+            this.correlatedQueryIndex, securityMonitoringRuleQuery.correlatedQueryIndex)
         && Objects.equals(this.distinctFields, securityMonitoringRuleQuery.distinctFields)
         && Objects.equals(this.groupByFields, securityMonitoringRuleQuery.groupByFields)
         && Objects.equals(this.metric, securityMonitoringRuleQuery.metric)
         && Objects.equals(this.metrics, securityMonitoringRuleQuery.metrics)
         && Objects.equals(this.name, securityMonitoringRuleQuery.name)
-        && Objects.equals(this.query, securityMonitoringRuleQuery.query);
+        && Objects.equals(this.query, securityMonitoringRuleQuery.query)
+        && Objects.equals(this.ruleId, securityMonitoringRuleQuery.ruleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, distinctFields, groupByFields, metric, metrics, name, query);
+    return Objects.hash(
+        aggregation,
+        correlatedByFields,
+        correlatedQueryIndex,
+        distinctFields,
+        groupByFields,
+        metric,
+        metrics,
+        name,
+        query,
+        ruleId);
   }
 
   @Override
@@ -254,12 +352,17 @@ public class SecurityMonitoringRuleQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleQuery {\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
+    sb.append("    correlatedByFields: ").append(toIndentedString(correlatedByFields)).append("\n");
+    sb.append("    correlatedQueryIndex: ")
+        .append(toIndentedString(correlatedQueryIndex))
+        .append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
