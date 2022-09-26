@@ -1,22 +1,21 @@
-// Create a detection rule with type 'impossible_travel' returns "OK" response
+// Create a detection rule with type 'signal_correlation' returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseCreate;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
-import com.datadog.api.client.v2.model.SecurityMonitoringRuleDetectionMethod;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleEvaluationWindow;
-import com.datadog.api.client.v2.model.SecurityMonitoringRuleImpossibleTravelOptions;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleKeepAlive;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleMaxSignalDuration;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryAggregation;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
-import com.datadog.api.client.v2.model.SecurityMonitoringRuleTypeCreate;
-import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleCreatePayload;
-import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleQueryCreate;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalRuleCreatePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalRuleQueryCreate;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalRuleTypeCreate;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -24,36 +23,42 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
+    // there is a valid "security_rule" in the system
+    String SECURITY_RULE_ID = System.getenv("SECURITY_RULE_ID");
+
+    // there is a valid "security_rule_bis" in the system
+    String SECURITY_RULE_BIS_ID = System.getenv("SECURITY_RULE_BIS_ID");
+
     SecurityMonitoringRuleCreatePayload body =
         new SecurityMonitoringRuleCreatePayload(
-            new SecurityMonitoringStandardRuleCreatePayload()
+            new SecurityMonitoringSignalRuleCreatePayload()
+                .name(
+                    "Example-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response_signal_rule")
                 .queries(
-                    Collections.singletonList(
-                        new SecurityMonitoringStandardRuleQueryCreate()
-                            .aggregation(SecurityMonitoringRuleQueryAggregation.GEO_DATA)
-                            .groupByFields(Collections.singletonList("@usr.id"))
-                            .metric("@network.client.geoip")
-                            .query("*")))
+                    Arrays.asList(
+                        new SecurityMonitoringSignalRuleQueryCreate()
+                            .ruleId(SECURITY_RULE_ID)
+                            .aggregation(SecurityMonitoringRuleQueryAggregation.EVENT_COUNT)
+                            .correlatedByFields(Collections.singletonList("host"))
+                            .correlatedQueryIndex(1),
+                        new SecurityMonitoringSignalRuleQueryCreate()
+                            .ruleId(SECURITY_RULE_BIS_ID)
+                            .aggregation(SecurityMonitoringRuleQueryAggregation.EVENT_COUNT)
+                            .correlatedByFields(Collections.singletonList("host"))))
                 .cases(
                     Collections.singletonList(
                         new SecurityMonitoringRuleCaseCreate()
                             .name("")
-                            .status(SecurityMonitoringRuleSeverity.INFO)))
-                .hasExtendedTitle(true)
-                .message("test")
-                .isEnabled(true)
+                            .status(SecurityMonitoringRuleSeverity.INFO)
+                            .condition("a > 0 && b > 0")))
                 .options(
                     new SecurityMonitoringRuleOptions()
-                        .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.ONE_DAY)
                         .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.FIFTEEN_MINUTES)
                         .keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)
-                        .detectionMethod(SecurityMonitoringRuleDetectionMethod.IMPOSSIBLE_TRAVEL)
-                        .impossibleTravelOptions(
-                            new SecurityMonitoringRuleImpossibleTravelOptions()
-                                .baselineUserLocations(false)))
-                .name(
-                    "Example-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response")
-                .type(SecurityMonitoringRuleTypeCreate.LOG_DETECTION));
+                        .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.ONE_DAY))
+                .message("Test signal correlation rule")
+                .isEnabled(true)
+                .type(SecurityMonitoringSignalRuleTypeCreate.SIGNAL_CORRELATION));
 
     try {
       SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule(body);
