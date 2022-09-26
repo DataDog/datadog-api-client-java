@@ -6,271 +6,293 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/** Query for matching rule. */
-@JsonPropertyOrder({
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_AGGREGATION,
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_DISTINCT_FIELDS,
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_METRIC,
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_METRICS,
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_NAME,
-  SecurityMonitoringRuleQuery.JSON_PROPERTY_QUERY
-})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringRuleQuery {
+@JsonDeserialize(using = SecurityMonitoringRuleQuery.SecurityMonitoringRuleQueryDeserializer.class)
+@JsonSerialize(using = SecurityMonitoringRuleQuery.SecurityMonitoringRuleQuerySerializer.class)
+public class SecurityMonitoringRuleQuery extends AbstractOpenApiSchema {
+  private static final Logger log = Logger.getLogger(SecurityMonitoringRuleQuery.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
-  private SecurityMonitoringRuleQueryAggregation aggregation;
 
-  public static final String JSON_PROPERTY_DISTINCT_FIELDS = "distinctFields";
-  private List<String> distinctFields = null;
-
-  public static final String JSON_PROPERTY_GROUP_BY_FIELDS = "groupByFields";
-  private List<String> groupByFields = null;
-
-  public static final String JSON_PROPERTY_METRIC = "metric";
-  private String metric;
-
-  public static final String JSON_PROPERTY_METRICS = "metrics";
-  private List<String> metrics = null;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
-  public static final String JSON_PROPERTY_QUERY = "query";
-  private String query;
-
-  public SecurityMonitoringRuleQuery aggregation(
-      SecurityMonitoringRuleQueryAggregation aggregation) {
-    this.aggregation = aggregation;
-    this.unparsed |= !aggregation.isValid();
-    return this;
-  }
-
-  /**
-   * The aggregation type.
-   *
-   * @return aggregation
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AGGREGATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleQueryAggregation getAggregation() {
-    return aggregation;
-  }
-
-  public void setAggregation(SecurityMonitoringRuleQueryAggregation aggregation) {
-    if (!aggregation.isValid()) {
-      this.unparsed = true;
+  public static class SecurityMonitoringRuleQuerySerializer
+      extends StdSerializer<SecurityMonitoringRuleQuery> {
+    public SecurityMonitoringRuleQuerySerializer(Class<SecurityMonitoringRuleQuery> t) {
+      super(t);
     }
-    this.aggregation = aggregation;
-  }
 
-  public SecurityMonitoringRuleQuery distinctFields(List<String> distinctFields) {
-    this.distinctFields = distinctFields;
-    return this;
-  }
-
-  public SecurityMonitoringRuleQuery addDistinctFieldsItem(String distinctFieldsItem) {
-    if (this.distinctFields == null) {
-      this.distinctFields = new ArrayList<>();
+    public SecurityMonitoringRuleQuerySerializer() {
+      this(null);
     }
-    this.distinctFields.add(distinctFieldsItem);
-    return this;
-  }
 
-  /**
-   * Field for which the cardinality is measured. Sent as an array.
-   *
-   * @return distinctFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISTINCT_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getDistinctFields() {
-    return distinctFields;
-  }
-
-  public void setDistinctFields(List<String> distinctFields) {
-    this.distinctFields = distinctFields;
-  }
-
-  public SecurityMonitoringRuleQuery groupByFields(List<String> groupByFields) {
-    this.groupByFields = groupByFields;
-    return this;
-  }
-
-  public SecurityMonitoringRuleQuery addGroupByFieldsItem(String groupByFieldsItem) {
-    if (this.groupByFields == null) {
-      this.groupByFields = new ArrayList<>();
+    @Override
+    public void serialize(
+        SecurityMonitoringRuleQuery value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
     }
-    this.groupByFields.add(groupByFieldsItem);
-    return this;
   }
 
-  /**
-   * Fields to group by.
-   *
-   * @return groupByFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP_BY_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getGroupByFields() {
-    return groupByFields;
-  }
-
-  public void setGroupByFields(List<String> groupByFields) {
-    this.groupByFields = groupByFields;
-  }
-
-  public SecurityMonitoringRuleQuery metric(String metric) {
-    this.metric = metric;
-    return this;
-  }
-
-  /**
-   * The target field to aggregate over when using the sum or max aggregations.
-   *
-   * @return metric
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRIC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMetric() {
-    return metric;
-  }
-
-  public void setMetric(String metric) {
-    this.metric = metric;
-  }
-
-  public SecurityMonitoringRuleQuery metrics(List<String> metrics) {
-    this.metrics = metrics;
-    return this;
-  }
-
-  public SecurityMonitoringRuleQuery addMetricsItem(String metricsItem) {
-    if (this.metrics == null) {
-      this.metrics = new ArrayList<>();
+  public static class SecurityMonitoringRuleQueryDeserializer
+      extends StdDeserializer<SecurityMonitoringRuleQuery> {
+    public SecurityMonitoringRuleQueryDeserializer() {
+      this(SecurityMonitoringRuleQuery.class);
     }
-    this.metrics.add(metricsItem);
-    return this;
-  }
 
-  /**
-   * Group of target fields to aggregate over when using the new value aggregations.
-   *
-   * @return metrics
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRICS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getMetrics() {
-    return metrics;
-  }
-
-  public void setMetrics(List<String> metrics) {
-    this.metrics = metrics;
-  }
-
-  public SecurityMonitoringRuleQuery name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the query.
-   *
-   * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SecurityMonitoringRuleQuery query(String query) {
-    this.query = query;
-    return this;
-  }
-
-  /**
-   * Query to run on logs.
-   *
-   * @return query
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getQuery() {
-    return query;
-  }
-
-  public void setQuery(String query) {
-    this.query = query;
-  }
-
-  /** Return true if this SecurityMonitoringRuleQuery object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public SecurityMonitoringRuleQueryDeserializer(Class<?> vc) {
+      super(vc);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    @Override
+    public SecurityMonitoringRuleQuery deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize SecurityMonitoringStandardRuleQuery
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringStandardRuleQuery.class.equals(Integer.class)
+            || SecurityMonitoringStandardRuleQuery.class.equals(Long.class)
+            || SecurityMonitoringStandardRuleQuery.class.equals(Float.class)
+            || SecurityMonitoringStandardRuleQuery.class.equals(Double.class)
+            || SecurityMonitoringStandardRuleQuery.class.equals(Boolean.class)
+            || SecurityMonitoringStandardRuleQuery.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringStandardRuleQuery.class.equals(Integer.class)
+                        || SecurityMonitoringStandardRuleQuery.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringStandardRuleQuery.class.equals(Float.class)
+                        || SecurityMonitoringStandardRuleQuery.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringStandardRuleQuery.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringStandardRuleQuery.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SecurityMonitoringStandardRuleQuery.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringStandardRuleQuery) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SecurityMonitoringStandardRuleQuery'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'SecurityMonitoringStandardRuleQuery'",
+            e);
+      }
+
+      // deserialize SecurityMonitoringSignalRuleQuery
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringSignalRuleQuery.class.equals(Integer.class)
+            || SecurityMonitoringSignalRuleQuery.class.equals(Long.class)
+            || SecurityMonitoringSignalRuleQuery.class.equals(Float.class)
+            || SecurityMonitoringSignalRuleQuery.class.equals(Double.class)
+            || SecurityMonitoringSignalRuleQuery.class.equals(Boolean.class)
+            || SecurityMonitoringSignalRuleQuery.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringSignalRuleQuery.class.equals(Integer.class)
+                        || SecurityMonitoringSignalRuleQuery.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringSignalRuleQuery.class.equals(Float.class)
+                        || SecurityMonitoringSignalRuleQuery.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringSignalRuleQuery.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringSignalRuleQuery.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SecurityMonitoringSignalRuleQuery.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringSignalRuleQuery) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SecurityMonitoringSignalRuleQuery'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'SecurityMonitoringSignalRuleQuery'", e);
+      }
+
+      SecurityMonitoringRuleQuery ret = new SecurityMonitoringRuleQuery();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
     }
-    SecurityMonitoringRuleQuery securityMonitoringRuleQuery = (SecurityMonitoringRuleQuery) o;
-    return Objects.equals(this.aggregation, securityMonitoringRuleQuery.aggregation)
-        && Objects.equals(this.distinctFields, securityMonitoringRuleQuery.distinctFields)
-        && Objects.equals(this.groupByFields, securityMonitoringRuleQuery.groupByFields)
-        && Objects.equals(this.metric, securityMonitoringRuleQuery.metric)
-        && Objects.equals(this.metrics, securityMonitoringRuleQuery.metrics)
-        && Objects.equals(this.name, securityMonitoringRuleQuery.name)
-        && Objects.equals(this.query, securityMonitoringRuleQuery.query);
+
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public SecurityMonitoringRuleQuery getNullValue(DeserializationContext ctxt)
+        throws JsonMappingException {
+      throw new JsonMappingException(
+          ctxt.getParser(), "SecurityMonitoringRuleQuery cannot be null");
+    }
+  }
+
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public SecurityMonitoringRuleQuery() {
+    super("oneOf", Boolean.FALSE);
+  }
+
+  public SecurityMonitoringRuleQuery(SecurityMonitoringStandardRuleQuery o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public SecurityMonitoringRuleQuery(SecurityMonitoringSignalRuleQuery o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  static {
+    schemas.put(
+        "SecurityMonitoringStandardRuleQuery",
+        new GenericType<SecurityMonitoringStandardRuleQuery>() {});
+    schemas.put(
+        "SecurityMonitoringSignalRuleQuery",
+        new GenericType<SecurityMonitoringSignalRuleQuery>() {});
+    JSON.registerDescendants(
+        SecurityMonitoringRuleQuery.class, Collections.unmodifiableMap(schemas));
   }
 
   @Override
-  public int hashCode() {
-    return Objects.hash(aggregation, distinctFields, groupByFields, metric, metrics, name, query);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringRuleQuery {\n");
-    sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
-    sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
-    sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
-    sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
-    sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
-    sb.append("}");
-    return sb.toString();
+  public Map<String, GenericType> getSchemas() {
+    return SecurityMonitoringRuleQuery.schemas;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: SecurityMonitoringStandardRuleQuery,
+   * SecurityMonitoringSignalRuleQuery
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(
+        SecurityMonitoringStandardRuleQuery.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    return o.toString().replace("\n", "\n    ");
+    if (JSON.isInstanceOf(
+        SecurityMonitoringSignalRuleQuery.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be SecurityMonitoringStandardRuleQuery,"
+            + " SecurityMonitoringSignalRuleQuery");
+  }
+
+  /**
+   * Get the actual instance, which can be the following: SecurityMonitoringStandardRuleQuery,
+   * SecurityMonitoringSignalRuleQuery
+   *
+   * @return The actual instance (SecurityMonitoringStandardRuleQuery,
+   *     SecurityMonitoringSignalRuleQuery)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SecurityMonitoringStandardRuleQuery`. If the actual instance is not
+   * `SecurityMonitoringStandardRuleQuery`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SecurityMonitoringStandardRuleQuery`
+   * @throws ClassCastException if the instance is not `SecurityMonitoringStandardRuleQuery`
+   */
+  public SecurityMonitoringStandardRuleQuery getSecurityMonitoringStandardRuleQuery()
+      throws ClassCastException {
+    return (SecurityMonitoringStandardRuleQuery) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SecurityMonitoringSignalRuleQuery`. If the actual instance is not
+   * `SecurityMonitoringSignalRuleQuery`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SecurityMonitoringSignalRuleQuery`
+   * @throws ClassCastException if the instance is not `SecurityMonitoringSignalRuleQuery`
+   */
+  public SecurityMonitoringSignalRuleQuery getSecurityMonitoringSignalRuleQuery()
+      throws ClassCastException {
+    return (SecurityMonitoringSignalRuleQuery) super.getActualInstance();
   }
 }

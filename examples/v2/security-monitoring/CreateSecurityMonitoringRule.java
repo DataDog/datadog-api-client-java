@@ -10,9 +10,11 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleKeepAlive;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleMaxSignalDuration;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryAggregation;
-import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryCreate;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleTypeCreate;
+import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleCreatePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleQueryCreate;
 import java.util.Collections;
 
 public class Example {
@@ -21,27 +23,29 @@ public class Example {
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     SecurityMonitoringRuleCreatePayload body =
-        new SecurityMonitoringRuleCreatePayload()
-            .name("Example-Create_a_detection_rule_returns_OK_response")
-            .queries(
-                Collections.singletonList(
-                    new SecurityMonitoringRuleQueryCreate()
-                        .query("@test:true")
-                        .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
-                        .metric("")))
-            .cases(
-                Collections.singletonList(
-                    new SecurityMonitoringRuleCaseCreate()
-                        .name("")
-                        .status(SecurityMonitoringRuleSeverity.INFO)
-                        .condition("a > 0")))
-            .options(
-                new SecurityMonitoringRuleOptions()
-                    .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.FIFTEEN_MINUTES)
-                    .keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)
-                    .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.ONE_DAY))
-            .message("Test rule")
-            .isEnabled(true);
+        new SecurityMonitoringRuleCreatePayload(
+            new SecurityMonitoringStandardRuleCreatePayload()
+                .name("Example-Create_a_detection_rule_returns_OK_response")
+                .queries(
+                    Collections.singletonList(
+                        new SecurityMonitoringStandardRuleQueryCreate()
+                            .query("@test:true")
+                            .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
+                            .metric("")))
+                .cases(
+                    Collections.singletonList(
+                        new SecurityMonitoringRuleCaseCreate()
+                            .name("")
+                            .status(SecurityMonitoringRuleSeverity.INFO)
+                            .condition("a > 0")))
+                .options(
+                    new SecurityMonitoringRuleOptions()
+                        .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.FIFTEEN_MINUTES)
+                        .keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)
+                        .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.ONE_DAY))
+                .message("Test rule")
+                .isEnabled(true)
+                .type(SecurityMonitoringRuleTypeCreate.LOG_DETECTION));
 
     try {
       SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule(body);

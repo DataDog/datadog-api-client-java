@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"status\":\"info\"}],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_returns_Bad_Request_response-1641430328\",\"options\":{},\"queries\":[{\"query\":\"\"}],\"tags\":[]}"
+        "json": "{\"cases\":[{\"status\":\"info\"}],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_returns_Bad_Request_response-1663594809\",\"options\":{},\"queries\":[{\"query\":\"\"}],\"tags\":[]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Internal error\"]}",
+      "body": "{\"errors\":[\"Internal error\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4d53ca34-7108-5c10-1af2-0b2ff993dc32"
+    "id": "3602fe69-9ca5-aac8-1382-6a017e5dd9cf"
   }
 ]
