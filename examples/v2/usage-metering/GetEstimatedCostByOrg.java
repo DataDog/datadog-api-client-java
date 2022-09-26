@@ -8,11 +8,10 @@ import com.datadog.api.client.v2.model.CostByOrgResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.getEstimatedCostByOrg", true);
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {
-      CostByOrgResponse result = apiInstance.getEstimatedCostByOrg("view");
+      CostByOrgResponse result = apiInstance.getEstimatedCostByOrg();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsageMeteringApi#getEstimatedCostByOrg");
