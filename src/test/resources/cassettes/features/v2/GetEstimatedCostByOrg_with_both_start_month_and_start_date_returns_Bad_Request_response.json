@@ -1,0 +1,39 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/usage/estimated_cost",
+      "queryStringParameters": {
+        "view": [
+          "sub-org"
+        ],
+        "start_month": [
+          "2022-09-20T14:04:15.545Z"
+        ],
+        "start_date": [
+          "2022-09-20T14:04:15.545Z"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"API called with non-parent org keys. Data is only available at the root level org\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6f83bc6b-9f6d-8855-ab20-10ced5adc5f0"
+  }
+]
