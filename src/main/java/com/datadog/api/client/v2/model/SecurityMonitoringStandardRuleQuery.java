@@ -6,6 +6,7 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -48,6 +49,14 @@ public class SecurityMonitoringStandardRuleQuery {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public SecurityMonitoringStandardRuleQuery() {}
+
+  @JsonCreator
+  public SecurityMonitoringStandardRuleQuery(
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
+    this.query = query;
+  }
 
   public SecurityMonitoringStandardRuleQuery aggregation(
       SecurityMonitoringRuleQueryAggregation aggregation) {
@@ -214,9 +223,8 @@ public class SecurityMonitoringStandardRuleQuery {
    *
    * @return query
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {
     return query;
   }

@@ -16,7 +16,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTypeCreate;
 import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleCreatePayload;
-import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleQueryCreate;
+import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleQuery;
 import java.util.Collections;
 
 public class Example {
@@ -29,7 +29,7 @@ public class Example {
             new SecurityMonitoringStandardRuleCreatePayload()
                 .queries(
                     Collections.singletonList(
-                        new SecurityMonitoringStandardRuleQueryCreate()
+                        new SecurityMonitoringStandardRuleQuery()
                             .aggregation(SecurityMonitoringRuleQueryAggregation.GEO_DATA)
                             .groupByFields(Collections.singletonList("@usr.id"))
                             .metric("@network.client.geoip")

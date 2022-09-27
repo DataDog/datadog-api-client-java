@@ -13,7 +13,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryAggregation;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalRuleCreatePayload;
-import com.datadog.api.client.v2.model.SecurityMonitoringSignalRuleQueryCreate;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalRuleQuery;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalRuleTypeCreate;
 import java.util.Arrays;
 import java.util.Collections;
@@ -36,12 +36,12 @@ public class Example {
                     "Example-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response_signal_rule")
                 .queries(
                     Arrays.asList(
-                        new SecurityMonitoringSignalRuleQueryCreate()
+                        new SecurityMonitoringSignalRuleQuery()
                             .ruleId(SECURITY_RULE_ID)
                             .aggregation(SecurityMonitoringRuleQueryAggregation.EVENT_COUNT)
                             .correlatedByFields(Collections.singletonList("host"))
                             .correlatedQueryIndex(1),
-                        new SecurityMonitoringSignalRuleQueryCreate()
+                        new SecurityMonitoringSignalRuleQuery()
                             .ruleId(SECURITY_RULE_BIS_ID)
                             .aggregation(SecurityMonitoringRuleQueryAggregation.EVENT_COUNT)
                             .correlatedByFields(Collections.singletonList("host"))))

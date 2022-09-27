@@ -66,7 +66,8 @@ public class Example {
                 Collections.singletonList(
                     new SecurityMonitoringRuleQuery(
                         new SecurityMonitoringStandardRuleQuery()
-                            .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT))))
+                            .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
+                            .query("a > 3"))))
             .version(1);
 
     try {
