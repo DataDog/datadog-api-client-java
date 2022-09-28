@@ -54,13 +54,13 @@ public class SecurityMonitoringSignalRuleCreatePayload {
   private SecurityMonitoringRuleOptions options;
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
-  private List<SecurityMonitoringSignalRuleQueryCreate> queries = new ArrayList<>();
+  private List<SecurityMonitoringSignalRuleQuery> queries = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SecurityMonitoringSignalRuleTypeCreate type;
+  private SecurityMonitoringSignalRuleType type;
 
   public SecurityMonitoringSignalRuleCreatePayload() {}
 
@@ -74,7 +74,7 @@ public class SecurityMonitoringSignalRuleCreatePayload {
       @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS)
           SecurityMonitoringRuleOptions options,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
-          List<SecurityMonitoringSignalRuleQueryCreate> queries) {
+          List<SecurityMonitoringSignalRuleQuery> queries) {
     this.cases = cases;
     this.isEnabled = isEnabled;
     this.message = message;
@@ -252,16 +252,16 @@ public class SecurityMonitoringSignalRuleCreatePayload {
   }
 
   public SecurityMonitoringSignalRuleCreatePayload queries(
-      List<SecurityMonitoringSignalRuleQueryCreate> queries) {
+      List<SecurityMonitoringSignalRuleQuery> queries) {
     this.queries = queries;
-    for (SecurityMonitoringSignalRuleQueryCreate item : queries) {
+    for (SecurityMonitoringSignalRuleQuery item : queries) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public SecurityMonitoringSignalRuleCreatePayload addQueriesItem(
-      SecurityMonitoringSignalRuleQueryCreate queriesItem) {
+      SecurityMonitoringSignalRuleQuery queriesItem) {
     this.queries.add(queriesItem);
     this.unparsed |= queriesItem.unparsed;
     return this;
@@ -274,11 +274,11 @@ public class SecurityMonitoringSignalRuleCreatePayload {
    */
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SecurityMonitoringSignalRuleQueryCreate> getQueries() {
+  public List<SecurityMonitoringSignalRuleQuery> getQueries() {
     return queries;
   }
 
-  public void setQueries(List<SecurityMonitoringSignalRuleQueryCreate> queries) {
+  public void setQueries(List<SecurityMonitoringSignalRuleQuery> queries) {
     this.queries = queries;
   }
 
@@ -311,8 +311,7 @@ public class SecurityMonitoringSignalRuleCreatePayload {
     this.tags = tags;
   }
 
-  public SecurityMonitoringSignalRuleCreatePayload type(
-      SecurityMonitoringSignalRuleTypeCreate type) {
+  public SecurityMonitoringSignalRuleCreatePayload type(SecurityMonitoringSignalRuleType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -326,11 +325,11 @@ public class SecurityMonitoringSignalRuleCreatePayload {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringSignalRuleTypeCreate getType() {
+  public SecurityMonitoringSignalRuleType getType() {
     return type;
   }
 
-  public void setType(SecurityMonitoringSignalRuleTypeCreate type) {
+  public void setType(SecurityMonitoringSignalRuleType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

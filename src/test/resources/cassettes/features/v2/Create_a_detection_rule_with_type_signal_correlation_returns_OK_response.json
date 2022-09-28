@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metric\":\"\",\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metric\":\"\",\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1663584737718,\"filters\":[],\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"wjo-ehv-wku\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737\"}\n",
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1664284011737,\"filters\":[],\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"bvi-e5q-fw2\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f87379fd-da56-237a-4d01-3b426800cc74"
+    "id": "0bab2d6a-2f7d-eb6d-5f71-2f78b87c1146"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule Bis\",\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737_bis\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metric\":\"\",\"query\":\"@test:false\"}],\"tags\":[],\"type\":\"log_detection\"}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule Bis\",\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011_bis\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metric\":\"\",\"query\":\"@test:false\"}],\"tags\":[],\"type\":\"log_detection\"}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule Bis\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1663584738121,\"filters\":[],\"queries\":[{\"query\":\"@test:false\",\"groupByFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"mfw-y8s-dhf\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737_bis\"}\n",
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule Bis\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1664284012131,\"filters\":[],\"queries\":[{\"query\":\"@test:false\",\"groupByFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"iik-vtr-194\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011_bis\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7d3689f4-952c-d4aa-7156-733a735db448"
+    "id": "09e82e2d-3e4d-bddc-fbf3-87f4b649a7f2"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0 && b > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test signal correlation rule\",\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737_signal_rule\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"event_count\",\"correlatedByFields\":[\"host\"],\"correlatedQueryIndex\":1,\"ruleId\":\"wjo-ehv-wku\"},{\"aggregation\":\"event_count\",\"correlatedByFields\":[\"host\"],\"ruleId\":\"mfw-y8s-dhf\"}],\"tags\":[],\"type\":\"signal_correlation\"}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0 && b > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test signal correlation rule\",\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011_signal_rule\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"event_count\",\"correlatedByFields\":[\"host\"],\"correlatedQueryIndex\":1,\"ruleId\":\"bvi-e5q-fw2\"},{\"aggregation\":\"event_count\",\"correlatedByFields\":[\"host\"],\"ruleId\":\"iik-vtr-194\"}],\"tags\":[],\"type\":\"signal_correlation\"}"
       },
       "headers": {},
       "method": "POST",
@@ -72,7 +72,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test signal correlation rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1663584738582,\"filters\":[],\"queries\":[{\"distinctFields\":[],\"correlatedByFields\":[\"host\"],\"name\":\"\",\"ruleId\":\"wjo-ehv-wku\",\"aggregation\":\"event_count\",\"groupByFields\":[],\"correlatedQueryIndex\":1},{\"distinctFields\":[],\"correlatedByFields\":[\"host\"],\"name\":\"\",\"ruleId\":\"mfw-y8s-dhf\",\"aggregation\":\"event_count\",\"groupByFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0 && b > 0\"}],\"type\":\"signal_correlation\",\"id\":\"rrg-f60-8ru\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1663584737_signal_rule\"}\n",
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test signal correlation rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1664284012602,\"filters\":[],\"queries\":[{\"distinctFields\":[],\"correlatedByFields\":[\"host\"],\"name\":\"\",\"ruleId\":\"bvi-e5q-fw2\",\"aggregation\":\"event_count\",\"groupByFields\":[],\"correlatedQueryIndex\":1},{\"distinctFields\":[],\"correlatedByFields\":[\"host\"],\"name\":\"\",\"ruleId\":\"iik-vtr-194\",\"aggregation\":\"event_count\",\"groupByFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0 && b > 0\"}],\"type\":\"signal_correlation\",\"id\":\"l1e-bel-iqm\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response-1664284011_signal_rule\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -87,13 +87,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d09dc517-f782-c1e8-ab1f-647278675f0f"
+    "id": "ff43406b-40bc-691d-1aba-9a180646a55f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/rrg-f60-8ru",
+      "path": "/api/v2/security_monitoring/rules/l1e-bel-iqm",
       "keepAlive": false,
       "secure": true
     },
@@ -108,13 +108,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9a26068d-7557-aaf5-e9e7-eed8f67992a9"
+    "id": "0520a0a7-59e6-5c08-b28f-83c9b97a96b9"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/mfw-y8s-dhf",
+      "path": "/api/v2/security_monitoring/rules/iik-vtr-194",
       "keepAlive": false,
       "secure": true
     },
@@ -129,13 +129,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e02b059e-65a8-48ee-0b9b-90b4122adea3"
+    "id": "511b960c-1acd-f8ef-39cf-54b0221dde16"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/wjo-ehv-wku",
+      "path": "/api/v2/security_monitoring/rules/bvi-e5q-fw2",
       "keepAlive": false,
       "secure": true
     },
@@ -150,6 +150,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "86a6113a-b6fa-5391-7139-d6661c1754e5"
+    "id": "189af9bb-c92b-0893-d71f-5680314238ac"
   }
 ]

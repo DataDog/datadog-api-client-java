@@ -14,7 +14,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTypeCreate;
 import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleCreatePayload;
-import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleQueryCreate;
+import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleQuery;
 import java.util.Collections;
 
 public class Example {
@@ -29,7 +29,7 @@ public class Example {
                     "Example-Create_a_detection_rule_with_type_workload_security_returns_OK_response")
                 .queries(
                     Collections.singletonList(
-                        new SecurityMonitoringStandardRuleQueryCreate()
+                        new SecurityMonitoringStandardRuleQuery()
                             .query("@test:true")
                             .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
                             .metric("")))

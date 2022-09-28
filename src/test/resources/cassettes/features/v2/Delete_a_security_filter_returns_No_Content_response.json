@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1652349191\",\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1652349191\"},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1664284016\",\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1664284016\"},\"type\":\"security_filters\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,10 +12,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1652349191\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1652349191\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"7zq-iqt-o0r\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1664284016\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1664284016\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"d9w-8nc-bzo\"}}\n",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -27,20 +27,20 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6d294537-7138-0e5e-898e-eadf65dca561"
+    "id": "462065bb-7200-22e0-f888-c0ea6426b541"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/7zq-iqt-o0r",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/d9w-8nc-bzo",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "text/html; charset=utf-8"
         ]
       },
       "statusCode": 204,
@@ -52,18 +52,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a46273a7-a586-c4bf-d261-20b09bcbd753"
+    "id": "0fde60e2-4b28-676c-0d86-7b4ba8f6a02b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/7zq-iqt-o0r",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/d9w-8nc-bzo",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Security filter with id '7zq-iqt-o0r' not found)\"]}",
+      "body": "{\"errors\":[\"not_found(Security filter with id 'd9w-8nc-bzo' not found)\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a46273a7-a586-c4bf-d261-20b09bcbd754"
+    "id": "0fde60e2-4b28-676c-0d86-7b4ba8f6a02c"
   }
 ]

@@ -26,8 +26,6 @@ public class SecurityMonitoringRuleTypeRead {
 
   public static final SecurityMonitoringRuleTypeRead LOG_DETECTION =
       new SecurityMonitoringRuleTypeRead("log_detection");
-  public static final SecurityMonitoringRuleTypeRead SIGNAL_CORRELATION =
-      new SecurityMonitoringRuleTypeRead("signal_correlation");
   public static final SecurityMonitoringRuleTypeRead INFRASTRUCTURE_CONFIGURATION =
       new SecurityMonitoringRuleTypeRead("infrastructure_configuration");
   public static final SecurityMonitoringRuleTypeRead WORKLOAD_SECURITY =
@@ -39,7 +37,6 @@ public class SecurityMonitoringRuleTypeRead {
       new HashSet<String>(
           Arrays.asList(
               "log_detection",
-              "signal_correlation",
               "infrastructure_configuration",
               "workload_security",
               "cloud_configuration"));
