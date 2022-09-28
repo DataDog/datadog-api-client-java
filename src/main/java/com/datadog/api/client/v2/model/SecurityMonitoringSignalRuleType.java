@@ -21,13 +21,11 @@ import java.util.Set;
 
 /** The rule type. */
 @JsonSerialize(
-    using =
-        SecurityMonitoringSignalRuleTypeCreate.SecurityMonitoringSignalRuleTypeCreateSerializer
-            .class)
-public class SecurityMonitoringSignalRuleTypeCreate {
+    using = SecurityMonitoringSignalRuleType.SecurityMonitoringSignalRuleTypeSerializer.class)
+public class SecurityMonitoringSignalRuleType {
 
-  public static final SecurityMonitoringSignalRuleTypeCreate SIGNAL_CORRELATION =
-      new SecurityMonitoringSignalRuleTypeCreate("signal_correlation");
+  public static final SecurityMonitoringSignalRuleType SIGNAL_CORRELATION =
+      new SecurityMonitoringSignalRuleType("signal_correlation");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("signal_correlation"));
@@ -38,26 +36,23 @@ public class SecurityMonitoringSignalRuleTypeCreate {
     return allowedValues.contains(this.value);
   }
 
-  SecurityMonitoringSignalRuleTypeCreate(String value) {
+  SecurityMonitoringSignalRuleType(String value) {
     this.value = value;
   }
 
-  public static class SecurityMonitoringSignalRuleTypeCreateSerializer
-      extends StdSerializer<SecurityMonitoringSignalRuleTypeCreate> {
-    public SecurityMonitoringSignalRuleTypeCreateSerializer(
-        Class<SecurityMonitoringSignalRuleTypeCreate> t) {
+  public static class SecurityMonitoringSignalRuleTypeSerializer
+      extends StdSerializer<SecurityMonitoringSignalRuleType> {
+    public SecurityMonitoringSignalRuleTypeSerializer(Class<SecurityMonitoringSignalRuleType> t) {
       super(t);
     }
 
-    public SecurityMonitoringSignalRuleTypeCreateSerializer() {
+    public SecurityMonitoringSignalRuleTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        SecurityMonitoringSignalRuleTypeCreate value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
+        SecurityMonitoringSignalRuleType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -72,7 +67,7 @@ public class SecurityMonitoringSignalRuleTypeCreate {
     this.value = value;
   }
 
-  /** Return true if this SecurityMonitoringSignalRuleTypeCreate object is equal to o. */
+  /** Return true if this SecurityMonitoringSignalRuleType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -81,7 +76,7 @@ public class SecurityMonitoringSignalRuleTypeCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((SecurityMonitoringSignalRuleTypeCreate) o).value);
+    return this.value.equals(((SecurityMonitoringSignalRuleType) o).value);
   }
 
   @Override
@@ -95,7 +90,7 @@ public class SecurityMonitoringSignalRuleTypeCreate {
   }
 
   @JsonCreator
-  public static SecurityMonitoringSignalRuleTypeCreate fromValue(String value) {
-    return new SecurityMonitoringSignalRuleTypeCreate(value);
+  public static SecurityMonitoringSignalRuleType fromValue(String value) {
+    return new SecurityMonitoringSignalRuleType(value);
   }
 }

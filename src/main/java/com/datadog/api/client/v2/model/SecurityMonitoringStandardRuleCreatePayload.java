@@ -54,7 +54,7 @@ public class SecurityMonitoringStandardRuleCreatePayload {
   private SecurityMonitoringRuleOptions options;
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
-  private List<SecurityMonitoringStandardRuleQueryCreate> queries = new ArrayList<>();
+  private List<SecurityMonitoringStandardRuleQuery> queries = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -74,7 +74,7 @@ public class SecurityMonitoringStandardRuleCreatePayload {
       @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS)
           SecurityMonitoringRuleOptions options,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
-          List<SecurityMonitoringStandardRuleQueryCreate> queries) {
+          List<SecurityMonitoringStandardRuleQuery> queries) {
     this.cases = cases;
     this.isEnabled = isEnabled;
     this.message = message;
@@ -254,16 +254,16 @@ public class SecurityMonitoringStandardRuleCreatePayload {
   }
 
   public SecurityMonitoringStandardRuleCreatePayload queries(
-      List<SecurityMonitoringStandardRuleQueryCreate> queries) {
+      List<SecurityMonitoringStandardRuleQuery> queries) {
     this.queries = queries;
-    for (SecurityMonitoringStandardRuleQueryCreate item : queries) {
+    for (SecurityMonitoringStandardRuleQuery item : queries) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public SecurityMonitoringStandardRuleCreatePayload addQueriesItem(
-      SecurityMonitoringStandardRuleQueryCreate queriesItem) {
+      SecurityMonitoringStandardRuleQuery queriesItem) {
     this.queries.add(queriesItem);
     this.unparsed |= queriesItem.unparsed;
     return this;
@@ -276,11 +276,11 @@ public class SecurityMonitoringStandardRuleCreatePayload {
    */
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SecurityMonitoringStandardRuleQueryCreate> getQueries() {
+  public List<SecurityMonitoringStandardRuleQuery> getQueries() {
     return queries;
   }
 
-  public void setQueries(List<SecurityMonitoringStandardRuleQueryCreate> queries) {
+  public void setQueries(List<SecurityMonitoringStandardRuleQuery> queries) {
     this.queries = queries;
   }
 
