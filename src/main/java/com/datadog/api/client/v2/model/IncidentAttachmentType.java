@@ -19,15 +19,15 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Object related to an incident. */
-@JsonSerialize(using = IncidentRelatedObject.IncidentRelatedObjectSerializer.class)
-public class IncidentRelatedObject {
+/** The incident attachment resource type. */
+@JsonSerialize(using = IncidentAttachmentType.IncidentAttachmentTypeSerializer.class)
+public class IncidentAttachmentType {
 
-  public static final IncidentRelatedObject USERS = new IncidentRelatedObject("users");
-  public static final IncidentRelatedObject ATTACHMENTS = new IncidentRelatedObject("attachments");
+  public static final IncidentAttachmentType INCIDENT_ATTACHMENTS =
+      new IncidentAttachmentType("incident_attachments");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("users", "attachments"));
+      new HashSet<String>(Arrays.asList("incident_attachments"));
 
   private String value;
 
@@ -35,22 +35,23 @@ public class IncidentRelatedObject {
     return allowedValues.contains(this.value);
   }
 
-  IncidentRelatedObject(String value) {
+  IncidentAttachmentType(String value) {
     this.value = value;
   }
 
-  public static class IncidentRelatedObjectSerializer extends StdSerializer<IncidentRelatedObject> {
-    public IncidentRelatedObjectSerializer(Class<IncidentRelatedObject> t) {
+  public static class IncidentAttachmentTypeSerializer
+      extends StdSerializer<IncidentAttachmentType> {
+    public IncidentAttachmentTypeSerializer(Class<IncidentAttachmentType> t) {
       super(t);
     }
 
-    public IncidentRelatedObjectSerializer() {
+    public IncidentAttachmentTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        IncidentRelatedObject value, JsonGenerator jgen, SerializerProvider provider)
+        IncidentAttachmentType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -65,7 +66,7 @@ public class IncidentRelatedObject {
     this.value = value;
   }
 
-  /** Return true if this IncidentRelatedObject object is equal to o. */
+  /** Return true if this IncidentAttachmentType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -74,7 +75,7 @@ public class IncidentRelatedObject {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((IncidentRelatedObject) o).value);
+    return this.value.equals(((IncidentAttachmentType) o).value);
   }
 
   @Override
@@ -88,7 +89,7 @@ public class IncidentRelatedObject {
   }
 
   @JsonCreator
-  public static IncidentRelatedObject fromValue(String value) {
-    return new IncidentRelatedObject(value);
+  public static IncidentAttachmentType fromValue(String value) {
+    return new IncidentAttachmentType(value);
   }
 }

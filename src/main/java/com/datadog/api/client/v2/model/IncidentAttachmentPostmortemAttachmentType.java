@@ -19,15 +19,17 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Object related to an incident. */
-@JsonSerialize(using = IncidentRelatedObject.IncidentRelatedObjectSerializer.class)
-public class IncidentRelatedObject {
+/** The type of postmortem attachment attributes. */
+@JsonSerialize(
+    using =
+        IncidentAttachmentPostmortemAttachmentType
+            .IncidentAttachmentPostmortemAttachmentTypeSerializer.class)
+public class IncidentAttachmentPostmortemAttachmentType {
 
-  public static final IncidentRelatedObject USERS = new IncidentRelatedObject("users");
-  public static final IncidentRelatedObject ATTACHMENTS = new IncidentRelatedObject("attachments");
+  public static final IncidentAttachmentPostmortemAttachmentType POSTMORTEM =
+      new IncidentAttachmentPostmortemAttachmentType("postmortem");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("users", "attachments"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("postmortem"));
 
   private String value;
 
@@ -35,22 +37,26 @@ public class IncidentRelatedObject {
     return allowedValues.contains(this.value);
   }
 
-  IncidentRelatedObject(String value) {
+  IncidentAttachmentPostmortemAttachmentType(String value) {
     this.value = value;
   }
 
-  public static class IncidentRelatedObjectSerializer extends StdSerializer<IncidentRelatedObject> {
-    public IncidentRelatedObjectSerializer(Class<IncidentRelatedObject> t) {
+  public static class IncidentAttachmentPostmortemAttachmentTypeSerializer
+      extends StdSerializer<IncidentAttachmentPostmortemAttachmentType> {
+    public IncidentAttachmentPostmortemAttachmentTypeSerializer(
+        Class<IncidentAttachmentPostmortemAttachmentType> t) {
       super(t);
     }
 
-    public IncidentRelatedObjectSerializer() {
+    public IncidentAttachmentPostmortemAttachmentTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        IncidentRelatedObject value, JsonGenerator jgen, SerializerProvider provider)
+        IncidentAttachmentPostmortemAttachmentType value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -65,7 +71,7 @@ public class IncidentRelatedObject {
     this.value = value;
   }
 
-  /** Return true if this IncidentRelatedObject object is equal to o. */
+  /** Return true if this IncidentAttachmentPostmortemAttachmentType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -74,7 +80,7 @@ public class IncidentRelatedObject {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((IncidentRelatedObject) o).value);
+    return this.value.equals(((IncidentAttachmentPostmortemAttachmentType) o).value);
   }
 
   @Override
@@ -88,7 +94,7 @@ public class IncidentRelatedObject {
   }
 
   @JsonCreator
-  public static IncidentRelatedObject fromValue(String value) {
-    return new IncidentRelatedObject(value);
+  public static IncidentAttachmentPostmortemAttachmentType fromValue(String value) {
+    return new IncidentAttachmentPostmortemAttachmentType(value);
   }
 }

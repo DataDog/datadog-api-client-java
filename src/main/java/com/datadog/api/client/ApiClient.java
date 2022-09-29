@@ -435,8 +435,10 @@ public class ApiClient {
           put("v2.createIncident", false);
           put("v2.deleteIncident", false);
           put("v2.getIncident", false);
+          put("v2.listIncidentAttachments", false);
           put("v2.listIncidents", false);
           put("v2.updateIncident", false);
+          put("v2.updateIncidentAttachments", false);
           put("v2.createIncidentService", false);
           put("v2.deleteIncidentService", false);
           put("v2.getIncidentService", false);
