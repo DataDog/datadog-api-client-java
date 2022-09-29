@@ -33,7 +33,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentResponseAttributes.JSON_PROPERTY_FIELDS,
   IncidentResponseAttributes.JSON_PROPERTY_MODIFIED,
   IncidentResponseAttributes.JSON_PROPERTY_NOTIFICATION_HANDLES,
-  IncidentResponseAttributes.JSON_PROPERTY_POSTMORTEM_ID,
   IncidentResponseAttributes.JSON_PROPERTY_PUBLIC_ID,
   IncidentResponseAttributes.JSON_PROPERTY_RESOLVED,
   IncidentResponseAttributes.JSON_PROPERTY_TIME_TO_DETECT,
@@ -87,9 +86,6 @@ public class IncidentResponseAttributes {
   public static final String JSON_PROPERTY_NOTIFICATION_HANDLES = "notification_handles";
   private JsonNullable<List<IncidentNotificationHandle>> notificationHandles =
       JsonNullable.<List<IncidentNotificationHandle>>undefined();
-
-  public static final String JSON_PROPERTY_POSTMORTEM_ID = "postmortem_id";
-  private String postmortemId;
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private Long publicId;
@@ -383,27 +379,6 @@ public class IncidentResponseAttributes {
         JsonNullable.<List<IncidentNotificationHandle>>of(notificationHandles);
   }
 
-  public IncidentResponseAttributes postmortemId(String postmortemId) {
-    this.postmortemId = postmortemId;
-    return this;
-  }
-
-  /**
-   * The UUID of the postmortem object attached to the incident.
-   *
-   * @return postmortemId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POSTMORTEM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPostmortemId() {
-    return postmortemId;
-  }
-
-  public void setPostmortemId(String postmortemId) {
-    this.postmortemId = postmortemId;
-  }
-
   public IncidentResponseAttributes publicId(Long publicId) {
     this.publicId = publicId;
     return this;
@@ -549,7 +524,6 @@ public class IncidentResponseAttributes {
         && Objects.equals(this.fields, incidentResponseAttributes.fields)
         && Objects.equals(this.modified, incidentResponseAttributes.modified)
         && Objects.equals(this.notificationHandles, incidentResponseAttributes.notificationHandles)
-        && Objects.equals(this.postmortemId, incidentResponseAttributes.postmortemId)
         && Objects.equals(this.publicId, incidentResponseAttributes.publicId)
         && Objects.equals(this.resolved, incidentResponseAttributes.resolved)
         && Objects.equals(this.timeToDetect, incidentResponseAttributes.timeToDetect)
@@ -573,7 +547,6 @@ public class IncidentResponseAttributes {
         fields,
         modified,
         notificationHandles,
-        postmortemId,
         publicId,
         resolved,
         timeToDetect,
@@ -605,7 +578,6 @@ public class IncidentResponseAttributes {
     sb.append("    notificationHandles: ")
         .append(toIndentedString(notificationHandles))
         .append("\n");
-    sb.append("    postmortemId: ").append(toIndentedString(postmortemId)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    resolved: ").append(toIndentedString(resolved)).append("\n");
     sb.append("    timeToDetect: ").append(toIndentedString(timeToDetect)).append("\n");
