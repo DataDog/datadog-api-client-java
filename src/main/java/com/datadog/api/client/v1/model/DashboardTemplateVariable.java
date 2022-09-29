@@ -31,7 +31,7 @@ public class DashboardTemplateVariable {
   public static final String JSON_PROPERTY_AVAILABLE_VALUES = "available_values";
   private JsonNullable<List<String>> availableValues = JsonNullable.<List<String>>undefined();
 
-  public static final String JSON_PROPERTY_DEFAULT = "default";
+  @Deprecated public static final String JSON_PROPERTY_DEFAULT = "default";
   private JsonNullable<String> _default = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DEFAULTS = "defaults";
@@ -113,6 +113,7 @@ public class DashboardTemplateVariable {
     return _default.orElse(null);
   }
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getDefault_JsonNullable() {

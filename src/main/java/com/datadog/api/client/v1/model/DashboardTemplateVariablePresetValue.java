@@ -27,7 +27,7 @@ public class DashboardTemplateVariablePresetValue {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
+  @Deprecated public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
 
   public static final String JSON_PROPERTY_VALUES = "values";
@@ -74,6 +74,7 @@ public class DashboardTemplateVariablePresetValue {
     return value;
   }
 
+  @Deprecated
   public void setValue(String value) {
     this.value = value;
   }
