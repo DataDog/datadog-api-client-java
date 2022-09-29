@@ -9,14 +9,13 @@ import java.time.OffsetDateTime;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.getEstimatedCostByOrg", true);
     UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {
       CostByOrgResponse result =
           apiInstance.getEstimatedCostByOrg(
-              "sub-org",
               new GetEstimatedCostByOrgOptionalParameters()
+                  .view("sub-org")
                   .startDate(OffsetDateTime.now().plusDays(-5)));
       System.out.println(result);
     } catch (ApiException e) {

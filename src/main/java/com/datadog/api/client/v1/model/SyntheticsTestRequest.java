@@ -10,7 +10,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -20,6 +22,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_BASIC_AUTH,
   SyntheticsTestRequest.JSON_PROPERTY_BODY,
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE,
+  SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE_DOMAINS,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER_PORT,
   SyntheticsTestRequest.JSON_PROPERTY_FOLLOW_REDIRECTS,
@@ -54,6 +57,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_CERTIFICATE = "certificate";
   private SyntheticsTestRequestCertificate certificate;
+
+  public static final String JSON_PROPERTY_CERTIFICATE_DOMAINS = "certificateDomains";
+  private List<String> certificateDomains = null;
 
   public static final String JSON_PROPERTY_DNS_SERVER = "dnsServer";
   private String dnsServer;
@@ -193,6 +199,37 @@ public class SyntheticsTestRequest {
 
   public void setCertificate(SyntheticsTestRequestCertificate certificate) {
     this.certificate = certificate;
+  }
+
+  public SyntheticsTestRequest certificateDomains(List<String> certificateDomains) {
+    this.certificateDomains = certificateDomains;
+    return this;
+  }
+
+  public SyntheticsTestRequest addCertificateDomainsItem(String certificateDomainsItem) {
+    if (this.certificateDomains == null) {
+      this.certificateDomains = new ArrayList<>();
+    }
+    this.certificateDomains.add(certificateDomainsItem);
+    return this;
+  }
+
+  /**
+   * By default, the client certificate is applied on the domain of the starting URL for browser
+   * tests. If you want your client certificate to be applied on other domains instead, add them in
+   * <code>certificateDomains</code>.
+   *
+   * @return certificateDomains
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE_DOMAINS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCertificateDomains() {
+    return certificateDomains;
+  }
+
+  public void setCertificateDomains(List<String> certificateDomains) {
+    this.certificateDomains = certificateDomains;
   }
 
   public SyntheticsTestRequest dnsServer(String dnsServer) {
@@ -610,6 +647,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.basicAuth, syntheticsTestRequest.basicAuth)
         && Objects.equals(this.body, syntheticsTestRequest.body)
         && Objects.equals(this.certificate, syntheticsTestRequest.certificate)
+        && Objects.equals(this.certificateDomains, syntheticsTestRequest.certificateDomains)
         && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer)
         && Objects.equals(this.dnsServerPort, syntheticsTestRequest.dnsServerPort)
         && Objects.equals(this.followRedirects, syntheticsTestRequest.followRedirects)
@@ -637,6 +675,7 @@ public class SyntheticsTestRequest {
         basicAuth,
         body,
         certificate,
+        certificateDomains,
         dnsServer,
         dnsServerPort,
         followRedirects,
@@ -665,6 +704,7 @@ public class SyntheticsTestRequest {
     sb.append("    basicAuth: ").append(toIndentedString(basicAuth)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
+    sb.append("    certificateDomains: ").append(toIndentedString(certificateDomains)).append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
     sb.append("    dnsServerPort: ").append(toIndentedString(dnsServerPort)).append("\n");
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");

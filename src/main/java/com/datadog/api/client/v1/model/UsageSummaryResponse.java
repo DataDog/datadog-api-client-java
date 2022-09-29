@@ -24,6 +24,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageSummaryResponse.JSON_PROPERTY_AGENT_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_APM_FARGATE_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS_SUM,
@@ -43,6 +44,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CSPM_AWS_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_CONTAINER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_CONTAINER_HWM_SUM,
@@ -106,6 +108,9 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P_SUM =
       "apm_azure_app_service_host_top99p_sum";
   private Long apmAzureAppServiceHostTop99pSum;
+
+  public static final String JSON_PROPERTY_APM_FARGATE_COUNT_AVG_SUM = "apm_fargate_count_avg_sum";
+  private Long apmFargateCountAvgSum;
 
   public static final String JSON_PROPERTY_APM_HOST_TOP99P_SUM = "apm_host_top99p_sum";
   private Long apmHostTop99pSum;
@@ -174,6 +179,9 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_CSPM_AAS_HOST_TOP99P_SUM = "cspm_aas_host_top99p_sum";
   private Long cspmAasHostTop99pSum;
+
+  public static final String JSON_PROPERTY_CSPM_AWS_HOST_TOP99P_SUM = "cspm_aws_host_top99p_sum";
+  private Long cspmAwsHostTop99pSum;
 
   public static final String JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P_SUM =
       "cspm_azure_host_top99p_sum";
@@ -409,6 +417,28 @@ public class UsageSummaryResponse {
 
   public void setApmAzureAppServiceHostTop99pSum(Long apmAzureAppServiceHostTop99pSum) {
     this.apmAzureAppServiceHostTop99pSum = apmAzureAppServiceHostTop99pSum;
+  }
+
+  public UsageSummaryResponse apmFargateCountAvgSum(Long apmFargateCountAvgSum) {
+    this.apmFargateCountAvgSum = apmFargateCountAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average of all APM ECS Fargate tasks over all hours in the current months for all
+   * organizations.
+   *
+   * @return apmFargateCountAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_FARGATE_COUNT_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmFargateCountAvgSum() {
+    return apmFargateCountAvgSum;
+  }
+
+  public void setApmFargateCountAvgSum(Long apmFargateCountAvgSum) {
+    this.apmFargateCountAvgSum = apmFargateCountAvgSum;
   }
 
   public UsageSummaryResponse apmHostTop99pSum(Long apmHostTop99pSum) {
@@ -831,6 +861,28 @@ public class UsageSummaryResponse {
 
   public void setCspmAasHostTop99pSum(Long cspmAasHostTop99pSum) {
     this.cspmAasHostTop99pSum = cspmAasHostTop99pSum;
+  }
+
+  public UsageSummaryResponse cspmAwsHostTop99pSum(Long cspmAwsHostTop99pSum) {
+    this.cspmAwsHostTop99pSum = cspmAwsHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in
+   * the current months for all organizations.
+   *
+   * @return cspmAwsHostTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_AWS_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmAwsHostTop99pSum() {
+    return cspmAwsHostTop99pSum;
+  }
+
+  public void setCspmAwsHostTop99pSum(Long cspmAwsHostTop99pSum) {
+    this.cspmAwsHostTop99pSum = cspmAwsHostTop99pSum;
   }
 
   public UsageSummaryResponse cspmAzureHostTop99pSum(Long cspmAzureHostTop99pSum) {
@@ -2013,6 +2065,7 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.apmAzureAppServiceHostTop99pSum,
             usageSummaryResponse.apmAzureAppServiceHostTop99pSum)
+        && Objects.equals(this.apmFargateCountAvgSum, usageSummaryResponse.apmFargateCountAvgSum)
         && Objects.equals(this.apmHostTop99pSum, usageSummaryResponse.apmHostTop99pSum)
         && Objects.equals(
             this.auditLogsLinesIndexedAggSum, usageSummaryResponse.auditLogsLinesIndexedAggSum)
@@ -2047,6 +2100,7 @@ public class UsageSummaryResponse {
         && Objects.equals(this.containerAvgSum, usageSummaryResponse.containerAvgSum)
         && Objects.equals(this.containerHwmSum, usageSummaryResponse.containerHwmSum)
         && Objects.equals(this.cspmAasHostTop99pSum, usageSummaryResponse.cspmAasHostTop99pSum)
+        && Objects.equals(this.cspmAwsHostTop99pSum, usageSummaryResponse.cspmAwsHostTop99pSum)
         && Objects.equals(this.cspmAzureHostTop99pSum, usageSummaryResponse.cspmAzureHostTop99pSum)
         && Objects.equals(this.cspmContainerAvgSum, usageSummaryResponse.cspmContainerAvgSum)
         && Objects.equals(this.cspmContainerHwmSum, usageSummaryResponse.cspmContainerHwmSum)
@@ -2146,6 +2200,7 @@ public class UsageSummaryResponse {
     return Objects.hash(
         agentHostTop99pSum,
         apmAzureAppServiceHostTop99pSum,
+        apmFargateCountAvgSum,
         apmHostTop99pSum,
         auditLogsLinesIndexedAggSum,
         avgProfiledFargateTasksSum,
@@ -2165,6 +2220,7 @@ public class UsageSummaryResponse {
         containerAvgSum,
         containerHwmSum,
         cspmAasHostTop99pSum,
+        cspmAwsHostTop99pSum,
         cspmAzureHostTop99pSum,
         cspmContainerAvgSum,
         cspmContainerHwmSum,
@@ -2227,6 +2283,9 @@ public class UsageSummaryResponse {
     sb.append("    apmAzureAppServiceHostTop99pSum: ")
         .append(toIndentedString(apmAzureAppServiceHostTop99pSum))
         .append("\n");
+    sb.append("    apmFargateCountAvgSum: ")
+        .append(toIndentedString(apmFargateCountAvgSum))
+        .append("\n");
     sb.append("    apmHostTop99pSum: ").append(toIndentedString(apmHostTop99pSum)).append("\n");
     sb.append("    auditLogsLinesIndexedAggSum: ")
         .append(toIndentedString(auditLogsLinesIndexedAggSum))
@@ -2271,6 +2330,9 @@ public class UsageSummaryResponse {
     sb.append("    containerHwmSum: ").append(toIndentedString(containerHwmSum)).append("\n");
     sb.append("    cspmAasHostTop99pSum: ")
         .append(toIndentedString(cspmAasHostTop99pSum))
+        .append("\n");
+    sb.append("    cspmAwsHostTop99pSum: ")
+        .append(toIndentedString(cspmAwsHostTop99pSum))
         .append("\n");
     sb.append("    cspmAzureHostTop99pSum: ")
         .append(toIndentedString(cspmAzureHostTop99pSum))

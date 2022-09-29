@@ -21,6 +21,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageSummaryDate.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_APM_FARGATE_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_APM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM,
   UsageSummaryDate.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
@@ -39,6 +40,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_HWM,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_CSPM_AWS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_CONTAINER_AVG,
   UsageSummaryDate.JSON_PROPERTY_CSPM_CONTAINER_HWM,
@@ -94,6 +96,9 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P =
       "apm_azure_app_service_host_top99p";
   private Long apmAzureAppServiceHostTop99p;
+
+  public static final String JSON_PROPERTY_APM_FARGATE_COUNT_AVG = "apm_fargate_count_avg";
+  private Long apmFargateCountAvg;
 
   public static final String JSON_PROPERTY_APM_HOST_TOP99P = "apm_host_top99p";
   private Long apmHostTop99p;
@@ -157,6 +162,9 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_CSPM_AAS_HOST_TOP99P = "cspm_aas_host_top99p";
   private Long cspmAasHostTop99p;
+
+  public static final String JSON_PROPERTY_CSPM_AWS_HOST_TOP99P = "cspm_aws_host_top99p";
+  private Long cspmAwsHostTop99p;
 
   public static final String JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P = "cspm_azure_host_top99p";
   private Long cspmAzureHostTop99p;
@@ -351,6 +359,28 @@ public class UsageSummaryDate {
 
   public void setApmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
     this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
+  }
+
+  public UsageSummaryDate apmFargateCountAvg(Long apmFargateCountAvg) {
+    this.apmFargateCountAvg = apmFargateCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all APM ECS Fargate tasks over all hours in the current date for all
+   * organizations.
+   *
+   * @return apmFargateCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_FARGATE_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmFargateCountAvg() {
+    return apmFargateCountAvg;
+  }
+
+  public void setApmFargateCountAvg(Long apmFargateCountAvg) {
+    this.apmFargateCountAvg = apmFargateCountAvg;
   }
 
   public UsageSummaryDate apmHostTop99p(Long apmHostTop99p) {
@@ -747,6 +777,28 @@ public class UsageSummaryDate {
 
   public void setCspmAasHostTop99p(Long cspmAasHostTop99p) {
     this.cspmAasHostTop99p = cspmAasHostTop99p;
+  }
+
+  public UsageSummaryDate cspmAwsHostTop99p(Long cspmAwsHostTop99p) {
+    this.cspmAwsHostTop99p = cspmAwsHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in
+   * the current date for all organizations.
+   *
+   * @return cspmAwsHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_AWS_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmAwsHostTop99p() {
+    return cspmAwsHostTop99p;
+  }
+
+  public void setCspmAwsHostTop99p(Long cspmAwsHostTop99p) {
+    this.cspmAwsHostTop99p = cspmAwsHostTop99p;
   }
 
   public UsageSummaryDate cspmAzureHostTop99p(Long cspmAzureHostTop99p) {
@@ -1743,6 +1795,7 @@ public class UsageSummaryDate {
     return Objects.equals(this.agentHostTop99p, usageSummaryDate.agentHostTop99p)
         && Objects.equals(
             this.apmAzureAppServiceHostTop99p, usageSummaryDate.apmAzureAppServiceHostTop99p)
+        && Objects.equals(this.apmFargateCountAvg, usageSummaryDate.apmFargateCountAvg)
         && Objects.equals(this.apmHostTop99p, usageSummaryDate.apmHostTop99p)
         && Objects.equals(this.auditLogsLinesIndexedSum, usageSummaryDate.auditLogsLinesIndexedSum)
         && Objects.equals(this.avgProfiledFargateTasks, usageSummaryDate.avgProfiledFargateTasks)
@@ -1767,6 +1820,7 @@ public class UsageSummaryDate {
         && Objects.equals(this.containerAvg, usageSummaryDate.containerAvg)
         && Objects.equals(this.containerHwm, usageSummaryDate.containerHwm)
         && Objects.equals(this.cspmAasHostTop99p, usageSummaryDate.cspmAasHostTop99p)
+        && Objects.equals(this.cspmAwsHostTop99p, usageSummaryDate.cspmAwsHostTop99p)
         && Objects.equals(this.cspmAzureHostTop99p, usageSummaryDate.cspmAzureHostTop99p)
         && Objects.equals(this.cspmContainerAvg, usageSummaryDate.cspmContainerAvg)
         && Objects.equals(this.cspmContainerHwm, usageSummaryDate.cspmContainerHwm)
@@ -1836,6 +1890,7 @@ public class UsageSummaryDate {
     return Objects.hash(
         agentHostTop99p,
         apmAzureAppServiceHostTop99p,
+        apmFargateCountAvg,
         apmHostTop99p,
         auditLogsLinesIndexedSum,
         avgProfiledFargateTasks,
@@ -1854,6 +1909,7 @@ public class UsageSummaryDate {
         containerAvg,
         containerHwm,
         cspmAasHostTop99p,
+        cspmAwsHostTop99p,
         cspmAzureHostTop99p,
         cspmContainerAvg,
         cspmContainerHwm,
@@ -1908,6 +1964,7 @@ public class UsageSummaryDate {
     sb.append("    apmAzureAppServiceHostTop99p: ")
         .append(toIndentedString(apmAzureAppServiceHostTop99p))
         .append("\n");
+    sb.append("    apmFargateCountAvg: ").append(toIndentedString(apmFargateCountAvg)).append("\n");
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
     sb.append("    auditLogsLinesIndexedSum: ")
         .append(toIndentedString(auditLogsLinesIndexedSum))
@@ -1948,6 +2005,7 @@ public class UsageSummaryDate {
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
     sb.append("    cspmAasHostTop99p: ").append(toIndentedString(cspmAasHostTop99p)).append("\n");
+    sb.append("    cspmAwsHostTop99p: ").append(toIndentedString(cspmAwsHostTop99p)).append("\n");
     sb.append("    cspmAzureHostTop99p: ")
         .append(toIndentedString(cspmAzureHostTop99p))
         .append("\n");

@@ -16,6 +16,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   MonthlyUsageAttributionValues.JSON_PROPERTY_API_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_API_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_APM_FARGATE_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_APM_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APM_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APM_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_PERCENTAGE,
@@ -30,6 +32,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_PERCENTAGE,
@@ -60,6 +64,12 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_API_USAGE = "api_usage";
   private Double apiUsage;
+
+  public static final String JSON_PROPERTY_APM_FARGATE_PERCENTAGE = "apm_fargate_percentage";
+  private Double apmFargatePercentage;
+
+  public static final String JSON_PROPERTY_APM_FARGATE_USAGE = "apm_fargate_usage";
+  private Double apmFargateUsage;
 
   public static final String JSON_PROPERTY_APM_HOST_PERCENTAGE = "apm_host_percentage";
   private Double apmHostPercentage;
@@ -107,6 +117,14 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE =
       "estimated_indexed_spans_usage";
   private Double estimatedIndexedSpansUsage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_PERCENTAGE =
+      "estimated_ingested_logs_percentage";
+  private Double estimatedIngestedLogsPercentage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_USAGE =
+      "estimated_ingested_logs_usage";
+  private Double estimatedIngestedLogsUsage;
 
   public static final String JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE =
       "estimated_ingested_spans_percentage";
@@ -211,6 +229,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setApiUsage(Double apiUsage) {
     this.apiUsage = apiUsage;
+  }
+
+  public MonthlyUsageAttributionValues apmFargatePercentage(Double apmFargatePercentage) {
+    this.apmFargatePercentage = apmFargatePercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of APM ECS Fargate task usage by tag(s).
+   *
+   * @return apmFargatePercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_FARGATE_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getApmFargatePercentage() {
+    return apmFargatePercentage;
+  }
+
+  public void setApmFargatePercentage(Double apmFargatePercentage) {
+    this.apmFargatePercentage = apmFargatePercentage;
+  }
+
+  public MonthlyUsageAttributionValues apmFargateUsage(Double apmFargateUsage) {
+    this.apmFargateUsage = apmFargateUsage;
+    return this;
+  }
+
+  /**
+   * The APM ECS Fargate task usage by tag(s).
+   *
+   * @return apmFargateUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_FARGATE_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getApmFargateUsage() {
+    return apmFargateUsage;
+  }
+
+  public void setApmFargateUsage(Double apmFargateUsage) {
+    this.apmFargateUsage = apmFargateUsage;
   }
 
   public MonthlyUsageAttributionValues apmHostPercentage(Double apmHostPercentage) {
@@ -509,6 +569,50 @@ public class MonthlyUsageAttributionValues {
 
   public void setEstimatedIndexedSpansUsage(Double estimatedIndexedSpansUsage) {
     this.estimatedIndexedSpansUsage = estimatedIndexedSpansUsage;
+  }
+
+  public MonthlyUsageAttributionValues estimatedIngestedLogsPercentage(
+      Double estimatedIngestedLogsPercentage) {
+    this.estimatedIngestedLogsPercentage = estimatedIngestedLogsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of estimated live ingested logs usage by tag(s). This field is in private beta.
+   *
+   * @return estimatedIngestedLogsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIngestedLogsPercentage() {
+    return estimatedIngestedLogsPercentage;
+  }
+
+  public void setEstimatedIngestedLogsPercentage(Double estimatedIngestedLogsPercentage) {
+    this.estimatedIngestedLogsPercentage = estimatedIngestedLogsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues estimatedIngestedLogsUsage(
+      Double estimatedIngestedLogsUsage) {
+    this.estimatedIngestedLogsUsage = estimatedIngestedLogsUsage;
+    return this;
+  }
+
+  /**
+   * The estimated live ingested logs usage by tag(s). This field is in private beta.
+   *
+   * @return estimatedIngestedLogsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIngestedLogsUsage() {
+    return estimatedIngestedLogsUsage;
+  }
+
+  public void setEstimatedIngestedLogsUsage(Double estimatedIngestedLogsUsage) {
+    this.estimatedIngestedLogsUsage = estimatedIngestedLogsUsage;
   }
 
   public MonthlyUsageAttributionValues estimatedIngestedSpansPercentage(
@@ -946,6 +1050,9 @@ public class MonthlyUsageAttributionValues {
     MonthlyUsageAttributionValues monthlyUsageAttributionValues = (MonthlyUsageAttributionValues) o;
     return Objects.equals(this.apiPercentage, monthlyUsageAttributionValues.apiPercentage)
         && Objects.equals(this.apiUsage, monthlyUsageAttributionValues.apiUsage)
+        && Objects.equals(
+            this.apmFargatePercentage, monthlyUsageAttributionValues.apmFargatePercentage)
+        && Objects.equals(this.apmFargateUsage, monthlyUsageAttributionValues.apmFargateUsage)
         && Objects.equals(this.apmHostPercentage, monthlyUsageAttributionValues.apmHostPercentage)
         && Objects.equals(this.apmHostUsage, monthlyUsageAttributionValues.apmHostUsage)
         && Objects.equals(this.appsecPercentage, monthlyUsageAttributionValues.appsecPercentage)
@@ -971,6 +1078,12 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.estimatedIndexedSpansUsage,
             monthlyUsageAttributionValues.estimatedIndexedSpansUsage)
+        && Objects.equals(
+            this.estimatedIngestedLogsPercentage,
+            monthlyUsageAttributionValues.estimatedIngestedLogsPercentage)
+        && Objects.equals(
+            this.estimatedIngestedLogsUsage,
+            monthlyUsageAttributionValues.estimatedIngestedLogsUsage)
         && Objects.equals(
             this.estimatedIngestedSpansPercentage,
             monthlyUsageAttributionValues.estimatedIngestedSpansPercentage)
@@ -1010,6 +1123,8 @@ public class MonthlyUsageAttributionValues {
     return Objects.hash(
         apiPercentage,
         apiUsage,
+        apmFargatePercentage,
+        apmFargateUsage,
         apmHostPercentage,
         apmHostUsage,
         appsecPercentage,
@@ -1024,6 +1139,8 @@ public class MonthlyUsageAttributionValues {
         estimatedIndexedLogsUsage,
         estimatedIndexedSpansPercentage,
         estimatedIndexedSpansUsage,
+        estimatedIngestedLogsPercentage,
+        estimatedIngestedLogsUsage,
         estimatedIngestedSpansPercentage,
         estimatedIngestedSpansUsage,
         fargatePercentage,
@@ -1052,6 +1169,10 @@ public class MonthlyUsageAttributionValues {
     sb.append("class MonthlyUsageAttributionValues {\n");
     sb.append("    apiPercentage: ").append(toIndentedString(apiPercentage)).append("\n");
     sb.append("    apiUsage: ").append(toIndentedString(apiUsage)).append("\n");
+    sb.append("    apmFargatePercentage: ")
+        .append(toIndentedString(apmFargatePercentage))
+        .append("\n");
+    sb.append("    apmFargateUsage: ").append(toIndentedString(apmFargateUsage)).append("\n");
     sb.append("    apmHostPercentage: ").append(toIndentedString(apmHostPercentage)).append("\n");
     sb.append("    apmHostUsage: ").append(toIndentedString(apmHostUsage)).append("\n");
     sb.append("    appsecPercentage: ").append(toIndentedString(appsecPercentage)).append("\n");
@@ -1079,6 +1200,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    estimatedIndexedSpansUsage: ")
         .append(toIndentedString(estimatedIndexedSpansUsage))
+        .append("\n");
+    sb.append("    estimatedIngestedLogsPercentage: ")
+        .append(toIndentedString(estimatedIngestedLogsPercentage))
+        .append("\n");
+    sb.append("    estimatedIngestedLogsUsage: ")
+        .append(toIndentedString(estimatedIngestedLogsUsage))
         .append("\n");
     sb.append("    estimatedIngestedSpansPercentage: ")
         .append(toIndentedString(estimatedIngestedSpansPercentage))

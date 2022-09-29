@@ -223,6 +223,7 @@ public class ApiClient {
                                       new HashSet<String>(
                                           Arrays.asList(
                                               "datadoghq.com",
+                                              "datadoghq.eu",
                                               "us3.datadoghq.com",
                                               "us5.datadoghq.com",
                                               "ddog-gov.com"))));
@@ -446,7 +447,6 @@ public class ApiClient {
           put("v2.getIncidentTeam", false);
           put("v2.listIncidentTeams", false);
           put("v2.updateIncidentTeam", false);
-          put("v2.getEstimatedCostByOrg", false);
         }
       };
   protected static final java.util.logging.Logger logger =

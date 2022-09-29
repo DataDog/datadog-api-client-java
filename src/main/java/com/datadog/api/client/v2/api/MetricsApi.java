@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.MetricBulkTagConfigResponse;
 import com.datadog.api.client.v2.model.MetricContentEncoding;
 import com.datadog.api.client.v2.model.MetricEstimateResponse;
 import com.datadog.api.client.v2.model.MetricPayload;
+import com.datadog.api.client.v2.model.MetricSuggestedTagsAndAggregationsResponse;
 import com.datadog.api.client.v2.model.MetricTagConfigurationCreateRequest;
 import com.datadog.api.client.v2.model.MetricTagConfigurationMetricTypes;
 import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
@@ -932,6 +933,222 @@ public class MetricsApi {
         new GenericType<MetricEstimateResponse>() {});
   }
 
+  /** Manage optional parameters to listActiveMetricConfigurations. */
+  public static class ListActiveMetricConfigurationsOptionalParameters {
+    private Long windowSeconds;
+
+    /**
+     * Set windowSeconds.
+     *
+     * @param windowSeconds The number of seconds of look back (from now). Default value is 604,800
+     *     (1 week), minimum value is 7200 (2 hours), maximum value is 2,630,000 (1 month).
+     *     (optional)
+     * @return ListActiveMetricConfigurationsOptionalParameters
+     */
+    public ListActiveMetricConfigurationsOptionalParameters windowSeconds(Long windowSeconds) {
+      this.windowSeconds = windowSeconds;
+      return this;
+    }
+  }
+
+  /**
+   * List active tags and aggregations.
+   *
+   * <p>See {@link #listActiveMetricConfigurationsWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return MetricSuggestedTagsAndAggregationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MetricSuggestedTagsAndAggregationsResponse listActiveMetricConfigurations(
+      String metricName) throws ApiException {
+    return listActiveMetricConfigurationsWithHttpInfo(
+            metricName, new ListActiveMetricConfigurationsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List active tags and aggregations.
+   *
+   * <p>See {@link #listActiveMetricConfigurationsWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;MetricSuggestedTagsAndAggregationsResponse&gt;
+   */
+  public CompletableFuture<MetricSuggestedTagsAndAggregationsResponse>
+      listActiveMetricConfigurationsAsync(String metricName) {
+    return listActiveMetricConfigurationsWithHttpInfoAsync(
+            metricName, new ListActiveMetricConfigurationsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List active tags and aggregations.
+   *
+   * <p>See {@link #listActiveMetricConfigurationsWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return MetricSuggestedTagsAndAggregationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MetricSuggestedTagsAndAggregationsResponse listActiveMetricConfigurations(
+      String metricName, ListActiveMetricConfigurationsOptionalParameters parameters)
+      throws ApiException {
+    return listActiveMetricConfigurationsWithHttpInfo(metricName, parameters).getData();
+  }
+
+  /**
+   * List active tags and aggregations.
+   *
+   * <p>See {@link #listActiveMetricConfigurationsWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;MetricSuggestedTagsAndAggregationsResponse&gt;
+   */
+  public CompletableFuture<MetricSuggestedTagsAndAggregationsResponse>
+      listActiveMetricConfigurationsAsync(
+          String metricName, ListActiveMetricConfigurationsOptionalParameters parameters) {
+    return listActiveMetricConfigurationsWithHttpInfoAsync(metricName, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List tags and aggregations that are actively queried on dashboards and monitors for a given
+   * metric name.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;MetricSuggestedTagsAndAggregationsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MetricSuggestedTagsAndAggregationsResponse>
+      listActiveMetricConfigurationsWithHttpInfo(
+          String metricName, ListActiveMetricConfigurationsOptionalParameters parameters)
+          throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'metricName' when calling"
+              + " listActiveMetricConfigurations");
+    }
+    Long windowSeconds = parameters.windowSeconds;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/active-configurations"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.listActiveMetricConfigurations",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricSuggestedTagsAndAggregationsResponse>() {});
+  }
+
+  /**
+   * List active tags and aggregations.
+   *
+   * <p>See {@link #listActiveMetricConfigurationsWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricSuggestedTagsAndAggregationsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MetricSuggestedTagsAndAggregationsResponse>>
+      listActiveMetricConfigurationsWithHttpInfoAsync(
+          String metricName, ListActiveMetricConfigurationsOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<MetricSuggestedTagsAndAggregationsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'metricName' when calling"
+                  + " listActiveMetricConfigurations"));
+      return result;
+    }
+    Long windowSeconds = parameters.windowSeconds;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/active-configurations"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "MetricsApi.listActiveMetricConfigurations",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MetricSuggestedTagsAndAggregationsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricSuggestedTagsAndAggregationsResponse>() {});
+  }
+
   /**
    * List tag configuration by name.
    *
@@ -1082,13 +1299,14 @@ public class MetricsApi {
     private String filterTagsConfigured;
     private MetricTagConfigurationMetricTypes filterMetricType;
     private Boolean filterIncludePercentiles;
+    private Boolean filterQueried;
     private String filterTags;
     private Long windowSeconds;
 
     /**
      * Set filterConfigured.
      *
-     * @param filterConfigured Filter metrics that have configured tags. (optional)
+     * @param filterConfigured Filter custom metrics that have configured tags. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterConfigured(Boolean filterConfigured) {
@@ -1111,8 +1329,7 @@ public class MetricsApi {
     /**
      * Set filterMetricType.
      *
-     * @param filterMetricType Filter tag configurations by metric type. (optional, default to
-     *     "gauge")
+     * @param filterMetricType Filter metrics by metric type. (optional, default to "gauge")
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterMetricType(
@@ -1135,10 +1352,24 @@ public class MetricsApi {
     }
 
     /**
+     * Set filterQueried.
+     *
+     * @param filterQueried Filter custom metrics that have or have not been queried in the
+     *     specified window[seconds]. If no window is provided or the window is less than 2 hours, a
+     *     default of 2 hours will be applied. (optional)
+     * @return ListTagConfigurationsOptionalParameters
+     */
+    public ListTagConfigurationsOptionalParameters filterQueried(Boolean filterQueried) {
+      this.filterQueried = filterQueried;
+      return this;
+    }
+
+    /**
      * Set filterTags.
      *
      * @param filterTags Filter metrics that have been submitted with the given tags. Supports
-     *     boolean and wildcard expressions. Cannot be combined with other filters. (optional)
+     *     boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
+     *     (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterTags(String filterTags) {
@@ -1150,7 +1381,8 @@ public class MetricsApi {
      * Set windowSeconds.
      *
      * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag]
-     *     query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). (optional)
+     *     or filter[queried] query. Defaults value is 3600 (1 hour), maximum value is 1,209,600 (2
+     *     weeks). (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters windowSeconds(Long windowSeconds) {
@@ -1160,7 +1392,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations.
+   * Get a list of metrics.
    *
    * <p>See {@link #listTagConfigurationsWithHttpInfo}.
    *
@@ -1173,7 +1405,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations.
+   * Get a list of metrics.
    *
    * <p>See {@link #listTagConfigurationsWithHttpInfoAsync}.
    *
@@ -1188,7 +1420,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations.
+   * Get a list of metrics.
    *
    * <p>See {@link #listTagConfigurationsWithHttpInfo}.
    *
@@ -1202,7 +1434,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations.
+   * Get a list of metrics.
    *
    * <p>See {@link #listTagConfigurationsWithHttpInfoAsync}.
    *
@@ -1219,8 +1451,7 @@ public class MetricsApi {
   }
 
   /**
-   * Returns all configured count/gauge/rate/distribution metric names (with additional filters if
-   * specified).
+   * Returns all metrics (matching additional filters if specified).
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;
@@ -1242,6 +1473,7 @@ public class MetricsApi {
     String filterTagsConfigured = parameters.filterTagsConfigured;
     MetricTagConfigurationMetricTypes filterMetricType = parameters.filterMetricType;
     Boolean filterIncludePercentiles = parameters.filterIncludePercentiles;
+    Boolean filterQueried = parameters.filterQueried;
     String filterTags = parameters.filterTags;
     Long windowSeconds = parameters.windowSeconds;
     // create path and map variables
@@ -1258,6 +1490,7 @@ public class MetricsApi {
         apiClient.parameterToPairs("", "filter[metric_type]", filterMetricType));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_percentiles]", filterIncludePercentiles));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[queried]", filterQueried));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
 
@@ -1282,7 +1515,7 @@ public class MetricsApi {
   }
 
   /**
-   * List tag configurations.
+   * Get a list of metrics.
    *
    * <p>See {@link #listTagConfigurationsWithHttpInfo}.
    *
@@ -1296,6 +1529,7 @@ public class MetricsApi {
     String filterTagsConfigured = parameters.filterTagsConfigured;
     MetricTagConfigurationMetricTypes filterMetricType = parameters.filterMetricType;
     Boolean filterIncludePercentiles = parameters.filterIncludePercentiles;
+    Boolean filterQueried = parameters.filterQueried;
     String filterTags = parameters.filterTags;
     Long windowSeconds = parameters.windowSeconds;
     // create path and map variables
@@ -1312,6 +1546,7 @@ public class MetricsApi {
         apiClient.parameterToPairs("", "filter[metric_type]", filterMetricType));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_percentiles]", filterIncludePercentiles));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[queried]", filterQueried));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
 

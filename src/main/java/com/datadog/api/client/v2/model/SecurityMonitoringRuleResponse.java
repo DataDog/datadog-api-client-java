@@ -6,579 +6,302 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/** Rule. */
-@JsonPropertyOrder({
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_CASES,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_CREATED_AT,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_FILTERS,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_HAS_EXTENDED_TITLE,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_ID,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_IS_DEFAULT,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_IS_DELETED,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_IS_ENABLED,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_MESSAGE,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_NAME,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_OPTIONS,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_QUERIES,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_TAGS,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_TYPE,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_UPDATE_AUTHOR_ID,
-  SecurityMonitoringRuleResponse.JSON_PROPERTY_VERSION
-})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringRuleResponse {
+@JsonDeserialize(
+    using = SecurityMonitoringRuleResponse.SecurityMonitoringRuleResponseDeserializer.class)
+@JsonSerialize(
+    using = SecurityMonitoringRuleResponse.SecurityMonitoringRuleResponseSerializer.class)
+public class SecurityMonitoringRuleResponse extends AbstractOpenApiSchema {
+  private static final Logger log =
+      Logger.getLogger(SecurityMonitoringRuleResponse.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CASES = "cases";
-  private List<SecurityMonitoringRuleCase> cases = null;
 
-  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
-  private Long createdAt;
-
-  public static final String JSON_PROPERTY_CREATION_AUTHOR_ID = "creationAuthorId";
-  private Long creationAuthorId;
-
-  public static final String JSON_PROPERTY_FILTERS = "filters";
-  private List<SecurityMonitoringFilter> filters = null;
-
-  public static final String JSON_PROPERTY_HAS_EXTENDED_TITLE = "hasExtendedTitle";
-  private Boolean hasExtendedTitle;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
-  private Boolean isDefault;
-
-  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
-  private Boolean isDeleted;
-
-  public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
-  private Boolean isEnabled;
-
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
-  public static final String JSON_PROPERTY_OPTIONS = "options";
-  private SecurityMonitoringRuleOptions options;
-
-  public static final String JSON_PROPERTY_QUERIES = "queries";
-  private List<SecurityMonitoringRuleQuery> queries = null;
-
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<String> tags = null;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private SecurityMonitoringRuleTypeRead type;
-
-  public static final String JSON_PROPERTY_UPDATE_AUTHOR_ID = "updateAuthorId";
-  private Long updateAuthorId;
-
-  public static final String JSON_PROPERTY_VERSION = "version";
-  private Long version;
-
-  public SecurityMonitoringRuleResponse cases(List<SecurityMonitoringRuleCase> cases) {
-    this.cases = cases;
-    for (SecurityMonitoringRuleCase item : cases) {
-      this.unparsed |= item.unparsed;
+  public static class SecurityMonitoringRuleResponseSerializer
+      extends StdSerializer<SecurityMonitoringRuleResponse> {
+    public SecurityMonitoringRuleResponseSerializer(Class<SecurityMonitoringRuleResponse> t) {
+      super(t);
     }
-    return this;
-  }
 
-  public SecurityMonitoringRuleResponse addCasesItem(SecurityMonitoringRuleCase casesItem) {
-    if (this.cases == null) {
-      this.cases = new ArrayList<>();
+    public SecurityMonitoringRuleResponseSerializer() {
+      this(null);
     }
-    this.cases.add(casesItem);
-    this.unparsed |= casesItem.unparsed;
-    return this;
-  }
 
-  /**
-   * Cases for generating signals.
-   *
-   * @return cases
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CASES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringRuleCase> getCases() {
-    return cases;
-  }
-
-  public void setCases(List<SecurityMonitoringRuleCase> cases) {
-    this.cases = cases;
-  }
-
-  public SecurityMonitoringRuleResponse createdAt(Long createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-  /**
-   * When the rule was created, timestamp in milliseconds.
-   *
-   * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(Long createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public SecurityMonitoringRuleResponse creationAuthorId(Long creationAuthorId) {
-    this.creationAuthorId = creationAuthorId;
-    return this;
-  }
-
-  /**
-   * User ID of the user who created the rule.
-   *
-   * @return creationAuthorId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATION_AUTHOR_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCreationAuthorId() {
-    return creationAuthorId;
-  }
-
-  public void setCreationAuthorId(Long creationAuthorId) {
-    this.creationAuthorId = creationAuthorId;
-  }
-
-  public SecurityMonitoringRuleResponse filters(List<SecurityMonitoringFilter> filters) {
-    this.filters = filters;
-    for (SecurityMonitoringFilter item : filters) {
-      this.unparsed |= item.unparsed;
+    @Override
+    public void serialize(
+        SecurityMonitoringRuleResponse value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
     }
-    return this;
   }
 
-  public SecurityMonitoringRuleResponse addFiltersItem(SecurityMonitoringFilter filtersItem) {
-    if (this.filters == null) {
-      this.filters = new ArrayList<>();
+  public static class SecurityMonitoringRuleResponseDeserializer
+      extends StdDeserializer<SecurityMonitoringRuleResponse> {
+    public SecurityMonitoringRuleResponseDeserializer() {
+      this(SecurityMonitoringRuleResponse.class);
     }
-    this.filters.add(filtersItem);
-    this.unparsed |= filtersItem.unparsed;
-    return this;
-  }
 
-  /**
-   * Additional queries to filter matched events before they are processed.
-   *
-   * @return filters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringFilter> getFilters() {
-    return filters;
-  }
-
-  public void setFilters(List<SecurityMonitoringFilter> filters) {
-    this.filters = filters;
-  }
-
-  public SecurityMonitoringRuleResponse hasExtendedTitle(Boolean hasExtendedTitle) {
-    this.hasExtendedTitle = hasExtendedTitle;
-    return this;
-  }
-
-  /**
-   * Whether the notifications include the triggering group-by values in their title.
-   *
-   * @return hasExtendedTitle
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getHasExtendedTitle() {
-    return hasExtendedTitle;
-  }
-
-  public void setHasExtendedTitle(Boolean hasExtendedTitle) {
-    this.hasExtendedTitle = hasExtendedTitle;
-  }
-
-  public SecurityMonitoringRuleResponse id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The ID of the rule.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public SecurityMonitoringRuleResponse isDefault(Boolean isDefault) {
-    this.isDefault = isDefault;
-    return this;
-  }
-
-  /**
-   * Whether the rule is included by default.
-   *
-   * @return isDefault
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsDefault() {
-    return isDefault;
-  }
-
-  public void setIsDefault(Boolean isDefault) {
-    this.isDefault = isDefault;
-  }
-
-  public SecurityMonitoringRuleResponse isDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-    return this;
-  }
-
-  /**
-   * Whether the rule has been deleted.
-   *
-   * @return isDeleted
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsDeleted() {
-    return isDeleted;
-  }
-
-  public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-  }
-
-  public SecurityMonitoringRuleResponse isEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
-    return this;
-  }
-
-  /**
-   * Whether the rule is enabled.
-   *
-   * @return isEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
-  public void setIsEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
-  }
-
-  public SecurityMonitoringRuleResponse message(String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Message for generated signals.
-   *
-   * @return message
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public SecurityMonitoringRuleResponse name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The name of the rule.
-   *
-   * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SecurityMonitoringRuleResponse options(SecurityMonitoringRuleOptions options) {
-    this.options = options;
-    this.unparsed |= options.unparsed;
-    return this;
-  }
-
-  /**
-   * Options on rules.
-   *
-   * @return options
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleOptions getOptions() {
-    return options;
-  }
-
-  public void setOptions(SecurityMonitoringRuleOptions options) {
-    this.options = options;
-  }
-
-  public SecurityMonitoringRuleResponse queries(List<SecurityMonitoringRuleQuery> queries) {
-    this.queries = queries;
-    for (SecurityMonitoringRuleQuery item : queries) {
-      this.unparsed |= item.unparsed;
+    public SecurityMonitoringRuleResponseDeserializer(Class<?> vc) {
+      super(vc);
     }
-    return this;
-  }
 
-  public SecurityMonitoringRuleResponse addQueriesItem(SecurityMonitoringRuleQuery queriesItem) {
-    if (this.queries == null) {
-      this.queries = new ArrayList<>();
+    @Override
+    public SecurityMonitoringRuleResponse deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize SecurityMonitoringStandardRuleResponse
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringStandardRuleResponse.class.equals(Integer.class)
+            || SecurityMonitoringStandardRuleResponse.class.equals(Long.class)
+            || SecurityMonitoringStandardRuleResponse.class.equals(Float.class)
+            || SecurityMonitoringStandardRuleResponse.class.equals(Double.class)
+            || SecurityMonitoringStandardRuleResponse.class.equals(Boolean.class)
+            || SecurityMonitoringStandardRuleResponse.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringStandardRuleResponse.class.equals(Integer.class)
+                        || SecurityMonitoringStandardRuleResponse.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringStandardRuleResponse.class.equals(Float.class)
+                        || SecurityMonitoringStandardRuleResponse.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringStandardRuleResponse.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringStandardRuleResponse.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(SecurityMonitoringStandardRuleResponse.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringStandardRuleResponse) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'SecurityMonitoringStandardRuleResponse'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'SecurityMonitoringStandardRuleResponse'",
+            e);
+      }
+
+      // deserialize SecurityMonitoringSignalRuleResponse
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringSignalRuleResponse.class.equals(Integer.class)
+            || SecurityMonitoringSignalRuleResponse.class.equals(Long.class)
+            || SecurityMonitoringSignalRuleResponse.class.equals(Float.class)
+            || SecurityMonitoringSignalRuleResponse.class.equals(Double.class)
+            || SecurityMonitoringSignalRuleResponse.class.equals(Boolean.class)
+            || SecurityMonitoringSignalRuleResponse.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringSignalRuleResponse.class.equals(Integer.class)
+                        || SecurityMonitoringSignalRuleResponse.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringSignalRuleResponse.class.equals(Float.class)
+                        || SecurityMonitoringSignalRuleResponse.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringSignalRuleResponse.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringSignalRuleResponse.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(SecurityMonitoringSignalRuleResponse.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringSignalRuleResponse) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SecurityMonitoringSignalRuleResponse'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'SecurityMonitoringSignalRuleResponse'",
+            e);
+      }
+
+      SecurityMonitoringRuleResponse ret = new SecurityMonitoringRuleResponse();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
     }
-    this.queries.add(queriesItem);
-    this.unparsed |= queriesItem.unparsed;
-    return this;
-  }
 
-  /**
-   * Queries for selecting logs which are part of the rule.
-   *
-   * @return queries
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringRuleQuery> getQueries() {
-    return queries;
-  }
-
-  public void setQueries(List<SecurityMonitoringRuleQuery> queries) {
-    this.queries = queries;
-  }
-
-  public SecurityMonitoringRuleResponse tags(List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public SecurityMonitoringRuleResponse addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public SecurityMonitoringRuleResponse getNullValue(DeserializationContext ctxt)
+        throws JsonMappingException {
+      throw new JsonMappingException(
+          ctxt.getParser(), "SecurityMonitoringRuleResponse cannot be null");
     }
-    this.tags.add(tagsItem);
-    return this;
   }
 
-  /**
-   * Tags for generated signals.
-   *
-   * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public SecurityMonitoringRuleResponse() {
+    super("oneOf", Boolean.FALSE);
   }
 
-  public void setTags(List<String> tags) {
-    this.tags = tags;
+  public SecurityMonitoringRuleResponse(SecurityMonitoringStandardRuleResponse o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
   }
 
-  public SecurityMonitoringRuleResponse type(SecurityMonitoringRuleTypeRead type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
+  public SecurityMonitoringRuleResponse(SecurityMonitoringSignalRuleResponse o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
   }
 
-  /**
-   * The rule type.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleTypeRead getType() {
-    return type;
-  }
-
-  public void setType(SecurityMonitoringRuleTypeRead type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
-  }
-
-  public SecurityMonitoringRuleResponse updateAuthorId(Long updateAuthorId) {
-    this.updateAuthorId = updateAuthorId;
-    return this;
-  }
-
-  /**
-   * User ID of the user who updated the rule.
-   *
-   * @return updateAuthorId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPDATE_AUTHOR_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getUpdateAuthorId() {
-    return updateAuthorId;
-  }
-
-  public void setUpdateAuthorId(Long updateAuthorId) {
-    this.updateAuthorId = updateAuthorId;
-  }
-
-  public SecurityMonitoringRuleResponse version(Long version) {
-    this.version = version;
-    return this;
-  }
-
-  /**
-   * The version of the rule.
-   *
-   * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getVersion() {
-    return version;
-  }
-
-  public void setVersion(Long version) {
-    this.version = version;
-  }
-
-  /** Return true if this SecurityMonitoringRuleResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    SecurityMonitoringRuleResponse securityMonitoringRuleResponse =
-        (SecurityMonitoringRuleResponse) o;
-    return Objects.equals(this.cases, securityMonitoringRuleResponse.cases)
-        && Objects.equals(this.createdAt, securityMonitoringRuleResponse.createdAt)
-        && Objects.equals(this.creationAuthorId, securityMonitoringRuleResponse.creationAuthorId)
-        && Objects.equals(this.filters, securityMonitoringRuleResponse.filters)
-        && Objects.equals(this.hasExtendedTitle, securityMonitoringRuleResponse.hasExtendedTitle)
-        && Objects.equals(this.id, securityMonitoringRuleResponse.id)
-        && Objects.equals(this.isDefault, securityMonitoringRuleResponse.isDefault)
-        && Objects.equals(this.isDeleted, securityMonitoringRuleResponse.isDeleted)
-        && Objects.equals(this.isEnabled, securityMonitoringRuleResponse.isEnabled)
-        && Objects.equals(this.message, securityMonitoringRuleResponse.message)
-        && Objects.equals(this.name, securityMonitoringRuleResponse.name)
-        && Objects.equals(this.options, securityMonitoringRuleResponse.options)
-        && Objects.equals(this.queries, securityMonitoringRuleResponse.queries)
-        && Objects.equals(this.tags, securityMonitoringRuleResponse.tags)
-        && Objects.equals(this.type, securityMonitoringRuleResponse.type)
-        && Objects.equals(this.updateAuthorId, securityMonitoringRuleResponse.updateAuthorId)
-        && Objects.equals(this.version, securityMonitoringRuleResponse.version);
+  static {
+    schemas.put(
+        "SecurityMonitoringStandardRuleResponse",
+        new GenericType<SecurityMonitoringStandardRuleResponse>() {});
+    schemas.put(
+        "SecurityMonitoringSignalRuleResponse",
+        new GenericType<SecurityMonitoringSignalRuleResponse>() {});
+    JSON.registerDescendants(
+        SecurityMonitoringRuleResponse.class, Collections.unmodifiableMap(schemas));
   }
 
   @Override
-  public int hashCode() {
-    return Objects.hash(
-        cases,
-        createdAt,
-        creationAuthorId,
-        filters,
-        hasExtendedTitle,
-        id,
-        isDefault,
-        isDeleted,
-        isEnabled,
-        message,
-        name,
-        options,
-        queries,
-        tags,
-        type,
-        updateAuthorId,
-        version);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringRuleResponse {\n");
-    sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
-    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
-    sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
-    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
-    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
-    sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    updateAuthorId: ").append(toIndentedString(updateAuthorId)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("}");
-    return sb.toString();
+  public Map<String, GenericType> getSchemas() {
+    return SecurityMonitoringRuleResponse.schemas;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: SecurityMonitoringStandardRuleResponse,
+   * SecurityMonitoringSignalRuleResponse
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(
+        SecurityMonitoringStandardRuleResponse.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    return o.toString().replace("\n", "\n    ");
+    if (JSON.isInstanceOf(
+        SecurityMonitoringSignalRuleResponse.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be SecurityMonitoringStandardRuleResponse,"
+            + " SecurityMonitoringSignalRuleResponse");
+  }
+
+  /**
+   * Get the actual instance, which can be the following: SecurityMonitoringStandardRuleResponse,
+   * SecurityMonitoringSignalRuleResponse
+   *
+   * @return The actual instance (SecurityMonitoringStandardRuleResponse,
+   *     SecurityMonitoringSignalRuleResponse)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SecurityMonitoringStandardRuleResponse`. If the actual instance is
+   * not `SecurityMonitoringStandardRuleResponse`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SecurityMonitoringStandardRuleResponse`
+   * @throws ClassCastException if the instance is not `SecurityMonitoringStandardRuleResponse`
+   */
+  public SecurityMonitoringStandardRuleResponse getSecurityMonitoringStandardRuleResponse()
+      throws ClassCastException {
+    return (SecurityMonitoringStandardRuleResponse) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SecurityMonitoringSignalRuleResponse`. If the actual instance is
+   * not `SecurityMonitoringSignalRuleResponse`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SecurityMonitoringSignalRuleResponse`
+   * @throws ClassCastException if the instance is not `SecurityMonitoringSignalRuleResponse`
+   */
+  public SecurityMonitoringSignalRuleResponse getSecurityMonitoringSignalRuleResponse()
+      throws ClassCastException {
+    return (SecurityMonitoringSignalRuleResponse) super.getActualInstance();
   }
 }

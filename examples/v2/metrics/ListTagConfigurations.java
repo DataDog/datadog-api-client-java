@@ -1,4 +1,4 @@
-// List tag configurations returns "Success" response
+// Get a list of metrics returns "Success" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

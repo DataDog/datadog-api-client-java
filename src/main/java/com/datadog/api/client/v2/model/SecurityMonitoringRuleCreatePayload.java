@@ -6,389 +6,308 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/** Create a new rule. */
-@JsonPropertyOrder({
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_CASES,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_FILTERS,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_HAS_EXTENDED_TITLE,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_IS_ENABLED,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_MESSAGE,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_NAME,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_OPTIONS,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_QUERIES,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_TAGS,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_TYPE
-})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringRuleCreatePayload {
+@JsonDeserialize(
+    using =
+        SecurityMonitoringRuleCreatePayload.SecurityMonitoringRuleCreatePayloadDeserializer.class)
+@JsonSerialize(
+    using = SecurityMonitoringRuleCreatePayload.SecurityMonitoringRuleCreatePayloadSerializer.class)
+public class SecurityMonitoringRuleCreatePayload extends AbstractOpenApiSchema {
+  private static final Logger log =
+      Logger.getLogger(SecurityMonitoringRuleCreatePayload.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CASES = "cases";
-  private List<SecurityMonitoringRuleCaseCreate> cases = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_FILTERS = "filters";
-  private List<SecurityMonitoringFilter> filters = null;
-
-  public static final String JSON_PROPERTY_HAS_EXTENDED_TITLE = "hasExtendedTitle";
-  private Boolean hasExtendedTitle;
-
-  public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
-  private Boolean isEnabled;
-
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
-  public static final String JSON_PROPERTY_OPTIONS = "options";
-  private SecurityMonitoringRuleOptions options;
-
-  public static final String JSON_PROPERTY_QUERIES = "queries";
-  private List<SecurityMonitoringRuleQueryCreate> queries = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<String> tags = null;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private SecurityMonitoringRuleTypeCreate type;
-
-  public SecurityMonitoringRuleCreatePayload() {}
-
-  @JsonCreator
-  public SecurityMonitoringRuleCreatePayload(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CASES)
-          List<SecurityMonitoringRuleCaseCreate> cases,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IS_ENABLED) Boolean isEnabled,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS)
-          SecurityMonitoringRuleOptions options,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
-          List<SecurityMonitoringRuleQueryCreate> queries) {
-    this.cases = cases;
-    this.isEnabled = isEnabled;
-    this.message = message;
-    this.name = name;
-    this.options = options;
-    this.unparsed |= options.unparsed;
-    this.queries = queries;
-  }
-
-  public SecurityMonitoringRuleCreatePayload cases(List<SecurityMonitoringRuleCaseCreate> cases) {
-    this.cases = cases;
-    for (SecurityMonitoringRuleCaseCreate item : cases) {
-      this.unparsed |= item.unparsed;
+  public static class SecurityMonitoringRuleCreatePayloadSerializer
+      extends StdSerializer<SecurityMonitoringRuleCreatePayload> {
+    public SecurityMonitoringRuleCreatePayloadSerializer(
+        Class<SecurityMonitoringRuleCreatePayload> t) {
+      super(t);
     }
-    return this;
-  }
 
-  public SecurityMonitoringRuleCreatePayload addCasesItem(
-      SecurityMonitoringRuleCaseCreate casesItem) {
-    this.cases.add(casesItem);
-    this.unparsed |= casesItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Cases for generating signals.
-   *
-   * @return cases
-   */
-  @JsonProperty(JSON_PROPERTY_CASES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SecurityMonitoringRuleCaseCreate> getCases() {
-    return cases;
-  }
-
-  public void setCases(List<SecurityMonitoringRuleCaseCreate> cases) {
-    this.cases = cases;
-  }
-
-  public SecurityMonitoringRuleCreatePayload filters(List<SecurityMonitoringFilter> filters) {
-    this.filters = filters;
-    for (SecurityMonitoringFilter item : filters) {
-      this.unparsed |= item.unparsed;
+    public SecurityMonitoringRuleCreatePayloadSerializer() {
+      this(null);
     }
-    return this;
-  }
 
-  public SecurityMonitoringRuleCreatePayload addFiltersItem(SecurityMonitoringFilter filtersItem) {
-    if (this.filters == null) {
-      this.filters = new ArrayList<>();
+    @Override
+    public void serialize(
+        SecurityMonitoringRuleCreatePayload value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
     }
-    this.filters.add(filtersItem);
-    this.unparsed |= filtersItem.unparsed;
-    return this;
   }
 
-  /**
-   * Additional queries to filter matched events before they are processed.
-   *
-   * @return filters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringFilter> getFilters() {
-    return filters;
-  }
-
-  public void setFilters(List<SecurityMonitoringFilter> filters) {
-    this.filters = filters;
-  }
-
-  public SecurityMonitoringRuleCreatePayload hasExtendedTitle(Boolean hasExtendedTitle) {
-    this.hasExtendedTitle = hasExtendedTitle;
-    return this;
-  }
-
-  /**
-   * Whether the notifications include the triggering group-by values in their title.
-   *
-   * @return hasExtendedTitle
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getHasExtendedTitle() {
-    return hasExtendedTitle;
-  }
-
-  public void setHasExtendedTitle(Boolean hasExtendedTitle) {
-    this.hasExtendedTitle = hasExtendedTitle;
-  }
-
-  public SecurityMonitoringRuleCreatePayload isEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
-    return this;
-  }
-
-  /**
-   * Whether the rule is enabled.
-   *
-   * @return isEnabled
-   */
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
-  public void setIsEnabled(Boolean isEnabled) {
-    this.isEnabled = isEnabled;
-  }
-
-  public SecurityMonitoringRuleCreatePayload message(String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Message for generated signals.
-   *
-   * @return message
-   */
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public SecurityMonitoringRuleCreatePayload name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The name of the rule.
-   *
-   * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SecurityMonitoringRuleCreatePayload options(SecurityMonitoringRuleOptions options) {
-    this.options = options;
-    this.unparsed |= options.unparsed;
-    return this;
-  }
-
-  /**
-   * Options on rules.
-   *
-   * @return options
-   */
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityMonitoringRuleOptions getOptions() {
-    return options;
-  }
-
-  public void setOptions(SecurityMonitoringRuleOptions options) {
-    this.options = options;
-  }
-
-  public SecurityMonitoringRuleCreatePayload queries(
-      List<SecurityMonitoringRuleQueryCreate> queries) {
-    this.queries = queries;
-    for (SecurityMonitoringRuleQueryCreate item : queries) {
-      this.unparsed |= item.unparsed;
+  public static class SecurityMonitoringRuleCreatePayloadDeserializer
+      extends StdDeserializer<SecurityMonitoringRuleCreatePayload> {
+    public SecurityMonitoringRuleCreatePayloadDeserializer() {
+      this(SecurityMonitoringRuleCreatePayload.class);
     }
-    return this;
-  }
 
-  public SecurityMonitoringRuleCreatePayload addQueriesItem(
-      SecurityMonitoringRuleQueryCreate queriesItem) {
-    this.queries.add(queriesItem);
-    this.unparsed |= queriesItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Queries for selecting logs which are part of the rule.
-   *
-   * @return queries
-   */
-  @JsonProperty(JSON_PROPERTY_QUERIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SecurityMonitoringRuleQueryCreate> getQueries() {
-    return queries;
-  }
-
-  public void setQueries(List<SecurityMonitoringRuleQueryCreate> queries) {
-    this.queries = queries;
-  }
-
-  public SecurityMonitoringRuleCreatePayload tags(List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public SecurityMonitoringRuleCreatePayload addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
+    public SecurityMonitoringRuleCreatePayloadDeserializer(Class<?> vc) {
+      super(vc);
     }
-    this.tags.add(tagsItem);
-    return this;
-  }
 
-  /**
-   * Tags for generated signals.
-   *
-   * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
+    @Override
+    public SecurityMonitoringRuleCreatePayload deserialize(
+        JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize SecurityMonitoringStandardRuleCreatePayload
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringStandardRuleCreatePayload.class.equals(Integer.class)
+            || SecurityMonitoringStandardRuleCreatePayload.class.equals(Long.class)
+            || SecurityMonitoringStandardRuleCreatePayload.class.equals(Float.class)
+            || SecurityMonitoringStandardRuleCreatePayload.class.equals(Double.class)
+            || SecurityMonitoringStandardRuleCreatePayload.class.equals(Boolean.class)
+            || SecurityMonitoringStandardRuleCreatePayload.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringStandardRuleCreatePayload.class.equals(Integer.class)
+                        || SecurityMonitoringStandardRuleCreatePayload.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringStandardRuleCreatePayload.class.equals(Float.class)
+                        || SecurityMonitoringStandardRuleCreatePayload.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringStandardRuleCreatePayload.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringStandardRuleCreatePayload.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(SecurityMonitoringStandardRuleCreatePayload.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringStandardRuleCreatePayload) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'SecurityMonitoringStandardRuleCreatePayload'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'SecurityMonitoringStandardRuleCreatePayload'",
+            e);
+      }
 
-  public void setTags(List<String> tags) {
-    this.tags = tags;
-  }
+      // deserialize SecurityMonitoringSignalRuleCreatePayload
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SecurityMonitoringSignalRuleCreatePayload.class.equals(Integer.class)
+            || SecurityMonitoringSignalRuleCreatePayload.class.equals(Long.class)
+            || SecurityMonitoringSignalRuleCreatePayload.class.equals(Float.class)
+            || SecurityMonitoringSignalRuleCreatePayload.class.equals(Double.class)
+            || SecurityMonitoringSignalRuleCreatePayload.class.equals(Boolean.class)
+            || SecurityMonitoringSignalRuleCreatePayload.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SecurityMonitoringSignalRuleCreatePayload.class.equals(Integer.class)
+                        || SecurityMonitoringSignalRuleCreatePayload.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SecurityMonitoringSignalRuleCreatePayload.class.equals(Float.class)
+                        || SecurityMonitoringSignalRuleCreatePayload.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SecurityMonitoringSignalRuleCreatePayload.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SecurityMonitoringSignalRuleCreatePayload.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(SecurityMonitoringSignalRuleCreatePayload.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SecurityMonitoringSignalRuleCreatePayload) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'SecurityMonitoringSignalRuleCreatePayload'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'SecurityMonitoringSignalRuleCreatePayload'",
+            e);
+      }
 
-  public SecurityMonitoringRuleCreatePayload type(SecurityMonitoringRuleTypeCreate type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The rule type.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleTypeCreate getType() {
-    return type;
-  }
-
-  public void setType(SecurityMonitoringRuleTypeCreate type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+      SecurityMonitoringRuleCreatePayload ret = new SecurityMonitoringRuleCreatePayload();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
     }
-    this.type = type;
+
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public SecurityMonitoringRuleCreatePayload getNullValue(DeserializationContext ctxt)
+        throws JsonMappingException {
+      throw new JsonMappingException(
+          ctxt.getParser(), "SecurityMonitoringRuleCreatePayload cannot be null");
+    }
   }
 
-  /** Return true if this SecurityMonitoringRuleCreatePayload object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    SecurityMonitoringRuleCreatePayload securityMonitoringRuleCreatePayload =
-        (SecurityMonitoringRuleCreatePayload) o;
-    return Objects.equals(this.cases, securityMonitoringRuleCreatePayload.cases)
-        && Objects.equals(this.filters, securityMonitoringRuleCreatePayload.filters)
-        && Objects.equals(
-            this.hasExtendedTitle, securityMonitoringRuleCreatePayload.hasExtendedTitle)
-        && Objects.equals(this.isEnabled, securityMonitoringRuleCreatePayload.isEnabled)
-        && Objects.equals(this.message, securityMonitoringRuleCreatePayload.message)
-        && Objects.equals(this.name, securityMonitoringRuleCreatePayload.name)
-        && Objects.equals(this.options, securityMonitoringRuleCreatePayload.options)
-        && Objects.equals(this.queries, securityMonitoringRuleCreatePayload.queries)
-        && Objects.equals(this.tags, securityMonitoringRuleCreatePayload.tags)
-        && Objects.equals(this.type, securityMonitoringRuleCreatePayload.type);
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public SecurityMonitoringRuleCreatePayload() {
+    super("oneOf", Boolean.FALSE);
+  }
+
+  public SecurityMonitoringRuleCreatePayload(SecurityMonitoringStandardRuleCreatePayload o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public SecurityMonitoringRuleCreatePayload(SecurityMonitoringSignalRuleCreatePayload o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  static {
+    schemas.put(
+        "SecurityMonitoringStandardRuleCreatePayload",
+        new GenericType<SecurityMonitoringStandardRuleCreatePayload>() {});
+    schemas.put(
+        "SecurityMonitoringSignalRuleCreatePayload",
+        new GenericType<SecurityMonitoringSignalRuleCreatePayload>() {});
+    JSON.registerDescendants(
+        SecurityMonitoringRuleCreatePayload.class, Collections.unmodifiableMap(schemas));
   }
 
   @Override
-  public int hashCode() {
-    return Objects.hash(
-        cases, filters, hasExtendedTitle, isEnabled, message, name, options, queries, tags, type);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringRuleCreatePayload {\n");
-    sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
-    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
-    sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
-    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
-    sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
+  public Map<String, GenericType> getSchemas() {
+    return SecurityMonitoringRuleCreatePayload.schemas;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: SecurityMonitoringStandardRuleCreatePayload,
+   * SecurityMonitoringSignalRuleCreatePayload
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(
+        SecurityMonitoringStandardRuleCreatePayload.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    return o.toString().replace("\n", "\n    ");
+    if (JSON.isInstanceOf(
+        SecurityMonitoringSignalRuleCreatePayload.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be SecurityMonitoringStandardRuleCreatePayload,"
+            + " SecurityMonitoringSignalRuleCreatePayload");
+  }
+
+  /**
+   * Get the actual instance, which can be the following:
+   * SecurityMonitoringStandardRuleCreatePayload, SecurityMonitoringSignalRuleCreatePayload
+   *
+   * @return The actual instance (SecurityMonitoringStandardRuleCreatePayload,
+   *     SecurityMonitoringSignalRuleCreatePayload)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SecurityMonitoringStandardRuleCreatePayload`. If the actual
+   * instance is not `SecurityMonitoringStandardRuleCreatePayload`, the ClassCastException will be
+   * thrown.
+   *
+   * @return The actual instance of `SecurityMonitoringStandardRuleCreatePayload`
+   * @throws ClassCastException if the instance is not `SecurityMonitoringStandardRuleCreatePayload`
+   */
+  public SecurityMonitoringStandardRuleCreatePayload
+      getSecurityMonitoringStandardRuleCreatePayload() throws ClassCastException {
+    return (SecurityMonitoringStandardRuleCreatePayload) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SecurityMonitoringSignalRuleCreatePayload`. If the actual instance
+   * is not `SecurityMonitoringSignalRuleCreatePayload`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SecurityMonitoringSignalRuleCreatePayload`
+   * @throws ClassCastException if the instance is not `SecurityMonitoringSignalRuleCreatePayload`
+   */
+  public SecurityMonitoringSignalRuleCreatePayload getSecurityMonitoringSignalRuleCreatePayload()
+      throws ClassCastException {
+    return (SecurityMonitoringSignalRuleCreatePayload) super.getActualInstance();
   }
 }

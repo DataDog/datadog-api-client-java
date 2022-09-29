@@ -30,6 +30,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("api_usage");
   public static final MonthlyUsageAttributionSupportedMetrics API_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("api_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics APM_FARGATE_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("apm_fargate_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics APM_FARGATE_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("apm_fargate_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics APM_HOST_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("apm_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics APM_HOST_PERCENTAGE =
@@ -78,6 +82,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("estimated_indexed_logs_usage");
   public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("estimated_indexed_logs_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INGESTED_LOGS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("estimated_ingested_logs_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INGESTED_LOGS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("estimated_ingested_logs_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_SPANS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("estimated_indexed_spans_usage");
   public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_SPANS_PERCENTAGE =
@@ -130,6 +138,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
           Arrays.asList(
               "api_usage",
               "api_percentage",
+              "apm_fargate_usage",
+              "apm_fargate_percentage",
               "apm_host_usage",
               "apm_host_percentage",
               "appsec_usage",
@@ -154,6 +164,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "dbm_queries_usage",
               "estimated_indexed_logs_usage",
               "estimated_indexed_logs_percentage",
+              "estimated_ingested_logs_usage",
+              "estimated_ingested_logs_percentage",
               "estimated_indexed_spans_usage",
               "estimated_indexed_spans_percentage",
               "estimated_ingested_spans_usage",

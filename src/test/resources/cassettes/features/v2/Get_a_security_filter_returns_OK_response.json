@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1652349195\",\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1652349195\"},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1664284019\",\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1664284019\"},\"type\":\"security_filters\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,10 +12,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1652349195\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1652349195\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"lgh-q3c-xlh\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1664284019\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1664284019\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"iy5-coy-b9b\"}}\n",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -27,21 +27,21 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1b6a287e-4ed9-5daf-e7e9-a7202bcafd50"
+    "id": "495c21a2-f00e-46e7-67b1-63c326ff3c2a"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/lgh-q3c-xlh",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/iy5-coy-b9b",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1652349195\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1652349195\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"lgh-q3c-xlh\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1664284019\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1664284019\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"iy5-coy-b9b\"}}\n",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -53,20 +53,20 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e580e470-7e8a-72ad-9591-ac3b7ad619ef"
+    "id": "4e8cebf1-a4a1-f160-2795-f079c71fbe5c"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/lgh-q3c-xlh",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/iy5-coy-b9b",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "text/html; charset=utf-8"
         ]
       },
       "statusCode": 204,
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "66069e37-67e4-def4-7922-4be266ae8ec8"
+    "id": "4365d158-30d5-a636-5af7-b2937bd2b3d3"
   }
 ]

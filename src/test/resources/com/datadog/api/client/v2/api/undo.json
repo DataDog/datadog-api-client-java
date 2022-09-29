@@ -409,6 +409,12 @@
       "type": "unsafe"
     }
   },
+  "ListActiveMetricConfigurations": {
+    "tag": "Metrics",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "ListTagsByMetricName": {
     "tag": "Metrics",
     "undo": {
@@ -746,6 +752,12 @@
       "type": "safe"
     }
   },
+  "GetSecurityMonitoringSignal": {
+    "tag": "Security Monitoring",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "EditSecurityMonitoringSignalAssignee": {
     "tag": "Security Monitoring",
     "undo": {
@@ -911,6 +923,12 @@
     }
   },
   "GetEstimatedCostByOrg": {
+    "tag": "Usage Metering",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetHistoricalCostByOrg": {
     "tag": "Usage Metering",
     "undo": {
       "type": "safe"

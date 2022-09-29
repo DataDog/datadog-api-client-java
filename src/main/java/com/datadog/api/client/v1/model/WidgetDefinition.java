@@ -977,6 +977,51 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'SLOWidgetDefinition'", e);
       }
 
+      // deserialize SLOListWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SLOListWidgetDefinition.class.equals(Integer.class)
+            || SLOListWidgetDefinition.class.equals(Long.class)
+            || SLOListWidgetDefinition.class.equals(Float.class)
+            || SLOListWidgetDefinition.class.equals(Double.class)
+            || SLOListWidgetDefinition.class.equals(Boolean.class)
+            || SLOListWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SLOListWidgetDefinition.class.equals(Integer.class)
+                        || SLOListWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SLOListWidgetDefinition.class.equals(Float.class)
+                        || SLOListWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SLOListWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SLOListWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SLOListWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SLOListWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SLOListWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'SLOListWidgetDefinition'", e);
+      }
+
       // deserialize ServiceMapWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -1383,6 +1428,51 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'FunnelWidgetDefinition'", e);
       }
 
+      // deserialize TopologyMapWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (TopologyMapWidgetDefinition.class.equals(Integer.class)
+            || TopologyMapWidgetDefinition.class.equals(Long.class)
+            || TopologyMapWidgetDefinition.class.equals(Float.class)
+            || TopologyMapWidgetDefinition.class.equals(Double.class)
+            || TopologyMapWidgetDefinition.class.equals(Boolean.class)
+            || TopologyMapWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((TopologyMapWidgetDefinition.class.equals(Integer.class)
+                        || TopologyMapWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((TopologyMapWidgetDefinition.class.equals(Float.class)
+                        || TopologyMapWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (TopologyMapWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (TopologyMapWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(TopologyMapWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((TopologyMapWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'TopologyMapWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'TopologyMapWidgetDefinition'", e);
+      }
+
       WidgetDefinition ret = new WidgetDefinition();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -1511,6 +1601,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(SLOListWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public WidgetDefinition(ServiceMapWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1556,6 +1651,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(TopologyMapWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("AlertGraphWidgetDefinition", new GenericType<AlertGraphWidgetDefinition>() {});
     schemas.put("AlertValueWidgetDefinition", new GenericType<AlertValueWidgetDefinition>() {});
@@ -1579,6 +1679,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     schemas.put("QueryValueWidgetDefinition", new GenericType<QueryValueWidgetDefinition>() {});
     schemas.put("ScatterPlotWidgetDefinition", new GenericType<ScatterPlotWidgetDefinition>() {});
     schemas.put("SLOWidgetDefinition", new GenericType<SLOWidgetDefinition>() {});
+    schemas.put("SLOListWidgetDefinition", new GenericType<SLOListWidgetDefinition>() {});
     schemas.put("ServiceMapWidgetDefinition", new GenericType<ServiceMapWidgetDefinition>() {});
     schemas.put(
         "ServiceSummaryWidgetDefinition", new GenericType<ServiceSummaryWidgetDefinition>() {});
@@ -1589,6 +1690,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     schemas.put("TreeMapWidgetDefinition", new GenericType<TreeMapWidgetDefinition>() {});
     schemas.put("ListStreamWidgetDefinition", new GenericType<ListStreamWidgetDefinition>() {});
     schemas.put("FunnelWidgetDefinition", new GenericType<FunnelWidgetDefinition>() {});
+    schemas.put("TopologyMapWidgetDefinition", new GenericType<TopologyMapWidgetDefinition>() {});
     JSON.registerDescendants(WidgetDefinition.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -1606,9 +1708,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
    * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
    * QueryValueWidgetDefinition, ScatterPlotWidgetDefinition, SLOWidgetDefinition,
-   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SunburstWidgetDefinition,
-   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
-   * TreeMapWidgetDefinition, ListStreamWidgetDefinition, FunnelWidgetDefinition
+   * SLOListWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
+   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   * ToplistWidgetDefinition, TreeMapWidgetDefinition, ListStreamWidgetDefinition,
+   * FunnelWidgetDefinition, TopologyMapWidgetDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1696,6 +1799,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(SLOListWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(ServiceMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1733,6 +1840,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(TopologyMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -1746,10 +1857,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             + " HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,"
             + " ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,"
             + " NoteWidgetDefinition, QueryValueWidgetDefinition, ScatterPlotWidgetDefinition,"
-            + " SLOWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,"
-            + " SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,"
-            + " ToplistWidgetDefinition, TreeMapWidgetDefinition, ListStreamWidgetDefinition,"
-            + " FunnelWidgetDefinition");
+            + " SLOWidgetDefinition, SLOListWidgetDefinition, ServiceMapWidgetDefinition,"
+            + " ServiceSummaryWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,"
+            + " TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition,"
+            + " ListStreamWidgetDefinition, FunnelWidgetDefinition, TopologyMapWidgetDefinition");
   }
 
   /**
@@ -1760,10 +1871,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
    * ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
    * NoteWidgetDefinition, QueryValueWidgetDefinition, ScatterPlotWidgetDefinition,
-   * SLOWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
-   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
-   * ToplistWidgetDefinition, TreeMapWidgetDefinition, ListStreamWidgetDefinition,
-   * FunnelWidgetDefinition
+   * SLOWidgetDefinition, SLOListWidgetDefinition, ServiceMapWidgetDefinition,
+   * ServiceSummaryWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
+   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition,
+   * ListStreamWidgetDefinition, FunnelWidgetDefinition, TopologyMapWidgetDefinition
    *
    * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    *     ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,
@@ -1772,9 +1883,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    *     HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
    *     LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
    *     QueryValueWidgetDefinition, ScatterPlotWidgetDefinition, SLOWidgetDefinition,
-   *     ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SunburstWidgetDefinition,
-   *     TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
-   *     TreeMapWidgetDefinition, ListStreamWidgetDefinition, FunnelWidgetDefinition)
+   *     SLOListWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
+   *     SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   *     ToplistWidgetDefinition, TreeMapWidgetDefinition, ListStreamWidgetDefinition,
+   *     FunnelWidgetDefinition, TopologyMapWidgetDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -2004,6 +2116,17 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
+   * Get the actual instance of `SLOListWidgetDefinition`. If the actual instance is not
+   * `SLOListWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SLOListWidgetDefinition`
+   * @throws ClassCastException if the instance is not `SLOListWidgetDefinition`
+   */
+  public SLOListWidgetDefinition getSLOListWidgetDefinition() throws ClassCastException {
+    return (SLOListWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
    * Get the actual instance of `ServiceMapWidgetDefinition`. If the actual instance is not
    * `ServiceMapWidgetDefinition`, the ClassCastException will be thrown.
    *
@@ -2101,5 +2224,16 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public FunnelWidgetDefinition getFunnelWidgetDefinition() throws ClassCastException {
     return (FunnelWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `TopologyMapWidgetDefinition`. If the actual instance is not
+   * `TopologyMapWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `TopologyMapWidgetDefinition`
+   * @throws ClassCastException if the instance is not `TopologyMapWidgetDefinition`
+   */
+  public TopologyMapWidgetDefinition getTopologyMapWidgetDefinition() throws ClassCastException {
+    return (TopologyMapWidgetDefinition) super.getActualInstance();
   }
 }

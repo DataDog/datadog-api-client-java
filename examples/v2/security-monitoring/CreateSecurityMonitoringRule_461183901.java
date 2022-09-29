@@ -12,10 +12,11 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleKeepAlive;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleMaxSignalDuration;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryAggregation;
-import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryCreate;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTypeCreate;
+import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleCreatePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleQuery;
 import java.util.Collections;
 
 public class Example {
@@ -24,33 +25,35 @@ public class Example {
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     SecurityMonitoringRuleCreatePayload body =
-        new SecurityMonitoringRuleCreatePayload()
-            .queries(
-                Collections.singletonList(
-                    new SecurityMonitoringRuleQueryCreate()
-                        .aggregation(SecurityMonitoringRuleQueryAggregation.GEO_DATA)
-                        .groupByFields(Collections.singletonList("@usr.id"))
-                        .metric("@network.client.geoip")
-                        .query("*")))
-            .cases(
-                Collections.singletonList(
-                    new SecurityMonitoringRuleCaseCreate()
-                        .name("")
-                        .status(SecurityMonitoringRuleSeverity.INFO)))
-            .hasExtendedTitle(true)
-            .message("test")
-            .isEnabled(true)
-            .options(
-                new SecurityMonitoringRuleOptions()
-                    .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.ONE_DAY)
-                    .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.FIFTEEN_MINUTES)
-                    .keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)
-                    .detectionMethod(SecurityMonitoringRuleDetectionMethod.IMPOSSIBLE_TRAVEL)
-                    .impossibleTravelOptions(
-                        new SecurityMonitoringRuleImpossibleTravelOptions()
-                            .baselineUserLocations(false)))
-            .name("Example-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response")
-            .type(SecurityMonitoringRuleTypeCreate.LOG_DETECTION);
+        new SecurityMonitoringRuleCreatePayload(
+            new SecurityMonitoringStandardRuleCreatePayload()
+                .queries(
+                    Collections.singletonList(
+                        new SecurityMonitoringStandardRuleQuery()
+                            .aggregation(SecurityMonitoringRuleQueryAggregation.GEO_DATA)
+                            .groupByFields(Collections.singletonList("@usr.id"))
+                            .metric("@network.client.geoip")
+                            .query("*")))
+                .cases(
+                    Collections.singletonList(
+                        new SecurityMonitoringRuleCaseCreate()
+                            .name("")
+                            .status(SecurityMonitoringRuleSeverity.INFO)))
+                .hasExtendedTitle(true)
+                .message("test")
+                .isEnabled(true)
+                .options(
+                    new SecurityMonitoringRuleOptions()
+                        .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.ONE_DAY)
+                        .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.FIFTEEN_MINUTES)
+                        .keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)
+                        .detectionMethod(SecurityMonitoringRuleDetectionMethod.IMPOSSIBLE_TRAVEL)
+                        .impossibleTravelOptions(
+                            new SecurityMonitoringRuleImpossibleTravelOptions()
+                                .baselineUserLocations(false)))
+                .name(
+                    "Example-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response")
+                .type(SecurityMonitoringRuleTypeCreate.LOG_DETECTION));
 
     try {
       SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule(body);

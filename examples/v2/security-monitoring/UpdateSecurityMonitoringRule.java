@@ -23,6 +23,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryAggregation;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleUpdatePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleQuery;
 import java.util.Collections;
 
 public class Example {
@@ -63,8 +64,10 @@ public class Example {
                                     .ZERO_OCCURRENCES)))
             .queries(
                 Collections.singletonList(
-                    new SecurityMonitoringRuleQuery()
-                        .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)))
+                    new SecurityMonitoringRuleQuery(
+                        new SecurityMonitoringStandardRuleQuery()
+                            .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
+                            .query("a > 3"))))
             .version(1);
 
     try {

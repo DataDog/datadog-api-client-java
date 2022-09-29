@@ -168,6 +168,43 @@ If you want to enable requests logging, set the `debugging` flag on your client:
 defaultClient.setDebugging(true)
 ```
 
+### Configure proxy
+
+You can provide custom `connectorProvider` implemtation to `clientConfig` to use proxy. See example below using `ApacheConnectorProvider`:
+
+```java
+import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
+import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.client.ClientProperties;
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.DashboardSummary;
+
+public class ProxyExample {
+  public static void main( String[] args ) {
+    ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    ClientConfig clientConfig = defaultClient.getClientConfig().connectorProvider(new ApacheConnectorProvider());
+    clientConfig.property(ClientProperties.PROXY_URI, "http://127.0.0.1:80");
+    defaultClient.setClientConfig(clientConfig);
+
+    DashboardsApi apiInstance = new DashboardsApi(defaultClient);
+    try {
+      DashboardSummary result =
+          apiInstance.listDashboards();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DashboardsApi#listDashboards");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
 ## Documentation for API Endpoints and Models
 
 Javadoc is available on [javadoc.io](https://www.javadoc.io/doc/com.datadoghq/datadog-api-client/latest/).

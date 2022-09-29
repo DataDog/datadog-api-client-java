@@ -20,6 +20,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   DashboardTemplateVariable.JSON_PROPERTY_AVAILABLE_VALUES,
   DashboardTemplateVariable.JSON_PROPERTY_DEFAULT,
+  DashboardTemplateVariable.JSON_PROPERTY_DEFAULTS,
   DashboardTemplateVariable.JSON_PROPERTY_NAME,
   DashboardTemplateVariable.JSON_PROPERTY_PREFIX
 })
@@ -32,6 +33,9 @@ public class DashboardTemplateVariable {
 
   public static final String JSON_PROPERTY_DEFAULT = "default";
   private JsonNullable<String> _default = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_DEFAULTS = "defaults";
+  private List<String> defaults = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -96,10 +100,13 @@ public class DashboardTemplateVariable {
   }
 
   /**
-   * The default value for the template variable on dashboard load.
+   * (deprecated) The default value for the template variable on dashboard load. Cannot be used in
+   * conjunction with <code>defaults</code>.
    *
    * @return _default
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonIgnore
   public String getDefault() {
@@ -119,6 +126,37 @@ public class DashboardTemplateVariable {
 
   public void setDefault(String _default) {
     this._default = JsonNullable.<String>of(_default);
+  }
+
+  public DashboardTemplateVariable defaults(List<String> defaults) {
+    this.defaults = defaults;
+    return this;
+  }
+
+  public DashboardTemplateVariable addDefaultsItem(String defaultsItem) {
+    if (this.defaults == null) {
+      this.defaults = new ArrayList<>();
+    }
+    this.defaults.add(defaultsItem);
+    return this;
+  }
+
+  /**
+   * One or many default values for template variables on load. If more than one default is
+   * specified, they will be unioned together with <code>OR</code>. Cannot be used in conjunction
+   * with <code>default</code>.
+   *
+   * @return defaults
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDefaults() {
+    return defaults;
+  }
+
+  public void setDefaults(List<String> defaults) {
+    this.defaults = defaults;
   }
 
   public DashboardTemplateVariable name(String name) {
@@ -185,13 +223,14 @@ public class DashboardTemplateVariable {
     DashboardTemplateVariable dashboardTemplateVariable = (DashboardTemplateVariable) o;
     return Objects.equals(this.availableValues, dashboardTemplateVariable.availableValues)
         && Objects.equals(this._default, dashboardTemplateVariable._default)
+        && Objects.equals(this.defaults, dashboardTemplateVariable.defaults)
         && Objects.equals(this.name, dashboardTemplateVariable.name)
         && Objects.equals(this.prefix, dashboardTemplateVariable.prefix);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableValues, _default, name, prefix);
+    return Objects.hash(availableValues, _default, defaults, name, prefix);
   }
 
   @Override
@@ -200,6 +239,7 @@ public class DashboardTemplateVariable {
     sb.append("class DashboardTemplateVariable {\n");
     sb.append("    availableValues: ").append(toIndentedString(availableValues)).append("\n");
     sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
+    sb.append("    defaults: ").append(toIndentedString(defaults)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("}");

@@ -17,17 +17,17 @@ import java.util.Objects;
 
 /** Query for matching rule. */
 @JsonPropertyOrder({
-  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_AGGREGATION,
-  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_DISTINCT_FIELDS,
-  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_GROUP_BY_FIELDS,
-  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_METRIC,
-  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_METRICS,
-  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_NAME,
-  SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_QUERY
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_AGGREGATION,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_DISTINCT_FIELDS,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_METRIC,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_METRICS,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_NAME,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_QUERY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringRuleQueryCreate {
+public class SecurityMonitoringStandardRuleQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private SecurityMonitoringRuleQueryAggregation aggregation;
@@ -50,15 +50,15 @@ public class SecurityMonitoringRuleQueryCreate {
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
-  public SecurityMonitoringRuleQueryCreate() {}
+  public SecurityMonitoringStandardRuleQuery() {}
 
   @JsonCreator
-  public SecurityMonitoringRuleQueryCreate(
+  public SecurityMonitoringStandardRuleQuery(
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
     this.query = query;
   }
 
-  public SecurityMonitoringRuleQueryCreate aggregation(
+  public SecurityMonitoringStandardRuleQuery aggregation(
       SecurityMonitoringRuleQueryAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
@@ -84,12 +84,12 @@ public class SecurityMonitoringRuleQueryCreate {
     this.aggregation = aggregation;
   }
 
-  public SecurityMonitoringRuleQueryCreate distinctFields(List<String> distinctFields) {
+  public SecurityMonitoringStandardRuleQuery distinctFields(List<String> distinctFields) {
     this.distinctFields = distinctFields;
     return this;
   }
 
-  public SecurityMonitoringRuleQueryCreate addDistinctFieldsItem(String distinctFieldsItem) {
+  public SecurityMonitoringStandardRuleQuery addDistinctFieldsItem(String distinctFieldsItem) {
     if (this.distinctFields == null) {
       this.distinctFields = new ArrayList<>();
     }
@@ -113,12 +113,12 @@ public class SecurityMonitoringRuleQueryCreate {
     this.distinctFields = distinctFields;
   }
 
-  public SecurityMonitoringRuleQueryCreate groupByFields(List<String> groupByFields) {
+  public SecurityMonitoringStandardRuleQuery groupByFields(List<String> groupByFields) {
     this.groupByFields = groupByFields;
     return this;
   }
 
-  public SecurityMonitoringRuleQueryCreate addGroupByFieldsItem(String groupByFieldsItem) {
+  public SecurityMonitoringStandardRuleQuery addGroupByFieldsItem(String groupByFieldsItem) {
     if (this.groupByFields == null) {
       this.groupByFields = new ArrayList<>();
     }
@@ -142,7 +142,7 @@ public class SecurityMonitoringRuleQueryCreate {
     this.groupByFields = groupByFields;
   }
 
-  public SecurityMonitoringRuleQueryCreate metric(String metric) {
+  public SecurityMonitoringStandardRuleQuery metric(String metric) {
     this.metric = metric;
     return this;
   }
@@ -163,12 +163,12 @@ public class SecurityMonitoringRuleQueryCreate {
     this.metric = metric;
   }
 
-  public SecurityMonitoringRuleQueryCreate metrics(List<String> metrics) {
+  public SecurityMonitoringStandardRuleQuery metrics(List<String> metrics) {
     this.metrics = metrics;
     return this;
   }
 
-  public SecurityMonitoringRuleQueryCreate addMetricsItem(String metricsItem) {
+  public SecurityMonitoringStandardRuleQuery addMetricsItem(String metricsItem) {
     if (this.metrics == null) {
       this.metrics = new ArrayList<>();
     }
@@ -192,7 +192,7 @@ public class SecurityMonitoringRuleQueryCreate {
     this.metrics = metrics;
   }
 
-  public SecurityMonitoringRuleQueryCreate name(String name) {
+  public SecurityMonitoringStandardRuleQuery name(String name) {
     this.name = name;
     return this;
   }
@@ -213,7 +213,7 @@ public class SecurityMonitoringRuleQueryCreate {
     this.name = name;
   }
 
-  public SecurityMonitoringRuleQueryCreate query(String query) {
+  public SecurityMonitoringStandardRuleQuery query(String query) {
     this.query = query;
     return this;
   }
@@ -233,7 +233,7 @@ public class SecurityMonitoringRuleQueryCreate {
     this.query = query;
   }
 
-  /** Return true if this SecurityMonitoringRuleQueryCreate object is equal to o. */
+  /** Return true if this SecurityMonitoringStandardRuleQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -242,15 +242,15 @@ public class SecurityMonitoringRuleQueryCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleQueryCreate securityMonitoringRuleQueryCreate =
-        (SecurityMonitoringRuleQueryCreate) o;
-    return Objects.equals(this.aggregation, securityMonitoringRuleQueryCreate.aggregation)
-        && Objects.equals(this.distinctFields, securityMonitoringRuleQueryCreate.distinctFields)
-        && Objects.equals(this.groupByFields, securityMonitoringRuleQueryCreate.groupByFields)
-        && Objects.equals(this.metric, securityMonitoringRuleQueryCreate.metric)
-        && Objects.equals(this.metrics, securityMonitoringRuleQueryCreate.metrics)
-        && Objects.equals(this.name, securityMonitoringRuleQueryCreate.name)
-        && Objects.equals(this.query, securityMonitoringRuleQueryCreate.query);
+    SecurityMonitoringStandardRuleQuery securityMonitoringStandardRuleQuery =
+        (SecurityMonitoringStandardRuleQuery) o;
+    return Objects.equals(this.aggregation, securityMonitoringStandardRuleQuery.aggregation)
+        && Objects.equals(this.distinctFields, securityMonitoringStandardRuleQuery.distinctFields)
+        && Objects.equals(this.groupByFields, securityMonitoringStandardRuleQuery.groupByFields)
+        && Objects.equals(this.metric, securityMonitoringStandardRuleQuery.metric)
+        && Objects.equals(this.metrics, securityMonitoringStandardRuleQuery.metrics)
+        && Objects.equals(this.name, securityMonitoringStandardRuleQuery.name)
+        && Objects.equals(this.query, securityMonitoringStandardRuleQuery.query);
   }
 
   @Override
@@ -261,7 +261,7 @@ public class SecurityMonitoringRuleQueryCreate {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringRuleQueryCreate {\n");
+    sb.append("class SecurityMonitoringStandardRuleQuery {\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
