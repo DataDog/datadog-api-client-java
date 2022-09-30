@@ -129,7 +129,10 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   }
 
   public String generateAwsAccountId() {
-    String uniqueId = new StringBuilder(String.valueOf(now.toInstant().toEpochMilli())).reverse().substring(0, 12);
+    String uniqueId =
+        new StringBuilder(String.valueOf(now.toInstant().toEpochMilli()))
+            .reverse()
+            .substring(0, 12);
     return uniqueId;
   }
 
@@ -640,7 +643,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
       System.out.print("yoooo");
       for (StackTraceElement ste : e.getStackTrace()) {
         System.out.println(ste + "\n");
-    }
+      }
       throw e;
     }
     Boolean accountExists = false;
