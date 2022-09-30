@@ -5,6 +5,11 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.IncidentAttachmentAttachmentType;
+import com.datadog.api.client.v2.model.IncidentAttachmentRelatedObject;
+import com.datadog.api.client.v2.model.IncidentAttachmentUpdateRequest;
+import com.datadog.api.client.v2.model.IncidentAttachmentUpdateResponse;
+import com.datadog.api.client.v2.model.IncidentAttachmentsResponse;
 import com.datadog.api.client.v2.model.IncidentCreateRequest;
 import com.datadog.api.client.v2.model.IncidentRelatedObject;
 import com.datadog.api.client.v2.model.IncidentResponse;
@@ -570,6 +575,253 @@ public class IncidentsApi {
         new GenericType<IncidentResponse>() {});
   }
 
+  /** Manage optional parameters to listIncidentAttachments. */
+  public static class ListIncidentAttachmentsOptionalParameters {
+    private List<IncidentAttachmentRelatedObject> include;
+    private List<IncidentAttachmentAttachmentType> filterAttachmentType;
+
+    /**
+     * Set include.
+     *
+     * @param include Specifies which types of related objects are included in the response.
+     *     (optional)
+     * @return ListIncidentAttachmentsOptionalParameters
+     */
+    public ListIncidentAttachmentsOptionalParameters include(
+        List<IncidentAttachmentRelatedObject> include) {
+      this.include = include;
+      return this;
+    }
+
+    /**
+     * Set filterAttachmentType.
+     *
+     * @param filterAttachmentType Specifies which types of attachments are included in the
+     *     response. (optional)
+     * @return ListIncidentAttachmentsOptionalParameters
+     */
+    public ListIncidentAttachmentsOptionalParameters filterAttachmentType(
+        List<IncidentAttachmentAttachmentType> filterAttachmentType) {
+      this.filterAttachmentType = filterAttachmentType;
+      return this;
+    }
+  }
+
+  /**
+   * Get a list of attachments.
+   *
+   * <p>See {@link #listIncidentAttachmentsWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @return IncidentAttachmentsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentAttachmentsResponse listIncidentAttachments(String incidentId)
+      throws ApiException {
+    return listIncidentAttachmentsWithHttpInfo(
+            incidentId, new ListIncidentAttachmentsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a list of attachments.
+   *
+   * <p>See {@link #listIncidentAttachmentsWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @return CompletableFuture&lt;IncidentAttachmentsResponse&gt;
+   */
+  public CompletableFuture<IncidentAttachmentsResponse> listIncidentAttachmentsAsync(
+      String incidentId) {
+    return listIncidentAttachmentsWithHttpInfoAsync(
+            incidentId, new ListIncidentAttachmentsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of attachments.
+   *
+   * <p>See {@link #listIncidentAttachmentsWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentAttachmentsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentAttachmentsResponse listIncidentAttachments(
+      String incidentId, ListIncidentAttachmentsOptionalParameters parameters) throws ApiException {
+    return listIncidentAttachmentsWithHttpInfo(incidentId, parameters).getData();
+  }
+
+  /**
+   * Get a list of attachments.
+   *
+   * <p>See {@link #listIncidentAttachmentsWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentAttachmentsResponse&gt;
+   */
+  public CompletableFuture<IncidentAttachmentsResponse> listIncidentAttachmentsAsync(
+      String incidentId, ListIncidentAttachmentsOptionalParameters parameters) {
+    return listIncidentAttachmentsWithHttpInfoAsync(incidentId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all attachments for a given incident.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentAttachmentsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentAttachmentsResponse> listIncidentAttachmentsWithHttpInfo(
+      String incidentId, ListIncidentAttachmentsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentAttachments";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'incidentId' when calling listIncidentAttachments");
+    }
+    List<IncidentAttachmentRelatedObject> include = parameters.include;
+    List<IncidentAttachmentAttachmentType> filterAttachmentType = parameters.filterAttachmentType;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/attachments"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("csv", "filter[attachment_type]", filterAttachmentType));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.listIncidentAttachments",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentAttachmentsResponse>() {});
+  }
+
+  /**
+   * Get a list of attachments.
+   *
+   * <p>See {@link #listIncidentAttachmentsWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentAttachmentsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentAttachmentsResponse>>
+      listIncidentAttachmentsWithHttpInfoAsync(
+          String incidentId, ListIncidentAttachmentsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentAttachments";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentAttachmentsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      CompletableFuture<ApiResponse<IncidentAttachmentsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentId' when calling listIncidentAttachments"));
+      return result;
+    }
+    List<IncidentAttachmentRelatedObject> include = parameters.include;
+    List<IncidentAttachmentAttachmentType> filterAttachmentType = parameters.filterAttachmentType;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/attachments"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("csv", "filter[attachment_type]", filterAttachmentType));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "IncidentsApi.listIncidentAttachments",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentAttachmentsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentAttachmentsResponse>() {});
+  }
+
   /** Manage optional parameters to listIncidents. */
   public static class ListIncidentsOptionalParameters {
     private List<IncidentRelatedObject> include;
@@ -1084,5 +1336,266 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentResponse>() {});
+  }
+
+  /** Manage optional parameters to updateIncidentAttachments. */
+  public static class UpdateIncidentAttachmentsOptionalParameters {
+    private List<IncidentAttachmentRelatedObject> include;
+
+    /**
+     * Set include.
+     *
+     * @param include Specifies which types of related objects are included in the response.
+     *     (optional)
+     * @return UpdateIncidentAttachmentsOptionalParameters
+     */
+    public UpdateIncidentAttachmentsOptionalParameters include(
+        List<IncidentAttachmentRelatedObject> include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Create, update, and delete incident attachments.
+   *
+   * <p>See {@link #updateIncidentAttachmentsWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Incident Attachment Payload. (required)
+   * @return IncidentAttachmentUpdateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentAttachmentUpdateResponse updateIncidentAttachments(
+      String incidentId, IncidentAttachmentUpdateRequest body) throws ApiException {
+    return updateIncidentAttachmentsWithHttpInfo(
+            incidentId, body, new UpdateIncidentAttachmentsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create, update, and delete incident attachments.
+   *
+   * <p>See {@link #updateIncidentAttachmentsWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Incident Attachment Payload. (required)
+   * @return CompletableFuture&lt;IncidentAttachmentUpdateResponse&gt;
+   */
+  public CompletableFuture<IncidentAttachmentUpdateResponse> updateIncidentAttachmentsAsync(
+      String incidentId, IncidentAttachmentUpdateRequest body) {
+    return updateIncidentAttachmentsWithHttpInfoAsync(
+            incidentId, body, new UpdateIncidentAttachmentsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create, update, and delete incident attachments.
+   *
+   * <p>See {@link #updateIncidentAttachmentsWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Incident Attachment Payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentAttachmentUpdateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentAttachmentUpdateResponse updateIncidentAttachments(
+      String incidentId,
+      IncidentAttachmentUpdateRequest body,
+      UpdateIncidentAttachmentsOptionalParameters parameters)
+      throws ApiException {
+    return updateIncidentAttachmentsWithHttpInfo(incidentId, body, parameters).getData();
+  }
+
+  /**
+   * Create, update, and delete incident attachments.
+   *
+   * <p>See {@link #updateIncidentAttachmentsWithHttpInfoAsync}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Incident Attachment Payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentAttachmentUpdateResponse&gt;
+   */
+  public CompletableFuture<IncidentAttachmentUpdateResponse> updateIncidentAttachmentsAsync(
+      String incidentId,
+      IncidentAttachmentUpdateRequest body,
+      UpdateIncidentAttachmentsOptionalParameters parameters) {
+    return updateIncidentAttachmentsWithHttpInfoAsync(incidentId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * The bulk update endpoint for creating, updating, and deleting attachments for a given incident.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Incident Attachment Payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentAttachmentUpdateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentAttachmentUpdateResponse> updateIncidentAttachmentsWithHttpInfo(
+      String incidentId,
+      IncidentAttachmentUpdateRequest body,
+      UpdateIncidentAttachmentsOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentAttachments";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'incidentId' when calling updateIncidentAttachments");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateIncidentAttachments");
+    }
+    List<IncidentAttachmentRelatedObject> include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/attachments"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.updateIncidentAttachments",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentAttachmentUpdateResponse>() {});
+  }
+
+  /**
+   * Create, update, and delete incident attachments.
+   *
+   * <p>See {@link #updateIncidentAttachmentsWithHttpInfo}.
+   *
+   * @param incidentId The UUID of the incident. (required)
+   * @param body Incident Attachment Payload. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentAttachmentUpdateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentAttachmentUpdateResponse>>
+      updateIncidentAttachmentsWithHttpInfoAsync(
+          String incidentId,
+          IncidentAttachmentUpdateRequest body,
+          UpdateIncidentAttachmentsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentAttachments";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentAttachmentUpdateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentId' is set
+    if (incidentId == null) {
+      CompletableFuture<ApiResponse<IncidentAttachmentUpdateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentId' when calling"
+                  + " updateIncidentAttachments"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentAttachmentUpdateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateIncidentAttachments"));
+      return result;
+    }
+    List<IncidentAttachmentRelatedObject> include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/{incident_id}/attachments"
+            .replaceAll(
+                "\\{" + "incident_id" + "\\}", apiClient.escapeString(incidentId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "IncidentsApi.updateIncidentAttachments",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentAttachmentUpdateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentAttachmentUpdateResponse>() {});
   }
 }
