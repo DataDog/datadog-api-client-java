@@ -1,77 +1,115 @@
 [{
-  "id" : "7e55406a-4526-4b22-adda-1b365921be7b",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "createErrorsAWSTest" ],
-      "Content-Type" : [ "application/json" ]
+      "x-datadog-trace-id" : [ "272310845790123360" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "112" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Language" : [ "" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
+      "contentType" : "application/json",
       "type" : "JSON",
-      "json" : "{}"
+      "json" : {
+        "cspm_resource_collection_enabled" : false,
+        "metrics_collection_enabled" : true,
+        "resource_collection_enabled" : false
+      }
     }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Tue, 13 Jul 2021 17:37:21 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "58" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-reset" : [ "43" ],
+      "x-ratelimit-remaining" : [ "11988" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-limit" : [ "12000" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
       "x-content-type-options" : [ "nosniff" ],
+      "vary" : [ "Accept-Encoding" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
+      "pragma" : [ "no-cache" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "cache-control" : [ "no-cache" ],
+      "Date" : [ "Fri, 30 Sep 2022 12:42:18 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"errors\": [\"Required parameter 'account_id' is missing\"]}"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "errors" : [ "Required parameter 'account_id' is missing" ]
+      }
+    }
+  },
+  "id" : "14265fb6-a202-4ce1-a0e6-869eb090d41a",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }, {
-  "id" : "36a65a9b-c0d3-46ef-9b42-be75d79ddb2b",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "createErrorsAWSTest" ],
-      "Content-Type" : [ "application/json" ]
+      "x-datadog-trace-id" : [ "8778606191025526880" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "112" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Language" : [ "" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
+      "contentType" : "application/json",
       "type" : "JSON",
-      "json" : "{}"
+      "json" : {
+        "cspm_resource_collection_enabled" : false,
+        "metrics_collection_enabled" : true,
+        "resource_collection_enabled" : false
+      }
     }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 13 Jul 2021 17:37:22 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "170" ],
-      "Connection" : [ "keep-alive" ],
+      "via" : [ "haproxy" ],
       "cache-control" : [ "no-cache" ],
-      "via" : [ "haproxy" ]
+      "Date" : [ "Fri, 30 Sep 2022 12:42:18 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "status" : "error",
+        "code" : 403,
+        "errors" : [ "Forbidden" ],
+        "statuspage" : "http://status.datadoghq.com",
+        "twitter" : "http://twitter.com/datadogops",
+        "email" : "support@datadoghq.com"
+      }
+    }
+  },
+  "id" : "1a9cb7fe-507c-4c34-a532-d34f3bb83af5",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }]
