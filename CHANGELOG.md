@@ -29,8 +29,8 @@
 * Add new historical_cost endpoint, and update estimate_cost by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1495
 * Add support for incident attachment APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1508
 ### Changed
-* update deprecated usage attribution API docs to direct users to migra… by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1458
-* [Synthetics] remove started form eventType enum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1462
+* Update deprecated usage attribution API docs to direct users to migration by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1458
+* Remove started form eventType enum in synthetics by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1462
 
 ## New Contributors
 * @nkzou made their first contribution in https://github.com/DataDog/datadog-api-client-java/pull/1481
