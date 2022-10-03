@@ -635,17 +635,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     logsApi.enableAWSLogServices(uniqueAWSLogsServicesRequest);
 
     // List AWS Logs integrations before deleting
-    List<AWSLogsListResponse> listOutput1;
-    try {
-      listOutput1 = logsApi.listAWSLogsIntegrations();
-
-    } catch (Exception e) {
-      System.out.print("yoooo");
-      for (StackTraceElement ste : e.getStackTrace()) {
-        System.out.println(ste + "\n");
-      }
-      throw e;
-    }
+    List<AWSLogsListResponse> listOutput1 = logsApi.listAWSLogsIntegrations();
     Boolean accountExists = false;
     // Iterate over output and list Lambdas
     for (AWSLogsListResponse account : listOutput1) {
