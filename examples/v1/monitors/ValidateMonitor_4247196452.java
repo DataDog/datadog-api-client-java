@@ -9,6 +9,7 @@ import com.datadog.api.client.v1.model.MonitorThresholds;
 import com.datadog.api.client.v1.model.MonitorType;
 import com.datadog.api.client.v1.model.OnMissingDataOption;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,7 +22,7 @@ public class Example {
             .type(MonitorType.LOG_ALERT)
             .query(
                 """
-logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2
+logs("service:foo AND type:error").index("main").rollup("count").by("source,status").last("5m") > 2
 """)
             .message("some message Notify: @hipchat-channel")
             .tags(
@@ -39,6 +40,7 @@ logs("service:foo AND type:error").index("main").rollup("count").by("source").la
                     .newHostDelay(600L)
                     .noDataTimeframe(null)
                     .notifyAudit(false)
+                    .notifyBy(Collections.singletonList("status"))
                     .notifyNoData(false)
                     .onMissingData(OnMissingDataOption.SHOW_AND_NOTIFY_NO_DATA)
                     .renotifyInterval(60L)
