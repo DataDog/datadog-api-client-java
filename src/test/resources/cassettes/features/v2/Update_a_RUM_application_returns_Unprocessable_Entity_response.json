@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"updated_by_handle\":\"frog@datadoghq.com\",\"application_id\":\"aceb7b9f-ad0b-4dab-82a6-8928ccedd9b1\",\"name\":\"test_name_create\",\"created_by_handle\":\"frog@datadoghq.com\",\"created_at\":1659974733437,\"org_id\":321813,\"updated_at\":1659974733437,\"hash\":\"pubbf38b6c932881edbbbba21744948c454\",\"type\":\"browser\"},\"type\":\"rum_application\",\"id\":\"aceb7b9f-ad0b-4dab-82a6-8928ccedd9b1\"}}\n",
+      "body": "{\"data\":{\"attributes\":{\"updated_by_handle\":\"frog@datadoghq.com\",\"application_id\":\"296a7eed-c8e3-480d-b3f1-0777555d6005\",\"name\":\"test_name_create\",\"created_by_handle\":\"frog@datadoghq.com\",\"created_at\":1664825571864,\"org_id\":321813,\"updated_at\":1664825571864,\"is_active\":false,\"hash\":\"puba93f53dff0e15bc11416bd06e42c6cd3\",\"type\":\"browser\"},\"type\":\"rum_application\",\"id\":\"296a7eed-c8e3-480d-b3f1-0777555d6005\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,25 +27,29 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "74945625-c01a-a598-e538-65a53ceb0688"
+    "id": "74945625-c01a-a598-e538-65a53ceb0686"
   },
   {
     "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"id\":\"this_id_will_not_match\",\"type\":\"rum_application_update\"}}"
+      },
       "headers": {},
-      "method": "GET",
-      "path": "/api/v2/rum/applications/aceb7b9f-ad0b-4dab-82a6-8928ccedd9b1",
+      "method": "PATCH",
+      "path": "/api/v2/rum/applications/296a7eed-c8e3-480d-b3f1-0777555d6005",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"updated_by_handle\":\"frog@datadoghq.com\",\"application_id\":\"aceb7b9f-ad0b-4dab-82a6-8928ccedd9b1\",\"name\":\"test_name_create\",\"created_by_handle\":\"frog@datadoghq.com\",\"created_at\":1659974733437,\"org_id\":321813,\"updated_at\":1659974733437,\"hash\":\"pubbf38b6c932881edbbbba21744948c454\",\"type\":\"browser\"},\"type\":\"rum_application\",\"id\":\"aceb7b9f-ad0b-4dab-82a6-8928ccedd9b1\"}}\n",
+      "body": "{\"errors\":[\"The id attribute in the request body does not match the id in the URL\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
         ]
       },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
+      "statusCode": 422,
+      "reasonPhrase": "Unprocessable Entity"
     },
     "times": {
       "remainingTimes": 1
@@ -53,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6c8113d8-a200-86ee-7aac-c32b843d37ed"
+    "id": "aaceff19-478a-bf7d-a754-f4e929677aab"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/rum/applications/aceb7b9f-ad0b-4dab-82a6-8928ccedd9b1",
+      "path": "/api/v2/rum/applications/296a7eed-c8e3-480d-b3f1-0777555d6005",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "de87272a-e587-e83a-040b-cc79a51600a5"
+    "id": "7aa1c1ec-854f-5c20-dd2a-a55a774cbb39"
   }
 ]
