@@ -7106,7 +7106,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account.
+   * Get usage across your account.
    *
    * <p>See {@link #getUsageSummaryWithHttpInfo}.
    *
@@ -7121,7 +7121,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account.
+   * Get usage across your account.
    *
    * <p>See {@link #getUsageSummaryWithHttpInfoAsync}.
    *
@@ -7138,7 +7138,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account.
+   * Get usage across your account.
    *
    * <p>See {@link #getUsageSummaryWithHttpInfo}.
    *
@@ -7154,7 +7154,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account.
+   * Get usage across your account.
    *
    * <p>See {@link #getUsageSummaryWithHttpInfoAsync}.
    *
@@ -7173,7 +7173,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account. You must have the multi-org feature enabled.
+   * Get all usage across your account.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
@@ -7233,7 +7233,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account.
+   * Get usage across your account.
    *
    * <p>See {@link #getUsageSummaryWithHttpInfo}.
    *
