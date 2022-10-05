@@ -34,6 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_NEW_HOST_DELAY,
   MonitorOptions.JSON_PROPERTY_NO_DATA_TIMEFRAME,
   MonitorOptions.JSON_PROPERTY_NOTIFY_AUDIT,
+  MonitorOptions.JSON_PROPERTY_NOTIFY_BY,
   MonitorOptions.JSON_PROPERTY_NOTIFY_NO_DATA,
   MonitorOptions.JSON_PROPERTY_ON_MISSING_DATA,
   MonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL,
@@ -95,6 +96,9 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_NOTIFY_AUDIT = "notify_audit";
   private Boolean notifyAudit = false;
+
+  public static final String JSON_PROPERTY_NOTIFY_BY = "notify_by";
+  private List<String> notifyBy = null;
 
   public static final String JSON_PROPERTY_NOTIFY_NO_DATA = "notify_no_data";
   private Boolean notifyNoData = false;
@@ -529,6 +533,40 @@ public class MonitorOptions {
     this.notifyAudit = notifyAudit;
   }
 
+  public MonitorOptions notifyBy(List<String> notifyBy) {
+    this.notifyBy = notifyBy;
+    return this;
+  }
+
+  public MonitorOptions addNotifyByItem(String notifyByItem) {
+    if (this.notifyBy == null) {
+      this.notifyBy = new ArrayList<>();
+    }
+    this.notifyBy.add(notifyByItem);
+    return this;
+  }
+
+  /**
+   * Controls what granularity a monitor alerts on. Only available for multi-alerts. For instance, a
+   * monitor grouped by <code>cluster</code>, <code>namespace</code>, <code>pod</code> can be
+   * configured to only notify on each new <code>cluster</code> violating the alert conditions by
+   * setting <code>notify_by</code> to <code>["cluster"]</code>. Tags mentioned in <code>notify_by
+   * </code> have to be a subset of the grouping tags in the query. For example, a query grouped by
+   * <code>cluster</code>, <code>namespace</code> cannot notify on <code>region</code>.
+   *
+   * @return notifyBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NOTIFY_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getNotifyBy() {
+    return notifyBy;
+  }
+
+  public void setNotifyBy(List<String> notifyBy) {
+    this.notifyBy = notifyBy;
+  }
+
   public MonitorOptions notifyNoData(Boolean notifyNoData) {
     this.notifyNoData = notifyNoData;
     return this;
@@ -912,6 +950,7 @@ public class MonitorOptions {
         && Objects.equals(this.newHostDelay, monitorOptions.newHostDelay)
         && Objects.equals(this.noDataTimeframe, monitorOptions.noDataTimeframe)
         && Objects.equals(this.notifyAudit, monitorOptions.notifyAudit)
+        && Objects.equals(this.notifyBy, monitorOptions.notifyBy)
         && Objects.equals(this.notifyNoData, monitorOptions.notifyNoData)
         && Objects.equals(this.onMissingData, monitorOptions.onMissingData)
         && Objects.equals(this.renotifyInterval, monitorOptions.renotifyInterval)
@@ -944,6 +983,7 @@ public class MonitorOptions {
         newHostDelay,
         noDataTimeframe,
         notifyAudit,
+        notifyBy,
         notifyNoData,
         onMissingData,
         renotifyInterval,
@@ -981,6 +1021,7 @@ public class MonitorOptions {
     sb.append("    newHostDelay: ").append(toIndentedString(newHostDelay)).append("\n");
     sb.append("    noDataTimeframe: ").append(toIndentedString(noDataTimeframe)).append("\n");
     sb.append("    notifyAudit: ").append(toIndentedString(notifyAudit)).append("\n");
+    sb.append("    notifyBy: ").append(toIndentedString(notifyBy)).append("\n");
     sb.append("    notifyNoData: ").append(toIndentedString(notifyNoData)).append("\n");
     sb.append("    onMissingData: ").append(toIndentedString(onMissingData)).append("\n");
     sb.append("    renotifyInterval: ").append(toIndentedString(renotifyInterval)).append("\n");
