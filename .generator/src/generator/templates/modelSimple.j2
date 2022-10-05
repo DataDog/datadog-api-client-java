@@ -23,9 +23,6 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- set isRequired = attr in model.get("required", []) %}
   {%- set isNullable = schema.nullable %}
   {%- set defaultValue = schema.get("default", None) %}
-  {%- if schema.deprecated %}
-  @Deprecated
-  {%- endif %}
   public static final String JSON_PROPERTY_{{ attr|snake_case|upper }} = "{{ attr }}";
 
   {%- if schema.format == "date-time" %}
