@@ -27,7 +27,7 @@ public class DashboardTemplateVariablePresetValue {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  @Deprecated public static final String JSON_PROPERTY_VALUE = "value";
+  public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
 
   public static final String JSON_PROPERTY_VALUES = "values";

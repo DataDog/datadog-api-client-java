@@ -44,7 +44,7 @@ public class LogStreamWidgetDefinition {
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
 
-  @Deprecated public static final String JSON_PROPERTY_LOGSET = "logset";
+  public static final String JSON_PROPERTY_LOGSET = "logset";
   private String logset;
 
   public static final String JSON_PROPERTY_MESSAGE_DISPLAY = "message_display";

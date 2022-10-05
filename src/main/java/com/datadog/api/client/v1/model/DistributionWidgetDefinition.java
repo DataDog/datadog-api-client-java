@@ -37,7 +37,7 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DistributionWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
-  @Deprecated public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
+  public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private String legendSize;
 
   public static final String JSON_PROPERTY_MARKERS = "markers";
@@ -46,7 +46,7 @@ public class DistributionWidgetDefinition {
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<DistributionWidgetRequest> requests = new ArrayList<>();
 
-  @Deprecated public static final String JSON_PROPERTY_SHOW_LEGEND = "show_legend";
+  public static final String JSON_PROPERTY_SHOW_LEGEND = "show_legend";
   private Boolean showLegend;
 
   public static final String JSON_PROPERTY_TIME = "time";

@@ -31,7 +31,7 @@ public class DashboardTemplateVariable {
   public static final String JSON_PROPERTY_AVAILABLE_VALUES = "available_values";
   private JsonNullable<List<String>> availableValues = JsonNullable.<List<String>>undefined();
 
-  @Deprecated public static final String JSON_PROPERTY_DEFAULT = "default";
+  public static final String JSON_PROPERTY_DEFAULT = "default";
   private JsonNullable<String> _default = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DEFAULTS = "defaults";

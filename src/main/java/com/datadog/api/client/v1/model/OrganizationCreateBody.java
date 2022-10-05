@@ -23,13 +23,13 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationCreateBody {
   @JsonIgnore public boolean unparsed = false;
-  @Deprecated public static final String JSON_PROPERTY_BILLING = "billing";
+  public static final String JSON_PROPERTY_BILLING = "billing";
   private OrganizationBilling billing;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  @Deprecated public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
+  public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
   private OrganizationSubscription subscription;
 
   public OrganizationCreateBody() {}

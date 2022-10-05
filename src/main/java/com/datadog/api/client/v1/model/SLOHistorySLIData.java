@@ -72,7 +72,7 @@ public class SLOHistorySLIData {
   public static final String JSON_PROPERTY_SPAN_PRECISION = "span_precision";
   private Double spanPrecision;
 
-  @Deprecated public static final String JSON_PROPERTY_UPTIME = "uptime";
+  public static final String JSON_PROPERTY_UPTIME = "uptime";
   private Double uptime;
 
   public SLOHistorySLIData errorBudgetRemaining(Map<String, Double> errorBudgetRemaining) {

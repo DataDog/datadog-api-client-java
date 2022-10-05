@@ -62,7 +62,7 @@ public class Dashboard {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  @Deprecated public static final String JSON_PROPERTY_IS_READ_ONLY = "is_read_only";
+  public static final String JSON_PROPERTY_IS_READ_ONLY = "is_read_only";
   private Boolean isReadOnly = false;
 
   public static final String JSON_PROPERTY_LAYOUT_TYPE = "layout_type";
