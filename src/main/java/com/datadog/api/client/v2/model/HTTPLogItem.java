@@ -60,7 +60,7 @@ public class HTTPLogItem {
    * The integration name associated with your log: the technology from which the log originated.
    * When it matches an integration name, Datadog automatically installs the corresponding parsers
    * and facets. See <a
-   * href="https://docs.datadoghq.com/logs/log_collection/#reserved-attributes">reserved
+   * href="https://docs.datadoghq.com/logs/log_configuration/attributes_naming_convention/#reserved-attributes">reserved
    * attributes</a>.
    *
    * @return ddsource
@@ -125,7 +125,7 @@ public class HTTPLogItem {
 
   /**
    * The message <a
-   * href="https://docs.datadoghq.com/logs/log_collection/#reserved-attributes">reserved
+   * href="https://docs.datadoghq.com/logs/log_configuration/attributes_naming_convention/#reserved-attributes">reserved
    * attribute</a> of your log. By default, Datadog ingests the value of the message attribute as
    * the body of the log entry. That value is then highlighted and displayed in the Logstream, where
    * it is indexed for full text search.
@@ -150,7 +150,7 @@ public class HTTPLogItem {
   /**
    * The name of the application or service generating the log events. It is used to switch from
    * Logs to APM, so make sure you define the same value when you use both products. See <a
-   * href="https://docs.datadoghq.com/logs/log_collection/#reserved-attributes">reserved
+   * href="https://docs.datadoghq.com/logs/log_configuration/attributes_naming_convention/#reserved-attributes">reserved
    * attributes</a>.
    *
    * @return service
