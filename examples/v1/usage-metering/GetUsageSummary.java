@@ -1,4 +1,4 @@
-// Get usage across your multi-org account returns "OK" response
+// Get usage across your account returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
