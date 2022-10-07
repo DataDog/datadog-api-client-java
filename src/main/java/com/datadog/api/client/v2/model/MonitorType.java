@@ -33,7 +33,7 @@ import java.util.Objects;
 public class MonitorType {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private Integer createdAt;
+  private Long createdAt;
 
   public static final String JSON_PROPERTY_GROUP_STATUS = "group_status";
   private Integer groupStatus;
@@ -65,7 +65,7 @@ public class MonitorType {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
-  public MonitorType createdAt(Integer createdAt) {
+  public MonitorType createdAt(Long createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -78,11 +78,11 @@ public class MonitorType {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getCreatedAt() {
+  public Long getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(Integer createdAt) {
+  public void setCreatedAt(Long createdAt) {
     this.createdAt = createdAt;
   }
 
