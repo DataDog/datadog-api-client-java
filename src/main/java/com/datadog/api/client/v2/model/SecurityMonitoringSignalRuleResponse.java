@@ -75,7 +75,7 @@ public class SecurityMonitoringSignalRuleResponse {
   private SecurityMonitoringRuleOptions options;
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
-  private List<SecurityMonitoringSignalRuleQuery> queries = null;
+  private List<SecurityMonitoringSignalRuleResponseQuery> queries = null;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -367,16 +367,16 @@ public class SecurityMonitoringSignalRuleResponse {
   }
 
   public SecurityMonitoringSignalRuleResponse queries(
-      List<SecurityMonitoringSignalRuleQuery> queries) {
+      List<SecurityMonitoringSignalRuleResponseQuery> queries) {
     this.queries = queries;
-    for (SecurityMonitoringSignalRuleQuery item : queries) {
+    for (SecurityMonitoringSignalRuleResponseQuery item : queries) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public SecurityMonitoringSignalRuleResponse addQueriesItem(
-      SecurityMonitoringSignalRuleQuery queriesItem) {
+      SecurityMonitoringSignalRuleResponseQuery queriesItem) {
     if (this.queries == null) {
       this.queries = new ArrayList<>();
     }
@@ -393,11 +393,11 @@ public class SecurityMonitoringSignalRuleResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringSignalRuleQuery> getQueries() {
+  public List<SecurityMonitoringSignalRuleResponseQuery> getQueries() {
     return queries;
   }
 
-  public void setQueries(List<SecurityMonitoringSignalRuleQuery> queries) {
+  public void setQueries(List<SecurityMonitoringSignalRuleResponseQuery> queries) {
     this.queries = queries;
   }
 
