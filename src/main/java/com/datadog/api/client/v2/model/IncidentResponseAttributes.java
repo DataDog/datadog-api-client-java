@@ -406,7 +406,8 @@ public class IncidentResponseAttributes {
   }
 
   /**
-   * Timestamp when the incident's state was set to resolved.
+   * Timestamp when the incident's state was last changed from active or stable to resolved or
+   * completed.
    *
    * @return resolved
    */
