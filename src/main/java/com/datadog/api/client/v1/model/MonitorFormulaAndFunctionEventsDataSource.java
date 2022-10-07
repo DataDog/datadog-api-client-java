@@ -32,18 +32,9 @@ public class MonitorFormulaAndFunctionEventsDataSource {
       new MonitorFormulaAndFunctionEventsDataSource("ci_pipelines");
   public static final MonitorFormulaAndFunctionEventsDataSource CI_TESTS =
       new MonitorFormulaAndFunctionEventsDataSource("ci_tests");
-  public static final MonitorFormulaAndFunctionEventsDataSource AUDIT =
-      new MonitorFormulaAndFunctionEventsDataSource("audit");
-  public static final MonitorFormulaAndFunctionEventsDataSource EVENTS =
-      new MonitorFormulaAndFunctionEventsDataSource("events");
-  public static final MonitorFormulaAndFunctionEventsDataSource LOGS =
-      new MonitorFormulaAndFunctionEventsDataSource("logs");
-  public static final MonitorFormulaAndFunctionEventsDataSource SPANS =
-      new MonitorFormulaAndFunctionEventsDataSource("spans");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("rum", "ci_pipelines", "ci_tests", "audit", "events", "logs", "spans"));
+      new HashSet<String>(Arrays.asList("rum", "ci_pipelines", "ci_tests"));
 
   private String value;
 
