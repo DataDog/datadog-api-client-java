@@ -163,6 +163,7 @@ public class MonitorOptions {
     return deviceIds;
   }
 
+  @Deprecated
   public MonitorOptions enableLogsSample(Boolean enableLogsSample) {
     this.enableLogsSample = enableLogsSample;
     return this;
@@ -335,6 +336,7 @@ public class MonitorOptions {
     return locked;
   }
 
+  @Deprecated
   public void setLocked(Boolean locked) {
     this.locked = locked;
   }
@@ -461,6 +463,7 @@ public class MonitorOptions {
     return newHostDelay.orElse(null);
   }
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_NEW_HOST_DELAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getNewHostDelay_JsonNullable() {
@@ -773,6 +776,7 @@ public class MonitorOptions {
     return silenced;
   }
 
+  @Deprecated
   public void setSilenced(Map<String, Long> silenced) {
     this.silenced = silenced;
   }
@@ -795,6 +799,7 @@ public class MonitorOptions {
     return syntheticsCheckId.orElse(null);
   }
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getSyntheticsCheckId_JsonNullable() {

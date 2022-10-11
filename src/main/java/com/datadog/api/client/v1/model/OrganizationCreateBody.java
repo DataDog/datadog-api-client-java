@@ -60,6 +60,7 @@ public class OrganizationCreateBody {
     return billing;
   }
 
+  @Deprecated
   public void setBilling(OrganizationBilling billing) {
     this.billing = billing;
   }
@@ -104,6 +105,7 @@ public class OrganizationCreateBody {
     return subscription;
   }
 
+  @Deprecated
   public void setSubscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
   }

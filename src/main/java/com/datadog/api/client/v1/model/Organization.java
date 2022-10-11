@@ -71,6 +71,7 @@ public class Organization {
     return billing;
   }
 
+  @Deprecated
   public void setBilling(OrganizationBilling billing) {
     this.billing = billing;
   }
@@ -192,6 +193,7 @@ public class Organization {
     return subscription;
   }
 
+  @Deprecated
   public void setSubscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
   }
