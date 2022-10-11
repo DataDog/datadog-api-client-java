@@ -263,7 +263,7 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * The steps of the test.
+   * Array of steps for the test.
    *
    * @return steps
    */

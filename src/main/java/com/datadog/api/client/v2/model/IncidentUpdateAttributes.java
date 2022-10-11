@@ -29,7 +29,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentUpdateAttributes.JSON_PROPERTY_DETECTED,
   IncidentUpdateAttributes.JSON_PROPERTY_FIELDS,
   IncidentUpdateAttributes.JSON_PROPERTY_NOTIFICATION_HANDLES,
-  IncidentUpdateAttributes.JSON_PROPERTY_RESOLVED,
   IncidentUpdateAttributes.JSON_PROPERTY_TITLE
 })
 @jakarta.annotation.Generated(
@@ -63,11 +62,6 @@ public class IncidentUpdateAttributes {
 
   public static final String JSON_PROPERTY_NOTIFICATION_HANDLES = "notification_handles";
   private List<IncidentNotificationHandle> notificationHandles = null;
-
-  public static final String JSON_PROPERTY_RESOLVED = "resolved";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
-  private JsonNullable<OffsetDateTime> resolved = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -272,37 +266,6 @@ public class IncidentUpdateAttributes {
     this.notificationHandles = notificationHandles;
   }
 
-  public IncidentUpdateAttributes resolved(OffsetDateTime resolved) {
-    this.resolved = JsonNullable.<OffsetDateTime>of(resolved);
-    return this;
-  }
-
-  /**
-   * Timestamp when the incident's state was set to resolved.
-   *
-   * @return resolved
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public OffsetDateTime getResolved() {
-    return resolved.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_RESOLVED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<OffsetDateTime> getResolved_JsonNullable() {
-    return resolved;
-  }
-
-  @JsonProperty(JSON_PROPERTY_RESOLVED)
-  public void setResolved_JsonNullable(JsonNullable<OffsetDateTime> resolved) {
-    this.resolved = resolved;
-  }
-
-  public void setResolved(OffsetDateTime resolved) {
-    this.resolved = JsonNullable.<OffsetDateTime>of(resolved);
-  }
-
   public IncidentUpdateAttributes title(String title) {
     this.title = title;
     return this;
@@ -341,7 +304,6 @@ public class IncidentUpdateAttributes {
         && Objects.equals(this.detected, incidentUpdateAttributes.detected)
         && Objects.equals(this.fields, incidentUpdateAttributes.fields)
         && Objects.equals(this.notificationHandles, incidentUpdateAttributes.notificationHandles)
-        && Objects.equals(this.resolved, incidentUpdateAttributes.resolved)
         && Objects.equals(this.title, incidentUpdateAttributes.title);
   }
 
@@ -355,7 +317,6 @@ public class IncidentUpdateAttributes {
         detected,
         fields,
         notificationHandles,
-        resolved,
         title);
   }
 
@@ -376,7 +337,6 @@ public class IncidentUpdateAttributes {
     sb.append("    notificationHandles: ")
         .append(toIndentedString(notificationHandles))
         .append("\n");
-    sb.append("    resolved: ").append(toIndentedString(resolved)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
