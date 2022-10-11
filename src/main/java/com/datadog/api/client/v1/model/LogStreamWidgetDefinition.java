@@ -164,6 +164,7 @@ public class LogStreamWidgetDefinition {
     return logset;
   }
 
+  @Deprecated
   public void setLogset(String logset) {
     this.logset = logset;
   }

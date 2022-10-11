@@ -113,6 +113,7 @@ public class DashboardTemplateVariable {
     return _default.orElse(null);
   }
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getDefault_JsonNullable() {

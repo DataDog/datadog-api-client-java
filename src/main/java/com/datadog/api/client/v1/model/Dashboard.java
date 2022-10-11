@@ -226,6 +226,7 @@ public class Dashboard {
     return isReadOnly;
   }
 
+  @Deprecated
   public void setIsReadOnly(Boolean isReadOnly) {
     this.isReadOnly = isReadOnly;
   }

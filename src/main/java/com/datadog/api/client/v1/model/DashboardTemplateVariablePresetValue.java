@@ -74,6 +74,7 @@ public class DashboardTemplateVariablePresetValue {
     return value;
   }
 
+  @Deprecated
   public void setValue(String value) {
     this.value = value;
   }

@@ -90,6 +90,7 @@ public class TreeMapWidgetDefinition {
     return colorBy;
   }
 
+  @Deprecated
   public void setColorBy(TreeMapColorBy colorBy) {
     if (!colorBy.isValid()) {
       this.unparsed = true;
@@ -150,6 +151,7 @@ public class TreeMapWidgetDefinition {
     return groupBy;
   }
 
+  @Deprecated
   public void setGroupBy(TreeMapGroupBy groupBy) {
     if (!groupBy.isValid()) {
       this.unparsed = true;
@@ -206,6 +208,7 @@ public class TreeMapWidgetDefinition {
     return sizeBy;
   }
 
+  @Deprecated
   public void setSizeBy(TreeMapSizeBy sizeBy) {
     if (!sizeBy.isValid()) {
       this.unparsed = true;
