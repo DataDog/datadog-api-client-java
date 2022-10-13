@@ -187,7 +187,7 @@ public class RUMApplicationAttributes {
   }
 
   /**
-   * Org ID of the RUM application.
+   * Org ID of the RUM application. maximum: 2147483647
    *
    * @return orgId
    */

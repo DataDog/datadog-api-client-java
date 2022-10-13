@@ -26,18 +26,18 @@ import java.util.Objects;
 public class UsageCIVisibilityHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS = "ci_pipeline_indexed_spans";
-  private Integer ciPipelineIndexedSpans;
+  private Long ciPipelineIndexedSpans;
 
   public static final String JSON_PROPERTY_CI_TEST_INDEXED_SPANS = "ci_test_indexed_spans";
-  private Integer ciTestIndexedSpans;
+  private Long ciTestIndexedSpans;
 
   public static final String JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS =
       "ci_visibility_pipeline_committers";
-  private Integer ciVisibilityPipelineCommitters;
+  private Long ciVisibilityPipelineCommitters;
 
   public static final String JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS =
       "ci_visibility_test_committers";
-  private Integer ciVisibilityTestCommitters;
+  private Long ciVisibilityTestCommitters;
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -45,7 +45,7 @@ public class UsageCIVisibilityHour {
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
 
-  public UsageCIVisibilityHour ciPipelineIndexedSpans(Integer ciPipelineIndexedSpans) {
+  public UsageCIVisibilityHour ciPipelineIndexedSpans(Long ciPipelineIndexedSpans) {
     this.ciPipelineIndexedSpans = ciPipelineIndexedSpans;
     return this;
   }
@@ -58,15 +58,15 @@ public class UsageCIVisibilityHour {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getCiPipelineIndexedSpans() {
+  public Long getCiPipelineIndexedSpans() {
     return ciPipelineIndexedSpans;
   }
 
-  public void setCiPipelineIndexedSpans(Integer ciPipelineIndexedSpans) {
+  public void setCiPipelineIndexedSpans(Long ciPipelineIndexedSpans) {
     this.ciPipelineIndexedSpans = ciPipelineIndexedSpans;
   }
 
-  public UsageCIVisibilityHour ciTestIndexedSpans(Integer ciTestIndexedSpans) {
+  public UsageCIVisibilityHour ciTestIndexedSpans(Long ciTestIndexedSpans) {
     this.ciTestIndexedSpans = ciTestIndexedSpans;
     return this;
   }
@@ -79,16 +79,15 @@ public class UsageCIVisibilityHour {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getCiTestIndexedSpans() {
+  public Long getCiTestIndexedSpans() {
     return ciTestIndexedSpans;
   }
 
-  public void setCiTestIndexedSpans(Integer ciTestIndexedSpans) {
+  public void setCiTestIndexedSpans(Long ciTestIndexedSpans) {
     this.ciTestIndexedSpans = ciTestIndexedSpans;
   }
 
-  public UsageCIVisibilityHour ciVisibilityPipelineCommitters(
-      Integer ciVisibilityPipelineCommitters) {
+  public UsageCIVisibilityHour ciVisibilityPipelineCommitters(Long ciVisibilityPipelineCommitters) {
     this.ciVisibilityPipelineCommitters = ciVisibilityPipelineCommitters;
     return this;
   }
@@ -102,15 +101,15 @@ public class UsageCIVisibilityHour {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getCiVisibilityPipelineCommitters() {
+  public Long getCiVisibilityPipelineCommitters() {
     return ciVisibilityPipelineCommitters;
   }
 
-  public void setCiVisibilityPipelineCommitters(Integer ciVisibilityPipelineCommitters) {
+  public void setCiVisibilityPipelineCommitters(Long ciVisibilityPipelineCommitters) {
     this.ciVisibilityPipelineCommitters = ciVisibilityPipelineCommitters;
   }
 
-  public UsageCIVisibilityHour ciVisibilityTestCommitters(Integer ciVisibilityTestCommitters) {
+  public UsageCIVisibilityHour ciVisibilityTestCommitters(Long ciVisibilityTestCommitters) {
     this.ciVisibilityTestCommitters = ciVisibilityTestCommitters;
     return this;
   }
@@ -124,11 +123,11 @@ public class UsageCIVisibilityHour {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getCiVisibilityTestCommitters() {
+  public Long getCiVisibilityTestCommitters() {
     return ciVisibilityTestCommitters;
   }
 
-  public void setCiVisibilityTestCommitters(Integer ciVisibilityTestCommitters) {
+  public void setCiVisibilityTestCommitters(Long ciVisibilityTestCommitters) {
     this.ciVisibilityTestCommitters = ciVisibilityTestCommitters;
   }
 
