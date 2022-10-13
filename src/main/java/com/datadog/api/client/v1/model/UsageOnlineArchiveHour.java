@@ -33,7 +33,7 @@ public class UsageOnlineArchiveHour {
 
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT =
       "online_archive_events_count";
-  private Integer onlineArchiveEventsCount;
+  private Long onlineArchiveEventsCount;
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -62,7 +62,7 @@ public class UsageOnlineArchiveHour {
     this.hour = hour;
   }
 
-  public UsageOnlineArchiveHour onlineArchiveEventsCount(Integer onlineArchiveEventsCount) {
+  public UsageOnlineArchiveHour onlineArchiveEventsCount(Long onlineArchiveEventsCount) {
     this.onlineArchiveEventsCount = onlineArchiveEventsCount;
     return this;
   }
@@ -75,11 +75,11 @@ public class UsageOnlineArchiveHour {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getOnlineArchiveEventsCount() {
+  public Long getOnlineArchiveEventsCount() {
     return onlineArchiveEventsCount;
   }
 
-  public void setOnlineArchiveEventsCount(Integer onlineArchiveEventsCount) {
+  public void setOnlineArchiveEventsCount(Long onlineArchiveEventsCount) {
     this.onlineArchiveEventsCount = onlineArchiveEventsCount;
   }
 
