@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestUpdateConfluentaccountreturnsOKresponse1665090166\",\"api_secret\":\"test-api-secret\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/confluent-cloud/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"api_key\":\"TestUpdateConfluentaccountreturnsOKresponse1665090166\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\",\"id\":\"ytthkwvtde\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b4cadd8b-72c2-9469-0b69-2232225481d1"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestUpdateConfluentaccountreturnsOKresponse1665090166\",\"api_secret\":\"update-secret\",\"tags\":[\"updated_tag:val\"]},\"type\":\"confluent-cloud-accounts\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/integrations/confluent-cloud/accounts/ytthkwvtde",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"api_key\":\"TestUpdateConfluentaccountreturnsOKresponse1665090166\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"updated_tag:val\"]},\"type\":\"confluent-cloud-accounts\",\"id\":\"ytthkwvtde\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7d584330-05aa-27df-9975-1e012e0139a6"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/confluent-cloud/accounts/ytthkwvtde",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "448e0103-b239-d1cf-2dc9-637c86839f84"
+  }
+]

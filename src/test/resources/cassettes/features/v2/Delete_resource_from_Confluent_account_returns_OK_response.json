@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestDeleteresourcefromConfluentaccountreturnsOKresponse1665090164\",\"api_secret\":\"test-api-secret\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/confluent-cloud/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"api_key\":\"TestDeleteresourcefromConfluentaccountreturnsOKresponse1665090164\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\",\"id\":\"xxmv3lgki4\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "349f7144-af6f-d182-99ee-4bc55c9e7a8f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/confluent-cloud/accounts/xxmv3lgki4",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dea164b9-e961-40d0-1b5e-3a00fa14a11d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/confluent-cloud/accounts/xxmv3lgki4",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Account not found not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dea164b9-e961-40d0-1b5e-3a00fa14a11e"
+  }
+]
