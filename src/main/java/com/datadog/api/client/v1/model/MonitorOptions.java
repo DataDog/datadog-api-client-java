@@ -547,12 +547,14 @@ public class MonitorOptions {
   }
 
   /**
-   * Controls what granularity a monitor alerts on. Only available for multi-alerts. For instance, a
-   * monitor grouped by <code>cluster</code>, <code>namespace</code>, <code>pod</code> can be
-   * configured to only notify on each new <code>cluster</code> violating the alert conditions by
-   * setting <code>notify_by</code> to <code>["cluster"]</code>. Tags mentioned in <code>notify_by
-   * </code> have to be a subset of the grouping tags in the query. For example, a query grouped by
-   * <code>cluster</code>, <code>namespace</code> cannot notify on <code>region</code>.
+   * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For
+   * instance, a monitor grouped by <code>cluster</code>, <code>namespace</code>, and <code>pod
+   * </code> can be configured to only notify on each new <code>cluster</code> violating the alert
+   * conditions by setting <code>notify_by</code> to <code>["cluster"]</code>. Tags mentioned in
+   * <code>notify_by</code> must be a subset of the grouping tags in the query. For example, a query
+   * grouped by <code>cluster</code> and <code>namespace</code> cannot notify on <code>region</code>
+   * . Setting <code>notify_by</code> to <code>[*]</code> configures the monitor to notify as a
+   * simple-alert.
    *
    * @return notifyBy
    */
