@@ -124,7 +124,6 @@ public class DashboardListsApiTest extends V2APITest {
     assertNotNull(getResponse.getTotal());
     assertEquals(1, getResponse.getDashboards().size());
     assertEquals(1, (long) getResponse.getTotal());
-    assertTrue(getResponse.getDashboards().get(0).getIsReadOnly());
     assertTrue(getResponse.getDashboards().get(0).getIsShared());
     assertEquals(CUSTOM_SCREENBOARD_ID, getResponse.getDashboards().get(0).getId());
     assertEquals(DashboardType.CUSTOM_SCREENBOARD, getResponse.getDashboards().get(0).getType());
