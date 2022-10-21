@@ -148,10 +148,13 @@ public class SecurityMonitoringStandardRuleQuery {
   }
 
   /**
-   * The target field to aggregate over when using the sum or max aggregations.
+   * (Deprecated) The target field to aggregate over when using the sum or max aggregations. <code>
+   * metrics</code> field should be used instead.
    *
    * @return metric
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,6 +162,7 @@ public class SecurityMonitoringStandardRuleQuery {
     return metric;
   }
 
+  @Deprecated
   public void setMetric(String metric) {
     this.metric = metric;
   }
@@ -177,7 +181,9 @@ public class SecurityMonitoringStandardRuleQuery {
   }
 
   /**
-   * Group of target fields to aggregate over when using the new value aggregations.
+   * Group of target fields to aggregate over when using the sum, max, geo data, or new value
+   * aggregations. The sum, max, and geo data aggregations only accept one value in this list,
+   * whereas the new value aggregation accepts up to five values.
    *
    * @return metrics
    */

@@ -145,7 +145,7 @@ public class SecurityMonitoringSignalRuleQuery {
   }
 
   /**
-   * Group of target fields to aggregate over when using the new value aggregations.
+   * Group of target fields to aggregate over.
    *
    * @return metrics
    */
