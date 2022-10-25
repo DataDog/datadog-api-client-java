@@ -83,7 +83,7 @@ jobs:
       matrix:
         # see DEVELOPMENT.md for information why we're using this specific combination
         # of JDKs to run unit tests on
-        java-version: ["8", "16", "17", "18"]
+        java-version: ["8", "16", "18", "19"]
 
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')
