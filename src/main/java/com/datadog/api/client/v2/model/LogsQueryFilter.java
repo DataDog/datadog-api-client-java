@@ -19,6 +19,7 @@ import java.util.Objects;
   LogsQueryFilter.JSON_PROPERTY_FROM,
   LogsQueryFilter.JSON_PROPERTY_INDEXES,
   LogsQueryFilter.JSON_PROPERTY_QUERY,
+  LogsQueryFilter.JSON_PROPERTY_STORAGE_TIER,
   LogsQueryFilter.JSON_PROPERTY_TO
 })
 @jakarta.annotation.Generated(
@@ -33,6 +34,9 @@ public class LogsQueryFilter {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query = "*";
+
+  public static final String JSON_PROPERTY_STORAGE_TIER = "storage_tier";
+  private LogsStorageTier storageTier = LogsStorageTier.INDEXES;
 
   public static final String JSON_PROPERTY_TO = "to";
   private String to = "now";
@@ -110,6 +114,31 @@ public class LogsQueryFilter {
     this.query = query;
   }
 
+  public LogsQueryFilter storageTier(LogsStorageTier storageTier) {
+    this.storageTier = storageTier;
+    this.unparsed |= !storageTier.isValid();
+    return this;
+  }
+
+  /**
+   * Specifies storage type as indexes or online-archives
+   *
+   * @return storageTier
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STORAGE_TIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsStorageTier getStorageTier() {
+    return storageTier;
+  }
+
+  public void setStorageTier(LogsStorageTier storageTier) {
+    if (!storageTier.isValid()) {
+      this.unparsed = true;
+    }
+    this.storageTier = storageTier;
+  }
+
   public LogsQueryFilter to(String to) {
     this.to = to;
     return this;
@@ -145,12 +174,13 @@ public class LogsQueryFilter {
     return Objects.equals(this.from, logsQueryFilter.from)
         && Objects.equals(this.indexes, logsQueryFilter.indexes)
         && Objects.equals(this.query, logsQueryFilter.query)
+        && Objects.equals(this.storageTier, logsQueryFilter.storageTier)
         && Objects.equals(this.to, logsQueryFilter.to);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(from, indexes, query, to);
+    return Objects.hash(from, indexes, query, storageTier, to);
   }
 
   @Override
@@ -160,6 +190,7 @@ public class LogsQueryFilter {
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    storageTier: ").append(toIndentedString(storageTier)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("}");
     return sb.toString();
