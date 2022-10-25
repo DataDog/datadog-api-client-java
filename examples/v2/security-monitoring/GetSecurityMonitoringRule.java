@@ -10,8 +10,12 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
+    // there is a valid "security_rule" in the system
+    String SECURITY_RULE_ID = System.getenv("SECURITY_RULE_ID");
+
     try {
-      SecurityMonitoringRuleResponse result = apiInstance.getSecurityMonitoringRule("rule_id");
+      SecurityMonitoringRuleResponse result =
+          apiInstance.getSecurityMonitoringRule(SECURITY_RULE_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SecurityMonitoringApi#getSecurityMonitoringRule");
