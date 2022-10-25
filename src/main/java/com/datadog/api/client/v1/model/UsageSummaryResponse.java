@@ -88,7 +88,10 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_UNITS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM,
   UsageSummaryResponse.JSON_PROPERTY_START_DATE,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_AGG_SUM,
@@ -339,9 +342,19 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_RUM_UNITS_AGG_SUM = "rum_units_agg_sum";
   private Long rumUnitsAggSum;
 
+  public static final String JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM = "sds_apm_scanned_bytes_sum";
+  private Long sdsApmScannedBytesSum;
+
+  public static final String JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM =
+      "sds_events_scanned_bytes_sum";
+  private Long sdsEventsScannedBytesSum;
+
   public static final String JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM =
       "sds_logs_scanned_bytes_sum";
   private Long sdsLogsScannedBytesSum;
+
+  public static final String JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM = "sds_rum_scanned_bytes_sum";
+  private Long sdsRumScannedBytesSum;
 
   public static final String JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM =
       "sds_total_scanned_bytes_sum";
@@ -1839,6 +1852,50 @@ public class UsageSummaryResponse {
     this.rumUnitsAggSum = rumUnitsAggSum;
   }
 
+  public UsageSummaryResponse sdsApmScannedBytesSum(Long sdsApmScannedBytesSum) {
+    this.sdsApmScannedBytesSum = sdsApmScannedBytesSum;
+    return this;
+  }
+
+  /**
+   * Sum of all APM bytes scanned with sensitive data scanner in the current months for all
+   * organizations.
+   *
+   * @return sdsApmScannedBytesSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSdsApmScannedBytesSum() {
+    return sdsApmScannedBytesSum;
+  }
+
+  public void setSdsApmScannedBytesSum(Long sdsApmScannedBytesSum) {
+    this.sdsApmScannedBytesSum = sdsApmScannedBytesSum;
+  }
+
+  public UsageSummaryResponse sdsEventsScannedBytesSum(Long sdsEventsScannedBytesSum) {
+    this.sdsEventsScannedBytesSum = sdsEventsScannedBytesSum;
+    return this;
+  }
+
+  /**
+   * Sum of all event stream events bytes scanned with sensitive data scanner in the current months
+   * for all organizations.
+   *
+   * @return sdsEventsScannedBytesSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSdsEventsScannedBytesSum() {
+    return sdsEventsScannedBytesSum;
+  }
+
+  public void setSdsEventsScannedBytesSum(Long sdsEventsScannedBytesSum) {
+    this.sdsEventsScannedBytesSum = sdsEventsScannedBytesSum;
+  }
+
   public UsageSummaryResponse sdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
     this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
     return this;
@@ -1859,6 +1916,28 @@ public class UsageSummaryResponse {
 
   public void setSdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
     this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
+  }
+
+  public UsageSummaryResponse sdsRumScannedBytesSum(Long sdsRumScannedBytesSum) {
+    this.sdsRumScannedBytesSum = sdsRumScannedBytesSum;
+    return this;
+  }
+
+  /**
+   * Sum of all RUM bytes scanned with sensitive data scanner in the current months for all
+   * organizations.
+   *
+   * @return sdsRumScannedBytesSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSdsRumScannedBytesSum() {
+    return sdsRumScannedBytesSum;
+  }
+
+  public void setSdsRumScannedBytesSum(Long sdsRumScannedBytesSum) {
+    this.sdsRumScannedBytesSum = sdsRumScannedBytesSum;
   }
 
   public UsageSummaryResponse sdsTotalScannedBytesSum(Long sdsTotalScannedBytesSum) {
@@ -2176,7 +2255,11 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.rumTotalSessionCountAggSum, usageSummaryResponse.rumTotalSessionCountAggSum)
         && Objects.equals(this.rumUnitsAggSum, usageSummaryResponse.rumUnitsAggSum)
+        && Objects.equals(this.sdsApmScannedBytesSum, usageSummaryResponse.sdsApmScannedBytesSum)
+        && Objects.equals(
+            this.sdsEventsScannedBytesSum, usageSummaryResponse.sdsEventsScannedBytesSum)
         && Objects.equals(this.sdsLogsScannedBytesSum, usageSummaryResponse.sdsLogsScannedBytesSum)
+        && Objects.equals(this.sdsRumScannedBytesSum, usageSummaryResponse.sdsRumScannedBytesSum)
         && Objects.equals(
             this.sdsTotalScannedBytesSum, usageSummaryResponse.sdsTotalScannedBytesSum)
         && Objects.equals(this.startDate, usageSummaryResponse.startDate)
@@ -2264,7 +2347,10 @@ public class UsageSummaryResponse {
         rumSessionCountAggSum,
         rumTotalSessionCountAggSum,
         rumUnitsAggSum,
+        sdsApmScannedBytesSum,
+        sdsEventsScannedBytesSum,
         sdsLogsScannedBytesSum,
+        sdsRumScannedBytesSum,
         sdsTotalScannedBytesSum,
         startDate,
         syntheticsBrowserCheckCallsCountAggSum,
@@ -2435,8 +2521,17 @@ public class UsageSummaryResponse {
         .append(toIndentedString(rumTotalSessionCountAggSum))
         .append("\n");
     sb.append("    rumUnitsAggSum: ").append(toIndentedString(rumUnitsAggSum)).append("\n");
+    sb.append("    sdsApmScannedBytesSum: ")
+        .append(toIndentedString(sdsApmScannedBytesSum))
+        .append("\n");
+    sb.append("    sdsEventsScannedBytesSum: ")
+        .append(toIndentedString(sdsEventsScannedBytesSum))
+        .append("\n");
     sb.append("    sdsLogsScannedBytesSum: ")
         .append(toIndentedString(sdsLogsScannedBytesSum))
+        .append("\n");
+    sb.append("    sdsRumScannedBytesSum: ")
+        .append(toIndentedString(sdsRumScannedBytesSum))
         .append("\n");
     sb.append("    sdsTotalScannedBytesSum: ")
         .append(toIndentedString(sdsTotalScannedBytesSum))
