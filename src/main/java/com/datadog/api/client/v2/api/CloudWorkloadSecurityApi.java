@@ -359,7 +359,7 @@ public class CloudWorkloadSecurityApi {
   /**
    * The download endpoint generates a Cloud Workload Security policy file from your currently
    * active Cloud Workload Security rules, and downloads them as a .policy file. This file can then
-   * be deployed to your agents to update the policy running in your environment.
+   * be deployed to your Agents to update the policy running in your environment.
    *
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
