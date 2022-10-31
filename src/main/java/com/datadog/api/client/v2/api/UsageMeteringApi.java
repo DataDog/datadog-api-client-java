@@ -928,7 +928,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage by product family
+   * Get hourly usage by product family.
    *
    * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
    *     for usage beginning at this hour. (required)
