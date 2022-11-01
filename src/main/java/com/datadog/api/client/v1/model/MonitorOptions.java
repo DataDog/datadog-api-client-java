@@ -41,6 +41,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_RENOTIFY_OCCURRENCES,
   MonitorOptions.JSON_PROPERTY_RENOTIFY_STATUSES,
   MonitorOptions.JSON_PROPERTY_REQUIRE_FULL_WINDOW,
+  MonitorOptions.JSON_PROPERTY_SCHEDULING_OPTIONS,
   MonitorOptions.JSON_PROPERTY_SILENCED,
   MonitorOptions.JSON_PROPERTY_SYNTHETICS_CHECK_ID,
   MonitorOptions.JSON_PROPERTY_THRESHOLD_WINDOWS,
@@ -118,6 +119,9 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_REQUIRE_FULL_WINDOW = "require_full_window";
   private Boolean requireFullWindow;
+
+  public static final String JSON_PROPERTY_SCHEDULING_OPTIONS = "scheduling_options";
+  private MonitorOptionsSchedulingOptions schedulingOptions;
 
   public static final String JSON_PROPERTY_SILENCED = "silenced";
   private Map<String, Long> silenced = null;
@@ -751,6 +755,28 @@ public class MonitorOptions {
     this.requireFullWindow = requireFullWindow;
   }
 
+  public MonitorOptions schedulingOptions(MonitorOptionsSchedulingOptions schedulingOptions) {
+    this.schedulingOptions = schedulingOptions;
+    this.unparsed |= schedulingOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration options for scheduling.
+   *
+   * @return schedulingOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCHEDULING_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorOptionsSchedulingOptions getSchedulingOptions() {
+    return schedulingOptions;
+  }
+
+  public void setSchedulingOptions(MonitorOptionsSchedulingOptions schedulingOptions) {
+    this.schedulingOptions = schedulingOptions;
+  }
+
   public MonitorOptions silenced(Map<String, Long> silenced) {
     this.silenced = silenced;
     return this;
@@ -959,6 +985,7 @@ public class MonitorOptions {
         && Objects.equals(this.renotifyOccurrences, monitorOptions.renotifyOccurrences)
         && Objects.equals(this.renotifyStatuses, monitorOptions.renotifyStatuses)
         && Objects.equals(this.requireFullWindow, monitorOptions.requireFullWindow)
+        && Objects.equals(this.schedulingOptions, monitorOptions.schedulingOptions)
         && Objects.equals(this.silenced, monitorOptions.silenced)
         && Objects.equals(this.syntheticsCheckId, monitorOptions.syntheticsCheckId)
         && Objects.equals(this.thresholdWindows, monitorOptions.thresholdWindows)
@@ -992,6 +1019,7 @@ public class MonitorOptions {
         renotifyOccurrences,
         renotifyStatuses,
         requireFullWindow,
+        schedulingOptions,
         silenced,
         syntheticsCheckId,
         thresholdWindows,
@@ -1032,6 +1060,7 @@ public class MonitorOptions {
         .append("\n");
     sb.append("    renotifyStatuses: ").append(toIndentedString(renotifyStatuses)).append("\n");
     sb.append("    requireFullWindow: ").append(toIndentedString(requireFullWindow)).append("\n");
+    sb.append("    schedulingOptions: ").append(toIndentedString(schedulingOptions)).append("\n");
     sb.append("    silenced: ").append(toIndentedString(silenced)).append("\n");
     sb.append("    syntheticsCheckId: ").append(toIndentedString(syntheticsCheckId)).append("\n");
     sb.append("    thresholdWindows: ").append(toIndentedString(thresholdWindows)).append("\n");
