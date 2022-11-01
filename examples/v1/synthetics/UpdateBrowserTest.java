@@ -52,6 +52,7 @@ public class Example {
                                         .password("PaSSw0RD!")
                                         .type(SyntheticsBasicAuthWebType.WEB)
                                         .username("my_username")))
+                            .bodyType("text/plain")
                             .certificate(
                                 new SyntheticsTestRequestCertificate()
                                     .cert(new SyntheticsTestRequestCertificateItem())
