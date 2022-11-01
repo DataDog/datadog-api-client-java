@@ -34,6 +34,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("apm_fargate_usage");
   public static final MonthlyUsageAttributionSupportedMetrics APM_FARGATE_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("apm_fargate_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics APPSEC_FARGATE_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("appsec_fargate_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics APPSEC_FARGATE_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("appsec_fargate_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics APM_HOST_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("apm_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics APM_HOST_PERCENTAGE =
@@ -140,6 +144,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "api_percentage",
               "apm_fargate_usage",
               "apm_fargate_percentage",
+              "appsec_fargate_usage",
+              "appsec_fargate_percentage",
               "apm_host_usage",
               "apm_host_percentage",
               "appsec_usage",
