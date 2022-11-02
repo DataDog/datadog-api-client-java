@@ -84,6 +84,10 @@ public class UsageAttributionSort {
       new UsageAttributionSort("apm_fargate_usage");
   public static final UsageAttributionSort APM_FARGATE_PERCENTAGE =
       new UsageAttributionSort("apm_fargate_percentage");
+  public static final UsageAttributionSort APPSEC_FARGATE_USAGE =
+      new UsageAttributionSort("appsec_fargate_usage");
+  public static final UsageAttributionSort APPSEC_FARGATE_PERCENTAGE =
+      new UsageAttributionSort("appsec_fargate_percentage");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -119,7 +123,9 @@ public class UsageAttributionSort {
               "estimated_ingested_spans_usage",
               "estimated_ingested_spans_percentage",
               "apm_fargate_usage",
-              "apm_fargate_percentage"));
+              "apm_fargate_percentage",
+              "appsec_fargate_usage",
+              "appsec_fargate_percentage"));
 
   private String value;
 

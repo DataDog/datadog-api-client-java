@@ -111,6 +111,10 @@ public class UsageAttributionSupportedMetrics {
       new UsageAttributionSupportedMetrics("apm_fargate_usage");
   public static final UsageAttributionSupportedMetrics APM_FARGATE_PERCENTAGE =
       new UsageAttributionSupportedMetrics("apm_fargate_percentage");
+  public static final UsageAttributionSupportedMetrics APPSEC_FARGATE_USAGE =
+      new UsageAttributionSupportedMetrics("appsec_fargate_usage");
+  public static final UsageAttributionSupportedMetrics APPSEC_FARGATE_PERCENTAGE =
+      new UsageAttributionSupportedMetrics("appsec_fargate_percentage");
   public static final UsageAttributionSupportedMetrics ALL =
       new UsageAttributionSupportedMetrics("*");
 
@@ -159,6 +163,8 @@ public class UsageAttributionSupportedMetrics {
               "estimated_ingested_spans_percentage",
               "apm_fargate_usage",
               "apm_fargate_percentage",
+              "appsec_fargate_usage",
+              "appsec_fargate_percentage",
               "*"));
 
   private String value;
