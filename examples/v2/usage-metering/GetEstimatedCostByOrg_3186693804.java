@@ -16,7 +16,7 @@ public class Example {
           apiInstance.getEstimatedCostByOrg(
               new GetEstimatedCostByOrgOptionalParameters()
                   .view("sub-org")
-                  .startMonth(OffsetDateTime.now().plusDays(-5)));
+                  .startMonth(OffsetDateTime.now()));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsageMeteringApi#getEstimatedCostByOrg");
