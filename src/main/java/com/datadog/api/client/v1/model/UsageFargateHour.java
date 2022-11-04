@@ -18,7 +18,6 @@ import java.util.Objects;
 /** Number of Fargate tasks run and hourly usage. */
 @JsonPropertyOrder({
   UsageFargateHour.JSON_PROPERTY_APM_FARGATE_COUNT,
-  UsageFargateHour.JSON_PROPERTY_APPSEC_FARGATE_COUNT,
   UsageFargateHour.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
   UsageFargateHour.JSON_PROPERTY_HOUR,
   UsageFargateHour.JSON_PROPERTY_ORG_NAME,
@@ -31,9 +30,6 @@ public class UsageFargateHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_FARGATE_COUNT = "apm_fargate_count";
   private Long apmFargateCount;
-
-  public static final String JSON_PROPERTY_APPSEC_FARGATE_COUNT = "appsec_fargate_count";
-  private Long appsecFargateCount;
 
   public static final String JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS =
       "avg_profiled_fargate_tasks";
@@ -72,27 +68,6 @@ public class UsageFargateHour {
 
   public void setApmFargateCount(Long apmFargateCount) {
     this.apmFargateCount = apmFargateCount;
-  }
-
-  public UsageFargateHour appsecFargateCount(Long appsecFargateCount) {
-    this.appsecFargateCount = appsecFargateCount;
-    return this;
-  }
-
-  /**
-   * The Application Security Monitoring ECS Fargate tasks during the given hour.
-   *
-   * @return appsecFargateCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPSEC_FARGATE_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAppsecFargateCount() {
-    return appsecFargateCount;
-  }
-
-  public void setAppsecFargateCount(Long appsecFargateCount) {
-    this.appsecFargateCount = appsecFargateCount;
   }
 
   public UsageFargateHour avgProfiledFargateTasks(Long avgProfiledFargateTasks) {
@@ -211,7 +186,6 @@ public class UsageFargateHour {
     }
     UsageFargateHour usageFargateHour = (UsageFargateHour) o;
     return Objects.equals(this.apmFargateCount, usageFargateHour.apmFargateCount)
-        && Objects.equals(this.appsecFargateCount, usageFargateHour.appsecFargateCount)
         && Objects.equals(this.avgProfiledFargateTasks, usageFargateHour.avgProfiledFargateTasks)
         && Objects.equals(this.hour, usageFargateHour.hour)
         && Objects.equals(this.orgName, usageFargateHour.orgName)
@@ -222,13 +196,7 @@ public class UsageFargateHour {
   @Override
   public int hashCode() {
     return Objects.hash(
-        apmFargateCount,
-        appsecFargateCount,
-        avgProfiledFargateTasks,
-        hour,
-        orgName,
-        publicId,
-        tasksCount);
+        apmFargateCount, avgProfiledFargateTasks, hour, orgName, publicId, tasksCount);
   }
 
   @Override
@@ -236,7 +204,6 @@ public class UsageFargateHour {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageFargateHour {\n");
     sb.append("    apmFargateCount: ").append(toIndentedString(apmFargateCount)).append("\n");
-    sb.append("    appsecFargateCount: ").append(toIndentedString(appsecFargateCount)).append("\n");
     sb.append("    avgProfiledFargateTasks: ")
         .append(toIndentedString(avgProfiledFargateTasks))
         .append("\n");

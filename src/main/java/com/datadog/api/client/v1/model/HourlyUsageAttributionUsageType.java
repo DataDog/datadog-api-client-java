@@ -30,8 +30,6 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("apm_fargate_usage");
   public static final HourlyUsageAttributionUsageType APM_HOST_USAGE =
       new HourlyUsageAttributionUsageType("apm_host_usage");
-  public static final HourlyUsageAttributionUsageType APPSEC_FARGATE_USAGE =
-      new HourlyUsageAttributionUsageType("appsec_fargate_usage");
   public static final HourlyUsageAttributionUsageType APPSEC_USAGE =
       new HourlyUsageAttributionUsageType("appsec_usage");
   public static final HourlyUsageAttributionUsageType BROWSER_USAGE =
@@ -85,7 +83,6 @@ public class HourlyUsageAttributionUsageType {
               "api_usage",
               "apm_fargate_usage",
               "apm_host_usage",
-              "appsec_fargate_usage",
               "appsec_usage",
               "browser_usage",
               "container_usage",

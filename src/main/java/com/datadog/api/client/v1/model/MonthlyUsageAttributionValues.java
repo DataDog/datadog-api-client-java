@@ -20,8 +20,6 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_APM_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APM_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APM_HOST_USAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_FARGATE_PERCENTAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_PERCENTAGE,
@@ -78,12 +76,6 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_APM_HOST_USAGE = "apm_host_usage";
   private Double apmHostUsage;
-
-  public static final String JSON_PROPERTY_APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage";
-  private Double appsecFargatePercentage;
-
-  public static final String JSON_PROPERTY_APPSEC_FARGATE_USAGE = "appsec_fargate_usage";
-  private Double appsecFargateUsage;
 
   public static final String JSON_PROPERTY_APPSEC_PERCENTAGE = "appsec_percentage";
   private Double appsecPercentage;
@@ -321,48 +313,6 @@ public class MonthlyUsageAttributionValues {
 
   public void setApmHostUsage(Double apmHostUsage) {
     this.apmHostUsage = apmHostUsage;
-  }
-
-  public MonthlyUsageAttributionValues appsecFargatePercentage(Double appsecFargatePercentage) {
-    this.appsecFargatePercentage = appsecFargatePercentage;
-    return this;
-  }
-
-  /**
-   * The percentage of Application Security Monitoring ECS Fargate task usage by tag(s).
-   *
-   * @return appsecFargatePercentage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPSEC_FARGATE_PERCENTAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getAppsecFargatePercentage() {
-    return appsecFargatePercentage;
-  }
-
-  public void setAppsecFargatePercentage(Double appsecFargatePercentage) {
-    this.appsecFargatePercentage = appsecFargatePercentage;
-  }
-
-  public MonthlyUsageAttributionValues appsecFargateUsage(Double appsecFargateUsage) {
-    this.appsecFargateUsage = appsecFargateUsage;
-    return this;
-  }
-
-  /**
-   * The Application Security Monitoring ECS Fargate task usage by tag(s).
-   *
-   * @return appsecFargateUsage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPSEC_FARGATE_USAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getAppsecFargateUsage() {
-    return appsecFargateUsage;
-  }
-
-  public void setAppsecFargateUsage(Double appsecFargateUsage) {
-    this.appsecFargateUsage = appsecFargateUsage;
   }
 
   public MonthlyUsageAttributionValues appsecPercentage(Double appsecPercentage) {
@@ -1105,9 +1055,6 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(this.apmFargateUsage, monthlyUsageAttributionValues.apmFargateUsage)
         && Objects.equals(this.apmHostPercentage, monthlyUsageAttributionValues.apmHostPercentage)
         && Objects.equals(this.apmHostUsage, monthlyUsageAttributionValues.apmHostUsage)
-        && Objects.equals(
-            this.appsecFargatePercentage, monthlyUsageAttributionValues.appsecFargatePercentage)
-        && Objects.equals(this.appsecFargateUsage, monthlyUsageAttributionValues.appsecFargateUsage)
         && Objects.equals(this.appsecPercentage, monthlyUsageAttributionValues.appsecPercentage)
         && Objects.equals(this.appsecUsage, monthlyUsageAttributionValues.appsecUsage)
         && Objects.equals(this.browserPercentage, monthlyUsageAttributionValues.browserPercentage)
@@ -1180,8 +1127,6 @@ public class MonthlyUsageAttributionValues {
         apmFargateUsage,
         apmHostPercentage,
         apmHostUsage,
-        appsecFargatePercentage,
-        appsecFargateUsage,
         appsecPercentage,
         appsecUsage,
         browserPercentage,
@@ -1230,10 +1175,6 @@ public class MonthlyUsageAttributionValues {
     sb.append("    apmFargateUsage: ").append(toIndentedString(apmFargateUsage)).append("\n");
     sb.append("    apmHostPercentage: ").append(toIndentedString(apmHostPercentage)).append("\n");
     sb.append("    apmHostUsage: ").append(toIndentedString(apmHostUsage)).append("\n");
-    sb.append("    appsecFargatePercentage: ")
-        .append(toIndentedString(appsecFargatePercentage))
-        .append("\n");
-    sb.append("    appsecFargateUsage: ").append(toIndentedString(appsecFargateUsage)).append("\n");
     sb.append("    appsecPercentage: ").append(toIndentedString(appsecPercentage)).append("\n");
     sb.append("    appsecUsage: ").append(toIndentedString(appsecUsage)).append("\n");
     sb.append("    browserPercentage: ").append(toIndentedString(browserPercentage)).append("\n");

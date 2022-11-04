@@ -26,7 +26,6 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_FARGATE_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_HOST_TOP99P_SUM,
-  UsageSummaryResponse.JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS_SUM,
   UsageSummaryResponse.JSON_PROPERTY_AWS_HOST_TOP99P_SUM,
@@ -118,10 +117,6 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_APM_HOST_TOP99P_SUM = "apm_host_top99p_sum";
   private Long apmHostTop99pSum;
-
-  public static final String JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG_SUM =
-      "appsec_fargate_count_avg_sum";
-  private Long appsecFargateCountAvgSum;
 
   public static final String JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_AGG_SUM =
       "audit_logs_lines_indexed_agg_sum";
@@ -479,28 +474,6 @@ public class UsageSummaryResponse {
 
   public void setApmHostTop99pSum(Long apmHostTop99pSum) {
     this.apmHostTop99pSum = apmHostTop99pSum;
-  }
-
-  public UsageSummaryResponse appsecFargateCountAvgSum(Long appsecFargateCountAvgSum) {
-    this.appsecFargateCountAvgSum = appsecFargateCountAvgSum;
-    return this;
-  }
-
-  /**
-   * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in
-   * the current months for all organizations.
-   *
-   * @return appsecFargateCountAvgSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAppsecFargateCountAvgSum() {
-    return appsecFargateCountAvgSum;
-  }
-
-  public void setAppsecFargateCountAvgSum(Long appsecFargateCountAvgSum) {
-    this.appsecFargateCountAvgSum = appsecFargateCountAvgSum;
   }
 
   public UsageSummaryResponse auditLogsLinesIndexedAggSum(Long auditLogsLinesIndexedAggSum) {
@@ -2174,8 +2147,6 @@ public class UsageSummaryResponse {
         && Objects.equals(this.apmFargateCountAvgSum, usageSummaryResponse.apmFargateCountAvgSum)
         && Objects.equals(this.apmHostTop99pSum, usageSummaryResponse.apmHostTop99pSum)
         && Objects.equals(
-            this.appsecFargateCountAvgSum, usageSummaryResponse.appsecFargateCountAvgSum)
-        && Objects.equals(
             this.auditLogsLinesIndexedAggSum, usageSummaryResponse.auditLogsLinesIndexedAggSum)
         && Objects.equals(
             this.avgProfiledFargateTasksSum, usageSummaryResponse.avgProfiledFargateTasksSum)
@@ -2314,7 +2285,6 @@ public class UsageSummaryResponse {
         apmAzureAppServiceHostTop99pSum,
         apmFargateCountAvgSum,
         apmHostTop99pSum,
-        appsecFargateCountAvgSum,
         auditLogsLinesIndexedAggSum,
         avgProfiledFargateTasksSum,
         awsHostTop99pSum,
@@ -2403,9 +2373,6 @@ public class UsageSummaryResponse {
         .append(toIndentedString(apmFargateCountAvgSum))
         .append("\n");
     sb.append("    apmHostTop99pSum: ").append(toIndentedString(apmHostTop99pSum)).append("\n");
-    sb.append("    appsecFargateCountAvgSum: ")
-        .append(toIndentedString(appsecFargateCountAvgSum))
-        .append("\n");
     sb.append("    auditLogsLinesIndexedAggSum: ")
         .append(toIndentedString(auditLogsLinesIndexedAggSum))
         .append("\n");

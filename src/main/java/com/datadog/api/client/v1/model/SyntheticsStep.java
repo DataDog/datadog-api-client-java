@@ -17,7 +17,6 @@ import java.util.Objects;
   SyntheticsStep.JSON_PROPERTY_ALLOW_FAILURE,
   SyntheticsStep.JSON_PROPERTY_IS_CRITICAL,
   SyntheticsStep.JSON_PROPERTY_NAME,
-  SyntheticsStep.JSON_PROPERTY_NO_SCREENSHOT,
   SyntheticsStep.JSON_PROPERTY_PARAMS,
   SyntheticsStep.JSON_PROPERTY_TIMEOUT,
   SyntheticsStep.JSON_PROPERTY_TYPE
@@ -34,9 +33,6 @@ public class SyntheticsStep {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
-
-  public static final String JSON_PROPERTY_NO_SCREENSHOT = "noScreenshot";
-  private Boolean noScreenshot;
 
   public static final String JSON_PROPERTY_PARAMS = "params";
   private Object params;
@@ -109,27 +105,6 @@ public class SyntheticsStep {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public SyntheticsStep noScreenshot(Boolean noScreenshot) {
-    this.noScreenshot = noScreenshot;
-    return this;
-  }
-
-  /**
-   * A boolean set to not take a screenshot for the step.
-   *
-   * @return noScreenshot
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NO_SCREENSHOT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getNoScreenshot() {
-    return noScreenshot;
-  }
-
-  public void setNoScreenshot(Boolean noScreenshot) {
-    this.noScreenshot = noScreenshot;
   }
 
   public SyntheticsStep params(Object params) {
@@ -212,7 +187,6 @@ public class SyntheticsStep {
     return Objects.equals(this.allowFailure, syntheticsStep.allowFailure)
         && Objects.equals(this.isCritical, syntheticsStep.isCritical)
         && Objects.equals(this.name, syntheticsStep.name)
-        && Objects.equals(this.noScreenshot, syntheticsStep.noScreenshot)
         && Objects.equals(this.params, syntheticsStep.params)
         && Objects.equals(this.timeout, syntheticsStep.timeout)
         && Objects.equals(this.type, syntheticsStep.type);
@@ -220,7 +194,7 @@ public class SyntheticsStep {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowFailure, isCritical, name, noScreenshot, params, timeout, type);
+    return Objects.hash(allowFailure, isCritical, name, params, timeout, type);
   }
 
   @Override
@@ -230,7 +204,6 @@ public class SyntheticsStep {
     sb.append("    allowFailure: ").append(toIndentedString(allowFailure)).append("\n");
     sb.append("    isCritical: ").append(toIndentedString(isCritical)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    noScreenshot: ").append(toIndentedString(noScreenshot)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
