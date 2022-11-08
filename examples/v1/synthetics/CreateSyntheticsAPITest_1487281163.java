@@ -14,6 +14,9 @@ import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathTargetTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
+import com.datadog.api.client.v1.model.SyntheticsAssertionXPathOperator;
+import com.datadog.api.client.v1.model.SyntheticsAssertionXPathTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionXPathTargetTarget;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
@@ -58,6 +61,15 @@ public class Example {
                                             .jsonPath("topKey")
                                             .operator("isNot")
                                             .targetValue("0"))
+                                    .type(SyntheticsAssertionType.BODY)),
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionXPathTarget()
+                                    .operator(SyntheticsAssertionXPathOperator.VALIDATES_X_PATH)
+                                    .target(
+                                        new SyntheticsAssertionXPathTargetTarget()
+                                            .xPath("target-xpath")
+                                            .targetValue("0")
+                                            .operator("contains"))
                                     .type(SyntheticsAssertionType.BODY))))
                     .configVariables(
                         Collections.singletonList(
