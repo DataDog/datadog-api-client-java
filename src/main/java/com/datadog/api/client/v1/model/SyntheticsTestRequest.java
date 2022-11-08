@@ -21,6 +21,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_ALLOW_INSECURE,
   SyntheticsTestRequest.JSON_PROPERTY_BASIC_AUTH,
   SyntheticsTestRequest.JSON_PROPERTY_BODY,
+  SyntheticsTestRequest.JSON_PROPERTY_BODY_TYPE,
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE,
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE_DOMAINS,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER,
@@ -54,6 +55,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_BODY = "body";
   private String body;
+
+  public static final String JSON_PROPERTY_BODY_TYPE = "bodyType";
+  private SyntheticsTestRequestBodyType bodyType;
 
   public static final String JSON_PROPERTY_CERTIFICATE = "certificate";
   private SyntheticsTestRequestCertificate certificate;
@@ -177,6 +181,31 @@ public class SyntheticsTestRequest {
 
   public void setBody(String body) {
     this.body = body;
+  }
+
+  public SyntheticsTestRequest bodyType(SyntheticsTestRequestBodyType bodyType) {
+    this.bodyType = bodyType;
+    this.unparsed |= !bodyType.isValid();
+    return this;
+  }
+
+  /**
+   * Type of the request body.
+   *
+   * @return bodyType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BODY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestRequestBodyType getBodyType() {
+    return bodyType;
+  }
+
+  public void setBodyType(SyntheticsTestRequestBodyType bodyType) {
+    if (!bodyType.isValid()) {
+      this.unparsed = true;
+    }
+    this.bodyType = bodyType;
   }
 
   public SyntheticsTestRequest certificate(SyntheticsTestRequestCertificate certificate) {
@@ -646,6 +675,7 @@ public class SyntheticsTestRequest {
     return Objects.equals(this.allowInsecure, syntheticsTestRequest.allowInsecure)
         && Objects.equals(this.basicAuth, syntheticsTestRequest.basicAuth)
         && Objects.equals(this.body, syntheticsTestRequest.body)
+        && Objects.equals(this.bodyType, syntheticsTestRequest.bodyType)
         && Objects.equals(this.certificate, syntheticsTestRequest.certificate)
         && Objects.equals(this.certificateDomains, syntheticsTestRequest.certificateDomains)
         && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer)
@@ -674,6 +704,7 @@ public class SyntheticsTestRequest {
         allowInsecure,
         basicAuth,
         body,
+        bodyType,
         certificate,
         certificateDomains,
         dnsServer,
@@ -703,6 +734,7 @@ public class SyntheticsTestRequest {
     sb.append("    allowInsecure: ").append(toIndentedString(allowInsecure)).append("\n");
     sb.append("    basicAuth: ").append(toIndentedString(basicAuth)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("    bodyType: ").append(toIndentedString(bodyType)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    certificateDomains: ").append(toIndentedString(certificateDomains)).append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");

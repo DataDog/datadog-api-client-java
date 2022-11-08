@@ -25,6 +25,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestOptionsMonitorOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTestPauseStatus;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
+import com.datadog.api.client.v1.model.SyntheticsTestRequestBodyType;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificate;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificateItem;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestProxy;
@@ -52,6 +53,7 @@ public class Example {
                                         .password("PaSSw0RD!")
                                         .type(SyntheticsBasicAuthWebType.WEB)
                                         .username("my_username")))
+                            .bodyType(SyntheticsTestRequestBodyType.TEXT_PLAIN)
                             .certificate(
                                 new SyntheticsTestRequestCertificate()
                                     .cert(new SyntheticsTestRequestCertificateItem())
