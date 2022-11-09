@@ -130,7 +130,7 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Allows loading insecure content for an HTTP request.
+   * Allows loading insecure content for an HTTP request in an API test.
    *
    * @return allowInsecure
    */
@@ -287,7 +287,7 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Ignore server certificate error.
+   * Ignore server certificate error for browser tests.
    *
    * @return ignoreServerCertificateError
    */
