@@ -1,44 +1,18 @@
 [
   {
     "httpRequest": {
-      "body": {
-        "type": "JSON",
-        "json": "{\"dd-service\":\"service-Test-Delete_a_single_service_definition_returns_OK_response-1665406117\",\"dd-team\":\"my-team\",\"docs\":[{\"name\":\"Architecture\",\"provider\":\"google drive\",\"url\":\"https://gdrive/mygivedoc\"}],\"extensions\":{\"frogextension\":\"extensionfrogvalue\"},\"integrations\":{\"opsgenie\":{\"region\":\"US\",\"service-id\":\"123e4567-e89b-12d3-a456-426614174000\"},\"pagerduty\":\"https://my-org.pagerduty.com/service-directory/PMyService\"},\"links\":[{\"name\":\"Runbook\",\"type\":\"runbook\",\"url\":\"https://my-runbook\"}],\"repos\":[{\"name\":\"Source Code\",\"provider\":\"GitHub\",\"url\":\"https://github.com/DataDog/given\"}],\"schema-version\":\"v2\",\"tags\":[\"this:tag\",\"service:tag\"],\"team\":\"super-team\"}"
-      },
-      "headers": {},
-      "method": "POST",
-      "path": "/api/v2/services/definitions",
-      "keepAlive": false,
-      "secure": true
-    },
-    "httpResponse": {
-      "body": "{\"data\":[{\"attributes\":{\"meta\":{\"ingested-schema-version\":\"v2\",\"ingestion-source\":\"api\",\"last-modified-time\":\"2022-10-10T12:48:37.797458518Z\",\"github-html-url\":\"\",\"warnings\":[]},\"schema\":{\"links\":[{\"url\":\"https://my-runbook\",\"type\":\"runbook\",\"name\":\"Runbook\"}],\"contacts\":[],\"docs\":[{\"url\":\"https://gdrive/mygivedoc\",\"name\":\"Architecture\",\"provider\":\"google drive\"}],\"repos\":[{\"url\":\"https://github.com/DataDog/given\",\"name\":\"Source Code\",\"provider\":\"GitHub\"}],\"tags\":[\"service:tag\",\"this:tag\"],\"dd-team\":\"my-team\",\"integrations\":{\"opsgenie\":{\"region\":\"US\",\"service-id\":\"123e4567-e89b-12d3-a456-426614174000\"},\"pagerduty\":\"https://my-org.pagerduty.com/service-directory/PMyService\"},\"schema-version\":\"v2\",\"team\":\"super-team\",\"extensions\":{},\"dd-service\":\"service-test-delete_a_single_service_definition_returns_ok_response-1665406117\"}},\"type\":\"service-definition\"}]}\n",
-      "headers": {
-        "Content-Type": [
-          "application/json"
-        ]
-      },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
-    },
-    "times": {
-      "remainingTimes": 1
-    },
-    "timeToLive": {
-      "unlimited": true
-    },
-    "id": "d68d4a1c-9ec2-a0b3-f8b5-a3f29bc801e0"
-  },
-  {
-    "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/services/definitions/service-Test-Delete_a_single_service_definition_returns_OK_response-1665406117",
+      "path": "/api/v2/services/definitions/service-definition-test",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -48,32 +22,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "acb004fa-754e-aa7a-e7fa-c60d61b3c321"
-  },
-  {
-    "httpRequest": {
-      "headers": {},
-      "method": "DELETE",
-      "path": "/api/v2/services/definitions/service-test-delete_a_single_service_definition_returns_ok_response-1665406117",
-      "keepAlive": false,
-      "secure": true
-    },
-    "httpResponse": {
-      "body": "{\"errors\":[\"Not Found\"],\"error_details\":[{}]}\n",
-      "headers": {
-        "Content-Type": [
-          "application/json"
-        ]
-      },
-      "statusCode": 404,
-      "reasonPhrase": "Not Found"
-    },
-    "times": {
-      "remainingTimes": 1
-    },
-    "timeToLive": {
-      "unlimited": true
-    },
-    "id": "3ba19283-a0d8-e37d-4fee-07800746d58f"
+    "id": "66a071a1-13b4-b4d4-1295-856a5491e751"
   }
 ]

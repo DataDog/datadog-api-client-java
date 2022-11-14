@@ -10,8 +10,7 @@ public class Example {
     ServiceDefinitionApi apiInstance = new ServiceDefinitionApi(defaultClient);
 
     try {
-      apiInstance.deleteServiceDefinition(
-          "service-Example-Delete_a_single_service_definition_returns_OK_response");
+      apiInstance.deleteServiceDefinition("service-definition-test");
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceDefinitionApi#deleteServiceDefinition");
       System.err.println("Status code: " + e.getCode());

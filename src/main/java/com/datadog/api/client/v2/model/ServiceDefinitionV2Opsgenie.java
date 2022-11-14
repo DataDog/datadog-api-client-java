@@ -16,7 +16,7 @@ import java.util.Objects;
 /** Opsgenie integration for the service. */
 @JsonPropertyOrder({
   ServiceDefinitionV2Opsgenie.JSON_PROPERTY_REGION,
-  ServiceDefinitionV2Opsgenie.JSON_PROPERTY_SERVICE_ID
+  ServiceDefinitionV2Opsgenie.JSON_PROPERTY_SERVICE_URL
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -25,15 +25,15 @@ public class ServiceDefinitionV2Opsgenie {
   public static final String JSON_PROPERTY_REGION = "region";
   private ServiceDefinitionV2OpsgenieRegion region;
 
-  public static final String JSON_PROPERTY_SERVICE_ID = "service-id";
-  private String serviceId;
+  public static final String JSON_PROPERTY_SERVICE_URL = "service-url";
+  private String serviceUrl;
 
   public ServiceDefinitionV2Opsgenie() {}
 
   @JsonCreator
   public ServiceDefinitionV2Opsgenie(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE_ID) String serviceId) {
-    this.serviceId = serviceId;
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE_URL) String serviceUrl) {
+    this.serviceUrl = serviceUrl;
   }
 
   public ServiceDefinitionV2Opsgenie region(ServiceDefinitionV2OpsgenieRegion region) {
@@ -61,24 +61,24 @@ public class ServiceDefinitionV2Opsgenie {
     this.region = region;
   }
 
-  public ServiceDefinitionV2Opsgenie serviceId(String serviceId) {
-    this.serviceId = serviceId;
+  public ServiceDefinitionV2Opsgenie serviceUrl(String serviceUrl) {
+    this.serviceUrl = serviceUrl;
     return this;
   }
 
   /**
-   * Opsgenie service id.
+   * Opsgenie service url.
    *
-   * @return serviceId
+   * @return serviceUrl
    */
-  @JsonProperty(JSON_PROPERTY_SERVICE_ID)
+  @JsonProperty(JSON_PROPERTY_SERVICE_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getServiceId() {
-    return serviceId;
+  public String getServiceUrl() {
+    return serviceUrl;
   }
 
-  public void setServiceId(String serviceId) {
-    this.serviceId = serviceId;
+  public void setServiceUrl(String serviceUrl) {
+    this.serviceUrl = serviceUrl;
   }
 
   /** Return true if this ServiceDefinitionV2Opsgenie object is equal to o. */
@@ -92,12 +92,12 @@ public class ServiceDefinitionV2Opsgenie {
     }
     ServiceDefinitionV2Opsgenie serviceDefinitionV2Opsgenie = (ServiceDefinitionV2Opsgenie) o;
     return Objects.equals(this.region, serviceDefinitionV2Opsgenie.region)
-        && Objects.equals(this.serviceId, serviceDefinitionV2Opsgenie.serviceId);
+        && Objects.equals(this.serviceUrl, serviceDefinitionV2Opsgenie.serviceUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(region, serviceId);
+    return Objects.hash(region, serviceUrl);
   }
 
   @Override
@@ -105,7 +105,7 @@ public class ServiceDefinitionV2Opsgenie {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServiceDefinitionV2Opsgenie {\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
-    sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
+    sb.append("    serviceUrl: ").append(toIndentedString(serviceUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

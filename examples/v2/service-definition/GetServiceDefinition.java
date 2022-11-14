@@ -12,8 +12,7 @@ public class Example {
 
     try {
       ServiceDefinitionGetResponse result =
-          apiInstance.getServiceDefinition(
-              "service-Example-Get_a_single_service_definition_returns_OK_response");
+          apiInstance.getServiceDefinition("service-definition-test");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceDefinitionApi#getServiceDefinition");
