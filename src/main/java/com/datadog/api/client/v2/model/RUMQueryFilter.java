@@ -37,8 +37,10 @@ public class RUMQueryFilter {
   }
 
   /**
-   * The minimum time for the requested events; supports date, math, and regular timestamps (in
-   * milliseconds).
+   * The minimum time for the requested events; supports date (in <a
+   * href="https://www.w3.org/TR/NOTE-datetime">ISO 8601</a> format with full date, hours, minutes,
+   * and the <code>Z</code> UTC indicator - seconds and fractional seconds are optional), math, and
+   * regular timestamps (in milliseconds).
    *
    * @return from
    */
@@ -80,8 +82,10 @@ public class RUMQueryFilter {
   }
 
   /**
-   * The maximum time for the requested events; supports date, math, and regular timestamps (in
-   * milliseconds).
+   * The maximum time for the requested events; supports date (in <a
+   * href="https://www.w3.org/TR/NOTE-datetime">ISO 8601</a> format with full date, hours, minutes,
+   * and the <code>Z</code> UTC indicator - seconds and fractional seconds are optional), math, and
+   * regular timestamps (in milliseconds).
    *
    * @return to
    */
